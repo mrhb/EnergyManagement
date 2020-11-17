@@ -1,23 +1,18 @@
-<mat-sidenav-container class="sidenav-container" >
-    <mat-sidenav-content>
-        <mat-toolbar class="secondary-toolbar" color="primary" >
-          <!-- <button
-            type="button"
-            aria-label="Toggle sidenav"
-            mat-icon-button
-            (click)="drawer.toggle()"
-            *ngIf="isHandset$ | async">
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          </button> -->
-           <span class="menu-spacer"></span>
-           <a mat-button routerLink="/trends"> <mat-icon>trending_up</mat-icon> Analyse </a>
-           <a mat-button routerLink="/dashboard"> <mat-icon>dashboard</mat-icon>dashboard</a>
-           <a mat-button routerLink="/management/users"> <mat-icon>fact_check</mat-icon> Management </a>
-           <a mat-button routerLink="/first-page"> <mat-icon>settings</mat-icon> Settings </a>
-           <a mat-button routerLink="/monitored-units"><mat-icon>receipt_long</mat-icon> Units </a> 
-            <a mat-button routerLink="/first-page"> <mat-icon>help</mat-icon> Help </a> 
-        </mat-toolbar>
-        <!-- <router-outlet></router-outlet> -->
-      </mat-sidenav-content>  
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened=true>
+    <main-sidebar></main-sidebar>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div class="grid-container">    
+        <mat-toolbar>
+         <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>list</mat-icon>
+        </button>
+        <span>Dashboarddd</span>-
+        <span>All</span>
+      </mat-toolbar>     
+<p>Contents Comes heare</p>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-<p>main works!</p>

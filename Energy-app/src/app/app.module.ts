@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { SidebarComponent } from './main/sidebar/sidebar.component';
 
 
 
@@ -17,7 +18,8 @@ import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
