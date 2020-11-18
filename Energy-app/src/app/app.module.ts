@@ -11,6 +11,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './main/sidebar/sidebar.component';
+import { ManagementComponent } from './management/management.component';
+import { BillComponent } from './management/bill/bill.component';
 
 
 
@@ -19,7 +21,9 @@ import { SidebarComponent } from './main/sidebar/sidebar.component';
   declarations: [
     AppComponent,
     MainComponent,
-    SidebarComponent
+    SidebarComponent,
+    ManagementComponent,
+    BillComponent
   ],
   imports: [
     BrowserModule,
