@@ -4,7 +4,6 @@ import { InstrumentComponent } from './instrument/instrument.component';
 import { BuildingComponent } from './building/building.component';
 import { BillComponent } from './bill/bill.component';
 import { ManagementRoutingModule } from './management-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
 
 
 
@@ -15,7 +14,6 @@ import { BrowserModule } from '@angular/platform-browser';
     InstrumentComponent
   ],
   imports: [
-    BrowserModule,
     ManagementRoutingModule,
     CommonModule
   ]
