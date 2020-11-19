@@ -12,12 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { ManagementComponent } from './management/management.component';
-import { BillComponent } from './management/bill/bill.component';
-import { BuildingComponent } from './management/building/building.component';
-import { InstrumentComponent } from './management/instrument/instrument.component';
-
-
-
+import { ManagementModule } from './management/_management.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +20,7 @@ import { InstrumentComponent } from './management/instrument/instrument.componen
     MainComponent,
     SidebarComponent,
     ManagementComponent,
-    BillComponent,
-    BuildingComponent,
-    InstrumentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +29,8 @@ import { InstrumentComponent } from './management/instrument/instrument.componen
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]
