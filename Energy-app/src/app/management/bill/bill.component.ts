@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bill.component.scss']
 })
 export class BillComponent implements OnInit {
+  panelOpenState = false;
 
   constructor() { }
 

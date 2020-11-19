@@ -5,6 +5,11 @@ import { BuildingComponent } from './building/building.component';
 import { BillComponent } from './bill/bill.component';
 import { ManagementRoutingModule } from './management-routing.module';
 
+//Expantion panel
+import {MatExpansionModule} from '@angular/material/expansion';
+
+
+
 
 
 @NgModule({
@@ -15,7 +20,9 @@ import { ManagementRoutingModule } from './management-routing.module';
   ],
   imports: [
     ManagementRoutingModule,
-    CommonModule
+    CommonModule,
+//Expantion panel
+    MatExpansionModule,
   ]
 })
 export class ManagementModule { }
