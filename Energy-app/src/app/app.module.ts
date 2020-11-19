@@ -13,6 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { ManagementComponent } from './management/management.component';
 import { BillComponent } from './management/bill/bill.component';
+import { BuildingComponent } from './management/building/building.component';
+import { InstrumentComponent } from './management/instrument/instrument.component';
 
 
 
@@ -23,7 +25,9 @@ import { BillComponent } from './management/bill/bill.component';
     MainComponent,
     SidebarComponent,
     ManagementComponent,
-    BillComponent
+    BillComponent,
+    BuildingComponent,
+    InstrumentComponent
   ],
   imports: [
     BrowserModule,
