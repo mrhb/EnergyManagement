@@ -13,6 +13,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { ManagementComponent } from './management/management.component';
 import { ManagementModule } from './management/_management.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ManagementModule } from './management/_management.module';
     MainComponent,
     SidebarComponent,
     ManagementComponent,
+    LoginComponent,
 
   ],
   imports: [
