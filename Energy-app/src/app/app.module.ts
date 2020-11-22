@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainComponent } from './main/main.component';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+
 import { SidebarComponent } from './main/sidebar/sidebar.component';
 import { ManagementComponent } from './management/management.component';
 import { ManagementModule } from './management/_management.module';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material.madule';
 
 @NgModule({
   declarations: [
@@ -26,13 +25,13 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatButtonModule,
-    ManagementModule
+    MaterialModule,
+    ManagementModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

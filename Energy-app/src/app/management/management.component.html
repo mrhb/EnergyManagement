@@ -1,14 +1,23 @@
-<p>management works!</p>
-<mat-toolbar class="secondary-toolbar" >   
-    <button mat-icon-button >  <mat-icon>list</mat-icon></button>
-    <h1 class="submenu-title">Bill Setting  </h1>
-      <button   mat-flat-button><span class="material-icons">
-        perm_identity
-        </span>Add New User</button >
-</mat-toolbar>
-<ul>
-    <li><a  routerLink="bill"       routerLinkActive="active-link "   > bill </a></li>
-    <li><a  routerLink="building"   routerLinkActive="active-link "   >building </a></li>
-    <li><a  routerLink="instrument"   routerLinkActive="active-link "   >instrument</a></li>
-</ul>
-<router-outlet></router-outlet>
+<mat-sidenav-container class="example-container">
+  
+  <mat-sidenav-content>
+    <div class="grid-container">    
+        <mat-toolbar>
+        <span>مدیریت دارایی</span>
+        <a mat-button routerLink="bill"         routerLinkActive="active-link "   > قبوض </a>
+        <a mat-button routerLink="building"     routerLinkActive="active-link "   >ساختمان ها </a>
+        <a mat-button routerLink="instrument"   routerLinkActive="active-link "   >تجهیزات</a>
+        
+      </mat-toolbar>     
+
+      <router-outlet></router-outlet>
+    
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+
+

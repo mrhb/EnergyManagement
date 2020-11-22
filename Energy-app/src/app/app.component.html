@@ -2,13 +2,18 @@
     <mat-sidenav-content>
       <mat-toolbar class="secondary-toolbar" color="primary" >
          <span class="menu-spacer"></span>
-         <a mat-button routerLink="/main"> <mat-icon>trending_up</mat-icon> Analyse </a>
-         <a mat-button routerLink="/dashboard"> <mat-icon>dashboard</mat-icon>dashboard</a>
-         <a mat-button routerLink="/management"> <mat-icon>fact_check</mat-icon> Management </a>
-         <a mat-button routerLink="/management/bill"> <mat-icon>settings</mat-icon> Settings </a>
-         <a mat-button routerLink="/monitored-units"><mat-icon>receipt_long</mat-icon> Units </a> 
-         <a mat-button routerLink="/first-page"> <mat-icon>help</mat-icon> Help </a> 
+         <a mat-button routerLink="/main"> <mat-icon>trending_up</mat-icon> تحلیل </a>
+         <a mat-button routerLink="/dashboard"> <mat-icon>dashboard</mat-icon>داشبورد</a>
+         <a mat-button routerLink="/management"> <mat-icon>fact_check</mat-icon> مدیریت </a>
+         <a mat-button routerLink="/monitored-units"><mat-icon>receipt_long</mat-icon> ماژول ها </a> 
+         <a mat-button routerLink="/management/bill"> <mat-icon>settings</mat-icon> تنظیمات </a>
+         <a mat-button routerLink="/login"> <mat-icon>login</mat-icon> ورود </a> 
+         <a mat-button (click)="logout()"> <mat-icon>logout</mat-icon> خروج </a> 
       </mat-toolbar>
+      
       <router-outlet></router-outlet>
     </mat-sidenav-content>  
 </mat-sidenav-container>
+
+
+<!-- <app-login></app-login> -->

@@ -7,6 +7,7 @@ import { ManagementRoutingModule } from './management-routing.module';
 
 //Expantion panel
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -23,6 +24,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CommonModule,
 //Expantion panel
     MatExpansionModule,
+    MatButtonModule,
+
   ]
 })
 export class ManagementModule { }
