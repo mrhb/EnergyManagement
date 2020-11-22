@@ -13,6 +13,7 @@ import { ManagementModule } from './management/_management.module';
 import { LoginComponent } from './auth/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.madule';
+import { AuthModule } from './Auth/auth.madule';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { MaterialModule } from './material.madule';
     BrowserAnimationsModule,
     MaterialModule,
     ManagementModule,
-
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
