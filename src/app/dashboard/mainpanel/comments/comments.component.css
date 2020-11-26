@@ -1,0 +1,15 @@
+.full-width-table {
+  width: 100%;
+}
+
+.small-table{
+  overflow-y: scroll ;
+  max-height: 200px;
+}
+.left-align {
+  text-align: left;
+}
+.red-underline {
+  color: red;
+  text-decoration: underline;
+}

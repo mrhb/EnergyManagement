@@ -1,0 +1,10 @@
+mat-toolbar{
+    height: 40px;
+}
+mat-button{
+    float: left;
+}
+h2 {
+    float: left;
+    margin: 0 0 0 1.25rem;
+  }

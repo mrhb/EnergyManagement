@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" opened=true>
+    <app-sidepanel></app-sidepanel>
+  </mat-sidenav>
+  
+  <mat-sidenav-content>
+    <div class="grid-container">    
+        <mat-toolbar>
+         <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>list</mat-icon>
+        </button>
+        <span>Dashboarddd</span>-
+        <span>All</span>
+      </mat-toolbar>     
+      <app-mainpanel></app-mainpanel>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

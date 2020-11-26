@@ -1,0 +1,27 @@
+<h2 mat-dialog-title> Select Time intervals.</h2>
+
+<div mat-dialog-content>
+
+  
+  <div class="pickers">
+    <div >
+      <p>Start Time</p>
+      <dp-day-time-calendar  #Start  [(ngModel)]="StartTime" theme="dp-material"
+      [config]="datePickerConfig">
+      </dp-day-time-calendar>
+    </div>
+  
+    <div >
+      <p>End Time</p>
+      <dp-day-time-calendar  #End  [(ngModel)]="EndTime" theme="dp-material"
+      [config]="datePickerConfig">
+      </dp-day-time-calendar>
+    </div>
+  </div>
+    
+  </div>
+
+  <div mat-dialog-actions class="example-button-row">
+    <button mat-raised-button (click)="onYesClick()" color="warn">Yes</button>
+    <button mat-raised-button  (click)="onNoClick()" cdkFocusInitial color="warn">No</button>
+  </div>

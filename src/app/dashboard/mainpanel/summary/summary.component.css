@@ -1,0 +1,119 @@
+body {
+  font: 1em Helvetica Neue, Helvetica, Arial, sans-serif;
+  width: 100%;
+}
+
+* {box-sizing: border-box;}
+
+
+.single-value {
+  text-align: center;
+  font-weight: 500;
+  padding: 0.75rem;
+  border-left:  1px solid rgb(212, 212, 212);
+  border-right: 1px solid rgb(212, 212, 212);
+  border-bottom:  1px solid rgb(212, 212, 212);
+
+
+}
+
+.cut { 
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 60px; 
+  height: 1.2em; 
+  white-space: nowrap;
+}
+.single-value .value
+{
+  display: block;
+    float: none;
+}
+
+.Online      {
+  border-top: solid 3px #6cc24a;
+  
+}
+.Offline     {
+  border-top: solid 3px #934d11;
+ }
+.Total       {
+  border-top: solid 3px ;
+}
+.InAlarm     {
+  border-top:solid 3px #d50000;
+}
+.ToService{
+  border-top:solid 3px;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.container {
+  border: 5px ;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.row1{
+  display: inline-block;
+  text-align: center;
+  width: 100%;   
+  height: 70px;
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+}
+.row2,.row3{
+
+  display: inline-block;
+  text-align: center;
+  width: 100%;   
+  height: 70px;
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(212, 212, 212);
+
+   height:54px;
+   padding: 10px;
+   display: flex;
+   margin: 1em;
+  }
+  
+  .title ,.value
+  {
+    vertical-align: middle;
+    padding-top: 5px;
+  }
+
+.value {
+  margin-left: auto;
+}
+.material-icons{
+  padding-right:5px ;
+}
+
+.Sutdown{
+  color: #d50000;
+}
+.Alarm  {
+  color: #FF8000;
+}
+.Warnig {
+  color: #FBC02D;
+}
+.ECU     {
+  color: #00acec;
+}
+.Sensor{
+  color: #424242;
+}
+.NoCom  {
+  color: #934d11;
+}
+.Disabled{
+  color: #999999;
+}

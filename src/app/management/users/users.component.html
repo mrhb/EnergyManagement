@@ -1,0 +1,153 @@
+<div class="bulckActions">
+  <form [formGroup]="formGroup"  class="form">
+      <mat-form-field  >
+      <mat-label>Bulc action</mat-label>
+      <mat-select  formControlName="action">
+        <mat-option>None</mat-option>
+        <mat-option value="Ir">Set Send a report monthly</mat-option>
+        <mat-option value="Ir">Set Send a report weekly</mat-option>
+        <mat-option value="Ir">Set API permissions</mat-option>
+        <mat-option value="Usa">SetAdmin role</mat-option>
+        <mat-option value="UK">Delete</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field  >
+      <mat-label>Choose value</mat-label>
+      <mat-select >
+        <mat-option>None</mat-option>
+        <mat-option value='True'>True</mat-option>
+        <mat-option value='False'>False</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <button  type="button"  mat-flat-button color="warn">
+      Apply
+  </button >
+    </form>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()"
+                      color="primary">
+        </mat-checkbox>
+
+     
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)" type="checkbox"
+                      color="primary">
+        </mat-checkbox>
+       
+      </td>
+    </ng-container>
+  
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} 
+    </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstname">
+      <th mat-header-cell *matHeaderCellDef>First Name </th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="/management/edit/user/{{element.id}}"   routerLinkActive="active-link"   >   {{element.firstName}}  </a>
+       </td>
+    </ng-container>
+  
+    <!-- loginId Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <!-- unitCount Column -->
+      <ng-container matColumnDef="unitCount">
+        <th mat-header-cell *matHeaderCellDef> unit no.
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.unitCount}} 
+      </td>
+      </ng-container>
+
+      <!-- lang Column -->
+      <ng-container matColumnDef="lang">
+        <th mat-header-cell *matHeaderCellDef> lang </th>
+        <td mat-cell *matCellDef="let element"> {{element.lang}} </td>
+      </ng-container>
+     
+      <!-- conn Column -->
+      <ng-container matColumnDef="conn">
+        <th mat-header-cell *matHeaderCellDef> connctions </th>
+        <td mat-cell *matCellDef="let element"> {{element.conn}} </td>
+      </ng-container>
+
+      <!-- reportsM Column -->
+      <ng-container matColumnDef="reportsM">
+        <th mat-header-cell *matHeaderCellDef> reports M </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-checkbox [checked]=element.reportsM></mat-checkbox >  -->
+            <input type="checkbox" disabled="disabled"   [checked]=element.reportsM />
+
+           </td>
+      </ng-container>      
+
+      <!-- reportsW Column -->
+      <ng-container matColumnDef="reportsW">
+        <th mat-header-cell *matHeaderCellDef> reports W </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-checkbox [checked]=element.reportsW></mat-checkbox >  -->
+            <input type="checkbox" disabled="disabled"   [checked]=element.reportsW />
+
+            </td>
+      </ng-container>   
+
+      <!-- api Column -->
+      <ng-container matColumnDef="api">
+        <th mat-header-cell *matHeaderCellDef> api </th>
+        <td mat-cell *matCellDef="let element">
+          <!-- <mat-checkbox [checked]=element.api></mat-checkbox >  -->
+            <input type="checkbox" disabled="disabled"   [checked]=element.api />
+
+            </td>
+      </ng-container> 
+
+      <!-- isadmin Column -->
+      <ng-container matColumnDef="isadmin">
+        <th mat-header-cell *matHeaderCellDef> isadmin </th>
+        <td mat-cell *matCellDef="let element"  >
+          <!-- <mat-checkbox [checked]=element.isadmin></mat-checkbox >  -->
+            <input type="checkbox" disabled="disabled"   [checked]=element.isadmin />
+
+            </td>
+      </ng-container> 
+
+   <!-- actions Column -->
+   <ng-container matColumnDef="actions" stickyEnd>
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element" (click)="deleteUser(element)" class="delete_forever">
+    <span class="material-icons">delete_forever</span>
+    </td>
+  </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>

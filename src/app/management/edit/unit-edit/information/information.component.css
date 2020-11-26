@@ -1,0 +1,21 @@
+mat-grid-tile:hover{
+    background-color: rgb(230 230 230 / 0.19);
+}
+
+
+.form {
+    display: flex;
+    padding: 5px 0px 5px 2px;
+    width: 100%;
+  }
+  .form-element {
+    padding: 5px 5px 5px 15px;
+    width: 100%;
+  }
+.form-culomn {
+    padding-right: 10px;
+    width: 50%;
+  }
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

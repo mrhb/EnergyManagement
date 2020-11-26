@@ -1,0 +1,90 @@
+
+<table mat-table
+       [dataSource]="dataSource" 
+       multiTemplateDataRows     
+       class="mat-elevation-z8">
+
+    <!-- Alarm Column -->
+    <ng-container matColumnDef="Alarm">
+        <th mat-header-cell *matHeaderCellDef>Alarm</th>
+        <td class="alarm-column" mat-cell *matCellDef="let element">
+          <span  class="material-icons {{element.alarm.Icon}} ">warning</span>
+        </td>
+    </ng-container>
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td class="name-column" mat-cell *matCellDef="let element">
+        <!-- <span  class="name-column">{{element.itemName}} </span>  -->
+        <div class="backgroundAlarm {{element.alarm.Icon}}">
+          {{element.itemName}}
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Engine Column -->
+    <ng-container matColumnDef="Engine">
+        <th class="engin-column" mat-header-cell *matHeaderCellDef>Engine</th>
+        <td class="engin-column" mat-cell *matCellDef="let element">{{element.engines}} </td>
+    </ng-container>
+
+    <!-- Update Column -->
+    <ng-container matColumnDef="Update">
+        <th mat-header-cell *matHeaderCellDef>Update</th>
+        <td class="pdate-column" mat-cell *matCellDef="let element">
+          <container-element [ngSwitch]="element.update">
+            <!-- the same view can be shown in more than one case -->
+            <some-element *ngSwitchCase='1'><span class="material-icons">cast_for_education</span></some-element>
+            <some-element *ngSwitchCase='2'><span class="material-icons">cast</span></some-element>
+            <some-element *ngSwitchCase='3'><span class="material-icons">cast_connected</span></some-element>
+            <!--default case when there are no matches -->
+            <some-element *ngSwitchDefault>?</some-element>
+          </container-element>
+        </td>
+    </ng-container>      
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td class="name-actions" mat-cell *matCellDef="let element"> {{element.unitname}}
+        </td>
+    </ng-container>   
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="element-detail-container "
+      [@detailExpand]="checkExpanded(element) ? 'expanded' : 'collapsed'">
+        <div class="element-detail-element" *ngFor="let unit of element.subunits">
+          
+              <span  class=" material-icons {{unit.alarm.Icon}} ">warning</span>
+              <div   class="name backgroundAlarm {{unit.alarm.Icon}}">
+                {{unit.itemName}}
+              </div>
+              <div>
+                {{unit.engines}}
+              </div>
+              <container-element [ngSwitch]="unit.update">
+                <!-- the same view can be shown in more than one case -->
+                <some-element *ngSwitchCase='1'><span class="material-icons">cast_for_education</span></some-element>
+                <some-element *ngSwitchCase='2'><span class="material-icons">cast</span></some-element>
+                <some-element *ngSwitchCase='3'><span class="material-icons">cast_connected</span></some-element>
+                <!--default case when there are no matches -->
+                <some-element *ngSwitchDefault>?</some-element>
+              </container-element>
+              
+         </div>
+
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+      class="example-element-row"
+      [class.example-expanded-row]="checkExpanded(element)"
+      (click)="pushPopElement(element)">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>

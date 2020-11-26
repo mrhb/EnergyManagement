@@ -1,0 +1,32 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" opened="true">
+      <trends-side ></trends-side>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+      
+      <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>list</mat-icon>
+        </button>
+        <span>Trends</span>
+
+        <div class="views">
+            <span> Type: </span>
+            <mat-icon  (click)="setContentView('chart')"  >timeline</mat-icon>
+            <mat-icon  (click)="setContentView('table')" >grid_on</mat-icon>
+        </div>
+
+        <div class="actions">
+          <span>Devise:</span>
+            <!-- <h1 class="submenu-title push-right filter" >  </h1> -->
+           <mat-icon>av_timer</mat-icon> <a  routerLink="/management/units"   routerLinkActive="active-link "   > Unit Detail </a>
+           <mat-icon>timeline</mat-icon> <a  routerLink="/management/users"   routerLinkActive="active-link"   > Trends </a>
+           <mat-icon>event_note</mat-icon> <a  routerLink="/management/groups"  routerLinkActive="active-link"   > Reports </a>
+           <mat-icon>cloud_download</mat-icon>   <a  routerLink="/management/activity"routerLinkActive="active-link"   > Downloads </a>
+           <mat-icon>settings</mat-icon>   <a  routerLink="/management/activity"routerLinkActive="active-link"   > Settings </a>
+          </div>
+    </mat-toolbar>   
+           <trends-content [ViewType]=viewType></trends-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

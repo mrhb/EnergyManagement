@@ -1,0 +1,79 @@
+<div class="bulckActions">
+    <div  class="form">
+        <mat-form-field  >
+            <mat-label>
+                <mat-icon >calendar_today </mat-icon> Range</mat-label>
+                <mat-select [(ngModel)]="selectedRange" (ngModelChange)="onRangeSelection()">
+                    <mat-option *ngFor="let range of Ranges" [value]="range.value">
+                        {{range.label}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field  >
+                <mat-label>
+                    <mat-icon>timeline</mat-icon> Chart Type</mat-label>
+                <mat-select  [(ngModel)]="selectedType" (ngModelChange)="onTypeSelection(selectedType)" >
+                    <mat-option *ngFor="let type of Types" [value]="type.value">
+                        {{type.label}}
+                      </mat-option>
+                </mat-select>
+              </mat-form-field>
+                
+                          
+            <mat-form-field  >
+                <mat-label>
+                    <mat-icon >timeline</mat-icon> Tools</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let type of Tools" [value]="type.value">
+                        {{type.label}}
+                      </mat-option>
+                </mat-select>
+              </mat-form-field>
+            
+              <mat-form-field >
+                <mat-label>Display</mat-label>
+                <mat-select [formControl]="toppings" multiple>
+                  <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button mat-button  >
+                <mat-icon> fact_check</mat-icon>
+                Uncheck all values
+            </button>
+        </div>
+  </div>
+  <div class="Chart">
+      
+      <canvas baseChart
+      [datasets]="ChartData"     
+      [options]="ChartOptions"
+      [plugins]="ChartPlugins"
+      [legend]="ChartLegend"
+      [chartType]="ChartType"
+      >
+    </canvas> 
+</div>
+
+
+
+<form class="list-actions2">
+    <button mat-button >
+        <mat-icon >zoom_in</mat-icon>
+    </button>
+    <button mat-button >
+        <mat-icon >zoom_out</mat-icon>
+    </button>
+    <button mat-button >
+        <mat-icon >youtube_searched_for</mat-icon>
+    </button>
+    <button mat-button  >
+        <mat-icon> arrow_back </mat-icon>
+    </button>
+    <button mat-button  >
+        <mat-icon> arrow_forward </mat-icon>
+    </button>
+</form> 
+
+
