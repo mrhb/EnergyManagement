@@ -13,7 +13,7 @@ import { Role } from './_models';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent},
-    { path: 'first-page', component: FirstPageComponent,canActivate: [AuthGuard],data: { roles: [Role.Admin] }},
+    { path: 'first-page', component: FirstPageComponent,canActivate: [AuthGuard]},
     { path: 'monitored-units', component: MonitoredComponent },
     // { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard], data: { roles: [Role.Admin]} },
     { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]},
