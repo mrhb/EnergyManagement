@@ -1,12 +1,26 @@
 <mat-toolbar class="secondary-toolbar" >  
-  <h1 class="submenu-title">User Setting  </h1>
-  <button   mat-flat-button color="warn"  routerLink="/management/edit/user/0"   routerLinkActive="active-link "><span class="material-icons">
-    perm_identity
-    </span>Add New User</button >
+  
+  <ng-template [ngIf]="User.isActive">
 
-  <h1 class="submenu-title push-right" >Management:  </h1>
-    <!-- <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/units"   routerLinkActive="active-link "   > Units </a></span> -->
-    <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/users"   routerLinkActive="active-link"   > کاربران </a></span>
+    <button mat-flat-button color="warn"  routerLink="/management/edit/user/0"   routerLinkActive="active-link ">
+      <span class="material-icons">perm_identity</span>
+      افزودن کاربر
+    </button >
+    <h1  class="submenu-title">کاربران</h1>
+  </ng-template>
+
+  <ng-template [ngIf]="building.isActive">
+    <button mat-flat-button color="warn"  routerLink="/management/edit/user/0"   routerLinkActive="active-link ">
+      <span class="material-icons">perm_identity</span>
+      افزودن ساختمان
+    </button >
+    <h1  class="submenu-title">ساختمان ها  </h1>
+  </ng-template>
+
+  <h1 class="submenu-title push-right" >Management:</h1>
+
+    <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/units"   routerLinkActive #building="routerLinkActive"  >ساختمان ها </a></span>
+    <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/users"   routerLinkActive #User="routerLinkActive"   > کاربران </a></span>
     <!-- <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/groups"  routerLinkActive="active-link"   > Groups </a></span> -->
     <!-- <span ><mat-icon>settings</mat-icon>   <a mat-button routerLink="/management/activity"routerLinkActive="active-link"   > Activity logger </a>        </span> -->
 </mat-toolbar>
