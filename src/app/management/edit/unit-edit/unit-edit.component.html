@@ -1,10 +1,54 @@
 <mat-toolbar class="secondary-toolbar" >   
     <button mat-icon-button >  <mat-icon>list</mat-icon></button>
-    <h1 class="submenu-title">Unit Setting  </h1>
+    <h1 class="submenu-title">تنظیمات ساختمان  </h1>
       <button   mat-flat-button color="warn" ><span class="material-icons">
         perm_identity
-        </span>Add New Unit</button >
+        </span>افزودن ساختمان جدید</button >
   </mat-toolbar>
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="true" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="material-icons ">
+          av_timer 
+          </span>
+        اطلاعات ساختمان
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <unit-information></unit-information>
+  </mat-expansion-panel>
+
+
+   <!-- Unit groups -->
+   <mat-expansion-panel [expanded]="false" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="material-icons ">
+          library_add 
+          </span>
+        Unit Groups
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <unit-edit-groups></unit-edit-groups>
+  </mat-expansion-panel>
+
+
+  <!--Permissions -->
+  <mat-expansion-panel [expanded]="false" >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="material-icons ">
+          vpn_key_outlined
+          </span>
+        Permissions
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <unit-edit-permission></unit-edit-permission>
+  </mat-expansion-panel>
+
+</mat-accordion>
+  
   <div class="container" *ngIf="unit$ | async as unit">
     <h2>{{ unit.name }}</h2>
         <mat-accordion>
