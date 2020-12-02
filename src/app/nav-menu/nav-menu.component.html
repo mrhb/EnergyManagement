@@ -1,3 +1,4 @@
+
 <mat-sidenav-container class="sidenav-container" >
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport
   [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -11,6 +12,7 @@
 
 </mat-sidenav> -->
   <mat-sidenav-content>
+    <div fxLayout="column" fxFlexFill>
     <mat-toolbar class="secondary-toolbar" color="primary" >
       <!-- <button
         type="button"
@@ -38,7 +40,12 @@
     
         <!-- <a mat-button routerLink="/registration"> <mat-icon>contact_page</mat-icon> registeration </a> -->
     </mat-toolbar>
-    <router-outlet></router-outlet>
+
+      <div fxFlex>
+          <router-outlet></router-outlet> 
+      </div>
+      <span>designed by mrhb @hooshavaran</span> 
+  </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
