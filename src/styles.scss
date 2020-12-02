@@ -1,10 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-  margin: 0px;
-
+@font-face {
+  font-family: 'MyFontName';
+  src: url('./assets/fonts/eot/IRANSansWeb.eot'); /* IE9 Compat Modes */
+  src: url('assets/fonts/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('assets/fonts/woff2/IRANSansWeb.woff2') format('woff2'), /* Super Modern Browsers */
+         url('assets/fonts/woff/IRANSansWeb.woff') format('woff'), /* Pretty Modern Browsers */
+         url('assets/fonts/ttf/IRANSansWeb.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
-
-
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  // font-family:MyFontName, Roboto, "Helvetica Neue", sans-serif;
+}
+* {
+  font-family:MyFontName, Roboto, "Helvetica Neue", sans-serif;
+    direction: rtl;
+  }
 
   .mat-flat-button{
     border-radius: 50px;
