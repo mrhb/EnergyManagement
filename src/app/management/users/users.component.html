@@ -27,7 +27,7 @@
   </button >
     </form>
 </div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" dir="rtl">
 
     <!-- Checkbox Column -->
     <ng-container matColumnDef="select">
@@ -54,7 +54,7 @@
   
     <!-- id Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> id
+      <th mat-header-cell *matHeaderCellDef> شناسه
       </th>
       <td mat-cell *matCellDef="let element"> {{element.id}} 
     </td>
@@ -62,7 +62,7 @@
   
     <!-- Name Column -->
     <ng-container matColumnDef="firstname">
-      <th mat-header-cell *matHeaderCellDef>First Name </th>
+      <th mat-header-cell *matHeaderCellDef>نام </th>
       <td mat-cell *matCellDef="let element">
         <a routerLink="/management/edit/user/{{element.id}}"   routerLinkActive="active-link"   >   {{element.firstName}}  </a>
        </td>
@@ -70,13 +70,13 @@
   
     <!-- loginId Column -->
     <ng-container matColumnDef="lastname">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <th mat-header-cell *matHeaderCellDef>نام خانوادگی </th>
       
       <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
       <!-- email Column -->
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> email </th>
+        <th mat-header-cell *matHeaderCellDef > نام کاربری/ایمیل </th>
         <td mat-cell *matCellDef="let element"> 
           <a routerLink="/management/edit/user/{{element.id}}"   routerLinkActive="active-link"   >   {{element.email}}  </a>
          </td>
