@@ -3,7 +3,7 @@
   <span>مدیریت:</span>
   <ng-template [ngIf]="User.isActive">
     <span  class="submenu-title">&nbsp;کاربران&nbsp;&nbsp;&nbsp;</span>
-    <button mat-flat-button color="warn"  class=" push-right" routerLink="/management/edit/user/0"   routerLinkActive="active-link ">
+    <button mat-flat-button color="warn"  class=" push-right" routerLink="/management/edit/user"   routerLinkActive="active-link ">
       <span class="material-icons">perm_identity</span>
       افزودن کاربر
     </button >
@@ -11,7 +11,7 @@
 
   <ng-template [ngIf]="building.isActive">
     <span  class="submenu-title">&nbsp;ساختمان ها&nbsp;&nbsp;&nbsp;</span>
-    <button mat-flat-button color="warn" class=" push-right" routerLink="/management/edit/unit/0"   routerLinkActive="active-link ">
+    <button mat-flat-button color="warn" class=" push-right" routerLink="/management/edit/unit"   routerLinkActive="active-link ">
       <span class="material-icons">perm_identity</span>
       افزودن ساختمان
     </button >

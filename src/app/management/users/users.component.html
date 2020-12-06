@@ -71,12 +71,15 @@
     <!-- loginId Column -->
     <ng-container matColumnDef="lastname">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      
       <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
       <!-- email Column -->
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> email </th>
-        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <td mat-cell *matCellDef="let element"> 
+          <a routerLink="/management/edit/user/{{element.id}}"   routerLinkActive="active-link"   >   {{element.email}}  </a>
+         </td>
       </ng-container>
 
       <!-- unitCount Column -->
