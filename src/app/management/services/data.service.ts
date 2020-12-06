@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { User } from './user';
+import { User } from '../users/_service/user';
 import { Group } from './group';
 import { Unit } from './unit';
 import { UserPermit } from './user-permit';

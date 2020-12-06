@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { icon, latLng, Map, marker, point, polyline, tileLayer } from 'leaflet';
+import { UnitsService } from '../../../services/units.service';
 
 
 @Component({
@@ -23,7 +25,10 @@ export class InformationComponent implements OnInit {
 };
 
 
-  constructor() { }
+  constructor(
+    private UnitsService: UnitsService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
     this.nameformGroup=new FormGroup({

@@ -21,9 +21,11 @@ post: any = '';
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: UnitsService,
-    private formBuilder: FormBuilder
-  ) { }
+    private UnitsService: UnitsService,
+    private formBuilder: FormBuilder,
+  ) {
+
+   }
   step = 3;
   onFormSubmit(): void {
     console.log('Name:' + this.formGroup.get('name').value);
@@ -42,10 +44,13 @@ post: any = '';
 
 
   ngOnInit(): void {
-    // this.unit$ = this.route.paramMap.pipe(
-    //   switchMap((params: ParamMap) =>
-    //   this.service.get(params.get('id')))
-    //   );
+    this.unit$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+      {
+        var id=params.get('id');
+        return this.UnitsService.get(id);
+      }
+      ));
     }
 
 

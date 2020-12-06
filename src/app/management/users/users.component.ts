@@ -12,8 +12,8 @@ import { switchMap } from 'rxjs/operators';
 
 
 import { BooleanInput } from '@angular/cdk/coercion';
-import { UsersService } from '../services/users.service';
-import { User } from '../services/user';
+import { UsersService } from './_service/users.service';
+import { User } from './_service/user';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
 import { Unit } from '../services/unit';
 import { HttpClient } from '@angular/common/http';

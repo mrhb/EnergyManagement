@@ -1,7 +1,7 @@
 <mat-toolbar class="secondary-toolbar" >  
   
   <span>مدیریت:</span>
-  <ng-template [ngIf]="User.isActive">
+  <ng-template [ngIf]="Userlink.isActive">
     <span  class="submenu-title">&nbsp;کاربران&nbsp;&nbsp;&nbsp;</span>
     <button mat-flat-button color="warn"  class=" push-right" routerLink="/management/edit/user"   routerLinkActive="active-link ">
       <span class="material-icons">perm_identity</span>
@@ -9,7 +9,7 @@
     </button >
   </ng-template>
 
-  <ng-template [ngIf]="building.isActive">
+  <ng-template [ngIf]="buildinglink.isActive">
     <span  class="submenu-title">&nbsp;ساختمان ها&nbsp;&nbsp;&nbsp;</span>
     <button mat-flat-button color="warn" class=" push-right" routerLink="/management/edit/unit"   routerLinkActive="active-link ">
       <span class="material-icons">perm_identity</span>
@@ -18,8 +18,8 @@
   </ng-template>
 
 
-    <span ><a mat-button routerLink="/management/units"   routerLinkActive #building="routerLinkActive"><mat-icon>fact_check</mat-icon> ساختمان ها </a></span>
-    <span ><a mat-button routerLink="/management/users"   routerLinkActive #User="routerLinkActive"   > <mat-icon>fact_check</mat-icon> کاربران </a></span>
+    <span ><a mat-button routerLink="/management/units"   routerLinkActive #buildinglink="routerLinkActive"><mat-icon>fact_check</mat-icon> ساختمان ها </a></span>
+    <span ><a mat-button routerLink="/management/users"   routerLinkActive #Userlink="routerLinkActive"   > <mat-icon>fact_check</mat-icon> کاربران </a></span>
     <!-- <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/groups"  routerLinkActive="active-link"   > Groups </a></span> -->
     <!-- <span ><mat-icon>settings</mat-icon>   <a mat-button routerLink="/management/activity"routerLinkActive="active-link"   > Activity logger </a>        </span> -->
 </mat-toolbar>
