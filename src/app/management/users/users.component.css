@@ -11,9 +11,10 @@ table{
     width: -webkit-fill-available;
 }
 .delete_forever :hover{
-    background-color: brown;
-    width: 100%;
-    height: 100%;
-    align-self: center;
+    color: brown;
+    cursor: pointer;
 
+    /* width: 100%;
+    height: 100%;
+    align-self: center; */
 }

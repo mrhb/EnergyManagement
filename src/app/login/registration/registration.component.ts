@@ -24,11 +24,11 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       address: [''],
-      firstname: [''],
-      lastname: [''],
+      firstName: [''],
+      lastName: [''],
 
   });
   }
@@ -45,10 +45,10 @@ onSubmit() {
 
   this.loading = true;
   this.authenticationService.signup(
-    this.f.firstname.value,
-    this.f.lastname.value,
+    this.f.firstName.value,
+    this.f.lastName.value,
     this.f.address.value,
-    this.f.username.value, 
+    this.f.email.value, 
     this.f.password.value)
       .pipe(first())
       .subscribe({

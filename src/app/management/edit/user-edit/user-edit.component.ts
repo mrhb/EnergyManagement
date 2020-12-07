@@ -42,10 +42,11 @@ export class UserEditComponent implements OnInit {
         lastName: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         // role: ['1', Validators.required],
-        password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
-        confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
+        password: ['1234'],
+        // password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
+        // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
     }, {
-        validator: MustMatch('password', 'confirmPassword')
+       // validator: MustMatch('password', 'confirmPassword')
     });
 
     if (!this.isAddMode) {
@@ -54,7 +55,9 @@ export class UserEditComponent implements OnInit {
             .subscribe(x => this.form.patchValue(x));
     }
 }
-resetForm(){}
+resetForm(){
+  this.router.navigate(['management/users']);
+}
 // convenience getter for easy access to form fields
 get f() { return this.form.controls; }
 
@@ -92,18 +95,18 @@ private createUser() {
         });
 }
 
-private updateUser() {
+  private updateUser() {
     this.userService.update(this.id, this.form.value)
         .pipe(first())
         .subscribe({
             next: () => {
                 this.alertService.success('User updated', { keepAfterRouteChange: true });
-                this.router.navigate(['../../'], { relativeTo: this.route });
+                this.router.navigate(['management/users']);
             },
             error: error => {
                 this.alertService.error(error);
                 this.loading = false;
             }
         });
-}
+  }
 }

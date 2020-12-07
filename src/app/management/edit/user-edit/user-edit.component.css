@@ -25,14 +25,10 @@ mat-panel-title span{
         margin-left: 20px;
 }
 .btndelete {
-      margin-right: auto;
+      margin-left: auto;
 }
 .footing-toolbar{
         justify-content:flex-end;
-}
-
-.material-icons {
-        width: 48px;
 }
 
 

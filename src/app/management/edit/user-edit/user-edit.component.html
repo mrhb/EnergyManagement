@@ -1,12 +1,14 @@
 <mat-toolbar class="secondary-toolbar" >   
-    <button mat-icon-button >  <mat-icon>list</mat-icon></button>
-    <h1 class="submenu-title">User Setting  </h1>
-      <button   mat-flat-button color="warn" ><span class="material-icons">
-        perm_identity
-        </span>Add New User</button >
+    <span class="submenu-title">تنظیمات حساب کاربری &nbsp;&nbsp;&nbsp;&nbsp; </span>
+    <ng-template [ngIf]="!isAddMode">
+      <button   mat-flat-button color="warn"  dir="rtl">
+        <span class="material-icons" dir="rtl">perm_identity</span>
+        افزودن کاربر جدید
+      </button >
+    </ng-template>
+
   </mat-toolbar>
-  <!-- <h2>{{ user.name }}</h2> -->
-      <mat-accordion>
+  <mat-accordion>
         <!-- <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" >
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -25,7 +27,7 @@
               <span class="material-icons ">
                 person_outlined
                 </span>
-              Personal information
+              اطلاعات حساب کاربری
             </mat-panel-title>
           </mat-expansion-panel-header>
       <form [formGroup]="form"  class="form" dir="rtl">
@@ -44,7 +46,7 @@
           <input  matInput  placeholder="Username" formControlName="email">
        </mat-form-field>
 
-       <mat-form-field class="form-element"appearance="fill">
+       <!-- <mat-form-field class="form-element"appearance="fill">
         <mat-label>رمزعبور</mat-label>
         <input  matInput  placeholder="Password" formControlName="password">
        </mat-form-field>
@@ -52,7 +54,7 @@
        <mat-form-field class="form-element"appearance="fill">
         <mat-label>تکرار رمزعبور</mat-label>
         <input  matInput  placeholder="Password" formControlName="confirmPassword">
-     </mat-form-field>
+     </mat-form-field> -->
 
         <!-- <mat-form-field appearance="fill">
           <mat-label>Phone number</mat-label>
@@ -106,15 +108,17 @@
           
  
   <mat-toolbar class="footing-toolbar" >  
-    <button   mat-flat-button color="warn" class="btndelete" >
-      <span class="material-icons"  >delete_forever</span>حذف
-  </button > 
+    <ng-template [ngIf]="!isAddMode">
+      <button   mat-flat-button color="warn" class="btndelete " >
+        <span class="material-icons"  >delete_forever</span>حذف
+      </button > 
+    </ng-template>
     <button  (click)="onSubmit()" mat-flat-button color="warn" >
         <span class="material-icons"  >save</span>ذخیره
     </button >
     
     <button  (click) = "resetForm()" mat-flat-button color="warn">
-        <span class="material-icons"  >restore</span>بازنشانی
+        <span class="material-icons"  >restore</span>کنسل 
     </button >
   </mat-toolbar>
   
