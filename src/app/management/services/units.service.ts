@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { MessageService } from './message.service';
+import { environment } from '@environments/environment';
 
-const baseUrl = 'http://localhost:3600/api/units';
+const baseUrl =environment.api+ '/units';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +34,7 @@ export class UnitsService {
   }
 
   update(id, data): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.patch(`${baseUrl}/${id}`, data);
   }
 
   delete(id): Observable<any> {

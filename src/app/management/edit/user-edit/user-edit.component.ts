@@ -74,13 +74,13 @@ onSubmit() {
 
     this.loading = true;
     if (this.isAddMode) {
-        this.createUser();
+        this.create();
     } else {
-        this.updateUser();
+        this.update();
     }
 }
 
-private createUser() {
+private create() {
     this.userService.create(this.form.value)
         .pipe(first())
         .subscribe({
@@ -95,7 +95,7 @@ private createUser() {
         });
 }
 
-  private updateUser() {
+  private update() {
     this.userService.update(this.id, this.form.value)
         .pipe(first())
         .subscribe({
