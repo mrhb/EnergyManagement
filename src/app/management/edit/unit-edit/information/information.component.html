@@ -7,6 +7,12 @@
                     <input matInput placeholder="Enter name" formControlName="name" required>
                 </mat-form-field>
         </form>
+        <form [formGroup]="form"  class="form name-state">
+          <mat-form-field class="form-culomn" appearance="fill">
+              <mat-label>نوع ساختمان </mat-label>
+              <input matInput placeholder="Enter name" formControlName="name" required>
+          </mat-form-field>
+  </form>
     </mat-grid-tile>
   </mat-grid-list>
 
