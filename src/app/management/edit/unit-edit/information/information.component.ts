@@ -46,6 +46,7 @@ export class InformationComponent implements OnInit {
     this.form = this.formBuilder.group({
         // title: ['', Validators.required],
         name: ['', Validators.required],
+        totalArea: ['', Validators.required],
         // lastName: ['', Validators.required],
         // email: ['', [Validators.required, Validators.email]],
         // role: ['1', Validators.required],
