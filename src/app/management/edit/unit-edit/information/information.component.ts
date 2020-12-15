@@ -22,7 +22,6 @@ export class InformationComponent implements OnInit {
   loading = false;
   submitted = false;  
 
-
   constructor(
     private UnitsService: UnitsService,
     private formBuilder: FormBuilder,
@@ -30,7 +29,6 @@ export class InformationComponent implements OnInit {
     private router: Router,
     private alertService: AlertService,
     public dialog: MatDialog) { 
-
     }
 
   ngOnInit(): void {
@@ -44,10 +42,25 @@ export class InformationComponent implements OnInit {
     }
 
     this.form = this.formBuilder.group({
-        // title: ['', Validators.required],
         name: ['', Validators.required],
         totalArea: ['', Validators.required],
-        // lastName: ['', Validators.required],
+        type: ['', Validators.required], 
+        addrres : ['', Validators.required], 
+        yearConst: ['', Validators.required], 
+        walMater: ['', Validators.required], 
+        flurMater: ['', Validators.required], 
+        rufmater: ['', Validators.required],
+        glasMater: ['', Validators.required],
+        numFlur: ['', Validators.required], 
+        cullSys: ['', Validators.required], 
+        heatSys: ['', Validators.required], 
+        areaVntl: ['', Validators.required],
+        areaUnVntl : ['', Validators.required],
+        walAreaVntl: ['', Validators.required], 
+        walAreaUnVntl: ['', Validators.required], 
+        winArea: ['', Validators.required], 
+        capBank: ['', Validators.required]
+       // lastName: ['', Validators.required],
         // email: ['', [Validators.required, Validators.email]],
         // role: ['1', Validators.required],
         // password: ['1234'],
