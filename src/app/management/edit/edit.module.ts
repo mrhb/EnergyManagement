@@ -37,6 +37,7 @@ import { PermissionComponent } from './user-edit/permission/permission.component
 import { UnitPermissionComponent } from './unit-edit/permission/permission.component';
 import { UnitgroupsComponent } from './unit-edit/groups/groups.component';
 import { InformationComponent } from './unit-edit/information/information.component';
+import { InstrumentEditComponent } from './instrument-edit/instrument-edit.component';
 
 
 const  routes:  Routes  = [
@@ -67,6 +68,14 @@ const  routes:  Routes  = [
         {
           path:  'unit/:id',
           component: UnitEditComponent
+        },
+        {
+          path:  'instrument',
+          component: InstrumentEditComponent
+        },
+        {
+          path:  'instrument/:id',
+          component: InstrumentEditComponent
         }
       ]
     }
@@ -84,6 +93,7 @@ const  routes:  Routes  = [
      UnitPermissionComponent,
      UnitgroupsComponent,
      InformationComponent,
+     InstrumentEditComponent,
     ],
   imports: [
     CommonModule,

@@ -34,6 +34,7 @@ import { EditComponent } from './edit/edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { InstrumentsComponent } from './instruments/instruments.component';
 
 
 
@@ -56,6 +57,10 @@ const  routes:  Routes  = [
       component:  UnitsComponent
     },
     {
+      path:  'instruments',
+      component:  InstrumentsComponent
+    },
+    {
       path:  'activity',
       component:  ActivityComponent
     },
@@ -69,7 +74,7 @@ const  routes:  Routes  = [
 
 
 @NgModule({
-  declarations: [UnitsComponent, UsersComponent, GroupsComponent, ManagementComponent, ActivityComponent, DialogBodyComponent],
+  declarations: [UnitsComponent, UsersComponent, GroupsComponent, ManagementComponent, ActivityComponent, DialogBodyComponent, InstrumentsComponent],
   imports: [
 
     BrowserModule,

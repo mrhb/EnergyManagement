@@ -1,0 +1,87 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" dir="rtl">
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()"
+                      color="primary">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)" type="checkbox"
+                      color="primary">
+        </mat-checkbox>
+       
+      </td>
+    </ng-container>
+  
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> شناسه</th>
+      <td mat-cell *matCellDef="let element"> 
+        {{element.id}} 
+      </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> نام </th>
+      <td mat-cell *matCellDef="let element"> 
+        <a routerLink="/management/edit/unit/{{element.id}}"   routerLinkActive="active-link"   >   {{element.name}}  </a>
+      </td>
+    </ng-container>
+  
+    <!-- groups Column -->
+    <ng-container matColumnDef="groups">
+      <th mat-header-cell *matHeaderCellDef> منطقه </th>
+      <td mat-cell *matCellDef="let element"> {{element.groups}} </td>
+    </ng-container>
+      <!-- customer Column -->
+      <ng-container matColumnDef="customer">
+        <th mat-header-cell *matHeaderCellDef> کاربری </th>
+        <td mat-cell *matCellDef="let element"> {{element.customer}} </td>
+      </ng-container>
+
+      <!-- totalArea Column -->
+      <ng-container matColumnDef="totalArea">
+        <th mat-header-cell *matHeaderCellDef> زیربنا
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.totalArea}} 
+      </td>
+      </ng-container>
+
+   
+
+      <!-- comm Column -->
+      <!-- <ng-container matColumnDef="comm">
+        <th mat-header-cell *matHeaderCellDef> comm </th>
+        <td mat-cell *matCellDef="let element">
+            <input type="checkbox" disabled="disabled"   [checked]=element.comm />
+          </td>
+      </ng-container>    -->
+
+       <!-- actions Column -->
+   <ng-container matColumnDef="actions" stickyEnd>
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element" (click)="deleteUser(element)" class="delete_forever">
+    <span class="material-icons">delete_forever</span>
+    </td>
+  </ng-container>
+  
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+  </table>
