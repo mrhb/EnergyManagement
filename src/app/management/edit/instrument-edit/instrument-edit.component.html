@@ -11,52 +11,51 @@
     <!-- nameformGroup -->
     <mat-grid-tile colspan="2" rowspan="7">
         <form [formGroup]="form"  class="form name-state">
-                <mat-form-field class="form-culomn" appearance="fill">
-                    <mat-label> نام تجهیز</mat-label>
-                    <input matInput placeholder="Enter name" formControlName="name" required>
-                </mat-form-field>
-       
+
           <mat-form-field class="form-culomn" appearance="fill">
-              <mat-label> حامل انرژی مصرفی </mat-label>
-              <input matInput placeholder="Enter name" formControlName="type" required>
-          </mat-form-field>
- 
+            <mat-label> نام تجهیز</mat-label>
+            <input matInput placeholder="Enter name" formControlName="name" required>
+        </mat-form-field> 
+
+        <mat-form-field class="form-culomn" appearance="fill">
+          <mat-label> واحد انرژی حامل </mat-label>
+          <input matInput placeholder="Enter name" formControlName="unit" required>
+      </mat-form-field> 
+
           <mat-form-field class="form-culomn" appearance="fill">
-                <mat-label>  نام حامل   </mat-label>
-                <input matInput placeholder="Enter name" formControlName="addrres" required>
-            </mat-form-field>
-               <mat-form-field class="form-culomn" appearance="fill">
-              <mat-label> واحد کاربری تجهیز     </mat-label>
-              <input matInput placeholder="Enter name" formControlName="totalArea" required>
-          </mat-form-field>
+        <mat-label> نام انرژی حامل </mat-label>
+        <input matInput placeholder="Enter name" formControlName="carrier" required>
+    </mat-form-field> 
+
           <mat-form-field class="form-culomn" appearance="fill">
             <mat-label> تعداد    </mat-label>
-            <input matInput placeholder="Enter name" formControlName="yearConst" required>
+            <input matInput placeholder="Enter name" formControlName="number" required>
         </mat-form-field>
         <mat-form-field class="form-culomn" appearance="fill">
           <mat-label> توان مصرفی     </mat-label>
-          <input matInput placeholder="Enter name" formControlName="walMater" required>
+          <input matInput placeholder="Enter name" formControlName="power" required>
       </mat-form-field>
       <mat-form-field class="form-culomn" appearance="fill">
         <mat-label> ساعت کارکرد روزانه     </mat-label>
-        <input matInput placeholder="Enter name" formControlName="flurMater" required>
+        <input matInput placeholder="Enter name" formControlName="operatHour" required>
     </mat-form-field>
     <mat-form-field class="form-culomn" appearance="fill">
       <mat-label>تعداد روز کارکرد در سال     </mat-label>
-      <input matInput placeholder="Enter name" formControlName="rufmater" required>
+      <input matInput placeholder="Enter name" formControlName="operatDay" required>
   </mat-form-field>
   <mat-form-field class="form-culomn" appearance="fill">
     <mat-label>تاریخ شروع کار تجهیز      </mat-label>
-    <input matInput placeholder="Enter name" formControlName="glasMater" required>
+    <input matInput placeholder="Enter name" formControlName="startDate" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">
   <mat-label>تاریخ خاتمه کار تجهیز      </mat-label>
-  <input matInput placeholder="Enter name" formControlName="numFlur" required>
+  <input matInput placeholder="Enter name" formControlName="endDate" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">
   <mat-label>ضریب همزمانی     </mat-label>
-  <input matInput placeholder="Enter name" formControlName="cullSys" required>
+  <input matInput placeholder="Enter name" formControlName="synchron" required>
 </mat-form-field>
+  
 
  
 </form>

@@ -43,32 +43,29 @@ export class InstrumentEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
         name: ['', Validators.required],
-        totalArea: ['', Validators.required],
+        carrier: ['', Validators.required],
         type: ['', Validators.required], 
-        addrres : ['', Validators.required], 
-        yearConst: ['', Validators.required], 
-        walMater: ['', Validators.required], 
-        flurMater: ['', Validators.required], 
+        unit : ['', Validators.required], 
+        usage: ['', Validators.required], 
+        number: ['', Validators.required], 
+        power: ['', Validators.required], 
         rufmater: ['', Validators.required],
-        glasMater: ['', Validators.required],
-        numFlur: ['', Validators.required], 
-        cullSys: ['', Validators.required], 
-        heatSys: ['', Validators.required], 
-        areaVntl: ['', Validators.required],
-        areaUnVntl : ['', Validators.required],
-        walAreaVntl: ['', Validators.required], 
-        walAreaUnVntl: ['', Validators.required], 
-        winArea: ['', Validators.required], 
-        capBank: ['', Validators.required]
-        // lastName: ['', Validators.required],
-        // email: ['', [Validators.required, Validators.email]],
-        // role: ['1', Validators.required],
-        // password: ['1234'],
-        // password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
-        // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
+        operatDay: ['', Validators.required],
+        operatHour: ['', Validators.required], 
+        startDate: ['', Validators.required], 
+        endDate: ['', Validators.required], 
+        synchron: ['', Validators.required]
+       
+        
     }, {
        // validator: MustMatch('password', 'confirmPassword')
     });
+
+    
+  
+   // }, {
+        //
+  //   });
 
     if (!this.isAddMode) {
         this.UnitsService.get(this.id)
