@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: 'first-page', component: FirstPageComponent,canActivate: [AuthGuard]},
     { path: 'monitored-units', component: MonitoredComponent },
     // { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard], data: { roles: [Role.Admin]} },
-    { path: 'dashboard', component: DashboardComponent,canActivate: [AuthGuard]},
+    { path: 'dashboard', component: DashboardComponent},//,canActivate: [AuthGuard]},
     { path: 'management', component: ManagementModule },
     { path: 'registration', component: RegistrationComponent }
     //{ path: '', redirectTo: 'login', pathMatch: 'full' },
