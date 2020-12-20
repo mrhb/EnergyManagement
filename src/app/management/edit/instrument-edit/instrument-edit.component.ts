@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from '@app/_services/alert.service';
 import { icon, latLng, Map, marker, point, polyline, tileLayer } from 'leaflet';
 // import { UnitsService } from '../../services/units.service';
-import { UnitsService } from '../../services/units.service';
+import { InstrumentsService } from '../../services/instruments.service';
 import { first, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '@app/management/dialog-body/dialog-body.component';
@@ -23,7 +23,7 @@ export class InstrumentEditComponent implements OnInit {
   submitted = false;  
 
   constructor(
-    private UnitsService: UnitsService,
+    private UnitsService: InstrumentsService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
@@ -44,12 +44,10 @@ export class InstrumentEditComponent implements OnInit {
     this.form = this.formBuilder.group({
         name: ['', Validators.required],
         carrier: ['', Validators.required],
-        type: ['', Validators.required], 
         unit : ['', Validators.required], 
         usage: ['', Validators.required], 
-        number: ['', Validators.required], 
-        power: ['', Validators.required], 
-        rufmater: ['', Validators.required],
+        count: ['', Validators.required], 
+        nominalValue: ['', Validators.required], 
         operatDay: ['', Validators.required],
         operatHour: ['', Validators.required], 
         startDate: ['', Validators.required], 

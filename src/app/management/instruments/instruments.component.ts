@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatDialogRef, MatDialog } from "@angular/material/dialog";
 
 import { BooleanInput } from '@angular/cdk/coercion';
-import { UnitsService } from '../services/units.service';
+import { InstrumentsService } from '../services/instruments.service';
 import { Unit } from '../services/unit';
 import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
 @Component({
@@ -19,7 +19,7 @@ export class InstrumentsComponent implements OnInit {
   dataSource = new MatTableDataSource<Unit>(this.units);
   selection = new SelectionModel<Unit>(true, []);
 
-  constructor(private UnitsService: UnitsService,
+  constructor(private UnitsService: InstrumentsService,
     public dialog: MatDialog) { }
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
