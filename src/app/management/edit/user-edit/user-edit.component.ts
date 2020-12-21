@@ -37,14 +37,25 @@ export class UserEditComponent implements OnInit {
     }
 
     this.form = this.formBuilder.group({
-        // title: ['', Validators.required],
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
+        role: ['1', Validators.required],
+        title: ['', Validators.required],
+        organizational: ['1', Validators.required],  
+        userID: ['1', Validators.required],
+        phoneNumber: ['1', Validators.required],
+        mobile: ['1', Validators.required],
+        address: ['1', Validators.required],
+        picture: ['1', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        // role: ['1', Validators.required],
-        password: ['1234'],
-        // password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
-        // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
+        userName: ['1', Validators.required],
+        password: ['1', Validators.required],
+        changePassword: ['1', Validators.required],      
+        oldPassword: ['1', Validators.required],
+        newPassword: ['1', Validators.required],        
+        confirmPassword: ['1', Validators.required]
+      //  password: ['1234', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
+       // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
     }, {
        // validator: MustMatch('password', 'confirmPassword')
     });
