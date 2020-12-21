@@ -39,9 +39,9 @@ export class UserEditComponent implements OnInit {
     this.form = this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        role: ['1', Validators.required],
+        permissionLevel: ['1', Validators.required],
         title: ['', Validators.required],
-        organizational: ['1', Validators.required],  
+        position: ['1', Validators.required],  //پست سازمانی
         userID: ['1', Validators.required],
         phoneNumber: ['1', Validators.required],
         mobile: ['1', Validators.required],
@@ -97,7 +97,7 @@ private create() {
         .subscribe({
             next: () => {
                 this.alertService.success('User added', { keepAfterRouteChange: true });
-                this.router.navigate(['../'], { relativeTo: this.route });
+                this.router.navigate(['management/users'], { relativeTo: this.route });
             },
             error: error => {
                 this.alertService.error(error);

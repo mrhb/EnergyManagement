@@ -2,6 +2,7 @@
         padding: 10px;
         overflow-y:auto;
       }
+
 mat-panel-title{
   color: #d50000;
 }
@@ -42,11 +43,7 @@ mat-panel-title span{
         padding: 10px;
       }
       
-      .form {
-        min-width: 150px;
-        max-width: 500px;
-        width: 100%;
-      }
+
       
       .form-element {
         padding: 5px 0px 5px 2px;

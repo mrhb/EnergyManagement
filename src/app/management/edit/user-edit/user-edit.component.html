@@ -33,101 +33,109 @@
 
 
           
-<mat-grid-list cols="4"  rowHeight="100px">
-  <!-- nameformGroup -->
-  <mat-grid-tile colspan="4" rowspan="14">
+    <form [formGroup]="form"  class="form" dir="rtl">
+          <mat-grid-list cols="2"  rowHeight="100px">
+          <!-- nameformGroup -->
+          <mat-grid-tile colspan="1" rowspan="7">
+            <div class="fields">
+              
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label>نام</mat-label>
+                <input matInput placeholder="Enter name" formControlName="firstName">
+              </mat-form-field>
+              
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label>نام خانوادگی</mat-label>
+                <input matInput placeholder="Enter name" formControlName="lastName">
+              </mat-form-field>    
+              
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label>سمت سازمانی </mat-label>
+                <input matInput placeholder="Enter name" formControlName="title">
+              </mat-form-field>       
+              
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label>نقش کاربر</mat-label>
+                <input  matInput  placeholder="Username" formControlName="permissionLevel">
+              </mat-form-field>
+              
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label>واحد سازمانی</mat-label>
+                <input  matInput  placeholder="Username" formControlName="position">
+                </mat-form-field>
+                
+                <mat-form-field class="form-element" appearance="fill">
+                <mat-label> شماره پرسنلی</mat-label>
+                <input  matInput  placeholder="Username" formControlName="userID">
+              </mat-form-field>
+              
+            </div>
+          </mat-grid-tile>
+          
+          
+          <mat-grid-tile colspan="1" rowspan="7">
+            
+            <div>
+              <mat-form-field class="form-element" appearance="fill">
+                <mat-label> شماره تلفن </mat-label>
+                <input  matInput  placeholder="Username" formControlName="phoneNumber">
+              </mat-form-field>
 
-
-      <form [formGroup]="form"  class="form" dir="rtl">
-        <mat-form-field class="form-element" appearance="fill">
-          <mat-label>نام</mat-label>
-          <input matInput placeholder="Enter name" formControlName="firstName">
+              <mat-form-field class="form-element" appearance="fill">
+            <mat-label>شماره موبایل</mat-label>
+          <input  matInput  placeholder="Username" formControlName="mobile">
         </mat-form-field>
-
+        
         <mat-form-field class="form-element" appearance="fill">
-          <mat-label>نام خانوادگی</mat-label>
-          <input matInput placeholder="Enter name" formControlName="lastName">
-        </mat-form-field>    
-
+          <mat-label>ایمیل</mat-label>
+          <input  matInput  placeholder="Username" formControlName="email">
+        </mat-form-field>
+        
         <mat-form-field class="form-element" appearance="fill">
-          <mat-label>سمت سازمانی </mat-label>
-          <input matInput placeholder="Enter name" formControlName="title">
-        </mat-form-field>       
-
-       <mat-form-field class="form-element" appearance="fill">
-        <mat-label>نقش کاربر</mat-label>
-        <input  matInput  placeholder="Username" formControlName="role">
-     </mat-form-field>
-
-     <mat-form-field class="form-element" appearance="fill">
-      <mat-label>واحد سازمانی</mat-label>
-      <input  matInput  placeholder="Username" formControlName="organizational">
-   </mat-form-field>
-
-   <mat-form-field class="form-element" appearance="fill">
-    <mat-label> شماره پرسنلی</mat-label>
-    <input  matInput  placeholder="Username" formControlName="userID">
- </mat-form-field>
-
- <mat-form-field class="form-element" appearance="fill">
-  <mat-label> شماره تلفن </mat-label>
-  <input  matInput  placeholder="Username" formControlName="phoneNumber">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>شماره موبایل</mat-label>
-  <input  matInput  placeholder="Username" formControlName="mobile">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>ایمیل</mat-label>
-  <input  matInput  placeholder="Username" formControlName="email">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label> آدرس</mat-label>
-  <input  matInput  placeholder="Username" formControlName="address">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label> نام کاربری</mat-label>
-  <input  matInput  placeholder="Username" formControlName="userName">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label> عکس</mat-label>
-  <input  matInput  placeholder="Username" formControlName="picture">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>  رمز</mat-label>
-  <input  matInput  placeholder="Username" formControlName="password">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>  تغییر رمز</mat-label>
-  <input  matInput  placeholder="Username" formControlName="changePassword">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>  رمز قدیم </mat-label>
-  <input  matInput  placeholder="Username" formControlName="oldPassword">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>  رمز جدید </mat-label>
-  <input  matInput  placeholder="Username" formControlName="newPassword">
-</mat-form-field>
-
-<mat-form-field class="form-element" appearance="fill">
-  <mat-label>  تکرار رمز</mat-label>
-  <input  matInput  placeholder="Username" formControlName="confirmPassword">
-</mat-form-field>
-
-        </form>
+          <mat-label> آدرس</mat-label>
+          <input  matInput  placeholder="Username" formControlName="address">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label> نام کاربری</mat-label>
+          <input  matInput  placeholder="Username" formControlName="userName">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label> عکس</mat-label>
+          <input  matInput  placeholder="Username" formControlName="picture">
+        </mat-form-field>
+<!--         
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label>  رمز</mat-label>
+          <input  matInput  placeholder="Username" formControlName="password">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label>  تغییر رمز</mat-label>
+          <input  matInput  placeholder="Username" formControlName="changePassword">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label>  رمز قدیم </mat-label>
+          <input  matInput  placeholder="Username" formControlName="oldPassword">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label>  رمز جدید </mat-label>
+          <input  matInput  placeholder="Username" formControlName="newPassword">
+        </mat-form-field>
+        
+        <mat-form-field class="form-element" appearance="fill">
+          <mat-label>  تکرار رمز</mat-label>
+          <input  matInput  placeholder="Username" formControlName="confirmPassword">
+        </mat-form-field>
+         -->
+      </div>
       </mat-grid-tile>
     </mat-grid-list>
-   
+
+    </form>
         </mat-expansion-panel>
       
 
