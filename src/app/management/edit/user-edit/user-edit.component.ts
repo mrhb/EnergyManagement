@@ -39,21 +39,21 @@ export class UserEditComponent implements OnInit {
     this.form = this.formBuilder.group({
         firstName: ['', Validators.required],
         lastName: ['', Validators.required],
-        permissionLevel: ['1', Validators.required],
+        permissionLevel: ['', Validators.required],
         title: ['', Validators.required],
-        position: ['1', Validators.required],  //پست سازمانی
-        userID: ['1', Validators.required],
-        phoneNumber: ['1', Validators.required],
-        mobile: ['1', Validators.required],
-        address: ['1', Validators.required],
-        picture: ['1', Validators.required],
+        position: [' ', Validators.required],  //پست سازمانی
+        userID: [' ', Validators.required],
+        phoneNumber: ['', Validators.required],
+        mobile: ['', Validators.required],
+        address: ['', Validators.required],
+        picture: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
-        userName: ['1', Validators.required],
-        password: ['1', Validators.required],
-        changePassword: ['1', Validators.required],      
-        oldPassword: ['1', Validators.required],
-        newPassword: ['1', Validators.required],        
-        confirmPassword: ['1', Validators.required]
+        userName: ['', Validators.required],
+        password: ['', Validators.required],
+        changePassword: ['', Validators.required],      
+        oldPassword: ['', Validators.required],
+        newPassword: ['', Validators.required],        
+        confirmPassword: ['', Validators.required]
       //  password: ['1234', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
        // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
     }, {
