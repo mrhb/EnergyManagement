@@ -49,11 +49,11 @@ export class UserEditComponent implements OnInit {
         picture: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
         userName: ['', Validators.required],
-        password: ['', Validators.required],
-        changePassword: ['', Validators.required],      
-        oldPassword: ['', Validators.required],
-        newPassword: ['', Validators.required],        
-        confirmPassword: ['', Validators.required]
+         password: ['1234', Validators.required],
+        // changePassword: ['', Validators.required],      
+        // oldPassword: ['', Validators.required],
+        // newPassword: ['', Validators.required],        
+        // confirmPassword: ['', Validators.required]
       //  password: ['1234', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
        // confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
     }, {
@@ -97,7 +97,7 @@ private create() {
         .subscribe({
             next: () => {
                 this.alertService.success('User added', { keepAfterRouteChange: true });
-                this.router.navigate(['management/users'], { relativeTo: this.route });
+                this.router.navigate(['/management/users'], { relativeTo: this.route });
             },
             error: error => {
                 this.alertService.error(error);
