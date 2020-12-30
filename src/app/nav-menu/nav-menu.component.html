@@ -26,8 +26,34 @@
        <!-- <a mat-button routerLink="/monitored-units"> <mat-icon>receipt_long</mat-icon> ساختمانها </a> -->
        <!-- <a mat-button routerLink="/trends"> <mat-icon>trending_up</mat-icon> تحلیل </a> -->
        <a mat-button routerLink="/management/users"> <mat-icon>fact_check</mat-icon> مدیریت </a>
-       <a mat-button > <mat-icon>fact_check</mat-icon> ماژولها </a>
-       <a mat-button > <mat-icon>fact_check</mat-icon> مستندات </a>
+
+       <a mat-button [matMenuTriggerFor]="maduls" dir="rtl"> <mat-icon>fact_check</mat-icon> ماژولها </a>
+       <mat-menu #maduls="matMenu" >
+        <button mat-menu-item [matMenuTriggerFor]="ISO" dir="rtl">استاندارد</button>
+        <button mat-menu-item [matMenuTriggerFor]="Green" dir="rtl">سبز</button>
+        <button mat-menu-item [matMenuTriggerFor]="Size" dir="rtl">سایزینگ</button>
+      </mat-menu>
+
+        <mat-menu #ISO="matMenu">
+         <button mat-menu-item >سیستم مدیریت انرژی</button>
+         <button mat-menu-item >(مبحث 19 )مقررات ملی ساختمان</button>
+         <button mat-menu-item >ISO 50001</button>
+        </mat-menu>
+
+         <mat-menu #Green="matMenu">
+         <button mat-menu-item >مدیریت سبز</button>
+         <button mat-menu-item >مدیریت آب</button>
+         <button mat-menu-item >مدیریت کربن</button>
+         <button mat-menu-item >سیستم فتولتائیک</button>
+         <button mat-menu-item >آبگرمکن خورشیدی</button>
+        </mat-menu>
+
+        <mat-menu #Size="matMenu">
+         <button mat-menu-item >سایزینگ</button>
+         <button mat-menu-item >سایزینگ سیستم</button>
+       </mat-menu>
+        
+         <a mat-button > <mat-icon>fact_check</mat-icon> مستندات </a>
        <a mat-button routerLink="/dashboard"> <mat-icon>dashboard</mat-icon>تحلیل و گزارشگیری </a>
         <!-- <a mat-button routerLink="/first-page"> <mat-icon>settings</mat-icon> تنظیمات </a> -->
         <a mat-button routerLink="/first-page"> <mat-icon>help</mat-icon> راهنما </a>
