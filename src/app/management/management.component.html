@@ -25,9 +25,19 @@
     </button >
   </ng-template>
 
+  <ng-template [ngIf]="Billlink.isActive">
+    <span  class="submenu-title">&nbsp;قبوض&nbsp;&nbsp;&nbsp;</span>
+    <button mat-flat-button color="warn" class=" push-right" routerLink="/management/bill-electric"   routerLinkActive="active-link ">
+      <span class="material-icons">perm_identity</span>
+      افزودن قبض
+    </button >
+  </ng-template>
+
     <span ><a mat-button routerLink="/management/instruments"   routerLinkActive #instrumentlink="routerLinkActive"   > <mat-icon>fact_check</mat-icon> تجهیزات </a></span>
     <span ><a mat-button routerLink="/management/units"   routerLinkActive #buildinglink="routerLinkActive"><mat-icon>fact_check</mat-icon> ساختمان ها </a></span>
     <span ><a mat-button routerLink="/management/users"   routerLinkActive #Userlink="routerLinkActive"   > <mat-icon>fact_check</mat-icon> کاربران </a></span>
+    <span ><a mat-button routerLink="/management/bills"   routerLinkActive #Billlink="routerLinkActive"   > <mat-icon>fact_check</mat-icon> قبوض </a></span>
+
     <!-- <span ><mat-icon>fact_check</mat-icon> <a mat-button routerLink="/management/groups"  routerLinkActive="active-link"   > Groups </a></span> -->
     <!-- <span ><mat-icon>settings</mat-icon>   <a mat-button routerLink="/management/activity"routerLinkActive="active-link"   > Activity logger </a>        </span> -->
 </mat-toolbar>

@@ -13,6 +13,8 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 import { EditModule } from  './edit/edit.module';
+import { BillsModule } from  './bills/bills.module';
+
 
 
 
@@ -99,7 +101,8 @@ const  routes:  Routes  = [
       passThruUnknownUrl: true
     }) : [],
     EditModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    BillsModule
 
   ],
   exports: [RouterModule]

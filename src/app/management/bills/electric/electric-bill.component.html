@@ -1,0 +1,143 @@
+<div class="box-t">
+    <div dir="rtl">
+        <div class="row bak-row1">
+            <div class="col2">
+                <span>ثبت انشعاب جدید برق برای</span>
+                <mat-form-field appearance="fill">
+                    <mat-label>Select an option</mat-label>
+                    <mat-select [(value)]="selected">
+                        <mat-option>None</mat-option>
+                        <mat-option value="option1">Option 1</mat-option>
+                        <mat-option value="option2">Option 2</mat-option>
+                        <mat-option value="option3">Option 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col1">
+                <button mat-flat-button color="warn" class=" push-right" [disabled]="loading" (click)="onSubmit()">
+                    <span class="material-icons">save</span>
+                    ذخیره
+                </button >
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="border-m">
+<div class="box-t">
+    <div class="row">
+        <div class="col1">
+            <div>
+                <img src="assets/bill-electric.png" class="img-logo">
+                <h1 class="in-bl">شرکت توزیع نیروی برق</h1>
+            </div>
+
+            <div class=" box1">
+                <div><span>شهر امور</span></div>
+                <br>
+                <div><span>آدرس</span></div>
+                <div><span>منطقه برق</span></div>
+                <div><span>واحد حوادث</span></div>
+                <div><span>پاسخگویی صورتحساب</span></div>
+            </div>
+
+            <div class="box2">
+                <table class="tbox2">
+                <tr class="bg-w">
+                    <td colspan="4" class="td-box2">
+                        <h2>
+                        قدرت (کیلو وات) 
+                    </h2>
+                    </td>                                     
+                </tr>    
+                <tr class="bg-w">
+                    <td><span>قراردادی</span></td>
+                    <td>
+                        <input class="i-box-2">
+                    </td>
+                    <td><span>محاسبه شده</span></td>
+                    <td>   <input class="i-box-2"></td>                    
+                </tr>  
+                <tr>
+                    <td><span>پروانه مجاز</span></td>
+                    <td></td>
+                    <td><span>کاهش یافته</span></td>
+                    <td></td>                    
+                </tr>  
+                <tr>
+                    <td><span>مصرفی</span></td>
+                    <td></td>
+                    <td><span>تجاوزارقدرت</span></td>
+                    <td></td>                    
+                </tr>  
+                <tr>
+                    <td><span>ماکسیمتر</span></td>
+                    <td></td>
+                    <td><span>تاریخ کاهش</span></td>
+                    <td></td>                    
+                </tr>  
+                </table>
+            </div>
+        </div>
+        <div class="col2">
+          <div class="boxt2">
+                <div class="box3 col3">
+                    <div>
+                        <span> مشترک محترم : </span>
+                        <span>اداره گاز</span>
+                    </div>
+                    <div>
+                        <span>نشانی محل مصرف</span>
+                        <span></span>
+                    </div>
+                    <div>
+                        <span>کد پستی</span>
+                        <span></span>
+                    </div>
+                    <div class="line-b"></div>
+                    <div>
+                        <span> شناسایی </span>
+                         <input class="i-box-4">
+
+                        <span> اشتراک </span>
+                        <input class="i-box-4">
+                    </div>
+                    <div>
+                        <span> پرونده </span>
+                        <input class="i-box-4">
+                    </div>
+
+                    <div>
+                        <span> عنوان و کد تعرفه </span>
+                        <input class="i-box-4"> 
+                        <input class="i-box-4">
+                    </div>
+
+                    <div>
+                        <span> گزینه انتخابی </span>
+                        <input class="i-box-4">                      
+                    </div>
+
+                    <div>
+                        <span> ولتاژ تغذیه </span>
+                        <input class="i-box-4">                       
+                    </div>
+                </div>
+                <div class="box4 col1">
+                    <div class="shens">
+                        <span>شناسه قبض</span>
+                        <div class="line-g"></div>
+                        <input class="i-box-4">
+                    </div>
+                    <div class="shens">
+                        <span>شناسه پرداخت</span>
+                        <div class="line-g"></div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
