@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bills.component.sass']
 })
 export class BillsComponent implements OnInit {
-
+  test;
   constructor() { }
 
   ngOnInit(): void {
