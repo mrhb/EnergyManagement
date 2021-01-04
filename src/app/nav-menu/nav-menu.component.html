@@ -25,8 +25,50 @@
        <span class="menu-spacer"></span>
        <!-- <a mat-button routerLink="/monitored-units"> <mat-icon>receipt_long</mat-icon> ساختمانها </a> -->
        <!-- <a mat-button routerLink="/trends"> <mat-icon>trending_up</mat-icon> تحلیل </a> -->
-       <a mat-button routerLink="/management/users"> <mat-icon>fact_check</mat-icon> مدیریت </a>
+       <a mat-button routerLink="/management/users" dir="rtl"> <mat-icon>fact_check</mat-icon> مدیریت </a>
+       <a mat-button [matMenuTriggerFor]="modiriant" dir="rtl"> <mat-icon>fact_check</mat-icon> ورود اطلاعات</a>
+       <mat-menu #modiriant="matMenu" >
+        <button mat-menu-item [matMenuTriggerFor]="Structur" dir="rtl">ساختاری</button>
+        <button mat-menu-item [matMenuTriggerFor]="Timing" dir="rtl">زمانی</button>
+        <button mat-menu-item [matMenuTriggerFor]="Userss" dir="rtl">کاربران</button>
+        <button mat-menu-item [matMenuTriggerFor]="Bills" dir="rtl">قبوض</button>
 
+        <mat-menu #Structur="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="Bildings" dir="rtl">ساختمانها</button>
+          <button mat-menu-item [matMenuTriggerFor]="Instruments" dir="rtl">تجهیزات</button>
+          <button mat-menu-item [matMenuTriggerFor]="BilProperty" dir="rtl">مشخصات اشتراک</button>
+          <button mat-menu-item >منطقه بندی </button>
+          <button mat-menu-item > آب و هوا  </button>
+           </mat-menu>
+  
+           <mat-menu #Timing="matMenu">
+            <button mat-menu-item >قبض برق  </button>
+            <button mat-menu-item >قبض گاز  </button>
+            <button mat-menu-item >قبض اب  </button>
+             </mat-menu>
+
+             <mat-menu #BilProperty="matMenu">
+              <button mat-menu-item >قبض برق  </button>
+              <button mat-menu-item >قبض گاز  </button>
+              <button mat-menu-item >قبض اب  </button>
+               </mat-menu>
+      </mat-menu>
+      <mat-menu #Bildings="matMenu">
+        <button mat-menu-item >مدیریت ساختمان</button>
+        <button mat-menu-item >افزودن ساختمان  </button>
+       </mat-menu>
+       <mat-menu #Instruments="matMenu">
+        <button mat-menu-item >مدیریت تجهیزات</button>
+        <button mat-menu-item >افزودن تجهیز  </button>
+       </mat-menu>
+       <mat-menu #Userss="matMenu">
+        <button mat-menu-item >مدیریت کاربران</button>
+        <button mat-menu-item >افزودن کاربر  </button>
+       </mat-menu>
+       <mat-menu #Bills="matMenu">
+        <button mat-menu-item >مدیریت کاربران</button>
+        <button mat-menu-item >افزودن کاربر  </button>
+       </mat-menu>
        <a mat-button [matMenuTriggerFor]="maduls" dir="rtl"> <mat-icon>fact_check</mat-icon> ماژولها </a>
        <mat-menu #maduls="matMenu" >
         <button mat-menu-item [matMenuTriggerFor]="ISO" dir="rtl">استاندارد</button>
