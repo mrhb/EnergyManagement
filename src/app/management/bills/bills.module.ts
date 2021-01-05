@@ -47,6 +47,8 @@ const  routes:  Routes  = [
           path:  'list',
           component: BillListComponent
         }
+        ,
+        { path: '', redirectTo: 'list', pathMatch: 'full' },
       ]
     }
   ];
