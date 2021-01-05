@@ -37,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { InstrumentsComponent } from './instruments/instruments.component';
+import { BillsComponent } from './bills/bills.component';
 
 
 
@@ -61,6 +62,10 @@ const  routes:  Routes  = [
     {
       path:  'instruments',
       component:  InstrumentsComponent
+    },
+    {
+      path:  'bills',
+      component:  BillsComponent
     },
     {
       path:  'activity',

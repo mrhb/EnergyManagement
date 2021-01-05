@@ -1,0 +1,18 @@
+table {
+    margin: 10px;
+    width: -webkit-fill-available;
+}
+
+.id {
+    word-wrap: break-word;
+    white-space: normal;
+    flex: 0 0 1%;
+    width: 1%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}

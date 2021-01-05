@@ -26,7 +26,7 @@ import { BillsComponent } from './bills.component';
 
 import { ElectricBillComponent } from './electric/electric-bill.component';
 import { GasBillComponent } from './gas/gas-bill.component';
-
+import { BillListComponent } from './bill-list/bill-list.component';
 
 
 const  routes:  Routes  = [
@@ -42,6 +42,11 @@ const  routes:  Routes  = [
           path:  'gas',
           component: GasBillComponent
         }
+        ,
+        {
+          path:  'list',
+          component: BillListComponent
+        }
       ]
     }
   ];
@@ -53,7 +58,7 @@ const  routes:  Routes  = [
     ElectricBillComponent,
     GasBillComponent,
     BillsComponent, 
-    
+    BillListComponent
       ],
   imports: [
     CommonModule,
