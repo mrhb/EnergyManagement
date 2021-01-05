@@ -1,3 +1,13 @@
+mat-form-field {
+    margin-left: 10px;
+}
+
+.mat-flat-button {
+    border-radius: 50px;
+    background: #d50000;
+    margin-left: 20px;
+}
+
 .box-t {
     margin: 5px;
 }
@@ -62,10 +72,6 @@
     display: flex;
 }
 
-.box1-2 {
-    display: flex;
-}
-
 .img-logo,
 .in-bl {
     display: inline-block;
@@ -79,4 +85,8 @@
 
 .box-mgp {
     background-color: yellow;
+}
+
+.mw1 {
+    min-width: 200px;
 }
