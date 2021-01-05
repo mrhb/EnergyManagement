@@ -1,0 +1,59 @@
+<form style="text-align: right">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label style="text-align: left" for="firstName">نام</label>
+      <input type="text" class="form-control" id="firstName" placeholder="علی" [(ngModel)]="user.firstName" name="firstName" readonly>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">نام خانوادگی</label>
+      <input type="text" class="form-control" id="lastName" placeholder="ایمانی" [(ngModel)]="user.lastName" name="lastName" readonly>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address">آدرس</label>
+    <input type="text" class="form-control" id="address" placeholder="شهرک اندیشه .." [(ngModel)]="user.address" name="address" readonly>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="city">شهر</label>
+      <input type="text" class="form-control" id="city" [(ngModel)]="user.city" name="city" readonly>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="province">استان</label>
+      <input type="text" class="form-control" id="province" [(ngModel)]="user.province" name="province" readonly>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="phone">شماره تلفن</label>
+      <input type="text"  class="form-control" id="phone" [(ngModel)]="user.phone" name="phone" readonly>
+    </div>
+  </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="organizationalUnit">واحد سازمانی</label>
+        <input type="text" class="form-control" id="organizationalUnit" [(ngModel)]="user.organizationalUnit" name="organizationalUnit" readonly>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="organizationalLevel">درجه سازمانی</label>
+        <input type="text" class="form-control" id="organizationalLevel" [(ngModel)]="user.organizationalLevel" name="organizationalLevel" readonly>
+      </div>
+    </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="mobile">شماره موبایل</label>
+      <input type="text" class="form-control" id="mobile" [(ngModel)]="user.mobile" name="mobile" readonly>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="email">ایمیل</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" readonly>
+    </div>
+  </div>
+</form>

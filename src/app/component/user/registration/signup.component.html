@@ -1,0 +1,233 @@
+<form style="text-align: right" [formGroup]="signupForm" (ngSubmit)="onSignupSubmit(signupForm)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="firstName">نام</label>
+      <input type="text" class="form-control" id="firstName" placeholder="محمدجواد" [(ngModel)]="reqSignup.firstName"
+             formControlName="firstName" name="firstName" required>
+
+      <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.firstName.errors.required">
+          نام نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.firstName.errors.minlength">
+          نام نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+        <div *ngIf="f.firstName.errors.maxlength">
+          نام نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group col-md-6">
+      <label for="lastName">نام خانوادگی</label>
+      <input type="text" class="form-control" id="lastName" placeholder="ایمانی" [(ngModel)]="reqSignup.lastName"
+             formControlName="lastName" name="lastName" required>
+
+      <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.lastName.errors.required">
+          نام خانوادگی نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.lastName.errors.minlength">
+          نام خانوادگی نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+        <div *ngIf="f.lastName.errors.maxlength">
+          نام خانوادگی نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address">آدرس</label>
+    <input type="text" class="form-control" id="address" placeholder="شهرک اندیشه .." [(ngModel)]="reqSignup.address"
+           formControlName="address" name="address" required>
+
+    <div *ngIf="f.address.invalid && (f.address.dirty || f.address.touched)" class="alert alert-danger">
+      <div *ngIf="f.address.errors.required">
+        آدرس نمیتواند خالی باشد.
+      </div>
+      <div *ngIf="f.address.errors.minlength">
+        آدرس نمیتواند کمتر از 50 کاراکتر باشد.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="city">شهر</label>
+      <input type="text" class="form-control" id="city" placeholder="تهران" [(ngModel)]="reqSignup.city"
+             formControlName="city" name="city" required>
+
+      <div *ngIf="f.city.invalid && (f.city.dirty || f.city.touched)" class="alert alert-danger">
+        <div *ngIf="f.city.errors.required">
+          شهر نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.city.errors.minlength">
+          شهر نمیتواند کمتر از 3 کاراکتر باشد.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="province">استان</label>
+      <input type="text" class="form-control" id="province" placeholder="تهران" [(ngModel)]="reqSignup.province"
+             formControlName="province" name="province" required>
+
+      <div *ngIf="f.province.invalid && (f.province.dirty || f.province.touched)" class="alert alert-danger">
+        <div *ngIf="f.province.errors.required">
+          استان نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.province.errors.minlength">
+          استان نمیتواند کمتر از 3 کاراکتر باشد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="phone">شماره تلفن</label>
+      <input type="text" class="form-control" id="phone" placeholder="02133352564" [(ngModel)]="reqSignup.phone"
+             formControlName="phone" name="phone" required>
+
+      <div *ngIf="f.phone.invalid && (f.phone.dirty || f.phone.touched)" class="alert alert-danger">
+        <div *ngIf="f.phone.errors.required">
+          شماره تلفتن نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.phone.errors.minlength">
+          شماره تلفتن نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="organizationalUnit">واحد سازمانی</label>
+      <input type="text" class="form-control" id="organizationalUnit" [(ngModel)]="reqSignup.organizationalUnit"
+             formControlName="organizationalUnit" name="organizationalUnit" required>
+
+      <div *ngIf="f.organizationalUnit.invalid && (f.organizationalUnit.dirty || f.organizationalUnit.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.organizationalUnit.errors.required">
+          واحد سازمانی نمیتواند خالی باشد.
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="organizationalLevel">درجه سازمانی</label>
+      <input type="text" class="form-control" id="organizationalLevel" [(ngModel)]="reqSignup.organizationalLevel"
+             formControlName="organizationalLevel" name="organizationalLevel" required>
+
+      <div *ngIf="f.organizationalLevel.invalid && (f.organizationalLevel.dirty || f.organizationalLevel.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.organizationalLevel.errors.required">
+          درجه سازمانی نمیتواند خالی باشد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="mobile">شماره موبایل</label>
+      <input type="text" class="form-control" id="mobile" [(ngModel)]="reqSignup.mobile"
+             formControlName="mobile" name="mobile" (change)="isMobileExists()" required>
+
+      <div *ngIf="f.mobile.invalid && (f.mobile.dirty || f.mobile.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.mobile.errors.required">
+          شماره موبایل نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.mobile.errors.minlength">
+          شماره موبایل نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+        <div *ngIf="f.mobile.errors.minlength">
+          شماره موبایل نمیتواند کمتر از 11 کاراکتر باشد.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="email">ایمیل</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="reqSignup.email"
+             formControlName="email" name="email" (change)="isEmailExists()" required>
+
+      <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.email.errors.required">
+          ایمیل نمیتواند خالی باشد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="password">رمز عبور</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="reqSignup.password"
+             formControlName="password" name="password" required>
+
+      <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.password.errors.required">
+          رمز عبور نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="f.password.errors.minlength">
+          رمز عبور نمیتواند کمتر از 8 کاراکتر باشد.
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="passwordConfirm">تکرار رمز عبور</label>
+      <input type="password" class="form-control" id="passwordConfirm" [(ngModel)]="reqSignup.passwordConfirm"
+             formControlName="passwordConfirm" name="passwordConfirm" (change)="checkPassword()" required>
+
+      <div *ngIf="f.passwordConfirm.invalid && (f.passwordConfirm.dirty || f.passwordConfirm.touched)"
+           class="alert alert-danger">
+        <div *ngIf="f.passwordConfirm.errors.required">
+          تکرار رمز عبور نمیتواند خالی باشد.
+        </div>
+        <div *ngIf="!isPasswordValid">
+          تکرار رمز عبور صحیح نمیباشد.
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">ثبت نام</button>
+
+</form>
+
+
+<!--&lt;!&ndash; The Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="myModal">-->
+<!--  <div class="modal-dialog modal-dialog-centered">-->
+<!--    <div class="modal-content">-->
+
+<!--      &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--      <div class="modal-header">-->
+<!--        <h4 class="modal-title">Modal Heading</h4>-->
+<!--        <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--      <div class="modal-body">-->
+<!--        Modal body..-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

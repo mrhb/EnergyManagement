@@ -1,0 +1,56 @@
+<form style="text-align: right" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm)">
+
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <label><input type="radio" name="type" formControlName="type" [(ngModel)]="reqLogin.type" [value]="'MOBILE'"
+                    checked>با شماره موبایل</label>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label><input type="radio" name="type" formControlName="type" [(ngModel)]="reqLogin.type" [value]="'EMAIL'">با
+        ایمیل</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="username">نام کاربری</label>
+    <input class="form-control" type="text" placeholder="نام کاربری" id="username" [(ngModel)]="reqLogin.username"
+           formControlName="username" name="username" minlength="11" required>
+    <div *ngIf="f.username.invalid && (f.username.dirty || f.username.touched)" class="alert alert-danger">
+      <div *ngIf="f.username.errors.required">
+        نام کاربری نمیتواند خالی باشد.
+      </div>
+      <div *ngIf="f.username.errors.minlength">
+        نام کاربری نمیتواند کمتر از 11 کاراکتر باشد.
+      </div>
+      <div *ngIf="f.username.errors.pattern">
+        نام کاربری وارد شده معتبر نیست.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <label for="password">رمز عبور</label>
+    <input class="form-control" type="password" placeholder="رمز عبور" id="password" [(ngModel)]="reqLogin.password"
+           formControlName="password" name="password" minlength="8" required>
+    <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)" class="alert alert-danger">
+      <div *ngIf="f.password.errors.required">
+        رمز عبور نمیتواند خالی باشد.
+      </div>
+      <div *ngIf="f.password.errors.minlength">
+        رمز عبور نمیتواند کمتر از 8 کاراکتر باشد.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary align-content-center" [disabled]="!loginForm.valid">ورود</button>
+  </div>
+  <span class="col-md-6"><a routerLink="/forgotPassword"
+                                routerLinkActive="active">کلمه عبور را فراموش کرده اید؟</a></span>
+  <span class="col-md-6"><a routerLink="/signup" routerLinkActive="active">ثبت نام</a></span>
+</form>
+

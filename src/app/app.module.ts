@@ -15,15 +15,12 @@ import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
-
 import { ChartsModule } from 'ng2-charts';
-
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SummaryComponent } from './dashboard/mainpanel/summary/summary.component';
 import { PowerGraphComponent } from './dashboard/mainpanel/power-graph/power-graph.component';
-import { MatMenuModule } from '@angular/material/menu';
 import { CardComponent } from './dashboard/mainpanel/card/card.component';
 import { StateChartComponent } from './dashboard/mainpanel/state-chart/state-chart.component';
 import { ProgressBarComponent } from './dashboard/mainpanel/power-graph/progress-bar/progress-bar.component';
@@ -35,13 +32,9 @@ import { AlarmsComponent } from './dashboard/mainpanel/alarms/alarms.component';
 import { MainpanelComponent } from './dashboard/mainpanel/mainpanel.component';
 import { SidepanelComponent } from './sidepanel/sidepanel.component';
 import { GroupsComponent } from './sidepanel/groups/groups.component';
-
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-
-
-
-import { ManagementModule } from  './management/management.module';
-import { TrendsModule } from  './trends/trends.module';
+import { ManagementModule } from './management/management.module';
+import { TrendsModule } from './trends/trends.module';
 import { MonitoredComponent } from './monitored/monitored.component';
 import { MapComponent } from './monitored/map/map.component';
 import { ContentComponent } from './monitored/content/content.component';
@@ -50,19 +43,23 @@ import { TableviewComponent } from './monitored/content/tableview/tableview.comp
 import { IconviewComponent } from './monitored/content/iconview/iconview.component';
 import { ModuleviewComponent } from './monitored/content/moduleview/moduleview.component';
 import { ViewUnitsDirective } from './monitored/content/view-units.directive';
-import{SideComponent} from './monitored/side/side.component';
+import {SideComponent} from './monitored/side/side.component';
 import { MinidetailsComponent } from './monitored/side/minidetails/minidetails.component';
-import { FilterComponent } from './monitored/side/filter/filter.component'
+import { FilterComponent } from './monitored/side/filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './component/user/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import{    MaterialModule} from './app-material.module'
-
+import { MaterialModule } from './app-material.module';
+import { ForgotPasswordComponent } from './component/user/forgot-password/forgot-password.component';
+import { ProfileComponent } from './component/user/profile/profile.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
-import { RegistrationComponent } from './login/registration/registration.component';
+import { SignupComponent } from './component/user/registration/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,7 +88,9 @@ import { RegistrationComponent } from './login/registration/registration.compone
     MinidetailsComponent,
     FilterComponent,
     LoginComponent,
-    RegistrationComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +98,6 @@ import { RegistrationComponent } from './login/registration/registration.compone
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    
     ChartsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -108,7 +106,10 @@ import { RegistrationComponent } from './login/registration/registration.compone
     TrendsModule,
     LeafletModule,
     MatFormFieldModule,
-    MaterialModule
+    MaterialModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
       ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
