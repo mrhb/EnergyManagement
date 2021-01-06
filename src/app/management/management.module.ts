@@ -8,8 +8,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTreeModule} from '@angular/material/tree';
+
 
 
 import { EditModule } from  './edit/edit.module';
@@ -38,6 +41,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 import { InstrumentsComponent } from './instruments/instruments.component';
 import { BillsComponent } from './bills/bills.component';
+import { HierarchyComponent } from './hierarchy/hierarchy.component';
 
 
 
@@ -48,8 +52,8 @@ const  routes:  Routes  = [
   component:  ManagementComponent,
   children: [
     {
-      path:  'groups',
-      component:  GroupsComponent
+      path:  'hierarchy',
+      component:  HierarchyComponent
       },
     {
       path:  'users',
@@ -81,7 +85,7 @@ const  routes:  Routes  = [
 
 
 @NgModule({
-  declarations: [UnitsComponent, UsersComponent, GroupsComponent, ManagementComponent, ActivityComponent, DialogBodyComponent, InstrumentsComponent],
+  declarations: [UnitsComponent, UsersComponent, GroupsComponent, ManagementComponent, ActivityComponent, DialogBodyComponent, InstrumentsComponent, HierarchyComponent],
   imports: [
 
     BrowserModule,
@@ -96,9 +100,11 @@ const  routes:  Routes  = [
     MatCheckboxModule,
     HttpClientModule,
     MatDialogModule,
+    MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
+    MatTreeModule,
 
     FormsModule,
     ReactiveFormsModule,
