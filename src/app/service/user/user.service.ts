@@ -7,6 +7,8 @@ import {map} from 'rxjs/operators';
 import {Constants} from '../../model/enum/constants';
 import {User} from '../../model/user/user';
 import {AbstractControl} from '@angular/forms';
+import {environment} from '@environments/environment';
+import {UpdateProfile} from '@app/model/user/updateProfile';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +52,22 @@ export class UserService {
   // tslint:disable-next-line:typedef
   isEmailExists(email: string) {
     return this.http.get<any>(`${this.USER_API + 'is-email-exists/' + email}`);
+  }
+
+  // tslint:disable-next-line:typedef
+  updateProfile(reqUpdateProfile: UpdateProfile) {
+    console.log('UserService token ' + this.token);
+    let header = new HttpHeaders();
+    header = header.append('Authorization', 'Bearer ' + this.token);
+    return this.http.put<any>(`${this.USER_API + 'update-profile'}`, reqUpdateProfile, {headers: header});
+  }
+
+  // tslint:disable-next-line:typedef
+  uploadProfilePhoto(formData: FormData) {
+    console.log('UserService token ' + this.token);
+    let header = new HttpHeaders();
+    header = header.append('Authorization', 'Bearer ' + this.token);
+    return this.http.put<any>(`${this.USER_API + 'upload-profile-photo'}`, formData, {headers: header});
+
   }
 }

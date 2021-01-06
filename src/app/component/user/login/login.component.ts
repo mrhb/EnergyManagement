@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
           if (result.flag) {
             console.log('data ' + result.data);
             localStorage.setItem(Constants.Authorization.toString(), result.data);
-            this.router.navigateByUrl('/profile');
+            this.router.navigate(['/profile'], {queryParams: {mode: 'show'}, queryParamsHandling: 'merge'});
           } else {
             alert(result.message);
             this.submitted = false;
