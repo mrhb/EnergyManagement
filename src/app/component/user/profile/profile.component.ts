@@ -6,6 +6,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UpdateProfile} from '@app/model/user/updateProfile';
 import {fakeAsync} from '@angular/core/testing';
+import {MatDialog} from '@angular/material/dialog';
+import {ChangePassword} from '@app/model/user/changePassword';
 
 declare var $: any;
 
@@ -37,7 +39,8 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dialog: MatDialog
   ) {
   }
 
@@ -91,7 +94,7 @@ export class ProfileComponent implements OnInit {
               $('#inMobile :input').attr('readonly', true);
               $('#inEmail :input').attr('readonly', true);
               $('#btnUpdateProfile').html('ذخیره');
-            }else {
+            } else {
               this.editMode = false;
               $('#profileForm :input').attr('readonly', true);
               $('#btnUpdateProfile').html('ویرایش');
@@ -124,7 +127,7 @@ export class ProfileComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onProfileUpdateSubmit(profileForm) {
-    if (!this.editMode){
+    if (!this.editMode) {
       this.router.navigate(['/profile'], {queryParams: {mode: 'edit'}, queryParamsHandling: 'merge'});
       return;
     }
@@ -158,5 +161,134 @@ export class ProfileComponent implements OnInit {
           }
         },
         error => console.log(error));
+  }
+
+
+  // tslint:disable-next-line:typedef
+  openChangePasswordDialog() {
+    this.dialog.open(ChangePasswordDialog);
+  }
+
+  // tslint:disable-next-line:typedef
+  openChangeEmailDialog() {
+    this.dialog.open(ChangeEmailDialog);
+  }
+}
+
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'change-password-modal',
+  templateUrl: './modal/change-password-modal.html'
+})
+// tslint:disable-next-line:component-class-suffix
+export class ChangePasswordDialog {
+
+  hideOldPassword = true;
+  hidePassword = true;
+  hidePasswordConfirm = true;
+  isPasswordValid = false;
+
+  reqChangePassword: ChangePassword = new ChangePassword();
+
+  changePasswordForm = this.fb.group({
+    password: new FormControl(this.reqChangePassword.password, [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(24)
+    ]),
+    oldPassword: new FormControl(this.reqChangePassword.oldPassword, [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(24)
+    ]),
+    passwordConfirm: new FormControl(this.reqChangePassword.passwordConfirm, [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(24)
+    ]),
+  });
+
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog,
+    private fb: FormBuilder
+  ) {
+  }
+
+  // tslint:disable-next-line:typedef
+  get f() {
+    return this.changePasswordForm.controls;
+  }
+
+  // tslint:disable-next-line:typedef
+  close() {
+    this.dialog.closeAll();
+  }
+
+  // tslint:disable-next-line:typedef
+  checkRequest(changePasswordForm) {
+    if (changePasswordForm.invalid) {
+      return;
+    }
+    if (!this.isPasswordValid) {
+      return;
+    }
+
+    this.userService
+      .updatePassword(this.reqChangePassword)
+      .subscribe(result => {
+          console.log('data flag' + result.flag);
+          console.log('data data' + result.data);
+          if (result.flag !== null) {
+            if (result.flag) {
+              console.log('data ' + result.data);
+              alert('رمز شما با موفقیت بروز رسانی شد.');
+              this.dialog.closeAll();
+              return;
+            } else {
+              alert(result.message);
+            }
+          }
+        },
+        error => console.log(error));
+  }
+
+  // tslint:disable-next-line:typedef
+  checkPassword() {
+    if (this.reqChangePassword.passwordConfirm.length < 8) {
+      this.isPasswordValid = false;
+      alert('تکرار رمز معتبر نمیباشد.');
+      return;
+    }
+    if (this.reqChangePassword.passwordConfirm !== this.reqChangePassword.password) {
+      this.isPasswordValid = false;
+      alert('تکرار رمز با خود رمز یکسان نمیباشد.');
+      return;
+    } else {
+      this.isPasswordValid = true;
+      return;
+    }
+  }
+
+}
+
+
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'change-email-modal',
+  templateUrl: './modal/change-email-modal.html'
+})
+// tslint:disable-next-line:component-class-suffix
+export class ChangeEmailDialog {
+
+  constructor(
+    private dialog: MatDialog
+  ) {
+  }
+
+  // tslint:disable-next-line:typedef
+  close() {
+    this.dialog.closeAll();
   }
 }

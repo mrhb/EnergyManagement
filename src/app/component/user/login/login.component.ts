@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Login, LoginType} from '../../../model/user/login';
-import {UserService} from '../../../service/user/user.service';
-import {Constants} from '../../../model/enum/constants';
+import {Login} from '@app/model/user/login';
+import {UserService} from '@app/service/user/user.service';
+import {Constants} from '@app/model/enum/constants';
 import {Router} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-
-declare var $: any;
 
 @Component({
   selector: 'app-login',

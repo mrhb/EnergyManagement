@@ -51,16 +51,21 @@ import {LoginComponent} from './component/user/login/login.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {JwtInterceptor, ErrorInterceptor} from './_helpers';
 import {MaterialModule} from './app-material.module';
-import {ForgotPasswordComponent} from './component/user/forgot-password/forgot-password.component';
 import {ProfileComponent} from './component/user/profile/profile.component';
+import {ChangePasswordDialog} from './component/user/profile/profile.component';
+import {ChangeEmailDialog} from './component/user/profile/profile.component';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import { MatStepperModule } from '@angular/material/stepper';
 
 // used to create fake backend
 import {fakeBackendProvider} from './_helpers';
 import {SignupComponent} from './component/user/registration/signup.component';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { ForgetPasswordComponent } from './component/user/forget-password/forget-password.component';
+// import { DialogElementsExampleDialog } from './component/user/forget-password/forget-password.component';
+
 
 @NgModule({
   declarations: [
@@ -91,10 +96,13 @@ import { FileSelectDirective } from 'ng2-file-upload';
     FilterComponent,
     LoginComponent,
     SignupComponent,
-    ForgotPasswordComponent,
     ProfileComponent,
+    ChangePasswordDialog,
+    ChangeEmailDialog,
+    ForgetPasswordComponent
   ],
   imports: [
+    MatStepperModule,
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,

@@ -9,6 +9,7 @@ import {User} from '../../model/user/user';
 import {AbstractControl} from '@angular/forms';
 import {environment} from '@environments/environment';
 import {UpdateProfile} from '@app/model/user/updateProfile';
+import {ChangePassword} from '@app/model/user/changePassword';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,13 @@ export class UserService {
     let header = new HttpHeaders();
     header = header.append('Authorization', 'Bearer ' + this.token);
     return this.http.put<any>(`${this.USER_API + 'upload-profile-photo'}`, formData, {headers: header});
+  }
 
+  // tslint:disable-next-line:typedef
+  updatePassword(reqChangePassword: ChangePassword){
+    console.log('UserService token ' + this.token);
+    let header = new HttpHeaders();
+    header = header.append('Authorization', 'Bearer ' + this.token);
+    return this.http.put<any>(`${this.USER_API + 'update-password'}`, reqChangePassword, {headers: header});
   }
 }
