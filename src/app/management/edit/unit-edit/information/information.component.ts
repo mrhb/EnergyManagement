@@ -7,7 +7,8 @@ import { UnitsService } from '../../../services/units.service';
 import { first, switchMap } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBodyComponent } from '@app/management/dialog-body/dialog-body.component';
-
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
@@ -21,6 +22,10 @@ export class InformationComponent implements OnInit {
   isAddMode: boolean;
   loading = false;
   submitted = false;  
+
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<string[]>;
 
   constructor(
     private UnitsService: UnitsService,
@@ -75,8 +80,18 @@ export class InformationComponent implements OnInit {
             .pipe(first())
             .subscribe(x => this.form.patchValue(x));
     }
-  }
-  resetForm(){
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+
+      
+    } 
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+}
+   resetForm(){
     this.router.navigate(['management/users']);
   }
   // convenience getter for easy access to form fields

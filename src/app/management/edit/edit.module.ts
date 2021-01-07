@@ -5,7 +5,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -22,7 +21,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
@@ -106,6 +108,7 @@ const  routes:  Routes  = [
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatAutocompleteModule,
     MatSelectModule,
     MatCheckboxModule,
     MatTableModule,

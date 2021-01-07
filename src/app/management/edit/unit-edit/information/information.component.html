@@ -1,98 +1,115 @@
 <mat-grid-list cols="3"  rowHeight="100px">
-    <!-- nameformGroup -->
-    <mat-grid-tile colspan="2" rowspan="7">
-        <form [formGroup]="form"  class="form name-state">
-                <mat-form-field class="form-culomn" appearance="fill">
-                    <mat-label>نام ساختمان</mat-label>
-                    <input matInput placeholder="نام ساختمان را وارد کنید" formControlName="name" required>
-                </mat-form-field>
-       
-          <mat-form-field class="form-culomn" appearance="fill">
-              <mat-label>نوع ساختمان </mat-label>
-              <input matInput placeholder=" اداری، مسکونی" formControlName="type" required>
-          </mat-form-field>
- 
-          <mat-form-field class="form-culomn" appearance="fill">
-                <mat-label>آدرس ساختمان   </mat-label>
-                <input matInput placeholder=" تهران، خیابان ..." formControlName="addrres" required>
-            </mat-form-field>
-               <mat-form-field class="form-culomn" appearance="fill">
-              <mat-label>مساحت کل    </mat-label>
-              <input matInput placeholder=" متر مربع" formControlName="totalArea" required>
-          </mat-form-field>
-          <mat-form-field class="form-culomn" appearance="fill">
-            <mat-label>سال ساخت    </mat-label>
-            <input matInput placeholder=" سال شمسی" formControlName="yearConst" required>
-        </mat-form-field>
+  <!-- nameformGroup -->
+  <mat-grid-tile colspan="2" rowspan="7">
+      <form [formGroup]="form"  class="form name-state">
+              <mat-form-field class="form-culomn" appearance="fill">
+                  <mat-label>نام ساختمان</mat-label>
+                  <input matInput placeholder="نام ساختمان را وارد کنید" formControlName="name" required>
+              </mat-form-field>
+     
         <mat-form-field class="form-culomn" appearance="fill">
-          <mat-label>جنس دیوارها    </mat-label>
-          <input matInput placeholder="آجری، بتنی... " formControlName="walMater" required>
-      </mat-form-field>
+            <mat-label>نوع ساختمان </mat-label>
+            <input matInput placeholder=" اداری، مسکونی" formControlName="type" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-culomn" appearance="fill">
+              <mat-label>آدرس ساختمان   </mat-label>
+              <input matInput placeholder=" تهران، خیابان ..." formControlName="addrres" required>
+          </mat-form-field>
+             <mat-form-field class="form-culomn" appearance="fill">
+            <mat-label>مساحت کل    </mat-label>
+            <input matInput placeholder=" متر مربع" formControlName="totalArea" required>
+        </mat-form-field>
+
+          <mat-form-field class="form-culomn" appearance="fill">
+          <mat-label>سال ساخت    </mat-label>
+          <input matInput placeholder=" سال شمسی" formControlName="yearConst" required>
+        </mat-form-field>
+        
+       <!-- [formControl]="myControl" -->
       <mat-form-field class="form-culomn" appearance="fill">
-        <mat-label>جنس کف    </mat-label>
-        <input matInput placeholder="سیمان، موزائیک " formControlName="flurMater" required>
+        <input type="text"
+             placeholder="جنس دیوارها"
+             aria-label="Number"
+             matInput
+             [formControlName]="myControl"
+             [matAutocomplete]="auto" >
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option> 
+      </mat-autocomplete>
     </mat-form-field>
+
+      <!-- <mat-form-field class="form-culomn" appearance="fill">
+        <mat-label>جنس دیوارها    </mat-label>
+        <input matInput placeholder="آجری، بتنی... " formControlName="walMater" required>
+    </mat-form-field>
+     -->
     <mat-form-field class="form-culomn" appearance="fill">
-      <mat-label>جنس سقف    </mat-label>
-      <input matInput placeholder=" کناف، آجر، رابیتس" formControlName="rufmater" required>
+      <mat-label>جنس کف    </mat-label>
+      <input matInput placeholder="سیمان، موزائیک " formControlName="flurMater" required>
   </mat-form-field>
   <mat-form-field class="form-culomn" appearance="fill">
-    <mat-label>جنس شیشه    </mat-label>
-    <input matInput placeholder="معمولی، دوجداره " formControlName="glasMater" required>
+    <mat-label>جنس سقف    </mat-label>
+    <input matInput placeholder=" کناف، آجر، رابیتس" formControlName="rufmater" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">
-  <mat-label>تعداد طبقات    </mat-label>
-  <input matInput placeholder=" عدد" formControlName="numFlur" required>
+  <mat-label>جنس شیشه    </mat-label>
+  <input matInput placeholder="معمولی، دوجداره " formControlName="glasMater" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">
-  <mat-label>سیستم سرمایش    </mat-label>
-  <input matInput placeholder=" کولر، پکیج، " formControlName="cullSys" required>
+<mat-label>تعداد طبقات    </mat-label>
+<input matInput placeholder=" عدد" formControlName="numFlur" required>
+</mat-form-field>
+<mat-form-field class="form-culomn" appearance="fill">
+<mat-label>سیستم سرمایش    </mat-label>
+<input matInput placeholder=" کولر، پکیج، " formControlName="cullSys" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">  
 <mat-label> سیستم گرمایش    </mat-label>
-  <input matInput placeholder="بخاری، پکیج، گرمایش از کف " formControlName="heatSys" required>
+<input matInput placeholder="بخاری، پکیج، گرمایش از کف " formControlName="heatSys" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">  
 <mat-label> متراژ تهویه شده    </mat-label>
-  <input matInput placeholder=" مترمربع" formControlName="areaVntl" required>
+<input matInput placeholder=" مترمربع" formControlName="areaVntl" required>
 </mat-form-field>
-  <mat-form-field class="form-culomn" appearance="fill">      
-  <mat-label> متراژ تهویه نشده    </mat-label>
-  <input matInput placeholder="مترمربع " formControlName="areaUnVntl" required>
-</mat-form-field>
-<mat-form-field class="form-culomn" appearance="fill">  
-  <mat-label> متراژ دیوارهای تهویه شده    </mat-label>
-  <input matInput placeholder="مترمربع " formControlName="walAreaVntl" required>
+<mat-form-field class="form-culomn" appearance="fill">      
+<mat-label> متراژ تهویه نشده    </mat-label>
+<input matInput placeholder="مترمربع " formControlName="areaUnVntl" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">  
-  <mat-label> متراژ دیوارهای تهویه نشده    </mat-label>
-  <input matInput placeholder="مترمربع " formControlName="walAreaUnVntl" required>
+<mat-label> متراژ دیوارهای تهویه شده    </mat-label>
+<input matInput placeholder="مترمربع " formControlName="walAreaVntl" required>
 </mat-form-field>
 <mat-form-field class="form-culomn" appearance="fill">  
-  <mat-label> مساحت پنجره ها    </mat-label>
-  <input matInput placeholder="مترمربع " formControlName="winArea" required>
-  </mat-form-field>
-   <mat-form-field class="form-culomn" appearance="fill">  
+<mat-label> متراژ دیوارهای تهویه نشده    </mat-label>
+<input matInput placeholder="مترمربع " formControlName="walAreaUnVntl" required>
+</mat-form-field>
+<mat-form-field class="form-culomn" appearance="fill">  
+<mat-label> مساحت پنجره ها    </mat-label>
+<input matInput placeholder="مترمربع " formControlName="winArea" required>
+</mat-form-field>
+ <mat-form-field class="form-culomn" appearance="fill">  
 <mat-label> بانک خازنی    </mat-label>
-  <input matInput placeholder="KVAR کیلووار" formControlName="capBank" required>
+<input matInput placeholder="KVAR کیلووار" formControlName="capBank" required>
 </mat-form-field> 
- 
+
 </form>
 </mat-grid-tile>
 </mat-grid-list>
 
-  <mat-toolbar class="footing-toolbar" >  
-    <button   mat-flat-button color="warn" (click)="onDelete()" class="btndelete" >
-      <span class="material-icons"  >delete_forever</span>حذف
-    </button > 
-    <button   mat-flat-button color="warn"  (click)="onSubmit()">
-      <span class="material-icons" >save</span>ذخیره
-    </button >
-    
-    <button  type="button" mat-flat-button color="warn">
-      <span class="material-icons"  >restore</span>بازنشانی
-    </button >
-  </mat-toolbar>
+<mat-toolbar class="footing-toolbar" >  
+  <button   mat-flat-button color="warn" (click)="onDelete()" class="btndelete" >
+    <span class="material-icons"  >delete_forever</span>حذف
+  </button > 
+  <button   mat-flat-button color="warn"  (click)="onSubmit()">
+    <span class="material-icons" >save</span>ذخیره
+  </button >
+  
+  <button  type="button" mat-flat-button color="warn">
+    <span class="material-icons"  >restore</span>بازنشانی
+  </button >
+</mat-toolbar>
 
-  
-  
+
