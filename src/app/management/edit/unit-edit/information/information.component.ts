@@ -23,8 +23,8 @@ export class InformationComponent implements OnInit {
   loading = false;
   submitted = false;  
 
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
+  walMater = new FormControl();
+  options: string[] = ['آجری', 'بتنی', 'شنی'];
   filteredOptions: Observable<string[]>;
 
   constructor(
@@ -52,7 +52,7 @@ export class InformationComponent implements OnInit {
         type: ['', Validators.required], 
         addrres : ['', Validators.required], 
         yearConst: ['', Validators.required], 
-        walMater: ['', Validators.required], 
+        walMater: this.walMater, 
         flurMater: ['', Validators.required], 
         rufmater: ['', Validators.required],
         glasMater: ['', Validators.required],
@@ -80,7 +80,7 @@ export class InformationComponent implements OnInit {
             .pipe(first())
             .subscribe(x => this.form.patchValue(x));
     }
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredOptions = this.walMater.valueChanges.pipe(
         startWith(''),
         map(value => this._filter(value))
       );
