@@ -1,0 +1,33 @@
+<!--<div class="row" dir="{{ALL|i18ndir}}">-->
+<!--  <div class="col-2">-->
+<!--    <span>-->
+<!--      {{title ? title : (mode === 'CREATE' ? ('crud.upsert.create.header.title' | i18n) : ('crud.upsert.update.header.title' | i18n))  }}-->
+<!--    </span>-->
+<!--  </div>-->
+<!--  <div class="col-8">-->
+
+<!--  </div>-->
+<!--  <div class="col-2">-->
+<!--    <button-->
+<!--      class="btn-back"-->
+<!--      (click)="back()">-->
+<!--      {{backTitle ? backTitle : 'crud.upsert.back.title' | i18n }}-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--  <ng-content></ng-content>-->
+<!--</div>-->
+<!--<div class="row">-->
+<!--  <button-->
+<!--    class="btn-save"-->
+<!--    (click)="upsert()">-->
+<!--    {{title ? title : (mode === 'CREATE' ? ('crud.upsert.create.title' | i18n) : ('crud.upsert.update.title' | i18n))  }}-->
+<!--  </button>-->
+<!--</div>-->
+<div class="form-group d-flex justify-content-between">
+  <button type="submit" class="btn btn-save">
+      {{mode === upsertMode.CREATE ? 'Register' : 'Update' }}
+  </button>
+  <button type="button" class="btn btn-back" (click)="back()">back</button>
+</div>

@@ -1,0 +1,25 @@
+.search-box {
+  display: flex;
+  background-color: transparent;
+
+  i {
+    color: #949393;
+    margin-left: -6px;
+    background-color: #f0f0f0;
+    padding: 11px 11px 12px 16px;
+    border-radius: 0 6px 6px 0;
+  }
+
+  input {
+    border: transparent;
+    background-color: #f0f0f0;
+    margin: 0;
+    border-radius: 6px 0 0 6px;
+    box-shadow: unset;
+
+    &::placeholder {
+      font-size: 0.95rem;
+    }
+  }
+
+}

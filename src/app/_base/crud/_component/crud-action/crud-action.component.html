@@ -1,0 +1,15 @@
+<div class="row" dir="{{null|i18ndir}}">
+  <div class="col-4">
+    <span>{{title}}</span>
+  </div>
+
+  <div class="col-8">
+    <button
+      class="btn btn-add"
+      [routerLink]="[routerLink ? routerLink : 'upsert']"
+      [queryParams]="queryParams"
+      style="float: left; margin-top: -5px">{{createTitle ? createTitle : 'crud.upsert.create.title' | i18n }}</button>
+    <ng-content></ng-content>
+  </div>
+
+</div>

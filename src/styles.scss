@@ -1,1 +1,291 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'IRANSansWeb';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/iransans/IRANSansWeb.eot');
+  src: url('assets/fonts/iransans/IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/iransans/IRANSansWeb.woff2') format('woff2'),
+  url('assets/fonts/iransans/IRANSansWeb.woff') format('woff'),
+  url('assets/fonts/iransans/IRANSansWeb.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'IRANSansWeb-fa';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/iransans/persian-number/IRANSansWeb(FaNum).eot');
+  src: url('assets/fonts/iransans/persian-number/IRANSansWeb(FaNum).eot?#iefix') format('embedded-opentype'),
+  url('assets/fonts/iransans/persian-number/IRANSansWeb(FaNum).woff2') format('woff2'),
+  url('assets/fonts/iransans/persian-number/IRANSansWeb(FaNum).woff') format('woff'),
+  url('assets/fonts/iransans/persian-number/IRANSansWeb(FaNum).ttf') format('truetype');
+}
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+body, div, table, label, button, span, a, p, legend, input, strong,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IRANSansWeb';
+  text-decoration: none;
+}
+
+.persian-number *:not(.fa) {
+  font-family: 'IRANSansWeb-fa' !important;
+}
+
+// Global
+html[dir="rtl"] body,
+html[dir="rtl"] table,
+html[dir="rtl"] label,
+html[dir="rtl"] button,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] p,
+html[dir="rtl"] legend,
+html[dir="rtl"] input
+{
+  text-align: right;
+  direction: rtl;
+}
+
+//scroll
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/*
+ * start custom style
+ */
+@import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('assets/style/variables.scss');
+.btn {
+  min-width: 100px;
+}
+
+h1 {
+  font-size: 1.6rem !important;
+}
+
+form {
+  .form-label {
+    margin-bottom: 2px;
+  }
+  .form-control:valid, .form-control:valid, .form-control:-webkit-autofill  {
+    background-color:  #ffffff !important;
+  }
+}
+
+.highlight-style {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 7px 10px;
+  background-image: linear-gradient(to right, #6813ff 0%, #5a13d6 100%);
+  box-shadow: 0 4px 10px rgba(241,28,81,.2);
+  color: #ffffff;
+  min-width: 120px;
+  display: inline-block;
+  text-decoration: none !important;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #ffffff;
+    background-image: linear-gradient(to right, #5513c6 0%, #5a13c9 100%);
+  }
+}
+
+.form-control.ng-invalid.ng-touched {
+  border: 1px solid #dd2038;
+}
+.btn {
+  .notiflix-block-wrap {
+    width: calc(100% + 2px) !important;
+    height: calc(100% + 2px) !important;
+    top: -1px !important;
+    left: -1px !important;
+  }
+}
+*.notiflix-block-position {
+  min-height: 30px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.sub-title-header {
+  font-size: 13px;
+  color: #555555;
+}
+
+form .invalid-alert {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+
+//Add this to your css/scss File
+::ng-deep {
+  .cdk-overlay-container,
+  .cdk-global-overlay-wrapper {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .cdk-overlay-container {
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .cdk-overlay-pane {
+    position: absolute;
+    pointer-events: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.table-responsive {
+  min-height: 65vh !important;
+}
+
+// switch toggle
+.switch-input {
+  display: none;
+}
+
+.switch-label {
+  position: relative;
+  display: inline-block;
+  //min-width: 112px;
+  cursor: pointer !important;
+  font-weight: 500;
+  text-align: left;
+  /*margin: 4px;*/
+  padding: 1px 0 1px 44px;
+}
+
+.switch-label:before, .switch-label:after {
+  content: "";
+  position: absolute;
+  margin: 0;
+  outline: 0;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.switch-label:before {
+  left: 1px;
+  width: 34px;
+  height: 14px;
+  background-color: #9a9a9e;
+  border-radius: 8px;
+}
+
+.switch-label:after {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: #FAFAFA;
+  border-radius: 50%;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+}
+
+.switch-label .toggle--on {
+  display: none;
+}
+
+.switch-label .toggle--off {
+  display: inline-block;
+}
+
+.switch-input:checked + .switch-label:before {
+  background-color: #A5D6A7;
+}
+
+.switch-input:checked + .switch-label:after {
+  background-color: #4CAF50;
+  -ms-transform: translate(80%, -50%);
+  -webkit-transform: translate(80%, -50%);
+  transform: translate(80%, -50%);
+}
+
+.switch-input:checked + .switch-label .toggle--on {
+  display: inline-block;
+}
+
+.switch-input:checked + .switch-label .toggle--off {
+  display: none;
+}
+
+
+.btn-filter {
+  display: flex;
+  padding: 0.3758rem;
+  justify-content: center;
+  border: 2px solid #222222;
+  align-items: center;
+  border-radius: 5px;
+  background: #fff;
+  width: 36px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  outline: none !important;
+
+  &:hover {
+    color: #ffffff;
+    background-color: #222222;
+  }
+}
+
+fieldset.fieldset-border {
+  border: 1px solid #e0e5e6 !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  border-radius: .25rem;
+
+  legend {
+    width:auto;
+    font-size: 18px;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    border-radius: .25rem;
+    border: 1px solid #ddd;
+  }
+}

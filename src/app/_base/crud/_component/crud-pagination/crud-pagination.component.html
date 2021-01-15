@@ -1,0 +1,51 @@
+<div class="row" dir="{{null | i18ndir}}">
+  <div class="col-2">
+    <ng-select
+      style="width: 80%"
+      id="sizeListKeyValue"
+      name="sizeListKeyValue"
+      bindLabel="value"
+      bindValue="key"
+      [items]="sizeListKeyValue"
+      [(ngModel)]="pagination.size"
+      (change)="setSizeKey($event)"
+    ></ng-select>
+
+  </div>
+  <div class="col-8">
+    <pagination
+
+      [totalItems]="pagination.totalElements"
+      [itemsPerPage]="pagination.size"
+      (pageChanged)="changePage($event)"
+      [boundaryLinks]="true"
+      [previousText]="'&lsaquo;'"
+      [nextText]="'&rsaquo;'"
+      [firstText]="'&laquo;'"
+      [lastText]="'&raquo;'"
+    >
+    </pagination>
+  </div>
+  <div class="col-3">
+    <ng-content></ng-content>
+  </div>
+</div>
+
+
+<!--  <pagination-->
+<!--    [maxSize]="maxSizeBtn"-->
+<!--    [firstText]="firstText"-->
+<!--    [lastText]="lastText"-->
+<!--    [previousText]="prevText"-->
+<!--    [nextText]="nextText"-->
+<!--    [itemsPerPage]="perPage"-->
+<!--    [boundaryLinks]="showBoundaryLinks"-->
+<!--    [totalItems]="totalItems"-->
+<!--    [(ngModel)]="currentPage"-->
+<!--    (pageChanged)="pageChanged($event)"-->
+<!--    (numPages)="smallnumPages = $event"-->
+<!--    id="comp-pagination"-->
+<!--    class="my-pagination"-->
+<!--  ></pagination>-->
+
+
