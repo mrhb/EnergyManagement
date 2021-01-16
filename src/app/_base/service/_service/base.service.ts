@@ -23,6 +23,13 @@ export class BaseService {
     );
   }
 
+
+  postFile(suffixPath: string, body: any, options?: RestOptions): Observable<any> {
+    return this.http.post( suffixPath, body, this.getOption(options)).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   put(suffixPath: string, body: any, options?: RestOptions): Observable<any> {
     return this.http.put(this.prefixPath + suffixPath, body, this.getOption(options));
   }
@@ -63,8 +70,10 @@ export class BaseService {
    */
   private getHeader(options: RestOptions): HttpHeaders {
 
-    this.token = CacheService.getLocalStorage(TOKEN_CACHE_KEY);
+    // this.token = CacheService.getLocalStorage(TOKEN_CACHE_KEY);
+    this.token = localStorage.getItem(TOKEN_CACHE_KEY);
     let result = new HttpHeaders();
+    console.log(' options.headers', options.headers);
     if (options.headers === null || options.headers === undefined) {
       result = DEFAULT_HTTP_HEADERS;
     } else {
@@ -111,4 +120,6 @@ export class BaseService {
     // window.alert(errorMessage);
     return throwError(error);
   }
+
+
 }

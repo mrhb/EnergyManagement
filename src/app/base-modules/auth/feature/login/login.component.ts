@@ -32,7 +32,8 @@ export class LoginComponent implements OnInit {
               private formBuilder: FormBuilder,
               private jwtService: JwtService,
               private router: Router) {
-    const accessToken = CacheService.getLocalStorage(TOKEN_CACHE_KEY);
+
+    const accessToken = localStorage.getItem(TOKEN_CACHE_KEY);
     if (!Tools.isNullOrUndefined(accessToken)) {
       this.routingToPanel(accessToken);
     }
@@ -61,7 +62,8 @@ export class LoginComponent implements OnInit {
       if (res) {
         Notiflix.Block.Remove('#loginBtn');
         if (res.flag) {
-          CacheService.setLocalStorage(TOKEN_CACHE_KEY, res.data);
+          // CacheService.setLocalStorage(TOKEN_CACHE_KEY, res.data);
+          localStorage.setItem(TOKEN_CACHE_KEY, res.data);
           this.routingToPanel(res.data);
         } else {
           Notiflix.Notify.Failure(res.message);
@@ -79,6 +81,10 @@ export class LoginComponent implements OnInit {
   }
 
   routingToPanel(accessToken): void {
+    console.log('accessToken', accessToken);
+    if (!accessToken) {
+      return;
+    }
     this.decodedToken = this.jwtService.decode(accessToken);
     const role = this.decodedToken.authorities;
     console.log('this.decodedToken', this.decodedToken);

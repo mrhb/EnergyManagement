@@ -9,17 +9,17 @@ import {BaseGuardService} from '../service/guard/baseGuard.service';
 import {CustomGuardService} from '../service/guard/custumGuard.service';
 import {UserGuardService} from '../service/guard/user-guard.service';
 import {AdminGuardService} from '../service/guard/adminGuard.service';
-import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [JwtService, AdminGuardService, UserGuardService, CustomGuardService, BaseGuardService],
   bootstrap: [AppComponent]

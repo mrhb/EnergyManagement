@@ -1,0 +1,10 @@
+.box-image {
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 0 10px 0 #8c9094;
+  border-radius: 50%;
+  overflow: hidden;
+  img {
+    width: 100%;
+  }
+}

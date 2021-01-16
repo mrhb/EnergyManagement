@@ -1,1 +1,195 @@
-<p>profile works!</p>
+<div class="col-12">
+  <h1>
+    <strong>پروفایل </strong>
+  </h1>
+  <p class="sub-title-header">
+    اطلاعات پروفایل
+  </p>
+  <hr>
+  <div class="w-100 d-flex justify-content-center mb-3">
+    <div class="box-image">
+      <img [src]="profile.photo" *ngIf="profile.photo && profile.photo !== ' '" alt="">
+      <img src="../../../../../assets/image/user.jpg" *ngIf="!profile.photo || profile.photo === ' '" alt="">
+    </div>
+  </div>
+
+  <div class="w-100 d-flex justify-content-center mb-3">
+    <app-upload-file (uploadFileDomainOut)="uploading($event)"></app-upload-file>
+  </div>
+
+  <form [formGroup]="form" class="w-100" (ngSubmit)="updateProfile()">
+    <div class="form row">
+      <div class="mb-4 col-md-6">
+
+        <div class="w-100">
+          <label for="firstName" class="form-label">نام</label>
+          <input class="form-control text-right" id="firstName" placeholder=""
+                 [(ngModel)]="profile.firstName"
+                 formControlName="firstName"
+                 name="firstName"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['firstName']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-6">
+        <div class="w-100">
+          <label for="lastName" class="form-label">نام خانوادگی</label>
+          <input class="form-control text-right" id="lastName" placeholder=""
+                 [(ngModel)]="profile.lastName"
+                 formControlName="lastName"
+                 name="lastName"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['lastName']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-6">
+        <div class="w-100">
+          <label for="phone" class="form-label">شماره تلفن ثابت</label>
+          <input class="form-control text-right" id="phone" placeholder="021-12345678"
+                 maxlength="12"
+                 [(ngModel)]="profile.phone"
+                 formControlName="phone"
+                 name="phone"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['phone']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-6">
+        <div class="w-100">
+          <label for="organizationalUnit" class="form-label">واحد سازمانی</label>
+          <input class="form-control text-right" id="organizationalUnit" placeholder=""
+                 [(ngModel)]="profile.organizationalUnit"
+                 formControlName="organizationalUnit"
+                 name="organizationalUnit"
+                 maxlength="11"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['organizationalUnit']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-4">
+        <div class="w-100">
+          <label for="organizationalLevel" class="form-label">رتبه سازمانی</label>
+          <input class="form-control text-right" id="organizationalLevel" placeholder=""
+                 [(ngModel)]="profile.organizationalLevel"
+                 formControlName="organizationalLevel"
+                 name="organizationalLevel"
+                 maxlength="11"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-4">
+        <div class="w-100">
+          <label for="province" class="form-label">استان</label>
+          <input class="form-control text-right" id="province" placeholder=""
+                 [(ngModel)]="profile.province"
+                 formControlName="province"
+                 name="province"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['province']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-4">
+        <div class="w-100">
+          <label for="city" class="form-label">شهر</label>
+          <input class="form-control text-right" id="city" placeholder=""
+                 [(ngModel)]="profile.city"
+                 formControlName="city"
+                 name="city"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-12">
+        <div class="w-100">
+          <label for="address" class="form-label">آدرس</label>
+          <textarea class="form-control text-right" id="address" placeholder=""
+                    [(ngModel)]="profile.address"
+                    formControlName="address"
+                    name="address"
+          ></textarea>
+        </div>
+        <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="submitForm btn btn-primary text-center ml-3">ویرایش</button>
+      </div>
+
+    </div>
+  </form>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <hr class="m-1">
+    </div>
+    <div class="col-12 mb-4 mt-3">
+      <strong>اطلاعات سیستمی</strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <fieldset class="fieldset-border">
+        <legend>ایمیل</legend>
+        <form [formGroup]="emailForm" (ngSubmit)="emailUpdate()">
+          <div class="row">
+            <div class="mb-4 col-md-8">
+              <div class="w-100">
+                <label for="email" class="form-label">ایمیل</label>
+                <input class="form-control text-right" id="email" placeholder=""
+                       [(ngModel)]="email"
+                       formControlName="email"
+                       name="email"
+                >
+              </div>
+              <app-alert-error [data]="emailForm.controls['email']"></app-alert-error>
+            </div>
+          </div>
+          <button type="submit" class="submitForm btn btn-primary text-center ml-3">ویرایش ایمیل</button>
+        </form>
+      </fieldset>
+    </div>
+
+    <div class="col-md-6">
+      <fieldset class="fieldset-border">
+        <legend>رمزعبور</legend>
+        <form [formGroup]="passForm" (ngSubmit)="passwordUpdate()">
+          <div class="row">
+            <div class="mb-4 col-md-6">
+              <div class="w-100">
+                <label for="password" class="form-label">رمزعبور</label>
+                <input class="form-control text-right" type="password" id="password" placeholder=""
+                       [(ngModel)]="password.password"
+                       formControlName="password"
+                       name="password"
+                >
+              </div>
+              <app-alert-error [data]="passForm.controls['password']"></app-alert-error>
+            </div>
+            <div class="mb-4 col-md-6">
+              <div class="w-100">
+                <label for="passwordConfirm" class="form-label">تکرار رمزعبور</label>
+                <input class="form-control text-right" id="passwordConfirm" placeholder=""
+                       type="password"
+                       [(ngModel)]="password.passwordConfirm"
+                       formControlName="passwordConfirm"
+                       name="passwordConfirm"
+                >
+              </div>
+              <app-alert-error [data]="passForm.controls['passwordConfirm']"></app-alert-error>
+              <div class="invalid-alert"
+                   *ngIf="(passForm.controls['passwordConfirm'].touched || touched) && passForm.controls['passwordConfirm'].hasError('passwordMismatch')">رمز عبور یکسان نیست!</div>
+            </div>
+          </div>
+          <button type="submit" class="submitForm btn btn-primary text-center ml-3">ویرایش رمزعبور</button>
+        </form>
+      </fieldset>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
