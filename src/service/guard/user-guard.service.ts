@@ -11,8 +11,8 @@ export class UserGuardService implements CanActivate {
   canActivate(): boolean {
     const accessToken = localStorage.getItem('TOKEN');
     this.decodedToken = this.jwtService.decode(accessToken);
-    const role = this.decodedToken.authorities[0].authority;
-
+    const role = this.decodedToken.authorities;
+    console.log('role', role);
     if (role === ROLE_USER ) {
       return true;
     } else {

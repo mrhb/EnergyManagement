@@ -1,23 +1,28 @@
 import {JwtService} from "./jwt.service";
 import {Injectable, Injector}                                              from "@angular/core";
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree} from "@angular/router";
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
+import {Tools} from "../../app/shared/tools/tools";
 @Injectable()
 export class CustomGuardService implements CanActivate {
-  constructor(private jwtService: JwtService, private injector: Injector) {
+  decodedToken: any;
+  constructor(private jwtService: JwtService, private injector: Injector, private router: Router) {
+
   }
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean | UrlTree> {
-    let guards = route.data.guards || [];
-    console.log('guards', guards);
-    for (let guard of guards) {
-      let instance: CanActivate = this.injector.get(guard);
-      let result = await instance.canActivate(route, state);
-      console.log('CanActivate', result);
-      if (result === false || result instanceof UrlTree) {
-        return result;
-      }
+    const accessToken = localStorage.getItem('TOKEN');
+    let result = false;
+    if (accessToken !== 'null') {
+      this.decodedToken = this.jwtService.decode(accessToken);
+      const role = this.decodedToken.authorities;
+      const guards = route.data.guards || [];
+      result = guards.some(e => e === role);
     }
-    return true;
+
+    if (!result) {
+      this.router.navigate(['/auth']);
+    }
+    return result;
   }
 
 

@@ -84,11 +84,11 @@ export class LoginComponent implements OnInit {
     console.log('this.decodedToken', this.decodedToken);
     console.log('role', role);
     if (role === ROLE_ADMIN) {
-      // this.router.navigateByUrl('/index/admin');
-      this.router.navigate(['/index/admin']);
+      this.router.navigateByUrl('/index/admin');
+      // this.router.navigate(['/index/admin']);
     } else if (role === ROLE_USER) {
-      // this.router.navigateByUrl('/index/user');
-      this.router.navigate(['/index/user']);
+      this.router.navigateByUrl('/index/user');
+      // this.router.navigate(['/index/user']);
     }
   }
 

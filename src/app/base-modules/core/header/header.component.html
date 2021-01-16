@@ -1,11 +1,12 @@
 <div class="main-header">
   <div class="brand-logo">
-    <strong>مهدوی</strong>
+    <strong>انرژی</strong>
   </div>
   <div class="d-flex align-items-center">
     <div class="user-info">
-      <span class="ml-1">ادمین</span>
-      <img src="../../../../../../assets/images/user.jpg" alt="">
+      <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
+      <span class="ml-1" *ngIf="role === 'user'">کاربر</span>
+      <img src="../../../../../../assets/image/user.jpg" alt="">
     </div>
     <div class="logout cursor-pointer d-flex mr-3">
       <div class="fa fa-power-off" (click)="logOut()"></div>

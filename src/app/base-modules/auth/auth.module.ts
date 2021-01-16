@@ -22,7 +22,6 @@ import {CheckUserService} from './service/checkUserService';
     AlertErrorModule,
     ReactiveFormsModule
   ],
-  exports: [ForgotPasswordComponent, SignupComponent, LoginComponent],
   providers: [AuthService, CheckUserService]
 })
 export class AuthModule { }
