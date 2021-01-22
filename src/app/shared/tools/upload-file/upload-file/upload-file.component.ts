@@ -21,7 +21,7 @@ export class UploadFileComponent implements OnInit {
   }
 
   uploadFileToActivity(): any {
-    const baseUrlLink = GATEWAY_URL + '/api/file/get?link=';
+
     this.loader = true;
     const formData: FormData = new FormData();
     formData.append('file', this.fileToUpload);
@@ -33,7 +33,7 @@ export class UploadFileComponent implements OnInit {
     this.uploadFileService.postFile(this.fileToUpload).subscribe(data => {
       this.loader = false;
       if (data.flag) {
-        this.uploadFileDomainOut.emit(baseUrlLink + data.data);
+        this.uploadFileDomainOut.emit(data.data);
       }
     }, error => {
       this.loader = false;

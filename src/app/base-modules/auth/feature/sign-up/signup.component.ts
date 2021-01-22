@@ -83,17 +83,19 @@ export class SignupComponent implements OnInit {
       return;
     }
     this.checkUserService.userSignUp(this.dto, '.submitForm').subscribe((res: any) => {
-      Notiflix.Block.Remove('.submitForm');
       if (res) {
+        console.log('res', res);
+        Notiflix.Block.Remove('.submitForm');
         if (res.flag && res.data) {
+          console.log('res.flag', res.flag);
           Notiflix.Notify.Success('ثبت نام با موفقیت انجام شد');
           setTimeout(() => {
             Notiflix.Block.Init({});
             this.router.navigateByUrl('/');
           }, 300);
+        } else {
+          Notiflix.Notify.Failure(res.message);
         }
-      } else {
-        Notiflix.Notify.Failure(res.message);
       }
     });
   }

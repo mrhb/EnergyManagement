@@ -5,7 +5,11 @@ import {ProfileComponent} from './profile/feature/profile.component';
 const routes: Routes = [
   {
     path: '',
-    component: ProfileComponent
+    component: ProfileComponent,
+  },
+  {
+    path: 'configuration',
+    loadChildren: async () => await import ('../user/configuration/configuration.module').then(m => m.ConfigurationModule),
   },
 ];
 

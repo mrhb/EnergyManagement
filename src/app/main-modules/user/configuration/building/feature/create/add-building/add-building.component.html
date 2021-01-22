@@ -1,0 +1,124 @@
+<form [formGroup]="form" class="w-100" (ngSubmit)="updateBuilding()">
+  <div class="form row">
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="name" class="form-label">نام ساختمان</label>
+        <input class="form-control text-right" id="name" placeholder=""
+               [(ngModel)]="buildingDto.name"
+               formControlName="name"
+               name="name"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="useType" class="form-label">کاربری</label>
+        <select name="useType" id="useType"
+                class="form-control text-right"
+                formControlName="useType"
+                [(ngModel)]="buildingDto.useType">
+          <option [value]="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">
+            مسکونی
+          </option>
+          <option [value]="useTypeEnum[useTypeEnum.COMMERCIA].toString()">
+            تجاری
+          </option>
+          <option [value]="useTypeEnum[useTypeEnum.OFFICIAL].toString()">
+            اداری
+          </option>
+        </select>
+      </div>
+      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="constructionYear" class="form-label">سال ساخت</label>
+        <input class="form-control text-right" id="constructionYear" placeholder=""
+               maxlength="12"
+               [(ngModel)]="buildingDto.constructionYear"
+               formControlName="constructionYear"
+               name="constructionYear"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['constructionYear']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="floorNum" class="form-label">تعداد طبقات</label>
+        <input class="form-control text-right" id="floorNum" placeholder=""
+               [(ngModel)]="buildingDto.floorNum "
+               formControlName="floorNum"
+               name="floorNum"
+               maxlength="3"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="exploitationPersonnelNum" class="form-label">تعداد نفرات بهره بردار</label>
+        <input class="form-control text-right" id="exploitationPersonnelNum" placeholder=""
+               [(ngModel)]="buildingDto.exploitationPersonnelNum"
+               formControlName="exploitationPersonnelNum"
+               name="exploitationPersonnelNum"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exploitationPersonnelNum']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="postalCode" class="form-label">کد پستی</label>
+        <input class="form-control text-right" id="postalCode" placeholder=""
+               maxlength="10"
+               minlength="10"
+               [(ngModel)]="buildingDto.postalCode"
+               formControlName="postalCode"
+               name="postalCode"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
+    </div>
+
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="ownership" class="form-label">مالکیت</label>
+        <input class="form-control text-right" id="ownership" placeholder=""
+               [(ngModel)]="buildingDto.ownership"
+               formControlName="ownership"
+               name="ownership"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
+    </div>
+
+    <div class="mb-4 col-md-3">
+      <div class="w-100">
+        <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
+        <input class="form-control text-right" id="coolingHeatingSystemType" placeholder=""
+               [(ngModel)]="buildingDto.coolingHeatingSystemType"
+               formControlName="coolingHeatingSystemType"
+               name="coolingHeatingSystemType"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['coolingHeatingSystemType']" [touched]="touched"></app-alert-error>
+    </div>
+
+    <div class="mb-4 col-12">
+      <div class="w-100">
+        <label for="address" class="form-label">آدرس</label>
+        <textarea class="form-control text-right" id="address" placeholder=""
+                  [(ngModel)]="buildingDto.address"
+                  formControlName="address"
+                  name="address"
+        ></textarea>
+      </div>
+      <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="col-12">
+      <div (click)="goBack()" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <button type="submit" class="btn btn-primary text-center ml-3">ثبت و ادامه</button>
+    </div>
+
+  </div>
+</form>

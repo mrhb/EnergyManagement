@@ -73,7 +73,7 @@ export class BaseService {
     // this.token = CacheService.getLocalStorage(TOKEN_CACHE_KEY);
     this.token = localStorage.getItem(TOKEN_CACHE_KEY);
     let result = new HttpHeaders();
-    console.log(' options.headers', options.headers);
+    // console.log(' options.headers', options.headers);
     if (options.headers === null || options.headers === undefined) {
       result = DEFAULT_HTTP_HEADERS;
     } else {

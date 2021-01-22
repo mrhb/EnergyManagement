@@ -8,7 +8,7 @@
   <hr>
   <div class="w-100 d-flex justify-content-center mb-3">
     <div class="box-image">
-      <img [src]="profile.photo" *ngIf="profile.photo && profile.photo !== ' '" alt="">
+      <img [src]="pathUrl + profile.photo" *ngIf="profile.photo && profile.photo !== ' '" alt="">
       <img src="../../../../../assets/image/user.jpg" *ngIf="!profile.photo || profile.photo === ' '" alt="">
     </div>
   </div>

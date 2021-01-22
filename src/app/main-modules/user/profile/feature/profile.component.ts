@@ -6,6 +6,7 @@ import {MyPattern} from '../../../../shared/tools/myPattern';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ProfileService} from '../service/profile.service';
+import {GATEWAY_URL} from "../../../../_base/service/model/rest-constants";
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit {
   passForm: FormGroup;
   emailForm: FormGroup;
   myPattern = MyPattern;
+  pathUrl = '';
 
   constructor(private formBuilder: FormBuilder,
               private profileService: ProfileService,
@@ -45,6 +47,8 @@ export class ProfileComponent implements OnInit {
     }, {
       validators: this.checkValidators('password', 'passwordConfirm')
     });
+
+    this.pathUrl = GATEWAY_URL + '/api/file/get?link=';
   }
 
   ngOnInit(): void {
@@ -137,7 +141,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.updatePassword(this.password)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('آپدیت ایمیل با موفقیت تغییر یافت.');
+          Notiflix.Notify.Success('آپدیت رمز عبور با موفقیت تغییر یافت.');
         }
       });
   }

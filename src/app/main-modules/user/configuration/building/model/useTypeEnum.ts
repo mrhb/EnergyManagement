@@ -1,0 +1,5 @@
+export enum UseTypeEnum {
+  RESIDENTIAL = 'RESIDENTIAL',
+  COMMERCIA = 'COMMERCIA',
+  OFFICIAL = 'OFFICIAL',
+}

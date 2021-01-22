@@ -23,12 +23,15 @@
 
 body, div, table, label, button, span, a, p, legend, input, strong,
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'IRANSansWeb';
-  text-decoration: none;
+  font-family: IRANSansWeb-fa !important;
 }
 
 .persian-number *:not(.fa) {
   font-family: 'IRANSansWeb-fa' !important;
+}
+
+.fa {
+  font-family: 'FontAwesome' !important;
 }
 
 // Global
