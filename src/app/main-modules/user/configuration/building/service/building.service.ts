@@ -15,4 +15,32 @@ export class BuildingService extends GeneralService {
   createBuilding(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create', body, errorSelector);
   }
+
+  createArea(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-area', body, errorSelector, param);
+  }
+
+  createSpace(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('create-space', body, errorSelector, param);
+  }
+
+  updateSpace(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-space', body, errorSelector, param);
+  }
+
+  deleteSpace(param: {id: string, spaceId: string}, errorSelector?: string): Observable<any> {
+    return super.deleteCheckService('delete-space', errorSelector, param);
+  }
+
+  createMap(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('create-map-information', body, errorSelector, param);
+  }
+
+  updateMap(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-map-information', body, errorSelector, param);
+  }
+
+  updateWallInformation(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-wall-information', body, errorSelector, param);
+  }
 }

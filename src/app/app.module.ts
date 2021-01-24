@@ -10,7 +10,7 @@ import {CustomGuardService} from '../service/guard/custumGuard.service';
 import {UserGuardService} from '../service/guard/user-guard.service';
 import {AdminGuardService} from '../service/guard/adminGuard.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CommonModule} from '@angular/common';
+import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import {CommonModule} from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [JwtService, AdminGuardService, UserGuardService, CustomGuardService, BaseGuardService],
+  providers: [JwtService, AdminGuardService, UserGuardService, CustomGuardService, BaseGuardService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

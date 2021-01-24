@@ -1,4 +1,4 @@
-<div class="form-group d-inline-block">
+<div class="form-group d-flex">
   <label for="file" class="btn-upload" *ngIf="!fileToUpload">بارگزاری فایل</label>
   <input type="file"
          *ngIf="!fileToUpload"
@@ -7,7 +7,7 @@
          accept="image/*"
          [multiple]="false"
          (change)="handleFileInput($event.target.files)">
-  <button class="btn-upload ml-2"
+  <div class="btn-upload ml-2"
           style="margin:0"
           *ngIf="fileToUpload"
           (click)="uploadFileToActivity()">
@@ -15,12 +15,12 @@
        *ngIf="loader"
        class="fa fa-spinner fa-pulse fa-1x"></i>
     بارگزاری
-  </button>
-  <button class="btn-upload"
+  </div>
+  <div class="btn-upload"
           style="margin:0"
           *ngIf="fileToUpload"
           (click)="cancelUpload()">
     انصراف
-  </button>
+  </div>
 
 </div>

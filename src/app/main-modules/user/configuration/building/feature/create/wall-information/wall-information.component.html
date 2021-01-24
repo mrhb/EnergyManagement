@@ -1,0 +1,98 @@
+<form [formGroup]="form" class="w-100" (ngSubmit)="createWallInformation()">
+  <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p>
+  <div class="form row">
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exWallAdjOutSpaceArea" class="form-label">مساحت دیوار خارجی مجاور فضای خارج</label>
+        <input class="form-control text-right" id="exWallAdjOutSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exWallAdjOutSpaceArea"
+               formControlName="exWallAdjOutSpaceArea"
+               name="exWallAdjOutSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exWallAdjOutSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exFloorAdjOutSpaceArea" class="form-label">مساحت کف خارجی مجاور فضای خارج</label>
+        <input class="form-control text-right" id="exFloorAdjOutSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exFloorAdjOutSpaceArea"
+               formControlName="exFloorAdjOutSpaceArea"
+               name="exFloorAdjOutSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exFloorAdjOutSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exWallAdjNotControlledSpaceArea" class="form-label">مساحت دیوار خارجی مجاور فضای کنترل نشده</label>
+        <input class="form-control text-right" id="exWallAdjNotControlledSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exWallAdjNotControlledSpaceArea"
+               formControlName="exWallAdjNotControlledSpaceArea"
+               name="exWallAdjNotControlledSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exWallAdjNotControlledSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exFloorAdjNotControlledSpaceArea" class="form-label">مساحت کف خارجی مجاور فضای کنترل نشده</label>
+        <input class="form-control text-right" id="exFloorAdjNotControlledSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exFloorAdjNotControlledSpaceArea"
+               formControlName="exFloorAdjNotControlledSpaceArea"
+               name="exFloorAdjNotControlledSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exFloorAdjNotControlledSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exRoofAdjOutSpaceArea" class="form-label">مساحت سقف/بام خارجی مجاور فضای خارج</label>
+        <input class="form-control text-right" id="exRoofAdjOutSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exRoofAdjOutSpaceArea"
+               formControlName="exRoofAdjOutSpaceArea"
+               name="exRoofAdjOutSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exRoofAdjOutSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="outWindowAdjOutSpaceArea" class="form-label">مساحت پنجره مجاور فضای خارج</label>
+        <input class="form-control text-right" id="outWindowAdjOutSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.outWindowAdjOutSpaceArea"
+               formControlName="outWindowAdjOutSpaceArea"
+               name="outWindowAdjOutSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['outWindowAdjOutSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="exRoofAdjNotControlledSpaceArea" class="form-label">مساحت سقف/بام خارجی مجاور فضای کنترل نشده</label>
+        <input class="form-control text-right" id="exRoofAdjNotControlledSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.exRoofAdjNotControlledSpaceArea"
+               formControlName="exRoofAdjNotControlledSpaceArea"
+               name="exRoofAdjNotControlledSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['exRoofAdjNotControlledSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="windowAdjNotControlledSpaceArea" class="form-label">مساحت پنجره مجاور فضای کنترل نشده</label>
+        <input class="form-control text-right" id="windowAdjNotControlledSpaceArea" placeholder=""
+               [(ngModel)]="wallInformation.windowAdjNotControlledSpaceArea"
+               formControlName="windowAdjNotControlledSpaceArea"
+               name="windowAdjNotControlledSpaceArea"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['windowAdjNotControlledSpaceArea']" [touched]="touched"></app-alert-error>
+    </div>
+
+    <div class="col-12">
+      <div (click)="goBack()" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <button type="submit" class="btn btn-primary text-center ml-3">ثبت و ادامه</button>
+    </div>
+  </div>
+</form>

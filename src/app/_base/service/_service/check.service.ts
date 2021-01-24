@@ -79,7 +79,7 @@ export class CheckService extends BaseService {
       }
     }, error => {
       console.log('', error);
-      this.showErrorMessage(error)
+      this.showErrorMessage(error);
     });
     return result.asObservable();
   }
@@ -171,6 +171,14 @@ export class CheckService extends BaseService {
         break;
       case 403:
         Notiflix.Notify.Failure('دسترسی شما به این سرویس محدود می باشد.');
+        setTimeout(() => {
+          localStorage.clear();
+          sessionStorage.clear();
+          // this.router.navigate(['/']);
+          // location.href = '//' + location.hostname + ':' + location.port + '#/signin';
+          location.href = '//' + location.hostname + ':' + location.port;
+          Notiflix.Notify.Failure('برای استفاده از امکانات سایت مجددا وارد حساب کاربری خود شوید.')
+        }, 20);
         break;
       case 405:
         Notiflix.Notify.Failure('<strong>خطا ۴۰۵</strong> متد غیر مجاز.');

@@ -11,9 +11,10 @@ import {Region} from '../../model/building';
 export class CreateBuildingComponent implements OnInit {
   form: FormGroup;
   myPattern = MyPattern;
-  currentStep = 0;
-  endActiveStep = 0;
+  currentStep = 5;
+  endActiveStep = 5;
   region = new Region();
+  buildingId: string;
   constructor(private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
@@ -31,7 +32,10 @@ export class CreateBuildingComponent implements OnInit {
   }
 
   getRegion($event): void {
-    console.log('$event', $event)
     this.region = $event;
+  }
+
+  getBuildingId($event: any): void {
+    this.buildingId = $event;
   }
 }

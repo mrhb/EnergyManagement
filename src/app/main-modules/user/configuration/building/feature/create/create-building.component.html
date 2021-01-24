@@ -71,19 +71,19 @@
       <button type="submit" [disabled]="!region.regId" (click)="getStep(1)" class="btn btn-primary text-center ml-3">ادامه</button>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 1" *ngIf="endActiveStep >= 1">
-      <app-add-building [regionId]="region.regId" (nextStep)="getStep($event)"></app-add-building>
+      <app-add-building [regionId]="region.regId" (buildingId)="getBuildingId($event)" (nextStep)="getStep($event)"></app-add-building>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >= 2">
-      <app-symptom-list [visitId]="visitId" (nextStep)="getStep($event)"></app-symptom-list>
+      <app-area [buildingId]="buildingId" (nextStep)="getStep($event)"></app-area>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 3"  *ngIf="endActiveStep >= 3">
-      <app-blood-sugar [visitId]="visitId" (nextStep)="getStep($event)"></app-blood-sugar>
+      <app-space [buildingId]="buildingId" (nextStep)="getStep($event)"></app-space>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 4" *ngIf="endActiveStep >= 4">
-      <app-blood-pressure [visitId]="visitId" (nextStep)="getStep($event)"></app-blood-pressure>
+      <app-map [buildingId]="buildingId" (nextStep)="getStep($event)"></app-map>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 5" *ngIf="endActiveStep >= 5">
-      <app-blood-pressure [visitId]="visitId" (nextStep)="getStep($event)"></app-blood-pressure>
+      <app-wall-information [buildingId]="buildingId" (nextStep)="getStep($event)"></app-wall-information>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 6" *ngIf="endActiveStep >= 6">
       <app-blood-pressure [visitId]="visitId" (nextStep)="getStep($event)"></app-blood-pressure>

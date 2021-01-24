@@ -1,0 +1,111 @@
+<form [formGroup]="form" class="w-100" (ngSubmit)="createSpace()">
+  <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p>
+  <div class="form row">
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="name" class="form-label">نام فضا</label>
+        <input class="form-control text-right" id="name" placeholder=""
+               [(ngModel)]="spaceDto.name"
+               formControlName="name"
+               name="name"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="number" class="form-label">شماره فضا</label>
+        <input class="form-control text-right" id="number" placeholder=""
+               maxlength="12"
+               [(ngModel)]="spaceDto.number"
+               formControlName="number"
+               name="number"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['number']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="floorNum" class="form-label">شماره طبقه</label>
+        <input class="form-control text-right" id="floorNum" placeholder=""
+               maxlength="12"
+               [(ngModel)]="spaceDto.floorNum"
+               formControlName="floorNum"
+               name="floorNum"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="useType" class="form-label">کاربری</label>
+        <input class="form-control text-right" id="useType" placeholder=""
+               [(ngModel)]="spaceDto.useType "
+               formControlName="useType"
+               name="useType"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+    </div>
+    <div class="mb-4 col-md-4">
+      <div class="w-100">
+        <label for="area" class="form-label">مساحت</label>
+        <input class="form-control text-right" id="area" placeholder=""
+               [(ngModel)]="spaceDto.area"
+               formControlName="area"
+               name="area"
+        >
+      </div>
+      <app-alert-error [data]="form.controls['area']" [touched]="touched"></app-alert-error>
+    </div>
+
+    <div class="col-12">
+      <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <div (click)="cancelEdit()" *ngIf="edited" class="btn btn-outline-primary text-center ml-3">انصراف</div>
+      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">ثبت</button>
+      <button type="submit" *ngIf="edited" class="btn btn-success text-center ml-3">ویرایش</button>
+      <button (click)="getNextStep()" *ngIf="!edited && spaceList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button>
+    </div>
+
+    <ng-container *ngIf="spaceList.length > 0">
+      <div class="col-12">
+        <hr>
+      </div>
+
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col" width="40">#</th>
+              <th scope="col">نام فضا</th>
+              <th scope="col">شماره فضا</th>
+              <th scope="col">شماره طبقه</th>
+              <th scope="col">کاربری</th>
+              <th scope="col">مساحت</th>
+              <th scope="col" width="80" colspan="2">عملیات</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of spaceList; let i = index">
+              <tr>
+                <th scope="row" width="40">{{i + 1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.number}}</td>
+                <td>{{item.floorNum}}</td>
+                <td>{{item.useType}}</td>
+                <td>{{item.area}}</td>
+                <td width="40"><span class="cursor-pointer fa fa-edit" (click)="editSpace(item)"></span></td>
+                <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteSpace(i, item.id)"></span></td>
+
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-container>
+
+
+  </div>
+</form>
