@@ -6,6 +6,8 @@ import {UseTypeEnum} from '../../../model/useTypeEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
+import {Tools} from '../../../../../../../shared/tools/tools';
+
 @Component({
   selector: 'app-add-building',
   templateUrl: './add-building.component.html',
@@ -18,9 +20,13 @@ export class AddBuildingComponent implements OnInit {
   touched = false;
   useTypeEnum = UseTypeEnum;
 
+  @Input() bId: string;
   @Input() regionId: string;
+  @Input() editedBuildingDto = new Building();
   @Output() nextStep = new EventEmitter<any>();
+  @Output() completeStep = new EventEmitter<any>();
   @Output() buildingId = new EventEmitter<any>();
+
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
     this.form = this.formBuilder.group({
@@ -37,9 +43,15 @@ export class AddBuildingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('if (this.editedBuildingDto)', this.editedBuildingDto);
     console.log('this.regionId', this.regionId);
+    console.log('this.bId   +', this.bId);
     if (this.regionId) {
       this.buildingDto.regionId = this.regionId;
+
+      if (this.editedBuildingDto.regionId) {
+        this.buildingDto = this.editedBuildingDto;
+      }
     }
   }
 
@@ -50,16 +62,33 @@ export class AddBuildingComponent implements OnInit {
       return;
     }
     console.log('this.buildingDto', this.buildingDto);
-    this.buildingService.createBuilding(this.buildingDto)
-      .subscribe( (res: any) => {
-        if (res) {
-          if (res.data) {
-            this.buildingId.emit(res.data);
-            this.nextStep.emit(2);
+    console.log('this.bId', this.bId);
+    console.log('!this.bId', this.bId);
+
+    if (Tools.isNullOrUndefined(this.bId)) {
+      this.buildingService.createBuilding(this.buildingDto)
+        .subscribe((res: any) => {
+          if (res) {
+            if (res.data) {
+              this.buildingId.emit(res.data);
+              this.nextStep.emit(2);
+              this.completeStep.emit(1);
+            }
           }
-        }
-        console.log('buildingService res', res);
-      });
+          console.log('buildingService res', res);
+        });
+    } else {
+      this.buildingService.updateBuilding({id: this.bId}, this.buildingDto)
+        .subscribe((res: any) => {
+          if (res) {
+            if (res.data) {
+              this.buildingId.emit(res.data);
+              this.nextStep.emit(2);
+            }
+          }
+          console.log('buildingService res', res);
+        });
+    }
   }
 
   goBack(): void {

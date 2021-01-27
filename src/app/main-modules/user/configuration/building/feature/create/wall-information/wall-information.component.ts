@@ -16,9 +16,11 @@ export class WallInformationComponent implements OnInit {
   form: FormGroup;
   myPattern = MyPattern;
   wallInformation = new WallInformation();
-  // @Input() buildingId: string;
-  buildingId = '600c762f03b2ec10183fd2b6';
+  @Input() editedWallInformation = new WallInformation();
+  @Input() buildingId: string;
+  // buildingId = '600c762f03b2ec10183fd2b6';
   @Output() nextStep = new EventEmitter<any>();
+  @Output() completeStep = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
     this.form = this.formBuilder.group({
@@ -34,6 +36,11 @@ export class WallInformationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.buildingId) {
+      if (this.editedWallInformation.exFloorAdjNotControlledSpaceArea) {
+        this.wallInformation = this.editedWallInformation;
+      }
+    }
   }
 
   createWallInformation(): void {
@@ -48,6 +55,7 @@ export class WallInformationComponent implements OnInit {
         if (res) {
           if (res.flag && res.data) {
             this.nextStep.emit(6);
+            this.completeStep.emit(5);
           }
         }
       });

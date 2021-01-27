@@ -30,10 +30,11 @@
       display: block;
       width: 100%;
       a {
-        display: flex;
-        padding: 15px;
+        padding: 15px 15px 15px 0;
+        display: inline-flex;
         color: #5f5f5f;
         align-items: center;
+        width: 31px;
         .glyphicon, .fa {
           margin-left: 8px;
         }
@@ -112,4 +113,13 @@ a,
 a:focus,
 a:hover {
   text-decoration: none;
+}
+
+.selected {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  font-weight: bold;
 }

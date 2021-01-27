@@ -23,9 +23,11 @@ export class MapComponent implements OnInit {
   edited = false;
   pathUrl = '';
   Moment = Moment;
-  @Input() buildingId: string;
   mapEnum = MapEnum;
+  @Input() editedMapList: MapInformation[] = [];
+  @Input() buildingId: string;
   @Output() nextStep = new EventEmitter<any>();
+  @Output() completeStep = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
@@ -41,7 +43,10 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     console.log('this.regionId', this.buildingId);
     if (this.buildingId) {
-
+      if (this.editedMapList.length > 0) {
+       this.mapList = this.editedMapList;
+       console.log('mapList', this.mapList);
+      }
     }
   }
 
@@ -127,6 +132,7 @@ export class MapComponent implements OnInit {
 
   getNextStep(): void {
     this.nextStep.emit(5);
+    this.completeStep.emit(4);
   }
 
   uploading($event): void {

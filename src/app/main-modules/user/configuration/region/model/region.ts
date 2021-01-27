@@ -6,3 +6,11 @@ export class Region {
   updatedAt: string;
   subRegion: Region[] = [];
 }
+export class RegionOutput {
+  rootTitle: string;
+  rootId: string;
+  parentTitle: string;
+  parentId: string;
+  regId: string;
+  regTitle: string;
+}

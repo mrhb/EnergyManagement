@@ -16,6 +16,10 @@ export class BuildingService extends GeneralService {
     return super.postCheckService('create', body, errorSelector);
   }
 
+  updateBuilding(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update', body, errorSelector, param);
+  }
+
   createArea(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-area', body, errorSelector, param);
   }
@@ -42,5 +46,17 @@ export class BuildingService extends GeneralService {
 
   updateWallInformation(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-wall-information', body, errorSelector, param);
+  }
+
+  getBuildingList(param: any, regionId: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-list-pageable-by-filter', regionId, errorSelector, param);
+  }
+
+  deleteBuilding(param: {id: string}, errorSelector?: string): Observable<any> {
+    return super.deleteCheckService('delete', errorSelector, param);
+  }
+
+  getOneBuilding(param: {id: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-one', errorSelector, param);
   }
 }

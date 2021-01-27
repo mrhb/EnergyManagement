@@ -19,9 +19,11 @@ export class SpaceComponent implements OnInit {
   touched = false;
   edited = false;
 
+  @Input() editedSpaceList: Space[];
   @Input() buildingId: string;
   // buildingId = '600c762f03b2ec10183fd2b6';
   @Output() nextStep = new EventEmitter<any>();
+  @Output() completeStep = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
@@ -37,7 +39,9 @@ export class SpaceComponent implements OnInit {
   ngOnInit(): void {
     console.log('this.regionId', this.buildingId);
     if (this.buildingId) {
-      // this.areaDto.regionId = this.regionId;
+      if (this.editedSpaceList.length > 0) {
+        this.spaceList = this.editedSpaceList;
+      }
     }
   }
 
@@ -118,5 +122,6 @@ export class SpaceComponent implements OnInit {
 
   getNextStep(): void {
     this.nextStep.emit(4);
+    this.completeStep.emit(3);
   }
 }

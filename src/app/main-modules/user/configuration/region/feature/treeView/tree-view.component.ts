@@ -1,9 +1,10 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {Region} from '../../model/region';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Region, RegionOutput} from '../../model/region';
 import {RegionService} from '../../service/region.service';
 import {Tools} from '../../../../../../shared/tools/tools';
 // @ts-ignore
 import Notiflix from 'notiflix';
+
 @Component({
   selector: 'app-tree-view',
   templateUrl: './tree-view.component.html',
@@ -12,9 +13,23 @@ import Notiflix from 'notiflix';
 export class TreeViewComponent implements OnInit {
   regionList: Region[] = [];
   region = new Region();
-  @Output() private regionOutput = new EventEmitter<any>();
+  regOutput = new RegionOutput();
+  @Input() regionInput;
+  @Output() regionOutput = new EventEmitter<any>();
 
   constructor(private regionService: RegionService) {
+    if (this.regionInput) {
+      // const regionOutput = {
+      //   rootTitle: root.title,
+      //   rootId: root.id,
+      //   parentTitle: parent.title,
+      //   parentId: parent.id,
+      //   regId : subSubRegion.id,
+      //   regTitle : subSubRegion.title,
+      // };
+      // this.regOutput = regionOutput;
+      // this.regionOutput.emit(regionOutput);
+    }
   }
 
   ngOnInit(): void {
@@ -43,7 +58,6 @@ export class TreeViewComponent implements OnInit {
     }
 
 
-
     this.regionService.getOne(id)
       .subscribe((res: any) => {
         if (res) {
@@ -59,13 +73,28 @@ export class TreeViewComponent implements OnInit {
   }
 
 
-  getRegionId(id: string, regionTitle, root, parent): void {
+  getRegionId(subSubRegion, root, regionId , regionTitle , parent?): void {
+    if (parent) {
+      this.regOutput = {
+        rootTitle: root.title,
+        rootId: root.id,
+        parentTitle: parent.title,
+        parentId: parent.id,
+        regId: subSubRegion.id,
+        regTitle: subSubRegion.title,
+      };
+    } else {
+      this.regOutput.rootTitle = regionTitle;
+      this.regOutput.rootId = regionId;
+    }
+
+    console.log('regionId', regionId);
+    console.log('regionTitle', regionTitle);
     const regionOutput = {
-      rootTitle: root,
-      parentTitle: parent,
-      regId : id,
-      regTitle : regionTitle,
+      regionTitle,
+      regionId,
     };
+
     this.regionOutput.emit(regionOutput);
   }
 }

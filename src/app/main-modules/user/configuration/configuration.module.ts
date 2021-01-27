@@ -15,10 +15,12 @@ import { SpaceComponent } from './building/feature/create/space/space.component'
 import { MapComponent } from './building/feature/create/map/map.component';
 import {UploadFileModule} from "../../../shared/tools/upload-file/upload-file.module";
 import { WallInformationComponent } from './building/feature/create/wall-information/wall-information.component';
+import { BuildingListComponent } from './building/feature/list/building-list.component';
+import {PaginatorModule} from "../../../shared/paginator/paginator.module";
 
 
 @NgModule({
-  declarations: [RegionComponent, CreateBuildingComponent, TreeViewComponent, AddBuildingComponent, AreaComponent, SpaceComponent, MapComponent, WallInformationComponent],
+  declarations: [RegionComponent, CreateBuildingComponent, TreeViewComponent, AddBuildingComponent, AreaComponent, SpaceComponent, MapComponent, WallInformationComponent, BuildingListComponent],
     imports: [
         CommonModule,
         ConfigurationRoutingModule,
@@ -26,6 +28,7 @@ import { WallInformationComponent } from './building/feature/create/wall-informa
         AlertErrorModule,
         FormsModule,
         UploadFileModule,
+        PaginatorModule,
     ],
   providers: [RegionService, BuildingService],
 })

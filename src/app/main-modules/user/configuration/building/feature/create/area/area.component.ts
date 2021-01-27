@@ -1,8 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
-import {Area, Building} from '../../../model/building';
-import {UseTypeEnum} from '../../../model/useTypeEnum';
+import {Area} from '../../../model/building';
 import {BuildingService} from '../../../service/building.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
@@ -19,7 +18,9 @@ export class AreaComponent implements OnInit {
   touched = false;
 
   @Input() buildingId: string;
+  @Input() editedAreaDto = new Area();
   @Output() nextStep = new EventEmitter<any>();
+  @Output() completeStep = new EventEmitter<any>();
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
     this.form = this.formBuilder.group({
@@ -34,7 +35,10 @@ export class AreaComponent implements OnInit {
   ngOnInit(): void {
     console.log('this.regionId', this.buildingId);
     if (this.buildingId) {
-      // this.areaDto.regionId = this.regionId;
+      console.log('this.editedAreaDto', this.editedAreaDto);
+      if (this.editedAreaDto.arenaArea) {
+        this.areaDto = this.editedAreaDto;
+      }
     }
   }
 
@@ -54,6 +58,7 @@ export class AreaComponent implements OnInit {
         if (res) {
           if (res.flag && res.data) {
             this.nextStep.emit(3);
+            this.completeStep.emit(2);
           }
         }
       });

@@ -6,10 +6,14 @@
       <ul class="nav navbar-nav">
         <ng-container *ngFor="let region of regionList; let i=index">
           <li class="panel panel-default parent-tree">
-            <a data-toggle="collapse" href="#dropdown-configuration-{{i}}" (click)="getListRegion(region.id, i)">
-              <span class="fa fa-angle-left"></span>
-              {{region.title}}
+            <a data-toggle="collapse"
+               href="#dropdown-configuration-{{i}}">
+              <span class="fa fa-angle-left" (click)="getListRegion(region.id, i)"></span>
             </a>
+            <span class="cursor-pointer" [ngClass]="{'selected': regOutput?.rootId === region.id}"
+               (click)="getRegionId(region, region, region.id, region.title)">
+              {{region.title}}
+            </span>
             <!-- Dropdown level 1 -->
             <div id="dropdown-configuration-{{i}}" class="panel-collapse collapse">
               <div class="panel-body">
@@ -17,14 +21,24 @@
                   <!-- Dropdown level 2 -->
                   <ng-container *ngFor="let subRegion of region.subRegion; let j=index">
                     <li class="panel panel-default" id="dropdown">
-                      <a data-toggle="collapse" href="#dropdown-lvl2-{{j}}" (click)="getListRegion(subRegion.id, i, j+1)">
-                        <span class="fa fa-angle-left"></span> {{subRegion.title}}
+                      <a data-toggle="collapse" href="#dropdown-lvl2-{{j}}">
+                        <span class="fa fa-angle-left" (click)="getListRegion(subRegion.id, i, j+1)"></span>
                       </a>
+                      <span class="cursor-pointer" [ngClass]="{'selected': regOutput?.parentId === subRegion.id}"
+                         (click)="getRegionId(subRegion,region, subRegion.id, region.title+'&'+subRegion.title, subRegion)">
+                        {{subRegion.title}}
+                      </span>
                       <div id="dropdown-lvl2-{{j}}" class="panel-collapse collapse sub-tree">
                         <div class="panel-body">
                           <ul class="nav navbar-nav">
                             <ng-container *ngFor="let subSubRegion of subRegion.subRegion">
-                              <li><a class="cursor-pointer" (click)="getRegionId(subSubRegion.id, subSubRegion.title,region.title, subRegion.title)">{{subSubRegion.title}}</a></li>
+                              <li>
+                                <a class="cursor-pointer"
+                                   [ngClass]="{'selected': regOutput?.regId === subSubRegion.id}"
+                                   (click)="getRegionId(subSubRegion,region, subSubRegion.id, region.title+'&'+subRegion.title+'&'+subSubRegion.title, subRegion)">
+                                  {{subSubRegion.title}}
+                                </a>
+                              </li>
                             </ng-container>
                           </ul>
                         </div>

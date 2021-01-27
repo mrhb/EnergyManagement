@@ -6,49 +6,64 @@
 <!--    اطلاعات پروفایل-->
 <!--  </p>-->
   <hr>
+<!--  endActiveStep >= 0 ||-->
 
   <div class="md-stepper-horizontal green persian-number">
-    <div class="md-step" [ngClass]="{'active done':endActiveStep >= 0, 'editable' : currentStep === 0}">
+    <div class="md-step"
+         (click)="getCurrentStep(0)"
+         [ngClass]="{'done': completeStep.zero === true, 'active editable' : currentStep === 0}">
       <div class="md-step-circle"><span>1</span></div>
       <div class="md-step-title">انتخاب منطقه</div>
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done':endActiveStep >= 1, 'editable' : currentStep === 1}">
+    <div class="md-step"
+         (click)="getCurrentStep(1)"
+         [ngClass]="{'active done': completeStep.one === true, 'active editable' : currentStep === 1}">
       <div class="md-step-circle"><span>1</span></div>
-      <div class="md-step-title">افزودن ساختمان</div>
+      <div class="md-step-title">اطلاعات ساختمان</div>
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done': endActiveStep >= 2, 'editable' : currentStep === 2}">
+    <div class="md-step"
+         (click)="getCurrentStep(2)"
+         [ngClass]="{'active done': completeStep.two === true, 'active editable' : currentStep === 2}">
       <div class="md-step-circle"><span>2</span></div>
       <div class="md-step-title">مساحت</div>
 <!--      <div class="md-step-optional">اختیاری</div>-->
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done': endActiveStep >= 3, 'editable' : currentStep === 3}">
+    <div class="md-step"
+         (click)="getCurrentStep(3)"
+         [ngClass]="{'active done': completeStep.three === true, 'active editable' : currentStep === 3}">
       <div class="md-step-circle"><span>3</span></div>
       <div class="md-step-title">فضا</div>
 <!--      <div class="md-step-optional">اختیاری</div>-->
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done': endActiveStep >= 4, 'editable' : currentStep === 4}">
+    <div class="md-step"
+         (click)="getCurrentStep(4)"
+         [ngClass]="{'active done': completeStep.four === true, 'active editable' : currentStep === 4}">
       <div class="md-step-circle"><span>4</span></div>
       <div class="md-step-title">نقشه</div>
 <!--      <div class="md-step-optional">اختیاری</div>-->
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done': endActiveStep >= 5, 'editable' : currentStep === 5}">
+    <div class="md-step"
+         (click)="getCurrentStep(5)"
+         [ngClass]="{'active done': completeStep.five === true, 'active editable' : currentStep === 5}">
       <div class="md-step-circle"><span>5</span></div>
       <div class="md-step-title">اطلاعات جداره ها</div>
 <!--      <div class="md-step-optional">اختیاری</div>-->
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step" [ngClass]="{'active done': endActiveStep >= 6, 'editable' : currentStep === 6}">
+    <div class="md-step"
+         (click)="getCurrentStep(6)"
+         [ngClass]="{'active done': endActiveStep >= 6, 'active editable' : currentStep === 6}">
       <div class="md-step-circle"><span>6</span></div>
       <div class="md-step-title">اشتراک</div>
 <!--      <div class="md-step-optional">اختیاری</div>-->
@@ -58,35 +73,42 @@
   </div>
 
   <div class="md-wrapper-stepper">
-    <p class="alert alert-success" *ngIf="region.regTitle">
-      <span>{{region.rootTitle}}</span>
-      <span class="fa fa-angle-left mx-2"></span>
-      <span>{{region.parentTitle}}</span>
-      <span class="fa fa-angle-left mx-2"></span>
-      <strong class="ml-1">{{region.regTitle}}</strong>
+    <p class="alert alert-success" *ngIf="buildingDto.regionTitle">
+      <span [innerHTML]="buildingDto.regionTitle"></span>
       انتخاب شد.
     </p>
     <div class="md-content-stepper" [hidden]="currentStep !== 0" *ngIf="endActiveStep >= 0">
       <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
-      <button type="submit" [disabled]="!region.regId" (click)="getStep(1)" class="btn btn-primary text-center ml-3">ادامه</button>
+      <button type="submit" [disabled]="!region.regionId" (click)="getStep(1)" class="btn btn-primary text-center ml-3">ادامه</button>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 1" *ngIf="endActiveStep >= 1">
-      <app-add-building [regionId]="region.regId" (buildingId)="getBuildingId($event)" (nextStep)="getStep($event)"></app-add-building>
+      <app-add-building [editedBuildingDto]="buildingDto" [regionId]="region.regionId" [bId]="buildingId"
+                        (buildingId)="getBuildingId($event)"
+                        (completeStep)="getComplete($event)"
+                        (nextStep)="getStep($event)"></app-add-building>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >= 2">
-      <app-area [buildingId]="buildingId" (nextStep)="getStep($event)"></app-area>
+    <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >=2">
+      <app-area [editedAreaDto]="areaDto" [buildingId]="buildingId"
+                (completeStep)="getComplete($event)"
+                (nextStep)="getStep($event)"></app-area>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 3"  *ngIf="endActiveStep >= 3">
-      <app-space [buildingId]="buildingId" (nextStep)="getStep($event)"></app-space>
+    <div class="md-content-stepper" [hidden]="currentStep !== 3"  *ngIf="endActiveStep >=2">
+      <app-space [editedSpaceList]="spaceList" [buildingId]="buildingId"
+                 (completeStep)="getComplete($event)"
+                 (nextStep)="getStep($event)"></app-space>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 4" *ngIf="endActiveStep >= 4">
-      <app-map [buildingId]="buildingId" (nextStep)="getStep($event)"></app-map>
+    <div class="md-content-stepper" [hidden]="currentStep !== 4" *ngIf="endActiveStep >=2">
+      <app-map [editedMapList]="mapList" [buildingId]="buildingId"
+               (completeStep)="getComplete($event)"
+               (nextStep)="getStep($event)"></app-map>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 5" *ngIf="endActiveStep >= 5">
-      <app-wall-information [buildingId]="buildingId" (nextStep)="getStep($event)"></app-wall-information>
+    <div class="md-content-stepper" [hidden]="currentStep !== 5" *ngIf="endActiveStep >=2">
+      <app-wall-information [editedWallInformation]="wallInformation" [buildingId]="buildingId"
+                            (completeStep)="getComplete($event)"
+                            (nextStep)="getStep($event)"></app-wall-information>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 6" *ngIf="endActiveStep >= 6">
-      <app-blood-pressure [visitId]="visitId" (nextStep)="getStep($event)"></app-blood-pressure>
+    <div class="md-content-stepper" [hidden]="currentStep !== 6" *ngIf="currentStep === 6 && endActiveStep >=2">
+
     </div>
   </div>
 

@@ -1,14 +1,22 @@
 import {UseTypeEnum} from './useTypeEnum';
 
+export class CompleteStep {
+  zero: boolean;
+  one: boolean;
+  two: boolean;
+  three: boolean;
+  four: boolean;
+  five: boolean;
+}
+
 export class Region {
-  rootTitle: string;
-  parentTitle: string;
-  regId: string;
-  regTitle: string;
+  regionTitle: string;
+  regionId: string;
 }
 
 export class Building {
   regionId: string;
+  regionTitle: string;
   name: string;
   useType: UseTypeEnum;
   constructionYear: string;
@@ -55,4 +63,14 @@ export class WallInformation {
   outWindowAdjOutSpaceArea: string;
   exRoofAdjNotControlledSpaceArea: string;
   windowAdjNotControlledSpaceArea: string;
+}
+
+export class BuildingList {
+  constructionYear: number;
+  createdAt: any;
+  id: string;
+  name: string;
+  postalCode: string;
+  regionId: string;
+  useType: UseTypeEnum;
 }
