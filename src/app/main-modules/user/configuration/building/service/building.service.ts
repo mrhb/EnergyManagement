@@ -59,4 +59,8 @@ export class BuildingService extends GeneralService {
   getOneBuilding(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
   }
+
+  getListBuilding(param, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-list-pageable-by-term', errorSelector, param);
+  }
 }

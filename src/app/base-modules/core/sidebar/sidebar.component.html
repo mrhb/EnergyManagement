@@ -4,9 +4,9 @@
 
     <!-- Main Menu -->
     <div class="side-menu-container">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav parent">
         <li><a><i class="fa fa-dashboard"></i> داشبورد</a></li>
-        <li class="panel panel-default" id="dropdown">
+        <li class="panel panel-default" id="dropdown" [routerLinkActive]="'active'">
           <a data-toggle="collapse" href="#dropdown-configuration">
             <span class="caret"></span>
             پیکربندی
@@ -17,24 +17,26 @@
             <div class="panel-body">
               <ul class="nav navbar-nav">
 <!--                <li><a [routerLink]="'/index/user/configuration'">مناطق</a></li>-->
-                <li><a [routerLink]="'/index/user/configuration/buildingList'">ساختمان</a></li>
-                <li><a href="#">اشتراک</a></li>
+                <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/buildingList'">ساختمان</a></li>
+<!--                <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/subscription'">اشتراک</a></li>-->
 
                 <!-- Dropdown level 2 -->
-<!--                <li class="panel panel-default" id="dropdown">-->
-<!--                  <a data-toggle="collapse" href="#dropdown-lvl2">-->
-<!--                    <i class="glyphicon glyphicon-off"></i> Sub Level <span class="caret"></span>-->
-<!--                  </a>-->
-<!--                  <div id="dropdown-lvl2" class="panel-collapse collapse">-->
-<!--                    <div class="panel-body">-->
-<!--                      <ul class="nav navbar-nav">-->
-<!--                        <li><a href="#">Link</a></li>-->
-<!--                        <li><a href="#">Link</a></li>-->
-<!--                        <li><a href="#">Link</a></li>-->
-<!--                      </ul>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </li>-->
+                <li class="panel panel-default">
+                  <a data-toggle="collapse" href="#dropdown-lvl2">
+                   اشتراک
+                    <span class="fa fa-angle-left"></span>
+                  </a>
+                  <div id="dropdown-lvl2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <ul class="nav navbar-nav">
+                        <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/powerList'">برق</a></li>
+                        <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/createGas'">گاز</a></li>
+                        <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/createGas'">آب</a></li>
+                        <li [routerLinkActive]="'active'"><a [routerLink]="'/index/user/configuration/createGas'">انرژی</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

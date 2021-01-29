@@ -56,6 +56,7 @@ export class AddBuildingComponent implements OnInit {
   }
 
   updateBuilding(): void {
+    this.touched = true;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       Notiflix.Notify.Failure('ورودی رو بررسی کنید!');

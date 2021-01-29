@@ -38,7 +38,9 @@
         .glyphicon, .fa {
           margin-left: 8px;
         }
-
+        &.selected {
+          color: unset;
+        }
         span.fa-angle-left {
           -webkit-transition: all 0.1s ease;
           -moz-transition: all 0.1s ease;
@@ -70,7 +72,7 @@
         top: 36px;
         z-index: 1;
         position: absolute;
-        height: calc(100% - 60px);
+        height: calc(100% - 58px);
         background: #C2C7C7;
       }
       .navbar-nav {

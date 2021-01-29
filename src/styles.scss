@@ -292,3 +292,25 @@ fieldset.fieldset-border {
     border: 1px solid #ddd;
   }
 }
+
+// modal
+html[dir="rtl"] .modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem auto -1rem -1rem;
+
+  span {
+    display: flex;
+    height: 19px;
+    margin-top: 5px;
+  }
+}
+
+
+
+.vertical-align-middle {
+  vertical-align: middle;
+
+  td {
+    vertical-align: middle !important;
+  }
+}

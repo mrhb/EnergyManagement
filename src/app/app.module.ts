@@ -11,12 +11,14 @@ import {UserGuardService} from '../service/guard/user-guard.service';
 import {AdminGuardService} from '../service/guard/adminGuard.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule, HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {PipeModule} from './shared/tools/pipe-module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    PipeModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
