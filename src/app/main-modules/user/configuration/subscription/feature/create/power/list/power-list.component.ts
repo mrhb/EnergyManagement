@@ -5,8 +5,6 @@ import {UseTypePowerEnum} from '../../../../model/powerEnum';
 import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
-import {BuildingService} from '../../../../../building/service/building.service';
-import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 
 @Component({
   selector: 'app-power-list',
@@ -19,19 +17,16 @@ export class PowerListComponent implements OnInit {
   length = -1;
 
   filterBuilding = '';
-  buildingEnum = UseTypeBuildingEnum;
   useTypeEnum = UseTypePowerEnum;
   powerList: PowerList[] = [];
   buildingList = [];
   constructor(public router: Router,
-              private buildingService: BuildingService,
               private powerService: PowerService,
               private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.getListPower();
-    this.getListBuilding();
   }
 
   getListPower(): void {
@@ -84,25 +79,5 @@ export class PowerListComponent implements OnInit {
             }
           });
       });
-  }
-
-  getListBuilding(): void {
-    this.buildingService.getListBuilding({
-      page: this.pageIndex,
-      size: this.pageSize,
-      term: this.filterBuilding,
-    }).subscribe( (res: any) => {
-      if (res) {
-        if (res.flag) {
-          this.buildingList = res.content;
-        }
-      }
-    });
-  }
-
-  selectBuilding(id): void {
-    // this.powerService.addBuildingAllocation({
-    //   id: id
-    // })
   }
 }

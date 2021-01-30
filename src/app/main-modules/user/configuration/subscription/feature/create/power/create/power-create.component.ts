@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../../shared/tools/myPattern';
-import {PowerDto} from '../../../../model/power';
+import {BuildingAllocation, PowerBuildingAllocation, PowerDto} from '../../../../model/power';
 import {
   GeneralEnum, GroupEnum,
   HomeEnum,
@@ -13,27 +13,39 @@ import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {BuildingService} from '../../../../../building/service/building.service';
 
+declare var $: any;
 @Component({
   selector: 'app-power-create',
   templateUrl: './power-create.component.html',
   styleUrls: ['./power-create.component.scss']
 })
 export class PowerCreateComponent implements OnInit {
+  pageSize = 10;
+  pageIndex = 0;
+  length = -1;
+
   touched = false;
   edited = false;
   powerId = '';
   form: FormGroup;
   myPattern = MyPattern;
   powerDto = new PowerDto();
+  buildingAllocation = new PowerBuildingAllocation();
   useTypeEnum = UseTypePowerEnum;
   voltageTypeEnum = VoltageTypeEnum;
   useCodeEnum;
   groupEnum = GroupEnum;
   powerSupplyVoltageEnum = powerSupplyVoltage;
+  buildingEnum = UseTypeBuildingEnum;
+  filterBuilding = '';
+  buildingList = [];
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
+              private buildingService: BuildingService,
               private activatedRoute: ActivatedRoute,
               private  powerService: PowerService) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -71,12 +83,13 @@ export class PowerCreateComponent implements OnInit {
   }
 
   getOnePower(pId): void {
-    this.powerService.getOneBuilding({
+    this.powerService.getOnePower({
       id: pId
     })
       .subscribe((res: any) => {
         if (res) {
           this.powerDto = res.data;
+          this.setEnumUseType();
         }
       });
   }
@@ -117,7 +130,11 @@ export class PowerCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
-            this.router.navigate(['/index/user/configuration/powerList']);
+            this.powerId = res.data;
+            setTimeout(() => {
+              $('#pills-building-tab').click();
+            }, 200);
+            // this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
     } else {
@@ -126,11 +143,59 @@ export class PowerCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
-            this.router.navigate(['/index/user/configuration/powerList']);
+            // this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
     }
 
 
   }
+
+  deleteBuilding(item: BuildingAllocation, i): void {
+    Notiflix.Confirm.Show(
+      'حذف فضا',
+      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'بله',
+      'خیر',
+      () => {
+        this.powerService.deletePowerBuildingAllocation({id: this.powerId, allocationId: item.id})
+          .subscribe((res: any) => {
+            if (res) {
+              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              this.powerDto.buildingList.splice(i, 1);
+            }
+          });
+      });
+  }
+
+  getListBuilding(): void {
+    this.buildingService.getListBuilding({
+      page: this.pageIndex,
+      size: this.pageSize,
+      term: this.filterBuilding,
+    }).subscribe((res: any) => {
+      if (res) {
+        if (res.flag) {
+          this.buildingList = res.content;
+        }
+      }
+    });
+  }
+
+  addBuildingAllocation(): void {
+    this.powerService.addBuildingAllocation({id: this.powerId}, this.buildingAllocation)
+      .subscribe((res: any) => {
+        if (res) {
+          this.buildingAllocation = new PowerBuildingAllocation();
+          this.powerDto.buildingList.push(res.data);
+        }
+      });
+  }
+
+  selectBuildingAllocation(item): void {
+    this.buildingAllocation.name = item.name;
+    this.buildingAllocation.buildingId = item.id;
+  }
+
+
 }

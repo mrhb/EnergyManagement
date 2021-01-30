@@ -16,7 +16,7 @@ export class PowerService extends GeneralService {
     return super.postCheckService('create', body, errorSelector);
   }
 
-  getOneBuilding(param: {id: string}, errorSelector?: string): Observable<any> {
+  getOnePower(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
   }
 
@@ -32,7 +32,11 @@ export class PowerService extends GeneralService {
     return super.deleteCheckService('delete', errorSelector, param);
   }
 
-  addBuildingAllocation(param: any, body: any,  errorSelector?: string): Observable<any> {
+  deletePowerBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
+    return super.deleteCheckService('delete-building-allocation', errorSelector, param);
+  }
+
+  addBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('add-building-allocation', body, errorSelector, param);
   }
 }

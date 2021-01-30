@@ -23,6 +23,8 @@ import {PowerCreateComponent} from './subscription/feature/create/power/create/p
 import {PipeModule} from '../../../shared/tools/pipe-module';
 import {PowerService} from './subscription/service/power.service';
 import {PowerListComponent} from './subscription/feature/create/power/list/power-list.component';
+import { GasCreateComponent } from './subscription/feature/create/gas/add/gas-create.component';
+import { GasListComponent } from './subscription/feature/create/gas/list/gas-list.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import {PowerListComponent} from './subscription/feature/create/power/list/power
     BuildingListComponent,
     SubscriptionComponent,
     PowerCreateComponent,
-    PowerListComponent
+    PowerListComponent,
+    GasCreateComponent,
+    GasListComponent,
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,5 @@
 import {GroupEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
+import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class PowerDto {
   name: string;
@@ -18,8 +19,19 @@ export class PowerDto {
   coefficient: string;
   voltageType: VoltageTypeEnum;
   powerSupplyVoltage: powerSupplyVoltage;
-  // buildingList: BuildingList[];
+  buildingList: BuildingAllocation[];
   // buildingNum: string;
+}
+
+export class BuildingAllocation {
+  allocationPercentage: string;
+  buildingId: string;
+  createdAt: any;
+  id: string;
+  name: string;
+  postalCode: string;
+  updatedAt: any;
+  useType: UseTypeBuildingEnum;
 }
 
 export class PowerList {
@@ -30,6 +42,13 @@ export class PowerList {
   useType: UseTypePowerEnum;
   createdAt: any;
   buildingNum: string;
+}
+
+export class PowerBuildingAllocation {
+  id: string;
+  name: string;
+  buildingId: string;
+  allocationPercentage: string;
 }
 
 // export class BuildingList {

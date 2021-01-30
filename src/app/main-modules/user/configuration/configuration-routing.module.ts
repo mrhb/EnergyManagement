@@ -5,6 +5,7 @@ import {CreateBuildingComponent} from './building/feature/create/create-building
 import {BuildingListComponent} from './building/feature/list/building-list.component';
 import {PowerCreateComponent} from './subscription/feature/create/power/create/power-create.component';
 import {PowerListComponent} from './subscription/feature/create/power/list/power-list.component';
+import {GasCreateComponent} from './subscription/feature/create/gas/add/gas-create.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'powerList',
     component: PowerListComponent,
+  },
+  {
+    path: 'createGas',
+    component: GasCreateComponent,
   },
 ];
 

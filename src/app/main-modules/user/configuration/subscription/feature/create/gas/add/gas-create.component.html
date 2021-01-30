@@ -1,0 +1,247 @@
+<div class="col-12">
+  <h1>
+    <strong *ngIf="!gasId">افزودن اشتراک گاز </strong>
+    <strong *ngIf="gasId">ویرایش اشتراک گاز </strong>
+  </h1>
+  <hr>
+  <form [formGroup]="form" class="w-100" (ngSubmit)="createGas()">
+    <div class="form row">
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="name" class="form-label">نام مشترک</label>
+          <input class="form-control text-right" id="name" placeholder=""
+                 [(ngModel)]="gasDto.name"
+                 formControlName="name"
+                 name="name"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="billingId" class="form-label">شناسه قبض</label>
+          <input class="form-control text-right" id="billingId" placeholder=""
+                 [(ngModel)]="gasDto.billingId"
+                 formControlName="billingId"
+                 name="billingId"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="city" class="form-label">شهر</label>
+          <input class="form-control text-right" id="city" placeholder=""
+                 [(ngModel)]="gasDto.city"
+                 formControlName="city"
+                 name="city"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="domainCode" class="form-label">کد حوزه</label>
+          <input class="form-control text-right" id="domainCode" placeholder=""
+                 [(ngModel)]="gasDto.domainCode"
+                 formControlName="domainCode"
+                 name="domainCode"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="addressCode" class="form-label">کد آدرس</label>
+          <input class="form-control text-right" id="addressCode" placeholder=""
+                 [(ngModel)]="gasDto.addressCode"
+                 formControlName="addressCode"
+                 name="addressCode"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="numberShare" class="form-label">شماره اشتراک</label>
+          <input class="form-control text-right" id="numberShare" placeholder=""
+                 [(ngModel)]="gasDto.numberShare"
+                 formControlName="numberShare"
+                 name="numberShare"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="fileNumber" class="form-label">شماره پرونده</label>
+          <input class="form-control text-right" id="fileNumber" placeholder=""
+                 [(ngModel)]="gasDto.fileNumber"
+                 formControlName="fileNumber"
+                 name="fileNumber"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
+      </div>
+
+
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="serialShare" class="form-label">سریال اشتراک</label>
+          <input class="form-control text-right" id="serialShare" placeholder=""
+                 [(ngModel)]="gasDto.serialShare"
+                 formControlName="serialShare"
+                 name="serialShare"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="useType" class="form-label">عنوان تعرفه</label>
+          <select id="useType"
+                  class="form-control text-right"
+                  [(ngModel)]="gasDto.useType"
+                  formControlName="useType"
+                  name="useType">
+            <option *ngFor="let item of useTypeGasEnum | enumKeyValue" [value]="item.key">
+              {{item.value}}
+            </option>
+          </select>
+        </div>
+        <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="group" class="form-label">گروه</label>
+          <select id="group"
+                  class="form-control text-right"
+                  [(ngModel)]="gasDto.group"
+                  formControlName="group"
+                  name="group">
+            <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
+              {{item.value}}
+            </option>
+          </select>
+        </div>
+        <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="capacity" class="form-label">ظرفیت</label>
+          <input class="form-control text-right" id="capacity" placeholder=""
+                 [(ngModel)]="gasDto.capacity"
+                 formControlName="capacity"
+                 name="capacity"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
+      </div>
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="coefficient" class="form-label">ضریب اشتراک</label>
+          <input class="form-control text-right" id="coefficient" placeholder=""
+                 [(ngModel)]="gasDto.coefficient"
+                 formControlName="coefficient"
+                 name="coefficient"
+          >
+        </div>
+        <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
+      </div>
+      <!--    <div class="mb-4 col-md-3">-->
+      <!--      <div class="w-100">-->
+      <!--        <label for="buildingNum" class="form-label">تعداد ساختمان ها</label>-->
+      <!--        <input class="form-control text-right" id="buildingNum" placeholder=""-->
+      <!--               [(ngModel)]="gasDto.buildingNum"-->
+      <!--               formControlName="buildingNum"-->
+      <!--               name="buildingList"-->
+      <!--        >-->
+      <!--      </div>-->
+      <!--      <app-alert-error [data]="form.controls['buildingNum']" [touched]="touched"></app-alert-error>-->
+      <!--    </div>-->
+
+      <div class="mb-4 col-12">
+        <div class="w-100">
+          <label for="address" class="form-label">آدرس</label>
+          <textarea class="form-control text-right" id="address" placeholder=""
+                    [(ngModel)]="gasDto.address"
+                    formControlName="address"
+                    name="address"
+          ></textarea>
+        </div>
+        <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+      </div>
+
+      <!--    <div class="mb-4 col-md-3">-->
+      <!--      <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center ml-3"-->
+      <!--              data-toggle="modal" data-target=".bd-example-modal-lg">-->
+      <!--        <span class="fa fa-plus ml-2"></span>-->
+      <!--        <span>افزودن ساختمان</span>-->
+      <!--      </button>-->
+      <!--    </div>-->
+
+      <!--    <div class="mb-4 col-md-3">-->
+      <!--      <div class="w-100">-->
+      <!--        <label for="buildingList" class="form-label">لیست ساختمان ها</label>-->
+      <!--        <input class="form-control text-right" id="buildingList" placeholder=""-->
+      <!--               [(ngModel)]="gasDto.buildingList"-->
+      <!--               formControlName="buildingList"-->
+      <!--               name="buildingList"-->
+      <!--        >-->
+      <!--      </div>-->
+      <!--      <app-alert-error [data]="form.controls['buildingList']" [touched]="touched"></app-alert-error>-->
+      <!--    </div>-->
+
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!gasId">ثبت</button>
+        <div [routerLink]="'/index/user/configuration/gasList'"
+             class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+        <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="gasId">ویرایش</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<!--<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog modal-lg">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">لیست ساختمان ها</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="table-responsive">-->
+<!--        <table class="table table-striped table-bordered">-->
+<!--          <thead class="thead-light">-->
+<!--          <tr>-->
+<!--            <th scope="col" width="40">#</th>-->
+<!--            <th scope="col">عنوان نقشه</th>-->
+<!--            <th scope="col">دسته بندی نقشه</th>-->
+<!--            <th scope="col">شماره نقشه</th>-->
+<!--            <th scope="col" width="80">عملیات</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <ng-container *ngFor="let item of mapList; let i = index">-->
+<!--            <tr>-->
+<!--              <th scope="row" width="40">{{i + 1}}</th>-->
+<!--              <td>{{item.title}}</td>-->
+<!--              <td>{{mapEnum[item.category].toString()}}</td>-->
+<!--              <td>{{item.number}}</td>-->
+<!--              <td width="40"><span class="cursor-pointer btn btn-primary fa fa-edit" (click)="editSpace(item)"></span></td>-->
+
+<!--            </tr>-->
+<!--          </ng-container>-->
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
