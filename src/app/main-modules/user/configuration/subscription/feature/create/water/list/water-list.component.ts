@@ -5,25 +5,26 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {GasList} from '../../../../model/gas';
-import {GasService} from '../../../../service/gas.service';
-import {ActivatedRoute} from '@angular/router';
-import {UseTypeGasEnum} from '../../../../model/gasEnum';
+import {WaterList} from '../../../../model/water';
 // @ts-ignore
 import Notiflix from 'notiflix';
+import {WaterService} from '../../../../service/water.service';
+import {ActivatedRoute} from '@angular/router';
+import {UseTypeWater} from '../../../../model/waterEnum';
+
 @Component({
-  selector: 'app-gas-list',
-  templateUrl: './gas-list.component.html',
-  styleUrls: ['./gas-list.component.scss']
+  selector: 'app-water-list',
+  templateUrl: './water-list.component.html',
+  styleUrls: ['./water-list.component.scss']
 })
-export class GasListComponent implements OnInit {
+export class WaterListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;
 
-  useTypeEnum = UseTypeGasEnum;
-  gasList: GasList[] = [];
-  constructor(private gasService: GasService,
+  useTypeEnum = UseTypeWater;
+  waterList: WaterList[] = [];
+  constructor(private waterService: WaterService,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,27 +32,27 @@ export class GasListComponent implements OnInit {
   }
 
   getListPower(): void {
-    this.gasService.getGasList(
+    this.waterService.getWaterList(
       {
         page: this.pageIndex,
         size: this.pageSize,
       }, ''
     ).subscribe((res: any) => {
       if (res) {
-        this.gasList = res.content;
+        this.waterList = res.content;
       }
     });
   }
 
-  getListGas(): void {
-    this.gasService.getGasList(
+  getListWater(): void {
+    this.waterService.getWaterList(
       {
         page: this.pageIndex,
         size: this.pageSize,
       }, ''
     ).subscribe((res: any) => {
       if (res) {
-        this.gasList = res.content;
+        this.waterList = res.content;
       }
     });
   }
@@ -65,7 +66,7 @@ export class GasListComponent implements OnInit {
         pageSize: this.pageSize,
       },
     });
-    this.getListGas();
+    this.getListWater();
   }
 
   changePage(event: any): void {
@@ -75,18 +76,18 @@ export class GasListComponent implements OnInit {
     this.navigate();
   }
 
-  deleteGas(i, pId): void {
+  deleteWater(i, pId): void {
     Notiflix.Confirm.Show(
       'حذف فضا',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
       () => {
-        this.gasService.deleteGas({id: pId})
+        this.waterService.deleteWater({id: pId})
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
-              this.gasList.splice(i, 1);
+              this.waterList.splice(i, 1);
             }
           });
       });

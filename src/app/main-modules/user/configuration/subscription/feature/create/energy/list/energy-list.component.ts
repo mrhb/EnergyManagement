@@ -5,25 +5,23 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {GasList} from '../../../../model/gas';
-import {GasService} from '../../../../service/gas.service';
-import {ActivatedRoute} from '@angular/router';
-import {UseTypeGasEnum} from '../../../../model/gasEnum';
+import {EnergyList} from '../../../../model/energy';
 // @ts-ignore
 import Notiflix from 'notiflix';
+import {EnergyService} from '../../../../service/energy.service';
+import {ActivatedRoute} from '@angular/router';
 @Component({
-  selector: 'app-gas-list',
-  templateUrl: './gas-list.component.html',
-  styleUrls: ['./gas-list.component.scss']
+  selector: 'app-energy-list',
+  templateUrl: './energy-list.component.html',
+  styleUrls: ['./energy-list.component.scss']
 })
-export class GasListComponent implements OnInit {
+export class EnergyListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;
 
-  useTypeEnum = UseTypeGasEnum;
-  gasList: GasList[] = [];
-  constructor(private gasService: GasService,
+  energyList: EnergyList[] = [];
+  constructor(private energyService: EnergyService,
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -31,27 +29,27 @@ export class GasListComponent implements OnInit {
   }
 
   getListPower(): void {
-    this.gasService.getGasList(
+    this.energyService.getEnergyList(
       {
         page: this.pageIndex,
         size: this.pageSize,
       }, ''
     ).subscribe((res: any) => {
       if (res) {
-        this.gasList = res.content;
+        this.energyList = res.content;
       }
     });
   }
 
-  getListGas(): void {
-    this.gasService.getGasList(
+  getListEnergy(): void {
+    this.energyService.getEnergyList(
       {
         page: this.pageIndex,
         size: this.pageSize,
       }, ''
     ).subscribe((res: any) => {
       if (res) {
-        this.gasList = res.content;
+        this.energyList = res.content;
       }
     });
   }
@@ -65,7 +63,7 @@ export class GasListComponent implements OnInit {
         pageSize: this.pageSize,
       },
     });
-    this.getListGas();
+    this.getListEnergy();
   }
 
   changePage(event: any): void {
@@ -75,21 +73,20 @@ export class GasListComponent implements OnInit {
     this.navigate();
   }
 
-  deleteGas(i, pId): void {
+  deleteEnergy(i, pId): void {
     Notiflix.Confirm.Show(
       'حذف فضا',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
       () => {
-        this.gasService.deleteGas({id: pId})
+        this.energyService.deleteEnergy({id: pId})
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
-              this.gasList.splice(i, 1);
+              this.energyList.splice(i, 1);
             }
           });
       });
   }
-
 }

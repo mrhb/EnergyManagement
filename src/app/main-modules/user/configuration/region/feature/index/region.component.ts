@@ -1,7 +1,11 @@
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
 import {Component, OnInit} from '@angular/core';
-import {RegionService} from '../../service/region.service';
-import {Region} from "../../model/region";
-import {Tools} from "../../../../../../shared/tools/tools";
+import {Region} from '../../model/region';
 
 @Component({
   selector: 'app-region',

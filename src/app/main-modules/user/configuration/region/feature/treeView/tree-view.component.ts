@@ -1,3 +1,9 @@
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Region, RegionOutput} from '../../model/region';
 import {RegionService} from '../../service/region.service';

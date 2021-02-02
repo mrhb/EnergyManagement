@@ -6,6 +6,11 @@ import {BuildingListComponent} from './building/feature/list/building-list.compo
 import {PowerCreateComponent} from './subscription/feature/create/power/create/power-create.component';
 import {PowerListComponent} from './subscription/feature/create/power/list/power-list.component';
 import {GasCreateComponent} from './subscription/feature/create/gas/add/gas-create.component';
+import {GasListComponent} from './subscription/feature/create/gas/list/gas-list.component';
+import {WaterListComponent} from './subscription/feature/create/water/list/water-list.component';
+import {CreateWaterComponent} from './subscription/feature/create/water/add/create-water.component';
+import {CreateEnergyComponent} from './subscription/feature/create/energy/add/create-energy.component';
+import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
 
 const routes: Routes = [
   {
@@ -44,6 +49,39 @@ const routes: Routes = [
     path: 'createGas',
     component: GasCreateComponent,
   },
+  {
+    path: 'editGas',
+    component: GasCreateComponent,
+  },
+  {
+    path: 'gasList',
+    component: GasListComponent,
+  },
+  {
+    path: 'createWater',
+    component: CreateWaterComponent,
+  },
+  {
+    path: 'editWater',
+    component: CreateWaterComponent,
+  },
+  {
+    path: 'waterList',
+    component: WaterListComponent,
+  },
+  {
+    path: 'createEnergy',
+    component: CreateEnergyComponent,
+  },
+  {
+    path: 'editEnergy',
+    component: CreateEnergyComponent,
+  },
+  {
+    path: 'energyList',
+    component: EnergyListComponent,
+  },
+
 ];
 
 @NgModule({

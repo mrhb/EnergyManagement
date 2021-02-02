@@ -2,11 +2,11 @@
   <div class="title-header d-flex justify-content-between align-items-center">
     <div>
       <h1>
-        <strong>لیست اشتراک های گاز </strong>
+        <strong>لیست اشتراک های آب </strong>
       </h1>
     </div>
     <div class="d-flex">
-      <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createGas'">افزودن اشتراک</button>
+      <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createWater'">افزودن اشتراک</button>
     </div>
   </div>
   <hr>
@@ -23,16 +23,16 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let gas of gasList; let i = index" class="vertical-align-middle">
-        <th scope="row">{{(i + 1 + (pageIndex * gasList.length))}}</th>
-        <td>{{gas.name}}</td>
-        <td>{{gas.addressCode}}</td>
-        <td>{{useTypeEnum[gas.useType].toString()}}</td>
-        <td>{{gas.buildingNum}}</td>
+      <tr *ngFor="let water of waterList; let i = index" class="vertical-align-middle">
+        <th scope="row">{{(i + 1 + (pageIndex * waterList.length))}}</th>
+        <td>{{water.name}}</td>
+        <td>{{water.addressCode}}</td>
+        <td>{{useTypeEnum[water.useType].toString()}}</td>
+        <td>{{water.buildingNum}}</td>
         <td width="40"><span class="cursor-pointer fa fa-edit"
-                             [queryParams]="{id: gas.id}"
-                             [routerLink]="'/index/user/configuration/editGas'"></span></td>
-        <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gas.id)"></span></td>
+                             [queryParams]="{id: water.id}"
+                             [routerLink]="'/index/user/configuration/editWater'"></span></td>
+        <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water.id)"></span></td>
       </tr>
       </tbody>
     </table>

@@ -124,7 +124,7 @@
               <select id="useType"
                       class="form-control text-right"
                       [(ngModel)]="powerDto.useType"
-                      (change)="setEnumUseType()"
+                      (change)="setEnumUseType(true)"
                       formControlName="useType"
                       name="useType">
                 <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">

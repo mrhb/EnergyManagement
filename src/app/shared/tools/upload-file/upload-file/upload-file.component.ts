@@ -1,6 +1,11 @@
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UploadFileService} from './upload-file.service';
-import {GATEWAY_URL} from "../../../../_base/service/model/rest-constants";
 
 @Component({
   selector: 'app-upload-file',
