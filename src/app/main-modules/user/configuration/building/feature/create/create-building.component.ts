@@ -71,7 +71,7 @@ export class CreateBuildingComponent implements OnInit {
 
           if (this.buildingDto.name) {
             this.completeStep.one = true;
-            this.endActiveStep = 1;
+            this.endActiveStep = 2;
           }
 
           // area

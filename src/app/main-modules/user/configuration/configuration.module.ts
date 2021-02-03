@@ -30,6 +30,8 @@ import { WaterListComponent } from './subscription/feature/create/water/list/wat
 import { CreateEnergyComponent } from './subscription/feature/create/energy/add/create-energy.component';
 import { EnergyListComponent } from './subscription/feature/create/energy/list/energy-list.component';
 import {EnergyService} from './subscription/service/energy.service';
+import {EnergyBuildingService} from './building/service/energy-building.service';
+import {PowerBuildingService} from './building/service/power-building.service';
 
 
 @NgModule({
@@ -63,7 +65,7 @@ import {EnergyService} from './subscription/service/energy.service';
     PaginatorModule,
     PipeModule,
   ],
-  providers: [RegionService, BuildingService, PowerService, EnergyService],
+  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService, EnergyService],
 })
 export class ConfigurationModule {
 }

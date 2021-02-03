@@ -51,6 +51,17 @@ export class PowerBuildingAllocation {
   allocationPercentage: string;
 }
 
+export class PowerSharingAllocation {
+  allocationPercentage: string;
+  buildingId: string;
+  createdAt: any;
+  id: string;
+  name: string;
+  postalCode: string;
+  updatedAt: any;
+  useType: UseTypeBuildingEnum;
+}
+
 // export class BuildingList {
 //   buildingId: string;
 //   allocationPercentage: string;
