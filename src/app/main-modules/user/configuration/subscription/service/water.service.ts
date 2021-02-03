@@ -7,22 +7,22 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GasService extends GeneralService {
+export class WaterService extends GeneralService {
 
   constructor(public http: HttpClient) {
     super(http);
-    this.prefixPath = GATEWAY_URL + '/api/gas-sharing';
+    this.prefixPath = GATEWAY_URL + '/api/water-sharing';
   }
 
-  createGas(body: any, errorSelector?: string): Observable<any> {
+  createWater(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create', body, errorSelector);
   }
 
-  updateGas(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+  updateWater(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update', body, errorSelector, param);
   }
 
-  getOneGas(param: {id: string}, errorSelector?: string): Observable<any> {
+  getOneWater(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
   }
 
@@ -30,17 +30,15 @@ export class GasService extends GeneralService {
     return super.postCheckService('add-building-allocation', body, errorSelector, param);
   }
 
-  deleteGasBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
+  deleteWaterBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete-building-allocation', errorSelector, param);
   }
 
-  getGasList(param: any, body: any,  errorSelector?: string): Observable<any> {
+  getWaterList(param: any, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
   }
 
-  deleteGas(param: {id: string}, errorSelector?: string): Observable<any> {
+  deleteWater(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete', errorSelector, param);
   }
-
-
 }

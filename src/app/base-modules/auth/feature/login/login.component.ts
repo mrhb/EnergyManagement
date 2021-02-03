@@ -13,7 +13,9 @@ import Notiflix from 'notiflix';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 /**
- * create By reza mollaei reza_yki@yahoo.com
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
  */
 @Component({
   selector: 'app-login',

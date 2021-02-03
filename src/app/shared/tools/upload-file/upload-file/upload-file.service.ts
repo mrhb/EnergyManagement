@@ -1,9 +1,13 @@
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHandler, HttpHeaders} from '@angular/common/http';
-import {GeneralService} from '../../../../_base/service/_service/general.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {GATEWAY_URL, TOKEN_CACHE_KEY, TOKEN_PREFIX} from '../../../../_base/service/model/rest-constants';
-import {map} from "rxjs/operators";
 
 @Injectable()
 export class UploadFileService {

@@ -4,25 +4,23 @@ import {HttpClient} from '@angular/common/http';
 import {GATEWAY_URL} from '../../../../../_base/service/model/rest-constants';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class GasService extends GeneralService {
+@Injectable()
+export class EnergyService  extends GeneralService {
 
   constructor(public http: HttpClient) {
     super(http);
-    this.prefixPath = GATEWAY_URL + '/api/gas-sharing';
+    this.prefixPath = GATEWAY_URL + '/api/energy-sharing';
   }
 
-  createGas(body: any, errorSelector?: string): Observable<any> {
+  createEnergy(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create', body, errorSelector);
   }
 
-  updateGas(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+  updateEnergy(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update', body, errorSelector, param);
   }
 
-  getOneGas(param: {id: string}, errorSelector?: string): Observable<any> {
+  getOneEnergy(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
   }
 
@@ -30,17 +28,15 @@ export class GasService extends GeneralService {
     return super.postCheckService('add-building-allocation', body, errorSelector, param);
   }
 
-  deleteGasBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
+  deleteEnergyBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete-building-allocation', errorSelector, param);
   }
 
-  getGasList(param: any, body: any,  errorSelector?: string): Observable<any> {
+  getEnergyList(param: any, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
   }
 
-  deleteGas(param: {id: string}, errorSelector?: string): Observable<any> {
+  deleteEnergy(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete', errorSelector, param);
   }
-
-
 }

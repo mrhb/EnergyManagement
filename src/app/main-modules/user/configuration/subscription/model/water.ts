@@ -1,24 +1,20 @@
-import {GroupGasEnum, UseTypeGasEnum} from './gasEnum';
+import {UseCodeWaterEnum, UseTypeWater} from './waterEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
-export class GasDto {
+export class WaterDto {
   name: string;
-  address: string;
   billingId: string;
-  city: string;
-  domainCode: string;
-  addressCode: string;
   numberShare: string;
   fileNumber: string;
   serialShare: string;
-  useType: UseTypeGasEnum;
-  group: GroupGasEnum;
+  useType: UseTypeWater;
+  sewageBranchDiameter: string;
   capacity: string;
-  coefficient: string;
-  buildingList: GasBuildingAllocation[] = [];
+  buildingList: WaterBuildingAllocation[] = [];
+  useCode: UseCodeWaterEnum;
 }
 
-export class GasBuildingAllocation {
+export class WaterBuildingAllocation {
   allocationPercentage: string;
   buildingId: string;
   createdAt: any;
@@ -29,12 +25,12 @@ export class GasBuildingAllocation {
   useType: UseTypeBuildingEnum;
 }
 
-export class GasList {
+export class WaterList {
   id: string;
   name: string;
   billingId: string;
   addressCode: string;
-  useType: UseTypeGasEnum;
+  useType: UseTypeWater;
   createdAt: any;
   buildingNum: string;
 }

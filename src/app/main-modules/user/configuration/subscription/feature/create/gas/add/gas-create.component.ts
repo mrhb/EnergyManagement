@@ -1,19 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../../shared/tools/myPattern';
 import {ActivatedRoute, Router} from '@angular/router';
-import {GasDto} from '../../../../model/gas';
+import {GasBuildingAllocation, GasDto} from '../../../../model/gas';
 import {GroupGasEnum, UseTypeGasEnum} from '../../../../model/gasEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {GasService} from '../../../../service/gas.service';
-
+import {BuildingService} from '../../../../../building/service/building.service';
+import {BuildingAllocation} from '../../../../model/power';
+import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+declare var $: any;
 @Component({
   selector: 'app-gas-create',
   templateUrl: './gas-create.component.html',
   styleUrls: ['./gas-create.component.scss']
 })
 export class GasCreateComponent implements OnInit {
+  pageSize = 20;
+  pageIndex = 0;
+  length = -1;
+
   gasId = '';
   touched = false;
   edited = false;
@@ -22,8 +35,15 @@ export class GasCreateComponent implements OnInit {
   gasDto = new GasDto();
   groupEnum = GroupGasEnum;
   useTypeGasEnum = UseTypeGasEnum;
+
+  filterBuilding = '';
+  buildingList = [];
+  buildingAllocation = new GasBuildingAllocation();
+  buildingEnum = UseTypeBuildingEnum;
+
   constructor(private formBuilder: FormBuilder,
               private router: Router,
+              private buildingService: BuildingService,
               private gasService: GasService,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -67,8 +87,12 @@ export class GasCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ایجاد اشتراک گاز با موفقیت انجام شد.');
+            this.gasId = res.data;
+            setTimeout(() => {
+              $('#pills-building-tab').click();
+            }, 200);
             // this.router.navigate(['/index/user/configuration/gasList']).then();
-            this.router.navigateByUrl('/index/user/configuration/gasList').then();
+            // this.router.navigateByUrl('/index/user/configuration/gasList').then();
           }
         });
     } else {
@@ -76,7 +100,7 @@ export class GasCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک گاز با موفقیت انجام شد.');
-            this.router.navigateByUrl('/index/user/configuration/gasList').then();
+            // this.router.navigateByUrl('/index/user/configuration/gasList').then();
           }
         });
     }
@@ -89,5 +113,51 @@ export class GasCreateComponent implements OnInit {
           this.gasDto = res.data;
         }
       });
+  }
+
+  deleteBuilding(item: BuildingAllocation, i): void {
+    Notiflix.Confirm.Show(
+      'حذف فضا',
+      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'بله',
+      'خیر',
+      () => {
+        this.gasService.deleteGasBuildingAllocation({id: this.gasId, allocationId: item.id})
+          .subscribe((res: any) => {
+            if (res) {
+              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              this.gasDto.buildingList.splice(i, 1);
+            }
+          });
+      });
+  }
+
+  getListBuilding(): void {
+    this.buildingService.getListBuilding({
+      page: this.pageIndex,
+      size: this.pageSize,
+      term: this.filterBuilding,
+    }).subscribe((res: any) => {
+      if (res) {
+        if (res.flag) {
+          this.buildingList = res.content;
+        }
+      }
+    });
+  }
+
+  addBuildingAllocation(): void {
+    this.gasService.addBuildingAllocation({id: this.gasId}, this.buildingAllocation)
+      .subscribe((res: any) => {
+        if (res) {
+          this.buildingAllocation = new GasBuildingAllocation();
+          this.gasDto.buildingList.push(res.data);
+        }
+      });
+  }
+
+  selectBuildingAllocation(item): void {
+    this.buildingAllocation.name = item.name;
+    this.buildingAllocation.buildingId = item.id;
   }
 }

@@ -1,3 +1,9 @@
+/**
+ * create By reza mollaei
+ * Email: reza_yki@yahoo.com
+ * telegram: reza_yki
+ */
+
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../../shared/tools/myPattern';
@@ -17,13 +23,14 @@ import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {BuildingService} from '../../../../../building/service/building.service';
 
 declare var $: any;
+
 @Component({
   selector: 'app-power-create',
   templateUrl: './power-create.component.html',
   styleUrls: ['./power-create.component.scss']
 })
 export class PowerCreateComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
 
@@ -40,6 +47,7 @@ export class PowerCreateComponent implements OnInit {
   groupEnum = GroupEnum;
   powerSupplyVoltageEnum = powerSupplyVoltage;
   buildingEnum = UseTypeBuildingEnum;
+
   filterBuilding = '';
   buildingList = [];
 
@@ -94,10 +102,7 @@ export class PowerCreateComponent implements OnInit {
       });
   }
 
-  setEnumUseType(): void {
-    console.log('this.powerDto.useType', this.powerDto.useType);
-    console.log('UseTypeEnum.HOME', UseTypePowerEnum.HOME);
-    console.log('UseTypeEnum.HOME', UseTypePowerEnum.HOME === this.powerDto.useType);
+  setEnumUseType(isChange?: boolean): void {
     switch (this.powerDto.useType) {
       case UseTypePowerEnum[UseTypePowerEnum.HOME.toString()]:
         this.useCodeEnum = HomeEnum;
@@ -114,6 +119,14 @@ export class PowerCreateComponent implements OnInit {
       case UseTypePowerEnum[UseTypePowerEnum.OTHER.toString()]:
         this.useCodeEnum = OtherEnum;
         break;
+    }
+    if (this.useCodeEnum && isChange) {
+      Object.keys(this.useCodeEnum).map((key, index) => {
+        if ((index % 2) === 0) {
+          this.powerDto.useCode = this.useCodeEnum[this.useCodeEnum[key.toString()]];
+          return;
+        }
+      });
     }
   }
 

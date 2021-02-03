@@ -19,7 +19,7 @@ export class PowerDto {
   coefficient: string;
   voltageType: VoltageTypeEnum;
   powerSupplyVoltage: powerSupplyVoltage;
-  buildingList: BuildingAllocation[];
+  buildingList: BuildingAllocation[] = [];
   // buildingNum: string;
 }
 

@@ -25,6 +25,11 @@ import {PowerService} from './subscription/service/power.service';
 import {PowerListComponent} from './subscription/feature/create/power/list/power-list.component';
 import { GasCreateComponent } from './subscription/feature/create/gas/add/gas-create.component';
 import { GasListComponent } from './subscription/feature/create/gas/list/gas-list.component';
+import { CreateWaterComponent } from './subscription/feature/create/water/add/create-water.component';
+import { WaterListComponent } from './subscription/feature/create/water/list/water-list.component';
+import { CreateEnergyComponent } from './subscription/feature/create/energy/add/create-energy.component';
+import { EnergyListComponent } from './subscription/feature/create/energy/list/energy-list.component';
+import {EnergyService} from './subscription/service/energy.service';
 
 
 @NgModule({
@@ -43,6 +48,10 @@ import { GasListComponent } from './subscription/feature/create/gas/list/gas-lis
     PowerListComponent,
     GasCreateComponent,
     GasListComponent,
+    CreateWaterComponent,
+    WaterListComponent,
+    CreateEnergyComponent,
+    EnergyListComponent,
   ],
   imports: [
     CommonModule,
@@ -54,7 +63,7 @@ import { GasListComponent } from './subscription/feature/create/gas/list/gas-lis
     PaginatorModule,
     PipeModule,
   ],
-  providers: [RegionService, BuildingService, PowerService],
+  providers: [RegionService, BuildingService, PowerService, EnergyService],
 })
 export class ConfigurationModule {
 }
