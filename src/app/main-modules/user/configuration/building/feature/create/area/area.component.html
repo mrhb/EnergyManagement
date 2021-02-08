@@ -5,6 +5,7 @@
       <div class="w-100">
         <label for="arenaArea" class="form-label">مساحت عرصه</label>
         <input class="form-control text-right" id="arenaArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="areaDto.arenaArea"
                formControlName="arenaArea"
                name="arenaArea"
@@ -16,6 +17,7 @@
       <div class="w-100">
         <label for="ayanArea" class="form-label">مساحت اعیان</label>
         <input class="form-control text-right" id="ayanArea" placeholder=""
+               type="number" min="0"
                maxlength="12"
                [(ngModel)]="areaDto.ayanArea"
                formControlName="ayanArea"
@@ -28,6 +30,7 @@
       <div class="w-100">
         <label for="useFullArea" class="form-label">مساحت مفید</label>
         <input class="form-control text-right" id="useFullArea" placeholder=""
+               type="number" min="0"
                maxlength="12"
                [(ngModel)]="areaDto.useFullArea"
                formControlName="useFullArea"
@@ -40,6 +43,7 @@
       <div class="w-100">
         <label for="externalWallsTotalArea" class="form-label">مساحت کل جداره های خارجی</label>
         <input class="form-control text-right" id="externalWallsTotalArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="areaDto.externalWallsTotalArea "
                formControlName="externalWallsTotalArea"
                name="externalWallsTotalArea"
@@ -52,6 +56,7 @@
       <div class="w-100">
         <label for="externalGlassTotalArea" class="form-label">مساحت کل شیشه خارجی</label>
         <input class="form-control text-right" id="externalGlassTotalArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="areaDto.externalGlassTotalArea"
                formControlName="externalGlassTotalArea"
                name="externalGlassTotalArea"

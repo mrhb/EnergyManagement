@@ -37,6 +37,7 @@ export class CreateEnergyComponent implements OnInit {
   buildingAllocation = new EnergyBuildingAllocation();
   filterBuilding = '';
   buildingList = [];
+  editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
@@ -120,14 +121,29 @@ export class CreateEnergyComponent implements OnInit {
   }
 
   addBuildingAllocation(): void {
-    this.energyService.addBuildingAllocation({id: this.energyId}, this.buildingAllocation)
-      .subscribe((res: any) => {
-        if (res) {
-          this.buildingAllocation = new GasBuildingAllocation();
-          console.log('res.data', res.data);
-          this.energyDto.buildingList.push(res.data);
-        }
-      });
+    if (!this.editedAllocation) {
+      this.energyService.addBuildingAllocation({id: this.energyId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            this.buildingAllocation = new GasBuildingAllocation();
+            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
+            this.energyDto.buildingList.push(res.data);
+          }
+        });
+    } else {
+      this.energyService.updateBuildingAllocation({id: this.energyId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            this.editedAllocation = false;
+            const index = this.energyDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
+            if (index !== -1 ) {
+              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              this.energyDto.buildingList[index] = this.buildingAllocation;
+              this.buildingAllocation = new GasBuildingAllocation();
+            }
+          }
+        });
+    }
   }
 
   deleteBuilding(item: BuildingAllocation, i): void {
@@ -152,4 +168,8 @@ export class CreateEnergyComponent implements OnInit {
     this.buildingAllocation.buildingId = item.id;
   }
 
+  editAllocationPercentage(item: EnergyBuildingAllocation): void {
+    this.editedAllocation = true;
+    this.buildingAllocation = JSON.parse(JSON.stringify(item));
+  }
 }

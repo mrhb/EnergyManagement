@@ -16,6 +16,7 @@
       <div class="w-100">
         <label for="number" class="form-label">شماره فضا</label>
         <input class="form-control text-right" id="number" placeholder=""
+               type="number" min="0"
                maxlength="12"
                [(ngModel)]="spaceDto.number"
                formControlName="number"
@@ -28,6 +29,7 @@
       <div class="w-100">
         <label for="floorNum" class="form-label">شماره طبقه</label>
         <input class="form-control text-right" id="floorNum" placeholder=""
+               type="number"
                maxlength="12"
                [(ngModel)]="spaceDto.floorNum"
                formControlName="floorNum"
@@ -51,6 +53,7 @@
       <div class="w-100">
         <label for="area" class="form-label">مساحت</label>
         <input class="form-control text-right" id="area" placeholder=""
+               type="number" min="0"
                [(ngModel)]="spaceDto.area"
                formControlName="area"
                name="area"

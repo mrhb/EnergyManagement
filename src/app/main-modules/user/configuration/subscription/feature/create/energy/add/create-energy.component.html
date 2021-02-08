@@ -90,12 +90,14 @@
         <div class="row">
           <div class="col-auto d-flex flex-column">
             <label for="allocationPercentage" class="form-label">انتخاب ساختمان</label>
-            <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب
-              <span style="font-size: 13px;" *ngIf="buildingAllocation.name">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
+              <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
                 ({{buildingAllocation.name}})
               </span>
-            </button>
+            </div>
           </div>
+
           <div class="col-md-3">
             <div class="w-100">
               <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
@@ -107,7 +109,8 @@
           </div>
         </div>
         <hr>
-        <button class="btn btn-primary" (click)="addBuildingAllocation()">ثبت ساختمان</button>
+        <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="addBuildingAllocation()">ثبت ساختمان</button>
+        <button class="btn btn-primary" *ngIf="editedAllocation" (click)="addBuildingAllocation()">ویرایش ساختمان</button>
       </fieldset>
 
       <div class="table-responsive" *ngIf="energyDto.buildingList?.length > 0">
@@ -119,7 +122,7 @@
             <th scope="col">نوع</th>
             <th scope="col">کد پستی</th>
             <th scope="col" width="140">درصد تخصیص</th>
-            <th scope="col" width="80">عملیات</th>
+            <th scope="col" width="80" colspan="2">عملیات</th>
           </tr>
           </thead>
           <tbody>
@@ -130,6 +133,11 @@
               <td>{{buildingEnum[item.useType].toString()}}</td>
               <td>{{item.postalCode}}</td>
               <td>{{item.allocationPercentage}}</td>
+              <td width="40" class="text-center">
+                <span class="cursor-pointer text-center fa fa-edit"
+                      (click)="editAllocationPercentage(item)">
+                </span>
+              </td>
               <td width="40" class="text-center">
                 <span class="cursor-pointer text-center fa fa-trash"
                       (click)="deleteBuilding(item, i)">

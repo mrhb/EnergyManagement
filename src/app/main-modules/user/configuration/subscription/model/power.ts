@@ -45,10 +45,14 @@ export class PowerList {
 }
 
 export class PowerBuildingAllocation {
+  allocationPercentage: string;
+  buildingId: string;
+  createdAt: any;
   id: string;
   name: string;
-  buildingId: string;
-  allocationPercentage: string;
+  postalCode: string;
+  updatedAt: any;
+  useType: UseTypeBuildingEnum;
 }
 
 export class PowerSharingAllocation {

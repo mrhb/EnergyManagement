@@ -37,7 +37,7 @@ export class WallInformationComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.buildingId) {
-      if (this.editedWallInformation.exFloorAdjNotControlledSpaceArea) {
+      if (this.editedWallInformation && this.editedWallInformation.exFloorAdjNotControlledSpaceArea) {
         this.wallInformation = this.editedWallInformation;
       }
     }

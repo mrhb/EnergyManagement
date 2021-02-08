@@ -153,6 +153,7 @@ export class CheckService extends BaseService {
         Notiflix.Notify.Failure('خطا در دسترسی به سرور(۴۰۴)');
         break;
       case 400:
+        console.log('errrrroor', error.error);
         if (Tools.isNullOrUndefined(error.error) || error.error.type !== 'CUSTOM_EX') {
           Notiflix.Notify.Failure('اطلاعات وارد شده صحیح نمی باشد، لطفا بررسی و اصلاح نمائید.');
         } else {
