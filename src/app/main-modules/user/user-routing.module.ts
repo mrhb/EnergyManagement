@@ -8,6 +8,10 @@ const routes: Routes = [
     component: ProfileComponent,
   },
   {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+  {
     path: 'configuration',
     loadChildren: async () => await import ('../user/configuration/configuration.module').then(m => m.ConfigurationModule),
   },

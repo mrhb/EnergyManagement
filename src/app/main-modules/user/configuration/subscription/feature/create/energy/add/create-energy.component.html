@@ -75,9 +75,9 @@
           </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!energyId">ثبت</button>
             <div [routerLink]="'/index/user/configuration/energyList'"
                  class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+            <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!energyId">ثبت</button>
             <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="energyId">ویرایش</button>
           </div>
 
