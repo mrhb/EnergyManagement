@@ -51,7 +51,6 @@ export class CacheService {
     });
 
 
-    // @ts-ignore
     /**
      * Session Storage Loading
      */
@@ -60,7 +59,6 @@ export class CacheService {
       CacheService.sessionStorageKeyList = new Array<string>();
     }
     CacheService.sessionStorageKeyList.forEach(key => {
-      // @ts-ignore
       return CacheService.sessionStorage.push(new CacheModel.KeyValue(key, JSON.parse(sessionStorage.getItem(key))));
     });
 

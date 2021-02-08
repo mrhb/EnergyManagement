@@ -11,6 +11,8 @@ import {ROLE_ADMIN, ROLE_USER} from '../../../../shared/constants/role.constants
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {DataService} from '../../../../../service/dataService/dataService';
+import {ProfileService} from '../../../../main-modules/user/profile/service/profile.service';
 
 /**
  * create By reza mollaei
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService,
               private formBuilder: FormBuilder,
               private jwtService: JwtService,
+              private profileService: ProfileService,
               private router: Router) {
 
     const accessToken = localStorage.getItem(TOKEN_CACHE_KEY);
@@ -74,6 +77,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getAccount(): void {
+    this.profileService.getOne()
+      .subscribe((res: any) => {
+        if (res) {
+          if (res.flag) {
+            localStorage.setItem('account', JSON.stringify(res.data));
+            DataService.setAccount(res.data);
+          }
+        }
+      });
+  }
+
   checkMobileOrEmail(): void {
     if ((this.dto.username.match(this.myPattern.email))) {
       this.dto.type = this.enumType[this.enumType.EMAIL.toString()];
@@ -95,7 +110,8 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/index/admin');
       // this.router.navigate(['/index/admin']);
     } else if (role === ROLE_USER) {
-      this.router.navigateByUrl('/index/user');
+      this.getAccount();
+      this.router.navigateByUrl('/index/user/configuration/buildingList').then();
       // this.router.navigate(['/index/user']);
     }
   }

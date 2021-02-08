@@ -24,6 +24,7 @@ export class BuildingListComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getBuildingList();
   }
 
   getRegion($event: any): void {

@@ -34,6 +34,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'FontAwesome' !important;
 }
 
+html[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
 // Global
 html[dir="rtl"] body,
 html[dir="rtl"] table,

@@ -61,15 +61,15 @@
       <div class="md-step-bar-left"></div>
       <div class="md-step-bar-right"></div>
     </div>
-    <div class="md-step"
-         (click)="getCurrentStep(6)"
-         [ngClass]="{'active done': endActiveStep >= 6, 'active editable' : currentStep === 6}">
-      <div class="md-step-circle"><span>6</span></div>
-      <div class="md-step-title">اشتراک</div>
-<!--      <div class="md-step-optional">اختیاری</div>-->
-      <div class="md-step-bar-left"></div>
-      <div class="md-step-bar-right"></div>
-    </div>
+<!--    <div class="md-step"-->
+<!--         (click)="getCurrentStep(6)"-->
+<!--         [ngClass]="{'active done': endActiveStep >= 6, 'active editable' : currentStep === 6}">-->
+<!--      <div class="md-step-circle"><span>6</span></div>-->
+<!--      <div class="md-step-title">اشتراک</div>-->
+<!--&lt;!&ndash;      <div class="md-step-optional">اختیاری</div>&ndash;&gt;-->
+<!--      <div class="md-step-bar-left"></div>-->
+<!--      <div class="md-step-bar-right"></div>-->
+<!--    </div>-->
   </div>
   <div class="md-wrapper-stepper">
     <p class="alert alert-success" *ngIf="buildingDto.regionTitle">
@@ -78,7 +78,10 @@
     </p>
     <div class="md-content-stepper" [hidden]="currentStep !== 0" *ngIf="endActiveStep >= 0">
       <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
-      <button type="submit" [disabled]="!region.regionId" (click)="getStep(1)" class="btn btn-primary text-center ml-3">ادامه</button>
+      <div class="mt-3">
+        <button type="submit" [routerLink]="'/index/user/configuration/buildingList'" class="btn btn-outline-primary text-center ml-3">بازگشت</button>
+        <button type="submit" [disabled]="!region.regionId" (click)="getStep(1)" class="btn btn-primary text-center ml-3">ادامه</button>
+      </div>
     </div>
     <div class="md-content-stepper" [hidden]="currentStep !== 1" *ngIf="endActiveStep >= 1">
       <app-add-building [editedBuildingDto]="buildingDto" [regionId]="region.regionId" [bId]="buildingId"
@@ -106,9 +109,9 @@
                             (completeStep)="getComplete($event)"
                             (nextStep)="getStep($event)"></app-wall-information>
     </div>
-    <div class="md-content-stepper" [hidden]="currentStep !== 6" *ngIf="currentStep === 6 && endActiveStep >=2">
+<!--    <div class="md-content-stepper" [hidden]="currentStep !== 6" *ngIf="currentStep === 6 && endActiveStep >=2">-->
 
-    </div>
+<!--    </div>-->
   </div>
 
 

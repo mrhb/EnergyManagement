@@ -7,6 +7,7 @@ import {MyPattern} from '../../../../shared/tools/myPattern';
 import Notiflix from 'notiflix';
 import {ProfileService} from '../service/profile.service';
 import {GATEWAY_URL} from "../../../../_base/service/model/rest-constants";
+import {DataService} from '../../../../../service/dataService/dataService';
 
 @Component({
   selector: 'app-profile',
@@ -66,6 +67,8 @@ export class ProfileComponent implements OnInit {
             this.profile.firstName = res.data.firstName;
             this.profile.lastName = res.data.lastName;
             this.profile.photo = res.data.photo;
+            localStorage.setItem('account', JSON.stringify(res.data));
+            DataService.setAccount(res.data);
             if (!this.profile.photo) {
               this.profile.photo = ' ';
             }
@@ -103,7 +106,11 @@ export class ProfileComponent implements OnInit {
     this.profileService.updateProfile(this.profile)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('آپدیت پروفایل با موفقیت تغییر یافت.');
+          if (res.flag) {
+            localStorage.setItem('account', JSON.stringify(this.profile));
+            DataService.setAccount(this.profile);
+            Notiflix.Notify.Success('آپدیت پروفایل با موفقیت تغییر یافت.');
+          }
         }
       });
 

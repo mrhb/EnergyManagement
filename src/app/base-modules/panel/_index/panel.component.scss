@@ -1,3 +1,10 @@
 .wrapper {
   display: flex;
 }
+
+.wrapper-parent {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  max-height: 100vh;
+}

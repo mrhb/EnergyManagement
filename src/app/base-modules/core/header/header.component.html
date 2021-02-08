@@ -1,15 +1,81 @@
 <div class="main-header">
-  <div class="brand-logo">
-    <strong>انرژی</strong>
-  </div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand">
+      <div class="brand-logo">
+        <strong>انرژی</strong>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            پیکربندی
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/buildingList'">ساختمان</a></li>
+            <li><div class="dropdown-divider"></div></li>
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اشتراک</a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerList'">برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasList'">گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterList'">آب</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyList'">انرژی</a></li>
+
+
+                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>-->
+                <!--                  <ul class="dropdown-menu">-->
+                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
+                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
+                <!--                  </ul>-->
+                <!--                </li>-->
+                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>-->
+                <!--                  <ul class="dropdown-menu">-->
+                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
+                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
+                <!--                  </ul>-->
+                <!--                </li>-->
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
   <div class="d-flex align-items-center">
+
+
     <div class="user-info">
       <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
-      <span class="ml-1" *ngIf="role === 'user'">کاربر</span>
-      <img src="../../../../../../assets/image/user.jpg" alt="">
-    </div>
-    <div class="logout cursor-pointer d-flex mr-3">
-      <div class="fa fa-power-off" (click)="logOut()"></div>
+      <span class="ml-1" *ngIf="role === 'user'">{{account.firstName + '' + account.lastName}}</span>
+      <div class="dropdown">
+        <div class="cursor-pointer" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <ng-container *ngIf="account && account.photo; else default">
+            <img [src]="pathUrl + account.photo" alt="">
+          </ng-container>
+          <ng-template #default>
+            <img src="../../../../../../assets/image/user.jpg" alt="">
+          </ng-template>
+        </div>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item text-right" type="button" [routerLink]="'/index/user/profile'">
+            <span class="fa fa-users"></span>
+            پروفایل
+          </button>
+          <button class="dropdown-item text-right" type="button"
+                  (click)="logOut()">
+            <span class="fa fa-power-off"></span>
+            <span>خروج</span>
+          </button>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </div>
