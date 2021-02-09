@@ -119,7 +119,15 @@ export class ProfileComponent implements OnInit {
 
   uploading($event): void {
     if ($event) {
-      this.profile.photo = $event;
+      this.profileService.updatePhoto({photo: $event})
+        .subscribe((res: any) => {
+          if (res) {
+            this.profile.photo = $event;
+            localStorage.setItem('account', JSON.stringify(this.profile));
+            DataService.setAccount(this.profile);
+          }
+        });
+
     }
   }
 

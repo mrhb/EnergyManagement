@@ -1,9 +1,9 @@
-import {BaseService} from "./base.service";
-import {HttpClient} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
+import {BaseService} from './base.service';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable} from 'rxjs';
 // @ts-ignore
-import Notiflix from "notiflix";
-import {Tools} from "../../../shared/tools/tools";
+import Notiflix from 'notiflix';
+import {Tools} from '../../../shared/tools/tools';
 
 // declare var Notiflix: any;
 export class CheckService extends BaseService {
@@ -29,7 +29,7 @@ export class CheckService extends BaseService {
   //   return result.asObservable();
   // }
 
-  postCheckService(suffixPath: string, body: any, errorSelector?:string, params?: {
+  postCheckService(suffixPath: string, body: any, errorSelector?: string, params?: {
     [param: string]: string | ReadonlyArray<string>;
   }): Observable<any> {
     const result = new BehaviorSubject<any>(null);
@@ -53,12 +53,12 @@ export class CheckService extends BaseService {
       if (errorSelector && errorSelector !== '') {
         Notiflix.Block.Remove(errorSelector);
       }
-      this.showErrorMessage(error)
+      this.showErrorMessage(error);
     });
     return result.asObservable();
   }
 
-  putCheckService(suffixPath: string, body: any, errorSelector?:string, params?: {
+  putCheckService(suffixPath: string, body: any, errorSelector?: string, params?: {
     [param: string]: string | boolean| boolean | ReadonlyArray<string>;
   }): Observable<any> {
     const result = new BehaviorSubject<any>(null);
@@ -84,7 +84,7 @@ export class CheckService extends BaseService {
     return result.asObservable();
   }
 
-  getCheckService(suffixPath: string, errorSelector?:string, params?: {
+  getCheckService(suffixPath: string, errorSelector?: string, params?: {
     [param: string]: string | ReadonlyArray<string>;
   }): Observable<any> {
     const result = new BehaviorSubject<any>(null);
@@ -107,12 +107,12 @@ export class CheckService extends BaseService {
       if (errorSelector && errorSelector !== '') {
         Notiflix.Block.Remove(errorSelector);
       }
-      this.showErrorMessage(error)
+      this.showErrorMessage(error);
     });
     return result.asObservable();
   }
 
-  deleteCheckService(suffixPath: string, errorSelector?:string, params?: {
+  deleteCheckService(suffixPath: string, errorSelector?: string, params?: {
     [param: string]: string | ReadonlyArray<string>;
   }): Observable<any> {
     const result = new BehaviorSubject<any>(null);
@@ -135,7 +135,7 @@ export class CheckService extends BaseService {
       if (errorSelector && errorSelector !== '') {
         Notiflix.Block.Remove(errorSelector);
       }
-      this.showErrorMessage(error)
+      this.showErrorMessage(error);
     });
     return result.asObservable();
   }
@@ -167,7 +167,7 @@ export class CheckService extends BaseService {
           // this.router.navigate(['/']);
           // location.href = '//' + location.hostname + ':' + location.port + '#/signin';
           location.href = '//' + location.hostname + ':' + location.port;
-          Notiflix.Notify.Failure('برای استفاده از امکانات سایت مجددا وارد حساب کاربری خود شوید.')
+          Notiflix.Notify.Failure('برای استفاده از امکانات سایت مجددا وارد حساب کاربری خود شوید.');
         }, 20);
         break;
       case 403:
@@ -178,7 +178,7 @@ export class CheckService extends BaseService {
           // this.router.navigate(['/']);
           // location.href = '//' + location.hostname + ':' + location.port + '#/signin';
           location.href = '//' + location.hostname + ':' + location.port;
-          Notiflix.Notify.Failure('برای استفاده از امکانات سایت مجددا وارد حساب کاربری خود شوید.')
+          Notiflix.Notify.Failure('برای استفاده از امکانات سایت مجددا وارد حساب کاربری خود شوید.');
         }, 20);
         break;
       case 405:
