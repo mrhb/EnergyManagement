@@ -1,3 +1,154 @@
 .tree-view-box {
   min-width: 20%;
 }
+
+.box-label-energy {
+  max-width: 400px;
+  border: 1px solid #cccccc;
+
+  .head {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+
+    .right {
+      padding: 5px;
+      width: 110px;
+      border-left: 1px solid #cccccc;
+    }
+
+    .left {
+      color: #ff1f1f;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .result {
+    display: flex;
+    border-bottom: 1px solid #cccccc;
+
+    .right {
+      min-width: 110px;
+      border-left: 1px solid #cccccc;
+      text-align: center;
+      padding-top: 45px;
+      .tag {
+        background-color: #222222;
+        position: relative;
+        width: 50%;
+        margin: 0 auto 0;
+        color: #ffffff;
+        font-size: 22px;
+        padding: 4px 0 0 0;
+        border-radius: 2px;
+
+        &:after {
+          content: '';
+          width: 0;
+          height: 0;
+          position: absolute;
+          top: 0;
+          right: 99.5%;
+          border: 0 solid transparent;
+          border-right: 16px solid #222222;
+          border-bottom-width: 18px;
+          border-top-width: 19px;
+        }
+
+        $item: ('A', 'B', 'C', 'D', 'E', 'F', 'G');
+        @for $i from 0 through 6 {
+          &.#{unquote(nth($item, $i+1))} {
+            transform: translateX(10%) translateY($i * 39px);
+          }
+        }
+      }
+    }
+
+    .left {
+      width: 100%;
+      padding: 5px;
+
+      ul {
+        list-style: none;
+        direction: ltr;
+        padding: 5px;
+        width: 100%;
+
+        $my-colors: ('#009b0b', '#61c100', '#b4e600', '#f1ff00', '#ebca00', '#e77c00', '#cb0000');
+
+        @for $i from 1 through 7 {
+          li:nth-child(n + #{$i}) {
+            width: 10 + $i * 10%;
+            background-color: unquote(nth($my-colors, $i));
+
+            &:before {
+              border-left: 18px solid unquote(nth($my-colors, $i));
+            }
+          }
+        }
+
+        li {
+          position: relative;
+          margin-bottom: 15px;
+
+          &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            border: 0 solid transparent;
+            border-bottom-width: 12px;
+            border-top-width: 12px;
+          }
+
+          span {
+            padding-right: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .energy-info {
+    display: flex;
+    align-content: center;
+
+    &.energy-ratio {
+      border-bottom: 1px solid #cccccc;
+    }
+
+    & > div {
+      min-height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    & > div:nth-child(2) {
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    & > div:first-child {
+      max-width: 110px;
+      min-width: 110px;
+      border-left: 1px solid #cccccc;
+    }
+    & > div:last-child {
+      max-width: 110px;
+      min-width: 110px;
+      text-align: left;
+      direction: ltr;
+      padding: 5px;
+      border-right: 1px solid #cccccc;
+      justify-content: end;
+    }
+  }
+}
+
