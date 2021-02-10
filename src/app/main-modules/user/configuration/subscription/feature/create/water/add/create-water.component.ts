@@ -17,6 +17,7 @@ import {GasBuildingAllocation} from '../../../../model/gas';
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {UseCodeWaterEnum, UseTypeWater} from '../../../../model/waterEnum';
+import {EnergyBuildingAllocation} from '../../../../model/energy';
 declare var $: any;
 @Component({
   selector: 'app-create-water',
@@ -40,6 +41,8 @@ export class CreateWaterComponent implements OnInit {
   buildingList = [];
   useTypeWaterEnum = UseTypeWater;
   useCodeWaterEnum = UseCodeWaterEnum;
+  editedAllocation = false;
+
   constructor(private formBuilder: FormBuilder,
               private waterService: WaterService,
               private buildingService: BuildingService,
@@ -125,14 +128,29 @@ export class CreateWaterComponent implements OnInit {
   }
 
   addBuildingAllocation(): void {
-    this.waterService.addBuildingAllocation({id: this.waterId}, this.buildingAllocation)
-      .subscribe((res: any) => {
-        if (res) {
-          this.buildingAllocation = new GasBuildingAllocation();
-          console.log('res.data', res.data);
-          this.waterDto.buildingList.push(res.data);
-        }
-      });
+    if (!this.editedAllocation) {
+      this.waterService.addBuildingAllocation({id: this.waterId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            this.buildingAllocation = new GasBuildingAllocation();
+            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
+            this.waterDto.buildingList.push(res.data);
+          }
+        });
+    } else {
+      this.waterService.updateBuildingAllocation({id: this.waterId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            this.editedAllocation = false;
+            const index = this.waterDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
+            if (index !== -1 ) {
+              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              this.waterDto.buildingList[index] = this.buildingAllocation;
+              this.buildingAllocation = new GasBuildingAllocation();
+            }
+          }
+        });
+    }
   }
 
   deleteBuilding(item: BuildingAllocation, i): void {
@@ -155,5 +173,10 @@ export class CreateWaterComponent implements OnInit {
   selectBuildingAllocation(item): void {
     this.buildingAllocation.name = item.name;
     this.buildingAllocation.buildingId = item.id;
+  }
+
+  editAllocationPercentage(item: EnergyBuildingAllocation): void {
+    this.editedAllocation = true;
+    this.buildingAllocation = JSON.parse(JSON.stringify(item));
   }
 }

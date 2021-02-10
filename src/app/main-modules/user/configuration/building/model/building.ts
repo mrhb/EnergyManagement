@@ -1,4 +1,5 @@
 import {UseTypeEnum} from './useTypeEnum';
+import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
 
 export class CompleteStep {
   zero: boolean;
@@ -24,8 +25,8 @@ export class Building {
   exploitationPersonnelNum: string;
   postalCode: string;
   address: string;
-  ownership: string;
-  coolingHeatingSystemType: string;
+  ownership: Ownership;
+  coolingHeatingSystemType: CoolingHeatingSystemType;
 }
 
 export class Area {

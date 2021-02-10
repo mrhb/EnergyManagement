@@ -35,7 +35,7 @@
       <div class="w-100">
         <label for="constructionYear" class="form-label">سال ساخت</label>
         <input class="form-control text-right" id="constructionYear" placeholder=""
-               type="number"
+               type="number" min="0"
                maxlength="12"
                [(ngModel)]="buildingDto.constructionYear"
                formControlName="constructionYear"
@@ -48,6 +48,7 @@
       <div class="w-100">
         <label for="floorNum" class="form-label">تعداد طبقات</label>
         <input class="form-control text-right" id="floorNum" placeholder=""
+               type="number" min="0"
                [(ngModel)]="buildingDto.floorNum "
                formControlName="floorNum"
                name="floorNum"
@@ -60,6 +61,7 @@
       <div class="w-100">
         <label for="exploitationPersonnelNum" class="form-label">تعداد نفرات بهره بردار</label>
         <input class="form-control text-right" id="exploitationPersonnelNum" placeholder=""
+               type="number" min="0"
                [(ngModel)]="buildingDto.exploitationPersonnelNum"
                formControlName="exploitationPersonnelNum"
                name="exploitationPersonnelNum"
@@ -83,22 +85,28 @@
     <div class="mb-4 col-md-3">
       <div class="w-100">
         <label for="ownership" class="form-label">مالکیت</label>
-        <input class="form-control text-right" id="ownership" placeholder=""
-               [(ngModel)]="buildingDto.ownership"
-               formControlName="ownership"
-               name="ownership"
-        >
+        <select name="ownership" id="ownership"
+                class="form-control text-right"
+                formControlName="ownership"
+                [(ngModel)]="buildingDto.ownership">
+          <option *ngFor="let item of ownershipEnum | enumKeyValue" [value]="item.key">
+            {{item.value}}
+          </option>
+        </select>
       </div>
       <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
     </div>
     <div class="mb-4 col-md-3">
       <div class="w-100">
         <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
-        <input class="form-control text-right" id="coolingHeatingSystemType" placeholder=""
-               [(ngModel)]="buildingDto.coolingHeatingSystemType"
-               formControlName="coolingHeatingSystemType"
-               name="coolingHeatingSystemType"
-        >
+        <select name="coolingHeatingSystemType" id="coolingHeatingSystemType"
+                class="form-control text-right"
+                formControlName="coolingHeatingSystemType"
+                [(ngModel)]="buildingDto.coolingHeatingSystemType">
+          <option *ngFor="let item of CoolingHeatingSystemTypeEnum | enumKeyValue" [value]="item.key">
+            {{item.value}}
+          </option>
+        </select>
       </div>
       <app-alert-error [data]="form.controls['coolingHeatingSystemType']" [touched]="touched"></app-alert-error>
     </div>

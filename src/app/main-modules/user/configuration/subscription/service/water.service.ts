@@ -30,6 +30,10 @@ export class WaterService extends GeneralService {
     return super.postCheckService('add-building-allocation', body, errorSelector, param);
   }
 
+  updateBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-building-allocation', body, errorSelector, param);
+  }
+
   deleteWaterBuildingAllocation(param: {id: string, allocationId: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete-building-allocation', errorSelector, param);
   }

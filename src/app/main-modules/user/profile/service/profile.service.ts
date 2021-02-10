@@ -29,6 +29,9 @@ export class ProfileService extends GeneralService {
   updateEmail( email: string, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-email/' + email, '', errorSelector);
   }
+  updatePhoto( photo: {photo: string}, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-profile-photo' , photo, errorSelector);
+  }
 
 
 }

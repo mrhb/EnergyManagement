@@ -5,6 +5,7 @@
       <div class="w-100">
         <label for="exWallAdjOutSpaceArea" class="form-label">مساحت دیوار خارجی مجاور فضای خارج</label>
         <input class="form-control text-right" id="exWallAdjOutSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exWallAdjOutSpaceArea"
                formControlName="exWallAdjOutSpaceArea"
                name="exWallAdjOutSpaceArea"
@@ -16,6 +17,7 @@
       <div class="w-100">
         <label for="exFloorAdjOutSpaceArea" class="form-label">مساحت کف خارجی مجاور فضای خارج</label>
         <input class="form-control text-right" id="exFloorAdjOutSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exFloorAdjOutSpaceArea"
                formControlName="exFloorAdjOutSpaceArea"
                name="exFloorAdjOutSpaceArea"
@@ -27,6 +29,7 @@
       <div class="w-100">
         <label for="exWallAdjNotControlledSpaceArea" class="form-label">مساحت دیوار خارجی مجاور فضای کنترل نشده</label>
         <input class="form-control text-right" id="exWallAdjNotControlledSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exWallAdjNotControlledSpaceArea"
                formControlName="exWallAdjNotControlledSpaceArea"
                name="exWallAdjNotControlledSpaceArea"
@@ -38,6 +41,7 @@
       <div class="w-100">
         <label for="exFloorAdjNotControlledSpaceArea" class="form-label">مساحت کف خارجی مجاور فضای کنترل نشده</label>
         <input class="form-control text-right" id="exFloorAdjNotControlledSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exFloorAdjNotControlledSpaceArea"
                formControlName="exFloorAdjNotControlledSpaceArea"
                name="exFloorAdjNotControlledSpaceArea"
@@ -49,6 +53,7 @@
       <div class="w-100">
         <label for="exRoofAdjOutSpaceArea" class="form-label">مساحت سقف/بام خارجی مجاور فضای خارج</label>
         <input class="form-control text-right" id="exRoofAdjOutSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exRoofAdjOutSpaceArea"
                formControlName="exRoofAdjOutSpaceArea"
                name="exRoofAdjOutSpaceArea"
@@ -60,6 +65,7 @@
       <div class="w-100">
         <label for="outWindowAdjOutSpaceArea" class="form-label">مساحت پنجره مجاور فضای خارج</label>
         <input class="form-control text-right" id="outWindowAdjOutSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.outWindowAdjOutSpaceArea"
                formControlName="outWindowAdjOutSpaceArea"
                name="outWindowAdjOutSpaceArea"
@@ -71,6 +77,7 @@
       <div class="w-100">
         <label for="exRoofAdjNotControlledSpaceArea" class="form-label">مساحت سقف/بام خارجی مجاور فضای کنترل نشده</label>
         <input class="form-control text-right" id="exRoofAdjNotControlledSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.exRoofAdjNotControlledSpaceArea"
                formControlName="exRoofAdjNotControlledSpaceArea"
                name="exRoofAdjNotControlledSpaceArea"
@@ -82,6 +89,7 @@
       <div class="w-100">
         <label for="windowAdjNotControlledSpaceArea" class="form-label">مساحت پنجره مجاور فضای کنترل نشده</label>
         <input class="form-control text-right" id="windowAdjNotControlledSpaceArea" placeholder=""
+               type="number" min="0"
                [(ngModel)]="wallInformation.windowAdjNotControlledSpaceArea"
                formControlName="windowAdjNotControlledSpaceArea"
                name="windowAdjNotControlledSpaceArea"

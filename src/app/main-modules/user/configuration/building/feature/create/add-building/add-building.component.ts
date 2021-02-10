@@ -7,6 +7,8 @@ import {UseTypeEnum} from '../../../model/useTypeEnum';
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
 import {Tools} from '../../../../../../../shared/tools/tools';
+import {Moment} from '../../../../../../../shared/tools/moment';
+import {CoolingHeatingSystemType, Ownership} from '../../../model/buildingEnum';
 
 @Component({
   selector: 'app-add-building',
@@ -19,6 +21,9 @@ export class AddBuildingComponent implements OnInit {
   buildingDto = new Building();
   touched = false;
   useTypeEnum = UseTypeEnum;
+  ownershipEnum = Ownership;
+  CoolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
+  moment = Moment;
 
   @Input() bId: string;
   @Input() regionId: string;
@@ -29,14 +34,16 @@ export class AddBuildingComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
+    this.buildingDto.constructionYear = this.moment.convertIsoToJDateFa(new Date().toISOString()).split('/')[0];
+    console.log('this.buildingDto.constructionYear', this.buildingDto.constructionYear.split('/'));
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       useType: ['', [Validators.required]],
       constructionYear: ['', [Validators.required, Validators.minLength(4), Validators.pattern(this.myPattern.number)]],
       floorNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
       exploitationPersonnelNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       postalCode: ['', [Validators.required, Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
-      address: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
+      address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       coolingHeatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
     });

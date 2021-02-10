@@ -39,4 +39,8 @@ export class PowerService extends GeneralService {
   addBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('add-building-allocation', body, errorSelector, param);
   }
+
+  updateBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-building-allocation', body, errorSelector, param);
+  }
 }

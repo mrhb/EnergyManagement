@@ -16,7 +16,10 @@ import {GasService} from '../../../../service/gas.service';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {BuildingAllocation} from '../../../../model/power';
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {EnergyBuildingAllocation} from '../../../../model/energy';
+
 declare var $: any;
+
 @Component({
   selector: 'app-gas-create',
   templateUrl: './gas-create.component.html',
@@ -40,6 +43,7 @@ export class GasCreateComponent implements OnInit {
   buildingList = [];
   buildingAllocation = new GasBuildingAllocation();
   buildingEnum = UseTypeBuildingEnum;
+  editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -147,17 +151,40 @@ export class GasCreateComponent implements OnInit {
   }
 
   addBuildingAllocation(): void {
-    this.gasService.addBuildingAllocation({id: this.gasId}, this.buildingAllocation)
-      .subscribe((res: any) => {
-        if (res) {
-          this.buildingAllocation = new GasBuildingAllocation();
-          this.gasDto.buildingList.push(res.data);
-        }
-      });
+
+    if (!this.editedAllocation) {
+      this.gasService.addBuildingAllocation({id: this.gasId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
+            this.buildingAllocation = new GasBuildingAllocation();
+            this.gasDto.buildingList.push(res.data);
+          }
+        });
+    } else {
+      this.gasService.updateBuildingAllocation({id: this.gasId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            const index = this.gasDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
+            if (index !== -1) {
+              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              this.gasDto.buildingList[index] = this.buildingAllocation;
+              this.buildingAllocation = new GasBuildingAllocation();
+            }
+          }
+        });
+    }
+
+
   }
 
   selectBuildingAllocation(item): void {
     this.buildingAllocation.name = item.name;
     this.buildingAllocation.buildingId = item.id;
+  }
+
+  editAllocationPercentage(item: GasBuildingAllocation): void {
+    this.editedAllocation = true;
+    this.buildingAllocation = JSON.parse(JSON.stringify(item));
   }
 }

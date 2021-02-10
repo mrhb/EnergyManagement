@@ -21,6 +21,7 @@ import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {BuildingService} from '../../../../../building/service/building.service';
+import {EnergyBuildingAllocation} from '../../../../model/energy';
 
 declare var $: any;
 
@@ -50,6 +51,7 @@ export class PowerCreateComponent implements OnInit {
 
   filterBuilding = '';
   buildingList = [];
+  editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -196,13 +198,27 @@ export class PowerCreateComponent implements OnInit {
   }
 
   addBuildingAllocation(): void {
-    this.powerService.addBuildingAllocation({id: this.powerId}, this.buildingAllocation)
-      .subscribe((res: any) => {
-        if (res) {
-          this.buildingAllocation = new PowerBuildingAllocation();
-          this.powerDto.buildingList.push(res.data);
-        }
-      });
+    if (!this.editedAllocation) {
+      this.powerService.addBuildingAllocation({id: this.powerId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            this.buildingAllocation = new PowerBuildingAllocation();
+            this.powerDto.buildingList.push(res.data);
+          }
+        });
+    } else {
+      this.powerService.updateBuildingAllocation({id: this.powerId}, this.buildingAllocation)
+        .subscribe((res: any) => {
+          if (res) {
+            const index = this.powerDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
+            if (index !== -1 ) {
+              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              this.powerDto.buildingList[index] = this.buildingAllocation;
+              this.buildingAllocation = new PowerBuildingAllocation();
+            }
+          }
+        });
+    }
   }
 
   selectBuildingAllocation(item): void {
@@ -210,5 +226,9 @@ export class PowerCreateComponent implements OnInit {
     this.buildingAllocation.buildingId = item.id;
   }
 
+  editAllocationPercentage(item: PowerBuildingAllocation): void {
+    this.editedAllocation = true;
+    this.buildingAllocation = JSON.parse(JSON.stringify(item));
+  }
 
 }

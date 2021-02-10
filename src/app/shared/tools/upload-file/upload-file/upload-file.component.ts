@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UploadFileService} from './upload-file.service';
 
 @Component({
@@ -19,6 +19,7 @@ export class UploadFileComponent implements OnInit {
   constructor(private uploadFileService: UploadFileService) { }
 
   ngOnInit(): void {
+
   }
 
   handleFileInput(files: any): any {
@@ -38,6 +39,7 @@ export class UploadFileComponent implements OnInit {
     this.uploadFileService.postFile(this.fileToUpload).subscribe(data => {
       this.loader = false;
       if (data.flag) {
+        this.fileToUpload = null;
         this.uploadFileDomainOut.emit(data.data);
       }
     }, error => {
