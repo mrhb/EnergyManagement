@@ -28,8 +28,8 @@
           <th scope="col">سال ساخت</th>
           <th scope="col">کدپستی</th>
           <th scope="col">نوع کاربری</th>
-          <th scope="col">برچسب انرژی</th>
-          <th scope="col" width="80" colspan="2">عملیات</th>
+          <th scope="col" width="40">برچسب انرژی</th>
+          <th scope="col" width="40" colspan="2">عملیات</th>
         </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@
             </div>
           </td>
           <td>
-            <button class="btn btn-primary">برچسب انرژی</button>
+            <button class="btn btn-primary text-center" (click)="getEnergyLabel(i)">مشاهده</button>
           </td>
           <td>
               <span class="cursor-pointer fa fa-edit"
@@ -68,19 +68,20 @@
     ></app-paginator>
   </div>
   <div class="col-12">
-    <div class="box-label-energy">
+    <div class="box-label-energy" *ngIf="energyLabel.ratio">
       <div class="head">
         <div class="right">
           <img src="assets/image/enregy.jpg" alt="energy">
         </div>
         <div class="left">
-          نوع برچسب انرژی ساختمان را انتخاب کنید
+<!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
+          {{energyLabel.labelType}}
         </div>
       </div>
       <div class="result">
         <div class="right">
-          <div class="tag F">
-            F
+          <div class="tag" [ngClass]="energyLabel.label">
+            {{energyLabel.label}}
           </div>
         </div>
         <div class="left">
@@ -106,7 +107,7 @@
           میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
         </div>
         <div>
-          R=
+          R= {{energyLabel.ratio}}
         </div>
       </div>
       <div class="energy-info">
@@ -115,7 +116,7 @@
           برحسب کیلووات ساعتبر متر مربع در سال
         </div>
         <div>
-
+          {{energyLabel.consumptionIndex}}
         </div>
       </div>
 

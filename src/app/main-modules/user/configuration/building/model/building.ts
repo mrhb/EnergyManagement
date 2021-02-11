@@ -1,5 +1,6 @@
 import {UseTypeEnum} from './useTypeEnum';
 import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
+import {EnergyLabelType} from './EnergyLabelType';
 
 export class CompleteStep {
   zero: boolean;
@@ -75,3 +76,11 @@ export class BuildingList {
   regionId: string;
   useType: UseTypeEnum;
 }
+
+export class EnergyLabel {
+  ratio: string;
+  consumptionIndex: string;
+  label: string;
+  labelType: EnergyLabelType;
+}
+

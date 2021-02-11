@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {BuildingList, Region} from '../../model/building';
+import {Component, OnInit} from '@angular/core';
+import {BuildingList, EnergyLabel, Region} from '../../model/building';
 import {BuildingService} from '../../service/building.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeEnum} from '../../model/useTypeEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
+import {EnergyLabelType} from '../../model/EnergyLabelType';
 
 @Component({
   selector: 'app-building-list',
@@ -19,12 +20,80 @@ export class BuildingListComponent implements OnInit {
   useTypeEnum = UseTypeEnum;
   region = new Region();
   buildingList: BuildingList[] = [];
+
+  energyLabel = new EnergyLabel();
+  energyLabelEnum = EnergyLabelType;
+
   constructor(private buildingService: BuildingService,
               public router: Router,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute) {
+    console.log('this.energyLabel', this.energyLabel);
+  }
 
   ngOnInit(): void {
     this.getBuildingList();
+  }
+
+  getEnergyLabel(index): void {
+    const list: EnergyLabel[] = [];
+    const a: EnergyLabel = {
+      consumptionIndex: '1277',
+      label: 'A',
+      labelType: EnergyLabelType.NON_RESIDENTIAL,
+      ratio: '10.98'
+    };
+
+    const b: EnergyLabel = {
+      consumptionIndex: '1858',
+      label: 'B',
+      labelType: EnergyLabelType.OFFICIAL,
+      ratio: '75.66'
+    };
+
+    const c: EnergyLabel = {
+      consumptionIndex: '1002',
+      label: 'C',
+      labelType: EnergyLabelType.RESIDENTIAL,
+      ratio: '44.77'
+    };
+
+    const d: EnergyLabel = {
+      consumptionIndex: '9502',
+      label: 'D',
+      labelType: EnergyLabelType.NON_RESIDENTIAL,
+      ratio: '15.98'
+    };
+
+    const e: EnergyLabel = {
+      consumptionIndex: '1102',
+      label: 'E',
+      labelType: EnergyLabelType.OFFICIAL,
+      ratio: '16.48'
+    };
+
+    const f: EnergyLabel = {
+      consumptionIndex: '16112',
+      label: 'F',
+      labelType: EnergyLabelType.RESIDENTIAL,
+      ratio: '76.48'
+    };
+
+    const g: EnergyLabel = {
+      consumptionIndex: '2266',
+      label: 'G',
+      labelType: EnergyLabelType.OFFICIAL,
+      ratio: '79.12'
+    };
+
+    list.push(a);
+    list.push(b);
+    list.push(c);
+    list.push(d);
+    list.push(e);
+    list.push(f);
+    list.push(g);
+
+    this.energyLabel = list[index];
   }
 
   getRegion($event: any): void {
