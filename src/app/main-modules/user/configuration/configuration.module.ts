@@ -23,15 +23,18 @@ import {PowerCreateComponent} from './subscription/feature/create/power/create/p
 import {PipeModule} from '../../../shared/tools/pipe-module';
 import {PowerService} from './subscription/service/power.service';
 import {PowerListComponent} from './subscription/feature/create/power/list/power-list.component';
-import { GasCreateComponent } from './subscription/feature/create/gas/add/gas-create.component';
-import { GasListComponent } from './subscription/feature/create/gas/list/gas-list.component';
-import { CreateWaterComponent } from './subscription/feature/create/water/add/create-water.component';
-import { WaterListComponent } from './subscription/feature/create/water/list/water-list.component';
-import { CreateEnergyComponent } from './subscription/feature/create/energy/add/create-energy.component';
-import { EnergyListComponent } from './subscription/feature/create/energy/list/energy-list.component';
+import {GasCreateComponent} from './subscription/feature/create/gas/add/gas-create.component';
+import {GasListComponent} from './subscription/feature/create/gas/list/gas-list.component';
+import {CreateWaterComponent} from './subscription/feature/create/water/add/create-water.component';
+import {WaterListComponent} from './subscription/feature/create/water/list/water-list.component';
+import {CreateEnergyComponent} from './subscription/feature/create/energy/add/create-energy.component';
+import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
 import {EnergyService} from './subscription/service/energy.service';
 import {EnergyBuildingService} from './building/service/energy-building.service';
 import {PowerBuildingService} from './building/service/power-building.service';
+import {AppModule} from '../../../app.module';
+import {ChartModule} from '../../../shared/tools/chart/chart.module';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 
 @NgModule({
@@ -55,16 +58,18 @@ import {PowerBuildingService} from './building/service/power-building.service';
     CreateEnergyComponent,
     EnergyListComponent,
   ],
-  imports: [
-    CommonModule,
-    ConfigurationRoutingModule,
-    ReactiveFormsModule,
-    AlertErrorModule,
-    FormsModule,
-    UploadFileModule,
-    PaginatorModule,
-    PipeModule,
-  ],
+    imports: [
+        CommonModule,
+        ConfigurationRoutingModule,
+        ReactiveFormsModule,
+        AlertErrorModule,
+        FormsModule,
+        UploadFileModule,
+        PaginatorModule,
+        PipeModule,
+        ChartModule,
+        NgxEchartsModule
+    ],
   providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService, EnergyService],
 })
 export class ConfigurationModule {
