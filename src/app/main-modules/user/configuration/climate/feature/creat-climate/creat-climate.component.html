@@ -27,6 +27,7 @@
             <p>city</p>
             <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
                 <div class="form row">
+
                     <div class="mb-4 col-md-3">
                         <div class="w-100">
                           <label for="useType" class="form-label">نوع اقلیم</label>
@@ -34,7 +35,7 @@
                                   class="form-control text-right"
                                   (change)="setEnumUseType(true)"
                                   formControlName="useType"
-                                  name="useType">
+                                  name="ostan">
                             <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
                               {{item.value}}
                             </option>

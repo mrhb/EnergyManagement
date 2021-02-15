@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'configuration',
     loadChildren: async () => await import ('../user/configuration/configuration.module').then(m => m.ConfigurationModule),
   },
+  {
+    path: 'analysis',
+    loadChildren: async () => await import ('../user/analysis/analysis.module').then(m => m.AnalysisModule),
+  },
 ];
 
 @NgModule({
