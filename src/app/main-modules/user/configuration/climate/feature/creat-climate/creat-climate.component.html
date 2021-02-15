@@ -25,43 +25,47 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-city" role="tabpanel" aria-labelledby="pills-city-tab">
             <p>city</p>
-
-            <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="serialShare" class="form-label">سریال اشتراک</label>
-                  <input class="form-control text-right" id="serialShare" placeholder=""
-                         [(ngModel)]="powerDto.serialShare"
-                         formControlName="serialShare"
-                         name="serialShare"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="useType" class="form-label">نوع اقلیم</label>
-                  <select id="useType"
-                          class="form-control text-right"
-                          [(ngModel)]="powerDto.useType"
-                          (change)="setEnumUseType(true)"
-                          formControlName="useType"
-                          name="useType">
-                    <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
-                      {{item.value}}
-                    </option>
-                  </select>
-                </div>
-                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
-            </div>
             <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
                 <div class="form row">
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
-                <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="climateId">ویرایش</button>
-              </div>
-    
-            </div>
+                    <div class="mb-4 col-md-3">
+                        <div class="w-100">
+                          <label for="useType" class="form-label">نوع اقلیم</label>
+                          <select id="useType"
+                                  class="form-control text-right"
+                                  [(ngModel)]="climateDto.useType"
+                                  (change)="setEnumUseType(true)"
+                                  formControlName="useType"
+                                  name="useType">
+                            <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                              {{item.value}}
+                            </option>
+                          </select>
+                        </div>
+                        <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                    </div>                
+               
+                    <div class="mb-4 col-md-3">
+                        <div class="w-100">
+                          <label for="ostan" class="form-label">استان</label>
+                          <select id="ostan"
+                                  class="form-control text-right"
+                                  [(ngModel)]="climateDto.ostan"
+                                  (change)="setEnumUseType(true)"
+                                  formControlName="ostan"
+                                  name="ostan">
+                            <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
+                              {{item.value}}
+                            </option>
+                          </select>
+                        </div>
+                        <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                    </div>  
+
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
+                        <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="climateId">ویرایش</button>
+                    </div>    
+             </div>
           </form>
         </div>
         <div class="tab-pane fade" id="pills-climate" role="tabpanel" aria-labelledby="pills-climate-tab">
