@@ -93,7 +93,53 @@
                       </div>
                           <app-alert-error [data]="form.controls['longitude']" [touched]="touched"></app-alert-error>
                     </div> 
-                    
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="latitude" class="form-label"> عرض جغرافیایی</label>
+                        <input class="form-control text-right" id="latitude" latitude=""
+                        type="number" step="0.01"
+                             [(ngModel)]="climateDto.latitude"
+                             formControlName="latitude"
+                             name="latitude"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['latitude']" [touched]="touched"></app-alert-error>
+                    </div> 
+                  
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="ertefa" class="form-label"> ارتفاع از سطح دریا </label>
+                        <input class="form-control text-right" id="ertefa" ertefa=""
+                             [(ngModel)]="climateDto.ertefa"
+                             formControlName="ertefa"
+                             name="ertefa"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['ertefa']" [touched]="touched"></app-alert-error>
+                    </div> 
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="ghaleb" class="form-label"> نیاز غالب حرارتی </label>
+                        <input class="form-control text-right" id="ghaleb" ghaleb=""
+                             [(ngModel)]="climateDto.ghaleb"
+                             formControlName="ghaleb"
+                             name="ghaleb"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['ghaleb']" [touched]="touched"></app-alert-error>
+                    </div> 
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="energyDegree" class="form-label"> درجه انرژی </label>
+                        <input class="form-control text-right" id="energyDegree" energyDegree=""
+                             [(ngModel)]="climateDto.energyDegree"
+                             formControlName="energyDegree"
+                             name="energyDegree"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['energyDegree']" [touched]="touched"></app-alert-error>
+                    </div> 
+
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="climateId">ویرایش</button>

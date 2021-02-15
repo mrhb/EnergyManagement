@@ -39,6 +39,10 @@ export class CreateClimateComponent implements OnInit {
       shahr: ['', [Validators.required]],
       rusta: ['', [Validators.required]],
       longitude: ['', [Validators.required]],
+      latitude: ['', [Validators.required]],
+      ertefa: ['', [Validators.required]],
+      ghaleb: ['', [Validators.required]],
+      energyDegree: ['', [Validators.required]],
     });
   }
   setEnumUseType(isChange?: boolean): void {

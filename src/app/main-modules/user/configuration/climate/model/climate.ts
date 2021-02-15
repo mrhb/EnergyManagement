@@ -8,9 +8,8 @@ export class ClimateDto {
   longitude: string;
   latitude: string;
   ertefa: string;
-  ghalebHararati: string;
+  ghaleb: string;
   energyDegree: string;  lat: string;
-  long: string;
   climateKind: string;
   // fileNumber: string;
   // serialShare: string;
