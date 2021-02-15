@@ -38,6 +38,7 @@ export class CreateClimateComponent implements OnInit {
       ostan: ['', [Validators.required]],
       shahr: ['', [Validators.required]],
       rusta: ['', [Validators.required]],
+      longitude: ['', [Validators.required]],
     });
   }
   setEnumUseType(isChange?: boolean): void {
