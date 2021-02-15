@@ -27,15 +27,32 @@
             <p>city</p>
             <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
                 <div class="form row">
+
+                  
+                  <div class="mb-4 col-md-3">
+                    <div class="w-100">
+                      <label for="ostan" class="form-label">استان</label>
+                      <select id="ostan"
+                              class="form-control text-right"
+                              (change)="setEnumUseType(true)"
+                              formControlName="ostan"
+                              name="ostan">
+                        <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
+                          {{item.value}}
+                        </option>
+                      </select>
+                    </div>
+                    <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                </div>  
+
                     <div class="mb-4 col-md-3">
                         <div class="w-100">
                           <label for="useType" class="form-label">نوع اقلیم</label>
                           <select id="useType"
                                   class="form-control text-right"
-                                  [(ngModel)]="climateDto.useType"
                                   (change)="setEnumUseType(true)"
                                   formControlName="useType"
-                                  name="useType">
+                                  name="ostan">
                             <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
                               {{item.value}}
                             </option>
@@ -44,22 +61,6 @@
                         <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
                     </div>                
                
-                    <div class="mb-4 col-md-3">
-                        <div class="w-100">
-                          <label for="ostan" class="form-label">استان</label>
-                          <select id="ostan"
-                                  class="form-control text-right"
-                                  [(ngModel)]="climateDto.ostan"
-                                  (change)="setEnumUseType(true)"
-                                  formControlName="ostan"
-                                  name="ostan">
-                            <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
-                              {{item.value}}
-                            </option>
-                          </select>
-                        </div>
-                        <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
-                    </div>  
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
