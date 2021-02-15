@@ -36,6 +36,7 @@ export class CreateClimateComponent implements OnInit {
     this.form = this.formBuilder.group({
       useType: ['', [Validators.required]],
       ostan: ['', [Validators.required]],
+      shahr: ['', [Validators.required]],
     });
   }
   setEnumUseType(isChange?: boolean): void {

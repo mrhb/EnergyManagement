@@ -28,23 +28,6 @@
             <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
                 <div class="form row">
 
-                  
-                  <div class="mb-4 col-md-3">
-                    <div class="w-100">
-                      <label for="ostan" class="form-label">استان</label>
-                      <select id="ostan"
-                              class="form-control text-right"
-                              (change)="setEnumUseType(true)"
-                              formControlName="ostan"
-                              name="ostan">
-                        <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
-                          {{item.value}}
-                        </option>
-                      </select>
-                    </div>
-                    <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
-                </div>  
-
                     <div class="mb-4 col-md-3">
                         <div class="w-100">
                           <label for="useType" class="form-label">نوع اقلیم</label>
@@ -61,6 +44,33 @@
                         <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
                     </div>                
                
+                    <div class="mb-4 col-md-3">
+                        <div class="w-100">
+                          <label for="ostan" class="form-label">استان</label>
+                          <select id="ostan"
+                                  class="form-control text-right"
+                                  (change)="setEnumUseType(true)"
+                                  formControlName="ostan"
+                                  name="ostan">
+                            <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
+                              {{item.value}}
+                            </option>
+                          </select>
+                        </div>
+                        <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                    </div>  
+
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="shahr" class="form-label"> شهر</label>
+                        <input class="form-control text-right" id="shahr" shahr=""
+                             formControlName="shahr"
+                             name="shahr"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['shahr']" [touched]="touched"></app-alert-error>
+                    </div>
+
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
