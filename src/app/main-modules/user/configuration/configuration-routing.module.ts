@@ -12,6 +12,7 @@ import {CreateWaterComponent} from './subscription/feature/create/water/add/crea
 import {CreateEnergyComponent} from './subscription/feature/create/energy/add/create-energy.component';
 import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
 import {CreateClimateComponent} from './climate/feature/creat-climate/creat-climate.component';
+import {ClimateListComponent} from './climate/feature/climate-list/climate-list.component';
 
 const routes: Routes = [
   {
@@ -85,6 +86,10 @@ const routes: Routes = [
   {
     path: 'createClimate',
     component: CreateClimateComponent,
+  },
+  {
+    path: 'climateList',
+    component: ClimateListComponent,
   },
 ];
 
