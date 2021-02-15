@@ -11,6 +11,7 @@ import {WaterListComponent} from './subscription/feature/create/water/list/water
 import {CreateWaterComponent} from './subscription/feature/create/water/add/create-water.component';
 import {CreateEnergyComponent} from './subscription/feature/create/energy/add/create-energy.component';
 import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
+import {CreateClimateComponent} from './climate/feature/creat-climate/creat-climate.component';
 
 const routes: Routes = [
   {
@@ -81,7 +82,10 @@ const routes: Routes = [
     path: 'energyList',
     component: EnergyListComponent,
   },
-
+  {
+    path: 'createClimate',
+    component: CreateClimateComponent,
+  },
 ];
 
 @NgModule({

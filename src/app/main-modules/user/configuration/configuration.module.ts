@@ -35,6 +35,7 @@ import {PowerBuildingService} from './building/service/power-building.service';
 import {AppModule} from '../../../app.module';
 import {ChartModule} from '../../../shared/tools/chart/chart.module';
 import {NgxEchartsModule} from 'ngx-echarts';
+import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {NgxEchartsModule} from 'ngx-echarts';
     WaterListComponent,
     CreateEnergyComponent,
     EnergyListComponent,
+    CreateClimateComponent,
   ],
     imports: [
         CommonModule,
