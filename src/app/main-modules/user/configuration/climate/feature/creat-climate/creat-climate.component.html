@@ -69,7 +69,17 @@
                       </div>
                           <app-alert-error [data]="form.controls['shahr']" [touched]="touched"></app-alert-error>
                     </div>
-
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="rusta" class="form-label"> روستا</label>
+                        <input class="form-control text-right" id="rusta" rusta=""
+                             [(ngModel)]="climateDto.rusta"
+                             formControlName="rusta"
+                             name="rusta"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['rusta']" [touched]="touched"></app-alert-error>
+                    </div> 
 
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
