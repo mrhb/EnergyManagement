@@ -80,7 +80,18 @@
                       </div>
                           <app-alert-error [data]="form.controls['rusta']" [touched]="touched"></app-alert-error>
                     </div> 
-
+                    <div class="mb-4 col-md-3">
+                      <div class="w-100">
+                        <label for="longitude" class="form-label"> طول جغرافیایی</label>
+                        <input class="form-control text-right" id="longitude" longitude=""
+                             [(ngModel)]="climateDto.longitude"
+                             formControlName="longitude"
+                             name="longitude"
+                             >
+                      </div>
+                          <app-alert-error [data]="form.controls['longitude']" [touched]="touched"></app-alert-error>
+                    </div> 
+                    
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!climateId">ثبت</button>
                         <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="climateId">ویرایش</button>
