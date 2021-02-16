@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClimateDto } from '../../model/climate';
+import { WeatherList } from '../../model/weather';
 import { UseTypePowerEnum,OstanEnum } from '../../model/climateEnum';
 
 @Component({
@@ -19,6 +20,20 @@ export class CreateClimateComponent implements OnInit {
   climateId = '';
   form: FormGroup;
   climateDto = new ClimateDto();
+  weatherList: WeatherList[]=[
+    {
+      id: "1", 
+      month: "1", 
+      highDegMean: "1", 
+      lowDegMean: "1", 
+      DegMean: "10",
+      highHumidMean: "1", 
+      lowHumidMean: "1", 
+      HumidMean: "1", 
+      windMean: "1", 
+      sunRadMean: "1", 
+    }];
+
   useTypeEnum = UseTypePowerEnum;
   ostanEnum = OstanEnum;
   useCodeEnum;
@@ -43,8 +58,10 @@ export class CreateClimateComponent implements OnInit {
       ertefa: ['', [Validators.required]],
       ghaleb: ['', [Validators.required]],
       energyDegree: ['', [Validators.required]],
+
     });
   }
+
   setEnumUseType(isChange?: boolean): void {
 
   }
