@@ -17,6 +17,10 @@ import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-
 import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill-list/gaz-bill-list.component';
 import { PowerBillAddComponent } from './subscription/feature/create/power/power-bill-add/power-bill-add.component';
 import { PowerBillListComponent } from './subscription/feature/create/power/power-bill-list/power-bill-list.component';
+import { EnergyBillAddComponent } from './subscription/feature/create/energy/energy-bill-add/energy-bill-add.component';
+import { EnergyBillListComponent } from './subscription/feature/create/energy/energy-bill-list/energy-bill-list.component';
+import { WaterBillAddComponent } from './subscription/feature/create/water/water-bill-add/water-bill-add.component';
+import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
 
 const routes: Routes = [
   {
@@ -110,6 +114,22 @@ const routes: Routes = [
   {
     path: 'powerBillList',
     component: PowerBillListComponent,
+  },
+  {
+    path: 'energyBillAdd',
+    component: EnergyBillAddComponent,
+  },
+  {
+    path: 'energyBillList',
+    component: EnergyBillListComponent,
+  },
+  {
+    path: 'waterBillAdd',
+    component: WaterBillAddComponent,
+  },
+  {
+    path: 'waterBillList',
+    component: WaterBillListComponent,
   },
 ];
 
