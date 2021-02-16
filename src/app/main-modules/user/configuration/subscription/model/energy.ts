@@ -32,3 +32,13 @@ export class EnergyList {
   createdAt: any;
   buildingNum: string;
 }
+
+export class EnergyBillList {
+  id: string;
+  name: string;
+  billingId: string;
+  addressCode: string;
+  useType: UseTypeWater;
+  createdAt: any;
+  buildingNum: string;
+}
