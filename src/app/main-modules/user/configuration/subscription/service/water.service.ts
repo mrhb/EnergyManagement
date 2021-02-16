@@ -42,6 +42,10 @@ export class WaterService extends GeneralService {
     return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
   }
 
+  getWaterBillList(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-bill-list-pageable-by-filter', body, errorSelector, param);
+  }
+
   deleteWater(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.deleteCheckService('delete', errorSelector, param);
   }
