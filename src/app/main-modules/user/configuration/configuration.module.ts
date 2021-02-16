@@ -39,6 +39,8 @@ import { CreateClimateComponent } from './climate/feature/creat-climate/creat-cl
 import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
 import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-add/gaz-bill-add.component';
 import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill-list/gaz-bill-list.component';
+import { PowerBillAddComponent } from './subscription/feature/create/power/power-bill-add/power-bill-add.component';
+import { PowerBillListComponent } from './subscription/feature/create/power/power-bill-list/power-bill-list.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill
     CreateClimateComponent,
     ClimateListComponent,
     GazBillAddComponent,
-    GazBillListComponent
+    GazBillListComponent,
+    PowerBillAddComponent,
+    PowerBillListComponent
   ],
     imports: [
         CommonModule,
