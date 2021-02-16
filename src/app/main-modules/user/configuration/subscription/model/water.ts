@@ -34,3 +34,14 @@ export class WaterList {
   createdAt: any;
   buildingNum: string;
 }
+
+
+export class WaterBillList {
+  id: string;
+  name: string;
+  billingId: string;
+  addressCode: string;
+  useType: UseTypeWater;
+  createdAt: any;
+  buildingNum: string;
+}

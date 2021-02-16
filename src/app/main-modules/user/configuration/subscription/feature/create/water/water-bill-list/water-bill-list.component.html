@@ -1,1 +1,49 @@
-<p>water-bill-list works!</p>
+<div class="col-12">
+    <div class="title-header d-flex justify-content-between align-items-center">
+      <div>
+        <h1>
+          <strong>لیست قبوض آب </strong>
+        </h1>
+      </div>
+      <div class="d-flex">
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/waterBillAdd'">افزودن قبض</button>
+      </div>
+    </div>
+    <hr>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th scope="col" width="40">#</th>
+          <th scope="col">نام اشتراک</th>
+          <th scope="col">کد آدرس</th>
+          <th scope="col">عنوان تعرفه</th>
+          <th scope="col" width="120">تعداد ساختمان</th>
+          <th scope="col" width="280" colspan="2" class="text-center">عملیات</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
+          <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
+          <td>{{water.name}}</td>
+          <td>{{water.addressCode}}</td>
+          <td>{{useTypeEnum[water.useType].toString()}}</td>
+          <td>{{water.buildingNum}}</td>
+          <td width="40"><span class="cursor-pointer fa fa-edit"
+                               [queryParams]="{id: water.id}"
+                               [routerLink]="'/index/user/configuration/editWater'"></span></td>
+          <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water.id)"></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-paginator
+      [totalElements]="length"
+      [pageSize]="pageSize"
+      [pageIndex]="pageIndex"
+      [pageSizeOptions]="[1,5,10,15,25]"
+      [showFirstLastButtons]="true"
+      (page)="changePage($event)"
+    ></app-paginator>
+  </div>
+  
