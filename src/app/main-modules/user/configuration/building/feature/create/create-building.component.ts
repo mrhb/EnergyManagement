@@ -4,7 +4,6 @@ import {MyPattern} from '../../../../../../shared/tools/myPattern';
 import {Area, Building, CompleteStep, MapInformation, Region, Space, WallInformation} from '../../model/building';
 import {ActivatedRoute} from '@angular/router';
 import {BuildingService} from '../../service/building.service';
-import {UseTypeEnum} from '../../model/useTypeEnum';
 
 @Component({
   selector: 'app-create-building',
