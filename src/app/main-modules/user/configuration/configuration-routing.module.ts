@@ -13,6 +13,8 @@ import {CreateEnergyComponent} from './subscription/feature/create/energy/add/cr
 import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
 import {CreateClimateComponent} from './climate/feature/creat-climate/creat-climate.component';
 import {ClimateListComponent} from './climate/feature/climate-list/climate-list.component';
+import { AddGazBillComponent } from './bill/feature/gaz/add-gaz-bill/add-gaz-bill.component';
+import { GazBillListComponent } from './bill/feature/gaz/gaz-bill-list/gaz-bill-list.component';
 
 const routes: Routes = [
   {
@@ -90,6 +92,14 @@ const routes: Routes = [
   {
     path: 'climateList',
     component: ClimateListComponent,
+  },
+  {
+    path: 'addGazBill',
+    component: AddGazBillComponent,
+  },
+  {
+    path: 'gasBillList',
+    component: GazBillListComponent,
   },
 ];
 

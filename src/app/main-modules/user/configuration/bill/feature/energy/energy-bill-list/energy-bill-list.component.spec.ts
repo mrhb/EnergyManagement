@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BillListComponent } from './bill-list.component';
+import { EnergyBillListComponent } from './energy-bill-list.component';
 
-describe('BillListComponent', () => {
-  let component: BillListComponent;
-  let fixture: ComponentFixture<BillListComponent>;
+describe('EnergyBillListComponent', () => {
+  let component: EnergyBillListComponent;
+  let fixture: ComponentFixture<EnergyBillListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BillListComponent ]
+      declarations: [ EnergyBillListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BillListComponent);
+    fixture = TestBed.createComponent(EnergyBillListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

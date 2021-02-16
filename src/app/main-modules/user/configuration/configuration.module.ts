@@ -37,8 +37,14 @@ import {ChartModule} from '../../../shared/tools/chart/chart.module';
 import {NgxEchartsModule} from 'ngx-echarts';
 import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
 import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
-import { CreatBillComponent } from './bill/feature/creat-bill/creat-bill.component';
-import { BillListComponent } from './bill/feature/bill-list/bill-list.component';
+import { AddEnergyBillComponent } from './bill/feature/energy/add-energy-bill/add-energy-bill.component';
+import { EnergyBillListComponent } from './bill/feature/energy/energy-bill-list/energy-bill-list.component';
+import { PowerBillListComponent } from './bill/feature/power/power-bill-list/power-bill-list.component';
+import { AddPowerBillComponent } from './bill/feature/power/add-power-bill/add-power-bill.component';
+import { AddGazBillComponent } from './bill/feature/gaz/add-gaz-bill/add-gaz-bill.component';
+import { GazBillListComponent } from './bill/feature/gaz/gaz-bill-list/gaz-bill-list.component';
+import { WaterBillListComponent } from './bill/feature/water/water-bill-list/water-bill-list.component';
+import { AddWaterBillComponent } from './bill/feature/water/add-water-bill/add-water-bill.component';
 
 
 @NgModule({
@@ -63,8 +69,14 @@ import { BillListComponent } from './bill/feature/bill-list/bill-list.component'
     EnergyListComponent,
     CreateClimateComponent,
     ClimateListComponent,
-    CreatBillComponent,
-    BillListComponent,
+    AddEnergyBillComponent,
+    EnergyBillListComponent,
+    PowerBillListComponent,
+    AddPowerBillComponent,
+    AddGazBillComponent,
+    GazBillListComponent,
+    WaterBillListComponent,
+    AddWaterBillComponent,
   ],
     imports: [
         CommonModule,
