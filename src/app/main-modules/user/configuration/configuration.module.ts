@@ -37,6 +37,8 @@ import {ChartModule} from '../../../shared/tools/chart/chart.module';
 import {NgxEchartsModule} from 'ngx-echarts';
 import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
 import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
+import { CreatBillComponent } from './bill/feature/creat-bill/creat-bill.component';
+import { BillListComponent } from './bill/feature/bill-list/bill-list.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { ClimateListComponent } from './climate/feature/climate-list/climate-lis
     EnergyListComponent,
     CreateClimateComponent,
     ClimateListComponent,
+    CreatBillComponent,
+    BillListComponent,
   ],
     imports: [
         CommonModule,

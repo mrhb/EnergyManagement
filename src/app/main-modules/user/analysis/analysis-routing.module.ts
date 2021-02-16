@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SubscriptionComponent } from './subscription/subscription.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 
 const routes: Routes = [
@@ -10,6 +11,11 @@ const routes: Routes = [
   {
     path: 'main',
     component: SideBarComponent,
+  },
+  
+  {
+    path: 'subscription',
+    component: SubscriptionComponent,
   },
 ]
 
