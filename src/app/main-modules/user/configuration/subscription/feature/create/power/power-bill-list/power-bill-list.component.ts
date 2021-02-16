@@ -76,7 +76,7 @@ export class PowerBillListComponent implements OnInit {
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
-              this.powerList.splice(i, 1);
+              this.powerBillList.splice(i, 1);
             }
           });
       });
