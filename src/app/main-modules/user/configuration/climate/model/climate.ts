@@ -25,3 +25,11 @@ export class ClimateDto {
   // buildingNum: string;
 }
 
+export class ClimateList {
+  id: string;
+  ostan: OstanEnum;
+  useType: UseTypePowerEnum;
+  shahr: string;
+  rusta: string;
+}
+
