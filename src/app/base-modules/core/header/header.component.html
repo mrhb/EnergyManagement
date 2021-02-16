@@ -54,15 +54,16 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل اشتراکات</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/main'">برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/main'">گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">گاز</a></li>
               </ul>
             </li>
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">صحت سنجی قبوض</a>
-            </li>
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">تحلیل مصارف قبوض</a>
-            </li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">خط مبنا</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی </a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">صحت سنجی قبوض</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">تحلیل مصارف قبوض</a></li>
           </ul>
+          
         </li>
       </ul>
     </div>
