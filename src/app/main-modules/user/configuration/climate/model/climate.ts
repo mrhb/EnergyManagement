@@ -11,18 +11,11 @@ export class ClimateDto {
   ghaleb: string;
   energyDegree: string;  
   climateKind: string;
-  // fileNumber: string;
-  // serialShare: string;
-  // address: string;
-  // useType: UseTypePowerEnum;
-  // useCode: UseCodeEnum;
-  // group: GroupEnum;
-  // capacity: string;
-  // coefficient: string;
-  // voltageType: VoltageTypeEnum;
-  // powerSupplyVoltage: powerSupplyVoltage;
-  // buildingList: BuildingAllocation[] = [];
-  // buildingNum: string;
+  highDegMean: string;
+  lowDegMean: string;
+  highHumidMean: string;
+  lowHumidMean: string;
+  windMean: string;
 }
 
 export class ClimateList {

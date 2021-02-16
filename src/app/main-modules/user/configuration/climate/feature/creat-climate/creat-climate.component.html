@@ -145,8 +145,52 @@
              </div>
           </form>
         </div>
+
         <div class="tab-pane fade" id="pills-climate" role="tabpanel" aria-labelledby="pills-climate-tab">
             <P>climate</P>
+
+
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th scope="col" width="40">#</th>
+                  <th scope="col"> ماه </th>
+                  <th scope="col"> میانگین حداکثر دما</th>
+                  <th scope="col"> میانگین حداقل دما</th>
+                  <th scope="col" width="50"> میانگین دما</th>
+                  <th scope="col"> میانگین حداکثر رطوبت</th>
+                  <th scope="col"> میانگین حداقل رطوبت</th>
+                  <th scope="col" width="50">  میانگین رطوبت</th>
+                  <th scope="col"> میانگین سرعت باد </th>
+                  <th scope="col">میانگین تابش خورشید</th>
+                  <th scope="col" width="280" colspan="2" class="text-center">عملیات</th>
+        
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
+                  <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
+                  <td>{{weather.month}}</td>
+                  <td>{{weather.highDegMean}}</td>
+                  <td>{{weather.lowDegMean}}</td>
+                  <td>{{weather.DegMean}}</td>
+                  <td>{{weather.highHumidMean}}</td>
+                  <td>{{weather.lowHumidMean}}</td>
+                  <td>{{weather.HumidMean}}</td>
+                  <td>{{weather.windMean}}</td>
+                  <td>{{weather.sunRadMean}}</td>
+
+                  <td width="40"><span class="cursor-pointer fa fa-edit"
+                            [queryParams]="{id: weather.id}"
+                            [routerLink]="'/index/user/configuration/editclimate'"></span></td>
+                  <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteclimate(i, weather.id)"></span></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+
         </div>
     </div> 
 </div>
