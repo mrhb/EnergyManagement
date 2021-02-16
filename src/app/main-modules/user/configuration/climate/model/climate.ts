@@ -9,7 +9,7 @@ export class ClimateDto {
   latitude: string;
   ertefa: string;
   ghaleb: string;
-  energyDegree: string;  lat: string;
+  energyDegree: string;  
   climateKind: string;
   // fileNumber: string;
   // serialShare: string;
@@ -28,8 +28,14 @@ export class ClimateDto {
 export class ClimateList {
   id: string;
   ostan: OstanEnum;
-  useType: UseTypePowerEnum;
   shahr: string;
-  rusta: string;
+  longitude: string;
+  latitude: string;
+  climateKind: string;
+  highDegMean: string;
+  lowDegMean: string;
+  highHumidMean: string;
+  lowHumidMean: string;
+  windMean: string;
 }
 
