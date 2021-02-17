@@ -1,129 +1,278 @@
-<div class="col-12">
-  <div class="title-header d-flex justify-content-between align-items-center">
-    <div>
-      <h1>
-        <strong>لیست ساختمان </strong>
-      </h1>
-      <p class="sub-title-header">
-        با انتخاب منطقه مورد نظر لیست ساختمان های آن منطقه را داشته باشید
-      </p>
+<div class="e-app">
+  <div class="col-12">
+    <div class="title-header d-flex justify-content-between align-items-center">
+      <div>
+        <h1>
+          <strong>لیست ساختمان </strong>
+        </h1>
+        <p class="sub-title-header">
+          با انتخاب منطقه مورد نظر لیست ساختمان های آن منطقه را داشته باشید
+        </p>
+      </div>
+      <div class="d-flex">
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createBuilding'">افزودن ساختمان
+        </button>
+      </div>
     </div>
-    <div class="d-flex">
-      <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createBuilding'">افزودن ساختمان</button>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-md-auto tree-view-box">
+      <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
     </div>
-  </div>
-  <hr>
-</div>
-<div class="row">
-  <div class="col-md-auto tree-view-box">
-    <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
-  </div>
-  <div class="col-md">
-    <div class="table-responsive">
-      <table class="table table-bordered table-hover">
-        <thead>
-        <tr>
-          <th scope="col" width="40">#</th>
-          <th scope="col">نام ساختمان</th>
-          <th scope="col">سال ساخت</th>
-          <th scope="col">کدپستی</th>
-          <th scope="col">نوع کاربری</th>
-          <th scope="col" width="40">برچسب انرژی</th>
-          <th scope="col" width="40" colspan="2">عملیات</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let building of buildingList; let i = index">
-          <th scope="row">{{(i + 1 + (pageIndex * buildingList.length))}}</th>
-          <td>{{building.name}}</td>
-          <td>{{building.constructionYear}}</td>
-          <td>{{building.postalCode}}</td>
-          <td>
-            <div [ngSwitch]="building.useType">
-              <div *ngSwitchCase="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">مسکونی</div>
-              <div *ngSwitchCase="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">تجاری</div>
-              <div *ngSwitchCase="useTypeEnum[useTypeEnum.OFFICIAL].toString()">اداری</div>
-            </div>
-          </td>
-          <td>
-            <button class="btn btn-primary text-center" (click)="getEnergyLabel(i)">مشاهده</button>
-          </td>
-          <td>
+    <div class="col-md">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col" width="40">#</th>
+            <th scope="col">نام ساختمان</th>
+            <th scope="col">سال ساخت</th>
+            <th scope="col">کدپستی</th>
+            <th scope="col">نوع کاربری</th>
+            <th scope="col" width="40">برچسب انرژی</th>
+            <th scope="col" width="40" colspan="2">عملیات</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let building of buildingList; let i = index">
+            <th scope="row">{{(i + 1 + (pageIndex * buildingList.length))}}</th>
+            <td>{{building.name}}</td>
+            <td>{{building.constructionYear}}</td>
+            <td>{{building.postalCode}}</td>
+            <td>
+              <div [ngSwitch]="building.useType">
+                <div *ngSwitchCase="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">مسکونی</div>
+                <div *ngSwitchCase="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">تجاری</div>
+                <div *ngSwitchCase="useTypeEnum[useTypeEnum.OFFICIAL].toString()">اداری</div>
+              </div>
+            </td>
+            <td>
+              <button class="btn btn-primary text-center" (click)="getEnergyLabel(i)">مشاهده</button>
+            </td>
+            <td>
               <span class="cursor-pointer fa fa-edit"
                     [queryParams]="{id: building.id}"
                     [routerLink]="'/index/user/configuration/createBuilding'"></span>
-          </td>
-          <td><span class="cursor-pointer fa fa-trash" (click)="deleteBuilding(i, building.id)"></span></td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <app-paginator
-      [totalElements]="length"
-      [pageSize]="pageSize"
-      [pageIndex]="pageIndex"
-      [pageSizeOptions]="[1,5,10,15,25]"
-      [showFirstLastButtons]="true"
-      (page)="changePage($event)"
-    ></app-paginator>
-  </div>
-  <div class="col-12">
-    <div class="box-label-energy" *ngIf="energyLabel.ratio">
-      <div class="head">
-        <div class="right">
-          <img src="assets/image/enregy.jpg" alt="energy">
-        </div>
-        <div class="left">
-<!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
-          {{energyLabel.labelType}}
-        </div>
+            </td>
+            <td><span class="cursor-pointer fa fa-trash" (click)="deleteBuilding(i, building.id)"></span></td>
+          </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="result">
-        <div class="right">
-          <div class="tag" [ngClass]="energyLabel.label">
-            {{energyLabel.label}}
+      <app-paginator
+        [totalElements]="length"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[1,5,10,15,25]"
+        [showFirstLastButtons]="true"
+        (page)="changePage($event)"
+      ></app-paginator>
+    </div>
+    .
+    <div class="col-12 pt-2">
+      <div class="e-card">
+        <div class="card-header">
+          چارت
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="chart w-100">
+              <div class="filter">
+                <div class="col-12">
+                  <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-3">
+                      <div class="w-100">
+                        <label for="startDate" class="form-label">از تاریخ</label>
+                        <input class="form-control text-right" id="startDate" placeholder=""
+                               name="startDate"
+                        >
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                      <div class="w-100">
+                        <label for="endDate" class="form-label">تا تاریخ</label>
+                        <input class="form-control text-right" id="endDate" placeholder=""
+                               name="endDate"
+                        >
+                      </div>
+                    </div>
+                    <div class="col-auto mr-auto">
+                      <div class="btn-group btn-group-toggle">
+                        <div class="btn-group">
+                          <div class="dropdown e-not-close">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              پارامترهای موثر
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <div class="p-1" *ngFor="let item of effectiveParameterList; let i = index">
+                                <input type="checkbox" class="form-check-input"
+                                       [ngModel]="getEffectiveParameterNgModel(item)"
+                                       (change)="onChangeEffectiveParameter($event, item)"
+                                       name="{{item}}" id="{{item}}">
+                                <label class="form-check-label w-100 pr-3" for="{{item}}">{{item}}</label>
+                              </div>
+                              <!--                              <div>-->
+                              <!--                                <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">-->
+                              <!--                                <label class="form-check-label w-100" for="EDD">EDD</label>-->
+                              <!--                              </div>-->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="btn-group btn-group-toggle">
+                        <label for="LINEAR" class="btn btn-outline-secondary"
+                               [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()]}">
+                          خطی
+                          <input type="radio" id="LINEAR" name="LINEAR"
+                                 [value]="chartTypeEnum[chartTypeEnum.LINEAR].toString()"
+                                 [(ngModel)]="chartFilter.chartType">
+                        </label>
+                        <label for="BAR" class="btn btn-outline-secondary"
+                               [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()]}">
+                          میله ای
+                          <input type="radio" id="BAR" name="BAR" [value]="chartTypeEnum[chartTypeEnum.BAR.toString()]"
+                                 [(ngModel)]="chartFilter.chartType">
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="btn-group btn-group-toggle">
+                        <label for="MONTHLY" class="btn btn-outline-secondary"
+                               [ngClass]="{'active': chartFilter.period === periodEnum[periodEnum.MONTHLY.toString()]}">
+                          ماهانه
+                          <input type="radio" id="MONTHLY" name="period"
+                                 [value]="periodEnum[periodEnum.MONTHLY].toString()" [(ngModel)]="chartFilter.period">
+                        </label>
+                        <label for="DAILY" class="btn btn-outline-secondary"
+                               [ngClass]="{'active': chartFilter.period === periodEnum[periodEnum.DAILY.toString()]}">
+                          روزانه
+                          <input type="radio" id="DAILY" name="period" [value]="periodEnum[periodEnum.DAILY]"
+                                 [(ngModel)]="chartFilter.period">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+
+              <div class="nav-tabs-boxed nav-tabs-boxed-right">
+                <ul class="nav nav-tabs flex-column" role="tablist">
+                  <li class="nav-item active">
+                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
+                       (click)="setOption()"
+                                          aria-controls="home" aria-selected="true">
+                    گراف یک
+                  </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
+                       (click)="setOption()"
+                                          aria-controls="profile" aria-selected="false">
+                    گراف دو
+                  </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
+                       (click)="setOption()"
+                                          aria-controls="messages" aria-selected="false">گراف سه</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="home" role="tabpanel">
+                    <ng-container
+                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options2" class="demo-chart"></div>
+                    </ng-container>
+                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options" class="demo-chart"></div>
+                    </ng-container>
+                  </div>
+                  <div class="tab-pane" id="profile" role="tabpanel">
+                    <ng-container
+                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>
+                    </ng-container>
+                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>
+                    </ng-container>
+                  </div>
+                  <div class="tab-pane" id="messages" role="tabpanel">
+                    <ng-container
+                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options2" class="demo-chart"></div>
+                    </ng-container>
+                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options" class="demo-chart"></div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
-        <div class="left">
-          <p>بازدهی بیشتر</p>
-          <ul>
-            <li><span>A</span></li>
-            <li><span>B</span></li>
-            <li><span>C</span></li>
-            <li><span>D</span></li>
-            <li><span>E</span></li>
-            <li><span>F</span></li>
-            <li><span>G</span></li>
-          </ul>
-          <p class="mb-0">بازدهی کمتر</p>
-        </div>
-      </div>
-      <div class="space">
 
       </div>
-      <div class="energy-info energy-ratio">
-        <div class="text-center">نسبت انرژی:</div>
-        <div class="text-center">
-          میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
-        </div>
-        <div>
-          R= {{energyLabel.ratio}}
-        </div>
-      </div>
-      <div class="energy-info">
-        <div class="text-center">شاخص مصرف انرژی:</div>
-        <div class="text-center">
-          برحسب کیلووات ساعتبر متر مربع در سال
-        </div>
-        <div>
-          {{energyLabel.consumptionIndex}}
-        </div>
-      </div>
+      <div class="e-card">
+        <div class="box-label-energy w-100" *ngIf="energyLabel.ratio">
+          <div class="head">
+            <div class="right">
+              <img src="assets/image/enregy.jpg" alt="energy">
+            </div>
+            <div class="left">
+              <!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
+              {{energyLabel.labelType}}
+            </div>
+          </div>
+          <div class="result">
+            <div class="right">
+              <div class="tag" [ngClass]="energyLabel.label">
+                {{energyLabel.label}}
+              </div>
+            </div>
+            <div class="left">
+              <p>بازدهی بیشتر</p>
+              <ul>
+                <li><span>A</span></li>
+                <li><span>B</span></li>
+                <li><span>C</span></li>
+                <li><span>D</span></li>
+                <li><span>E</span></li>
+                <li><span>F</span></li>
+                <li><span>G</span></li>
+              </ul>
+              <p class="mb-0">بازدهی کمتر</p>
+            </div>
+          </div>
+          <div class="space">
 
-    </div>
-    <div class="chart">
-      <div echarts [options]="options" class="demo-chart"></div>
-      <div echarts [options]="options2" class="demo-chart"></div>
+          </div>
+          <div class="energy-info energy-ratio">
+            <div class="text-center">نسبت انرژی:</div>
+            <div class="text-center">
+              میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
+            </div>
+            <div>
+              R= {{energyLabel.ratio}}
+            </div>
+          </div>
+          <div class="energy-info">
+            <div class="text-center">شاخص مصرف انرژی:</div>
+            <div class="text-center">
+              برحسب کیلووات ساعتبر متر مربع در سال
+            </div>
+            <div>
+              {{energyLabel.consumptionIndex}}
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>

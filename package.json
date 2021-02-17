@@ -28,6 +28,7 @@
     "font-awesome": "^4.7.0",
     "jalali-moment": "^3.3.8",
     "jquery": "^3.5.1",
+    "md.bootstrappersiandatetimepicker": "^3.10.0",
     "ngx-bootstrap": "^6.2.0",
     "ngx-echarts": "^6.0.0",
     "notiflix": "^2.6.0",
