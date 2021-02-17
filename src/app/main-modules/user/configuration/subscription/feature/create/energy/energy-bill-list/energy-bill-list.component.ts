@@ -30,20 +30,12 @@ export class EnergyBillListComponent implements OnInit {
         Hazineh:  " 120000 ریال",
         Mablagh:   " 120000 ریال",
       }
-    ];
-   
+    ];   
   }
 
     
   navigate(): void {
-    // console.log(this.activatedRoute.snapshot.url[0].path);
-    // // @ts-ignore
-    // this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
-    //   queryParams: {
-    //     pageIndex: this.pageIndex,
-    //     pageSize: this.pageSize,
-    //   },
-    // });
+  
     this.getEnergyBillList();
   }
 

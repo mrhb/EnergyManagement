@@ -27,22 +27,23 @@ export class PowerBillListComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getListPower();
+    this.getPowerBillList();
   }
 
-  getListPower(): void {
-    console.log('this.pageIndex', this.pageIndex);
-    console.log('this.pageSize', this.pageSize);
-    this.powerService.getPowerList(
+  
+  getPowerBillList(): void {
+    this.powerBillList = [
       {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.powerBillList = res.content;
+        id:"1",
+        BillId: "123456",
+        StartDate:"99/01/01",
+        EndDate:"99/10/01",
+        Days: "27",
+        Masraf:  "720 ",
+        Mablagh:   " 120000 ریال",
       }
-    });
+    ];   
+  
   }
 
   navigate(): void {
@@ -54,7 +55,7 @@ export class PowerBillListComponent implements OnInit {
         pageSize: this.pageSize,
       },
     });
-    this.getListPower();
+    this.getPowerBillList();
   }
 
 

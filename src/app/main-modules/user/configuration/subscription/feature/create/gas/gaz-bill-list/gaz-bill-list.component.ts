@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GasList} from '../../../../model/gas';
+import {GasBillList} from '../../../../model/gas';
 
 @Component({
   selector: 'app-gaz-bill-list',
@@ -12,26 +12,27 @@ export class GazBillListComponent implements OnInit {
   length = -1;
 
   // useTypeEnum = UseTypeGasEnum;
-  gasBillList: GasList[] = [];
+  gasBillList: GasBillList[] = [];
   
   constructor() { }
 
   ngOnInit(): void {
-    this.getListPower();
+    this.getGasBillList();
   }
-  getListPower(): void {
-    // this.gasService.getGasList(
-    //   {
-    //     page: this.pageIndex,
-    //     size: this.pageSize,
-    //   }, ''
-    // ).subscribe((res: any) => {
-    //   if (res) {
-    //     this.gasList = res.content;
-    //   }
-    // });
-  }
-
+  
+  getGasBillList(): void {   
+     this.gasBillList = [
+      {
+      id:"1",
+      BillId: "123459886",
+      StartDate:"98/01/01",
+      EndDate:"98/10/01",
+      Days: "27",
+      Masraf:  "7020 ",
+      Mablagh:   " 3600000 ریال",
+      }
+    ];   
+}
 
     
   navigate(): void {
@@ -43,7 +44,7 @@ export class GazBillListComponent implements OnInit {
     //     pageSize: this.pageSize,
     //   },
     // });
-    // this.getGasBillList();
+    this.getGasBillList();
   }
 
   changePage(event: any): void {

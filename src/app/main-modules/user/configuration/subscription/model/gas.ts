@@ -38,3 +38,14 @@ export class GasList {
   createdAt: any;
   buildingNum: string;
 }
+
+
+export class GasBillList {
+  id: string;
+  BillId: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Mablagh: string;
+}

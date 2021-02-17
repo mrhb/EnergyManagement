@@ -46,13 +46,14 @@ export class PowerList {
 
 export class PowerBillList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
-  useType: UseTypePowerEnum;
-  createdAt: any;
-  buildingNum: string;
+  BillId: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Mablagh: string;
 }
+
 export class PowerBuildingAllocation {
   allocationPercentage: string;
   buildingId: string;
