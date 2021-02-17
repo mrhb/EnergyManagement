@@ -82,12 +82,16 @@ html[dir="rtl"] input
  */
 @import "../node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('assets/style/variables.scss');
-.btn {
-  min-width: 100px;
-}
+//.btn {
+//  min-width: 100px;
+//}
 
 h1 {
   font-size: 1.6rem !important;
+}
+
+.e-app {
+  background-color: #ebedef;
 }
 
 form {
