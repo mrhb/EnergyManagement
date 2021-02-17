@@ -15,8 +15,24 @@ export class EnergyBillListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getEnergyBillList();
   }
 
+  getEnergyBillList(): void {
+    this.energyBillList = [
+      {
+        id:"1",
+        EnergyType: "'گازوئیل'",
+        StartDate:"99/01/01",
+        EndDate:"99/10/01",
+        Days: "27",
+        Masraf:  "720 ",
+        Hazineh:  " 120000 ریال",
+        Mablagh:   " 120000 ریال",
+      }
+    ];
+   
+  }
 
     
   navigate(): void {
@@ -28,7 +44,7 @@ export class EnergyBillListComponent implements OnInit {
     //     pageSize: this.pageSize,
     //   },
     // });
-    // this.getGasBillList();
+    this.getEnergyBillList();
   }
 
   changePage(event: any): void {

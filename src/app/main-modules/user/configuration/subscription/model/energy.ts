@@ -35,10 +35,12 @@ export class EnergyList {
 
 export class EnergyBillList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
-  useType: UseTypeWater;
-  createdAt: any;
-  buildingNum: string;
+  EnergyType: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Hazineh: string;
+  Mablagh: string;
+  
 }
