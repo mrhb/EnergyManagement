@@ -51,7 +51,7 @@
 
     <div class="user-info">
       <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
-      <span class="ml-1" *ngIf="role === 'user'">{{account.firstName + '' + account.lastName}}</span>
+      <span class="ml-1" *ngIf="role === 'user'">{{account.firstName + ' ' + account.lastName}}</span>
       <div class="dropdown">
         <div class="cursor-pointer" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <ng-container *ngIf="account && account.photo; else default">
