@@ -186,28 +186,28 @@
                   <div class="tab-pane active" id="home" role="tabpanel">
                     <ng-container
                       *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options2" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options2" class="demo-chart"></div>
                     </ng-container>
                     <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options" class="demo-chart"></div>
                     </ng-container>
                   </div>
                   <div class="tab-pane" id="profile" role="tabpanel">
                     <ng-container
                       *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>
                     </ng-container>
                     <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>
                     </ng-container>
                   </div>
                   <div class="tab-pane" id="messages" role="tabpanel">
                     <ng-container
                       *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options2" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph2" class="demo-chart"></div>
                     </ng-container>
                     <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" [options]="options" class="demo-chart"></div>
+                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph" class="demo-chart"></div>
                     </ng-container>
                   </div>
                 </div>

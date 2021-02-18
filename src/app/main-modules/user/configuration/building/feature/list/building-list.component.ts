@@ -31,6 +31,10 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
   optionsOneGraph;
   optionsOneGraph2;
 
+  optionsThreeGraph;
+  optionsThreeGraph2;
+
+
   chartFilter = new ChartFilter();
   periodEnum = PeriodEnum;
   effectiveParameterEnum = EffectiveParameterEnum;
@@ -265,6 +269,11 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
       const xAxisDataG2 = [];
       const HDD = [];
       const CDD = [];
+
+      const xAxisDataG3 = [];
+      const gaz = [];
+      const power = [];
+      const energy = [];
 
 
       const chartData = [
@@ -532,7 +541,12 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         animationEasing: 'elasticOut',
         animationDelayUpdate: (idx) => idx * 5,
       };
-
+      const lengthGraph = chartDataGraph.length;
+      for (let i = 0; i < lengthGraph; i++) {
+        xAxisDataG2.push(this.moment.getJaliliDateFromIso(chartDataGraph[i].date));
+        CDD.push(chartDataGraph[i].CDD);
+        HDD.push(chartDataGraph[i].HDD);
+      }
 
       this.optionsOneGraph = {
         legend: {
@@ -605,13 +619,153 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         animationDelayUpdate: (idx) => idx * 5,
       };
 
-      const lengthGraph = chartDataGraph.length;
-      for (let i = 0; i < lengthGraph; i++) {
-        xAxisDataG2.push(this.moment.getJaliliDateFromIso(chartDataGraph[i].date));
-        console.log('chartDataGraph[i]', chartDataGraph[i]);
-        CDD.push(chartDataGraph[i].CDD);
-        HDD.push(chartDataGraph[i].HDD);
+      const chartDataGraph2 = [
+        {
+          gaz: 80,
+          power: 40,
+          energy: 10,
+          date: '2020-05-12T12:19:00+00:00'
+        },
+        {
+          // value: 50,
+          gaz: 60,
+          power: 90,
+          energy: 16,
+          date: '2020-05-14T12:19:00+00:00'
+        },
+        {
+          gaz: 12,
+          power: 37,
+          energy: 28,
+          date: '2020-05-16T12:19:00+00:00'
+        },
+        {
+          gaz: 55,
+          power: 15,
+          energy: 11,
+          date: '2020-05-18T12:19:00+00:00'
+        },
+        {
+          gaz: 60,
+          power: 90,
+          energy: 25,
+          date: '2020-05-20T12:19:00+00:00'
+        },
+        {
+          gaz: 99,
+          power: 90,
+          energy: 55,
+          date: '2020-05-22T12:19:00+00:00'
+        },
+        {
+          gaz: 60,
+          power: 55,
+          energy: 5,
+          date: '2020-05-24T12:19:00+00:00'
+        },
+        {
+          gaz: 12,
+          power: 90,
+          energy: 60,
+          date: '2020-05-26T12:19:00+00:00'
+        },
+        {
+          gaz: 55,
+          power: 90,
+          energy: 73,
+          date: '2020-05-28T12:19:00+00:00'
+        },
+      ];
+      const lengthGraph2 = chartDataGraph2.length;
+      for (let i = 0; i < lengthGraph2; i++) {
+        xAxisDataG2.push(this.moment.getJaliliDateFromIso(chartDataGraph2[i].date));
+        power.push(chartDataGraph2[i].power);
+        gaz.push(chartDataGraph2[i].gaz);
+        energy.push(chartDataGraph2[i].energy);
       }
+
+      this.optionsThreeGraph = {
+        legend: {
+          data: ['gaz', 'power', 'energy'],
+          align: 'left',
+        },
+        tooltip: {},
+        xAxis: {
+          data: xAxisDataG2,
+          silent: false,
+          splitLine: {
+            show: true,
+          },
+        },
+        yAxis: {},
+        series: [
+          {
+            name: 'gaz',
+            type: 'bar',
+            data: gaz,
+            animationDelay: (idx) => idx * 10,
+          },{
+            name: 'power',
+            type: 'bar',
+            data: power,
+            animationDelay: (idx) => idx * 10,
+          },
+          {
+            name: 'energy',
+            type: 'bar',
+            data: energy,
+            animationDelay: (idx) => idx * 10 + 100,
+          },
+        ],
+        animationEasing: 'elasticOut',
+        animationDelayUpdate: (idx) => idx * 5,
+      };
+      this.optionsThreeGraph2 = {
+        legend: {
+          data: ['gaz', 'power', 'energy'],
+          align: 'left',
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'cross',
+            label: {
+              backgroundColor: '#6a7985'
+            }
+          },
+        },
+        xAxis: {
+          data: xAxisDataG2,
+          silent: false,
+          splitLine: {
+            show: true,
+          },
+        },
+        yAxis: {},
+        series: [
+          {
+            name: 'gaz',
+            type: 'line',
+            data: gaz,
+            animationDelay: (idx) => idx * 10,
+          },
+          {
+            name: 'power',
+            type: 'line',
+            data: power,
+            animationDelay: (idx) => idx * 10 + 100,
+          },
+          {
+            name: 'energy',
+            type: 'line',
+            data: energy,
+            animationDelay: (idx) => idx * 10 + 100,
+          },
+        ],
+        animationEasing: 'elasticOut',
+        animationDelayUpdate: (idx) => idx * 5,
+      };
+
       this.isLoadingChart = false;
     }, 1000);
   }
