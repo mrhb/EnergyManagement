@@ -28,10 +28,13 @@
         <tbody>
         <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
-          <td>{{water.name}}</td>
-          <td>{{water.addressCode}}</td>
-          <td>{{useTypeEnum[water.useType].toString()}}</td>
-          <td>{{water.buildingNum}}</td>
+          <td>{{water.Duration}}</td>
+          <td>{{water.BillId}}</td>
+          <td>{{water.StartDate}}</td>
+          <td>{{water.EndDate}}</td>
+          <td>{{water.Days}}</td>
+          <td>{{water.Masraf}}</td>
+          <td>{{water.Mablagh}}</td>        
           <td width="40"><span class="cursor-pointer fa fa-edit"
                                [queryParams]="{id: water.id}"
                                [routerLink]="'/index/user/configuration/waterBillAdd'"></span></td>

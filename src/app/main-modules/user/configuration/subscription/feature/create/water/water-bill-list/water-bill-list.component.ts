@@ -5,12 +5,12 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {WaterBillList} from '../../../../model/water';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {WaterService} from '../../../../service/water.service';
 import {ActivatedRoute} from '@angular/router';
 import {UseTypeWater} from '../../../../model/waterEnum';
+import {WaterBillList} from '../../../../model/water';
 
 @Component({
   selector: 'app-water-bill-list',
@@ -28,33 +28,22 @@ export class WaterBillListComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getListPower();
+    this.getWaterBillList();
   }
-
-  getListPower(): void {
-    this.waterService.getWaterBillList(
-      {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.waterBillList = res.content;
-      }
-    });
-  }
-
-  getListWater(): void {
-    this.waterService.getWaterBillList(
-      {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.waterBillList = res.content;
-      }
-    });
+  getWaterBillList(): void {   
+    this.waterBillList = [
+     {
+     id:"1",
+     BillId: "123459886",
+     StartDate:"98/01/01",
+     EndDate:"98/10/01",
+     Days: "27",
+     Masraf:  "7020 ",
+     Mablagh:   " 3600000 ریال",
+     Duration: "100"
+     }
+   ];   
+   
   }
 
   navigate(): void {
@@ -66,7 +55,7 @@ export class WaterBillListComponent implements OnInit {
         pageSize: this.pageSize,
       },
     });
-    this.getListWater();
+    this.getWaterBillList();
   }
 
   changePage(event: any): void {

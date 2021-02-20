@@ -38,10 +38,11 @@ export class WaterList {
 
 export class WaterBillList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
-  useType: UseTypeWater;
-  createdAt: any;
-  buildingNum: string;
+  Duration: string;
+  BillId: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Mablagh: string;
 }
