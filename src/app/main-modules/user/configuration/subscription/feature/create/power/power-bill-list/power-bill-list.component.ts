@@ -4,8 +4,8 @@ import { UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
 import Notiflix from 'notiflix';
-import { PowerService } from '../../../../service/power.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PowerReceiptService } from '../../../../service/power-receipt.service';
 
 @Component({
   selector: 'app-power-bill-list',
@@ -23,7 +23,7 @@ export class PowerBillListComponent implements OnInit {
   powerBillList: PowerBillList[] = [];
   buildingList = [];
   constructor(public router: Router,
-    private powerService: PowerService,
+    private PowerReceiptService: PowerReceiptService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -32,17 +32,17 @@ export class PowerBillListComponent implements OnInit {
 
   
   getPowerBillList(): void {
-    this.powerBillList = [
+
+    this.PowerReceiptService.getReceiptList(
       {
-        id:"1",
-        BillId: "123456",
-        StartDate:"99/01/01",
-        EndDate:"99/10/01",
-        Days: "27",
-        Masraf:  "720 ",
-        Mablagh:   " 120000 ریال",
+        page: this.pageIndex,
+        size: this.pageSize,
+      }, ''
+    ).subscribe((res: any) => {
+      if (res) {
+        this.powerBillList = res.content;
       }
-    ];   
+    });
   
   }
 
@@ -68,15 +68,15 @@ export class PowerBillListComponent implements OnInit {
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
-      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'حذف قبض',
+      'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',
       () => {
-        this.powerService.deletePower({id: pId})
+        this.PowerReceiptService.deleteReceipt({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف قبض با موفقیت انجام گردید');
               this.powerBillList.splice(i, 1);
             }
           });
