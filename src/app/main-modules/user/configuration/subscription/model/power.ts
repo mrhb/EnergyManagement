@@ -23,6 +23,13 @@ export class PowerDto {
   // buildingNum: string;
 }
 
+export class PowerBillDto {
+  billId: string;
+  pardakhtId: string;
+  duration: string;
+  startDate: string;
+}
+
 export class BuildingAllocation {
   allocationPercentage: string;
   buildingId: string;

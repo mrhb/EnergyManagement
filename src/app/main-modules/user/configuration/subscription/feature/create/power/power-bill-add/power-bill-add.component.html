@@ -32,15 +32,47 @@
 
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="name" class="form-label">شناسه قبض</label>
-                <input class="form-control text-right" id="name" placeholder=""
-                       [(ngModel)]="powerDto.name"
-                       formControlName="name"
-                       name="name"
-                >
+                <label for="billId" class="form-label">شناسه قبض</label>
+                <input class="form-control text-right" id="billId" placeholder=""
+                       [(ngModel)]="powerBillDto.billId"
+                       formControlName="billId"
+                       name="billId">
               </div>
-              <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['billId']" [touched]="touched"></app-alert-error>
             </div>
+
+            <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="pardakhtId" class="form-label">شناسه پرداخت</label>
+                  <input class="form-control text-right" id="pardakhtId" placeholder=""
+                         [(ngModel)]="powerBillDto.pardakhtId"
+                         formControlName="pardakhtId"
+                         name="pardakhtId">
+                </div>
+                <app-alert-error [data]="form.controls['pardakhtId']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="duration" class="form-label">دوره</label>
+                  <input class="form-control text-right" id="duration" placeholder=""
+                         [(ngModel)]="powerBillDto.duration"
+                         formControlName="duration"
+                         name="duration">
+                </div>
+                <app-alert-error [data]="form.controls['duration']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="startDate" class="form-label">تاریخ شروع </label>
+                  <input class="form-control text-right" id="startDate" placeholder=""
+                         [(ngModel)]="powerBillDto.startDate"
+                         formControlName="startDate"
+                         name="startDate">
+                </div>
+                <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
+              </div>
 
 
 
