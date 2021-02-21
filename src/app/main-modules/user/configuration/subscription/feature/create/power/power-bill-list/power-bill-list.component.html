@@ -27,12 +27,12 @@
         <tbody>
         <tr *ngFor="let power of powerBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * powerBillList.length))}}</th>
-          <td>{{power.BillId}}</td>
-          <td>{{power.StartDate}}</td>
-          <td>{{power.EndDate}}</td>
-          <td>{{power.Days}}</td>
-          <td>{{power.Masraf}}</td>
-          <td>{{power.Mablagh}}</td>
+          <td>{{power.powerSharingId}}</td>
+          <td>{{power.fromDate}}</td>
+          <td>{{power.toDate}}</td>
+          <td>{{power.numberDays}}</td>
+          <td>{{power.consumptionAmount}}</td>
+          <td>{{power.totalConsumption}}</td>
           <td width="40"><span class="cursor-pointer fa fa-edit"
                     [queryParams]="{id: power.id}"
                     [routerLink]="'/index/user/configuration/powerBillAdd'"></span></td>

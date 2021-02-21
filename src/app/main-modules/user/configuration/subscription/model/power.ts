@@ -45,6 +45,18 @@ export class PowerList {
 }
 
 export class PowerBillList {
+
+
+  powerSharingId: String; // شناسه شاشتراک برق
+  numberShare: String; // شماره اشتراک
+  nameShare: String;// نام اشتراک
+  fromDate: Date; // از تاریخ
+  toDate:Date; // تا تاریخ
+  numberDays:Number;//تعداد روزها
+  consumptionAmount: Number; // مبلغ مصرف
+  totalConsumption:string;   // مصرف کل
+
+
   id: string;
   BillId: string;
   StartDate: string;
