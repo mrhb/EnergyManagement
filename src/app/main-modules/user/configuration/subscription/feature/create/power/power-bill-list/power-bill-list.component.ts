@@ -68,15 +68,15 @@ export class PowerBillListComponent implements OnInit {
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
-      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'حذف قبض',
+      'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',
       () => {
         this.PowerReceiptService.deleteReceipt({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف قبض با موفقیت انجام گردید');
               this.powerBillList.splice(i, 1);
             }
           });
