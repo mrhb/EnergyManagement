@@ -74,6 +74,28 @@
                 <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
               </div>
 
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="endDate" class="form-label">تاریخ اتمام </label>
+                  <input class="form-control text-right" id="endDate" placeholder=""
+                         [(ngModel)]="powerBillDto.endDate"
+                         formControlName="endDate"
+                         name="endDate">
+                </div>
+                <app-alert-error [data]="form.controls['endDate']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="Days" class="form-label"> تعداد روز دوره </label>
+                  <input class="form-control text-right" id="Days" placeholder=""
+                         [(ngModel)]="powerBillDto.Days"
+                         formControlName="Days"
+                         name="Days">
+                </div>
+                <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
+              </div>
+
 
 
 

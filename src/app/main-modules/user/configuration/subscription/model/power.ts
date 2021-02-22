@@ -28,6 +28,8 @@ export class PowerBillDto {
   pardakhtId: string;
   duration: string;
   startDate: string;
+  endDate: string;
+  Days: string;
 }
 
 export class BuildingAllocation {
