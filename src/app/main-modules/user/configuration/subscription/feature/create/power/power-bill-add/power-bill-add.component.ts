@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PowerBillDto} from '../../../../model/power';
-import {FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MyPattern } from 'src/app/shared/tools/myPattern';
 
 @Component({
   selector: 'app-power-bill-add',
@@ -15,12 +16,26 @@ export class PowerBillAddComponent implements OnInit {
   touched = false;
   edited = false;
   powerId = '';
+  myPattern = MyPattern;
+
   form: FormGroup;
   powerBillDto = new PowerBillDto();
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.form=this.formBuilder.group({
+      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      duration:[], // دوره
+      startDate:[], // تاریخ شروع 
+      endDate:[], // تاریخ اتمام
+      Days:[], // روزها
+      ghodratGharar:[], // قدرت قراردادی
+      ghodratMohasebeh:[], // قدرت محاسبه شده
+    }
+
+    );
   }
 
 }
