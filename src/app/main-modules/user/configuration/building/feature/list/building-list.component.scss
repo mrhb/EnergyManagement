@@ -1,3 +1,98 @@
+.e-card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 1px solid;
+  border-radius: .25rem;
+  background-color: #fff;
+  border-color: #d8dbe0;
+
+  .card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid;
+    background-color: #fff;
+    border-color: #d8dbe0;
+
+    &:first-child {
+      border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    }
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+
+    .btn-group>.btn:not(:first-child):not(.dropdown-toggle),
+    .btn-group>.btn-group:not(:first-child)>.btn {
+      border-radius: 3px 0 0 3px;
+    }
+
+    .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
+    .btn-group>.btn-group:not(:last-child)>.btn {
+      border-radius: 0 3px 3px 0;
+    }
+
+    .form-check {
+      position: relative;
+      display: block;
+      padding-left: 0;
+      padding-right: 1.25rem;
+    }
+
+    .nav-tabs-boxed.nav-tabs-boxed-left, .nav-tabs-boxed.nav-tabs-boxed-right {
+      display: -ms-flexbox;
+      display: flex;
+    }
+    .nav-tabs-boxed.nav-tabs-boxed-right .nav-link.active {
+      border-color: #d8dbe0 #d8dbe0 #d8dbe0 #fff;
+    }
+    .nav-tabs-boxed.nav-tabs-boxed-right .tab-content {
+      width: 100%;
+      border-radius: .25rem 0 .25rem .25rem;
+    }
+
+    .nav-tabs-boxed.nav-tabs-boxed-right {
+      .tab-content {
+        padding: .75rem 1.25rem;
+        border: 1px solid;
+        border-radius: 0 .25rem .25rem .25rem;
+        color: #768192;
+        background-color: #fff;
+        border-color: #d8dbe0;
+      }
+
+      .nav-tabs {
+        padding-right: 0;
+        border-bottom: 0;
+        flex: 0 0 auto;
+        color: #b4b4b4;
+        align-self: flex-start;
+
+        .nav-link.active {
+          background-color: #fff;
+        }
+      }
+
+      .nav-item {
+        z-index: 1;
+        flex-grow: 1;
+        margin-bottom: 1px;
+        margin-left: -1px;
+      }
+
+    }
+
+  }
+}
+
 .tree-view-box {
   min-width: 20%;
 }
