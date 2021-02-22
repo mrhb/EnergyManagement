@@ -23,6 +23,17 @@ export class PowerDto {
   // buildingNum: string;
 }
 
+export class PowerBillDto {
+  billId: string;
+  pardakhtId: string; // شناسه پرداخت
+  duration: string; // دوره
+  startDate: string; // تاریخ شروع 
+  endDate: string; // تاریخ اتمام
+  Days: string; // روزها
+  ghodratGharar: string; // قدرت قراردادی
+  ghodratMohasebeh: string; // قدرت محاسبه شده
+}
+
 export class BuildingAllocation {
   allocationPercentage: string;
   buildingId: string;
