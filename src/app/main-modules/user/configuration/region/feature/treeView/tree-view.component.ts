@@ -51,6 +51,7 @@ export class TreeViewComponent implements OnInit {
           if (res.flag) {
             this.regionList = res.data;
             console.log('this.regionList', this.regionList);
+            this.getListRegion(res.data[0].id, 0);
           }
         }
       });
