@@ -34,3 +34,28 @@ export class WaterList {
   createdAt: any;
   buildingNum: string;
 }
+
+
+export class WaterBillList {
+  id: string;
+  Duration: string;
+  BillId: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Mablagh: string;
+}
+
+
+
+export class WaterBillDto {
+  billId: string;
+  pardakhtId: string; // شناسه پرداخت
+  duration: string; // دوره
+  startDate: string; // تاریخ شروع 
+  endDate: string; // تاریخ اتمام
+  Days: string; // روزها
+  ghodratGharar: string; // قدرت قراردادی
+  ghodratMohasebeh: string; // قدرت محاسبه شده
+}

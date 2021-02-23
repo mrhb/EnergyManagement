@@ -40,7 +40,52 @@
                 <!--                </li>-->
               </ul>
             </li>
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">قبض</a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerBillList'">برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'">گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'">آب</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">انرژی</a></li>
+
+
+                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>-->
+                <!--                  <ul class="dropdown-menu">-->
+                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
+                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
+                <!--                  </ul>-->
+                <!--                </li>-->
+                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>-->
+                <!--                  <ul class="dropdown-menu">-->
+                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
+                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
+                <!--                  </ul>-->
+                <!--                </li>-->
+              </ul>
+            </li>
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/createClimate'">تعریف شهر و اقلیم</a></li>
+              </ul>
+            </li>
           </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            تحلیل و گزارش گیری
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل اشتراکات</a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">گاز</a></li>
+              </ul>
+            </li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">خط مبنا</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی </a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">صحت سنجی قبوض</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">تحلیل مصارف قبوض</a></li>
+          </ul>
+          
         </li>
       </ul>
     </div>

@@ -23,6 +23,17 @@ export class PowerDto {
   // buildingNum: string;
 }
 
+export class PowerBillDto {
+  billId: string;
+  pardakhtId: string; // شناسه پرداخت
+  duration: string; // دوره
+  startDate: string; // تاریخ شروع 
+  endDate: string; // تاریخ اتمام
+  Days: string; // روزها
+  ghodratGharar: string; // قدرت قراردادی
+  ghodratMohasebeh: string; // قدرت محاسبه شده
+}
+
 export class BuildingAllocation {
   allocationPercentage: string;
   buildingId: string;
@@ -42,6 +53,28 @@ export class PowerList {
   useType: UseTypePowerEnum;
   createdAt: any;
   buildingNum: string;
+}
+
+export class PowerBillList {
+
+
+  powerSharingId: String; // شناسه شاشتراک برق
+  numberShare: String; // شماره اشتراک
+  nameShare: String;// نام اشتراک
+  fromDate: Date; // از تاریخ
+  toDate:Date; // تا تاریخ
+  numberDays:Number;//تعداد روزها
+  consumptionAmount: Number; // مبلغ مصرف
+  totalConsumption:string;   // مصرف کل
+
+
+  id: string;
+  BillId: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Mablagh: string;
 }
 
 export class PowerBuildingAllocation {

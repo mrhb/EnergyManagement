@@ -32,3 +32,27 @@ export class EnergyList {
   createdAt: any;
   buildingNum: string;
 }
+
+export class EnergyBillList {
+  id: string;
+  EnergyType: string;
+  StartDate: string;
+  EndDate: string;
+  Days: string;
+  Masraf: string;
+  Hazineh: string;
+  Mablagh: string;
+  
+}
+
+
+export class EnergyBillDto {
+  billId: string;
+  pardakhtId: string; // شناسه پرداخت
+  duration: string; // دوره
+  startDate: string; // تاریخ شروع 
+  endDate: string; // تاریخ اتمام
+  Days: string; // روزها
+  ghodratGharar: string; // قدرت قراردادی
+  ghodratMohasebeh: string; // قدرت محاسبه شده
+}

@@ -131,6 +131,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "energy"
+    }
+  },
+  "defaultProject": "energy",
+  "cli": {
+    "analytics": false
+  }
 }

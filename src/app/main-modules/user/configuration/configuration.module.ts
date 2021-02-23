@@ -35,6 +35,17 @@ import {PowerBuildingService} from './building/service/power-building.service';
 import {AppModule} from '../../../app.module';
 import {ChartModule} from '../../../shared/tools/chart/chart.module';
 import {NgxEchartsModule} from 'ngx-echarts';
+import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
+import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
+import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-add/gaz-bill-add.component';
+import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill-list/gaz-bill-list.component';
+import { PowerBillAddComponent } from './subscription/feature/create/power/power-bill-add/power-bill-add.component';
+import { PowerBillListComponent } from './subscription/feature/create/power/power-bill-list/power-bill-list.component';
+import { EnergyBillListComponent } from './subscription/feature/create/energy/energy-bill-list/energy-bill-list.component';
+import { EnergyBillAddComponent } from './subscription/feature/create/energy/energy-bill-add/energy-bill-add.component';
+import { WaterBillAddComponent } from './subscription/feature/create/water/water-bill-add/water-bill-add.component';
+import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
+import { PowerReceiptService } from './subscription/service/power-receipt.service';
 
 
 @NgModule({
@@ -57,6 +68,16 @@ import {NgxEchartsModule} from 'ngx-echarts';
     WaterListComponent,
     CreateEnergyComponent,
     EnergyListComponent,
+    CreateClimateComponent,
+    ClimateListComponent,
+    GazBillAddComponent,
+    GazBillListComponent,
+    PowerBillAddComponent,
+    PowerBillListComponent,
+    EnergyBillListComponent,
+    EnergyBillAddComponent,
+    WaterBillAddComponent,
+    WaterBillListComponent
   ],
     imports: [
         CommonModule,
@@ -70,7 +91,7 @@ import {NgxEchartsModule} from 'ngx-echarts';
         ChartModule,
         NgxEchartsModule
     ],
-  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService, EnergyService],
+  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService,PowerReceiptService, EnergyService],
 })
 export class ConfigurationModule {
 }
