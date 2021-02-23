@@ -30,6 +30,7 @@
             <th scope="col">سال ساخت</th>
             <th scope="col">کدپستی</th>
             <th scope="col">نوع کاربری</th>
+            <th scope="col" width="40">نمودار</th>
             <th scope="col" width="40">برچسب انرژی</th>
             <th scope="col" width="40" colspan="2">عملیات</th>
           </tr>
@@ -48,7 +49,10 @@
               </div>
             </td>
             <td>
-              <button class="btn btn-primary text-center" (click)="getEnergyLabel(i)">مشاهده</button>
+              <a class="btn btn-primary text-center" href="#chart" (click)="setOption()">نمودار</a>
+            </td>
+            <td>
+              <a class="btn btn-primary text-center" href="#energyLabel" (click)="getEnergyLabel(i)">مشاهده</a>
             </td>
             <td>
               <span class="cursor-pointer fa fa-edit"
@@ -69,9 +73,10 @@
         (page)="changePage($event)"
       ></app-paginator>
     </div>
-    .
+
+
     <div class="col-12 pt-2">
-      <div class="e-card">
+      <div class="e-card" id="chart">
         <div class="card-header">
           چارت
         </div>
@@ -158,57 +163,63 @@
                   </div>
                 </div>
               </div>
-              <hr>
+              <div class="col-12">
+                <hr>
+              </div>
 
 
-              <div class="nav-tabs-boxed nav-tabs-boxed-right">
-                <ul class="nav nav-tabs flex-column" role="tablist">
-                  <li class="nav-item active">
-                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
-                       (click)="setOption()"
-                                          aria-controls="home" aria-selected="true">
-                    گراف یک
-                  </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
-                       (click)="setOption()"
-                                          aria-controls="profile" aria-selected="false">
-                    گراف دو
-                  </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
-                       (click)="setOption()"
-                                          aria-controls="messages" aria-selected="false">گراف سه</a></li>
-                </ul>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="home" role="tabpanel">
-                    <ng-container
-                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options2" class="demo-chart"></div>
-                    </ng-container>
-                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options" class="demo-chart"></div>
-                    </ng-container>
-                  </div>
-                  <div class="tab-pane" id="profile" role="tabpanel">
-                    <ng-container
-                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>
-                    </ng-container>
-                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>
-                    </ng-container>
-                  </div>
-                  <div class="tab-pane" id="messages" role="tabpanel">
-                    <ng-container
-                      *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph2" class="demo-chart"></div>
-                    </ng-container>
-                    <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                      <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph" class="demo-chart"></div>
-                    </ng-container>
+              <div class="col-12">
+                <div class="nav-tabs-boxed nav-tabs-boxed-right">
+                  <ul class="nav nav-tabs flex-column" role="tablist">
+                    <li class="nav-item active">
+                      <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
+                         aria-controls="home" aria-selected="true">
+                        گراف یک
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
+                         aria-controls="profile" aria-selected="false">
+                        گراف دو
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
+                         aria-controls="messages" aria-selected="false">گراف سه</a></li>
+                  </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="home" role="tabpanel">
+                      <ng-container
+                        *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="options2"></app-chart>
+<!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options2" class="demo-chart"></div>-->
+                      </ng-container>
+                      <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="options"></app-chart>
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane" id="profile" role="tabpanel">
+                      <ng-container
+                        *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph2"></app-chart>
+<!--                        <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>-->
+                      </ng-container>
+                      <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph"></app-chart>
+<!--                        <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>-->
+                      </ng-container>
+                    </div>
+                    <div class="tab-pane" id="messages" role="tabpanel">
+                      <ng-container
+                        *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph2"></app-chart>
+<!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph2" class="demo-chart"></div>-->
+                      </ng-container>
+                      <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
+                        <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph"></app-chart>
+<!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph" class="demo-chart"></div>-->
+                      </ng-container>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -218,59 +229,64 @@
         </div>
 
       </div>
-      <div class="e-card">
-        <div class="box-label-energy w-100" *ngIf="energyLabel.ratio">
-          <div class="head">
-            <div class="right">
-              <img src="assets/image/enregy.jpg" alt="energy">
-            </div>
-            <div class="left">
-              <!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
-              {{energyLabel.labelType}}
-            </div>
-          </div>
-          <div class="result">
-            <div class="right">
-              <div class="tag" [ngClass]="energyLabel.label">
-                {{energyLabel.label}}
+      <div class="e-card" id="energyLabel" *ngIf="energyLabel.ratio">
+        <div class="card-header">
+          برچسب انرژی
+        </div>
+        <div class="card-body">
+          <div class="box-label-energy w-100">
+            <div class="head">
+              <div class="right">
+                <img src="assets/image/enregy.jpg" alt="energy">
+              </div>
+              <div class="left">
+                <!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
+                {{energyLabel.labelType}}
               </div>
             </div>
-            <div class="left">
-              <p>بازدهی بیشتر</p>
-              <ul>
-                <li><span>A</span></li>
-                <li><span>B</span></li>
-                <li><span>C</span></li>
-                <li><span>D</span></li>
-                <li><span>E</span></li>
-                <li><span>F</span></li>
-                <li><span>G</span></li>
-              </ul>
-              <p class="mb-0">بازدهی کمتر</p>
+            <div class="result">
+              <div class="right">
+                <div class="tag" [ngClass]="energyLabel.label">
+                  {{energyLabel.label}}
+                </div>
+              </div>
+              <div class="left">
+                <p>بازدهی بیشتر</p>
+                <ul>
+                  <li><span>A</span></li>
+                  <li><span>B</span></li>
+                  <li><span>C</span></li>
+                  <li><span>D</span></li>
+                  <li><span>E</span></li>
+                  <li><span>F</span></li>
+                  <li><span>G</span></li>
+                </ul>
+                <p class="mb-0">بازدهی کمتر</p>
+              </div>
             </div>
-          </div>
-          <div class="space">
+            <div class="space">
+
+            </div>
+            <div class="energy-info energy-ratio">
+              <div class="text-center">نسبت انرژی:</div>
+              <div class="text-center">
+                میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
+              </div>
+              <div>
+                R= {{energyLabel.ratio}}
+              </div>
+            </div>
+            <div class="energy-info">
+              <div class="text-center">شاخص مصرف انرژی:</div>
+              <div class="text-center">
+                برحسب کیلووات ساعتبر متر مربع در سال
+              </div>
+              <div>
+                {{energyLabel.consumptionIndex}}
+              </div>
+            </div>
 
           </div>
-          <div class="energy-info energy-ratio">
-            <div class="text-center">نسبت انرژی:</div>
-            <div class="text-center">
-              میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
-            </div>
-            <div>
-              R= {{energyLabel.ratio}}
-            </div>
-          </div>
-          <div class="energy-info">
-            <div class="text-center">شاخص مصرف انرژی:</div>
-            <div class="text-center">
-              برحسب کیلووات ساعتبر متر مربع در سال
-            </div>
-            <div>
-              {{energyLabel.consumptionIndex}}
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
