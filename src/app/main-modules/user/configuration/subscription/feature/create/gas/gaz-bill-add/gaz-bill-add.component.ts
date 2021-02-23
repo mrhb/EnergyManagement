@@ -4,18 +4,19 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-// import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-// import {MyPattern} from '../../../../../../../../shared/tools/myPattern';
-// import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 // import {GasBuildingAllocation, GasDto} from '../../../../model/gas';
 // import {GroupGasEnum, UseTypeGasEnum} from '../../../../model/gasEnum';
 // // @ts-ignore
 // import Notiflix from 'notiflix';
 // import {GasService} from '../../../../service/gas.service';
-// import {BuildingService} from '../../../../../building/service/building.service';
-// import {BuildingAllocation} from '../../../../model/power';
+import {BuildingService} from '../../../../../building/service/building.service';
+import {BuildingAllocation} from '../../../../model/power';
 // import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 // import {EnergyBuildingAllocation} from '../../../../model/energy';
+import {GazBillDto} from '../../../../model/gas';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MyPattern } from 'src/app/shared/tools/myPattern';
 // declare var $: any;
 
 @Component({
@@ -24,14 +25,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gaz-bill-add.component.scss']
 })
 export class GazBillAddComponent implements OnInit {
+  pageSize = 20;
+  pageIndex = 0;
+  length = -1;
+  touched = false;
+  edited = false;
+  powerId = '';
+  myPattern = MyPattern;
+  gasId = '';
 
-  constructor() { }
+  form: FormGroup;
+  gazBillDto = new GazBillDto();
 
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    private buildingService: BuildingService
+) { 
+
+}
   ngOnInit(): void {
+    this.form=this.formBuilder.group({
+      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      duration:[], // دوره
+      startDate:[], // تاریخ شروع 
+      endDate:[], // تاریخ اتمام
+      Days:[], // روزها      
+    }
+
+    );
   }
 
 }
-
 
 
 // export class GasCreateComponent implements OnInit {
@@ -50,7 +75,7 @@ export class GazBillAddComponent implements OnInit {
 
 //   filterBuilding = '';
 //   buildingList = [];
-//   buildingAllocation = new GasBuildingAllocation();
+  // buildingAllocation = new GasBuildingAllocation();
 //   buildingEnum = UseTypeBuildingEnum;
 //   editedAllocation = false;
 
