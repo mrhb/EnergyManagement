@@ -52,10 +52,8 @@ export class GazBillAddComponent implements OnInit {
       endDate:[], // تاریخ اتمام
       Days:[], // روزها      
     }
-
     );
   }
-
 }
 
 
