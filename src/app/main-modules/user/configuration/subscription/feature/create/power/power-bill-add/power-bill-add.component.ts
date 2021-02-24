@@ -3,6 +3,8 @@ import {PowerBillDto} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import {PowerAllocation} from '../../../../model/power';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PowerReceiptService } from '../../../../service/power-receipt.service';
 
 @Component({
   selector: 'app-power-bill-add',
@@ -23,7 +25,20 @@ export class PowerBillAddComponent implements OnInit {
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private router: Router,
+    // private buildingService: BuildingService,
+    private  activatedRoute: ActivatedRoute,
+    private  powerService: PowerReceiptService) { 
+      this.activatedRoute.queryParams.subscribe(params => {
+        console.log('params', params);
+        if (params.id) {
+          this.edited = true;
+          this.powerId = params.id;
+          this.getOneBill(params.id);
+        }
+      });
+    }
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
@@ -35,7 +50,7 @@ export class PowerBillAddComponent implements OnInit {
       Days:[], // روزها
       ghodratGharar:[], // قدرت قراردادی
       ghodratMohasebeh:[], // قدرت محاسبه شده
-      maximeter:[], // عدد ماکسیمتر
+      maximeterNumber:[], // عدد ماکسیمتر
       ghodratMasrafy:[], // قدرت مصرفی  
       zianBady:[], //  ضریب زیان بدی مصرف   
       mohlatParakht:[], //  مهلت پرداخت
@@ -45,19 +60,17 @@ export class PowerBillAddComponent implements OnInit {
   }
 
   
-  // getListPower(): void {
-  //   this.buildingService.getListPower({
-  //     page: this.pageIndex,
-  //     size: this.pageSize,
-  //     term: this.filterBuilding,
-  //   }).subscribe((res: any) => {
-  //     if (res) {
-  //       if (res.flag) {
-  //         this.buildingList = res.content;
-  //       }
-  //     }
-  //   });
-  // }
+  getOneBill(pId): void {
+    this.powerService.getOneReceipt({
+      id: pId
+    })
+      .subscribe((res: any) => {
+        if (res) {
+          this.powerBillDto = res.data;
+          // this.setEnumUseType();
+        }
+      });
+  }
   
   // deletePower(item: PowerAllocation, i): void {
   //   Notiflix.Confirm.Show(
