@@ -32,7 +32,7 @@ export class PowerBillDto {
   Days: string; // روزها
   ghodratGharar: string; // قدرت قراردادی
   ghodratMohasebeh: string; // قدرت محاسبه شده
-  maximeter: string; //       عدد ماکسیمتر
+  maximeterNumber: string; //       عدد ماکسیمتر
   ghodratMasrafy: string; //     قدرت مصرفی
   zianBady: string; //      ضریب زیان بدی مصرف 
   mohlatParakht: string; //  مهلت پرداخت
