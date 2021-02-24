@@ -37,7 +37,8 @@ export class PowerBillAddComponent implements OnInit {
       ghodratMohasebeh:[], // قدرت محاسبه شده
       maximeter:[], // عدد ماکسیمتر
       ghodratMasrafy:[], // قدرت مصرفی  
-      zianBady:[], //  ضریب زیان بدی مصرف    
+      zianBady:[], //  ضریب زیان بدی مصرف   
+      mohlatParakht:[], //  مهلت پرداخت
     }
 
     );

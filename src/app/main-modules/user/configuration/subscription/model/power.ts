@@ -35,7 +35,7 @@ export class PowerBillDto {
   maximeter: string; //       عدد ماکسیمتر
   ghodratMasrafy: string; //     قدرت مصرفی
   zianBady: string; //      ضریب زیان بدی مصرف 
-  
+  mohlatParakht: string; //  مهلت پرداخت
 }
 
 export class BuildingAllocation {
