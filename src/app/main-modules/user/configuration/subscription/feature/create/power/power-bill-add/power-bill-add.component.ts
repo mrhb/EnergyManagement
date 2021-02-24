@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PowerBillDto} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
+import {PowerAllocation} from '../../../../model/power';
 
 @Component({
   selector: 'app-power-bill-add',
@@ -20,6 +21,7 @@ export class PowerBillAddComponent implements OnInit {
 
   form: FormGroup;
   powerBillDto = new PowerBillDto();
+  powerAllocation = new PowerAllocation();
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -33,11 +35,48 @@ export class PowerBillAddComponent implements OnInit {
       Days:[], // روزها
       ghodratGharar:[], // قدرت قراردادی
       ghodratMohasebeh:[], // قدرت محاسبه شده
+      maximeter:[], // عدد ماکسیمتر
+      ghodratMasrafy:[], // قدرت مصرفی  
+      zianBady:[], //  ضریب زیان بدی مصرف    
     }
 
     );
   }
 
-}
-
-
+  
+  // getListPower(): void {
+  //   this.buildingService.getListPower({
+  //     page: this.pageIndex,
+  //     size: this.pageSize,
+  //     term: this.filterBuilding,
+  //   }).subscribe((res: any) => {
+  //     if (res) {
+  //       if (res.flag) {
+  //         this.buildingList = res.content;
+  //       }
+  //     }
+  //   });
+  // }
+  
+  // deletePower(item: PowerAllocation, i): void {
+  //   Notiflix.Confirm.Show(
+  //     'حذف فضا',
+  //     'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+  //     'بله',
+  //     'خیر',
+  //     () => {
+  //       this.powerService.deletePowerAllocation({id: this.powerId, allocationId: item.id})
+  //       .subscribe((res: any) => {
+  //         if (res) {
+  //           Notiflix.Notify.Success('حذف اشتراک با موفقیت انجام گردید');
+  //           this.powerBillDto.buildingList.splice(i, 1);
+  //         }
+  //       });
+  //     });
+  //   }
+  // selectPowerAllocation(item): void {
+  //   this.powerAllocation.name = item.name;
+  //   this.powerAllocation.powerId = item.id;
+  // }
+  
+  }
