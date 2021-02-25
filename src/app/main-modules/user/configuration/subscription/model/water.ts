@@ -52,10 +52,12 @@ export class WaterBillList {
 export class WaterBillDto {
   billId: string;
   pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
   startDate: string; // تاریخ شروع 
   endDate: string; // تاریخ اتمام
   Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  raghamGhabl: string; // رقم قبلی
+  raghamFeely: string; // رقم فعلی
+  masrafDoure: string; // مصرف دوره
+  bahaAab: string; //  بهای آب مصرفی
+  mablaghPardakh: string; //  مبلغ قابل پرداخت
 }

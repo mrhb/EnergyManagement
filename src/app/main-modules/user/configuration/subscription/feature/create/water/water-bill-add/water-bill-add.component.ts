@@ -38,10 +38,14 @@ export class WaterBillAddComponent implements OnInit {
     this.form=this.formBuilder.group({
       billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      duration:[], // دوره
       startDate:[], // تاریخ شروع 
       endDate:[], // تاریخ اتمام
       Days:[], // روزها      
+      raghamGhabl:[], // رقم قبلی
+      raghamFeely:[], // رقم فعلی
+      masrafDoure:[], // مصرف دوره
+      bahaAab:[], //  بهای آب مصرفی
+      mablaghPardakh:[], //     مبلغ قابل پرداخت
     }
     );
   }
