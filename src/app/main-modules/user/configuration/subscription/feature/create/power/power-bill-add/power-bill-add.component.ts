@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {PowerBillDto} from '../../../../model/power';
+import {PowerBillDto, PowerList} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import {PowerAllocation} from '../../../../model/power';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
+import { PowerService } from '../../../../service/power.service';
 
 @Component({
   selector: 'app-power-bill-add',
@@ -19,6 +20,11 @@ export class PowerBillAddComponent implements OnInit {
   touched = false;
   edited = false;
   powerId = '';
+
+  powerList: PowerList[] = [];
+  power = new PowerList();
+
+
   myPattern = MyPattern;
 
   form: FormGroup;
@@ -29,7 +35,9 @@ export class PowerBillAddComponent implements OnInit {
     private router: Router,
     // private buildingService: BuildingService,
     private  activatedRoute: ActivatedRoute,
-    private  powerService: PowerReceiptService) { 
+    private  powerReceiptService: PowerReceiptService,
+    private  powerService: PowerService,
+    ) { 
       this.activatedRoute.queryParams.subscribe(params => {
         console.log('params', params);
         if (params.id) {
@@ -61,7 +69,7 @@ export class PowerBillAddComponent implements OnInit {
 
   
   getOneBill(pId): void {
-    this.powerService.getOneReceipt({
+    this.powerReceiptService.getOneReceipt({
       id: pId
     })
       .subscribe((res: any) => {
@@ -72,25 +80,23 @@ export class PowerBillAddComponent implements OnInit {
       });
   }
   
-  // deletePower(item: PowerAllocation, i): void {
-  //   Notiflix.Confirm.Show(
-  //     'حذف فضا',
-  //     'آیا اطمینان دارید که این اشتراک حذف گردد؟',
-  //     'بله',
-  //     'خیر',
-  //     () => {
-  //       this.powerService.deletePowerAllocation({id: this.powerId, allocationId: item.id})
-  //       .subscribe((res: any) => {
-  //         if (res) {
-  //           Notiflix.Notify.Success('حذف اشتراک با موفقیت انجام گردید');
-  //           this.powerBillDto.buildingList.splice(i, 1);
-  //         }
-  //       });
-  //     });
-  //   }
-  // selectPowerAllocation(item): void {
-  //   this.powerAllocation.name = item.name;
-  //   this.powerAllocation.powerId = item.id;
-  // }
-  
+  getListPower(): void {
+    this.powerService.getPowerList(
+      {
+        page: this.pageIndex,
+        size: this.pageSize,
+      }, ''
+    ).subscribe((res: any) => {
+      if (res) {
+        if (res.flag) {
+          this.powerList = res.content;
+        }
+      }
+    });
   }
+
+  selectPower(item): void {
+    this.power.name = item.name;
+    this.power.id = item.id;
+  }
+}
