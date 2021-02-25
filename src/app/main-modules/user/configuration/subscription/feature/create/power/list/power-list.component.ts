@@ -53,7 +53,7 @@ export class PowerListComponent implements OnInit {
   navigate(): void {
     console.log(this.activatedRoute.snapshot.url[0].path);
     // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,

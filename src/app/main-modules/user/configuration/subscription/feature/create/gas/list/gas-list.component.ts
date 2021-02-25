@@ -7,7 +7,7 @@
 import { Component, OnInit } from '@angular/core';
 import {GasList} from '../../../../model/gas';
 import {GasService} from '../../../../service/gas.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeGasEnum} from '../../../../model/gasEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
@@ -24,23 +24,18 @@ export class GasListComponent implements OnInit {
   useTypeEnum = UseTypeGasEnum;
   gasList: GasList[] = [];
   constructor(private gasService: GasService,
-              private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getListPower();
+              public router: Router,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pageIndex) {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+      }
+      this.getListGas();
+    });
   }
 
-  getListPower(): void {
-    this.gasService.getGasList(
-      {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.gasList = res.content;
-      }
-    });
+  ngOnInit(): void {
   }
 
   getListGas(): void {
@@ -52,14 +47,13 @@ export class GasListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.gasList = res.content;
+        this.length = res.totalElements;
       }
     });
   }
 
   navigate(): void {
-    console.log(this.activatedRoute.snapshot.url[0].path);
-    // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
