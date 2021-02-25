@@ -43,6 +43,7 @@ export class GasList {
 export class GasBillList {
   id: string;
   BillId: string;
+  Duration: string;
   StartDate: string;
   EndDate: string;
   Days: string;
@@ -54,10 +55,20 @@ export class GasBillList {
 export class GazBillDto {
   billId: string;
   pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
   startDate: string; // تاریخ شروع 
   endDate: string; // تاریخ اتمام
   Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  raghamPishin: string; // رقم پیشین شماشگر
+  raghamFeely: string; //  رقم فعلی شماشگر
+  masrafEstandard: string; // کارکرد شمارشگر
+  karkerdShomareshgar: string; // مصرف استاندارد 
+  bahaGazMAsrafy: string; // بهای گاز مصرفی  
+  abonman: string; //  آبونمان   
+  avarez: string; //  عوارض   
+  bimeh: string; //  بیمه   
+  bedehyMotaf: string; //  بدهی متفرقه   
+  mandeBedehy: string; //   مانده بدهی   
+  mandeHesabGhab: string; //   مانده صورتحساب قبلی    
+  teedadBedehy: string; //   تعداد بدهی      
+  mablagh: string; //    مبلغ قابل پرداخت      
 }
