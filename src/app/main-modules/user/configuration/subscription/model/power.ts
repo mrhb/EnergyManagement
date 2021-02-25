@@ -39,6 +39,11 @@ export class PowerBillDto {
   badConsumptionLossRatio: string; //      ضریب زیان بدی مصرف 
   paymentDeadLine: string; //  مهلت پرداخت
   consumptionAmount: string; //   مبلغ مصرف
+  subscription: string; //   آبونمان 
+  powerPrice: string; //   بهای قدرت 
+  seasonPrice: string; //   بهای فصل 
+  payableAmount: string; //   بهای فصل 
+
 }
 
 export class BuildingAllocation {

@@ -59,13 +59,18 @@ export class PowerBillAddComponent implements OnInit {
       badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
       paymentDeadLine:[], //  مهلت پرداخت
       consumptionAmount:[], //   مبلغ مصرف
+      subscription:[], //   آبونمان 
+      powerPrice:[], //   بهای قدرت 
+      seasonPrice:[], //   بهای فصل 
+      payableAmount:[], //   بهای فصل 
     }
     
+    //     : {type: Number, required: true}, // مبلغ قابل پرداخت
     );
-    //     consumptionAmount: {type: Number, required: true}, // 
   }
   //////////////////
   // explanationExpenses:[], // شرح مصارف
+  //     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
 //     previousCounter: {type: String, required: true}, // شمارنده قبلی
 //     currentCounter: {type: String, required: true}, // شمارنده کنونی
 //     coefficient: {type: String, required: true}, // ضریب
@@ -78,18 +83,13 @@ export class PowerBillAddComponent implements OnInit {
 //     lowLoad: {type: String, required: true}, // کم بار
 //     peakTimesFriday: {type: String, required: true}, // اوج بار جمعه
 //     reactive: {type: String, required: true}, // راکتیو
-//     subscription: {type: String, required: true}, // آبونمان
-//     powerPrice: {type: Number, required: true}, // بهای قدرت
-//     seasonPrice: {type: Number, required: true}, // بهای فصل
-//     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
 //     vat: {type: Number, required: true}, // مالیات بر ارزش افزوده
 //     electricalTolls: {type: Number, required: true}, // عوارض برق
 //     debt: {type: Number, required: true}, // بدهکاری کسر هزار ریال
-//     payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
     ///////////////////////
 
-  
-  getOneBill(pId): void {
+    
+    getOneBill(pId): void {
     this.powerReceiptService.getOneReceipt({
       id: pId
     })

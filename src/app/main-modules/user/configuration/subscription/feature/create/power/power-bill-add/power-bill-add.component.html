@@ -246,8 +246,7 @@
               </div>
               <app-alert-error [data]="form.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
             </div>
-            
-            
+
           </fieldset>
           </div>
 
@@ -262,27 +261,31 @@
                     <th scope="col">آبونمان</th>
                     <th scope="col"> بهای قدرت </th>
                     <th scope="col"> بهای فصل </th>
-                    <th scope="col"> جریمه بدی مصرف	بهای برق دوره </th>
-                    <th scope="col"> مالیات بر ارزش افزوده </th>
-                    <th scope="col"> عوارض برق </th>
-                    <th scope="col"> بدهکاری	کسر هزار ریال </th>
+                    <!-- <th scope="col"> جریمه بدی مصرف	بهای برق دوره </th> -->
+                    <!-- <th scope="col"> مالیات بر ارزش افزوده </th> -->
+                    <!-- <th scope="col"> عوارض برق </th> -->
+                    <!-- <th scope="col"> بدهکاری	کسر هزار ریال </th> -->
                     <th scope="col"> مبلغ قابل پرداخت </th>
                    </tr>
                 </thead>
                 <tbody>
                   <tr class="table-info"> 
-                    <th scope="row" > </th>                     <th scope="row" > </th>                   <th scope="row" > </th>   
-                    <th scope="row" > </th>                     <th scope="row" > </th>                   <th scope="row" > </th>   
-                    <th scope="row" > </th>                     <th scope="row" > </th>                   <th scope="row" > </th>   
+                    <th scope="row" > {{powerBillDto.consumptionAmount}} </th>
+                    <th scope="row" > {{powerBillDto.subscription}} </th>                   
+                    <th scope="row" > {{powerBillDto.powerPrice}} </th>                   
+                    <th scope="row" > {{powerBillDto.seasonPrice}} </th>                   
+                    <th scope="row" > {{powerBillDto.payableAmount}} </th>                   
                   </tr>                                            
                   </tbody>
                 </table>
             </div>
           </fieldset>
          </div>
+
         </fieldset>
         </form>
       </div>
+
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
          <fieldset class="fieldset-border">
           <legend>انتخاب اشتراک</legend>
