@@ -47,12 +47,12 @@ export class EnergyBillList {
 
 
 export class EnergyBillDto {
-  billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
+  noeEnergyMasrafy: string; //نوع انرژی مصرفی
+  hazinhEnergy: string; // هزینه انرژی
+  mizanMasraf: string; // میزان مصرف
   startDate: string; // تاریخ شروع 
   endDate: string; // تاریخ اتمام
   Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  sayerHazineh: string; // سایر هزینه ها
+  maflaghPardakhty: string; //  مبلغ قابل پرداخت  
 }

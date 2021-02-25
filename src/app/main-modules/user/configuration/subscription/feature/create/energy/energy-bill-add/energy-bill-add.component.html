@@ -40,43 +40,47 @@
               </div>
               <hr>
             </div>
-
-              <div class="form row">
-                 <hr>
+               
+            <div class="form row">
+              <hr>
+              <!-- نوع انرژی مصرفی -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="billId" class="form-label">شناسه قبض</label>
-                    <input class="form-control text-right" id="billId" placeholder=""
-                          [(ngModel)]="energyBillDto.billId"
-                          formControlName="billId"
-                          name="billId">
+                    <label for="noeEnergyMasrafy" class="form-label">نوع انرژی مصرفی </label>
+                    <input class="form-control text-right" id="noeEnergyMasrafy" placeholder=""
+                          [(ngModel)]="energyBillDto.noeEnergyMasrafy"
+                          formControlName="noeEnergyMasrafy"
+                          name="noeEnergyMasrafy">
                   </div>
-                  <app-alert-error [data]="form.controls['billId']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['noeEnergyMasrafy']" [touched]="touched"></app-alert-error>
                 </div>
 
-                <div class="mb-4 col-md-3">
-                      <div class="w-100">
-                        <label for="pardakhtId" class="form-label">شناسه پرداخت</label>
-                        <input class="form-control text-right" id="pardakhtId" placeholder=""
-                              [(ngModel)]="energyBillDto.pardakhtId"
-                              formControlName="pardakhtId"
-                              name="pardakhtId">
-                      </div>
-                      <app-alert-error [data]="form.controls['pardakhtId']" [touched]="touched"></app-alert-error>
+                <!-- هزینه انرژی -->
+                <div class="mb-4 col-md-3"> 
+                  <div class="w-100">
+                    <label for="hazinhEnergy" class="form-label">هزینه انرژی</label>
+                    <input class="form-control text-right" id="hazinhEnergy" placeholder=""
+                    [(ngModel)]="energyBillDto.hazinhEnergy"
+                    formControlName="hazinhEnergy"
+                    name="hazinhEnergy">
+                  </div>
+                  <app-alert-error [data]="form.controls['hazinhEnergy']" [touched]="touched"></app-alert-error>
                 </div>
                 
+                <!-- میزان مصرف  -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="duration" class="form-label">دوره</label>
-                  <input class="form-control text-right" id="duration" placeholder=""
-                         [(ngModel)]="energyBillDto.duration"
-                         formControlName="duration"
-                         name="duration">
+                  <label for="mizanMasraf" class="form-label">میزان مصرف</label>
+                  <input class="form-control text-right" id="mizanMasraf" placeholder=""
+                         [(ngModel)]="energyBillDto.mizanMasraf"
+                         formControlName="mizanMasraf"
+                         name="mizanMasraf">
                 </div>
-                <app-alert-error [data]="form.controls['duration']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['mizanMasraf']" [touched]="touched"></app-alert-error>
               </div> 
 
-              <div class="mb-4 col-md-3">
+                <!-- تاریخ شروع   -->
+                <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="startDate" class="form-label">تاریخ شروع </label>
                   <input class="form-control text-right" id="startDate" placeholder=""
@@ -87,7 +91,8 @@
                 <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
               </div>
 
-             <div class="mb-4 col-md-3">
+                <!-- تاریخ اتمام   -->
+                <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="endDate" class="form-label">تاریخ اتمام </label>
                   <input class="form-control text-right" id="endDate" placeholder=""
@@ -98,17 +103,41 @@
                 <app-alert-error [data]="form.controls['endDate']" [touched]="touched"></app-alert-error>
               </div>
 
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="Days" class="form-label"> تعداد روز دوره </label>
-                  <input class="form-control text-right" id="Days" placeholder=""
-                         [(ngModel)]="energyBillDto.Days"
-                         formControlName="Days"
-                         name="Days">
-                </div>
-                <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
-              </div>  
+                <!-- تعداد روز دوره    -->
+                <div class="mb-4 col-md-3">
+                  <div class="w-100">
+                    <label for="Days" class="form-label"> تعداد روز دوره </label>
+                    <input class="form-control text-right" id="Days" placeholder=""
+                           [(ngModel)]="energyBillDto.Days"
+                           formControlName="Days"
+                           name="Days">
+                  </div>
+                  <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
+                </div>  
+  
+                <!-- سایر هزینه ها      -->
+                <div class="mb-4 col-md-3">
+                  <div class="w-100">
+                    <label for="sayerHazineh" class="form-label"> سایر هزینه ها</label>
+                    <input class="form-control text-right" id="sayerHazineh" placeholder=""
+                           [(ngModel)]="energyBillDto.sayerHazineh"
+                           formControlName="sayerHazineh"
+                           name="sayerHazineh">
+                  </div>
+                  <app-alert-error [data]="form.controls['sayerHazineh']" [touched]="touched"></app-alert-error>
+                </div>  
 
+                <!--   مبلغ قابل پرداخت      -->
+                <div class="mb-4 col-md-3">
+                  <div class="w-100">
+                    <label for="maflaghPardakhty" class="form-label"> مبلغ قابل پرداخت </label>
+                    <input class="form-control text-right" id="maflaghPardakhty" placeholder=""
+                            [(ngModel)]="energyBillDto.maflaghPardakhty"
+                            formControlName="maflaghPardakhty"
+                            name="maflaghPardakhty">
+                  </div>
+                  <app-alert-error [data]="form.controls['maflaghPardakhty']" [touched]="touched"></app-alert-error>
+                </div>  
             </div>
 
  
