@@ -109,6 +109,7 @@ export class PowerBillAddComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           this.powerBillDto = res.data;
+          this.power= res.data.powerSharing;
           // this.setEnumUseType();
         }
       });

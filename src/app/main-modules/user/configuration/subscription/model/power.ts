@@ -25,6 +25,7 @@ export class PowerDto {
 
 export class PowerBillDto {
   billId: string;
+  powerSharingId:string;// شناسه اشتراک
   pardakhtId: string; // شناسه پرداخت
   duration: string; // دوره
   startDate: string; // تاریخ شروع 
