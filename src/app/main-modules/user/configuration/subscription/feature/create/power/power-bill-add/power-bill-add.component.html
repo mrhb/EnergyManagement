@@ -22,14 +22,16 @@
     </ul>
     <hr>
    
-
-
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <form [formGroup]="form" class="w-100" >
-          <div class="form row">
 
-              <!-- تاریخ شروع -->
+        <form [formGroup]="form" class="w-100" >
+          <fieldset class="fieldset-border"> 
+          <div class="form">
+            <fieldset class="border"> 
+              <legend>اطلاعات قبض </legend>
+
+              <!-- شناسه قبض -->
               <div class="mb-4 col-md-3">
               <div class="w-100">
                 <label for="billId" class="form-label">شناسه قبض</label>
@@ -41,7 +43,7 @@
               <app-alert-error [data]="form.controls['billId']" [touched]="touched"></app-alert-error>
             </div>
 
-              <!-- تاریخ شروع -->
+              <!-- شناسه پرداخت  -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="pardakhtId" class="form-label">شناسه پرداخت</label>
@@ -53,7 +55,7 @@
                 <app-alert-error [data]="form.controls['pardakhtId']" [touched]="touched"></app-alert-error>
               </div>
 
-              <!-- تاریخ شروع -->
+              <!-- دوره  -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="duration" class="form-label">دوره</label>
@@ -101,25 +103,20 @@
                 <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
               </div>
 
-
-              
-            
-
-  
-           
-  
             <!-- <div class="col-12">
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!powerId">ثبت</button>
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="powerId">ویرایش</button>
-            </div>
-   -->
+            </div> --> 
+             </fieldset>
           </div>
 
-          <div class="form row"> 
-            <p> برای تکمیل اطلاعات قبض روی دکمه زیر کلیک نمایید</p>
+          <div class="form"> 
+            <fieldset class="fieldset-border">
+              <legend>شرح مصارف  </legend>
+            <p> برای تکمیل شرح مصارف روی دکمه زیر کلیک نمایید</p>
             <div class="container">
               <!-- <h2>اطلاعات تکمیلی </h2> -->
-              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">شرح مصارف </button>
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"> انتخاب </button>
               <div id="demo" class="collapse">
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover">
@@ -171,22 +168,23 @@
                  </div>
               </div>
             </div>
+          </fieldset>
           </div>
 
-          <div class=" form row">
-            <p> اطلاعات محاسباتی </p>
-            <hr>
-            <hr>
+          <div class=" form">
+            <fieldset class="fieldset-border">
+              <legend>اطلاعات محاسباتی   </legend>
 
+            <!-- قدرت قراردادی  -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="ghodratGharar" class="form-label"> قدرت قراردادی </label>
-                <input class="form-control text-right" id="ghodratGharar" placeholder=""
-                       [(ngModel)]="powerBillDto.ghodratGharar"
-                       formControlName="ghodratGharar"
-                       name="ghodratGharar">
+                <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
+                <input class="form-control text-right" id="contractualPower" placeholder=""
+                       [(ngModel)]="powerBillDto.contractualPower"
+                       formControlName="contractualPower"
+                       name="contractualPower">
               </div>
-              <app-alert-error [data]="form.controls['ghodratGharar']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['contractualPower']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- قدرت محاسبه شده -->
@@ -201,6 +199,7 @@
               <app-alert-error [data]="form.controls['calculatedPower']" [touched]="touched"></app-alert-error>
             </div>
 
+            <!-- عدد ماکسیمتر -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
                 <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
@@ -212,45 +211,50 @@
               <app-alert-error [data]="form.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
             </div>
 
+            <!-- قدرت مصرفی -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="ghodratMasrafy" class="form-label"> قدرت مصرفی  </label>
-                <input class="form-control text-right" id="ghodratMasrafy" placeholder=""
-                       [(ngModel)]="powerBillDto.ghodratMasrafy"
-                       formControlName="ghodratMasrafy"
-                       name="ghodratMasrafy">
+                <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
+                <input class="form-control text-right" id="powerConsumption" placeholder=""
+                       [(ngModel)]="powerBillDto.powerConsumption"
+                       formControlName="powerConsumption"
+                       name="powerConsumption">
               </div>
-              <app-alert-error [data]="form.controls['ghodratMasrafy']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['powerConsumption']" [touched]="touched"></app-alert-error>
             </div>
 
+            <!-- ضریب زیان بدی مصرف -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="zianBady" class="form-label"> ضریب زیان بدی مصرف  </label>
-                <input class="form-control text-right" id="zianBady" placeholder=""
-                       [(ngModel)]="powerBillDto.zianBady"
-                       formControlName="zianBady"
-                       name="zianBady">
+                <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
+                <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
+                       [(ngModel)]="powerBillDto.badConsumptionLossRatio"
+                       formControlName="badConsumptionLossRatio"
+                       name="badConsumptionLossRatio">
               </div>
-              <app-alert-error [data]="form.controls['zianBady']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
             </div>
 
+            <!-- مهلت پرداخت -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="mohlatParakht" class="form-label"> مهلت پرداخت </label>
-                <input class="form-control text-right" id="mohlatParakht" placeholder=""
-                       [(ngModel)]="powerBillDto.mohlatParakht"
-                       formControlName="mohlatParakht"
-                       name="mohlatParakht">
+                <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
+                <input class="form-control text-right" id="paymentDeadLine" placeholder=""
+                       [(ngModel)]="powerBillDto.paymentDeadLine"
+                       formControlName="paymentDeadLine"
+                       name="paymentDeadLine">
               </div>
-              <app-alert-error [data]="form.controls['mohlatParakht']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
             </div>
             
             
+          </fieldset>
           </div>
 
-          <div class="form row">
-            <p> بهای قبض</p>
-            <div class="table-responsive">
+          <div class="form">
+            <fieldset class="fieldset-border">
+              <legend> بهای قبض   </legend>
+              <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                   <tr>
@@ -274,7 +278,9 @@
                   </tbody>
                 </table>
             </div>
+          </fieldset>
          </div>
+        </fieldset>
         </form>
       </div>
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
