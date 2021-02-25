@@ -66,6 +66,40 @@ export class PowerBillAddComponent implements OnInit {
 
     );
   }
+//////////////////
+
+// fromDate: {type: Date, required: true}, // از تاریخ
+//     toDate: {type: Date, required: true}, // تا تاریخ
+//     numberDays: {type: Number, required: true}, // تعداد روز دوره
+//     explanationExpenses: {type: String, required: true}, // شرح مصارف
+//     previousCounter: {type: String, required: true}, // شمارنده قبلی
+//     currentCounter: {type: String, required: true}, // شمارنده کنونی
+//     coefficient: {type: String, required: true}, // ضریب
+//     totalConsumption: {type: String, required: true}, // مصرف کل
+//     totalConsumptionLastChanges: {type: String, required: true}, // مصرف بعد از آخرین تغییرات
+//     rate: {type: String, required: true}, // نرخ
+//     amount: {type: String, required: true}, // مبلغ
+//     intermediate: {type: String, required: true}, // میان باری
+//     peakLoad: {type: String, required: true}, // اوج بار
+//     lowLoad: {type: String, required: true}, // کم بار
+//     peakTimesFriday: {type: String, required: true}, // اوج بار جمعه
+//     reactive: {type: String, required: true}, // راکتیو
+//     contractualPower: {type: String, required: true}, // قدرت قراردادی
+//     calculatedPower: {type: String, required: true}, // قدرت محاسبه شده
+//     maximeterNumber: {type: String, required: true}, // عدد ماکسیمتر
+//     powerConsumption: {type: String, required: true}, // قدرت مصرفی
+//     badConsumptionLossRatio: {type: String, required: true}, // ضریب زیان بدی مصرف
+//     paymentDeadLine: {type: Date, required: true}, // مهلت پرداخت
+//     consumptionAmount: {type: Number, required: true}, // مبلغ مصرف
+//     subscription: {type: String, required: true}, // آبونمان
+//     powerPrice: {type: Number, required: true}, // بهای قدرت
+//     seasonPrice: {type: Number, required: true}, // بهای فصل
+//     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
+//     vat: {type: Number, required: true}, // مالیات بر ارزش افزوده
+//     electricalTolls: {type: Number, required: true}, // عوارض برق
+//     debt: {type: Number, required: true}, // بدهکاری کسر هزار ریال
+//     payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
+    ///////////////////////
 
   
   getOneBill(pId): void {

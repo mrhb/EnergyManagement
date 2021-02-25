@@ -35,12 +35,14 @@ export class EnergyBillAddComponent implements OnInit {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      duration:[], // دوره
+      noeEnergyMasrafy: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      hazinhEnergy: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      mizanMasraf:[], // میزان مصرف
       startDate:[], // تاریخ شروع 
       endDate:[], // تاریخ اتمام
       Days:[], // روزها      
+      sayerHazineh:[], // سایر هزینه ها      
+      maflaghPardakhty:[], //  مبلغ قابل پرداخت     
     }
     );
   }

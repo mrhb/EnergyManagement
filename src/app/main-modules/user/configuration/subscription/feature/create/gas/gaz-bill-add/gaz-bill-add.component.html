@@ -15,19 +15,20 @@
     <hr>
     <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">اطلاعات پایه</a>
+        <a class="nav-link active" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="false">اطلاعات اشتراک</a>
       </li>
       <li class="nav-item" [ngClass]="{'disabled': gasId === ''}">
-        <a class="nav-link" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="false">اطلاعات اشتراک</a>
+        <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">اطلاعات پایه</a>
       </li>
     </ul>
     <hr>
   
     <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <form [formGroup]="form" class="w-100"> <!-- (ngSubmit)="createGas()"> -->
           <div class="form row">
 
+            <!-- شناسه قبض -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
                 <label for="billId" class="form-label">شناسه قبض</label>
@@ -39,6 +40,7 @@
               <app-alert-error [data]="form.controls['billId']" [touched]="touched"></app-alert-error>
             </div>
 
+            <!-- شناسه پرداخت -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="pardakhtId" class="form-label">شناسه پرداخت</label>
@@ -50,18 +52,10 @@
                 <app-alert-error [data]="form.controls['pardakhtId']" [touched]="touched"></app-alert-error>
               </div>
 
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="duration" class="form-label">دوره</label>
-                  <input class="form-control text-right" id="duration" placeholder=""
-                         [(ngModel)]="gazBillDto.duration"
-                         formControlName="duration"
-                         name="duration">
-                </div>
-                <app-alert-error [data]="form.controls['duration']" [touched]="touched"></app-alert-error>
-              </div>
+ 
 
-              <div class="mb-4 col-md-3">
+            <!-- تاریخ شروع -->
+            <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="startDate" class="form-label">تاریخ شروع </label>
                   <input class="form-control text-right" id="startDate" placeholder=""
@@ -72,7 +66,8 @@
                 <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
               </div>
 
-              <div class="mb-4 col-md-3">
+            <!-- تاریخ اتمام -->
+            <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="endDate" class="form-label">تاریخ اتمام </label>
                   <input class="form-control text-right" id="endDate" placeholder=""
@@ -83,7 +78,8 @@
                 <app-alert-error [data]="form.controls['endDate']" [touched]="touched"></app-alert-error>
               </div>
 
-              <div class="mb-4 col-md-3">
+            <!-- تعداد روز دوره -->
+            <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="Days" class="form-label"> تعداد روز دوره </label>
                   <input class="form-control text-right" id="Days" placeholder=""
@@ -94,20 +90,177 @@
                 <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
               </div>
   
-            <!-- <div class="col-12">
+           <!-- رقم پیشین شمارشگر -->
+            <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="raghamPishin" class="form-label">رقم پیشین شمارشگر</label>
+                  <input class="form-control text-right" id="raghamPishin" placeholder=""
+                         [(ngModel)]="gazBillDto.raghamPishin"
+                         formControlName="raghamPishin"
+                         name="raghamPishin">
+                </div>
+                <app-alert-error [data]="form.controls['raghamPishin']" [touched]="touched"></app-alert-error>
+              </div>  
+
+            <!-- رقم فعلی شمارشگر -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="raghamFeely" class="form-label">رقم فعلی شمارشگر</label>
+                <input class="form-control text-right" id="raghamFeely" placeholder=""
+                       [(ngModel)]="gazBillDto.raghamFeely"
+                       formControlName="raghamFeely"
+                       name="raghamFeely">
+              </div>
+              <app-alert-error [data]="form.controls['raghamFeely']" [touched]="touched"></app-alert-error>
+            </div>  
+            
+            <!-- کارکرد شمارشگر -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="karkerdShomareshgar" class="form-label">کارکرد شمارشگر</label>
+                <input class="form-control text-right" id="karkerdShomareshgar" placeholder=""
+                        [(ngModel)]="gazBillDto.karkerdShomareshgar"
+                        formControlName="karkerdShomareshgar"
+                        name="karkerdShomareshgar">
+              </div>
+              <app-alert-error [data]="form.controls['karkerdShomareshgar']" [touched]="touched"></app-alert-error>
+            </div>  
+
+              <!--  مصرف استاندارد -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="masrafEstandard" class="form-label">مصرف استاندارد </label>
+                  <input class="form-control text-right" id="masrafEstandard" placeholder=""
+                          [(ngModel)]="gazBillDto.masrafEstandard"
+                          formControlName="masrafEstandard"
+                          name="masrafEstandard">
+                </div>
+                <app-alert-error [data]="form.controls['masrafEstandard']" [touched]="touched"></app-alert-error>
+              </div>  
+                                   
+              <!--  بهای گاز مصرفی -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="bahaGazMAsrafy" class="form-label">بهای گاز مصرفی  </label>
+                  <input class="form-control text-right" id="bahaGazMAsrafy" placeholder=""
+                          [(ngModel)]="gazBillDto.bahaGazMAsrafy"
+                          formControlName="bahaGazMAsrafy"
+                          name="bahaGazMAsrafy">
+                </div>
+                <app-alert-error [data]="form.controls['bahaGazMAsrafy']" [touched]="touched"></app-alert-error>
+              </div>  
+                                   
+              <!--  آبونمان   -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="abonman" class="form-label">آبونمان </label>
+                  <input class="form-control text-right" id="abonman" placeholder=""
+                          [(ngModel)]="gazBillDto.abonman"
+                          formControlName="abonman"
+                          name="abonman">
+                </div>
+                <app-alert-error [data]="form.controls['abonman']" [touched]="touched"></app-alert-error>
+              </div>  
+                                   
+              <!--  عوارض   -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="avarez" class="form-label">عوارض </label>
+                  <input class="form-control text-right" id="avarez" placeholder=""
+                          [(ngModel)]="gazBillDto.avarez"
+                          formControlName="avarez"
+                          name="avarez">
+                </div>
+                <app-alert-error [data]="form.controls['avarez']" [touched]="touched"></app-alert-error>
+              </div>  
+                                   
+              <!--  بیمه   -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="bimeh" class="form-label">بیمه </label>
+                  <input class="form-control text-right" id="bimeh" placeholder=""
+                          [(ngModel)]="gazBillDto.bimeh"
+                          formControlName="bimeh"
+                          name="bimeh">
+                </div>
+                <app-alert-error [data]="form.controls['bimeh']" [touched]="touched"></app-alert-error>
+              </div>  
+
+              <!--  بدهی متفرقه   -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="bedehyMotaf" class="form-label">بدهی متفرقه </label>
+                  <input class="form-control text-right" id="bedehyMotaf" placeholder=""
+                          [(ngModel)]="gazBillDto.bedehyMotaf"
+                          formControlName="bedehyMotaf"
+                          name="bedehyMotaf">
+                </div>
+                <app-alert-error [data]="form.controls['bedehyMotaf']" [touched]="touched"></app-alert-error>
+              </div>  
+
+              <!--   مانده بدهی -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="mandeBedehy" class="form-label">مانده بدهی </label>
+                  <input class="form-control text-right" id="mandeBedehy" placeholder=""
+                          [(ngModel)]="gazBillDto.mandeBedehy"
+                          formControlName="mandeBedehy"
+                          name="mandeBedehy">
+                </div>
+                <app-alert-error [data]="form.controls['mandeBedehy']" [touched]="touched"></app-alert-error>
+              </div>  
+
+              <!--   مانده صورتحساب قبلی -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="mandeHesabGhab" class="form-label">مانده صورتحساب قبلی </label>
+                  <input class="form-control text-right" id="mandeHesabGhab" placeholder=""
+                          [(ngModel)]="gazBillDto.mandeHesabGhab"
+                          formControlName="mandeHesabGhab"
+                          name="mandeHesabGhab">
+                </div>
+                <app-alert-error [data]="form.controls['mandeHesabGhab']" [touched]="touched"></app-alert-error>
+              </div>  
+
+              <!--    تعداد بدهی  -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="teedadBedehy" class="form-label">  تعداد بدهی </label>
+                  <input class="form-control text-right" id="teedadBedehy" placeholder=""
+                          [(ngModel)]="gazBillDto.teedadBedehy"
+                          formControlName="teedadBedehy"
+                          name="teedadBedehy">
+                </div>
+                <app-alert-error [data]="form.controls['teedadBedehy']" [touched]="touched"></app-alert-error>
+              </div>  
+              
+              <!--     مبلغ قابل پرداخت  -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="mablagh" class="form-label">  مبلغ قابل پرداخت  </label>
+                  <input class="form-control text-right" id="mablagh" placeholder=""
+                          [(ngModel)]="gazBillDto.mablagh"
+                          formControlName="mablagh"
+                          name="mablagh">
+                </div>
+                <app-alert-error [data]="form.controls['mablagh']" [touched]="touched"></app-alert-error>
+              </div>   
+                          
+              <div class="col-12">
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!gasId">ثبت</button>
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="gasId">ویرایش</button>
-            </div> -->
+            </div>
   
           </div>
         </form>
       </div>
-      <div class="tab-pane fade" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
+      <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
         <fieldset class="fieldset-border">
           <legend>افزودن اشتراک</legend>
           <div class="row">
             <div class="col-auto d-flex flex-column">
               <label for="allocationPercentage" class="form-label">انتخاب اشتراک</label>
+              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" >انتخاب</button>
               <!-- <div class="d-flex align-items-center">
                 <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
                 <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
@@ -115,15 +268,15 @@
                 </span>
               </div> -->
             </div>
-            <div class="col-md-3">
-              <!-- <div class="w-100">
+           <!-- <div class="col-md-3">
+               <div class="w-100">
                 <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
                 <input class="form-control text-right" id="allocationPercentage" placeholder=""
                        [(ngModel)]="buildingAllocation.allocationPercentage"
                        name="allocationPercentage"
                 >
-              </div> -->
-            </div>
+              </div>
+            </div> -->
           </div>
           <hr>
           <!-- <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="addBuildingAllocation()">ثبت اشتراک</button>

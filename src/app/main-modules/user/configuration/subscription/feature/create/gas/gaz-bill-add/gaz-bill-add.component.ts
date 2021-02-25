@@ -47,11 +47,24 @@ export class GazBillAddComponent implements OnInit {
     this.form=this.formBuilder.group({
       billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      duration:[], // دوره
       startDate:[], // تاریخ شروع 
       endDate:[], // تاریخ اتمام
       Days:[], // روزها      
+      raghamPishin:[], // رقم پیشین شمارشگر
+      raghamFeely:[], // رقم فعلی شمارشگر
+      karkerdShomareshgar:[],  // کارکرد شمارشگر
+      masrafEstandard:[],  //  مصرف استاندارد
+      bahaGazMAsrafy:[],  //   بهای گاز مصرفی
+      abonman:[],  //    آبونمان
+      avarez:[],  //    عوارض
+      bimeh:[],  //    بیمه
+      bedehyMotaf:[],  //    بدهی متفرقه
+      mandeBedehy:[],  //     مانده بدهی
+      mandeHesabGhab:[],  //     مانده صورتحساب قبلی
+      teedadBedehy:[],  //     تعداد بدهی  
+      mablagh:[],  //      مبلغ قابل پرداخت  
     }
+    
     );
   }
 }
