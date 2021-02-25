@@ -53,25 +53,23 @@ export class PowerBillAddComponent implements OnInit {
       billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       duration:[], // دوره
-      startDate:[], // تاریخ شروع 
-      endDate:[], // تاریخ اتمام
-      Days:[], // روزها
-      ghodratGharar:[], // قدرت قراردادی
-      ghodratMohasebeh:[], // قدرت محاسبه شده
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+      numberDays:[], // تعداد روز دوره
       maximeterNumber:[], // عدد ماکسیمتر
+      
+      ghodratGharar:[], // قدرت قراردادی
+      calculatedPower:[], // قدرت محاسبه شده
       ghodratMasrafy:[], // قدرت مصرفی  
       zianBady:[], //  ضریب زیان بدی مصرف   
       mohlatParakht:[], //  مهلت پرداخت
     }
-
+    
     );
   }
-//////////////////
-
-// fromDate: {type: Date, required: true}, // از تاریخ
-//     toDate: {type: Date, required: true}, // تا تاریخ
-//     numberDays: {type: Number, required: true}, // تعداد روز دوره
-//     explanationExpenses: {type: String, required: true}, // شرح مصارف
+  //     : {type: String, required: true}, // قدرت محاسبه شده
+  //////////////////
+  // explanationExpenses:[], // شرح مصارف
 //     previousCounter: {type: String, required: true}, // شمارنده قبلی
 //     currentCounter: {type: String, required: true}, // شمارنده کنونی
 //     coefficient: {type: String, required: true}, // ضریب
@@ -85,8 +83,6 @@ export class PowerBillAddComponent implements OnInit {
 //     peakTimesFriday: {type: String, required: true}, // اوج بار جمعه
 //     reactive: {type: String, required: true}, // راکتیو
 //     contractualPower: {type: String, required: true}, // قدرت قراردادی
-//     calculatedPower: {type: String, required: true}, // قدرت محاسبه شده
-//     maximeterNumber: {type: String, required: true}, // عدد ماکسیمتر
 //     powerConsumption: {type: String, required: true}, // قدرت مصرفی
 //     badConsumptionLossRatio: {type: String, required: true}, // ضریب زیان بدی مصرف
 //     paymentDeadLine: {type: Date, required: true}, // مهلت پرداخت
