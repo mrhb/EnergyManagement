@@ -87,10 +87,13 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
 
     this.effectiveParameterList = Object.keys(this.effectiveParameterEnum);
 
-    this.chartFilter.fromDate = (new Date(new Date().getFullYear(), 0, 1).toLocaleDateString('fa-IR'));
-    console.log('this.chartFilter.fromDate', (new Date()).getFullYear());
+    const currentYear = this.moment.getJDateFromIsoOnlyYear(new Date().toISOString());
+    const Gregorian = this.moment.convertJaliliToGregorian(currentYear + '/1/1');
+
+    this.chartFilter.fromDate = Moment.convertGregorianToIsoDate(Gregorian);
     this.chartFilter.toDate = new Date().toISOString();
-    // $('#startDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.fromDate));
+    console.log('start ', this.chartFilter.fromDate);
+    $('#startDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.fromDate));
     $('#endDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.toDate));
     this.setOption();
   }
