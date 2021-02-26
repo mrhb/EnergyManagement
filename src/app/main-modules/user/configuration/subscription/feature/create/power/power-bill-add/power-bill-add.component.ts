@@ -21,7 +21,6 @@ export class PowerBillAddComponent implements OnInit {
   edited = false;
   powerId = '';
   powerList: PowerList[] = [];
-  power = new PowerList();
   myPattern = MyPattern;
   form: FormGroup;
   formDiscrip: FormGroup;
@@ -99,7 +98,7 @@ export class PowerBillAddComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           this.powerBillDto = res.data;
-          this.power= res.data.powerSharing;
+          this.powerAllocation= res.data.powerSharing;
           // this.setEnumUseType();
         }
       });
@@ -121,7 +120,6 @@ export class PowerBillAddComponent implements OnInit {
   }
 
   selectPower(item): void {
-    this.power.name = item.name;
-    this.power.id = item.id;
+    this.powerAllocation = item;
   }
 }
