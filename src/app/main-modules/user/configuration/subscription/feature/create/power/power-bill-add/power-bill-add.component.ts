@@ -20,11 +20,8 @@ export class PowerBillAddComponent implements OnInit {
   touched = false;
   edited = false;
   powerId = '';
-
   powerList: PowerList[] = [];
-
   myPattern = MyPattern;
-
   form: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
@@ -51,25 +48,28 @@ export class PowerBillAddComponent implements OnInit {
       billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       duration:[], // دوره
-      startDate:[], // تاریخ شروع 
-      endDate:[], // تاریخ اتمام
-      Days:[], // روزها
-      ghodratGharar:[], // قدرت قراردادی
-      ghodratMohasebeh:[], // قدرت محاسبه شده
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+      numberDays:[], // تعداد روز دوره
       maximeterNumber:[], // عدد ماکسیمتر
-      ghodratMasrafy:[], // قدرت مصرفی  
-      zianBady:[], //  ضریب زیان بدی مصرف   
-      mohlatParakht:[], //  مهلت پرداخت
+      contractualPower:[], // قدرت قراردادی
+      calculatedPower:[], // قدرت محاسبه شده
+      powerConsumption:[], // قدرت مصرفی  
+      badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
+      paymentDeadLine:[], //  مهلت پرداخت
+      consumptionAmount:[], //   مبلغ مصرف
+      subscription:[], //   آبونمان 
+      powerPrice:[], //   بهای قدرت 
+      seasonPrice:[], //   بهای فصل 
+      payableAmount:[], //   بهای فصل 
     }
-
+    
+    //     : {type: Number, required: true}, // مبلغ قابل پرداخت
     );
   }
-//////////////////
-
-// fromDate: {type: Date, required: true}, // از تاریخ
-//     toDate: {type: Date, required: true}, // تا تاریخ
-//     numberDays: {type: Number, required: true}, // تعداد روز دوره
-//     explanationExpenses: {type: String, required: true}, // شرح مصارف
+  //////////////////
+  // explanationExpenses:[], // شرح مصارف
+  //     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
 //     previousCounter: {type: String, required: true}, // شمارنده قبلی
 //     currentCounter: {type: String, required: true}, // شمارنده کنونی
 //     coefficient: {type: String, required: true}, // ضریب
@@ -82,25 +82,13 @@ export class PowerBillAddComponent implements OnInit {
 //     lowLoad: {type: String, required: true}, // کم بار
 //     peakTimesFriday: {type: String, required: true}, // اوج بار جمعه
 //     reactive: {type: String, required: true}, // راکتیو
-//     contractualPower: {type: String, required: true}, // قدرت قراردادی
-//     calculatedPower: {type: String, required: true}, // قدرت محاسبه شده
-//     maximeterNumber: {type: String, required: true}, // عدد ماکسیمتر
-//     powerConsumption: {type: String, required: true}, // قدرت مصرفی
-//     badConsumptionLossRatio: {type: String, required: true}, // ضریب زیان بدی مصرف
-//     paymentDeadLine: {type: Date, required: true}, // مهلت پرداخت
-//     consumptionAmount: {type: Number, required: true}, // مبلغ مصرف
-//     subscription: {type: String, required: true}, // آبونمان
-//     powerPrice: {type: Number, required: true}, // بهای قدرت
-//     seasonPrice: {type: Number, required: true}, // بهای فصل
-//     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
 //     vat: {type: Number, required: true}, // مالیات بر ارزش افزوده
 //     electricalTolls: {type: Number, required: true}, // عوارض برق
 //     debt: {type: Number, required: true}, // بدهکاری کسر هزار ریال
-//     payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
     ///////////////////////
 
-  
-  getOneBill(pId): void {
+    
+    getOneBill(pId): void {
     this.powerReceiptService.getOneReceipt({
       id: pId
     })

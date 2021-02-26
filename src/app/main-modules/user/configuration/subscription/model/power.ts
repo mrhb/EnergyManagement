@@ -28,15 +28,22 @@ export class PowerBillDto {
   powerSharingId:string;// شناسه اشتراک
   pardakhtId: string; // شناسه پرداخت
   duration: string; // دوره
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+  explanationExpenses: string; // روزها
+  contractualPower: string; // قدرت قراردادی
+  calculatedPower: string; // قدرت محاسبه شده
   maximeterNumber: string; //       عدد ماکسیمتر
-  ghodratMasrafy: string; //     قدرت مصرفی
-  zianBady: string; //      ضریب زیان بدی مصرف 
-  mohlatParakht: string; //  مهلت پرداخت
+  powerConsumption: string; //     قدرت مصرفی
+  badConsumptionLossRatio: string; //      ضریب زیان بدی مصرف 
+  paymentDeadLine: string; //  مهلت پرداخت
+  consumptionAmount: string; //   مبلغ مصرف
+  subscription: string; //   آبونمان 
+  powerPrice: string; //   بهای قدرت 
+  seasonPrice: string; //   بهای فصل 
+  payableAmount: string; //   بهای فصل 
+
 }
 
 export class BuildingAllocation {
@@ -61,7 +68,7 @@ export class PowerList {
 }
 
 export class PowerBillList {
-  powerSharingId: String; // شناسه شاشتراک برق
+  powerSharingId: String; // شناسه اشتراک برق
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
   fromDate: Date; // از تاریخ
