@@ -175,77 +175,7 @@
             <fieldset class="fieldset-border">
               <legend>اطلاعات محاسباتی   </legend>
 
-            <!-- قدرت قراردادی  -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
-                <input class="form-control text-right" id="contractualPower" placeholder=""
-                       [(ngModel)]="powerBillDto.contractualPower"
-                       formControlName="contractualPower"
-                       name="contractualPower">
-              </div>
-              <app-alert-error [data]="form.controls['contractualPower']" [touched]="touched"></app-alert-error>
-            </div>
 
-            <!-- قدرت محاسبه شده -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="calculatedPower" class="form-label"> قدرت محاسبه شده </label>
-                <input class="form-control text-right" id="calculatedPower" placeholder=""
-                       [(ngModel)]="powerBillDto.calculatedPower"
-                       formControlName="calculatedPower"
-                       name="calculatedPower">
-              </div>
-              <app-alert-error [data]="form.controls['calculatedPower']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- عدد ماکسیمتر -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
-                <input class="form-control text-right" id="maximeterNumber" placeholder=""
-                       [(ngModel)]="powerBillDto.maximeterNumber"
-                       formControlName="maximeterNumber"
-                       name="maximeterNumber">
-              </div>
-              <app-alert-error [data]="form.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- قدرت مصرفی -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
-                <input class="form-control text-right" id="powerConsumption" placeholder=""
-                       [(ngModel)]="powerBillDto.powerConsumption"
-                       formControlName="powerConsumption"
-                       name="powerConsumption">
-              </div>
-              <app-alert-error [data]="form.controls['powerConsumption']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- ضریب زیان بدی مصرف -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
-                <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
-                       [(ngModel)]="powerBillDto.badConsumptionLossRatio"
-                       formControlName="badConsumptionLossRatio"
-                       name="badConsumptionLossRatio">
-              </div>
-              <app-alert-error [data]="form.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- مهلت پرداخت -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
-                <input class="form-control text-right" id="paymentDeadLine" placeholder=""
-                       [(ngModel)]="powerBillDto.paymentDeadLine"
-                       formControlName="paymentDeadLine"
-                       name="paymentDeadLine">
-              </div>
-              <app-alert-error [data]="form.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
-            </div>
 
           </fieldset>
           </div>
@@ -284,6 +214,80 @@
 
         </fieldset>
         </form>
+        <form [formGroup]="formDiscrip" class="w-100" >
+          <fieldset class="fieldset-border"> 
+            <!-- قدرت قراردادی  -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
+                <input class="form-control text-right" id="contractualPower" placeholder=""
+                        [(ngModel)]="powerBillDto.contractualPower"
+                        formControlName="contractualPower"
+                        name="contractualPower">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['contractualPower']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!-- قدرت محاسبه شده -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="calculatedPower" class="form-label"> قدرت محاسبه شده </label>
+                <input class="form-control text-right" id="calculatedPower" placeholder=""
+                        [(ngModel)]="powerBillDto.calculatedPower"
+                        formControlName="calculatedPower"
+                        name="calculatedPower">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['calculatedPower']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!-- قدرت مصرفی -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
+                <input class="form-control text-right" id="powerConsumption" placeholder=""
+                        [(ngModel)]="powerBillDto.powerConsumption"
+                        formControlName="powerConsumption"
+                        name="powerConsumption">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['powerConsumption']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!-- ضریب زیان بدی مصرف -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
+                <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
+                        [(ngModel)]="powerBillDto.badConsumptionLossRatio"
+                        formControlName="badConsumptionLossRatio"
+                        name="badConsumptionLossRatio">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!-- مهلت پرداخت -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
+                <input class="form-control text-right" id="paymentDeadLine" placeholder=""
+                        [(ngModel)]="powerBillDto.paymentDeadLine"
+                        formControlName="paymentDeadLine"
+                        name="paymentDeadLine">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
+            </div>
+            <!-- عدد ماکسیمتر -->
+            <div class="mb-4 col-md-3">
+              <div class="w-100">
+                <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
+                <input class="form-control text-right" id="maximeterNumber" placeholder=""
+                        [(ngModel)]="powerBillDto.maximeterNumber"
+                        formControlName="maximeterNumber"
+                        name="maximeterNumber">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
+            </div>
+          </fieldset>
+        </form>      
       </div>
 
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
