@@ -23,6 +23,17 @@ export class PowerDto {
   // buildingNum: string;
 }
 
+export class Consumption {
+  preCounter          :  {type: String, required: true};//شمارنده قبلی
+  currentCounter      :  {type: String, required: true};//شمارنده کنونی
+  coefficient         :  {type: String, required: true};//ضریب
+  totalConsumption      :  {type: String, required: true};//مصرف کل
+  consumptionAfterLastChange      :  {type: String, required: true};//مصرف بعد از آخرین تغییرات
+  nerkh               :  {type: String, required: true};//نرخ
+  mablagh             :  {type: String, required: true}//مبلغ
+};
+
+
 export class PowerBillDto {
   billId: string;
   powerSharingId:string;// شناسه اشتراک
@@ -31,6 +42,15 @@ export class PowerBillDto {
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   numberDays: string; // روزها
+
+    //*******Consumptions******* */
+    intermediate: {type: Consumption, required: true}; // میان باری
+    peakLoad: {type: Consumption, required: true}; // اوج بار
+    lowLoad: {type: Consumption, required: true}; // کم بار
+    peakTimesFriday: {type: Consumption, required: true}; // اوج بار جمعه
+    reactive: {type: Consumption, required: true}; // راکتیو
+    //*************** */
+
   explanationExpenses: string; // روزها
   contractualPower: string; // قدرت قراردادی
   calculatedPower: string; // قدرت محاسبه شده
