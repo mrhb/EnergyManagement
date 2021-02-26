@@ -23,6 +23,7 @@ export class PowerBillAddComponent implements OnInit {
   powerList: PowerList[] = [];
   myPattern = MyPattern;
   form: FormGroup;
+  formDiscrip: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
 
@@ -51,21 +52,23 @@ export class PowerBillAddComponent implements OnInit {
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       numberDays:[], // تعداد روز دوره
-      maximeterNumber:[], // عدد ماکسیمتر
-      contractualPower:[], // قدرت قراردادی
-      calculatedPower:[], // قدرت محاسبه شده
-      powerConsumption:[], // قدرت مصرفی  
-      badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
-      paymentDeadLine:[], //  مهلت پرداخت
       consumptionAmount:[], //   مبلغ مصرف
       subscription:[], //   آبونمان 
       powerPrice:[], //   بهای قدرت 
       seasonPrice:[], //   بهای فصل 
-      payableAmount:[], //   بهای فصل 
+      payableAmount:[], //   بهای فصل      
     }
     
     //     : {type: Number, required: true}, // مبلغ قابل پرداخت
     );
+    this.formDiscrip=this.formBuilder.group({
+      paymentDeadLine:[], //  مهلت پرداخت
+      badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
+      maximeterNumber:[], // عدد ماکسیمتر
+      contractualPower:[], // قدرت قراردادی
+      calculatedPower:[], // قدرت محاسبه شده
+      powerConsumption:[], // قدرت مصرفی  
+    });
   }
   //////////////////
   // explanationExpenses:[], // شرح مصارف
