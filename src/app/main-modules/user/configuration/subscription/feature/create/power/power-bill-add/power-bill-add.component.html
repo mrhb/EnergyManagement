@@ -25,8 +25,8 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
+        <fieldset class="fieldset-border"> 
         <form [formGroup]="form" class="w-100" >
-          <fieldset class="fieldset-border"> 
           <div class="form">
             <fieldset class="border"> 
               <legend>اطلاعات قبض </legend>
@@ -171,51 +171,15 @@
           </fieldset>
           </div>
 
-          <div class=" form">
-            <fieldset class="fieldset-border">
-              <legend>اطلاعات محاسباتی   </legend>
 
 
-
-          </fieldset>
-          </div>
-
-          <div class="form">
-            <fieldset class="fieldset-border">
-              <legend> بهای قبض   </legend>
-              <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">مبلغ مصرف</th>
-                    <th scope="col">آبونمان</th>
-                    <th scope="col"> بهای قدرت </th>
-                    <th scope="col"> بهای فصل </th>
-                    <!-- <th scope="col"> جریمه بدی مصرف	بهای برق دوره </th> -->
-                    <!-- <th scope="col"> مالیات بر ارزش افزوده </th> -->
-                    <!-- <th scope="col"> عوارض برق </th> -->
-                    <!-- <th scope="col"> بدهکاری	کسر هزار ریال </th> -->
-                    <th scope="col"> مبلغ قابل پرداخت </th>
-                   </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-info"> 
-                    <th scope="row" > {{powerBillDto.consumptionAmount}} </th>
-                    <th scope="row" > {{powerBillDto.subscription}} </th>                   
-                    <th scope="row" > {{powerBillDto.powerPrice}} </th>                   
-                    <th scope="row" > {{powerBillDto.seasonPrice}} </th>                   
-                    <th scope="row" > {{powerBillDto.payableAmount}} </th>                   
-                  </tr>                                            
-                  </tbody>
-                </table>
-            </div>
-          </fieldset>
-         </div>
-
-        </fieldset>
         </form>
+
         <form [formGroup]="formDiscrip" class="w-100" >
+
           <fieldset class="fieldset-border"> 
+            <legend>اطلاعات محاسباتی   </legend>
+  
             <!-- قدرت قراردادی  -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
@@ -287,7 +251,41 @@
               <app-alert-error [data]="formDiscrip.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
             </div>
           </fieldset>
-        </form>      
+
+          <div class="form">
+            <fieldset class="fieldset-border">
+              <legend> بهای قبض   </legend>
+              <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">مبلغ مصرف</th>
+                    <th scope="col">آبونمان</th>
+                    <th scope="col"> بهای قدرت </th>
+                    <th scope="col"> بهای فصل </th>
+                    <!-- <th scope="col"> جریمه بدی مصرف	بهای برق دوره </th> -->
+                    <!-- <th scope="col"> مالیات بر ارزش افزوده </th> -->
+                    <!-- <th scope="col"> عوارض برق </th> -->
+                    <!-- <th scope="col"> بدهکاری	کسر هزار ریال </th> -->
+                    <th scope="col"> مبلغ قابل پرداخت </th>
+                   </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-info"> 
+                    <th scope="row" > {{powerBillDto.consumptionAmount}} </th>
+                    <th scope="row" > {{powerBillDto.subscription}} </th>                   
+                    <th scope="row" > {{powerBillDto.powerPrice}} </th>                   
+                    <th scope="row" > {{powerBillDto.seasonPrice}} </th>                   
+                    <th scope="row" > {{powerBillDto.payableAmount}} </th>                   
+                  </tr>                                            
+                  </tbody>
+                </table>
+            </div>
+          </fieldset>
+         </div>          
+        </form>  
+
+        </fieldset>
       </div>
 
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
