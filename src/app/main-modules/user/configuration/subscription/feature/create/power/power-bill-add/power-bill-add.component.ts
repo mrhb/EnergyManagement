@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {PowerBillDto, PowerList} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import Notiflix from 'notiflix';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import {PowerAllocation} from '../../../../model/power';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
+declare var $: any;
 
 @Component({
   selector: 'app-power-bill-add',
@@ -91,7 +93,7 @@ export class PowerBillAddComponent implements OnInit {
     ///////////////////////
 
     
-    getOneBill(pId): void {
+  getOneBill(pId): void {
     this.powerReceiptService.getOneReceipt({
       id: pId
     })
@@ -103,7 +105,38 @@ export class PowerBillAddComponent implements OnInit {
         }
       });
   }
-  
+  createReceipt(): void {
+    this.touched = true;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
+      return;
+    }
+
+    if (!this.edited) {
+      this.powerReceiptService.createReceipt(this.powerBillDto)
+        .subscribe((res: any) => {
+          if (res) {
+            Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+            this.powerId = res.data;
+            setTimeout(() => {
+              $('#pills-building-tab').click();
+            }, 200);
+            // this.router.navigate(['/index/user/configuration/powerList']);
+          }
+        });
+    } else {
+
+      this.powerReceiptService.updateReceipt({id: this.powerId}, this.powerBillDto)
+        .subscribe((res: any) => {
+          if (res) {
+            Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
+            // this.router.navigate(['/index/user/configuration/powerList']);
+          }
+        });
+    }
+
+  }
   getListPower(): void {
     this.powerService.getPowerList(
       {

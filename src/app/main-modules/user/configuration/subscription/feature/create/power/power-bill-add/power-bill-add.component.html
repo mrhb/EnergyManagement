@@ -92,7 +92,7 @@
               </div>
 
               <!-- تعداد روز دوره -->
-              <div class="mb-4 col-md-3">
+              <!-- <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="numberDays" class="form-label"> تعداد روز دوره </label>
                   <input class="form-control text-right" id="numberDays" placeholder=""
@@ -101,7 +101,7 @@
                          name="numberDays">
                 </div>
                 <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
-              </div>
+              </div> -->
 
             <!-- <div class="col-12">
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!powerId">ثبت</button>
@@ -134,8 +134,19 @@
                     </thead>
                     <tbody>
                       <tr class="table-info"> 
-                        <th scope="row" >میان باری</th>                 <th scope="row" > </th>   
-                        <th scope="row" > {{powerBillDto.intermediate.preCounter}}</th>                          <th scope="row" > </th>
+                        <th scope="row" >میان باری</th>            
+                        <th scope="row" >
+                                      <!-- تعداد روز دوره -->
+                            <input  id="numberDays" placeholder=""
+                                  [(ngModel)]="powerBillDto.numberDays"
+                                  formControlName="numberDays"
+                                  name="numberDays">
+                    
+
+                         <!-- {{powerBillDto.intermediate.preCounter}} -->
+                        </th> 
+                        <th scope="row" > </th>   
+                        <th scope="row" > </th>
                         <th scope="row" > </th>                          <th scope="row" > </th>
                         <th scope="row" > </th>                          <th scope="row" > </th>
                       </tr>
@@ -306,8 +317,8 @@
           </div>
 
           <hr>
-          <!-- <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="addBuildingAllocation()">ثبت اشتراک</button>
-          <button class="btn btn-primary" *ngIf="editedAllocation" (click)="addBuildingAllocation()">ثبت اشتراک</button> -->
+          <!-- <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="createReceipt()">ثبت اشتراک</button>
+          <button class="btn btn-primary" *ngIf="editedAllocation" (click)="createReceipt()">ثبت اشتراک</button> -->
         </fieldset>
   
          <!-- <div class="table-responsive" *ngIf="powerDto.buildingList?.length > 0"> 
@@ -409,3 +420,4 @@
     </div>
   </div>
   
+  <button class="btn btn-primary"  (click)="createReceipt()">ثبت اشتراک</button>

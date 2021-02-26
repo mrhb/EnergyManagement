@@ -44,11 +44,11 @@ export class PowerBillDto {
   numberDays: string; // روزها
 
     //*******Consumptions******* */
-    intermediate: {type: Consumption, required: true}; // میان باری
-    peakLoad: {type: Consumption, required: true}; // اوج بار
-    lowLoad: {type: Consumption, required: true}; // کم بار
-    peakTimesFriday: {type: Consumption, required: true}; // اوج بار جمعه
-    reactive: {type: Consumption, required: true}; // راکتیو
+    intermediate: {type: Consumption}; // میان باری
+    peakLoad: {type: Consumption}; // اوج بار
+    lowLoad: {type: Consumption}; // کم بار
+    peakTimesFriday: {type: Consumption}; // اوج بار جمعه
+    reactive: {type: Consumption}; // راکتیو
     //*************** */
 
   explanationExpenses: string; // روزها
