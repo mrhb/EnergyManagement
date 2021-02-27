@@ -23,17 +23,24 @@ export class PowerBillListComponent implements OnInit {
   powerBillList: PowerBillList[] = [];
   buildingList = [];
   constructor(public router: Router,
-    private PowerReceiptService: PowerReceiptService,
-    private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getPowerBillList();
+              private powerReceiptService: PowerReceiptService,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pageIndex) {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+      }
+      this.getPowerBillList();
+    });
   }
 
-  
+  ngOnInit(): void {
+  }
+
+
   getPowerBillList(): void {
 
-    this.PowerReceiptService.getReceiptList(
+    this.powerReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
@@ -41,15 +48,16 @@ export class PowerBillListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.powerBillList = res.content;
+        this.length = res.totalElements;
       }
     });
-  
+
   }
 
   navigate(): void {
     console.log(this.activatedRoute.snapshot.url[0].path);
     // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
@@ -73,7 +81,7 @@ export class PowerBillListComponent implements OnInit {
       'بله',
       'خیر',
       () => {
-        this.PowerReceiptService.deleteReceipt({id: pId})
+        this.powerReceiptService.deleteReceipt({id: pId})
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('حذف قبض با موفقیت انجام گردید');

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClimateList } from '../../model/climate';
-import { UseTypePowerEnum,OstanEnum } from '../../model/climateEnum';
+import { UseTypePowerEnum, OstanEnum } from '../../model/climateEnum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-climate-list',
@@ -17,29 +18,29 @@ export class ClimateListComponent implements OnInit {
   climateList: ClimateList[] = [];
   buildingList = [];
 
-  constructor() {
+  constructor(public router: Router,) {
 }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.getClimateList();
   }
-  
+
   getClimateList(): void {
     console.log('this.pageIndex', this.pageIndex);
     console.log('this.pageSize', this.pageSize);
     this.climateList = [
       {
-        id:"1",
-        ostan:OstanEnum.o_1,
-        shahr:"طرقبه",
-        longitude: "27.2",
-        latitude:  "24.3",
-        climateKind:  "گرم ",
-        highDegMean:  " 24",
-        lowDegMean:  "10 -",
-        highHumidMean: "80",
-        lowHumidMean:  "20",
-        windMean:  "60"
+        id: '1',
+        ostan: OstanEnum.o_1,
+        shahr: 'طرقبه',
+        longitude: '27.2',
+        latitude:  '24.3',
+        climateKind:  'گرم ',
+        highDegMean:  ' 24',
+        lowDegMean:  '10 -',
+        highHumidMean: '80',
+        lowHumidMean:  '20',
+        windMean:  '60'
       }
     ];
     // this.ClimateService.getClimateList(
@@ -56,7 +57,7 @@ export class ClimateListComponent implements OnInit {
   navigate(): void {
     // console.log(this.activatedRoute.snapshot.url[0].path);
     // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,

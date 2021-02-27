@@ -58,11 +58,18 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     console.log('chartFilter', this.chartFilter.period);
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pageIndex) {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+      }
+      this.getBuildingList();
+    });
 
   }
 
   ngOnInit(): void {
-    this.getBuildingList();
+    // this.getBuildingList();
     $('.e-not-close a').on('click', (event) => {
       $(this).parent().toggleClass('open');
     });
@@ -79,13 +86,15 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
     });
 
     this.effectiveParameterList = Object.keys(this.effectiveParameterEnum);
-    console.log('this.effectiveParameterList', this.effectiveParameterList);
-    // $('.dropdown-toggle').on('click', function (e) {
-    //   $(this).next().toggle();
-    // });
-    // $('.dropdown-menu.keep-open').on('click', function (e) {
-    //   e.stopPropagation();
-    // });
+
+    const currentYear = this.moment.getJDateFromIsoOnlyYear(new Date().toISOString());
+    const Gregorian = this.moment.convertJaliliToGregorian(currentYear + '/1/1');
+
+    this.chartFilter.fromDate = Moment.convertGregorianToIsoDate(Gregorian);
+    this.chartFilter.toDate = new Date().toISOString();
+    console.log('start ', this.chartFilter.fromDate);
+    $('#startDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.fromDate));
+    $('#endDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.toDate));
     this.setOption();
   }
 
@@ -119,6 +128,7 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         disableBeforeToday: false,
       }).on('change', (e) => {
         this.chartFilter.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.chartFilter.toDate', this.chartFilter.toDate);
         if (this.chartFilter.fromDate > this.chartFilter.toDate) {
           setTimeout(() => {
             Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
@@ -205,6 +215,7 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
     }, {regionId: this.region.regionId}).subscribe((res: any) => {
       if (res) {
         this.buildingList = res.content;
+        this.length = res.totalElements;
       }
     });
   }
@@ -227,18 +238,17 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
   }
 
   navigate(): void {
-    console.log(this.activatedRoute.snapshot.url[0].path);
-    // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
       },
     });
-    this.getBuildingList();
+
   }
 
   changePage(event: any): void {
+    console.log('event.length', event.length);
     this.length = event.length;
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
@@ -295,7 +305,13 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         data: ['گاز', 'eAct'],
         align: 'left',
       },
-      tooltip: {},
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+      },
       xAxis: {
         data: xAxisData,
         silent: false,
@@ -331,6 +347,11 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         align: 'left',
       },
       tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
@@ -378,7 +399,13 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         data: ['CDD', 'HDD'],
         align: 'left',
       },
-      tooltip: {},
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+      },
       xAxis: {
         data: xAxisDataG2,
         silent: false,
@@ -412,6 +439,11 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         align: 'left',
       },
       tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
@@ -461,7 +493,13 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         data: ['گاز', 'برق', 'انرژی'],
         align: 'left',
       },
-      tooltip: {},
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
+      },
       xAxis: {
         data: xAxisDataG3,
         silent: false,
@@ -502,6 +540,11 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
         align: 'left',
       },
       tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        textStyle: {
+          color: 'rgba(255, 255, 255, 1)',
+        },
+        borderColor: 'rgba(0, 0, 0, 0.1)',
         trigger: 'axis',
         axisPointer: {
           type: 'cross',
@@ -560,7 +603,7 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
 
       const tempList = object; // تعریف tempList از نوع object
       now = new Date(now.getTime() + oneDay); // یک روز به تاریخ روز قبل اضافه میکنه
-      tempList['date'] = now.toISOString(); // تبدیل به تاریخ ایزو و درج در ابجکت
+      tempList.date = now.toISOString(); // تبدیل به تاریخ ایزو و درج در ابجکت
 
       // ایجاد و درج اطلاعات به ابجکت ها
       for (let j = 0; j < list.length - 1; j++) {

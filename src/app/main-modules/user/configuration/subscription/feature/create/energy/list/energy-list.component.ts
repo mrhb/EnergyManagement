@@ -9,7 +9,7 @@ import {EnergyList} from '../../../../model/energy';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {EnergyService} from '../../../../service/energy.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-energy-list',
   templateUrl: './energy-list.component.html',
@@ -22,23 +22,18 @@ export class EnergyListComponent implements OnInit {
 
   energyList: EnergyList[] = [];
   constructor(private energyService: EnergyService,
-              private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getListPower();
+              public router: Router,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pageIndex) {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+      }
+      this.getListEnergy();
+    });
   }
 
-  getListPower(): void {
-    this.energyService.getEnergyList(
-      {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.energyList = res.content;
-      }
-    });
+  ngOnInit(): void {
   }
 
   getListEnergy(): void {
@@ -50,14 +45,13 @@ export class EnergyListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.energyList = res.content;
+        this.length = res.totalElements;
       }
     });
   }
 
   navigate(): void {
-    console.log(this.activatedRoute.snapshot.url[0].path);
-    // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,

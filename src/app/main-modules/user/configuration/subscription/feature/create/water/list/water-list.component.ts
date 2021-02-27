@@ -9,7 +9,7 @@ import {WaterList} from '../../../../model/water';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {WaterService} from '../../../../service/water.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeWater} from '../../../../model/waterEnum';
 
 @Component({
@@ -25,23 +25,18 @@ export class WaterListComponent implements OnInit {
   useTypeEnum = UseTypeWater;
   waterList: WaterList[] = [];
   constructor(private waterService: WaterService,
-              private activatedRoute: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getListPower();
+              public router: Router,
+              private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.pageIndex) {
+        this.pageIndex = params.pageIndex;
+        this.pageSize = params.pageSize;
+      }
+      this.getListWater();
+    });
   }
 
-  getListPower(): void {
-    this.waterService.getWaterList(
-      {
-        page: this.pageIndex,
-        size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
-      if (res) {
-        this.waterList = res.content;
-      }
-    });
+  ngOnInit(): void {
   }
 
   getListWater(): void {
@@ -53,14 +48,14 @@ export class WaterListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.waterList = res.content;
+        this.length = res.totalElements;
       }
     });
   }
 
   navigate(): void {
-    console.log(this.activatedRoute.snapshot.url[0].path);
-    // @ts-ignore
-    this.router.navigate([this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]], {
+    // this.activatedRoute.parent.snapshot._routerState.url.split('?')[0]
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
         pageIndex: this.pageIndex,
         pageSize: this.pageSize,
