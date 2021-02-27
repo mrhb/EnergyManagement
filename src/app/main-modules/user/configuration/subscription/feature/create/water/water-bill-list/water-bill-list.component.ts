@@ -69,14 +69,14 @@ export class WaterBillListComponent implements OnInit {
   deleteWater(i, pId): void {
     Notiflix.Confirm.Show(
       'حذف فضا',
-      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',
       () => {
-        this.waterService.deleteWater({id: pId})
+        this.waterReceiptService.deleteReceipt({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف قبض با موفقیت انجام گردید');
               this.waterBillList.splice(i, 1);
             }
           });
