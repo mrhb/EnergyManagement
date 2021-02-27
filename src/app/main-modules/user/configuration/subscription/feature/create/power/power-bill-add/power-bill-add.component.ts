@@ -48,9 +48,9 @@ export class PowerBillAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      duration:[], // دوره
+      powerSharingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
+      paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]], // شناسه پرداخت
+      period:[], // دوره
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       numberDays:[], // تعداد روز دوره
@@ -58,10 +58,9 @@ export class PowerBillAddComponent implements OnInit {
       subscription:[], //   آبونمان 
       powerPrice:[], //   بهای قدرت 
       seasonPrice:[], //   بهای فصل 
-      payableAmount:[], //   بهای فصل      
+      payableAmount:[], //  مبلغ قابل پرداخت      
     }
     
-    //     : {type: Number, required: true}, // مبلغ قابل پرداخت
     );
     this.formDiscrip=this.formBuilder.group({
       paymentDeadLine:[], //  مهلت پرداخت
@@ -70,29 +69,59 @@ export class PowerBillAddComponent implements OnInit {
       contractualPower:[], // قدرت قراردادی
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
+      intermediate :[],
+      // ["preCounter" "currentCounter"  "coefficient" "totalConsumption" 
+      //   "consumptionAfterLastChange"  "nerkh" "mablagh" ], //   
     });
   }
-  //////////////////
-  // explanationExpenses:[], // شرح مصارف
-  //     badPenaltiesForConsumingElectricityDuringThePeriod: {type: Number, required: true}, // جریمه بدی مصرف بهای برق دوره
-//     previousCounter: {type: String, required: true}, // شمارنده قبلی
-//     currentCounter: {type: String, required: true}, // شمارنده کنونی
-//     coefficient: {type: String, required: true}, // ضریب
-//     totalConsumption: {type: String, required: true}, // مصرف کل
-//     totalConsumptionLastChanges: {type: String, required: true}, // مصرف بعد از آخرین تغییرات
-//     rate: {type: String, required: true}, // نرخ
-//     amount: {type: String, required: true}, // مبلغ
-//     intermediate: {type: String, required: true}, // میان باری
-//     peakLoad: {type: String, required: true}, // اوج بار
-//     lowLoad: {type: String, required: true}, // کم بار
-//     peakTimesFriday: {type: String, required: true}, // اوج بار جمعه
-//     reactive: {type: String, required: true}, // راکتیو
-//     vat: {type: Number, required: true}, // مالیات بر ارزش افزوده
-//     electricalTolls: {type: Number, required: true}, // عوارض برق
-//     debt: {type: Number, required: true}, // بدهکاری کسر هزار ریال
-    ///////////////////////
+  // {
 
-    
+//     "intermediate" : {
+//         "preCounter" : 324,
+//         "currentCounter" : 23453,
+//         "coefficient" : 877,
+//         "totalConsumption" : 986,
+//         "consumptionAfterLastChange" : 13245,
+//         "nerkh" : 5467,
+//         "mablagh" : 9865
+//     },
+//     "peakLoad" : {
+//         "preCounter" : 324,
+//         "currentCounter" : 23453,
+//         "coefficient" : 877,
+//         "totalConsumption" : 986,
+//         "consumptionAfterLastChange" : 13245,
+//         "nerkh" : 5467,
+//         "mablagh" : 9865
+//     },
+//     "lowLoad" : {
+//         "preCounter" : 324,
+//         "currentCounter" : 23453,
+//         "coefficient" : 877,
+//         "totalConsumption" : 986,
+//         "consumptionAfterLastChange" : 13245,
+//         "nerkh" : 5467,
+//         "mablagh" : 9865
+//     },
+//     "peakTimesFriday" : {
+//         "preCounter" : 324,
+//         "currentCounter" : 23453,
+//         "coefficient" : 877,
+//         "totalConsumption" : 986,
+//         "consumptionAfterLastChange" : 13245,
+//         "nerkh" : 5467,
+//         "mablagh" : 9865
+//     },
+//     "reactive" : {
+//         "preCounter" : 7856,
+//         "currentCounter" : 6345,
+//         "coefficient" : 971,
+//         "totalConsumption" : 13457,
+//         "consumptionAfterLastChange" : 13245,
+//         "nerkh" : 186764,
+//         "mablagh" : 9987865
+//     },
+
   getOneBill(pId): void {
     this.powerReceiptService.getOneReceipt({
       id: pId

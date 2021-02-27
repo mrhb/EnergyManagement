@@ -37,8 +37,8 @@ export class Consumption {
 export class PowerBillDto {
   billId: string;
   powerSharingId:string;// شناسه اشتراک
-  pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
+  paymentCode: string; // شناسه پرداخت
+  period: string; // دوره
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   numberDays: string; // روزها

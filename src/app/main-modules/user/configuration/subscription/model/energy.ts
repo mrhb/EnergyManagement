@@ -47,12 +47,20 @@ export class EnergyBillList {
 
 
 export class EnergyBillDto {
-  noeEnergyMasrafy: string; //نوع انرژی مصرفی
-  hazinhEnergy: string; // هزینه انرژی
-  mizanMasraf: string; // میزان مصرف
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  sayerHazineh: string; // سایر هزینه ها
-  maflaghPardakhty: string; //  مبلغ قابل پرداخت  
+  energyCarrier: string; //حامل انرژی 
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+  consumptionAmount: string; // میزان مصرف
+  energyCost: string; // هزینه انرژی
+  otherCost: string; // سایر هزینه ها
+  payableAmount: string; //  مبلغ قابل پرداخت  
 }
+// otherCost: {type: Number, required: true}, // سایر هزینه ها
+
+
+// name: {type: String, required: true}, // نام مشترک
+// address: {type: String, required: true}, // نشانی محل مصرف
+// energyCarrier: {type: String, required: true}, //  انرژی
+// energyUnit: {type: String}, // واحد انرژی
+// shareNumber: {type: String}, // شماره کنتور

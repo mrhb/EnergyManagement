@@ -28,118 +28,124 @@
         <form [formGroup]="form" class="w-100"> <!-- (ngSubmit)="createGas()"> -->
           <div class="form row">
 
-            <div class="row">
-              <div class="col-auto d-flex flex-column">
+            <fieldset class="fieldset-border">
+
+              <legend>اشتراک   </legend>
+            <div class="form row">
+              <!-- <div class="col-auto d-flex flex-column"> -->
                 <!-- <label for="allocationPercentage" class="form-label"> اشتراک</label> -->
-                <div class="d-flex align-items-center">
+                <!-- <div class="d-flex align-items-center"> -->
                    <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" > انتخاب اشتراک</button>
                  <!-- <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
                     ({{buildingAllocation.name}})
                   </span>-->
-                </div> 
-              </div>
+                <!-- </div>  -->
+              <!-- </div> -->
               <hr>
             </div>
-               
-            <div class="form row">
+          </fieldset>
+
+            <fieldset class="fieldset-border"> 
+              <legend>قبض انرژی  </legend>
+               <div class="form row">
               <hr>
               <!-- نوع انرژی مصرفی -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="noeEnergyMasrafy" class="form-label">نوع انرژی مصرفی </label>
-                    <input class="form-control text-right" id="noeEnergyMasrafy" placeholder=""
-                          [(ngModel)]="energyBillDto.noeEnergyMasrafy"
-                          formControlName="noeEnergyMasrafy"
-                          name="noeEnergyMasrafy">
+                    <label for="energyCarrier" class="form-label">نوع انرژی مصرفی </label>
+                    <input class="form-control text-right" id="energyCarrier" placeholder=""
+                          [(ngModel)]="energyBillDto.energyCarrier"
+                          formControlName="energyCarrier"
+                          name="energyCarrier">
                   </div>
-                  <app-alert-error [data]="form.controls['noeEnergyMasrafy']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['energyCarrier']" [touched]="touched"></app-alert-error>
                 </div>
 
-                <!-- هزینه انرژی -->
-                <div class="mb-4 col-md-3"> 
-                  <div class="w-100">
-                    <label for="hazinhEnergy" class="form-label">هزینه انرژی</label>
-                    <input class="form-control text-right" id="hazinhEnergy" placeholder=""
-                    [(ngModel)]="energyBillDto.hazinhEnergy"
-                    formControlName="hazinhEnergy"
-                    name="hazinhEnergy">
-                  </div>
-                  <app-alert-error [data]="form.controls['hazinhEnergy']" [touched]="touched"></app-alert-error>
-                </div>
-                
-                <!-- میزان مصرف  -->
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="mizanMasraf" class="form-label">میزان مصرف</label>
-                  <input class="form-control text-right" id="mizanMasraf" placeholder=""
-                         [(ngModel)]="energyBillDto.mizanMasraf"
-                         formControlName="mizanMasraf"
-                         name="mizanMasraf">
-                </div>
-                <app-alert-error [data]="form.controls['mizanMasraf']" [touched]="touched"></app-alert-error>
-              </div> 
-
-                <!-- تاریخ شروع   -->
+                 <!-- تاریخ شروع   -->
                 <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="startDate" class="form-label">تاریخ شروع </label>
-                  <input class="form-control text-right" id="startDate" placeholder=""
-                         [(ngModel)]="energyBillDto.startDate"
-                         formControlName="startDate"
-                         name="startDate">
+                  <label for="fromDate" class="form-label">تاریخ شروع </label>
+                  <input class="form-control text-right" id="fromDate" placeholder=""
+                         [(ngModel)]="energyBillDto.fromDate"
+                         formControlName="fromDate"
+                         name="fromDate">
                 </div>
-                <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
-              </div>
+                <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
+                </div>
 
                 <!-- تاریخ اتمام   -->
                 <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="endDate" class="form-label">تاریخ اتمام </label>
-                  <input class="form-control text-right" id="endDate" placeholder=""
-                         [(ngModel)]="energyBillDto.endDate"
-                         formControlName="endDate"
-                         name="endDate">
+                  <label for="toDate" class="form-label">تاریخ اتمام </label>
+                  <input class="form-control text-right" id="toDate" placeholder=""
+                         [(ngModel)]="energyBillDto.toDate"
+                         formControlName="toDate"
+                         name="toDate">
                 </div>
-                <app-alert-error [data]="form.controls['endDate']" [touched]="touched"></app-alert-error>
-              </div>
+                <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
+               </div>
 
                 <!-- تعداد روز دوره    -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="Days" class="form-label"> تعداد روز دوره </label>
-                    <input class="form-control text-right" id="Days" placeholder=""
-                           [(ngModel)]="energyBillDto.Days"
-                           formControlName="Days"
-                           name="Days">
+                    <label for="numberDays" class="form-label"> تعداد روز دوره </label>
+                    <input class="form-control text-right" id="numberDays" placeholder=""
+                           [(ngModel)]="energyBillDto.numberDays"
+                           formControlName="numberDays"
+                           name="numberDays">
                   </div>
-                  <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
                 </div>  
-  
+
+                <!-- میزان مصرف  -->
+                <div class="mb-4 col-md-3">
+                  <div class="w-100">
+                    <label for="consumptionAmount" class="form-label">میزان مصرف</label>
+                    <input class="form-control text-right" id="consumptionAmount" placeholder=""
+                            [(ngModel)]="energyBillDto.consumptionAmount"
+                            formControlName="consumptionAmount"
+                            name="consumptionAmount">
+                  </div>
+                  <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
+                </div>
+                
+                <!-- هزینه انرژی -->
+                <div class="mb-4 col-md-3"> 
+                  <div class="w-100">
+                    <label for="energyCost" class="form-label">هزینه انرژی</label>
+                    <input class="form-control text-right" id="energyCost" placeholder=""
+                    [(ngModel)]="energyBillDto.energyCost"
+                    formControlName="energyCost"
+                    name="energyCost">
+                  </div>
+                  <app-alert-error [data]="form.controls['energyCost']" [touched]="touched"></app-alert-error>
+                </div>
+                
                 <!-- سایر هزینه ها      -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="sayerHazineh" class="form-label"> سایر هزینه ها</label>
-                    <input class="form-control text-right" id="sayerHazineh" placeholder=""
-                           [(ngModel)]="energyBillDto.sayerHazineh"
-                           formControlName="sayerHazineh"
-                           name="sayerHazineh">
+                    <label for="otherCost" class="form-label"> سایر هزینه ها</label>
+                    <input class="form-control text-right" id="otherCost" placeholder=""
+                           [(ngModel)]="energyBillDto.otherCost"
+                           formControlName="otherCost"
+                           name="otherCost">
                   </div>
-                  <app-alert-error [data]="form.controls['sayerHazineh']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['otherCost']" [touched]="touched"></app-alert-error>
                 </div>  
 
                 <!--   مبلغ قابل پرداخت      -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="maflaghPardakhty" class="form-label"> مبلغ قابل پرداخت </label>
-                    <input class="form-control text-right" id="maflaghPardakhty" placeholder=""
-                            [(ngModel)]="energyBillDto.maflaghPardakhty"
-                            formControlName="maflaghPardakhty"
-                            name="maflaghPardakhty">
+                    <label for="payableAmount" class="form-label"> مبلغ قابل پرداخت </label>
+                    <input class="form-control text-right" id="payableAmount" placeholder=""
+                            [(ngModel)]="energyBillDto.payableAmount"
+                            formControlName="payableAmount"
+                            name="payableAmount">
                   </div>
-                  <app-alert-error [data]="form.controls['maflaghPardakhty']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['payableAmount']" [touched]="touched"></app-alert-error>
                 </div>  
             </div>
-
+          </fieldset>
  
             <!-- <div class="col-12">
               <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!energyId">ثبت</button>

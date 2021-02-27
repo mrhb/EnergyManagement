@@ -35,18 +35,20 @@ export class EnergyBillAddComponent implements OnInit {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      noeEnergyMasrafy: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      hazinhEnergy: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      mizanMasraf:[], // میزان مصرف
-      startDate:[], // تاریخ شروع 
-      endDate:[], // تاریخ اتمام
-      Days:[], // روزها      
-      sayerHazineh:[], // سایر هزینه ها      
-      maflaghPardakhty:[], //  مبلغ قابل پرداخت     
+      energyCarrier: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]], //حامل انرژی 
+      energyCost: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+      numberDays:[], // روزها      
+      consumptionAmount:[], // میزان مصرف
+      otherCost:[], // سایر هزینه ها      
+      payableAmount:[], //  مبلغ قابل پرداخت     
     }
     );
   }
 }
+// payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
+
 
 // export class GasCreateComponent implements OnInit {
 //   pageSize = 20;
