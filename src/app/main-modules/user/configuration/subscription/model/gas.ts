@@ -43,7 +43,6 @@ export class GasList {
 export class GasBillList {
   id: string;
   BillId: string;
-  Duration: string;
   StartDate: string;
   EndDate: string;
   Days: string;

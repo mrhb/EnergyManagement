@@ -16,7 +16,6 @@
         <tr>
           <th scope="col" width="40">#</th>
           <th scope="col">شناسه قبض</th>
-          <th scope="col">دوره </th>
           <th scope="col">تاریخ شروع</th>
           <th scope="col">تاریخ اتمام</th>
           <th scope="col">روزها</th>
@@ -29,7 +28,6 @@
         <tr *ngFor="let gasBill of gasBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * gasBillList.length))}}</th>
           <td>{{gasBill.BillId}}</td>
-          <td>{{gasBill.Duration}}</td>
           <td>{{gasBill.StartDate}}</td>
           <td>{{gasBill.EndDate}}</td>
           <td>{{gasBill.Days}}</td>

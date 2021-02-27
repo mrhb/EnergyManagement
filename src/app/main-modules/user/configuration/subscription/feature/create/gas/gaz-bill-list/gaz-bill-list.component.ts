@@ -25,7 +25,6 @@ export class GazBillListComponent implements OnInit {
       {
       id:"1",
       BillId: "123459886",
-      Duration: "2",
       StartDate:"98/01/01",
       EndDate:"98/10/01",
       Days: "27",
