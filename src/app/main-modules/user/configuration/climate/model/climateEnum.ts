@@ -33,11 +33,13 @@ export enum OstanEnum {
 }
 
 export enum UseTypePowerEnum {
-  HOME = <any> 'مصارف خانگی',
-  GENERAL = <any> 'مصارف عمومی',
-  WATER_PRODUCTS = <any> 'مصارف تولیدات آب و کشاورزی',
-  INDUSTRY_PRODUCTS = <any> 'مصارف تولید (صنعت و معدن)',
-  OTHER = <any> 'سایر مصارف',
+  WATER_PRODUCTS = <any> ' بسیار گرم و خشک',
+  HOME = <any> 'گرم و خشک',
+  GENERAL = <any> 'نیمه خشک',
+  OTHER1 = <any> ' بسیار گرم و مرطوب',
+  OTHER = <any> ' معتدل و بارانی',
+  OTHER2 = <any> ' نیمه معتدل و بارانی',
+  INDUSTRY_PRODUCTS = <any> 'سرد',
 }
 
 export enum HomeEnum {
