@@ -50,14 +50,19 @@ export class WaterBillList {
 
 
 export class WaterBillDto {
-  billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  raghamGhabl: string; // رقم قبلی
-  raghamFeely: string; // رقم فعلی
-  masrafDoure: string; // مصرف دوره
-  bahaAab: string; //  بهای آب مصرفی
-  mablaghPardakh: string; //  مبلغ قابل پرداخت
+  billingId: string; // شناسه قبض
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
+  previousCounter: string; // رقم قبلی
+  currentCounter: string; // رقم فعلی
+  consumptionDurat: string; // مصرف دوره
+  consumptionAmount: string; //  بهای آب مصرفی
+  payableAmount: string; //  مبلغ قابل پرداخت
 }
+
+
+
+
+

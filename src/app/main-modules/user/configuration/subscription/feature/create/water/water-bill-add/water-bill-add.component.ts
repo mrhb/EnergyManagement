@@ -36,16 +36,16 @@ export class WaterBillAddComponent implements OnInit {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      startDate:[], // تاریخ شروع 
-      endDate:[], // تاریخ اتمام
-      Days:[], // روزها      
-      raghamGhabl:[], // رقم قبلی
-      raghamFeely:[], // رقم فعلی
-      masrafDoure:[], // مصرف دوره
-      bahaAab:[], //  بهای آب مصرفی
-      mablaghPardakh:[], //     مبلغ قابل پرداخت
+      billingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+      numberDays:[], // روزها      
+      previousCounter:[], // رقم قبلی
+      currentCounter:[], // رقم فعلی
+      consumptionDurat:[], // مصرف دوره
+      consumptionAmount:[], //  بهای آب مصرفی
+      payableAmount:[], //     مبلغ قابل پرداخت
     }
     );
   }

@@ -33,121 +33,121 @@
             <!-- شناسه قبض -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="billId" class="form-label">شناسه قبض</label>
-                <input class="form-control text-right" id="billId" placeholder=""
-                       [(ngModel)]="waterBillDto.billId"
-                       formControlName="billId"
-                       name="billId">
+                <label for="billingId" class="form-label">شناسه قبض</label>
+                <input class="form-control text-right" id="billingId" placeholder=""
+                       [(ngModel)]="waterBillDto.billingId"
+                       formControlName="billingId"
+                       name="billingId">
               </div>
-              <app-alert-error [data]="form.controls['billId']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- شناسه پرداخت -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="pardakhtId" class="form-label">شناسه پرداخت</label>
-                  <input class="form-control text-right" id="pardakhtId" placeholder=""
-                         [(ngModel)]="waterBillDto.pardakhtId"
-                         formControlName="pardakhtId"
-                         name="pardakhtId">
+                  <label for="paymentCode" class="form-label">شناسه پرداخت</label>
+                  <input class="form-control text-right" id="paymentCode" placeholder=""
+                         [(ngModel)]="waterBillDto.paymentCode"
+                         formControlName="paymentCode"
+                         name="paymentCode">
                 </div>
-                <app-alert-error [data]="form.controls['pardakhtId']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
               </div>
 
             <!-- تاریخ شروع  -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="startDate" class="form-label">تاریخ شروع </label>
-                  <input class="form-control text-right" id="startDate" placeholder=""
-                         [(ngModel)]="waterBillDto.startDate"
-                         formControlName="startDate"
-                         name="startDate">
+                  <label for="fromDate" class="form-label">تاریخ شروع </label>
+                  <input class="form-control text-right" id="fromDate" placeholder=""
+                         [(ngModel)]="waterBillDto.fromDate"
+                         formControlName="fromDate"
+                         name="fromDate">
                 </div>
-                <app-alert-error [data]="form.controls['startDate']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
               </div>
 
             <!-- تاریخ اتمام  -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="endDate" class="form-label">تاریخ اتمام </label>
-                  <input class="form-control text-right" id="endDate" placeholder=""
-                         [(ngModel)]="waterBillDto.endDate"
-                         formControlName="endDate"
-                         name="endDate">
+                  <label for="toDate" class="form-label">تاریخ اتمام </label>
+                  <input class="form-control text-right" id="toDate" placeholder=""
+                         [(ngModel)]="waterBillDto.toDate"
+                         formControlName="toDate"
+                         name="toDate">
                 </div>
-                <app-alert-error [data]="form.controls['endDate']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
               </div>
 
             <!--تعداد روز دوره -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="Days" class="form-label"> تعداد روز دوره </label>
-                  <input class="form-control text-right" id="Days" placeholder=""
-                         [(ngModel)]="waterBillDto.Days"
-                         formControlName="Days"
-                         name="Days">
+                  <label for="numberDays" class="form-label"> تعداد روز دوره </label>
+                  <input class="form-control text-right" id="numberDays" placeholder=""
+                         [(ngModel)]="waterBillDto.numberDays"
+                         formControlName="numberDays"
+                         name="numberDays">
                 </div>
-                <app-alert-error [data]="form.controls['Days']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
               </div>
   
             <!-- رقم قبلی -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="raghamGhabl" class="form-label">رقم قبلی</label>
-                  <input class="form-control text-right" id="raghamGhabl" placeholder=""
-                         [(ngModel)]="waterBillDto.raghamGhabl"
-                         formControlName="raghamGhabl"
-                         name="raghamGhabl">
+                  <label for="previousCounter" class="form-label">رقم قبلی</label>
+                  <input class="form-control text-right" id="previousCounter" placeholder=""
+                         [(ngModel)]="waterBillDto.previousCounter"
+                         formControlName="previousCounter"
+                         name="previousCounter">
                 </div>
-                <app-alert-error [data]="form.controls['raghamGhabl']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['previousCounter']" [touched]="touched"></app-alert-error>
               </div>
 
             <!-- رقم فعلی -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="raghamFeely" class="form-label">رقم فعلی</label>
-                <input class="form-control text-right" id="raghamFeely" placeholder=""
-                       [(ngModel)]="waterBillDto.raghamFeely"
-                       formControlName="raghamFeely"
-                       name="raghamFeely">
+                <label for="currentCounter" class="form-label">رقم فعلی</label>
+                <input class="form-control text-right" id="currentCounter" placeholder=""
+                       [(ngModel)]="waterBillDto.currentCounter"
+                       formControlName="currentCounter"
+                       name="currentCounter">
               </div>
-              <app-alert-error [data]="form.controls['raghamFeely']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- مصرف دوره -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="masrafDoure" class="form-label">مصرف دوره</label>
-                <input class="form-control text-right" id="masrafDoure" placeholder=""
-                       [(ngModel)]="waterBillDto.masrafDoure"
-                       formControlName="masrafDoure"
-                       name="masrafDoure">
+                <label for="consumptionDurat" class="form-label">مصرف دوره</label>
+                <input class="form-control text-right" id="consumptionDurat" placeholder=""
+                       [(ngModel)]="waterBillDto.consumptionDurat"
+                       formControlName="consumptionDurat"
+                       name="consumptionDurat">
               </div>
-              <app-alert-error [data]="form.controls['masrafDoure']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- بهای آب مصرفی  -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="bahaAab" class="form-label">بهای آب مصرفی </label>
-                <input class="form-control text-right" id="bahaAab" placeholder=""
-                       [(ngModel)]="waterBillDto.bahaAab"
-                       formControlName="bahaAab"
-                       name="bahaAab">
+                <label for="consumptionAmount" class="form-label">بهای آب مصرفی </label>
+                <input class="form-control text-right" id="consumptionAmount" placeholder=""
+                       [(ngModel)]="waterBillDto.consumptionAmount"
+                       formControlName="consumptionAmount"
+                       name="consumptionAmount">
               </div>
-              <app-alert-error [data]="form.controls['bahaAab']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- مبلغ قابل پرداخت     -->
             <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="mablaghPardakh" class="form-label">  مبلغ قابل پرداخت </label>
-                <input class="form-control text-right" id="mablaghPardakh" placeholder=""
-                       [(ngModel)]="waterBillDto.mablaghPardakh"
-                       formControlName="mablaghPardakh"
-                       name="mablaghPardakh">
+                <label for="payableAmount" class="form-label">  مبلغ قابل پرداخت </label>
+                <input class="form-control text-right" id="payableAmount" placeholder=""
+                       [(ngModel)]="waterBillDto.payableAmount"
+                       formControlName="payableAmount"
+                       name="payableAmount">
               </div>
-              <app-alert-error [data]="form.controls['mablaghPardakh']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['payableAmount']" [touched]="touched"></app-alert-error>
             </div>
 
             <!-- <div class="col-12">
@@ -160,6 +160,7 @@
       </fieldset>
       </div>
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
+
         <fieldset class="fieldset-border">
           <legend>افزودن اشتراک</legend>
           <div class="row">
