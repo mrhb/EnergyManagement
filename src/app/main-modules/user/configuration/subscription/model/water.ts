@@ -38,7 +38,6 @@ export class WaterList {
 
 export class WaterBillList {
   id: string;
-  Duration: string;
   BillId: string;
   StartDate: string;
   EndDate: string;

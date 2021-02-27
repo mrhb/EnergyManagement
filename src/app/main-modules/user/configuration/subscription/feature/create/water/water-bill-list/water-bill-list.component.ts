@@ -39,8 +39,7 @@ export class WaterBillListComponent implements OnInit {
      EndDate:"98/10/01",
      Days: "27",
      Masraf:  "7020 ",
-     Mablagh:   " 3600000 ریال",
-     Duration: "100"
+     Mablagh:   " 3600000 ریال"
      }
    ];   
    

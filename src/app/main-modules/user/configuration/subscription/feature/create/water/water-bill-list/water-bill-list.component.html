@@ -16,7 +16,6 @@
         <tr>
           <th scope="col" width="40">#</th>
           <th scope="col">شناسه قبض</th>
-          <th scope="col">دوره </th>
           <th scope="col">تاریخ شروع</th>
           <th scope="col">تاریخ اتمام</th>
           <th scope="col">روزها</th>
@@ -28,7 +27,6 @@
         <tbody>
         <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
-          <td>{{water.Duration}}</td>
           <td>{{water.BillId}}</td>
           <td>{{water.StartDate}}</td>
           <td>{{water.EndDate}}</td>
