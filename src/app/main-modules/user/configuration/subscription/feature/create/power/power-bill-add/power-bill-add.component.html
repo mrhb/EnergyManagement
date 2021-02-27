@@ -34,13 +34,13 @@
               <!-- شناسه قبض -->
               <div class="mb-4 col-md-3">
               <div class="w-100">
-                <label for="powerSharingId" class="form-label">شناسه قبض</label>
-                <input class="form-control text-right" id="powerSharingId" placeholder=""
-                       [(ngModel)]="powerBillDto.powerSharingId"
-                       formControlName="powerSharingId"
-                       name="powerSharingId">
+                <label for="numberShare" class="form-label">شناسه قبض</label>
+                <input class="form-control text-right" id="numberShare" placeholder=""
+                       [(ngModel)]="powerBillDto.numberShare"
+                       formControlName="numberShare"
+                       name="numberShare">
               </div>
-              <app-alert-error [data]="form.controls['powerSharingId']" [touched]="touched"></app-alert-error>
+              <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
             </div>
 
               <!-- شناسه پرداخت  -->
@@ -109,7 +109,6 @@
             </div> --> 
              </fieldset>
           </div>
-
 
           <div class="form"> 
             <fieldset class="fieldset-border">
@@ -181,9 +180,6 @@
             </div>
           </fieldset>
           </div>
-
-
-
         </form>
 
         <form [formGroup]="formDiscrip" class="w-100" >
@@ -308,7 +304,7 @@
              <div class="d-flex align-items-center">
               <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
               <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
-                  ({{powerAllocation.name}})
+                  (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.numberShare}})
                 </span>
               </div>
             </div>

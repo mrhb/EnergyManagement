@@ -48,7 +48,7 @@ export class PowerBillAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      powerSharingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
+      numberShare: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
       paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]], // شناسه پرداخت
       period:[], // دوره
       fromDate:[], // تاریخ شروع 
