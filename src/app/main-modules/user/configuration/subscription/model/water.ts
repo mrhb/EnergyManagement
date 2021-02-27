@@ -37,6 +37,23 @@ export class WaterList {
 
 
 export class WaterBillList {
+
+  waterSharingId: String; // شناسه شاشتراک آب
+  numberShare: String; // شماره اشتراک
+  nameShare: String;// نام اشتراک
+
+  paymentCode: {type: String, required: true}; // شناسه پرداخت
+  fromDate: {type: Date, required: true}; // از تاریخ
+  toDate: {type: Date, required: true}; // تا تاریخ
+  numberDays: {type: Number, required: true}; // تعداد روز دوره
+  previousCounter: {type: String, required: true}; // شمارنده قبلی
+  currentCounter: {type: String, required: true}; // شمارنده کنونی
+  consumptionDurat: {type: String, required: true}; // مصرف دوره
+  consumptionAmount: {type: Number, required: true}; // مبلغ مصرف
+  payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
+
+
+
   id: string;
   Duration: string;
   BillId: string;
