@@ -53,22 +53,28 @@ export class GasBillList {
 
 
 export class GazBillDto {
-  billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  raghamPishin: string; // رقم پیشین شماشگر
-  raghamFeely: string; //  رقم فعلی شماشگر
-  masrafEstandard: string; // کارکرد شمارشگر
-  karkerdShomareshgar: string; // مصرف استاندارد 
-  bahaGazMAsrafy: string; // بهای گاز مصرفی  
-  abonman: string; //  آبونمان   
-  avarez: string; //  عوارض   
-  bimeh: string; //  بیمه   
-  bedehyMotaf: string; //  بدهی متفرقه   
-  mandeBedehy: string; //   مانده بدهی   
-  mandeHesabGhab: string; //   مانده صورتحساب قبلی    
-  teedadBedehy: string; //   تعداد بدهی      
-  mablagh: string; //    مبلغ قابل پرداخت      
+  billingId: string; // شناسه اشتراک
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
+  previousCounter: string; // رقم پیشین شماشگر
+  currentCounter: string; //  رقم فعلی شماشگر
+  totalCounter: string; //  کارکرد شمارشگر
+  estandardConsumption: string; //مصرف استاندارد  
+  gasPrice: string; // بهای گاز مصرفی  
+  subscription: string; //  آبونمان   
+  gasTolls: string; //  عوارض گاز 
+  insurance: string; //  بیمه   
+  payableAmount: string; //    مبلغ قابل پرداخت      
 }
+//      payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
+
+
+
+
+
+
+
+
+

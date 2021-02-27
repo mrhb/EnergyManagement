@@ -45,24 +45,24 @@ export class GazBillAddComponent implements OnInit {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      pardakhtId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      startDate:[], // تاریخ شروع 
-      endDate:[], // تاریخ اتمام
-      Days:[], // روزها      
-      raghamPishin:[], // رقم پیشین شمارشگر
-      raghamFeely:[], // رقم فعلی شمارشگر
-      karkerdShomareshgar:[],  // کارکرد شمارشگر
-      masrafEstandard:[],  //  مصرف استاندارد
-      bahaGazMAsrafy:[],  //   بهای گاز مصرفی
-      abonman:[],  //    آبونمان
-      avarez:[],  //    عوارض
-      bimeh:[],  //    بیمه
+      billingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+      numberDays:[], // روزها      
+      previousCounter:[], // رقم پیشین شمارشگر
+      currentCounter:[], // رقم فعلی شمارشگر
+      totalCounter:[],  // کارکرد شمارشگر
+      estandardConsumption:[],  //  مصرف استاندارد
+      gasPrice:[],  //   بهای گاز مصرفی
+      subscription:[],  //    آبونمان
+      gasTolls:[],  //    عوارض
+      insurance:[],  //    بیمه
       bedehyMotaf:[],  //    بدهی متفرقه
       mandeBedehy:[],  //     مانده بدهی
       mandeHesabGhab:[],  //     مانده صورتحساب قبلی
       teedadBedehy:[],  //     تعداد بدهی  
-      mablagh:[],  //      مبلغ قابل پرداخت  
+      payableAmount:[],  //      مبلغ قابل پرداخت  
     }
     
     );
