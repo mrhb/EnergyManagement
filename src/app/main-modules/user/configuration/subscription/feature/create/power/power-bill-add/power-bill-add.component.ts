@@ -7,6 +7,7 @@ import {PowerAllocation} from '../../../../model/power';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
+import { WaterBillAddComponent } from '../../water/water-bill-add/water-bill-add.component';
 declare var $: any;
 
 @Component({
@@ -28,7 +29,6 @@ export class PowerBillAddComponent implements OnInit {
   formDiscrip: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
-
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     // private buildingService: BuildingService,
@@ -48,7 +48,7 @@ export class PowerBillAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      powerSharingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
+      numberShare: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
       paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]], // شناسه پرداخت
       period:[], // دوره
       fromDate:[], // تاریخ شروع 
@@ -74,6 +74,8 @@ export class PowerBillAddComponent implements OnInit {
       //   "consumptionAfterLastChange"  "nerkh" "mablagh" ], //   
     });
   }
+    
+
   // {
 
 //     "intermediate" : {
