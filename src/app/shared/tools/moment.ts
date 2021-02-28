@@ -259,6 +259,21 @@ export class Moment {
 
   }
 
+  public static getJDateFromIsoOnlyYear(date) {
+
+    if (date) {
+      const y = +date.split('-')[0];
+      const m = +date.split('-')[1];
+      const d = +date.split('-')[2].split('T')[0];
+      const h = date.split('-')[2].split('T')[1].split(':')[0];
+      const min = date.split('-')[2].split('T')[1].split(':')[1];
+      const res = this.convertDateByTimZone(y, m, d, h, min);
+      return (res.y);
+    } else {
+      return ('--------');
+    }
+  }
+
   public static getDayTitle(day) {
     switch (day) {
       case 0:
