@@ -12,3 +12,59 @@
   position: fixed;
   z-index: 1000000;
 }
+
+
+.pagination {
+  font-size: 14px;
+  padding-right: 0;
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    border: 1px solid;
+    color: #321fdb;
+    background-color: #fff;
+    border-color: #d8dbe0;
+  }
+
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #321fdb;
+    border-color: #321fdb;
+  }
+
+  .page-item:first-child .page-link,
+  .page-item:last-child .page-link {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+  }
+
+  .page-item:first-child .page-link {
+    margin-right: 0;
+  }
+
+  .page-item:last-child .page-link {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+  }
+  .page-link {
+    margin-right: -1px;
+
+    &:hover {
+      z-index: 2;
+      text-decoration: none;
+      color: #231698;
+      background-color: #d8dbe0;
+      border-color: #c4c9d0;
+    }
+  }
+}
