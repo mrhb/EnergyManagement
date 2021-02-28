@@ -7,6 +7,7 @@ import {PowerAllocation} from '../../../../model/power';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
+import { WaterBillAddComponent } from '../../water/water-bill-add/water-bill-add.component';
 declare var $: any;
 
 @Component({
@@ -28,7 +29,6 @@ export class PowerBillAddComponent implements OnInit {
   formDiscrip: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
-
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     // private buildingService: BuildingService,
@@ -69,11 +69,11 @@ export class PowerBillAddComponent implements OnInit {
       contractualPower:[], // قدرت قراردادی
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
-      intermediate :[],
-      // ["preCounter" "currentCounter"  "coefficient" "totalConsumption" 
-      //   "consumptionAfterLastChange"  "nerkh" "mablagh" ], //   
-    });
+      intermediate:  [{  id: 1, preCounter: '12', currentCounter: '11' }] ,
+     });
   }
+    
+
   // {
 
 //     "intermediate" : {
