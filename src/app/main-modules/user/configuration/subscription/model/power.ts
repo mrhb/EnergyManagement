@@ -24,13 +24,13 @@ export class PowerDto {
 }
 
 export class Consumption {
-  preCounter          :  {type: String, required: true};//شمارنده قبلی
-  currentCounter      :  {type: String, required: true};//شمارنده کنونی
-  coefficient         :  {type: String, required: true};//ضریب
-  totalConsumption      :  {type: String, required: true};//مصرف کل
-  consumptionAfterLastChange      :  {type: String, required: true};//مصرف بعد از آخرین تغییرات
-  nerkh               :  {type: String, required: true};//نرخ
-  mablagh             :  {type: String, required: true}//مبلغ
+  preCounter          : String;//شمارنده قبلی
+  currentCounter      : String;//شمارنده کنونی
+  coefficient         : String;//ضریب
+  totalConsumption      : String;//مصرف کل
+  consumptionAfterLastChange      : String;//مصرف بعد از آخرین تغییرات
+  nerkh               : String;//نرخ
+  mablagh             : String//مبلغ
 };
 
 
@@ -44,11 +44,11 @@ export class PowerBillDto {
   numberDays: string; // روزها
 
     //*******Consumptions******* */
-    intermediate: {type: Consumption}; // میان باری
-    peakLoad: {type: Consumption}; // اوج بار
-    lowLoad: {type: Consumption}; // کم بار
-    peakTimesFriday: {type: Consumption}; // اوج بار جمعه
-    reactive: {type: Consumption}; // راکتیو
+    intermediate:  Consumption; // میان باری
+    peakLoad:  Consumption; // اوج بار
+    lowLoad:  Consumption; // کم بار
+    peakTimesFriday: Consumption; // اوج بار جمعه
+    reactive: Consumption; // راکتیو
     //*************** */
 
   explanationExpenses: string; // روزها

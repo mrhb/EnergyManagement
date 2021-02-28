@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PowerBillDto, PowerList} from '../../../../model/power';
+import {Consumption, PowerBillDto, PowerList} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import Notiflix from 'notiflix';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
@@ -48,8 +48,8 @@ export class PowerBillAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      numberShare: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],// شماره اشتراک
-      paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]], // شناسه پرداخت
+      numberShare: [''],// شماره اشتراک
+      paymentCode: [''], // شناسه پرداخت
       period:[], // دوره
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
