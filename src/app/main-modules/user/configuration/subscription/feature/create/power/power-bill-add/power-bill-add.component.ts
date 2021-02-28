@@ -59,6 +59,7 @@ export class PowerBillAddComponent implements OnInit {
       powerPrice:[], //   بهای قدرت 
       seasonPrice:[], //   بهای فصل 
       payableAmount:[], //  مبلغ قابل پرداخت      
+      intermediate :[],
     }
     
     );
@@ -69,7 +70,6 @@ export class PowerBillAddComponent implements OnInit {
       contractualPower:[], // قدرت قراردادی
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
-      intermediate :[],
       // ["preCounter" "currentCounter"  "coefficient" "totalConsumption" 
       //   "consumptionAfterLastChange"  "nerkh" "mablagh" ], //   
     });
