@@ -166,13 +166,10 @@
           <div class="row">
             <div class="col-auto d-flex flex-column">
               <label for="allocationPercentage" class="form-label">انتخاب اشتراک</label>
-              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg">انتخاب</button>
-              <!-- <div class="d-flex align-items-center">
-                <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
-                <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
-                  ({{buildingAllocation.name}})
-                </span>
-              </div> -->
+              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListWater()">انتخاب</button>
+              <span class="mr-2" style="font-size: 13px;" *ngIf="waterAllocation">
+                (نام مشترک: {{waterAllocation.name}} و شناسه قبض: {{waterAllocation.numberShare}})
+              </span>
             </div>
             <div class="col-md-3">
               <!-- <div class="w-100">
@@ -248,35 +245,35 @@
               >
             </div> -->
           </div>
-          <!-- <div class="mb-4 col-auto mt-2">
-            <div class="btn btn-primary" (click)="getListBuilding()">
+          <div class="mb-4 col-auto mt-2">
+            <div class="btn btn-primary" (click)="getListWater()">
               جستجو
             </div>
-          </div> -->
+          </div>
         </div>
-        <!-- <div class="col-12">
+        <div class="col-12">
           <div class="table-responsive">
             <table class="table table-striped table-bordered">
               <thead class="thead-light">
-              <tr>
-                <th scope="col" width="40">#</th>
-                <th scope="col">عنوان ساختمان</th>
-                <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
-                <th scope="col" width="80">عملیات</th>
-              </tr>
+                <tr>
+                  <th scope="col" width="40">#</th>
+                  <th scope="col">نام مشترک</th>
+                  <!-- <th scope="col">نوع</th> -->
+                  <th scope="col">کد آدرس</th>
+                  <th scope="col" width="80">عملیات</th>
+                </tr>
               </thead>
               <tbody>
-              <ng-container *ngFor="let item of buildingList; let i = index">
+              <ng-container *ngFor="let item of waterList; let i = index">
                 <tr>
                   <th scope="row" width="40">{{i + 1}}</th>
                   <td>{{item.name}}</td>
-                  <td>{{buildingEnum[item.useType].toString()}}</td>
-                  <td>{{item.postalCode}}</td>
+                  <!-- <td>{{buildingEnum[item.useType].toString()}}</td> -->
+                  <td>{{item.addressCode}}</td>
                   <td width="40">
                   <span class="cursor-pointer text-center btn btn-primary"
                         data-dismiss="modal"
-                        (click)="selectBuildingAllocation(item)">انتخاب</span>
+                        (click)="selectWater(item)">انتخاب</span>
                   </td>
   
                 </tr>
@@ -284,7 +281,7 @@
               </tbody>
             </table>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

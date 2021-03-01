@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Consumption, PowerBillDto, PowerList} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import Notiflix from 'notiflix';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import {PowerAllocation} from '../../../../model/power';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
-import { WaterBillAddComponent } from '../../water/water-bill-add/water-bill-add.component';
+import Notiflix from 'notiflix';
 declare var $: any;
 
 @Component({
