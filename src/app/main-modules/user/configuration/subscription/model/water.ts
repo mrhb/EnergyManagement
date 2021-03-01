@@ -29,6 +29,7 @@ export class WaterList {
   id: string;
   name: string;
   billingId: string;
+  numberShare: String; // شماره اشتراک
   addressCode: string;
   useType: UseTypeWater;
   createdAt: any;
@@ -75,7 +76,7 @@ export class WaterBillDto {
 
 export class WaterAllocation {
   name: string;
-  numberShare: string
+  billingId: string;
 }
 
 

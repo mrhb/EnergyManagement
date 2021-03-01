@@ -129,7 +129,8 @@ export class PowerSharingAllocation {
 
 export class PowerAllocation {
   name: string;
- 
+  billingId: string;
+
 }
 // export class BuildingList {
 //   buildingId: string;
