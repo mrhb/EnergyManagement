@@ -38,10 +38,9 @@ export class WaterList {
 
 export class WaterBillList {
 
-  waterSharingId: String; // شناسه شاشتراک آب
+  waterSharingId: String; // شناسه اشتراک آب
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
-
   paymentCode: {type: String, required: true}; // شناسه پرداخت
   fromDate: {type: Date, required: true}; // از تاریخ
   toDate: {type: Date, required: true}; // تا تاریخ
@@ -52,8 +51,6 @@ export class WaterBillList {
   consumptionAmount: {type: Number, required: true}; // مبلغ مصرف
   payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
 
-
-
   id: string;
   BillId: string;
   StartDate: string;
@@ -62,8 +59,6 @@ export class WaterBillList {
   Masraf: string;
   Mablagh: string;
 }
-
-
 
 export class WaterBillDto {
   billingId: string; // شناسه قبض
@@ -78,10 +73,9 @@ export class WaterBillDto {
   payableAmount: string; //  مبلغ قابل پرداخت
 }
 
-
 export class WaterAllocation {
   name: string;
- 
+  numberShare: string
 }
 
 
