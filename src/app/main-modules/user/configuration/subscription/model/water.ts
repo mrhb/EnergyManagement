@@ -79,6 +79,9 @@ export class WaterBillDto {
 }
 
 
-
+export class WaterAllocation {
+  name: string;
+ 
+}
 
 
