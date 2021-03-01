@@ -38,7 +38,7 @@ export class WaterList {
 
 
 export class WaterBillList {
-
+  billingId: string; // شناسه قبض
   waterSharingId: String; // شناسه اشتراک آب
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
