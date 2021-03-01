@@ -34,7 +34,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let power of powerList; let i = index" class="vertical-align-middle">
-            <th scope="row">{{(i + 1 + (pageIndex * powerList.length))}}</th>
+            <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{power.name}}</td>
             <td>{{power.addressCode}}</td>
             <td>{{useTypeEnum[power.useType].toString()}}</td>
@@ -48,6 +48,8 @@
         </table>
       </div>
       <app-paginator
+        [matPaginator]="false"
+        [totalPages]="totalPages"
         [totalElements]="length"
         [pageSize]="pageSize"
         [pageIndex]="pageIndex"

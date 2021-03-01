@@ -37,6 +37,8 @@
         </table>
       </div>
       <app-paginator
+        [matPaginator]="false"
+        [totalPages]="totalPages"
         [totalElements]="length"
         [pageSize]="pageSize"
         [pageIndex]="pageIndex"

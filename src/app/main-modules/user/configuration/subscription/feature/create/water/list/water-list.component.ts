@@ -21,6 +21,7 @@ export class WaterListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
 
   useTypeEnum = UseTypeWater;
   waterList: WaterList[] = [];
@@ -49,6 +50,8 @@ export class WaterListComponent implements OnInit {
       if (res) {
         this.waterList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
   }

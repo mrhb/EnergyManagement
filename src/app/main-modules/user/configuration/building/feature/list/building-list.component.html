@@ -53,7 +53,7 @@
                 </thead>
                 <tbody>
                 <tr *ngFor="let building of buildingList; let i = index">
-                  <th scope="row">{{(i + 1 + (pageIndex * buildingList.length))}}</th>
+                  <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                   <td>{{building.name}}</td>
                   <td>{{building.constructionYear}}</td>
                   <td>{{building.postalCode}}</td>
@@ -80,7 +80,10 @@
                 </tbody>
               </table>
             </div>
+
             <app-paginator
+              [matPaginator]="false"
+              [totalPages]="totalPages"
               [totalElements]="length"
               [pageSize]="pageSize"
               [pageIndex]="pageIndex"

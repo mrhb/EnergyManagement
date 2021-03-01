@@ -24,7 +24,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let water of waterList; let i = index" class="vertical-align-middle">
-            <th scope="row">{{(i + 1 + (pageIndex * waterList.length))}}</th>
+            <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{water.name}}</td>
             <td>{{water.addressCode}}</td>
             <td>{{useTypeEnum[water.useType].toString()}}</td>
@@ -38,6 +38,8 @@
         </table>
       </div>
       <app-paginator
+        [matPaginator]="false"
+        [totalPages]="totalPages"
         [totalElements]="length"
         [pageSize]="pageSize"
         [pageIndex]="pageIndex"

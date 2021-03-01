@@ -17,9 +17,10 @@ import Notiflix from 'notiflix';
   styleUrls: ['./gas-list.component.scss']
 })
 export class GasListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
 
   useTypeEnum = UseTypeGasEnum;
   gasList: GasList[] = [];
@@ -48,6 +49,8 @@ export class GasListComponent implements OnInit {
       if (res) {
         this.gasList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
   }

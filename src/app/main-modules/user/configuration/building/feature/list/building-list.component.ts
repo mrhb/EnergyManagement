@@ -24,9 +24,10 @@ declare var $: any;
   styleUrls: ['./building-list.component.scss']
 })
 export class BuildingListComponent implements OnInit, AfterViewInit {
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
 
   useTypeEnum = UseTypeEnum;
   region = new Region();
@@ -216,6 +217,8 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
       if (res) {
         this.buildingList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
   }

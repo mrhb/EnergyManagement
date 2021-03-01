@@ -10,17 +10,18 @@ export class GazBillListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
 
   // useTypeEnum = UseTypeGasEnum;
   gasBillList: GasBillList[] = [];
-  
+
   constructor() { }
 
   ngOnInit(): void {
     this.getGasBillList();
   }
-  
-  getGasBillList(): void {   
+
+  getGasBillList(): void {
      this.gasBillList = [
       {
       id:"1",
@@ -31,10 +32,10 @@ export class GazBillListComponent implements OnInit {
       Masraf:  "7020 ",
       Mablagh:   " 3600000 ریال",
       }
-    ];   
+    ];
 }
 
-    
+
   navigate(): void {
     // console.log(this.activatedRoute.snapshot.url[0].path);
     // // @ts-ignore

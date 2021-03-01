@@ -29,6 +29,10 @@
     border-color: #d8dbe0;
   }
 
+  .page-item {
+    cursor: pointer;
+  }
+
   .page-item.active .page-link {
     z-index: 3;
     color: #fff;
@@ -66,5 +70,13 @@
       background-color: #d8dbe0;
       border-color: #c4c9d0;
     }
+  }
+
+  .page-item.disabled .page-link {
+    pointer-events: none;
+    cursor: auto;
+    color: #8a93a2;
+    background-color: #fff;
+    border-color: #c4c9d0;
   }
 }
