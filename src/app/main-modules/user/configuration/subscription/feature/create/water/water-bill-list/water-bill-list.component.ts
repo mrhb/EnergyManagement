@@ -25,9 +25,9 @@ export class WaterBillListComponent implements OnInit {
 
   useTypeEnum = UseTypeWater;
   waterBillList: WaterBillList[] = [];
-  constructor(private waterReceiptService: WaterReceiptService,
-              public router: Router,
-              private activatedRoute: ActivatedRoute) { }
+  constructor(public router: Router,
+    private waterReceiptService: WaterReceiptService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getWaterBillList();
