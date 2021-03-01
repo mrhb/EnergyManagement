@@ -26,6 +26,7 @@ export class PowerBillAddComponent implements OnInit {
   myPattern = MyPattern;
   form: FormGroup;
   formDiscrip: FormGroup;
+  formIntermed: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
   constructor(private formBuilder: FormBuilder,
@@ -58,10 +59,47 @@ export class PowerBillAddComponent implements OnInit {
       powerPrice:[], //   بهای قدرت 
       seasonPrice:[], //   بهای فصل 
       payableAmount:[], //  مبلغ قابل پرداخت      
-      intermediate :[],
     }
-    
     );
+    this.formIntermed=this.formBuilder.group({
+      intermediate :[],
+      intermediate_preCounter :[],// شمارنده قبلی میان باری 
+      intermediate_currentCounter :[],// شمارنده کنونی میان باری 
+      intermediate_coefficient :[],// ضریب میان باری 
+      intermediate_totalConsumption :[],// مصرف کل میان باری 
+      intermediate_totalAfterLast :[],// مصرف بعد از آخرین تغییرات میان باری 
+      intermediate_nerkh :[],// نرخ میان باری 
+      intermediate_mablagh :[],// مبلغ میان باری 
+      peakLoad_preCounter :[],// شمارنده قبلی اوج باری 
+      peakLoad_currentCounter :[],// شمارنده کنونی اوج باری 
+      peakLoad_coefficient :[],// ضریب اوج باری 
+      peakLoad_totalConsumption :[],// مصرف کل اوج باری 
+      peakLoad_totalAfterLast :[],// مصرف بعد از آخرین تغییرات اوج باری 
+      peakLoad_nerkh :[],// نرخ اوج باری 
+      peakLoad_mablagh :[],// مبلغ اوج باری 
+     lowLoad_preCounter :[],// شمارنده قبلی کم باری 
+     lowLoad_currentCounter :[],// شمارنده کنونی کم باری 
+     lowLoad_coefficient :[],// ضریب کم باری 
+     lowLoad_totalConsumption :[],// مصرف کل کم باری 
+     lowLoad_totalAfterLast :[],// مصرف بعد از آخرین تغییرات کم باری 
+     lowLoad_nerkh :[],// نرخ کم باری 
+     lowLoad_mablagh :[],// مبلغ کم باری   
+     peakTimesFriday_preCounter :[],// شمارنده قبلی اوج بار جمعه 
+     peakTimesFriday_currentCounter :[],// شمارنده کنونی اوج بار جمعه 
+     peakTimesFriday_coefficient :[],// ضریب اوج بار جمعه 
+     peakTimesFriday_totalConsumption :[],// مصرف کل اوج بار جمعه 
+     peakTimesFriday_totalAfterLast :[],// مصرف بعد از آخرین تغییرات اوج بار جمعه 
+     peakTimesFriday_nerkh :[],// نرخ اوج بار جمعه 
+     peakTimesFriday_mablagh :[],// مبلغ اوج بار جمعه         })
+     reactive_preCounter :[],// شمارنده قبلی راکتیو 
+     reactive_currentCounter :[],// شمارنده کنونی راکتیو 
+     reactive_coefficient :[],// ضریب راکتیو 
+     reactive_totalConsumption :[],// مصرف کل راکتیو 
+     reactive_totalAfterLast :[],// مصرف بعد از آخرین تغییرات راکتیو 
+     reactive_nerkh :[],// نرخ راکتیو 
+     reactive_mablagh :[],// مبلغ راکتیو         })
+    });
+        
     this.formDiscrip=this.formBuilder.group({
       paymentDeadLine:[], //  مهلت پرداخت
       badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
@@ -69,50 +107,11 @@ export class PowerBillAddComponent implements OnInit {
       contractualPower:[], // قدرت قراردادی
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
-      // ["preCounter" "currentCounter"  "coefficient" "totalConsumption" 
-      //   "consumptionAfterLastChange"  "nerkh" "mablagh" ], //   
     });
   }
     
 
-  // {
 
-//     "intermediate" : {
-//         "preCounter" : 324,
-//         "currentCounter" : 23453,
-//         "coefficient" : 877,
-//         "totalConsumption" : 986,
-//         "consumptionAfterLastChange" : 13245,
-//         "nerkh" : 5467,
-//         "mablagh" : 9865
-//     },
-//     "peakLoad" : {
-//         "preCounter" : 324,
-//         "currentCounter" : 23453,
-//         "coefficient" : 877,
-//         "totalConsumption" : 986,
-//         "consumptionAfterLastChange" : 13245,
-//         "nerkh" : 5467,
-//         "mablagh" : 9865
-//     },
-//     "lowLoad" : {
-//         "preCounter" : 324,
-//         "currentCounter" : 23453,
-//         "coefficient" : 877,
-//         "totalConsumption" : 986,
-//         "consumptionAfterLastChange" : 13245,
-//         "nerkh" : 5467,
-//         "mablagh" : 9865
-//     },
-//     "peakTimesFriday" : {
-//         "preCounter" : 324,
-//         "currentCounter" : 23453,
-//         "coefficient" : 877,
-//         "totalConsumption" : 986,
-//         "consumptionAfterLastChange" : 13245,
-//         "nerkh" : 5467,
-//         "mablagh" : 9865
-//     },
 //     "reactive" : {
 //         "preCounter" : 7856,
 //         "currentCounter" : 6345,
