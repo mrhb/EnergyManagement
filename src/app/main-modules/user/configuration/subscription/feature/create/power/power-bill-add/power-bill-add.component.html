@@ -32,14 +32,6 @@
               <legend>اطلاعات قبض </legend>
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
-                   <thead class="thead-light">
-
-                   </thead>
-                    <!-- <tr>
-                      <th scope="col">شناسه پرداخت</th>
-                      <th scope="col">دوره</th>
-                   
-                    </tr> -->
                     <tbody>
                       <tr class="table"> 
                         <th scope="row" >
@@ -68,8 +60,7 @@
                         <app-alert-error [data]="form.controls['period']" [touched]="touched"></app-alert-error>
                       </div>
                      </th>   
-                     <th scope="row" >
-                    </th>   
+                     <th scope="row" > </th>   
                     </tr>
                     <tr>
                     <th scope="row"> 
@@ -83,9 +74,9 @@
                                   name="fromDate">
                         </div>
                         <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
-                      </div>                          
-                        </th> 
-                        <th scope="row"> 
+                        </div>                          
+                     </th> 
+                    <th scope="row"> 
                       <!-- تاریخ اتمام -->
                         <div>
                           <div class="w-100">
@@ -97,8 +88,8 @@
                           </div>
                           <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
                         </div>
-                        </th> 
-                        <th scope="row"> 
+                      </th> 
+                    <th scope="row"> 
                         <!-- تعداد روز دوره -->
                         <div >
                           <div class="w-100">
@@ -110,11 +101,9 @@
                           </div>
                           <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
                         </div>                          
-                        </th> 
-                      </tr> 
+                     </th> 
+                     </tr> 
                 </table>
-                 
-
               </div>
 
 
@@ -597,80 +586,95 @@
         </form>
 
         <form [formGroup]="formDiscrip" class="w-100" >
-
           <fieldset class="fieldset-border"> 
             <legend>اطلاعات محاسباتی   </legend>
-  
-            <!-- قدرت قراردادی  -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
-                <input class="form-control text-right" id="contractualPower" placeholder=""
-                        [(ngModel)]="powerBillDto.contractualPower"
-                        formControlName="contractualPower"
-                        name="contractualPower">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['contractualPower']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- قدرت محاسبه شده -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="calculatedPower" class="form-label"> قدرت محاسبه شده </label>
-                <input class="form-control text-right" id="calculatedPower" placeholder=""
-                        [(ngModel)]="powerBillDto.calculatedPower"
-                        formControlName="calculatedPower"
-                        name="calculatedPower">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['calculatedPower']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- قدرت مصرفی -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
-                <input class="form-control text-right" id="powerConsumption" placeholder=""
-                        [(ngModel)]="powerBillDto.powerConsumption"
-                        formControlName="powerConsumption"
-                        name="powerConsumption">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['powerConsumption']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- ضریب زیان بدی مصرف -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
-                <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
-                        [(ngModel)]="powerBillDto.badConsumptionLossRatio"
-                        formControlName="badConsumptionLossRatio"
-                        name="badConsumptionLossRatio">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- مهلت پرداخت -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
-                <input class="form-control text-right" id="paymentDeadLine" placeholder=""
-                        [(ngModel)]="powerBillDto.paymentDeadLine"
-                        formControlName="paymentDeadLine"
-                        name="paymentDeadLine">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
-            </div>
-
-            <!-- عدد ماکسیمتر -->
-            <div class="mb-4 col-md-3">
-              <div class="w-100">
-                <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
-                <input class="form-control text-right" id="maximeterNumber" placeholder=""
-                        [(ngModel)]="powerBillDto.maximeterNumber"
-                        formControlName="maximeterNumber"
-                        name="maximeterNumber">
-              </div>
-              <app-alert-error [data]="formDiscrip.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                  <tbody>
+                    <tr class="table">
+                      <th scope="row" >
+                      <!-- قدرت قراردادی  -->
+                      <div>  
+                      <div class="w-100">
+                        <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
+                        <input class="form-control text-right" id="contractualPower" placeholder=""
+                                [(ngModel)]="powerBillDto.contractualPower"
+                                formControlName="contractualPower"
+                                name="contractualPower">
+                      </div>
+                      <app-alert-error [data]="formDiscrip.controls['contractualPower']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th>
+                      <th scope="row" >
+                      <!-- قدرت محاسبه شده -->
+                      <div>
+                        <div class="w-100">
+                          <label for="calculatedPower" class="form-label"> قدرت محاسبه شده </label>
+                          <input class="form-control text-right" id="calculatedPower" placeholder=""
+                                  [(ngModel)]="powerBillDto.calculatedPower"
+                                  formControlName="calculatedPower"
+                                  name="calculatedPower">
+                        </div>
+                        <app-alert-error [data]="formDiscrip.controls['calculatedPower']" [touched]="touched"></app-alert-error>
+                      </div>                        
+                      </th>
+                      <th scope="row" >
+                      <!-- قدرت مصرفی -->
+                      <div>
+                        <div class="w-100">
+                          <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
+                          <input class="form-control text-right" id="powerConsumption" placeholder=""
+                                  [(ngModel)]="powerBillDto.powerConsumption"
+                                  formControlName="powerConsumption"
+                                  name="powerConsumption">
+                        </div>
+                        <app-alert-error [data]="formDiscrip.controls['powerConsumption']" [touched]="touched"></app-alert-error>
+                      </div>                        
+                      </th>
+                    </tr>
+                      <tr class="table">
+                        <th scope="row" >
+                    <!-- ضریب زیان بدی مصرف -->
+                      <div >
+                        <div class="w-100">
+                          <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
+                          <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
+                                  [(ngModel)]="powerBillDto.badConsumptionLossRatio"
+                                  formControlName="badConsumptionLossRatio"
+                                  name="badConsumptionLossRatio">
+                        </div>
+                        <app-alert-error [data]="formDiscrip.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th>
+                    <th scope="row" >
+                    <!-- مهلت پرداخت -->
+                    <div>
+                      <div class="w-100">
+                        <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
+                        <input class="form-control text-right" id="paymentDeadLine" placeholder=""
+                                [(ngModel)]="powerBillDto.paymentDeadLine"
+                                formControlName="paymentDeadLine"
+                                name="paymentDeadLine">
+                      </div>
+                      <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
+                    </div>
+                    </th>
+                    <th scope="row" >
+                    <!-- عدد ماکسیمتر -->
+                    <div >
+                      <div class="w-100">
+                        <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
+                        <input class="form-control text-right" id="maximeterNumber" placeholder=""
+                                [(ngModel)]="powerBillDto.maximeterNumber"
+                                formControlName="maximeterNumber"
+                                name="maximeterNumber">
+                      </div>
+                      <app-alert-error [data]="formDiscrip.controls['maximeterNumber']" [touched]="touched"></app-alert-error>
+                    </div>
+                    </th>
+                    </tr>
+                  </tbody>
+              </table>
             </div>
           </fieldset>
 
