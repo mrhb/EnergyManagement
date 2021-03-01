@@ -53,8 +53,8 @@ export class WaterBillAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billingId: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      paymentCode: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      billingId: [''],
+      paymentCode: [''],
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       numberDays:[], // روزها      
