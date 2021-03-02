@@ -27,8 +27,8 @@
         <tr *ngFor="let gasBill of gasBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * gasBillList.length))}}</th>
           <td>{{gasBill.paymentCode}}</td>
-          <td>{{gasBill.fromDate}}</td>
-          <td>{{gasBill.toDate}}</td>
+          <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate)}}</td>
+          <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate)}}</td>
           <td>{{gasBill.numberDays}}</td>
           <td>{{gasBill.consumptionDurat}}</td>
           <td>{{gasBill.payableAmount}}</td>

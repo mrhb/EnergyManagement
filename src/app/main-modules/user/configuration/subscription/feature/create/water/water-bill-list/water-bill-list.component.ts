@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeWater} from '../../../../model/waterEnum';
 import {WaterBillList} from '../../../../model/water';
 import { WaterReceiptService } from '../../../../service/water-receipt.service';
+import { Moment } from 'src/app/shared/tools/moment';
 
 @Component({
   selector: 'app-water-bill-list',
@@ -23,6 +24,8 @@ export class WaterBillListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  moment = Moment;
+
 
   useTypeEnum = UseTypeWater;
   waterBillList: WaterBillList[] = [];

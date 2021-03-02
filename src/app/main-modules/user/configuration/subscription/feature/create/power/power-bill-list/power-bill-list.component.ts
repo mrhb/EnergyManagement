@@ -6,6 +6,7 @@ import { UseTypePowerEnum } from '../../../../model/powerEnum';
 import Notiflix from 'notiflix';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
+import { Moment } from 'src/app/shared/tools/moment';
 
 @Component({
   selector: 'app-power-bill-list',
@@ -18,6 +19,7 @@ export class PowerBillListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  moment = Moment;
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;

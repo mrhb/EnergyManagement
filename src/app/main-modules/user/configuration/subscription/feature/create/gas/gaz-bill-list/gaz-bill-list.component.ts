@@ -12,6 +12,7 @@ import { GasReceiptService } from '../../../../service/gas-receipt.service';
 
 import {GasBillList} from '../../../../model/gas';
 import { UseTypeGasEnum } from '../../../../model/gasEnum';
+import { Moment } from 'src/app/shared/tools/moment';
 
 @Component({
   selector: 'app-gaz-bill-list',
@@ -23,6 +24,7 @@ export class GazBillListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  moment = Moment;
 
    useTypeEnum = UseTypeGasEnum;
   gasBillList: GasBillList[] = [];
