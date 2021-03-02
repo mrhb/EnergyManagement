@@ -32,7 +32,7 @@
               <div class="d-flex align-items-center">
                 <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()">انتخاب</button>
                 <span class="mr-2" style="font-size: 13px;" *ngIf="energyAllocation.name">
-                    (نام مشترک: {{energyAllocation.name}} و شناسه قبض: {{energyAllocation.billingId}})
+                    (نام مشترک: {{energyAllocation.name}} و حامل انرژی: {{energyAllocation.energyCarrier}})
                   </span>
                 </div>
               </div>
@@ -47,7 +47,7 @@
                <div class="form row">
               <hr>
               <!-- نوع انرژی مصرفی -->
-                <div class="mb-4 col-md-3">
+                <!-- <div class="mb-4 col-md-3">
                   <div class="w-100">
                     <label for="energyCarrier" class="form-label">نوع انرژی مصرفی </label>
                     <input class="form-control text-right" id="energyCarrier" placeholder=""
@@ -56,7 +56,7 @@
                           name="energyCarrier">
                   </div>
                   <app-alert-error [data]="form.controls['energyCarrier']" [touched]="touched"></app-alert-error>
-                </div>
+                </div> -->
 
                  <!-- تاریخ شروع   -->
                 <div class="mb-4 col-md-3">
