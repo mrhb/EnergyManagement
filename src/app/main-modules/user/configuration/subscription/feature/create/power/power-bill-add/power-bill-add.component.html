@@ -806,7 +806,7 @@
                 <th scope="col" width="40">#</th>
                 <th scope="col">نام مشترک</th>
                 <!-- <th scope="col">نوع</th> -->
-                <th scope="col">کد آدرس</th>
+                <!-- <th scope="col">کد آدرس</th> -->
                 <th scope="col" width="80">عملیات</th>
               </tr>
               </thead>
@@ -816,7 +816,7 @@
                   <th scope="row" width="40">{{i + 1}}</th>
                   <td>{{item.name}}</td>
                   <!-- <td>{{buildingEnum[item.useType].toString()}}</td> -->
-                  <td>{{item.addressCode}}</td>
+                  <!-- <td>{{item.addressCode}}</td> -->
                   <td width="40">
                   <span class="cursor-pointer text-center btn btn-primary"
                         data-dismiss="modal"
@@ -833,4 +833,4 @@
     </div>
   </div>
   
-  <button class="btn btn-primary"  (click)="createReceipt()">ثبت اشتراک</button>
+  <button class="btn btn-primary"  (click)="createReceipt()">ثبت قبض</button>

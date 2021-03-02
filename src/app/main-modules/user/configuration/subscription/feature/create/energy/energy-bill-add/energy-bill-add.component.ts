@@ -5,8 +5,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {BuildingService} from '../../../../../building/service/building.service';
-import {EnergyBillDto} from '../../../../model/energy';
+import {EnergyAllocation, EnergyBillDto,EnergyList} from '../../../../model/energy';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyReceiptService } from '../../../../service/energy-receipt.service';
@@ -26,14 +25,17 @@ export class EnergyBillAddComponent implements OnInit {
   edited = false;
   myPattern = MyPattern;
   energyId = '';
+  energyList: EnergyList[] = [];
+
   form: FormGroup;
   energyBillDto = new EnergyBillDto();
+  energyAllocation = new EnergyAllocation();
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
-    private buildingService: BuildingService,
+    private  activatedRoute: ActivatedRoute,
+    private  energyService: EnergyService,
     private  energyReceiptService: EnergyReceiptService
-
 ) { 
 
 }
@@ -58,7 +60,7 @@ export class EnergyBillAddComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           this.energyBillDto = res.data;
-          // this.energyAllocation= res.data.energySharing;
+          this.energyAllocation= res.data.energySharing;
           // this.setEnumUseType();
         }
       });

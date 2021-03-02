@@ -35,7 +35,6 @@ export class WaterBillAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
-    // private buildingService: BuildingService,
     private  activatedRoute: ActivatedRoute,
     private  waterReceiptService: WaterReceiptService,
     private  waterService: WaterService,
