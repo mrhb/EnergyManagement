@@ -15,7 +15,7 @@
         <thead>
         <tr>
           <th scope="col" width="40">#</th>
-          <th scope="col">شناسه قبض</th>
+          <th scope="col">نام مشترک</th>
           <th scope="col">تاریخ شروع</th>
           <th scope="col">تاریخ اتمام</th>
           <th scope="col">روزها</th>
@@ -27,12 +27,12 @@
         <tbody>
         <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
-          <td>{{water.BillId}}</td>
-          <td>{{water.StartDate}}</td>
-          <td>{{water.EndDate}}</td>
-          <td>{{water.Days}}</td>
-          <td>{{water.Masraf}}</td>
-          <td>{{water.Mablagh}}</td>        
+          <td>{{water.nameShare}}</td>
+          <td>{{water.fromDate}}</td>  
+          <td>{{water.toDate}}</td>
+          <td>{{water.numberDays}}</td>
+          <td>{{water.consumptionDurat}}</td>
+          <td>{{water.payableAmount}}</td>        
           <td width="40"><span class="cursor-pointer fa fa-edit"
                                [queryParams]="{id: water.id}"
                                [routerLink]="'/index/user/configuration/waterBillAdd'"></span></td>
