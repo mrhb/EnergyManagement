@@ -72,7 +72,7 @@ export class EnergyListComponent implements OnInit {
 
   deleteEnergy(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -80,7 +80,7 @@ export class EnergyListComponent implements OnInit {
         this.energyService.deleteEnergy({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.energyList.splice(i, 1);
             }
           });

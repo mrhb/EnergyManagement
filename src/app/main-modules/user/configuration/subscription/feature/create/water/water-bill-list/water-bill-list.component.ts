@@ -69,7 +69,7 @@ export class WaterBillListComponent implements OnInit {
 
   deleteWater(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',

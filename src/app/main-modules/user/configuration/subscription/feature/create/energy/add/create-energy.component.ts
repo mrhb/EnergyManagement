@@ -148,7 +148,7 @@ export class CreateEnergyComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -156,7 +156,7 @@ export class CreateEnergyComponent implements OnInit {
         this.energyService.deleteEnergyBuildingAllocation({id: this.energyId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.energyDto.buildingList.splice(i, 1);
             }
           });

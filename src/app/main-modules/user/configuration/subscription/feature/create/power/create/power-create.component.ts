@@ -168,7 +168,7 @@ export class PowerCreateComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -176,7 +176,7 @@ export class PowerCreateComponent implements OnInit {
         this.powerService.deletePowerBuildingAllocation({id: this.powerId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.powerDto.buildingList.splice(i, 1);
             }
           });

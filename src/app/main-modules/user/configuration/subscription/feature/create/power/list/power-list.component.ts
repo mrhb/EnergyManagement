@@ -73,7 +73,7 @@ export class PowerListComponent implements OnInit {
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -81,7 +81,7 @@ export class PowerListComponent implements OnInit {
         this.powerService.deletePower({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.powerList.splice(i, 1);
             }
           });
