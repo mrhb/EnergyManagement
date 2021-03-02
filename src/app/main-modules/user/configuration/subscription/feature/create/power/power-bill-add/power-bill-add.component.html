@@ -1,11 +1,10 @@
 <div class="col-12">
-    <div class="title-header d-flex justify-content-between align-items-center">
-      <div>
-        <h1>
-          <strong *ngIf="!powerId">افزودن قبض برق </strong>
-          <strong *ngIf="powerId">ویرایش قبض برق </strong>
-        </h1>
-      </div>
+  <div class="card">
+    <div class="card-header flex-card-header">
+      <h1>
+        <span *ngIf="!powerId">افزودن قبض برق </span>
+        <span *ngIf="powerId">ویرایش قبض برق </span>
+      </h1>
       <div class="d-flex">
         <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerBillList'"> لیست قبوض برق</button>
       </div>
@@ -822,7 +821,7 @@
                         data-dismiss="modal"
                         (click)="selectPower(item)">انتخاب</span>
                   </td>
-  
+
                 </tr>
               </ng-container>
               </tbody>

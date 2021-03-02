@@ -7,9 +7,11 @@ import { EnergyBillList } from '../../../../model/energy';
   styleUrls: ['./energy-bill-list.component.scss']
 })
 export class EnergyBillListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
+
   energyBillList: EnergyBillList[] = [];
 
   constructor() { }
@@ -30,12 +32,12 @@ export class EnergyBillListComponent implements OnInit {
         Hazineh:  " 120000 ریال",
         Mablagh:   " 120000 ریال",
       }
-    ];   
+    ];
   }
 
-    
+
   navigate(): void {
-  
+
     this.getEnergyBillList();
   }
 

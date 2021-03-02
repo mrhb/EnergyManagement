@@ -3,5 +3,28 @@
                [pageIndex]="pageIndex"
                [pageSizeOptions]="pageSizeOptions"
                [showFirstLastButtons]="showFirstLastButtons"
-               (page)=" changePage($event)">
+               *ngIf="matPaginator"
+               (page)="changePage($event)">
 </mat-paginator>
+
+<nav aria-label="Page navigation" *ngIf="!matPaginator">
+  <ul class="pagination">
+    <li class="page-item" [ngClass]="{'disabled': pageIndex === 0}">
+      <a class="page-link" (click)="changePagination(pageIndex - 1)">قبلی</a>
+    </li>
+    <ng-container *ngFor="let item of listPage; let i = index;">
+      <li class="page-item" [ngClass]="{'active': pageIndex == i}">
+        <a class="page-link" (click)="changePagination(i)">{{i + 1}}</a>
+      </li>
+    </ng-container>
+    <li class="page-item" [ngClass]="{'disabled': listPage.length <= pageIndex + 1}">
+      <a class="page-link" (click)="changePagination(pageIndex + 1)">بعدی</a>
+    </li>
+  </ul>
+</nav>
+
+<!--totalElements {{totalElements}} <br>-->
+<!--pageSize {{pageSize}} <br>-->
+<!--pageIndex {{pageIndex}} <br>-->
+<!--pageSizeOptions {{pageSizeOptions}} <br>-->
+<!--showFirstLastButtons {{showFirstLastButtons}} <br>-->
