@@ -96,13 +96,6 @@ export class PowerBillList {
   numberDays:Number;//تعداد روزها
   consumptionAmount: Number; // مبلغ مصرف
   totalConsumption:string;   // مصرف کل
-  id: string;
-  BillId: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Mablagh: string;
 }
 
 export class PowerBuildingAllocation {

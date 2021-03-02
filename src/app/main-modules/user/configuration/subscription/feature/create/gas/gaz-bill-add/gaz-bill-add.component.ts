@@ -29,16 +29,11 @@ export class GazBillAddComponent implements OnInit , AfterViewInit{
   gasId = '';
 
   moment = Moment;
-
   gasList: GasList[] = [];
-
 
   form: FormGroup;
   gasBillDto = new GasBillDto();
   gasAllocation = new GasAllocation();
-
-
-
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
