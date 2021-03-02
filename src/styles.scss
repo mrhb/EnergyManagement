@@ -459,3 +459,42 @@ html[dir="rtl"] .modal-header .close {
 
   }
 }
+
+.table th, .table td {
+  font-size: 14px;
+}
+
+.btn {
+  font-size: 14px !important;
+}
+
+.table .thead-light th {
+  color: #768192;
+  background-color: #d8dbe0;
+  border-color: #d8dbe0;
+}
+
+.card-header {
+  font-size: .975rem;
+  background-color: #ffffff !important;
+  h1 {
+    margin-bottom: 0;
+    font-size: .975rem !important;
+  }
+}
+
+.flex-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body {
+  .form-control:focus {
+    color: #768192;
+    background-color: #fff;
+    border-color: #958bef;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(50 31 219 / 25%);
+  }
+}

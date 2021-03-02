@@ -1,28 +1,26 @@
 <div class="col-12">
-    <div class="title-header d-flex justify-content-between align-items-center">
-      <div>
-        <h1>
-          <strong *ngIf="!climateId"> افزودن شهر و اقلیم  </strong>
-          <strong *ngIf="climateId">ویرایش شهر و اقلیم </strong>
-        </h1>
-      </div>
+  <div class="card">
+    <div class="card-header flex-card-header">
+      <h1>
+        <span *ngIf="!climateId">افزودن قبض آب </span>
+        <span *ngIf="climateId">ویرایش قبض آب </span>
+      </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/climateList'">بازگشت به لیست</button>
+        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/waterBillList'"> لیست قبوض آب</button>
       </div>
     </div>
+    <div class="card-body">
+      <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-city-tab" data-toggle="pill" href="#pills-city" role="tab" aria-controls="pills-city" aria-selected="true">اطلاعات شهر</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'disabled': climateId === ''}">
+          <a class="nav-link" id="pills-climate-tab" data-toggle="pill" href="#pills-climate" role="tab" aria-controls="pills-climate" aria-selected="false">اطلاعات آب و هوا</a>
+        </li>
+      </ul>
+      <hr>
 
-    <hr>
-    <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-city-tab" data-toggle="pill" href="#pills-city" role="tab" aria-controls="pills-city" aria-selected="true">اطلاعات شهر</a>
-      </li>
-      <li class="nav-item" [ngClass]="{'disabled': climateId === ''}">
-        <a class="nav-link" id="pills-climate-tab" data-toggle="pill" href="#pills-climate" role="tab" aria-controls="pills-climate" aria-selected="false">اطلاعات آب و هوا</a>
-      </li>
-    </ul>
-    <hr> 
-
-    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-city" role="tabpanel" aria-labelledby="pills-city-tab">
  
           <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
@@ -197,16 +195,45 @@
                   <td>{{weather.windMean}}</td>
                   <td>{{weather.sunRadMean}}</td>
 
-                  <td width="40"><span class="cursor-pointer fa fa-edit"
-                            [queryParams]="{id: weather.id}"
-                            [routerLink]="'/index/user/configuration/editclimate'"></span></td>
-                  <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteclimate(i, weather.id)"></span></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+              </tr>
+              <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
+                <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
+                <td>{{weather.month}}</td>
+                <td>{{weather.highDegMean}}</td>
+                <td>{{weather.lowDegMean}}</td>
+                <td>{{weather.DegMean}}</td>
+                <td>{{weather.highHumidMean}}</td>
+                <td>{{weather.lowHumidMean}}</td>
+                <td>{{weather.HumidMean}}</td>
+                <td>{{weather.windMean}}</td>
+                <td>{{weather.sunRadMean}}</td>
+
+                <td width="40"><span class="cursor-pointer fa fa-edit"
+                                     [queryParams]="{id: weather.id}"
+                                     [routerLink]="'/index/user/configuration/editclimate'"></span></td>
+                <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteclimate(i, weather.id)"></span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
 
 
         </div>
-    </div> 
+      </div>
+    </div>
+  </div>
+<!--    <div class="title-header d-flex justify-content-between align-items-center">-->
+<!--      <div>-->
+<!--        <h1>-->
+<!--          <strong *ngIf="!climateId"> افزودن شهر و اقلیم  </strong>-->
+<!--          <strong *ngIf="climateId">ویرایش شهر و اقلیم </strong>-->
+<!--        </h1>-->
+<!--      </div>-->
+<!--      <div class="d-flex">-->
+<!--        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/climateList'">بازگشت به لیست</button>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <hr>-->
+
 </div>

@@ -1,10 +1,9 @@
 <div class="col-12">
-    <div class="title-header d-flex justify-content-between align-items-center">
-      <div>
-        <h1>
-          <strong>لیست قبوض گاز </strong>
-        </h1>
-      </div>
+  <div class="card">
+    <div class="card-header flex-card-header">
+      <h1>
+        لیست قبوض گاز
+      </h1>
       <div class="d-flex">
         <button class="btn btn-primary" [routerLink]="'/index/user/configuration/gazBillAdd'">افزودن قبض گاز</button>
       </div>
@@ -41,13 +40,17 @@
         </tbody>
       </table>
     </div>
-    <app-paginator
-      [totalElements]="length"
-      [pageSize]="pageSize"
-      [pageIndex]="pageIndex"
-      [pageSizeOptions]="[1,5,10,15,25]"
-      [showFirstLastButtons]="true"
-      (page)="changePage($event)"
-    ></app-paginator>
   </div>
-  
+<!--    <div class="title-header d-flex justify-content-between align-items-center">-->
+<!--      <div>-->
+<!--        <h1>-->
+<!--          <strong>لیست قبوض گاز </strong>-->
+<!--        </h1>-->
+<!--      </div>-->
+<!--      <div class="d-flex">-->
+<!--        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/gazBillAdd'">افزودن قبض گاز</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <hr>-->
+
+  </div>

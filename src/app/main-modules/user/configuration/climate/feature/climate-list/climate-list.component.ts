@@ -12,6 +12,7 @@ export class ClimateListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;
+  totalPages = 1;
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
