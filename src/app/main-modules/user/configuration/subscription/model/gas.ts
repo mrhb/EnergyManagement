@@ -2,7 +2,7 @@ import {GroupGasEnum, UseTypeGasEnum} from './gasEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class GasDto {
-  name: string;
+  name: string;  // نام مشترک
   address: string;
   billingId: string;
   city: string;
@@ -31,9 +31,9 @@ export class GasBuildingAllocation {
 
 export class GasList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
+  name: string;  // نام مشترک
+  billingId: string;  // شناسه قبض
+  addressCode: string;  // کد آدرس
   useType: UseTypeGasEnum;
   createdAt: any;
   buildingNum: string;
