@@ -196,8 +196,6 @@
                   <td>{{weather.sunRadMean}}</td>
 
               </tr>
-              </thead>
-              <tbody>
               <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
                 <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
                 <td>{{weather.month}}</td>
