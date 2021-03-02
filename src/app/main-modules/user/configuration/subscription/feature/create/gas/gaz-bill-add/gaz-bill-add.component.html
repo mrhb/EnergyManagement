@@ -29,7 +29,7 @@
           <div class="form row">
 
             <!-- شناسه قبض -->
-            <div class="mb-4 col-md-3">
+            <!-- <div class="mb-4 col-md-3">
               <div class="w-100">
                 <label for="billingId" class="form-label">شناسه قبض</label>
                 <input class="form-control text-right" id="billingId" placeholder=""
@@ -38,7 +38,7 @@
                        name="billingId">
               </div>
               <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
-            </div>
+            </div> -->
 
             <!-- شناسه پرداخت -->
             <div class="mb-4 col-md-3">
@@ -221,14 +221,16 @@
       </div>
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
         <fieldset class="fieldset-border">
-          <legend>افزودن اشتراک</legend>
+          <legend>تخصیص اشتراک</legend>
           <div class="row">
             <div class="col-auto d-flex flex-column">
-              <label for="allocationPercentage" class="form-label">انتخاب اشتراک</label>
+              <!-- <label for="allocationPercentage" class="form-label">انتخاب اشتراک</label> -->
               <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListGas()" >انتخاب</button>
-              <span class="mr-2" style="font-size: 13px;" *ngIf="gasAllocation.name">
-                ({{gasAllocation.name}})
-              </span>
+              <div class="mb-4 col-md-12 mt-1">
+                <span class="mr-2" style="font-size: 13px;" *ngIf="gasAllocation.name">
+                  (نام مشترک: {{gasAllocation.name}} و شناسه قبض: {{gasAllocation.billingId}})
+                </span>
+              </div>
               <!-- <div class="d-flex align-items-center">
                 <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
               </div> -->
@@ -328,13 +330,14 @@
         </div>
         <div class="d-flex align-items-end">
           <div class="mb-4 col-md-6 mt-2">
-            <!-- <div class="w-100">
-              <label for="filterBuilding" class="form-label">عنوان اشتراک</label>
-              <input class="form-control text-right" id="filterBuilding" placeholder=""
-                     [(ngModel)]="filterBuilding"
-                     name="filterBuilding"
-              >
-            </div> -->
+            <label class="form-label">   جستجو برای انتخاب اشتراک مورد نظر     </label>
+            <div class="w-100">
+              <label for="filterBuilding" class="form-label">نام مشترک </label>
+              <input>
+              <!-- <input class="form-control text-right" id="filterBuilding" placeholder=""
+              [(ngModel)]="filterBuilding"
+              name="filterBuilding"> -->
+            </div>
           </div>
           <div class="mb-4 col-auto mt-2">
             <div class="btn btn-primary" (click)="getListGas()">
@@ -348,9 +351,8 @@
               <thead class="thead-light">
               <tr>
                 <th scope="col" width="40">#</th>
-                <th scope="col">عنوان ساختمان</th>
-                <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
+                <th scope="col">شناسه قبض</th>
+                <th scope="col">نام مشترک</th>
                 <th scope="col" width="80">عملیات</th>
               </tr>
               </thead>
@@ -358,9 +360,8 @@
               <ng-container *ngFor="let item of gasList; let i = index">
                 <tr>
                   <th scope="row" width="40">{{i + 1}}</th>
+                  <td>{{item.billingId}}</td>
                   <td>{{item.name}}</td>
-                  <td>{{buildingEnum[item.useType].toString()}}</td>
-                  <td>{{item.postalCode}}</td>
                   <td width="40">
                   <span class="cursor-pointer text-center btn btn-primary"
                         data-dismiss="modal"
