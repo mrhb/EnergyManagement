@@ -20,7 +20,6 @@
           <th scope="col"> تا تاریخ</th>
           <th scope="col" width="40"> تعداد روزها</th>
           <th scope="col"> میزان مصرف </th>
-          <th scope="col"> هزینه انرژی </th>
           <th scope="col" width="250"> مبلغ قابل پرداخت </th>
           <th scope="col" width="80" colspan="2" class="text-center">عملیات</th>
          
@@ -29,13 +28,12 @@
         <tbody>
         <tr *ngFor="let energy of energyBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * energyBillList.length))}}</th>
-          <td>{{energy.EnergyType}}</td>
-          <td>{{energy.StartDate}}</td>
-          <td>{{energy.EndDate}}</td>
-          <td>{{energy.Days}}</td>
-          <td>{{energy.Masraf}}</td>
-          <td>{{energy.Hazineh}}</td>
-          <td>{{energy.Mablagh}}</td>
+          <td>{{energy.energyCarrier}}</td>
+          <td>{{energy.fromDate}}</td>
+          <td>{{energy.toDate}}</td>
+          <td>{{energy.numberDays}}</td>
+          <td>{{energy.consumptionAmount}}</td>
+          <td>{{energy.payableAmount}}</td>
           <td width="40"><span class="cursor-pointer fa fa-edit"
                                [queryParams]="{id: energy.id}"
                                [routerLink]="'/index/user/configuration/energyBillAdd'"></span></td>

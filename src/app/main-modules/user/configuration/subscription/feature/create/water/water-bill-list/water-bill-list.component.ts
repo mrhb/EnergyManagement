@@ -7,7 +7,7 @@
 import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import Notiflix from 'notiflix';
-import {WaterService} from '../../../../service/water.service';
+// import {WaterService} from '../../../../service/water.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeWater} from '../../../../model/waterEnum';
 import {WaterBillList} from '../../../../model/water';

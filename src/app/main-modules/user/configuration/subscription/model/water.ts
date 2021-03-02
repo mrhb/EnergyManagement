@@ -53,12 +53,6 @@ export class WaterBillList {
   payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
 
   id: string;
-  BillId: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Mablagh: string;
 }
 
 export class WaterBillDto {
