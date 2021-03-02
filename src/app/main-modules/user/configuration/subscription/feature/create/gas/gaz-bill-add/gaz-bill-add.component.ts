@@ -8,10 +8,11 @@ import { GasReceiptService } from '../../../../service/gas-receipt.service';
 import { GasService } from '../../../../service/gas.service';
 import Notiflix from 'notiflix';
 
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GasBillDto} from '../../../../model/gas';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import { Moment } from 'src/app/shared/tools/moment';
 declare var $: any;
 
 @Component({
@@ -19,13 +20,15 @@ declare var $: any;
   templateUrl: './gaz-bill-add.component.html',
   styleUrls: ['./gaz-bill-add.component.scss']
 })
-export class GazBillAddComponent implements OnInit {
+export class GazBillAddComponent implements OnInit , AfterViewInit{
   pageSize = 20;
   pageIndex = 0;
   length = -1;
   touched = false;
   edited = false;
   gasId = '';
+
+  moment = Moment;
 
   gasList: GasList[] = [];
 
@@ -77,8 +80,49 @@ export class GazBillAddComponent implements OnInit {
     }
     
     );
+  
+  }
+  ngAfterViewInit(): void {
+    this.jQueryDate();
   }
 
+  jQueryDate(): void {
+    setTimeout(e1 => {
+      $('#fromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#fromDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.gasBillDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        if (this.gasBillDto.fromDate > this.gasBillDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
+            this.gasBillDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.toDate));
+          }, 200);
+        }
+      });
+      $('#toDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#toDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.gasBillDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.gasBillDto.toDate', this.gasBillDto.toDate);
+        if (this.gasBillDto.fromDate > this.gasBillDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
+            this.gasBillDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.fromDate));
+          }, 200);
+        }
+      });
+    }, 100);
+  }
 getOneBill(pId): void {
   this.gasReceiptService.getOneReceipt({
     id: pId
@@ -86,6 +130,8 @@ getOneBill(pId): void {
     .subscribe((res: any) => {
       if (res) {
         this.gasBillDto = res.data;
+        $('#fromDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.fromDate));
+        $('#toDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.toDate));
         this.gasAllocation= res.data.gasSharing;
         // this.setEnumUseType();
       }

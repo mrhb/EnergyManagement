@@ -57,25 +57,33 @@
                 <div class="w-100">
                   <label for="fromDate" class="form-label">تاریخ شروع </label>
                   <input class="form-control text-right" id="fromDate" placeholder=""
-                         [(ngModel)]="gasBillDto.fromDate"
-                         formControlName="fromDate"
-                         name="fromDate">
+                  formControlName="fromDate"
+                  name="fromDate">
                 </div>
                 <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
-            </div>
+              </div>
+              
+              <!-- (ngModel)="gasBillDto.fromDate" -->
+
+            <!-- <div class="mb-4 col-md-3">
+              <label for="startDate" class="form-label">از تاریخ</label>
+              <input class="form-control text-right" id="startDate" placeholder=""
+                     name="startDate"
+              >
+            </div> -->
 
             <!-- تاریخ اتمام -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="toDate" class="form-label">تاریخ اتمام </label>
                   <input class="form-control text-right" id="toDate" placeholder=""
-                         [(ngModel)]="gasBillDto.toDate"
-                         formControlName="toDate"
-                         name="toDate">
+                  formControlName="toDate"
+                  name="toDate">
                 </div>
                 <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
-            </div>
-
+              </div>
+              
+              <!-- [(ngModel)]="gasBillDto.toDate" -->
             <!-- تعداد روز دوره -->
             <div class="mb-4 col-md-3">
                 <div class="w-100">
