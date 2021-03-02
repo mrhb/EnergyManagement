@@ -1,8 +1,8 @@
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
-import {UseTypeWater} from './waterEnum';
+// import {UseTypeWater} from './waterEnum';
 
 export class EnergyDto {
-  name: string;
+  name: string; //نام مشترک 
   address: string;
   energyCarrier: string;
   energyUnit: string;
@@ -17,7 +17,7 @@ export class EnergyBuildingAllocation {
   buildingId: string;
   createdAt: any;
   id: string;
-  name: string;
+  name: string; //نام مشترک 
   postalCode: string;
   updatedAt: any;
   useType: UseTypeBuildingEnum;
@@ -25,10 +25,10 @@ export class EnergyBuildingAllocation {
 
 export class EnergyList {
   id: string;
-  name: string;
+  name: string; //نام مشترک 
   billingId: string;
   addressCode: string;
-  useType: UseTypeWater;
+  // useType: UseTypeWater;
   createdAt: any;
   buildingNum: string;
 }
@@ -56,11 +56,7 @@ export class EnergyBillDto {
   otherCost: string; // سایر هزینه ها
   payableAmount: string; //  مبلغ قابل پرداخت  
 }
-// otherCost: {type: Number, required: true}, // سایر هزینه ها
 
-
-// name: {type: String, required: true}, // نام مشترک
-// address: {type: String, required: true}, // نشانی محل مصرف
-// energyCarrier: {type: String, required: true}, //  انرژی
-// energyUnit: {type: String}, // واحد انرژی
-// shareNumber: {type: String}, // شماره کنتور
+export class EnergyAllocation {
+  name: string;
+}
