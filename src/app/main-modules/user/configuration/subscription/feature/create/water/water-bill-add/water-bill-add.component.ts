@@ -91,7 +91,7 @@ createReceipt(): void {
     this.waterReceiptService.createReceipt(this.waterBillDto)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+          Notiflix.Notify.Success('ایجاد قبض آب با موفقیت انجام شد.');
           this.waterId = res.data;
           setTimeout(() => {
             $('#pills-building-tab').click();
@@ -104,7 +104,7 @@ createReceipt(): void {
     this.waterReceiptService.updateReceipt({id: this.waterId}, this.waterBillDto)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
+          Notiflix.Notify.Success('ویرایش قبض آب با موفقیت انجام شد.');
           // this.router.navigate(['/index/user/configuration/waterList']);
         }
       });
