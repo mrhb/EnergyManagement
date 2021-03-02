@@ -39,17 +39,15 @@ export class GasList {
   buildingNum: string;
 }
 
-
 export class GasBillList {
-  id: string;
-  BillId: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Mablagh: string;
-}
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
+  consumptionDurat: string; // مصرف دوره
+  payableAmount: string; //    مبلغ قابل پرداخت      
 
+}
 
 export class GasBillDto {
   gasSharingId:string // (id)شناسه اشتراک
