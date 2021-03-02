@@ -42,12 +42,11 @@ export class EnergyBillAddComponent implements OnInit {
   ngOnInit(): void {
     this.form=this.formBuilder.group({
       energyCarrier: [''], //حامل انرژی 
-      energyCost: [''],
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       numberDays:[], // روزها      
       consumptionAmount:[], // میزان مصرف
-      otherCost:[], // سایر هزینه ها      
+      otherAmount:[], // سایر هزینه ها      
       payableAmount:[], //  مبلغ قابل پرداخت     
     }
     );
@@ -112,5 +111,6 @@ export class EnergyBillAddComponent implements OnInit {
   }
   selectEnergy(item): void {
     this.energyAllocation = item;
+    this.energyBillDto.energySharingId=item.id;
   }
-  }
+}

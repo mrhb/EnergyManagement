@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <span *ngIf="!energyId">افزودن قبض آب </span>
-        <span *ngIf="energyId">ویرایش قبض آب </span>
+        <span *ngIf="!energyId">افزودن قبض انرژی </span>
+        <span *ngIf="energyId">ویرایش قبض انرژی </span>
       </h1>
       <div class="d-flex">
         <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/energyBillList'"> لیست قبوض انرژی</button>
@@ -33,7 +33,7 @@
               <!-- <div class="col-auto d-flex flex-column"> -->
                 <!-- <label for="allocationPercentage" class="form-label"> اشتراک</label> -->
                 <!-- <div class="d-flex align-items-center"> -->
-                   <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" > انتخاب مشترک</button>
+                   <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()"> انتخاب اشتراک</button>
                  <!-- <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
                     ({{buildingAllocation.name}})
                   </span>-->
@@ -110,25 +110,25 @@
                 <!-- هزینه انرژی -->
                 <div class="mb-4 col-md-3"> 
                   <div class="w-100">
-                    <label for="energyCost" class="form-label">هزینه انرژی</label>
-                    <input class="form-control text-right" id="energyCost" placeholder=""
-                    [(ngModel)]="energyBillDto.energyCost"
-                    formControlName="energyCost"
-                    name="energyCost">
+                    <label for="consumptionAmount" class="form-label">هزینه انرژی</label>
+                    <input class="form-control text-right" id="consumptionAmount" placeholder=""
+                    [(ngModel)]="energyBillDto.consumptionAmount"
+                    formControlName="consumptionAmount"
+                    name="consumptionAmount">
                   </div>
-                  <app-alert-error [data]="form.controls['energyCost']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
                 </div>
                 
                 <!-- سایر هزینه ها      -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="otherCost" class="form-label"> سایر هزینه ها</label>
-                    <input class="form-control text-right" id="otherCost" placeholder=""
-                           [(ngModel)]="energyBillDto.otherCost"
-                           formControlName="otherCost"
-                           name="otherCost">
+                    <label for="otherAmount" class="form-label"> سایر هزینه ها</label>
+                    <input class="form-control text-right" id="otherAmount" placeholder=""
+                           [(ngModel)]="energyBillDto.otherAmount"
+                           formControlName="otherAmount"
+                           name="otherAmount">
                   </div>
-                  <app-alert-error [data]="form.controls['otherCost']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['otherAmount']" [touched]="touched"></app-alert-error>
                 </div>  
 
                 <!--   مبلغ قابل پرداخت      -->
@@ -155,14 +155,14 @@
       </div>
       <div class="tab-pane fade" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
         <fieldset class="fieldset-border">
-          <legend>انتخاب مشترک</legend>
+          <legend>انتخاب اشتراک</legend>
           <div class="row">
             <div class="col-auto d-flex flex-column">
               <!-- <label for="allocationPercentage" class="form-label"> اشتراک</label> -->
               <!-- <div class="d-flex align-items-center"> -->
                  <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()">انتخاب </button>
                <span class="mr-2" style="font-size: 13px;" *ngIf="energyAllocation.name">
-                (نام مشترک: {{energyAllocation.name}})
+                (نام اشتراک: {{energyAllocation.name}})
               </span>
               </div> 
             <!-- </div> -->

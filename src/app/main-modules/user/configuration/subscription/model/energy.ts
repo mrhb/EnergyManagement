@@ -42,15 +42,16 @@ export class EnergyBillList {
 }
 
 export class EnergyBillDto {
+  energySharingId:string ;//شناسه اشتراک
   energyCarrier: string; //حامل انرژی 
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   numberDays: string; // روزها
-  consumptionAmount: string; // میزان مصرف
-  energyCost: string; // هزینه انرژی
-  otherCost: string; // سایر هزینه ها
-  payableAmount: string; //  مبلغ قابل پرداخت  
-}
+  consumptionDurat:string; // مصرف دوره- میزان مصرف 
+  consumptionAmount:string; // بهای مصرف-هزینه انرژی
+  otherAmount: string; // سایر هزینه ها
+  payableAmount: string; //  مبلغ قابل پرداخت 
+  }
 
 export class EnergyAllocation {
   name: string;
