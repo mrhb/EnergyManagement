@@ -34,9 +34,9 @@
           <td>{{gasBill.Masraf}}</td>
           <td>{{gasBill.Mablagh}}</td>
           <td width="40"><span class="cursor-pointer fa fa-edit"
-                               [queryParams]="{id: gas.id}"
-                               [routerLink]="'/index/user/configuration/editGas'"></span></td>
-          <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gas.id)"></span></td>
+                               [queryParams]="{id: gasBill.id}"
+                               [routerLink]="'/index/user/configuration/gazBillAdd'"></span></td>
+          <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gasBill.id)"></span></td>
         </tr>
         </tbody>
       </table>
