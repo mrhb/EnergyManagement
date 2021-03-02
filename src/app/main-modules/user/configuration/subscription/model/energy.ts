@@ -1,5 +1,4 @@
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
-// import {UseTypeWater} from './waterEnum';
 
 export class EnergyDto {
   name: string; //نام مشترک 
@@ -34,17 +33,13 @@ export class EnergyList {
 }
 
 export class EnergyBillList {
-  id: string;
-  EnergyType: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Hazineh: string;
-  Mablagh: string;
-  
+  energyCarrier: string; //حامل انرژی 
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+  consumptionAmount: string; // میزان مصرف
+  payableAmount: string; //  مبلغ قابل پرداخت  
 }
-
 
 export class EnergyBillDto {
   energyCarrier: string; //حامل انرژی 
