@@ -24,31 +24,30 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <form [formGroup]="form" class="w-100"> <!-- (ngSubmit)="createGas()"> -->
-          <div class="form row">
 
-            <fieldset class="fieldset-border">
-
-              <legend>مشترک </legend>
-            <div class="form row">
-              <!-- <div class="col-auto d-flex flex-column"> -->
-                <!-- <label for="allocationPercentage" class="form-label"> اشتراک</label> -->
-                <!-- <div class="d-flex align-items-center"> -->
-                   <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()"> انتخاب اشتراک</button>
-                 <!-- <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
-                    ({{buildingAllocation.name}})
-                  </span>-->
-                <!-- </div>  -->
-              <!-- </div> -->
-              <hr>
+          <fieldset class="fieldset-border">
+            <legend>تخصیص اشتراک</legend>
+            <div class="row">
+              <div class="col-auto d-flex flex-column">
+              <div class="d-flex align-items-center">
+                <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()">انتخاب</button>
+                <span class="mr-2" style="font-size: 13px;" *ngIf="energyAllocation.name">
+                    (نام مشترک: {{energyAllocation.name}} و حامل انرژی: {{energyAllocation.energyCarrier}})
+                  </span>
+                </div>
+              </div>
             </div>
+            <hr>
           </fieldset>
+
+          <div class="form row">
 
             <fieldset class="fieldset-border"> 
               <legend>قبض انرژی  </legend>
                <div class="form row">
               <hr>
               <!-- نوع انرژی مصرفی -->
-                <div class="mb-4 col-md-3">
+                <!-- <div class="mb-4 col-md-3">
                   <div class="w-100">
                     <label for="energyCarrier" class="form-label">نوع انرژی مصرفی </label>
                     <input class="form-control text-right" id="energyCarrier" placeholder=""
@@ -57,14 +56,13 @@
                           name="energyCarrier">
                   </div>
                   <app-alert-error [data]="form.controls['energyCarrier']" [touched]="touched"></app-alert-error>
-                </div>
+                </div> -->
 
                  <!-- تاریخ شروع   -->
                 <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="fromDate" class="form-label">تاریخ شروع </label>
                   <input class="form-control text-right" id="fromDate" placeholder=""
-                         [(ngModel)]="energyBillDto.fromDate"
                          formControlName="fromDate"
                          name="fromDate">
                 </div>
@@ -76,7 +74,6 @@
                 <div class="w-100">
                   <label for="toDate" class="form-label">تاریخ اتمام </label>
                   <input class="form-control text-right" id="toDate" placeholder=""
-                         [(ngModel)]="energyBillDto.toDate"
                          formControlName="toDate"
                          name="toDate">
                 </div>
@@ -144,109 +141,14 @@
                 </div>  
             </div>
           </fieldset>
- 
-            <!-- <div class="col-12">
-              <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!energyId">ثبت</button>
-              <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="energyId">ویرایش</button>
-            </div> -->
-  
           </div>
         </form>
       </div>
-      <div class="tab-pane fade" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
-        <fieldset class="fieldset-border">
-          <legend>انتخاب اشتراک</legend>
-          <div class="row">
-            <div class="col-auto d-flex flex-column">
-              <!-- <label for="allocationPercentage" class="form-label"> اشتراک</label> -->
-              <!-- <div class="d-flex align-items-center"> -->
-                 <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListEnergy()">انتخاب </button>
-               <span class="mr-2" style="font-size: 13px;" *ngIf="energyAllocation.name">
-                (نام اشتراک: {{energyAllocation.name}})
-              </span>
-              </div> 
-            <!-- </div> -->
-            <!-- <div class="col-md-3"> -->
-              <!-- <div class="w-100">
-                <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
-                <input class="form-control text-right" id="allocationPercentage" placeholder=""
-                       [(ngModel)]="buildingAllocation.allocationPercentage"
-                       name="allocationPercentage"
-                >
-              </div> -->
-            <!-- </div> -->
-          </div>
-          <hr>
-          <!-- <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="addBuildingAllocation()">ثبت اشتراک</button>
-          <button class="btn btn-primary" *ngIf="editedAllocation" (click)="addBuildingAllocation()">ثبت اشتراک</button> -->
-        </fieldset>
-  
-        <!-- <div class="table-responsive" *ngIf="gasDto.buildingList?.length > 0">
-          <table class="table table-striped table-bordered">
-            <thead class="thead-light">
-            <tr>
-              <th scope="col" width="40">#</th>
-              <th scope="col">عنوان ساختمان</th>
-              <th scope="col">نوع</th>
-              <th scope="col">کد پستی</th>
-              <th scope="col" width="140">درصد تخصیص</th>
-              <th scope="col" width="80" colspan="2">عملیات</th>
-            </tr>
-            </thead>
-            <tbody>
-            <ng-container *ngFor="let item of gasDto.buildingList; let i = index">
-              <tr>
-                <th scope="col" width="40">#</th>
-                <th scope="col">عنوان ساختمان</th>
-                <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
-                <th scope="col" width="140">درصد تخصیص</th>
-                <th scope="col" width="80" colspan="2">عملیات</th>
-              </tr>
-              </thead>
-              <tbody>
-              <ng-container *ngFor="let item of gasDto.buildingList; let i = index">
-                <tr>
-                  <th scope="row" width="40">{{i + 1}}</th>
-                  <td>{{item.name}}</td>
-                  <td>{{buildingEnum[item.useType].toString()}}</td>
-                  <td>{{item.postalCode}}</td>
-                  <td>{{item.allocationPercentage}}</td>
-                  <td width="40" class="text-center">
-                    <span class="cursor-pointer text-center fa fa-edit"
-                          (click)="editAllocationPercentage(item)">
-                    </span>
-                  </td>
-                  <td width="40" class="text-center">
-                    <span class="cursor-pointer text-center fa fa-trash"
-                          (click)="deleteBuilding(item, i)">
-                    </span>
-                  </td>
-                </tr>
-              </ng-container>
-              </tbody>
-            </table>
-          </div> -->
-        </div>
+
+ 
       </div>
     </div>
   </div>
-<!--    <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--      <div>-->
-<!--        <h1>-->
-<!--          <strong *ngIf="!energyId">افزودن قبض انرژی </strong>-->
-<!--          <strong *ngIf="energyId">ویرایش قبض انرژی </strong>-->
-<!--        </h1>-->
-<!--      </div>-->
-<!--      <div class="d-flex">-->
-<!--        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/energyBillList'"> لیست قبوض انرژی</button>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <hr>-->
-
-
-
 
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -281,8 +183,8 @@
                 <th scope="col" width="40">#</th>
                 <th scope="col">نام مشترک</th>
             <!--     <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
-                <th scope="col" width="80">عملیات</th>-->
+                <th scope="col">کد پستی</th>-->
+                <th scope="col" width="80">عملیات</th> 
                </tr>
               </thead>
               <tbody> 

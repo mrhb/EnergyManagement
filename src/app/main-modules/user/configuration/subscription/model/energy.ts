@@ -55,4 +55,5 @@ export class EnergyBillDto {
 
 export class EnergyAllocation {
   name: string;
+  energyCarrier: string; //حامل انرژی 
 }
