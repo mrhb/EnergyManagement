@@ -67,6 +67,7 @@ export class WaterBillList {
 
 
 export class WaterBillDto {
+  waterSharingId:string //شناسه اشتراک
   billingId: string; // شناسه قبض
   paymentCode: string; // شناسه پرداخت
   fromDate: string; // تاریخ شروع 
@@ -83,6 +84,7 @@ export class WaterBillDto {
 export class WaterAllocation {
   name: string;
   billingId: string;
+  waterSharingId: string;
 }
 
 
