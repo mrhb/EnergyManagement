@@ -285,4 +285,7 @@
       </div>
     </div>
   </div>
-  <button class="btn btn-primary"  (click)="createReceipt()">ثبت اشتراک</button>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!waterId" (click)="createReceipt()">ثبت</button>
+    <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="waterId" (click)="createReceipt()">ویرایش</button>
+  </div>
