@@ -68,7 +68,6 @@
                         <div class="w-100">
                           <label for="fromDate" class="form-label">تاریخ شروع </label>
                           <input class="form-control text-right" id="fromDate" placeholder=""
-                                  [(ngModel)]="powerBillDto.fromDate"
                                   formControlName="fromDate"
                                   name="fromDate">
                         </div>
@@ -81,7 +80,6 @@
                           <div class="w-100">
                             <label for="toDate" class="form-label">تاریخ اتمام </label>
                             <input class="form-control text-right" id="toDate" placeholder=""
-                                  [(ngModel)]="powerBillDto.toDate"
                                   formControlName="toDate"
                                   name="toDate">
                           </div>
@@ -104,21 +102,8 @@
                      </tr> 
                 </table>
               </div>
-
-
-
- 
-
- 
-
-
-            <!-- <div class="col-12">
-              <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!powerId">ثبت</button>
-              <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="powerId">ویرایش</button>
-            </div> --> 
              </fieldset>
           </div>
-          
         </form> 
 
         <form [formGroup]="formIntermed" class="w-100" >
@@ -126,9 +111,6 @@
             <fieldset class="fieldset-border">
               <legend>شرح مصارف  </legend>
             <div class="container">
-              <!-- <h2>اطلاعات تکمیلی </h2> -->
-              <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"> انتخاب </button> -->
-              <!-- <div id="demo" class="collapse"> -->
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover">
                     <thead class="thead-light">
@@ -578,7 +560,6 @@
                       </tbody>
                     </table>
                  </div>
-              <!-- </div> -->
             </div>
           </fieldset>
           </div>
@@ -688,10 +669,6 @@
                     <th scope="col">آبونمان</th>
                     <th scope="col"> بهای قدرت </th>
                     <th scope="col"> بهای فصل </th>
-                    <!-- <th scope="col"> جریمه بدی مصرف	بهای برق دوره </th> -->
-                    <!-- <th scope="col"> مالیات بر ارزش افزوده </th> -->
-                    <!-- <th scope="col"> عوارض برق </th> -->
-                    <!-- <th scope="col"> بدهکاری	کسر هزار ریال </th> -->
                     <th scope="col"> مبلغ قابل پرداخت </th>
                    </tr>
                 </thead>
@@ -715,10 +692,9 @@
 
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
          <fieldset class="fieldset-border">
-          <legend>انتخاب اشتراک</legend>
+          <legend>تخصیص اشتراک</legend>
           <div class="row">
             <div class="col-auto d-flex flex-column">
-              <!-- <label for="allocationPercentage" class="form-label">انتخاب اشتراک</label> -->
              <div class="d-flex align-items-center">
               <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
               <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
@@ -729,8 +705,6 @@
           </div>
 
           <hr>
-          <!-- <button class="btn btn-primary" *ngIf="!editedAllocation" (click)="createReceipt()">ثبت اشتراک</button>
-          <button class="btn btn-primary" *ngIf="editedAllocation" (click)="createReceipt()">ثبت اشتراک</button> -->
         </fieldset>
   
          <!-- <div class="table-responsive" *ngIf="powerDto.buildingList?.length > 0"> 
@@ -785,10 +759,6 @@
           <div class="mb-4 col-md-6 mt-2">
             <div class="w-100">
               <label for="filterBuilding" class="form-label">عنوان اشتراک</label>
-              <!-- <input class="form-control text-right" id="filterBuilding" placeholder=""
-                     [(ngModel)]="filterBuilding"
-                     name="filterBuilding"
-              > -->
             </div>
           </div>
           <div class="mb-4 col-auto mt-2">
@@ -804,8 +774,6 @@
               <tr>
                 <th scope="col" width="40">#</th>
                 <th scope="col">نام مشترک</th>
-                <!-- <th scope="col">نوع</th> -->
-                <!-- <th scope="col">کد آدرس</th> -->
                 <th scope="col" width="80">عملیات</th>
               </tr>
               </thead>
@@ -814,8 +782,6 @@
                 <tr>
                   <th scope="row" width="40">{{i + 1}}</th>
                   <td>{{item.name}}</td>
-                  <!-- <td>{{buildingEnum[item.useType].toString()}}</td> -->
-                  <!-- <td>{{item.addressCode}}</td> -->
                   <td width="40">
                   <span class="cursor-pointer text-center btn btn-primary"
                         data-dismiss="modal"
