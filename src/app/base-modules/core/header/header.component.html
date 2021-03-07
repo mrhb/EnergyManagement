@@ -21,7 +21,12 @@
              <li><div class="dropdown-divider"></div></li>
              <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">اطلاعات تاسیسات</a></li>
              <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">اطلاعات تجهیزات</a></li>
-             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">اطلاعات تولید انرژی</a></li>
+             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات تولید انرژی</a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تعریف نیروگاه</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تولید انرژی نیروگاه</a></li>
+              </ul>
+            </li>
 
              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات قبوض</a>
               <ul class="dropdown-menu">
@@ -33,6 +38,8 @@
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'"> ورود قبض گاز</a></li>
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'"> ورود قبض آب</a></li>
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> ورود قبض انرژی</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> تعرفه قبض برق </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">  تعرفه قبض گاز</a></li>
                 
                 
                 <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>-->
@@ -129,7 +136,11 @@
   </nav>
 
   <div class="d-flex align-items-center">
-
+    <li class="nav-item dropdown">
+      <a href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        درباره ما
+      </a>
+    </li>
 
     <div class="user-info">
       <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
@@ -151,9 +162,15 @@
           </button>
           <button class="dropdown-item text-right" type="button"
                   (click)="logOut()">
+            <span class="fa fa-diamond"></span>
+            <span>سوابق ورود و خروج </span>
+          </button>
+          <button class="dropdown-item text-right" type="button"
+                  (click)="logOut()">
             <span class="fa fa-power-off"></span>
             <span>خروج</span>
           </button>
+
         </div>
       </div>
 
