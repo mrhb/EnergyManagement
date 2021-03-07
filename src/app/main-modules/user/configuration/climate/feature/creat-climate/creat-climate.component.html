@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <span *ngIf="!climateId">افزودن قبض آب </span>
-        <span *ngIf="climateId">ویرایش قبض آب </span>
+        <span *ngIf="!climateId">افزودن اقلیم </span>
+        <span *ngIf="climateId">ویرایش اقلیم </span>
       </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/waterBillList'"> لیست قبوض آب</button>
+        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/climateList'"> لیست اطلاعات اقلیمی</button>
       </div>
     </div>
     <div class="card-body">

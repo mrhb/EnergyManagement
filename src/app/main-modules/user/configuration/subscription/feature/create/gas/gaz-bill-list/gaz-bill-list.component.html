@@ -32,7 +32,8 @@
           <td>{{gasBill.numberDays}}</td>
           <td>{{gasBill.consumptionDurat}}</td>
           <td>{{gasBill.payableAmount}}</td>
-          <td width="40"><span class="cursor-pointer fa fa-edit"
+          <!-- <td width="40"><span class="cursor-pointer fa fa-edit" -->
+            <td width="40"><span class="cursor-pointer fa fa-file-excel-o"
                                [queryParams]="{id: gasBill.id}"
                                [routerLink]="'/index/user/configuration/gazBillAdd'"></span></td>
           <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gasBill.id)"></span></td>

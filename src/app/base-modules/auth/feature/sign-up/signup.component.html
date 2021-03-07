@@ -32,7 +32,7 @@
               </div>
               <app-alert-error [data]="userForm.controls['lastName']" [touched]="touched"></app-alert-error>
             </div>
-            <div class="mb-4 col-md-6">
+            <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="phone" class="form-label">شماره تلفن ثابت</label>
                 <input class="form-control text-right" id="phone" placeholder="021-12345678"
@@ -43,8 +43,8 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['phone']" [touched]="touched"></app-alert-error>
-            </div>
-            <div class="mb-4 col-md-6">
+            </div> -->
+            <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="mobile" class="form-label">شماره همراه</label>
                 <input class="form-control text-right" id="mobile" (change)="checkMobileIsExist()" placeholder=""
@@ -55,8 +55,8 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['mobile']" [touched]="touched"></app-alert-error>
-            </div>
-            <div class="mb-4 col-md-6">
+            </div> -->
+            <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="email" class="form-label">ایمیل</label>
                 <input class="form-control text-right" id="email" (change)="checkEmailIsExist()" placeholder=""
@@ -66,8 +66,8 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
-            </div>
-            <div class="mb-4 col-md-6">
+            </div> -->
+            <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="organizationalUnit" class="form-label">واحد سازمانی</label>
                 <input class="form-control text-right" id="organizationalUnit" placeholder=""
@@ -78,10 +78,10 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['organizationalUnit']" [touched]="touched"></app-alert-error>
-            </div>
+            </div> -->
             <div class="mb-4 col-md-4">
               <div class="w-100">
-                <label for="organizationalLevel" class="form-label">رتبه سازمانی</label>
+                <label for="organizationalLevel" class="form-label">سمت سازمانی</label>
                 <input class="form-control text-right" id="organizationalLevel" placeholder=""
                        [(ngModel)]="dto.organizationalLevel"
                        formControlName="organizationalLevel"
@@ -91,7 +91,7 @@
               </div>
               <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
             </div>
-            <div class="mb-4 col-md-4">
+            <!-- <div class="mb-4 col-md-4">
               <div class="w-100">
                 <label for="province" class="form-label">استان</label>
                 <input class="form-control text-right" id="province" placeholder=""
@@ -112,8 +112,8 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['city']" [touched]="touched"></app-alert-error>
-            </div>
-            <div class="mb-4 col-12">
+            </div> -->
+            <!-- <div class="mb-4 col-12">
               <div class="w-100">
                 <label for="address" class="form-label">آدرس</label>
                 <textarea class="form-control text-right" id="address" placeholder=""
@@ -123,7 +123,7 @@
                 ></textarea>
               </div>
               <app-alert-error [data]="userForm.controls['address']" [touched]="touched"></app-alert-error>
-            </div>
+            </div> -->
             <div class="col-12">
               <hr class="m-1">
             </div>
