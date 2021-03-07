@@ -60,7 +60,7 @@ export class GasBillDto {
   currentCounter: string; //  رقم فعلی شماشگر
   consumptionDurat: string; // مصرف دوره
   totalCounter: string; //  کارکرد شمارشگر
-  estandardConsumption: string; //مصرف استاندارد  
+  estandardConsumption: string; //مصرف دوره  
   consumptionAmount: string; // بهای گاز مصرفی  
   subscription: string; //  آبونمان   
   gasTolls: string; //  عوارض گاز 
