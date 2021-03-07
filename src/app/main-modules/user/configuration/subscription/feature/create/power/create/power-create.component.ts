@@ -83,7 +83,7 @@ export class PowerCreateComponent implements OnInit {
       useType: ['', [Validators.required]],
       useCode: ['', [Validators.required]],
       group: [''],
-      capacity: [''],
+      // capacity: [''],
       coefficient: [''],
       voltageType: [''],
       powerSupplyVoltage: [''],
