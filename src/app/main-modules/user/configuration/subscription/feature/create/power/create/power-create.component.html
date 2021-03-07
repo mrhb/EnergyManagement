@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <strong *ngIf="!powerId">افزودن اشتراک برق </strong>
-        <strong *ngIf="powerId">ویرایش اشتراک برق </strong>
+        <strong *ngIf="!powerId">افزودن کنتور برق </strong>
+        <strong *ngIf="powerId">ویرایش کنتور برق </strong>
       </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'">بازگشت به لیست</button>
+        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'">  لیست کنتورها</button>
       </div>
     </div>
 
@@ -35,6 +35,21 @@
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
+
+              <div class="mb-4 col-12">
+                <div class="w-100">
+                  <label for="address" class="form-label">نشانی محل مصرف</label>
+                  <textarea class="form-control text-right" id="address" placeholder=""
+                            [(ngModel)]="powerDto.address"
+                            formControlName="address"
+                            name="address"
+                  ></textarea>
+                </div>
+                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+              </div>
+
+
+              <!-- شناسه قبض  -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="billingId" class="form-label">شناسه قبض</label>
@@ -46,61 +61,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="systemPass" class="form-label">رمز رایانه</label>
-                  <input class="form-control text-right" id="systemPass" placeholder=""
-                         [(ngModel)]="powerDto.systemPass"
-                         formControlName="systemPass"
-                         name="systemPass"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['systemPass']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="city" class="form-label">شهر</label>
-                  <input class="form-control text-right" id="city" placeholder=""
-                         [(ngModel)]="powerDto.city"
-                         formControlName="city"
-                         name="city"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="domainCode" class="form-label">کد حوزه</label>
-                  <input class="form-control text-right" id="domainCode" placeholder=""
-                         [(ngModel)]="powerDto.domainCode"
-                         formControlName="domainCode"
-                         name="domainCode"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="addressCode" class="form-label">کد آدرس</label>
-                  <input class="form-control text-right" id="addressCode" placeholder=""
-                         [(ngModel)]="powerDto.addressCode"
-                         formControlName="addressCode"
-                         name="addressCode"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="numberShare" class="form-label">شماره اشتراک</label>
-                  <input class="form-control text-right" id="numberShare" placeholder=""
-                         [(ngModel)]="powerDto.numberShare"
-                         formControlName="numberShare"
-                         name="numberShare"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
-              </div>
+
+              <!-- شماره پرونده  -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="fileNumber" class="form-label">شماره پرونده</label>
@@ -113,18 +75,67 @@
                 <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
               </div>
 
-
-              <div class="mb-4 col-md-3">
+              <!-- رمز رایانه  -->
+               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="serialShare" class="form-label">سریال اشتراک</label>
-                  <input class="form-control text-right" id="serialShare" placeholder=""
-                         [(ngModel)]="powerDto.serialShare"
-                         formControlName="serialShare"
-                         name="serialShare"
+                  <label for="systemPass" class="form-label">رمز رایانه</label>
+                  <input class="form-control text-right" id="systemPass" placeholder=""
+                         [(ngModel)]="powerDto.systemPass"
+                         formControlName="systemPass"
+                         name="systemPass"
                   >
                 </div>
-                <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['systemPass']" [touched]="touched"></app-alert-error>
               </div>
+
+              <!-- شماره بدنه کنتور -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="addressCode" class="form-label">شماره بدنه کنتور</label>
+                  <input class="form-control text-right" id="addressCode" placeholder=""
+                         [(ngModel)]="powerDto.addressCode"
+                         formControlName="addressCode"
+                         name="addressCode"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!-- نوع کنتور -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="group" class="form-label">نوع کنتور</label>
+                  <select id="group"
+                          class="form-control text-right"
+                          [(ngModel)]="powerDto.group"
+                          formControlName="group"
+                          name="group">
+                    <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!-- نوع ولتاژ -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="voltageType" class="form-label">نوع ولتاژ</label>
+                  <select id="voltageType"
+                          class="form-control text-right"
+                          [(ngModel)]="powerDto.voltageType"
+                          formControlName="voltageType"
+                          name="voltageType">
+                    <option *ngFor="let item of voltageTypeEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!--  عنوان تعرفه -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="useType" class="form-label">عنوان تعرفه</label>
@@ -141,9 +152,11 @@
                 </div>
                 <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
+
+              <!--  کد تعرفه -->
               <div class="mb-4 col-md-3" *ngIf="powerDto.useType">
                 <div class="w-100">
-                  <label for="useCode" class="form-label">کد تعرفه</label>
+                  <label for="useCode" class="form-label">کد تعرفه </label>
                   <select id="useCode"
                           class="form-control text-right"
                           [(ngModel)]="powerDto.useCode"
@@ -156,58 +169,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="group" class="form-label">گروه</label>
-                  <select id="group"
-                          class="form-control text-right"
-                          [(ngModel)]="powerDto.group"
-                          formControlName="group"
-                          name="group">
-                    <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
-                      {{item.value}}
-                    </option>
-                  </select>
-                </div>
-                <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="capacity" class="form-label">ظرفیت</label>
-                  <input class="form-control text-right" id="capacity" placeholder=""
-                         [(ngModel)]="powerDto.capacity"
-                         formControlName="capacity"
-                         name="capacity"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="coefficient" class="form-label">ضریب اشتراک</label>
-                  <input class="form-control text-right" id="coefficient" placeholder=""
-                         [(ngModel)]="powerDto.coefficient"
-                         formControlName="coefficient"
-                         name="coefficient"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="voltageType" class="form-label">نوع ولتاژ</label>
-                  <select id="voltageType"
-                          class="form-control text-right"
-                          [(ngModel)]="powerDto.voltageType"
-                          formControlName="voltageType"
-                          name="voltageType">
-                    <option *ngFor="let item of voltageTypeEnum | enumKeyValue" [value]="item.key">
-                      {{item.value}}
-                    </option>
-                  </select>
-                </div>
-                <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
-              </div>
+
+              <!--   ولتاژ تغذیه -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
                   <label for="powerSupplyVoltage" class="form-label">ولتاژ تغذیه</label>
@@ -223,6 +186,86 @@
                 </div>
                 <app-alert-error [data]="form.controls['powerSupplyVoltage']" [touched]="touched"></app-alert-error>
               </div>
+              
+              
+              <!--   دیماند قراردادی -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="city" class="form-label">دیماند قراردادی</label>
+                  <input class="form-control text-right" id="city" placeholder=""
+                         [(ngModel)]="powerDto.city"
+                         formControlName="city"
+                         name="city"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!--   ضریب کنتور -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="coefficient" class="form-label">ضریب کنتور</label>
+                  <input class="form-control text-right" id="coefficient" placeholder=""
+                         [(ngModel)]="powerDto.coefficient"
+                         formControlName="coefficient"
+                         name="coefficient"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!-- <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="domainCode" class="form-label">کد حوزه</label>
+                  <input class="form-control text-right" id="domainCode" placeholder=""
+                         [(ngModel)]="powerDto.domainCode"
+                         formControlName="domainCode"
+                         name="domainCode"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="numberShare" class="form-label">شماره اشتراک</label>
+                  <input class="form-control text-right" id="numberShare" placeholder=""
+                         [(ngModel)]="powerDto.numberShare"
+                         formControlName="numberShare"
+                         name="numberShare"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
+              </div>
+
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="serialShare" class="form-label">سریال اشتراک</label>
+                  <input class="form-control text-right" id="serialShare" placeholder=""
+                         [(ngModel)]="powerDto.serialShare"
+                         formControlName="serialShare"
+                         name="serialShare"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
+              </div>
+
+
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="capacity" class="form-label">ظرفیت</label>
+                  <input class="form-control text-right" id="capacity" placeholder=""
+                         [(ngModel)]="powerDto.capacity"
+                         formControlName="capacity"
+                         name="capacity"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
+              </div> -->
+
+
+
               <!--    <div class="mb-4 col-md-3">-->
               <!--      <div class="w-100">-->
               <!--        <label for="buildingNum" class="form-label">تعداد ساختمان ها</label>-->
@@ -235,17 +278,7 @@
               <!--      <app-alert-error [data]="form.controls['buildingNum']" [touched]="touched"></app-alert-error>-->
               <!--    </div>-->
 
-              <div class="mb-4 col-12">
-                <div class="w-100">
-                  <label for="address" class="form-label">آدرس</label>
-                  <textarea class="form-control text-right" id="address" placeholder=""
-                            [(ngModel)]="powerDto.address"
-                            formControlName="address"
-                            name="address"
-                  ></textarea>
-                </div>
-                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-              </div>
+
 
               <!--    <div class="mb-4 col-md-3">-->
               <!--      <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center ml-3"-->

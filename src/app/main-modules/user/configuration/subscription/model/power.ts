@@ -5,18 +5,18 @@ export class PowerDto {
   name: string;
   billingId: string;
   systemPass: string;
-  city: string;
+  city: string; // دیماند قراردادی
   domainCode: string;
-  addressCode: string;
+  addressCode: string; //شماره بدنه کنتور
   numberShare: string;
   fileNumber: string;
   serialShare: string;
   address: string;
   useType: UseTypePowerEnum;
   useCode: UseCodeEnum;
-  group: GroupEnum;
+  group: GroupEnum; // نوع کنتور
   capacity: string;
-  coefficient: string;
+  coefficient: string; //ضریب کنتور
   voltageType: VoltageTypeEnum;
   powerSupplyVoltage: powerSupplyVoltage;
   buildingList: BuildingAllocation[] = [];
