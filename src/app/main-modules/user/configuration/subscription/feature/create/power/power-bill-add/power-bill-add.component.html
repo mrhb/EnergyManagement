@@ -657,8 +657,9 @@
               </table>
             </div>
           </fieldset>
-
-          <div class="form">
+        </form>
+        
+        <form [formGroup]="formAmount" class="w-100" >
             <fieldset class="fieldset-border">
               <legend> بهای قبض   </legend>
               <div class="table-responsive">
@@ -674,17 +675,78 @@
                 </thead>
                 <tbody>
                   <tr class="table-info"> 
-                    <th scope="row" > {{powerBillDto.consumptionAmount}} </th>
-                    <th scope="row" > {{powerBillDto.subscription}} </th>                   
-                    <th scope="row" > {{powerBillDto.powerPrice}} </th>                   
-                    <th scope="row" > {{powerBillDto.seasonPrice}} </th>                   
-                    <th scope="row" > {{powerBillDto.payableAmount}} </th>                   
+                    <!-- مبلغ مصرف -->
+                    <th scope="row" >
+                      <div >
+                       <div >
+                        <input  id="consumptionAmount" placeholder="مبلغ مصرف"
+                        [(ngModel)]="powerBillDto.consumptionAmount"
+                        formControlName="consumptionAmount"
+                        name="consumptionAmount">
+                       </div>
+                       <app-alert-error [data]="formAmount.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
+                     </div>
+                    </th> 
+
+                    <!-- آبونمان -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="subscription" placeholder="آبونمان"
+                        [(ngModel)]="powerBillDto.subscription"
+                        formControlName="subscription"
+                        name="subscription">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['subscription']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
+
+                    <!-- بهای قدرت -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="powerPrice" placeholder="بهای قدرت"
+                        [(ngModel)]="powerBillDto.powerPrice"
+                        formControlName="powerPrice"
+                        name="powerPrice">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['powerPrice']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
+                    <!-- 	بهای فصل -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="seasonPrice" placeholder="	بهای فصل"
+                        [(ngModel)]="powerBillDto.seasonPrice"
+                        formControlName="seasonPrice"
+                        name="seasonPrice">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['seasonPrice']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
+                    <!-- 		مبلغ قابل پرداخت -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="payableAmount" placeholder="	مبلغ قابل پرداخت"
+                        [(ngModel)]="powerBillDto.payableAmount"
+                        formControlName="payableAmount"
+                        name="payableAmount">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['payableAmount']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
                   </tr>                                            
                   </tbody>
                 </table>
             </div>
           </fieldset>
-         </div>          
+                  
         </form>  
 
         </fieldset>

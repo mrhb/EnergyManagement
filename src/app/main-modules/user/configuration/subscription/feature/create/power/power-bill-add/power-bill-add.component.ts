@@ -32,6 +32,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
   formIntermed: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
+  formAmount: FormGroup;
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     // private buildingService: BuildingService,
@@ -111,6 +112,16 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
     });
+
+    //بهای قبض
+    this.formAmount=this.formBuilder.group({
+      consumptionAmount:[], //  مبلغ مصرف
+      subscription:[], // آبونمان
+      powerPrice:[], // بهای قدرت
+      seasonPrice:[], // بهای فصل
+      payableAmount:[], // مبلغ قابل پرداخت
+    });
+
   }
     
   ngAfterViewInit(): void {
@@ -218,5 +229,6 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
 
   selectPower(item): void {
     this.powerAllocation = item;
+    this.powerBillDto.powerSharingId=item.id;
   }
 }

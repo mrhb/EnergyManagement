@@ -35,8 +35,9 @@ export class Consumption {
 
 
 export class PowerBillDto {
+  powerSharingId: string;//شناسه اشتراک(id)
   billId: string;
-  numberShare:string;// شناسه اشتراک
+  numberShare:string;// شماره اشتراک
   paymentCode: string; // شناسه پرداخت
   period: string; // دوره
   fromDate: string; // تاریخ شروع 
@@ -123,6 +124,7 @@ export class PowerSharingAllocation {
 export class PowerAllocation {
   name: string;
   billingId: string;
+  powerSharingId: string;
 
 }
 // export class BuildingList {
