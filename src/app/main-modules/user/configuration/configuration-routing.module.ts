@@ -21,6 +21,8 @@ import { EnergyBillAddComponent } from './subscription/feature/create/energy/ene
 import { EnergyBillListComponent } from './subscription/feature/create/energy/energy-bill-list/energy-bill-list.component';
 import { WaterBillAddComponent } from './subscription/feature/create/water/water-bill-add/water-bill-add.component';
 import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
+import { CreateInstrumentComponent } from './instrument/feature/add/create-instrument.component';
+import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'buildingList',
     component: BuildingListComponent,
+  },
+    {
+    path: 'createInstrument',
+    component: CreateInstrumentComponent,
+  },
+  {
+    path: 'instrumentList',
+    component: InstrumentListComponent,
   },
   {
     path: 'createPower',
