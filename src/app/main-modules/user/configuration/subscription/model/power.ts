@@ -85,7 +85,7 @@ export class PowerList {
   group: GroupEnum; // نوع کنتور
   useType: UseTypePowerEnum;//  عنوان تعرفه
   useCode: UseCodeEnum;// کد تعرفه
-  city: string; // دیماند قراردادی
+  contract: string; // دیماند قراردادی
   buildingNum: string;// نام ساختمان
 }
 

@@ -7,7 +7,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PowerList} from '../../../../model/power';
-import {UseTypePowerEnum} from '../../../../model/powerEnum';
+import {GroupEnum, UseCodeEnum, UseTypePowerEnum} from '../../../../model/powerEnum';
 import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
@@ -25,6 +25,8 @@ export class PowerListComponent implements OnInit {
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
+  useCodeEnum=UseCodeEnum;
+  groupEnum=GroupEnum;
   powerList: PowerList[] = [];
   buildingList = [];
   constructor(public router: Router,

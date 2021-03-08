@@ -39,13 +39,15 @@
           <tbody>
           <tr *ngFor="let power of powerList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-            <td>{{power.nameShare}}</td>
+            <td>{{power.name}}</td>
             <td>{{power.billingId}}</td> 
-            <td>{{power.group}}</td>
-            <td>{{UseTypePowerEnum[power.useType].toString()}}</td>
-            <td>{{UseCodeEnum[power.useType].toString()}}</td>
-            <td>{{power.city}}</td>
-            <td>{{power.buildingNum}}</td>
+            <td>{{useTypeEnum[power.useType].toString()}}</td>
+            <td>{{groupEnum[power.group].toString()}}</td> 
+            <td>{{useCodeEnum[power.useCode].toString()}}</td>
+            <td>{{power.contract}}</td>
+            <td>{{power.buildingNum}}</td> 
+             <!-- 
+            <td>{{power.buildingNum}}</td> -->
             <td class="text-center" width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: power.id}"
                                  [routerLink]="'/index/user/configuration/editPower'"></span></td>
