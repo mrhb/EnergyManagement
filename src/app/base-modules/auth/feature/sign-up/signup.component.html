@@ -10,6 +10,7 @@
             <p class="sub-title">شما برای استفاده از امکانات این سایت باید ثبت نام کنید</p>
           </div>
           <div class="form row">
+             <!-- نام  -->
             <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="firstName" class="form-label">نام</label>
@@ -21,6 +22,7 @@
               </div>
               <app-alert-error [data]="userForm.controls['firstName']" [touched]="touched"></app-alert-error>
             </div>
+            <!-- نام خانوادگی  -->
             <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="lastName" class="form-label">نام خانوادگی</label>
@@ -31,6 +33,19 @@
                 >
               </div>
               <app-alert-error [data]="userForm.controls['lastName']" [touched]="touched"></app-alert-error>
+            </div>
+            <!-- سمت سازمانی            -->
+            <div class="mb-4 col-md-4">
+              <div class="w-100">
+                <label for="organizationalLevel" class="form-label">سمت سازمانی</label>
+                <input class="form-control text-right" id="organizationalLevel" placeholder=""
+                       [(ngModel)]="dto.organizationalLevel"
+                       formControlName="organizationalLevel"
+                       name="organizationalLevel"
+                       maxlength="11"
+                >
+              </div>
+              <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
             </div>
             <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
@@ -79,18 +94,7 @@
               </div>
               <app-alert-error [data]="userForm.controls['organizationalUnit']" [touched]="touched"></app-alert-error>
             </div> -->
-            <div class="mb-4 col-md-4">
-              <div class="w-100">
-                <label for="organizationalLevel" class="form-label">سمت سازمانی</label>
-                <input class="form-control text-right" id="organizationalLevel" placeholder=""
-                       [(ngModel)]="dto.organizationalLevel"
-                       formControlName="organizationalLevel"
-                       name="organizationalLevel"
-                       maxlength="11"
-                >
-              </div>
-              <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
-            </div>
+
             <!-- <div class="mb-4 col-md-4">
               <div class="w-100">
                 <label for="province" class="form-label">استان</label>
@@ -124,12 +128,13 @@
               </div>
               <app-alert-error [data]="userForm.controls['address']" [touched]="touched"></app-alert-error>
             </div> -->
-            <div class="col-12">
+            <!-- <div class="col-12">
               <hr class="m-1">
-            </div>
+            </div> -->
 <!--            <div class="col-12 mb-4 mt-3">-->
 <!--              <strong>اطلاعات سیستمی</strong>-->
 <!--            </div>-->
+            <!-- رمزعبور   -->
             <div class="mb-4 col-md-4">
               <div class="w-100">
                 <label for="password" class="form-label">رمزعبور</label>
@@ -142,6 +147,7 @@
                 <app-alert-error [data]="userForm.controls['password']" [touched]="touched"></app-alert-error>
               </div>
             </div>
+            <!-- رمزعبور تکرار  -->
             <div class="col-md-4">
               <div class="w-100">
                 <label for="passwordConfirm" class="form-label">تکرار رمزعبور</label>

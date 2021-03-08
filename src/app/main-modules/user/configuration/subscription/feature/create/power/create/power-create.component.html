@@ -24,7 +24,7 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
             <div class="form row">
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="name" class="form-label">نام مشترک</label>
                   <input class="form-control text-right" id="name" placeholder=""
@@ -50,7 +50,7 @@
 
 
               <!-- شناسه قبض  -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="billingId" class="form-label">شناسه قبض</label>
                   <input class="form-control text-right" id="billingId" placeholder=""
@@ -63,7 +63,7 @@
               </div>
 
               <!-- شماره پرونده  -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="fileNumber" class="form-label">شماره پرونده</label>
                   <input class="form-control text-right" id="fileNumber" placeholder=""
@@ -76,7 +76,7 @@
               </div>
 
               <!-- رمز رایانه  -->
-               <div class="mb-4 col-md-3">
+               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="systemPass" class="form-label">رمز رایانه</label>
                   <input class="form-control text-right" id="systemPass" placeholder=""
@@ -89,7 +89,7 @@
               </div>
 
               <!-- شماره بدنه کنتور -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="addressCode" class="form-label">شماره بدنه کنتور</label>
                   <input class="form-control text-right" id="addressCode" placeholder=""
@@ -102,7 +102,7 @@
               </div>
 
               <!-- نوع کنتور -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="group" class="form-label">نوع کنتور</label>
                   <select id="group"
@@ -119,7 +119,7 @@
               </div>
 
               <!-- نوع ولتاژ -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="voltageType" class="form-label">نوع ولتاژ</label>
                   <select id="voltageType"
@@ -136,7 +136,7 @@
               </div>
 
               <!--  عنوان تعرفه -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="useType" class="form-label">عنوان تعرفه</label>
                   <select id="useType"
@@ -154,7 +154,7 @@
               </div>
 
               <!--  کد تعرفه -->
-              <div class="mb-4 col-md-3" *ngIf="powerDto.useType">
+              <div class="mb-4 col-md-2" *ngIf="powerDto.useType">
                 <div class="w-100">
                   <label for="useCode" class="form-label">کد تعرفه </label>
                   <select id="useCode"
@@ -171,7 +171,7 @@
               </div>
 
               <!--   ولتاژ تغذیه -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="powerSupplyVoltage" class="form-label">ولتاژ تغذیه</label>
                   <select id="powerSupplyVoltage"
@@ -189,7 +189,7 @@
               
               
               <!--   دیماند قراردادی -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="city" class="form-label">دیماند قراردادی</label>
                   <input class="form-control text-right" id="city" placeholder=""
@@ -202,7 +202,7 @@
               </div>
 
               <!--   ضریب کنتور -->
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="coefficient" class="form-label">ضریب کنتور</label>
                   <input class="form-control text-right" id="coefficient" placeholder=""
@@ -214,7 +214,7 @@
                 <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
               </div>
 
-              <!-- <div class="mb-4 col-md-3">
+              <!-- <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="domainCode" class="form-label">کد حوزه</label>
                   <input class="form-control text-right" id="domainCode" placeholder=""
@@ -226,7 +226,7 @@
                 <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>
               </div>
 
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="numberShare" class="form-label">شماره اشتراک</label>
                   <input class="form-control text-right" id="numberShare" placeholder=""
@@ -239,7 +239,7 @@
               </div>
 
 
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="serialShare" class="form-label">سریال اشتراک</label>
                   <input class="form-control text-right" id="serialShare" placeholder=""
@@ -252,7 +252,7 @@
               </div>
 
 
-              <div class="mb-4 col-md-3">
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="capacity" class="form-label">ظرفیت</label>
                   <input class="form-control text-right" id="capacity" placeholder=""
@@ -266,7 +266,7 @@
 
 
 
-              <!--    <div class="mb-4 col-md-3">-->
+              <!--    <div class="mb-4 col-md-2">-->
               <!--      <div class="w-100">-->
               <!--        <label for="buildingNum" class="form-label">تعداد ساختمان ها</label>-->
               <!--        <input class="form-control text-right" id="buildingNum" placeholder=""-->
@@ -280,7 +280,7 @@
 
 
 
-              <!--    <div class="mb-4 col-md-3">-->
+              <!--    <div class="mb-4 col-md-2">-->
               <!--      <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center ml-3"-->
               <!--              data-toggle="modal" data-target=".bd-example-modal-lg">-->
               <!--        <span class="fa fa-plus ml-2"></span>-->
@@ -288,7 +288,7 @@
               <!--      </button>-->
               <!--    </div>-->
 
-              <!--    <div class="mb-4 col-md-3">-->
+              <!--    <div class="mb-4 col-md-2">-->
               <!--      <div class="w-100">-->
               <!--        <label for="buildingList" class="form-label">لیست ساختمان ها</label>-->
               <!--        <input class="form-control text-right" id="buildingList" placeholder=""-->
@@ -322,7 +322,7 @@
               </span>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <div class="w-100">
                   <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
                   <input class="form-control text-right" id="allocationPercentage" placeholder=""
@@ -403,7 +403,7 @@
 <!--    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">-->
 <!--      <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">-->
 <!--        <div class="form row">-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="name" class="form-label">نام مشترک</label>-->
 <!--              <input class="form-control text-right" id="name" placeholder=""-->
@@ -414,7 +414,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="billingId" class="form-label">شناسه قبض</label>-->
 <!--              <input class="form-control text-right" id="billingId" placeholder=""-->
@@ -425,7 +425,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="systemPass" class="form-label">رمز رایانه</label>-->
 <!--              <input class="form-control text-right" id="systemPass" placeholder=""-->
@@ -436,7 +436,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['systemPass']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="city" class="form-label">شهر</label>-->
 <!--              <input class="form-control text-right" id="city" placeholder=""-->
@@ -447,7 +447,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="domainCode" class="form-label">کد حوزه</label>-->
 <!--              <input class="form-control text-right" id="domainCode" placeholder=""-->
@@ -458,7 +458,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="addressCode" class="form-label">کد آدرس</label>-->
 <!--              <input class="form-control text-right" id="addressCode" placeholder=""-->
@@ -469,7 +469,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="numberShare" class="form-label">شماره اشتراک</label>-->
 <!--              <input class="form-control text-right" id="numberShare" placeholder=""-->
@@ -480,7 +480,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="fileNumber" class="form-label">شماره پرونده</label>-->
 <!--              <input class="form-control text-right" id="fileNumber" placeholder=""-->
@@ -493,7 +493,7 @@
 <!--          </div>-->
 
 
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="serialShare" class="form-label">سریال اشتراک</label>-->
 <!--              <input class="form-control text-right" id="serialShare" placeholder=""-->
@@ -504,7 +504,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="useType" class="form-label">عنوان تعرفه</label>-->
 <!--              <select id="useType"-->
@@ -520,7 +520,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3" *ngIf="powerDto.useType">-->
+<!--          <div class="mb-4 col-md-2" *ngIf="powerDto.useType">-->
 <!--            <div class="w-100">-->
 <!--              <label for="useCode" class="form-label">کد تعرفه</label>-->
 <!--              <select id="useCode"-->
@@ -535,7 +535,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="group" class="form-label">گروه</label>-->
 <!--              <select id="group"-->
@@ -550,7 +550,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="capacity" class="form-label">ظرفیت</label>-->
 <!--              <input class="form-control text-right" id="capacity" placeholder=""-->
@@ -561,7 +561,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="coefficient" class="form-label">ضریب اشتراک</label>-->
 <!--              <input class="form-control text-right" id="coefficient" placeholder=""-->
@@ -572,7 +572,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="voltageType" class="form-label">نوع ولتاژ</label>-->
 <!--              <select id="voltageType"-->
@@ -587,7 +587,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          <div class="mb-4 col-md-3">-->
+<!--          <div class="mb-4 col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="powerSupplyVoltage" class="form-label">ولتاژ تغذیه</label>-->
 <!--              <select id="powerSupplyVoltage"-->
@@ -602,7 +602,7 @@
 <!--            </div>-->
 <!--            <app-alert-error [data]="form.controls['powerSupplyVoltage']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
-<!--          &lt;!&ndash;    <div class="mb-4 col-md-3">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <div class="mb-4 col-md-2">&ndash;&gt;-->
 <!--          &lt;!&ndash;      <div class="w-100">&ndash;&gt;-->
 <!--          &lt;!&ndash;        <label for="buildingNum" class="form-label">تعداد ساختمان ها</label>&ndash;&gt;-->
 <!--          &lt;!&ndash;        <input class="form-control text-right" id="buildingNum" placeholder=""&ndash;&gt;-->
@@ -626,7 +626,7 @@
 <!--            <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>-->
 <!--          </div>-->
 
-<!--          &lt;!&ndash;    <div class="mb-4 col-md-3">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <div class="mb-4 col-md-2">&ndash;&gt;-->
 <!--          &lt;!&ndash;      <button type="submit" class="btn btn-success d-flex justify-content-center align-items-center ml-3"&ndash;&gt;-->
 <!--          &lt;!&ndash;              data-toggle="modal" data-target=".bd-example-modal-lg">&ndash;&gt;-->
 <!--          &lt;!&ndash;        <span class="fa fa-plus ml-2"></span>&ndash;&gt;-->
@@ -634,7 +634,7 @@
 <!--          &lt;!&ndash;      </button>&ndash;&gt;-->
 <!--          &lt;!&ndash;    </div>&ndash;&gt;-->
 
-<!--          &lt;!&ndash;    <div class="mb-4 col-md-3">&ndash;&gt;-->
+<!--          &lt;!&ndash;    <div class="mb-4 col-md-2">&ndash;&gt;-->
 <!--          &lt;!&ndash;      <div class="w-100">&ndash;&gt;-->
 <!--          &lt;!&ndash;        <label for="buildingList" class="form-label">لیست ساختمان ها</label>&ndash;&gt;-->
 <!--          &lt;!&ndash;        <input class="form-control text-right" id="buildingList" placeholder=""&ndash;&gt;-->
@@ -668,7 +668,7 @@
 <!--              </span>-->
 <!--            </div>-->
 <!--          </div>-->
-<!--          <div class="col-md-3">-->
+<!--          <div class="col-md-2">-->
 <!--            <div class="w-100">-->
 <!--              <label for="allocationPercentage" class="form-label">درصد تخصیص</label>-->
 <!--              <input class="form-control text-right" id="allocationPercentage" placeholder=""-->
@@ -731,7 +731,7 @@
         </button>
       </div>
       <div class="d-flex align-items-end">
-        <div class="mb-4 col-md-6 mt-2">
+        <div class="mb-4 col-md-2 mt-2">
           <div class="w-100">
             <label for="filterBuilding" class="form-label">عنوان ساختمان</label>
             <input class="form-control text-right" id="filterBuilding" placeholder=""
