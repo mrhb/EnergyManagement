@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <span *ngIf="!gasId">افزودن اشتراک گاز </span>
-        <span *ngIf="gasId">ویرایش اشتراک گاز </span>
+        <span *ngIf="!gasId">افزودن کنتور گاز </span>
+        <span *ngIf="gasId">ویرایش کنتور گاز </span>
       </h1>
       <div class="d-flex">
         <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/gasList'">بازگشت به لیست</button>
@@ -25,7 +25,8 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createGas()">
             <div class="form row">
-              <div class="mb-4 col-md-3">
+              <!-- نام مشترک -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="name" class="form-label">نام مشترک</label>
                   <input class="form-control text-right" id="name" placeholder=""
@@ -36,7 +37,21 @@
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- آدرس -->
+              <div class="mb-4 col-10">
+                <div class="w-100">
+                  <label for="address" class="form-label">آدرس</label>
+                  <textarea class="form-control text-right" id="address" placeholder=""
+                            [(ngModel)]="gasDto.address"
+                            formControlName="address"
+                            name="address"
+                  ></textarea>
+                </div>
+                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+              </div>
+
+              <!-- شناسه قبض -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="billingId" class="form-label">شناسه قبض</label>
                   <input class="form-control text-right" id="billingId" placeholder=""
@@ -47,7 +62,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- شهر -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="city" class="form-label">شهر</label>
                   <input class="form-control text-right" id="city" placeholder=""
@@ -58,7 +74,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- کد حوزه -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="domainCode" class="form-label">کد حوزه</label>
                   <input class="form-control text-right" id="domainCode" placeholder=""
@@ -69,7 +86,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['domainCode']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- کد آدرس -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="addressCode" class="form-label">کد آدرس</label>
                   <input class="form-control text-right" id="addressCode" placeholder=""
@@ -80,7 +98,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- شماره اشتراک -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="numberShare" class="form-label">شماره اشتراک</label>
                   <input class="form-control text-right" id="numberShare" placeholder=""
@@ -91,7 +110,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- شماره پرونده -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="fileNumber" class="form-label">شماره پرونده</label>
                   <input class="form-control text-right" id="fileNumber" placeholder=""
@@ -102,11 +122,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
               </div>
-
-
-              <div class="mb-4 col-md-3">
+              <!-- سریال کنتور  -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="serialShare" class="form-label">سریال اشتراک</label>
+                  <label for="serialShare" class="form-label">سریال کنتور</label>
                   <input class="form-control text-right" id="serialShare" placeholder=""
                          [(ngModel)]="gasDto.serialShare"
                          formControlName="serialShare"
@@ -115,7 +134,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- عنوان تعرفه -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="useType" class="form-label">عنوان تعرفه</label>
                   <select id="useType"
@@ -130,7 +150,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- گروه -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="group" class="form-label">گروه</label>
                   <select id="group"
@@ -145,7 +166,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- ظرفیت -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="capacity" class="form-label">ظرفیت</label>
                   <input class="form-control text-right" id="capacity" placeholder=""
@@ -156,9 +178,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- ضریب کنتور -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="coefficient" class="form-label">ضریب اشتراک</label>
+                  <label for="coefficient" class="form-label">ضریب کنتور</label>
                   <input class="form-control text-right" id="coefficient" placeholder=""
                          [(ngModel)]="gasDto.coefficient"
                          formControlName="coefficient"
@@ -166,18 +189,6 @@
                   >
                 </div>
                 <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
-              </div>
-
-              <div class="mb-4 col-12">
-                <div class="w-100">
-                  <label for="address" class="form-label">آدرس</label>
-                  <textarea class="form-control text-right" id="address" placeholder=""
-                            [(ngModel)]="gasDto.address"
-                            formControlName="address"
-                            name="address"
-                  ></textarea>
-                </div>
-                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
 
               <div class="col-12">
