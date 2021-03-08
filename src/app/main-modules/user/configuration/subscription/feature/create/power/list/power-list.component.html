@@ -44,10 +44,8 @@
             <td>{{useTypeEnum[power.useType].toString()}}</td>
             <td>{{groupEnum[power.group].toString()}}</td> 
             <td>{{useCodeEnum[power.useCode].toString()}}</td>
-            <td>{{power.contract}}</td>
+            <!-- <td>{{power.contract}}</td> -->
             <td>{{power.buildingNum}}</td> 
-             <!-- 
-            <td>{{power.buildingNum}}</td> -->
             <td class="text-center" width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: power.id}"
                                  [routerLink]="'/index/user/configuration/editPower'"></span></td>

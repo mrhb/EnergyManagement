@@ -34,7 +34,6 @@ export class PowerCreateComponent implements OnInit {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
-
   touched = false;
   edited = false;
   powerId = '';
@@ -48,7 +47,6 @@ export class PowerCreateComponent implements OnInit {
   groupEnum = GroupEnum;
   powerSupplyVoltageEnum = powerSupplyVoltage;
   buildingEnum = UseTypeBuildingEnum;
-
   filterBuilding = '';
   buildingList = [];
   editedAllocation = false;
@@ -74,7 +72,7 @@ export class PowerCreateComponent implements OnInit {
       address: [''],
       billingId: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      contract: ['', [Validators.minLength(1)]],
+      contract:  [''],
       addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
       fileNumber: [''],
       serialShare: [''],
