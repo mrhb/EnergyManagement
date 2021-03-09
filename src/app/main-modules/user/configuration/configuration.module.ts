@@ -51,6 +51,8 @@ import { EnergyReceiptService } from './subscription/service/energy-receipt.serv
 import { CreateInstrumentComponent } from './instrument/feature/add/create-instrument.component';
 import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
 import { InstrumentService } from './instrument/service/instrument.service';
+import { FacilityService } from './facility/service/facility.service';
+import { FacilityListComponent } from './facility/feature/list/facility-list.component';
 
 
 @NgModule({
@@ -64,6 +66,7 @@ import { InstrumentService } from './instrument/service/instrument.service';
     MapComponent,
     WallInformationComponent,
     BuildingListComponent,
+    FacilityListComponent,
     CreateInstrumentComponent,
     InstrumentListComponent,
     SubscriptionComponent,
@@ -98,7 +101,7 @@ import { InstrumentService } from './instrument/service/instrument.service';
         ChartModule,
         NgxEchartsModule
     ],
-  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
+  providers: [RegionService, BuildingService,FacilityService, EnergyBuildingService, PowerBuildingService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
 })
 export class ConfigurationModule {
 }

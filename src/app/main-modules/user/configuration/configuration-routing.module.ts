@@ -23,6 +23,7 @@ import { WaterBillAddComponent } from './subscription/feature/create/water/water
 import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
 import { CreateInstrumentComponent } from './instrument/feature/add/create-instrument.component';
 import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
+import { FacilityListComponent } from './facility/feature/list/facility-list.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
   {
     path: 'buildingList',
     component: BuildingListComponent,
+  },
+  {
+    path: 'facilityList',
+    component: FacilityListComponent,
   },
     {
     path: 'createInstrument',
