@@ -3,15 +3,18 @@ import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class WaterDto {
   name: string;
-  billingId: string;
-  numberShare: string;
+  address: string; // آدرس
+  billingId: string;  // شناسه قبض 
+  numberShare: string; //  شماره اشتراک 
   fileNumber: string;
   serialShare: string;
-  useType: UseTypeWater;
-  sewageBranchDiameter: string;
-  capacity: string;
+  useType: UseTypeWater; //  کاربری انشعاب 
+  waterBranchDiameter: string;// قطر انشعاب اب
+  sewageBranchDiameter: string;// قطر انشعاب فاضلاب
+  capacity: string;  // ظرفیت قراردادی 
   buildingList: WaterBuildingAllocation[] = [];
-  useCode: UseCodeWaterEnum;
+  useCode: UseCodeWaterEnum;  //    کد و نوع تعرفه 
+
 }
 
 export class WaterBuildingAllocation {
@@ -28,11 +31,11 @@ export class WaterBuildingAllocation {
 export class WaterList {
   id: string;
   name: string;
-  billingId: string;
+  billingId: string;// شناسه قبض 
   numberShare: String; // شماره اشتراک
-  addressCode: string;
-  useType: UseTypeWater;
-  createdAt: any;
+  useType: UseTypeWater; //  کاربری انشعاب 
+  useCode: UseCodeWaterEnum;  //    کد و نوع تعرفه 
+  capacity: string;  // ظرفیت قراردادی 
   buildingNum: string;
 }
 

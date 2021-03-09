@@ -3,7 +3,7 @@ import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class GasDto {
   name: string;  // نام مشترک
-  address: string;
+  address: string; // آدرس
   billingId: string;
   city: string;
   domainCode: string;

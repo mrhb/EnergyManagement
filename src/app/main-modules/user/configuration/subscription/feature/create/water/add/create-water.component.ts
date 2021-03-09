@@ -50,12 +50,14 @@ export class CreateWaterComponent implements OnInit {
               private router: Router) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      address: [''],
       billingId: ['', [Validators.required]],
       numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       fileNumber: ['', [Validators.minLength(1)]],
       serialShare: [''],
       useType: ['', [Validators.required]],
-      sewageBranchDiameter: ['', [Validators.required]],
+      waterBranchDiameter: ['', [Validators.required]],
+      sewageBranchDiameter: [''],
       capacity: [''],
       useCode: ['', [Validators.required]],
     });
