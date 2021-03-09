@@ -5,7 +5,7 @@
         لیست تجهیزات
       </h1>
       <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن اشتراک</button>
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن تجهیز</button>
       </div>
     </div>
     <div class="card-body">
@@ -15,17 +15,21 @@
           <tr>
             <th scope="col" width="40">#</th>
             <th scope="col">نام تجهیز</th>
-            <th scope="col">عنوان تعرفه</th>
-            <th scope="col" width="120">تعداد ساختمان</th>
+            <th scope="col">حامل انرژی</th>
+            <th scope="col">کاربری تجهیر</th>
+            <th scope="col">تعداد	</th>
+            <th scope="col">توان (وات)</th>
             <th scope="col" width="80" colspan="2" class="text-center">عملیات</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let instrument of instrumentList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-            <td>{{instrument.name}}</td>
-            <td>{{instrument.addressCode}}</td>
-            <td>{{instrument.buildingNum}}</td>
+            <td>{{instrument.name}}</td>          
+            <td>{{instrument.instrumentCarrier}}</td>
+            <td>{{instrument.instrumentUsage}}</td>
+            <td>{{instrument.instrumentNum}}</td>
+            <td>{{instrument.consumptionPower}}</td>
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: instrument.id}"
                                  [routerLink]="'/index/user/configuration/creatInstrument'"></span></td>

@@ -6,7 +6,7 @@
         <span *ngIf="instrumentId">ویرایش تجهیز </span>
       </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/instrumentList'">بازگشت به لیست</button>
+        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/instrumentList'">  لیست تجهیزات</button>
       </div>
     </div>
     <div class="card-body">
@@ -24,18 +24,19 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createInstrument()">
             <div class="form row">
-              <div class="mb-4 col-md-3">
+              <!-- نام تجهیز -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="name" class="form-label">نام تجهیز</label>
                   <input class="form-control text-right" id="name" placeholder=""
                          [(ngModel)]="instrumentDto.name"
                          formControlName="name"
-                         name="name"
-                  >
+                         name="name">
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- آدرس -->          
+              <!-- <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="address" class="form-label">نشانی محل مصرف</label>
                   <input class="form-control text-right" id="address" placeholder=""
@@ -45,10 +46,11 @@
                   >
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
+              </div> -->
+              <!-- نام حامل انرژی -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="instrumentCarrier" class="form-label">حامل انرژی</label>
+                  <label for="instrumentCarrier" class="form-label">نام حامل انرژی</label>
                   <input class="form-control text-right" id="instrumentCarrier" placeholder=""
                          [(ngModel)]="instrumentDto.instrumentCarrier"
                          formControlName="instrumentCarrier"
@@ -57,7 +59,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['instrumentCarrier']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- واحد انرژی -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="instrumentUnit" class="form-label">واحد انرژی</label>
                   <input class="form-control text-right" id="instrumentUnit" placeholder=""
@@ -68,18 +71,119 @@
                 </div>
                 <app-alert-error [data]="form.controls['instrumentUnit']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- تعداد -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="shareNumber" class="form-label">شماره کنتور</label>
-                  <input class="form-control text-right" id="shareNumber" placeholder=""
-                         [(ngModel)]="instrumentDto.shareNumber"
-                         formControlName="shareNumber"
-                         name="shareNumber"
+                  <label for="instrumentNum" class="form-label">تعداد </label>
+                  <input class="form-control text-right" id="instrumentNum" placeholder=""
+                         [(ngModel)]="instrumentDto.instrumentNum"
+                         formControlName="instrumentNum"
+                         name="instrumentNum"
                   >
                 </div>
-                <app-alert-error [data]="form.controls['shareNumber']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['instrumentNum']" [touched]="touched"></app-alert-error>
+              </div>              
+              <!-- کاربری تجهیر -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="instrumentUsage" class="form-label">کاربری تجهیر</label>
+                  <select id="instrumentUsage"
+                          class="form-control text-right"
+                          [(ngModel)]="instrumentDto.instrumentUsage"
+                          formControlName="instrumentUsage"
+                          name="instrumentUsage">
+                    <option *ngFor="let item of useTypeInstrumentEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['instrumentUsage']" [touched]="touched"></app-alert-error>
               </div>
-
+              <!-- توان مصرفی -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="consumptionPower" class="form-label">توان مصرفی </label>
+                  <input class="form-control text-right" id="consumptionPower" placeholder=""
+                         [(ngModel)]="instrumentDto.consumptionPower"
+                         formControlName="consumptionPower"
+                         name="consumptionPower"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['consumptionPower']" [touched]="touched"></app-alert-error>
+              </div>                 
+              <!--واحد -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="consumptionUnit" class="form-label">واحد </label>
+                  <select id="consumptionUnit"
+                          class="form-control text-right"
+                          [(ngModel)]="instrumentDto.consumptionUnit"
+                          formControlName="consumptionUnit"
+                          name="consumptionUnit">
+                          <option *ngFor="let item of unitInstrumentEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['consumptionUnit']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- ساعت کارکرد روز -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="dailyOperatHours" class="form-label"> ساعت کارکرد روز </label>
+                  <input class="form-control text-right" id="dailyOperatHours" placeholder=""
+                         [(ngModel)]="instrumentDto.dailyOperatHours"
+                         formControlName="dailyOperatHours"
+                         name="dailyOperatHours"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['dailyOperatHours']" [touched]="touched"></app-alert-error>
+              </div>  
+              <!--  تعداد روز کارکرد در سال -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="AnnualWorkDayNum" class="form-label"> تعداد روز کارکرد در سال </label>
+                  <input class="form-control text-right" id="AnnualWorkDayNum" placeholder=""
+                         [(ngModel)]="instrumentDto.AnnualWorkDayNum"
+                         formControlName="AnnualWorkDayNum"
+                         name="AnnualWorkDayNum"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['AnnualWorkDayNum']" [touched]="touched"></app-alert-error>
+              </div>  
+              <!--  تاریخ شروع کار تجهیز -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="fromDate" class="form-label"> تاریخ شروع کار تجهیز</label>
+                  <input class="form-control text-right" id="fromDate" placeholder=""
+                          formControlName="fromDate"
+                          name="fromDate">
+                </div>
+                <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
+                </div>    
+              <!--  تاریخ خاتمه کار تجهیز -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="toDate" class="form-label"> تاریخ خاتمه کار تجهیز</label>
+                  <input class="form-control text-right" id="toDate" placeholder=""
+                          formControlName="toDate"
+                          name="toDate">
+                </div>
+                <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
+                </div>    
+              <!--   ضریب همزمانی    -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="coincidenceCoefficient" class="form-label">  ضریب همزمانی </label>
+                  <input class="form-control text-right" id="coincidenceCoefficient" placeholder=""
+                         [(ngModel)]="instrumentDto.coincidenceCoefficient"
+                         formControlName="coincidenceCoefficient"
+                         name="coincidenceCoefficient"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['coincidenceCoefficient']" [touched]="touched"></app-alert-error>
+              </div>   
+                 
               <div class="col-12">
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!instrumentId">ثبت</button>
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="instrumentId">ویرایش</button>
