@@ -49,6 +49,8 @@ export class CreateEnergyComponent implements OnInit {
       energyCarrier: ['', [Validators.required]],
       energyUnit: [''],
       shareNumber: [''],
+      capacity: [''],
+      kiloWatConvert: [''],
     });
 
     this.activatedRoute.queryParams.subscribe(params => {

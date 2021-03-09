@@ -2,10 +2,12 @@ import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class EnergyDto {
   name: string; //نام مشترک 
-  address: string;
-  energyCarrier: string;
-  energyUnit: string;
-  shareNumber: string;
+  address: string; //آدرس
+  energyCarrier: string; //حامل انرژی
+  energyUnit: string; //واحد انرژی
+  shareNumber: string; //شماره کنتور
+  capacity: string; //ظرفیت
+  kiloWatConvert: string; // ضریب تبدیل به کیلووات
   creatorId: string;
   ownerId: string;
   buildingList: EnergyBuildingAllocation[] = [];
@@ -25,11 +27,16 @@ export class EnergyBuildingAllocation {
 export class EnergyList {
   id: string;
   name: string; //نام مشترک 
+  energyCarrier: string; //حامل انرژی 
+  energyUnit: string; //واحد انرژی
+  shareNumber: string; //شماره کنتور
+  capacity: string; //ظرفیت
+  kiloWatConvert: string; // ضریب تبدیل به کیلووات
+  buildingNum: string;//تعداد ساختمان
   billingId: string;
   addressCode: string;
   // useType: UseTypeWater;
   createdAt: any;
-  buildingNum: string;
 }
 
 export class EnergyBillList {

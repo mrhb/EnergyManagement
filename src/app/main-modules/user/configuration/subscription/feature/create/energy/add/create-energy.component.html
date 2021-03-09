@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <span *ngIf="!energyId">افزودن اشتراک حامل انرژی </span>
-        <span *ngIf="energyId">ویرایش اشتراک حامل انرژی </span>
+        <span *ngIf="!energyId">افزودن کنتور انرژی </span>
+        <span *ngIf="energyId">ویرایش کنتور انرژی </span>
       </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/energyList'">بازگشت به لیست</button>
+        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/energyList'"> لیست کنتورها</button>
       </div>
     </div>
     <div class="card-body">
@@ -24,7 +24,8 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createEnergy()">
             <div class="form row">
-              <div class="mb-4 col-md-3">
+              <!-- نام مشترک -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="name" class="form-label">نام مشترک</label>
                   <input class="form-control text-right" id="name" placeholder=""
@@ -35,18 +36,20 @@
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
+              <!-- آدرس -->          
+              <div class="mb-4 col-md-10">
+                 <div class="w-100">
                   <label for="address" class="form-label">نشانی محل مصرف</label>
-                  <input class="form-control text-right" id="address" placeholder=""
-                         [(ngModel)]="energyDto.address"
-                         formControlName="address"
-                         name="address"
-                  >
+                  <textarea class="form-control text-right" id="address" placeholder=""
+                  [(ngModel)]="energyDto.address"
+                  formControlName="address"
+                  name="address"
+                  ></textarea>
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- حامل انرژی -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="energyCarrier" class="form-label">حامل انرژی</label>
                   <input class="form-control text-right" id="energyCarrier" placeholder=""
@@ -57,7 +60,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['energyCarrier']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- واحد انرژی -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="energyUnit" class="form-label">واحد انرژی</label>
                   <input class="form-control text-right" id="energyUnit" placeholder=""
@@ -68,7 +72,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['energyUnit']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- شماره کنتور -->          
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="shareNumber" class="form-label">شماره کنتور</label>
                   <input class="form-control text-right" id="shareNumber" placeholder=""
@@ -79,7 +84,31 @@
                 </div>
                 <app-alert-error [data]="form.controls['shareNumber']" [touched]="touched"></app-alert-error>
               </div>
-
+              <!-- ظرفیت -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="capacity" class="form-label">ظرفیت </label>
+                  <input class="form-control text-right" id="capacity" placeholder=""
+                         [(ngModel)]="energyDto.capacity"
+                         formControlName="capacity"
+                         name="capacity"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- ضریب تبدیل به کیلووات -->          
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="kiloWatConvert" class="form-label">ضریب تبدیل به کیلووات </label>
+                  <input class="form-control text-right" id="kiloWatConvert" placeholder=""
+                         [(ngModel)]="energyDto.kiloWatConvert"
+                         formControlName="kiloWatConvert"
+                         name="kiloWatConvert"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['kiloWatConvert']" [touched]="touched"></app-alert-error>
+              </div>
+              
               <div class="col-12">
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!energyId">ثبت</button>
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="energyId">ویرایش</button>
@@ -102,7 +131,7 @@
                 </div>
               </div>
 
-              <div class="col-md-3">
+              <div class="col-md-2">
                 <div class="w-100">
                   <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
                   <input class="form-control text-right" id="allocationPercentage" placeholder=""
