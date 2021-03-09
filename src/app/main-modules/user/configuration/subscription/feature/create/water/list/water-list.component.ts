@@ -10,7 +10,7 @@ import {WaterList} from '../../../../model/water';
 import Notiflix from 'notiflix';
 import {WaterService} from '../../../../service/water.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UseTypeWater} from '../../../../model/waterEnum';
+import {UseCodeWaterEnum, UseTypeWater} from '../../../../model/waterEnum';
 
 @Component({
   selector: 'app-water-list',
@@ -24,6 +24,7 @@ export class WaterListComponent implements OnInit {
   totalPages = 1;
 
   useTypeEnum = UseTypeWater;
+  useCodeWaterEnum=UseCodeWaterEnum;
   waterList: WaterList[] = [];
   constructor(private waterService: WaterService,
               public router: Router,
