@@ -63,7 +63,8 @@ export class PowerBillDto {
   subscription: string; //   آبونمان 
   powerPrice: string; //   بهای قدرت 
   seasonPrice: string; //   بهای فصل 
-  payableAmount: string; //   بهای فصل 
+  badPenaltiesForConsuming:string;// جریمه بدی مصرف 
+  payableAmount: string; //   مبلغ قابل پرداخت
 
 }
 
@@ -97,7 +98,7 @@ export class PowerBillList {
   toDate:Date; // تا تاریخ
   numberDays:Number;//تعداد روزها
   consumptionAmount: Number; // مبلغ مصرف
-  totalConsumption:string;   // مصرف کل
+  ConsumptionSum:string;   //مجموع مصرف
 }
 
 export class PowerBuildingAllocation {

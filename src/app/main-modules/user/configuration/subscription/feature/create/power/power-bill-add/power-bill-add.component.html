@@ -670,6 +670,7 @@
                     <th scope="col">آبونمان</th>
                     <th scope="col"> بهای قدرت </th>
                     <th scope="col"> بهای فصل </th>
+                    <th scope="col">  جریمه بدی مصرف </th>
                     <th scope="col"> مبلغ قابل پرداخت </th>
                    </tr>
                 </thead>
@@ -725,6 +726,21 @@
                         name="seasonPrice">
                         </div>
                         <app-alert-error [data]="formAmount.controls['seasonPrice']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
+
+                    
+                    <!-- جریمه بدی مصرف -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="badPenaltiesForConsuming" placeholder="جریمه بدی مصرف "
+                        [(ngModel)]="powerBillDto.badPenaltiesForConsuming"
+                        formControlName="badPenaltiesForConsuming"
+                        name="badPenaltiesForConsuming">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['badPenaltiesForConsuming']" [touched]="touched"></app-alert-error>
                       </div>
                     </th> 
 
