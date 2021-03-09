@@ -86,7 +86,7 @@ export class PowerList {
   useType: UseTypePowerEnum;//  عنوان تعرفه
   useCode: UseCodeEnum;// کد تعرفه
   contract: string; // دیماند قراردادی
-  buildingNum: string;// نام ساختمان
+  buildingNum: string;// تعداد ساختمانها
 }
 
 export class PowerBillList {

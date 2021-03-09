@@ -8,12 +8,12 @@ export class GasDto {
   city: string;
   domainCode: string;
   addressCode: string;
-  numberShare: string;
+  numberShare: string; // شماره اشتراک
   fileNumber: string;
   serialShare: string;
   useType: UseTypeGasEnum;
-  group: GroupGasEnum;
-  capacity: string;
+  group: GroupGasEnum; // گروه
+  capacity: string; // ظرفیت
   coefficient: string;
   buildingList: GasBuildingAllocation[] = [];
 }
@@ -34,9 +34,12 @@ export class GasList {
   name: string;  // نام مشترک
   billingId: string;  // شناسه قبض
   addressCode: string;  // کد آدرس
-  useType: UseTypeGasEnum;
+  useType: UseTypeGasEnum; 
   createdAt: any;
-  buildingNum: string;
+  group: GroupGasEnum; // گروه
+  numberShare: string; // شماره اشتراک
+  capacity: string; // ظرفیت
+  buildingNum: string;// تعداد ساختمانها
 }
 
 export class GasBillList {

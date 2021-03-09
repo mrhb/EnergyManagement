@@ -14,6 +14,6 @@ export enum UseTypeGasEnum {
 }
 
 export enum GroupGasEnum {
-  DIMANDI = <any> 'دیماندی',
-  UN_DIMANDI = <any> 'غیردیماندی',
+  DIMANDI = <any> 'A',
+  UN_DIMANDI = <any> 'B',
 }

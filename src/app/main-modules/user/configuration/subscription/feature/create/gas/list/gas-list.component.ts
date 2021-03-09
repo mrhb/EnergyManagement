@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import {GasList} from '../../../../model/gas';
 import {GasService} from '../../../../service/gas.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UseTypeGasEnum} from '../../../../model/gasEnum';
+import {GroupGasEnum,UseTypeGasEnum} from '../../../../model/gasEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 @Component({
@@ -23,6 +23,8 @@ export class GasListComponent implements OnInit {
   totalPages = 1;
 
   useTypeEnum = UseTypeGasEnum;
+  groupGasEnum = GroupGasEnum;
+
   gasList: GasList[] = [];
   constructor(private gasService: GasService,
               public router: Router,

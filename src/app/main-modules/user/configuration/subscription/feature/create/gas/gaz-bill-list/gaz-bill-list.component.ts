@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { GasReceiptService } from '../../../../service/gas-receipt.service';
 
 import {GasBillList} from '../../../../model/gas';
-import { UseTypeGasEnum } from '../../../../model/gasEnum';
+import { GroupGasEnum,UseTypeGasEnum } from '../../../../model/gasEnum';
 import { Moment } from 'src/app/shared/tools/moment';
 
 @Component({
@@ -26,7 +26,8 @@ export class GazBillListComponent implements OnInit {
   totalPages = 1;
   moment = Moment;
 
-   useTypeEnum = UseTypeGasEnum;
+  useTypeEnum = UseTypeGasEnum;
+  groupGasEnum = GroupGasEnum;
   gasBillList: GasBillList[] = [];
   
   constructor(public router: Router,
