@@ -53,6 +53,7 @@ import { InstrumentListComponent } from './instrument/feature/list/instrument-li
 import { InstrumentService } from './instrument/service/instrument.service';
 import { FacilityService } from './facility/service/facility.service';
 import { FacilityListComponent } from './facility/feature/list/facility-list.component';
+import { AddFacilityComponent } from './facility/feature/create/add-facility/add-facility.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { FacilityListComponent } from './facility/feature/list/facility-list.com
     WallInformationComponent,
     BuildingListComponent,
     FacilityListComponent,
+    AddFacilityComponent,
     CreateInstrumentComponent,
     InstrumentListComponent,
     SubscriptionComponent,

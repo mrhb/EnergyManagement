@@ -2,7 +2,6 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Facility} from '../../../model/facility';
-import {UseTypeEnum} from '../../../model/useTypeEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {FacilityService} from '../../../service/facility.service';
@@ -20,7 +19,6 @@ export class AddFacilityComponent implements OnInit {
   myPattern = MyPattern;
   facilityDto = new Facility();
   touched = false;
-  useTypeEnum = UseTypeEnum;
   ownershipEnum = Ownership;
   CoolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
   moment = Moment;

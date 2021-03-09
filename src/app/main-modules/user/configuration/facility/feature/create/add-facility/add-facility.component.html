@@ -11,26 +11,7 @@
       </div>
       <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="useType" class="form-label">کاربری</label>
-        <select name="useType" id="useType"
-                class="form-control text-right"
-                formControlName="useType"
-                [(ngModel)]="facilityDto.useType">
-          <option [value]="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">
-            مسکونی
-          </option>
-          <option [value]="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">
-            تجاری
-          </option>
-          <option [value]="useTypeEnum[useTypeEnum.OFFICIAL].toString()">
-            اداری
-          </option>
-        </select>
-      </div>
-      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
-    </div>
+
     <div class="mb-4 col-md-3">
       <div class="w-100">
         <label for="constructionYear" class="form-label">سال ساخت</label>
