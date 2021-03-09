@@ -98,7 +98,7 @@ export class PowerBillList {
   toDate:Date; // تا تاریخ
   numberDays:Number;//تعداد روزها
   consumptionAmount: Number; // مبلغ مصرف
-  totalConsumption:string;   // مصرف کل
+  ConsumptionSum:string;   //مجموع مصرف
 }
 
 export class PowerBuildingAllocation {
