@@ -728,6 +728,21 @@
                       </div>
                     </th> 
 
+
+                    
+                    <!-- جریمه بدی مصرف -->
+                    <th scope="row" >
+                      <div >
+                        <div >
+                        <input  id="badPenaltiesForConsuming" placeholder="جریمه بدی مصرف "
+                        [(ngModel)]="powerBillDto.badPenaltiesForConsuming"
+                        formControlName="badPenaltiesForConsuming"
+                        name="badPenaltiesForConsuming">
+                        </div>
+                        <app-alert-error [data]="formAmount.controls['badPenaltiesForConsuming']" [touched]="touched"></app-alert-error>
+                      </div>
+                    </th> 
+
                     <!-- 		مبلغ قابل پرداخت -->
                     <th scope="row" >
                       <div >

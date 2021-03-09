@@ -119,6 +119,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       subscription:[], // آبونمان
       powerPrice:[], // بهای قدرت
       seasonPrice:[], // بهای فصل
+      badPenaltiesForConsuming:[],// جریمه بدی مصرف 
       payableAmount:[], // مبلغ قابل پرداخت
     });
 

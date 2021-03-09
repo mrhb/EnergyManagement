@@ -63,7 +63,8 @@ export class PowerBillDto {
   subscription: string; //   آبونمان 
   powerPrice: string; //   بهای قدرت 
   seasonPrice: string; //   بهای فصل 
-  payableAmount: string; //   بهای فصل 
+  badPenaltiesForConsuming:string;// جریمه بدی مصرف 
+  payableAmount: string; //   مبلغ قابل پرداخت
 
 }
 
