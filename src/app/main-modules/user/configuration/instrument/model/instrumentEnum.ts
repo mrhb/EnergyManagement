@@ -1,8 +1,8 @@
 //کاربری تجهیر
 export enum UseTypeInstrumentEnum {
-  PUBLIC = <any> 'روشنایی',
-  GOVERNMENT = <any> 'سرمایش',
-  HOME = <any> 'گرمایش',
+  LIGHTING = <any> 'روشنایی',
+  COOLING = <any> 'سرمایشی',
+  HEATING = <any> 'گرمایشی',
 }
 
 // واحد
