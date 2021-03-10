@@ -35,43 +35,25 @@
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- آدرس -->          
-              <!-- <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="address" class="form-label">نشانی محل مصرف</label>
-                  <input class="form-control text-right" id="address" placeholder=""
-                         [(ngModel)]="instrumentDto.address"
-                         formControlName="address"
-                         name="address"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-              </div> -->
-              <!-- نام حامل انرژی -->          
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="instrumentCarrier" class="form-label">نام حامل انرژی</label>
-                  <input class="form-control text-right" id="instrumentCarrier" placeholder=""
-                         [(ngModel)]="instrumentDto.instrumentCarrier"
-                         formControlName="instrumentCarrier"
-                         name="instrumentCarrier"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['instrumentCarrier']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- واحد انرژی -->          
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="instrumentUnit" class="form-label">واحد انرژی</label>
-                  <input class="form-control text-right" id="instrumentUnit" placeholder=""
-                         [(ngModel)]="instrumentDto.instrumentUnit"
-                         formControlName="instrumentUnit"
-                         name="instrumentUnit"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['instrumentUnit']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- تعداد -->          
+             
+              <!-- حامل انرژی -->   
+                  <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="instrumentCarrier" class="form-label">حامل انرژی</label>
+                      <select id="instrumentCarrier"
+                              class="form-control text-right"
+                              [(ngModel)]="instrumentDto.instrumentCarrier"
+                              formControlName="instrumentCarrier"
+                              name="instrumentCarrier">
+                        <option *ngFor="let item of energyCarierEnum | enumKeyValue" [value]="item.key">
+                          {{item.value}}
+                        </option>
+                      </select>
+                    </div>
+                    <app-alert-error [data]="form.controls['instrumentCarrier']" [touched]="touched"></app-alert-error>
+                  </div>
+                  
+            <!-- تعداد -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="instrumentNum" class="form-label">تعداد </label>
@@ -83,10 +65,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['instrumentNum']" [touched]="touched"></app-alert-error>
               </div>              
-              <!-- کاربری تجهیر -->
+              <!-- کاربری تجهیز -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="instrumentUsage" class="form-label">کاربری تجهیر</label>
+                  <label for="instrumentUsage" class="form-label">کاربری تجهیز</label>
                   <select id="instrumentUsage"
                           class="form-control text-right"
                           [(ngModel)]="instrumentDto.instrumentUsage"
@@ -111,22 +93,6 @@
                 </div>
                 <app-alert-error [data]="form.controls['consumptionPower']" [touched]="touched"></app-alert-error>
               </div>                 
-              <!--واحد -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="consumptionUnit" class="form-label">واحد </label>
-                  <select id="consumptionUnit"
-                          class="form-control text-right"
-                          [(ngModel)]="instrumentDto.consumptionUnit"
-                          formControlName="consumptionUnit"
-                          name="consumptionUnit">
-                          <option *ngFor="let item of unitInstrumentEnum | enumKeyValue" [value]="item.key">
-                      {{item.value}}
-                    </option>
-                  </select>
-                </div>
-                <app-alert-error [data]="form.controls['consumptionUnit']" [touched]="touched"></app-alert-error>
-              </div>
               <!-- ساعت کارکرد روز -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">

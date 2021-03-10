@@ -16,7 +16,7 @@ import {ActivatedRoute} from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { BuildingAllocation } from '../../../subscription/model/power';
-import { UseTypeInstrumentEnum,UnitInstrumentEnum } from '../../model/instrumentEnum';
+import { UseTypeInstrumentEnum,UnitInstrumentEnum, EnergyCarierEnum } from '../../model/instrumentEnum';
 declare var $: any;
 @Component({
   selector: 'app-create-instrument',
@@ -34,7 +34,7 @@ export class CreateInstrumentComponent implements OnInit {
   form: FormGroup;
   buildingEnum = UseTypeBuildingEnum;
   useTypeInstrumentEnum = UseTypeInstrumentEnum;
-  unitInstrumentEnum: UnitInstrumentEnum; // واحد
+  energyCarierEnum=EnergyCarierEnum;//حاملهای انرژی
   myPattern = MyPattern;
   instrumentDto = new InstrumentDto();
   buildingAllocation = new InstrumentBuildingAllocation();
@@ -48,12 +48,10 @@ export class CreateInstrumentComponent implements OnInit {
               private instrumentService: InstrumentService) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern(this.myPattern.nameAndFamily)]],
-      instrumentCarrier: ['', [Validators.required]],//نام حامل انرژی 
-      instrumentUnit: [''],//واحد انرژی
+      instrumentCarrier: [''],// حامل انرژی 
       instrumentNum:  [''], //تعداد
       instrumentUsage:  [''], //کاربری تجهیر
       consumptionPower:  [''], //توان مصرفی 
-      consumptionUnit:  [''], // واحد
       dailyOperatHours:  [''], // ساعت کارکرد روز 
       AnnualWorkDayNum:  [''], //  تعداد روز کارکرد در سال 
       fromDate:  [''], //  تاریخ شروع کار تجهیز
