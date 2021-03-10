@@ -1,9 +1,8 @@
 <div class="col-12">
   <div class="card">
-    <div class="card-header flex-card-header">
-      <h1>
-        لیست تجهیزات
-      </h1>
+   <fieldset class="fieldset-border">
+   <legend>لیست تجهیرات </legend>
+   <div class="card-header flex-card-header">
       <div class="d-flex">
         <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن تجهیز</button>
       </div>
@@ -49,7 +48,8 @@
         (page)="changePage($event)"
       ></app-paginator>
     </div>
-  </div>
+  </fieldset>
+</div>
 <!--  <div class="title-header d-flex justify-content-between align-items-center">-->
 <!--    <div>-->
 <!--      <h1>-->
