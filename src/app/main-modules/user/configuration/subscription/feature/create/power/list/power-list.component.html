@@ -1,15 +1,5 @@
 <div class="col-12">
-<!--  <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--    <div>-->
-<!--      <h1>-->
-<!--        <strong>لیست اشتراک های برق </strong>-->
-<!--      </h1>-->
-<!--    </div>-->
-<!--    <div class="d-flex">-->
-<!--      <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createPower'">افزودن اشتراک</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <hr>-->
+
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
@@ -41,10 +31,10 @@
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{power.name}}</td>
             <td>{{power.billingId}}</td> 
-            <td>{{useTypeEnum[power.useType].toString()}}</td>
             <td>{{groupEnum[power.group].toString()}}</td> 
+            <td>{{useTypeEnum[power.useType].toString()}}</td>
             <td>{{useCodeEnum[power.useCode].toString()}}</td>
-            <!-- <td>{{power.contract}}</td> -->
+            <td>{{power.contract}}</td>
             <td>{{power.buildingNum}}</td> 
             <td class="text-center" width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: power.id}"

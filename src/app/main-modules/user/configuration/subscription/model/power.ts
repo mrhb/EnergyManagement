@@ -4,22 +4,23 @@ import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 export class PowerDto {
   name: string;
   billingId: string; //             شناسه قبض  
-  systemPass: string;
   city: string; // دیماند قراردادی
-  domainCode: string;
   addressCode: string; //شماره بدنه کنتور
-  numberShare: string;
-  fileNumber: string;
-  serialShare: string;
-  address: string;
   useType: UseTypePowerEnum; // عنوان تعرفه
   useCode: UseCodeEnum;// کد تعرفه
   group: GroupEnum; // نوع کنتور
-  // capacity: string;
   coefficient: string; //ضریب کنتور
+  contract: string; // دیماند قراردادی
+  domainCode: string;
+  numberShare: string;
+  systemPass: string;
+  fileNumber: string;
+  serialShare: string;
+  address: string;
   voltageType: VoltageTypeEnum;
   powerSupplyVoltage: powerSupplyVoltage;
   buildingList: BuildingAllocation[] = [];
+  // capacity: string;
   // buildingNum: string;
 }
 
