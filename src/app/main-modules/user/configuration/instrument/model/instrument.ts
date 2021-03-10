@@ -1,21 +1,17 @@
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
-import { UseTypeInstrumentEnum, UnitInstrumentEnum } from './instrumentEnum';
+import { UseTypeInstrumentEnum, UnitInstrumentEnum, EnergyCarierEnum } from './instrumentEnum';
 
 export class InstrumentDto {
   name: string; //نام تجهیز 
-  instrumentCarrier: string; //نام حامل انرژی 
-  instrumentUnit: string; //واحد انرژی
+  instrumentCarrier: EnergyCarierEnum; // حامل انرژی 
   instrumentNum: string; //تعداد
   instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیر
   consumptionPower: string; //توان مصرفی 
-  consumptionUnit: UnitInstrumentEnum; // واحد
   dailyOperatHours: string; // ساعت کارکرد روز 
   AnnualWorkDayNum: string; //  تعداد روز کارکرد در سال 
   fromDate: string; //  تاریخ شروع کار تجهیز
   toDate: string; //  تاریخ خاتمه کار تجهیز
   coincidenceCoefficient: string; //   ضریب همزمانی  
-  creatorId: string;
-  ownerId: string;
   buildingList: InstrumentBuildingAllocation[] = [];
 }
 

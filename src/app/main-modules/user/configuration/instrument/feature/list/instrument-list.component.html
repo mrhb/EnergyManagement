@@ -25,13 +25,13 @@
           <tr *ngFor="let instrument of instrumentList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{instrument.name}}</td>          
-            <td>{{instrument.instrumentCarrier}}</td>
+            <td>{{energyCarierEnum[instrument.instrumentCarrier].toString()}}</td>
             <td>{{instrument.instrumentUsage}}</td>
             <td>{{instrument.instrumentNum}}</td>
             <td>{{instrument.consumptionPower}}</td>
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: instrument.id}"
-                                 [routerLink]="'/index/user/configuration/creatInstrument'"></span></td>
+                                 [routerLink]="'/index/user/configuration/createInstrument'"></span></td>
             <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteInstrument(i, instrument.id)"></span></td>
           </tr>
           </tbody>
