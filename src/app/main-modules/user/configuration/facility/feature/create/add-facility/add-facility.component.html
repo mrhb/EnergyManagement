@@ -1,111 +1,107 @@
-<form [formGroup]="form" class="w-100" (ngSubmit)="updateFacility()">
-  <div class="form row">
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="name" class="form-label">نام ساختمان</label>
-        <input class="form-control text-right" id="name" placeholder=""
-               [(ngModel)]="facilityDto.name"
-               formControlName="name"
-               name="name"
-        >
-      </div>
-      <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
-    </div>
+<div>
+   <div class="col-12">
+    <div class="title-header d-flex justify-content-between align-items-center">
+      <div>
+        <h1>
+          <strong>افزودن تاسیسات </strong>
+        </h1>
+        <p class="sub-title-header">
+          با انتخاب منطقه تاسیسات در همان منطقه افزوده خواهد شد.
 
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="constructionYear" class="form-label">سال ساخت</label>
-        <input class="form-control text-right" id="constructionYear" placeholder=""
-               type="number" min="0"
-               maxlength="12"
-               [(ngModel)]="facilityDto.constructionYear"
-               formControlName="constructionYear"
-               name="constructionYear"
-        >
+        </p>
       </div>
-      <app-alert-error [data]="form.controls['constructionYear']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="floorNum" class="form-label">تعداد طبقات</label>
-        <input class="form-control text-right" id="floorNum" placeholder=""
-               type="number" min="0"
-               [(ngModel)]="facilityDto.floorNum "
-               formControlName="floorNum"
-               name="floorNum"
-               maxlength="3"
-        >
+      <div class="d-flex">
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/facilityList'">لیست تاسیسات
+        </button>
       </div>
-      <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="exploitationPersonnelNum" class="form-label">تعداد نفرات بهره بردار</label>
-        <input class="form-control text-right" id="exploitationPersonnelNum" placeholder=""
-               type="number" min="0"
-               [(ngModel)]="facilityDto.exploitationPersonnelNum"
-               formControlName="exploitationPersonnelNum"
-               name="exploitationPersonnelNum"
-        >
-      </div>
-      <app-alert-error [data]="form.controls['exploitationPersonnelNum']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="postalCode" class="form-label">کد پستی</label>
-        <input class="form-control text-right" id="postalCode" placeholder=""
-               maxlength="10"
-               minlength="10"
-               [(ngModel)]="facilityDto.postalCode"
-               formControlName="postalCode"
-               name="postalCode"
-        >
-      </div>
-      <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="ownership" class="form-label">مالکیت</label>
-        <select name="ownership" id="ownership"
-                class="form-control text-right"
-                formControlName="ownership"
-                [(ngModel)]="facilityDto.ownership">
-          <option *ngFor="let item of ownershipEnum | enumKeyValue" [value]="item.key">
-            {{item.value}}
-          </option>
-        </select>
-      </div>
-      <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
-        <select name="coolingHeatingSystemType" id="coolingHeatingSystemType"
-                class="form-control text-right"
-                formControlName="coolingHeatingSystemType"
-                [(ngModel)]="facilityDto.coolingHeatingSystemType">
-          <option *ngFor="let item of CoolingHeatingSystemTypeEnum | enumKeyValue" [value]="item.key">
-            {{item.value}}
-          </option>
-        </select>
-      </div>
-      <app-alert-error [data]="form.controls['coolingHeatingSystemType']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="mb-4 col-12">
-      <div class="w-100">
-        <label for="address" class="form-label">آدرس</label>
-        <textarea class="form-control text-right" id="address" placeholder=""
-                  [(ngModel)]="facilityDto.address"
-                  formControlName="address"
-                  name="address"
-        ></textarea>
-      </div>
-      <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-    </div>
-    <div class="col-12">
-      <div (click)="goBack()" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
-      <button type="submit" class="btn btn-primary text-center ml-3">ثبت و ادامه</button>
-    </div>
-
+    <hr>
   </div>
-</form>
+  <div class="col-12">
+    <div class="row">
+      <div class="col-md-3 col-sm-12">
+        <div class="card h-100">
+          لیست مناطق
+          <hr>
+          <!-- <div class="card-header">
+            لیست مناطق
+          </div> -->
+          <div class="card-body p-0 h-100">
+            <!-- <div class="tree-view-box">
+              <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <form [formGroup]="form" class="w-100" (ngSubmit)="updateFacility()">
+          <fieldset class="fieldset-border">
+            <legend>اطلاعات تاسیس</legend>
+            <div class="form row">
+              <!-- نام تاسیس -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="name" class="form-label">نام تاسیس</label>
+                  <input class="form-control text-right" id="name" placeholder=""
+                        [(ngModel)]="facilityDto.name"
+                        formControlName="name"
+                        name="name">
+                </div>
+                <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- نوع کاربری -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="useType" class="form-label">نوع کاربری</label>
+                  <input class="form-control text-right" id="useType" placeholder=""
+                        type="number" min="0"
+                        maxlength="12"
+                        [(ngModel)]="facilityDto.useType"
+                        formControlName="useType"
+                        name="useType">
+                </div>
+                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- بانک خازنی -->
+              <div class="mb-4 col-md-3">
+                <div class="w-100">
+                  <label for="CapacitorBank" class="form-label">بانک خازنی</label>
+                  <input class="form-control text-right" id="CapacitorBank" placeholder="kvar"
+                        type="number" min="0"
+                        [(ngModel)]="facilityDto.CapacitorBank "
+                        formControlName="CapacitorBank"
+                        name="CapacitorBank"
+                        maxlength="3">
+                </div>
+                <app-alert-error [data]="form.controls['CapacitorBank']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- توضیحات -->
+              <div class="mb-4 col-12">
+                <div class="w-100">
+                  <label for="explanation" class="form-label">توضیحات</label>
+                  <textarea class="form-control text-right" id="explanation" placeholder=""
+                            [(ngModel)]="facilityDto.explanation"
+                            formControlName="explanation"
+                            name="explanation"
+                  ></textarea>
+                </div>
+                <app-alert-error [data]="form.controls['explanation']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- آدرس -->
+              <div class="mb-4 col-12">
+                <div class="w-100">
+                  <label for="address" class="form-label">آدرس</label>
+                  <textarea class="form-control text-right" id="address" placeholder=""
+                            [(ngModel)]="facilityDto.address"
+                            formControlName="address"
+                            name="address"
+                  ></textarea>
+                </div>
+                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+              </div>
+
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>   
