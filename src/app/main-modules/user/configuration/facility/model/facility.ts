@@ -1,4 +1,5 @@
 import {CoolingHeatingSystemType, Ownership} from './facilityEnum';
+// import {UseTypeEnum} from './facilityEnum';
 
 export class CompleteStep {
   zero: boolean;
@@ -15,16 +16,19 @@ export class Region {
 }
 
 export class Facility {
+  // useType: UseTypeEnum;
+  name: string; //نام تاسیس 
+  useType: string; // نوع کاربری 
+  CapacitorBank: string; // بانک خازنی 
+  explanation: string; //توضیحات
+  address: string; //آدرس
   regionId: string;
-  regionTitle: string;
-  name: string;
+  // regionTitle: string;
   constructionYear: string;
-  floorNum: string;
-  exploitationPersonnelNum: string;
-  postalCode: string;
-  address: string;
-  ownership: Ownership;
-  coolingHeatingSystemType: CoolingHeatingSystemType;
+  // floorNum: string;
+  // postalCode: string;
+  // ownership: Ownership;
+  // coolingHeatingSystemType: CoolingHeatingSystemType;
 }
 
 export class Area {
