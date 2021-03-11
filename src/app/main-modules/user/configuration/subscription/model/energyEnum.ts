@@ -5,7 +5,7 @@ export enum EnergyCarierEnum {
   BENZIN = <any> 'بنزین',
 }
 // واحد
-export enum UnitInstrumentEnum {
+export enum CarierUnitEnum {
   LITER = <any> 'لیتر',
   KWATT = <any> 'کیلووات',
   METER3 = <any> 'مترمکعب',

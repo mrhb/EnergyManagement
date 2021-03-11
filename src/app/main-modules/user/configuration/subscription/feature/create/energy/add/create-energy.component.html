@@ -48,30 +48,41 @@
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
+
               <!-- حامل انرژی -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="energyCarrier" class="form-label">حامل انرژی</label>
-                  <input class="form-control text-right" id="energyCarrier" placeholder=""
-                         [(ngModel)]="energyDto.energyCarrier"
-                         formControlName="energyCarrier"
-                         name="energyCarrier"
-                  >
+                  <select id="energyCarrier"
+                          class="form-control text-right"
+                          [(ngModel)]="energyDto.energyCarrier"
+                          formControlName="energyCarrier"
+                          name="energyCarrier">
+                    <option *ngFor="let item of energyCarierEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
                 </div>
-                <app-alert-error [data]="form.controls['energyCarrier']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
               </div>
+              
               <!-- واحد انرژی -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="energyUnit" class="form-label">واحد انرژی</label>
-                  <input class="form-control text-right" id="energyUnit" placeholder=""
-                         [(ngModel)]="energyDto.energyUnit"
-                         formControlName="energyUnit"
-                         name="energyUnit"
-                  >
+                  <select id="energyUnit"
+                          class="form-control text-right"
+                          [(ngModel)]="energyDto.energyUnit"
+                          formControlName="energyUnit"
+                          name="energyUnit">
+                    <option *ngFor="let item of carierUnitEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
                 </div>
-                <app-alert-error [data]="form.controls['energyUnit']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
               </div>
+
               <!-- شماره کنتور -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
