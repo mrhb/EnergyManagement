@@ -1,5 +1,6 @@
-import {GroupEnum, PeriodEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
+import {GroupEnum,powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
+import { PeriodEnum } from './sharedEnum';
 
 export class PowerDto {
   name: string;
