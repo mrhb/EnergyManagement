@@ -6,14 +6,13 @@
         <input class="form-control text-right" id="name" placeholder=""
                [(ngModel)]="buildingDto.name"
                formControlName="name"
-               name="name"
-        >
+               name="name">
       </div>
       <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
     </div>
     <div class="mb-4 col-md-3">
       <div class="w-100">
-        <label for="useType" class="form-label">کاربری</label>
+        <label for="useType" class="form-label">نوع کاربری </label>
         <select name="useType" id="useType"
                 class="form-control text-right"
                 formControlName="useType"
@@ -39,8 +38,7 @@
                maxlength="12"
                [(ngModel)]="buildingDto.constructionYear"
                formControlName="constructionYear"
-               name="constructionYear"
-        >
+               name="constructionYear">
       </div>
       <app-alert-error [data]="form.controls['constructionYear']" [touched]="touched"></app-alert-error>
     </div>
@@ -52,8 +50,7 @@
                [(ngModel)]="buildingDto.floorNum "
                formControlName="floorNum"
                name="floorNum"
-               maxlength="3"
-        >
+               maxlength="3">
       </div>
       <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
     </div>
@@ -64,8 +61,7 @@
                type="number" min="0"
                [(ngModel)]="buildingDto.exploitationPersonnelNum"
                formControlName="exploitationPersonnelNum"
-               name="exploitationPersonnelNum"
-        >
+               name="exploitationPersonnelNum">
       </div>
       <app-alert-error [data]="form.controls['exploitationPersonnelNum']" [touched]="touched"></app-alert-error>
     </div>
@@ -77,8 +73,7 @@
                minlength="10"
                [(ngModel)]="buildingDto.postalCode"
                formControlName="postalCode"
-               name="postalCode"
-        >
+               name="postalCode">
       </div>
       <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
     </div>

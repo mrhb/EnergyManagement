@@ -19,21 +19,21 @@ export class Region {
 export class Building {
   regionId: string;
   regionTitle: string;
-  name: string;
-  useType: UseTypeEnum;
+  name: string; // نام ساختمان
+  useType: UseTypeEnum; //نوع کاربری
   constructionYear: string;
-  floorNum: string;
+  floorNum: string; // تعداد طبقات
   exploitationPersonnelNum: string;
-  postalCode: string;
+  postalCode: string; // کد پستی
   address: string;
   ownership: Ownership;
-  coolingHeatingSystemType: CoolingHeatingSystemType;
+  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
 }
 
 export class Area {
-  arenaArea: number;
-  ayanArea: number;
-  useFullArea: number;
+  arenaArea: number;  //مساحت عرصه
+  ayanArea: number; //مساحت اعیان
+  useFullArea: number; //مساحت مفید
   externalWallsTotalArea: number;
   externalGlassTotalArea: number;
 }
@@ -68,13 +68,15 @@ export class WallInformation {
 }
 
 export class BuildingList {
-  constructionYear: number;
-  createdAt: any;
-  id: string;
-  name: string;
-  postalCode: string;
-  regionId: string;
-  useType: UseTypeEnum;
+  name: string; // نام ساختمان
+  useType: UseTypeEnum; //نوع کاربری
+  floorNum: string; // تعداد طبقات
+  arenaArea: number; //مساحت عرصه
+  ayanArea: number; //مساحت اعیان
+  useFullArea: number; //مساحت مفید
+  id: string;//تعداد انشعابها
+  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  postalCode: string; // کد پستی
 }
 
 export class EnergyLabel {
