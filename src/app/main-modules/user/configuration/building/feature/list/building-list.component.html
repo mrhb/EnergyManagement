@@ -60,21 +60,14 @@
                 <tr *ngFor="let building of buildingList; let i = index">
                   <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                   <td>{{building.name}}</td>
-                  <td>{{building.useType}}</td>
+                  <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
                   <td>{{building.floorNum}}</td>
                   <td>{{building.arenaArea}}</td>
                   <td>{{building.ayanArea}}</td>
                   <td>{{building.useFullArea}}</td>
                   <td>{{building.powerSharNum+building.gasSharNum+building.waterSharNum+building.energyCarierOthersNum}}</td>
-                  <td>{{building.coolingHeatingSystemType}}</td>
+                  <td>{{coolingHeatingSystemType[building.coolingHeatingSystemType].toString()}}</td>
                   <td>{{building.postalCode}}</td>
-                  <td>
-                    <div [ngSwitch]="building.useType">
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">مسکونی</div>
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">تجاری</div>
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.OFFICIAL].toString()">اداری</div>
-                    </div>
-                  </td>
                   <td>
                     <a class="btn btn-outline-dark text-center" href="#chart" (click)="setOption()">نمودار</a>
                   </td>

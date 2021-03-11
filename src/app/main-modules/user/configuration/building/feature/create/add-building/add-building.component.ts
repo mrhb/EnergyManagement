@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Building} from '../../../model/building';
-import {UseTypeEnum} from '../../../model/useTypeEnum';
+import {UseTypeBuildingEnum} from '../../../model/useTypeEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
@@ -20,7 +20,7 @@ export class AddBuildingComponent implements OnInit {
   myPattern = MyPattern;
   buildingDto = new Building();
   touched = false;
-  useTypeEnum = UseTypeEnum;
+  useTypeEnum = UseTypeBuildingEnum;
   ownershipEnum = Ownership;
   CoolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
   moment = Moment;

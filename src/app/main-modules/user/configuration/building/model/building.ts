@@ -1,4 +1,4 @@
-import {UseTypeEnum} from './useTypeEnum';
+import {UseTypeBuildingEnum} from './useTypeEnum';
 import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
 import {EnergyLabelType} from './EnergyLabelType';
 
@@ -20,7 +20,7 @@ export class Building {
   regionId: string;
   regionTitle: string;
   name: string; // نام ساختمان
-  useType: UseTypeEnum; //نوع کاربری
+  useType: UseTypeBuildingEnum; //نوع کاربری
   constructionYear: string;
   floorNum: string; // تعداد طبقات
   exploitationPersonnelNum: string;
@@ -73,7 +73,7 @@ export class WallInformation {
 
 export class BuildingList {
   name: string; // نام ساختمان
-  useType: UseTypeEnum; //نوع کاربری
+  useType: UseTypeBuildingEnum; //نوع کاربری
   floorNum: string; // تعداد طبقات
   arenaArea: number; //مساحت عرصه
   ayanArea: number; //مساحت اعیان
