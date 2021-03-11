@@ -1,11 +1,7 @@
 <form [formGroup]="form" class="w-100" (ngSubmit)="updateBuilding()">
   <div class="form row">
     <!-- نام ساختمان  -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
-=======
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="name" class="form-label">نام ساختمان</label>
         <input class="form-control text-right" id="name" placeholder=""
@@ -15,13 +11,8 @@
       </div>
       <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
     </div>
-<<<<<<< HEAD
     <!-- نوع کاربری -->
     <div class="mb-4 col-md-2">
-=======
-    <!-- نوع کاربری  -->
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="useType" class="form-label">نوع کاربری </label>
         <select name="useType" id="useType"
@@ -42,11 +33,7 @@
       <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
     </div>
     <!-- سال ساخت  -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
-=======
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="constructionYear" class="form-label">سال ساخت</label>
         <input class="form-control text-right" id="constructionYear" placeholder=""
@@ -59,11 +46,7 @@
       <app-alert-error [data]="form.controls['constructionYear']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد طبقات  -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
-=======
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="floorNum" class="form-label">تعداد طبقات</label>
         <input class="form-control text-right" id="floorNum" placeholder=""
@@ -76,11 +59,7 @@
       <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد نفرات بهره بردار  -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
-=======
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="exploitationPersonnelNum" class="form-label">تعداد نفرات بهره بردار</label>
         <input class="form-control text-right" id="exploitationPersonnelNum" placeholder=""
@@ -105,11 +84,7 @@
       <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
     </div>
     <!-- مالکیت -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
-=======
-    <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="ownership" class="form-label">مالکیت</label>
         <select name="ownership" id="ownership"
@@ -124,11 +99,7 @@
       <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
     </div>
     <!-- نوع سیستم گرمایشی/سرمایشی -->
-<<<<<<< HEAD
-    <div class="mb-4 col-md-2">
-=======
     <div class="mb-4 col-md-3">
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
       <div class="w-100">
         <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
         <select name="coolingHeatingSystemType" id="coolingHeatingSystemType"
@@ -143,7 +114,6 @@
       <app-alert-error [data]="form.controls['coolingHeatingSystemType']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد انشعاب برق -->
-<<<<<<< HEAD
     <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="powerSharNum" class="form-label">تعداد انشعاب برق</label>
@@ -192,59 +162,6 @@
       <app-alert-error [data]="form.controls['energyCarierOthersNum']" [touched]="touched"></app-alert-error>
     </div>    
     <!-- آدرس -->
-=======
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="powerSharNum" class="form-label">تعداد انشعاب برق</label>
-            <input class="form-control text-right" id="powerSharNum" placeholder=""
-                   maxlength="10"
-                   minlength="10"
-                   [(ngModel)]="buildingDto.powerSharNum"
-                   formControlName="powerSharNum"
-                   name="powerSharNum">
-          </div>
-          <app-alert-error [data]="form.controls['powerSharNum']" [touched]="touched"></app-alert-error>
-    </div>
-    <!-- تعداد انشعاب گاز -->
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="gasSharNum" class="form-label">تعداد انشعاب گاز</label>
-            <input class="form-control text-right" id="gasSharNum" placeholder=""
-                   maxlength="10"
-                   minlength="10"
-                   [(ngModel)]="buildingDto.gasSharNum"
-                   formControlName="gasSharNum"
-                   name="gasSharNum">
-          </div>
-          <app-alert-error [data]="form.controls['gasSharNum']" [touched]="touched"></app-alert-error>
-    </div>
-    <!-- تعداد انشعاب آب -->
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="waterSharNum" class="form-label">تعداد انشعاب آب</label>
-            <input class="form-control text-right" id="waterSharNum" placeholder=""
-                   maxlength="10"
-                   minlength="10"
-                   [(ngModel)]="buildingDto.waterSharNum"
-                   formControlName="waterSharNum"
-                   name="waterSharNum">
-          </div>
-          <app-alert-error [data]="form.controls['waterSharNum']" [touched]="touched"></app-alert-error>
-    </div>
-    <!-- تعداد حامل های انرژی غیر -->
-    <div class="mb-4 col-md-3">
-      <div class="w-100">
-        <label for="energyCarierOthersNum" class="form-label">تعداد حامل های انرژی غیر</label>
-            <input class="form-control text-right" id="energyCarierOthersNum" placeholder=""
-                   maxlength="10"
-                   minlength="10"
-                   [(ngModel)]="buildingDto.energyCarierOthersNum"
-                   formControlName="energyCarierOthersNum"
-                   name="energyCarierOthersNum">
-          </div>
-          <app-alert-error [data]="form.controls['energyCarierOthersNum']" [touched]="touched"></app-alert-error>
-    </div>
->>>>>>> 735942fcaf4f2e0213f2ba9ce1b811540cabbd76
     <div class="mb-4 col-12">
       <div class="w-100">
         <label for="address" class="form-label">آدرس</label>
