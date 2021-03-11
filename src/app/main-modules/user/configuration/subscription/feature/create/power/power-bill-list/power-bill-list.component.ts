@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 
 import { PowerBillDto, PowerBillList } from '../../../../model/power';
-import { UseTypePowerEnum } from '../../../../model/powerEnum';
+import { PeriodEnum, UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
 import Notiflix from 'notiflix';
@@ -35,6 +35,7 @@ export class PowerBillListComponent implements OnInit {
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
+  periodEnum=PeriodEnum;
   powerBillList: PowerBillList[] = [];
   xlsxPowerBillList: PowerBillDto[] = [];
   buildingList = [];

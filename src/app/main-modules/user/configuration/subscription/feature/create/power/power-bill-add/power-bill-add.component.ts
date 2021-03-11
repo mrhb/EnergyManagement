@@ -8,6 +8,7 @@ import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
 import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
+import { PeriodEnum } from '../../../../model/powerEnum';
 declare var $: any;
 
 @Component({
@@ -23,6 +24,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
   touched = false;
   edited = false;
   powerId = '';
+  periodEnum=PeriodEnum;
   powerList: PowerList[] = [];
   myPattern = MyPattern;
   moment = Moment;

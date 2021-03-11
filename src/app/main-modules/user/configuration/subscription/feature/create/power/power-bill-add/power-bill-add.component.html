@@ -41,16 +41,22 @@
               <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
               </div>
               <!-- دوره  -->
-             <div class="mb-4 col-md-2">
-              <div class="w-200">
-                  <label for="period" class="form-label">دوره</label>
-                  <input class="form-control text-right" id="period" placeholder=""
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="period" class="form-label">دوره</label>
+                <select id="period"
+                        class="form-control text-right"
                         [(ngModel)]="powerBillDto.period"
                         formControlName="period"
                         name="period">
-                </div>
-                <app-alert-error [data]="form.controls['period']" [touched]="touched"></app-alert-error>
+                  <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
               </div>
+              <app-alert-error [data]="form.controls['period']" [touched]="touched"></app-alert-error>
+            </div>
+
               <!-- تاریخ شروع -->
               <div class="mb-4 col-md-2">
                 <div class="w-200">

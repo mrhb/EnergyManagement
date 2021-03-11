@@ -1,4 +1,4 @@
-import {GroupEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
+import {GroupEnum, PeriodEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class PowerDto {
@@ -40,7 +40,7 @@ export class PowerBillDto {
   billId: string;
   numberShare:string;// شماره اشتراک
   paymentCode: string; // شناسه پرداخت
-  period: string; // دوره
+  period: PeriodEnum; // دوره
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   numberDays: string; // روزها
@@ -95,6 +95,7 @@ export class PowerBillList {
   billingId: String; // شناسه اشتراک برق
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
+  period: PeriodEnum; // دوره
   fromDate: Date; // از تاریخ
   toDate:Date; // تا تاریخ
   numberDays:Number;//تعداد روزها

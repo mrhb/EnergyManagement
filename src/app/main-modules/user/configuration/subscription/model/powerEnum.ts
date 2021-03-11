@@ -13,6 +13,21 @@ export enum HomeEnum {
   WARM_TROPICAL_2 = <any> 'ماه های گرم در مناطق گرمسیر 2',
   WARM_TROPICAL_1 = <any> 'ماه های گرم در مناطق گرمسیر 1',
 }
+export enum PeriodEnum {
+  FIRST= <any> 'یکم',
+  SECOND= <any> 'دوم',
+  THIRD= <any> 'سوم',
+  FOURTH= <any> 'چهارم',
+  FIFTH= <any> 'پنجم',
+  SIXTH= <any> 'ششم',
+  SEVENTH= <any> 'هفتم',
+  EIGHTH= <any> 'هشتم',
+  NINTH= <any> 'نهم',
+  TENTH= <any> 'دهم',
+  ELEVENTH= <any> 'یازدهم',
+  TWELFTH= <any> 'دوازدهم',
+} // دوره
+
 
 export enum GeneralEnum {
   TWO_A_1 = <any> '2-الف-1',
