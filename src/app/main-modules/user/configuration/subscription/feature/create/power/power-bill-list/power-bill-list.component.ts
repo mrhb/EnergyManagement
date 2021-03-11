@@ -9,6 +9,7 @@ import Notiflix from 'notiflix';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { Moment } from 'src/app/shared/tools/moment';
+import { PeriodEnum } from '../../../../model/sharedEnum';
 declare var $: any;
 
 type AOA = any[][];
@@ -35,6 +36,7 @@ export class PowerBillListComponent implements OnInit {
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
+  periodEnum=PeriodEnum;
   powerBillList: PowerBillList[] = [];
   xlsxPowerBillList: PowerBillDto[] = [];
   buildingList = [];
