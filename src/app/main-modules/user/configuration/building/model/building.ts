@@ -28,6 +28,10 @@ export class Building {
   address: string;
   ownership: Ownership;
   coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  powerSharNum: number;  //تعداد انشعاب برق
+  gasSharNum: number;  //تعداد انشعاب گاز
+  waterSharNum: number;  //تعداد انشعاب آب
+  energyCarierOthersNum: number;  // تعداد حامل های انرژی غیر 
 }
 
 export class Area {
