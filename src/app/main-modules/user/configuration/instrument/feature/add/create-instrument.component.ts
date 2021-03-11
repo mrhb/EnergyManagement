@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {InstrumentBuildingAllocation, InstrumentDto} from '../../model/instrument';
 // @ts-ignore
@@ -17,13 +17,14 @@ import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { BuildingAllocation } from '../../../subscription/model/power';
 import { UseTypeInstrumentEnum,UnitInstrumentEnum, EnergyCarierEnum } from '../../model/instrumentEnum';
+import { Moment } from 'src/app/shared/tools/moment';
 declare var $: any;
 @Component({
   selector: 'app-create-instrument',
   templateUrl: './create-instrument.component.html',
   styleUrls: ['./create-instrument.component.scss']
 })
-export class CreateInstrumentComponent implements OnInit {
+export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -36,6 +37,8 @@ export class CreateInstrumentComponent implements OnInit {
   useTypeInstrumentEnum = UseTypeInstrumentEnum;
   energyCarierEnum=EnergyCarierEnum;//حاملهای انرژی
   myPattern = MyPattern;
+  moment = Moment;
+
   instrumentDto = new InstrumentDto();
   buildingAllocation = new InstrumentBuildingAllocation();
   filterBuilding = '';
@@ -71,7 +74,47 @@ export class CreateInstrumentComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  ngAfterViewInit(): void {
+    this.jQueryDate();
+  }
+  
+  jQueryDate(): void {
+    setTimeout(e1 => {
+      $('#fromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#fromDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.instrumentDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        if (this.instrumentDto.fromDate > this.instrumentDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
+            this.instrumentDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.toDate));
+          }, 200);
+        }
+      });
+      $('#toDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#toDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.instrumentDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.instrumentDto.toDate', this.instrumentDto.toDate);
+        if (this.instrumentDto.fromDate > this.instrumentDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
+            this.instrumentDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.fromDate));
+          }, 200);
+        }
+      });
+    }, 100);
+  }
 
   createInstrument(): void {
     this.touched = true;
@@ -110,6 +153,9 @@ export class CreateInstrumentComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           this.instrumentDto = res.data;
+          $('#fromDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.fromDate));
+          $('#toDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.toDate));
+
         }
       });
   }
