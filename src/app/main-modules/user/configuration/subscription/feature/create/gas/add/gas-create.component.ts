@@ -68,6 +68,8 @@ export class GasCreateComponent implements OnInit {
       city: ['', [Validators.minLength(1)]],
       domainCode: [''],
       addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
+      numberUnits: [''],//تعداد واحدها
+
       numberShare: [''],
       fileNumber: [''],
       serialShare: [''],

@@ -8,7 +8,9 @@ export class GasDto {
   city: string;
   domainCode: string;
   addressCode: string;
+  numberUnits:string;//تعداد واحدها
   numberShare: string; // شماره اشتراک
+
   fileNumber: string;
   serialShare: string;
   useType: UseTypeGasEnum;

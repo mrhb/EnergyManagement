@@ -16,6 +16,7 @@
           <tr>
             <th scope="col" width="40">#</th>
             <th scope="col"> نام مشترک </th>
+            <th scope="col"> دوره </th>
             <th scope="col"> از تاریخ</th>
             <th scope="col"> تا تاریخ</th>
             <th scope="col" width="40"> تعداد روزها</th>
@@ -28,6 +29,7 @@
           <tr *ngFor="let power of powerBillList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{power.nameShare}}</td>
+            <td>{{periodEnum[power.period].toString()}}</td>
             <td>{{this.moment.getJaliliDateFromIso(power.fromDate)}}</td>
             <td>{{this.moment.getJaliliDateFromIso(power.toDate)}}</td>
             <td>{{power.numberDays}}</td>
