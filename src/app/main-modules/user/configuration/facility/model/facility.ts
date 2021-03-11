@@ -1,5 +1,4 @@
 import {CoolingHeatingSystemType, Ownership} from './facilityEnum';
-// import {UseTypeEnum} from './facilityEnum';
 
 export class CompleteStep {
   zero: boolean;
@@ -16,7 +15,6 @@ export class Region {
 }
 
 export class Facility {
-  // useType: UseTypeEnum;
   name: string; //نام تاسیس 
   useType: string; // نوع کاربری 
   CapacitorBank: string; // بانک خازنی 

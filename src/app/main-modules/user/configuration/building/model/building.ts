@@ -1,4 +1,4 @@
-import {UseTypeEnum} from './useTypeEnum';
+import {UseTypeBuildingEnum} from './useTypeEnum';
 import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
 import {EnergyLabelType} from './EnergyLabelType';
 
@@ -20,14 +20,18 @@ export class Building {
   regionId: string;
   regionTitle: string;
   name: string; // نام ساختمان
-  useType: UseTypeEnum; //نوع کاربری
+  useType: UseTypeBuildingEnum; //نوع کاربری
   constructionYear: string;
   floorNum: string; // تعداد طبقات
-  exploitationPersonnelNum: string;
+  exploitationPersonnelNum: string; // تعداد نفرات بهره بردار 
   postalCode: string; // کد پستی
-  address: string;
   ownership: Ownership;
   coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  powerSharNum: string;  //تعداد انشعاب برق
+  gasSharNum: string;  //تعداد انشعاب گاز
+  waterSharNum: string;  //تعداد انشعاب آب
+  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
+  address: string;
 }
 
 export class Area {
@@ -69,7 +73,7 @@ export class WallInformation {
 
 export class BuildingList {
   name: string; // نام ساختمان
-  useType: UseTypeEnum; //نوع کاربری
+  useType: UseTypeBuildingEnum; //نوع کاربری
   floorNum: string; // تعداد طبقات
   arenaArea: number; //مساحت عرصه
   ayanArea: number; //مساحت اعیان
@@ -77,6 +81,10 @@ export class BuildingList {
   id: string;//تعداد انشعابها
   coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
   postalCode: string; // کد پستی
+  powerSharNum: string;  //تعداد انشعاب برق
+  gasSharNum: string;  //تعداد انشعاب گاز
+  waterSharNum: string;  //تعداد انشعاب آب
+  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
 }
 
 export class EnergyLabel {

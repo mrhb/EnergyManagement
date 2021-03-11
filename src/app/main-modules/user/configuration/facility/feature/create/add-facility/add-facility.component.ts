@@ -20,7 +20,7 @@ export class AddFacilityComponent implements OnInit {
   facilityDto = new Facility();
   touched = false;
   ownershipEnum = Ownership;
-  CoolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
+  coolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
   moment = Moment;
 
   @Input() bId: string;
