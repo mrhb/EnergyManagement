@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import * as XLSX from 'xlsx';
 
 import { PowerBillDto, PowerBillList } from '../../../../model/power';
-import { PeriodEnum, UseTypePowerEnum } from '../../../../model/powerEnum';
+import { UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
 import Notiflix from 'notiflix';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { Moment } from 'src/app/shared/tools/moment';
+import { PeriodEnum } from '../../../../model/sharedEnum';
 declare var $: any;
 
 type AOA = any[][];

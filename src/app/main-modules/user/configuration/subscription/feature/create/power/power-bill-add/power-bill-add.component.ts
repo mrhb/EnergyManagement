@@ -8,7 +8,7 @@ import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
 import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
-import { PeriodEnum } from '../../../../model/powerEnum';
+import { PeriodEnum } from '../../../../model/sharedEnum';
 declare var $: any;
 
 @Component({
@@ -195,7 +195,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       this.powerReceiptService.createReceipt(this.powerBillDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد قبض برق با موفقیت انجام شد.');
             this.powerId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -208,7 +208,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       this.powerReceiptService.updateReceipt({id: this.powerId}, this.powerBillDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش قبض برق با موفقیت انجام شد.');
             // this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
