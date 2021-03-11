@@ -28,8 +28,8 @@
           <tr *ngFor="let energy of energyList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{energy.name}}</td>
-            <td>{{energy.energyCarrier}}</td>
-            <td>{{energy.energyUnit}}</td>
+            <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td>
+            <td>{{carierUnitEnum[energy.energyUnit].toString()}}</td>
             <td>{{energy.shareNumber}}</td>
             <td>{{energy.capacity}}</td>
             <td>{{energy.kiloWatConvert}}</td>
