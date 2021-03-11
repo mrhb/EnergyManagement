@@ -12,6 +12,7 @@ import { EnergyReceiptService } from '../../../../service/energy-receipt.service
 import { EnergyService } from '../../../../service/energy.service';
 import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
+import { EnergyCarierEnum } from '../../../../model/energyEnum';
 declare var $: any;
 @Component({
   selector: 'app-Energy-bill-add',
@@ -28,6 +29,7 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
   moment = Moment;
 
   energyId = '';
+  energyCarierEnum=EnergyCarierEnum;
   energyList: EnergyList[] = [];
 
   form: FormGroup;
@@ -40,15 +42,15 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
     private  energyService: EnergyService,
     private  energyReceiptService: EnergyReceiptService
 ) { 
+  this.activatedRoute.queryParams.subscribe(params => {
+    console.log('params', params);
+    if (params.id) {
+      this.edited = true;
+      this.energyId = params.id;
+      this.getOneBill(params.id);
+    }
+  });
 }
-  // this.activatedRoute.queryParams.subscribe(params => {
-  //   console.log('params', params);
-  //   if (params.id) {
-  //     this.edited = true;
-  //     this.waterId = params.id;
-  //     this.getOneBill(params.id);
-  //   }
-  // });
 
 
   ngAfterViewInit(): void {
@@ -99,7 +101,8 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       numberDays:[], // روزها      
-      consumptionAmount:[], // میزان مصرف
+      consumptionDurat:[], // میزان مصرف
+      consumptionAmount:[],//هزینه انرژی
       otherAmount:[], // سایر هزینه ها      
       payableAmount:[], //  مبلغ قابل پرداخت     
     }

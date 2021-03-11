@@ -95,13 +95,13 @@
                 <!-- میزان مصرف  -->
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="consumptionAmount" class="form-label">میزان مصرف</label>
-                    <input class="form-control text-right" id="consumptionAmount" placeholder=""
-                            [(ngModel)]="energyBillDto.consumptionAmount"
-                            formControlName="consumptionAmount"
-                            name="consumptionAmount">
+                    <label for="consumptionDurat" class="form-label">میزان مصرف</label>
+                    <input class="form-control text-right" id="consumptionDurat" placeholder=""
+                            [(ngModel)]="energyBillDto.consumptionDurat"
+                            formControlName="consumptionDurat"
+                            name="consumptionDurat">
                   </div>
-                  <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
+                  <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
                 </div>
                 
                 <!-- هزینه انرژی -->
