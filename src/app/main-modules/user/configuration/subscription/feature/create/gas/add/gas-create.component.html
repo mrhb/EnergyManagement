@@ -98,6 +98,18 @@
                 </div>
                 <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
               </div>
+              <!-- تعداد واحد -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="numberUnits" class="form-label">تعداد واحد</label>
+                  <input class="form-control text-right" id="numberUnits" placeholder=""
+                         [(ngModel)]="gasDto.numberUnits"
+                         formControlName="numberUnits"
+                         name="numberUnits"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['numberUnits']" [touched]="touched"></app-alert-error>
+              </div>
               <!-- شماره اشتراک -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
