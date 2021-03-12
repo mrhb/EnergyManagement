@@ -25,6 +25,10 @@ import { CreateInstrumentComponent } from './instrument/feature/add/create-instr
 import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
 import { FacilityListComponent } from './facility/feature/list/facility-list.component';
 import { AddFacilityComponent } from './facility/feature/create/add-facility/add-facility.component';
+import { GenerationBillAddComponent } from './generation/feature/generation-bill-add/generation-bill-add.component';
+import { GenerationBillListComponent } from './generation/feature/generation-bill-list/generation-bill-list.component';
+import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';
+import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 
 const routes: Routes = [
   {
@@ -47,6 +51,30 @@ const routes: Routes = [
     path: 'buildingList',
     component: BuildingListComponent,
   },
+  //*****GENERATION******** */
+  {
+    path: 'generationBillAdd',
+    component: GenerationBillAddComponent,
+  },
+  {
+    path: 'generationBillList',
+    component: GenerationBillListComponent,
+  },
+  {
+    path: 'createGeneration',
+    component: CreateGenerationComponent,
+  },
+  {
+    path: 'editGeneration',
+    component: CreateGenerationComponent,
+  },
+  {
+    path: 'generationList',
+    component: GenerationListComponent,
+  },
+
+  //*******FACILITY */
+
   {
     path: 'facilityList',
     component: FacilityListComponent,
