@@ -1,13 +1,36 @@
 <div class="col-12">
   <div class="card">
-   <fieldset class="fieldset-border">
-   <legend>لیست تجهیرات </legend>
-   <div class="card-header flex-card-header">
-      <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن تجهیز</button>
+   <!-- <fieldset class="fieldset-border"> -->
+    <div class="card-header flex-card-header">
+      <h1>
+        لیست تجهیرات
+      </h1>  
+     <div class="d-flex">
+       <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن تجهیز</button>
       </div>
     </div>
+    <!-- <hr> -->
+    <div class="col-12">
+      <div class="row">
+        <!-- لیست مناطق -->
+        <div class="col-md-3 col-sm-12">
+          <div class="card h-100">
+            <div class="card-header">
+              لیست مناطق
+            </div>
+            <div class="card-body p-0 h-100">
+              <div class="tree-view-box">
+                <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md">
     <div class="card-body">
+      <fieldset class="fieldset-border">
+
+        <legend>لیست تجهیزات</legend>
       <div class="table-responsive">
         <table class="table table-bordered table-hover">
           <thead>
@@ -47,19 +70,13 @@
         [showFirstLastButtons]="true"
         (page)="changePage($event)"
       ></app-paginator>
-    </div>
-  </fieldset>
-</div>
-<!--  <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--    <div>-->
-<!--      <h1>-->
-<!--        <strong>لیست اشتراک های انرژی </strong>-->
-<!--      </h1>-->
-<!--    </div>-->
-<!--    <div class="d-flex">-->
-<!--      <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createInstrument'">افزودن اشتراک</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <hr>-->
+    </fieldset>
 
+    </div>      
+       </div>
+        </div>
+   </div>
+
+  <!-- </fieldset> -->
+</div>
 </div>
