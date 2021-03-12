@@ -26,7 +26,7 @@
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{instrument.name}}</td>          
             <td>{{energyCarierEnum[instrument.instrumentCarrier].toString()}}</td>
-            <td>{{instrument.instrumentUsage}}</td>
+            <td>{{useTypeInstrumentEnum[instrument.instrumentUsage].toString()}}</td>
             <td>{{instrument.instrumentNum}}</td>
             <td>{{instrument.consumptionPower}}</td>
             <td width="40"><span class="cursor-pointer fa fa-edit"
