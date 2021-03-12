@@ -89,4 +89,14 @@ export class InstrumentListComponent implements OnInit {
           });
       });
   }
+  
+  getRegion($event): void {
+    // if (this.endActiveStep < 1) {
+    //   this.endActiveStep = 1;
+    // }
+    // this.region = $event;
+
+    // // this.buildingDto.regionTitle = this.region.regionTitle.replace('&', '<span class="fa fa-angle-left mx-2"></span>');
+    // this.buildingDto.regionTitle = this.region.regionTitle.split('&').join('<span class="fa fa-angle-left mx-2"></span>');
+  }
 }

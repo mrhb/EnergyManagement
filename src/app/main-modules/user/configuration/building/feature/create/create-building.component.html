@@ -1,6 +1,7 @@
 <div class="col-12">
 
   <div class="card">
+    <!-- لیست مناطق -->
     <div class="card-header flex-card-header">
       <h1>
         لیست مناطق
@@ -11,6 +12,7 @@
     </div>
     <div class="card-body">
       <div class="md-stepper-horizontal green persian-number">
+        <!-- انتخاب منطقه -->
         <div class="md-step"
              (click)="getCurrentStep(0)"
              [ngClass]="{'done': completeStep.zero === true, 'active editable' : currentStep === 0}">
@@ -19,6 +21,7 @@
           <div class="md-step-bar-left"></div>
           <div class="md-step-bar-right"></div>
         </div>
+        <!-- اطلاعات ساختمان -->
         <div class="md-step"
              (click)="getCurrentStep(1)"
              [ngClass]="{'active done': completeStep.one === true, 'active editable' : currentStep === 1}">
@@ -27,6 +30,7 @@
           <div class="md-step-bar-left"></div>
           <div class="md-step-bar-right"></div>
         </div>
+        <!-- مساحت         -->
         <div class="md-step"
              (click)="getCurrentStep(2)"
              [ngClass]="{'active done': completeStep.two === true, 'active editable' : currentStep === 2}">
@@ -36,6 +40,7 @@
           <div class="md-step-bar-left"></div>
           <div class="md-step-bar-right"></div>
         </div>
+        <!-- فضا -->
         <div class="md-step"
              (click)="getCurrentStep(3)"
              [ngClass]="{'active done': completeStep.three === true, 'active editable' : currentStep === 3}">
@@ -45,6 +50,7 @@
           <div class="md-step-bar-left"></div>
           <div class="md-step-bar-right"></div>
         </div>
+        <!-- نقشه -->
         <div class="md-step"
              (click)="getCurrentStep(4)"
              [ngClass]="{'active done': completeStep.four === true, 'active editable' : currentStep === 4}">
@@ -54,6 +60,7 @@
           <div class="md-step-bar-left"></div>
           <div class="md-step-bar-right"></div>
         </div>
+        <!-- اطلاعات جداره ها -->
         <div class="md-step"
              (click)="getCurrentStep(5)"
              [ngClass]="{'active done': completeStep.five === true, 'active editable' : currentStep === 5}">

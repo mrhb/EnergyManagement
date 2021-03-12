@@ -70,19 +70,6 @@
       </div>
       <app-alert-error [data]="form.controls['exploitationPersonnelNum']" [touched]="touched"></app-alert-error>
     </div>
-    <!-- کد پستی -->
-    <div class="mb-4 col-md-2">
-      <div class="w-100">
-        <label for="postalCode" class="form-label">کد پستی</label>
-        <input class="form-control text-right" id="postalCode" placeholder=""
-               maxlength="10"
-               minlength="10"
-               [(ngModel)]="buildingDto.postalCode"
-               formControlName="postalCode"
-               name="postalCode">
-      </div>
-      <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
-    </div>
     <!-- مالکیت -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
@@ -99,7 +86,7 @@
       <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
     </div>
     <!-- نوع سیستم گرمایشی/سرمایشی -->
-    <div class="mb-4 col-md-3">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
         <select name="coolingHeatingSystemType" id="coolingHeatingSystemType"
@@ -161,6 +148,19 @@
       </div>
       <app-alert-error [data]="form.controls['energyCarierOthersNum']" [touched]="touched"></app-alert-error>
     </div>    
+      <!-- کد پستی -->
+      <div class="mb-4 col-md-2">
+      <div class="w-100">
+        <label for="postalCode" class="form-label">کد پستی</label>
+        <input class="form-control text-right" id="postalCode" placeholder=""
+                maxlength="10"
+                minlength="10"
+                [(ngModel)]="buildingDto.postalCode"
+                formControlName="postalCode"
+                name="postalCode">
+      </div>
+      <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
+    </div>
     <!-- آدرس -->
     <div class="mb-4 col-12">
       <div class="w-100">
