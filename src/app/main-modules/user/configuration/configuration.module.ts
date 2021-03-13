@@ -46,6 +46,8 @@ import { EnergyBillAddComponent } from './subscription/feature/create/energy/ene
 import { WaterBillAddComponent } from './subscription/feature/create/water/water-bill-add/water-bill-add.component';
 import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
 import { PowerReceiptService } from './subscription/service/power-receipt.service';
+import { WaterReceiptService } from './subscription/service/water-receipt.service';
+import { EnergyReceiptService } from './subscription/service/energy-receipt.service';
 
 
 @NgModule({
@@ -91,7 +93,7 @@ import { PowerReceiptService } from './subscription/service/power-receipt.servic
         ChartModule,
         NgxEchartsModule
     ],
-  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService,PowerReceiptService, EnergyService],
+  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
 })
 export class ConfigurationModule {
 }

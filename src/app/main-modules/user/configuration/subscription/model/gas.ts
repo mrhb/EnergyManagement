@@ -51,13 +51,37 @@ export class GasBillList {
 }
 
 
-export class GazBillDto {
-  billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+export class GasBillDto {
+  gasSharingId:string // (id)شناسه اشتراک
+  billingId: string; // شناسه قبض
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
+  previousCounter: string; // رقم پیشین شماشگر
+  currentCounter: string; //  رقم فعلی شماشگر
+  consumptionDurat: string; // مصرف دوره
+  totalCounter: string; //  کارکرد شمارشگر
+  estandardConsumption: string; //مصرف استاندارد  
+  consumptionAmount: string; // بهای گاز مصرفی  
+  subscription: string; //  آبونمان   
+  gasTolls: string; //  عوارض گاز 
+  insurance: string; //  بیمه   
+  payableAmount: string; //    مبلغ قابل پرداخت      
 }
+//      payableAmount: {type: Number, required: true}, // مبلغ قابل پرداخت
+export class GasAllocation {
+  name: string;
+  billingId: string;
+  gasSharingId: string;
+
+}
+
+
+
+
+
+
+
+
+

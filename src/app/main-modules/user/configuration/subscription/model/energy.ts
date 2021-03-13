@@ -1,8 +1,7 @@
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
-import {UseTypeWater} from './waterEnum';
 
 export class EnergyDto {
-  name: string;
+  name: string; //نام مشترک 
   address: string;
   energyCarrier: string;
   energyUnit: string;
@@ -17,7 +16,7 @@ export class EnergyBuildingAllocation {
   buildingId: string;
   createdAt: any;
   id: string;
-  name: string;
+  name: string; //نام مشترک 
   postalCode: string;
   updatedAt: any;
   useType: UseTypeBuildingEnum;
@@ -25,34 +24,34 @@ export class EnergyBuildingAllocation {
 
 export class EnergyList {
   id: string;
-  name: string;
+  name: string; //نام مشترک 
   billingId: string;
   addressCode: string;
-  useType: UseTypeWater;
+  // useType: UseTypeWater;
   createdAt: any;
   buildingNum: string;
 }
 
 export class EnergyBillList {
-  id: string;
-  EnergyType: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Hazineh: string;
-  Mablagh: string;
-  
+  energyCarrier: string; //حامل انرژی 
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+  consumptionAmount: string; // میزان مصرف
+  payableAmount: string; //  مبلغ قابل پرداخت  
 }
 
-
 export class EnergyBillDto {
-  billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  energyCarrier: string; //حامل انرژی 
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+  consumptionAmount: string; // میزان مصرف
+  energyCost: string; // هزینه انرژی
+  otherCost: string; // سایر هزینه ها
+  payableAmount: string; //  مبلغ قابل پرداخت  
+}
+
+export class EnergyAllocation {
+  name: string;
 }

@@ -23,15 +23,47 @@ export class PowerDto {
   // buildingNum: string;
 }
 
+export class Consumption {
+  preCounter          : String;//شمارنده قبلی
+  currentCounter      : String;//شمارنده کنونی
+  coefficient         : String;//ضریب
+  totalConsumption      : String;//مصرف کل
+  consumptionAfterLastChange      : String;//مصرف بعد از آخرین تغییرات
+  nerkh               : String;//نرخ
+  mablagh             : String//مبلغ
+};
+
+
 export class PowerBillDto {
   billId: string;
-  pardakhtId: string; // شناسه پرداخت
-  duration: string; // دوره
-  startDate: string; // تاریخ شروع 
-  endDate: string; // تاریخ اتمام
-  Days: string; // روزها
-  ghodratGharar: string; // قدرت قراردادی
-  ghodratMohasebeh: string; // قدرت محاسبه شده
+  numberShare:string;// شناسه اشتراک
+  paymentCode: string; // شناسه پرداخت
+  period: string; // دوره
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+
+    //*******Consumptions******* */
+    intermediate:  Consumption=new Consumption(); // میان باری
+    peakLoad:  Consumption=new Consumption();; // اوج بار
+    lowLoad:  Consumption=new Consumption();; // کم بار
+    peakTimesFriday: Consumption=new Consumption();; // اوج بار جمعه
+    reactive: Consumption=new Consumption();; // راکتیو
+    //*************** */
+
+  explanationExpenses: string; // روزها
+  contractualPower: string; // قدرت قراردادی
+  calculatedPower: string; // قدرت محاسبه شده
+  maximeterNumber: string; //       عدد ماکسیمتر
+  powerConsumption: string; //     قدرت مصرفی
+  badConsumptionLossRatio: string; //      ضریب زیان بدی مصرف 
+  paymentDeadLine: string; //  مهلت پرداخت
+  consumptionAmount: string; //   مبلغ مصرف
+  subscription: string; //   آبونمان 
+  powerPrice: string; //   بهای قدرت 
+  seasonPrice: string; //   بهای فصل 
+  payableAmount: string; //   بهای فصل 
+
 }
 
 export class BuildingAllocation {
@@ -56,9 +88,7 @@ export class PowerList {
 }
 
 export class PowerBillList {
-
-
-  powerSharingId: String; // شناسه شاشتراک برق
+  billingId: String; // شناسه اشتراک برق
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
   fromDate: Date; // از تاریخ
@@ -66,8 +96,6 @@ export class PowerBillList {
   numberDays:Number;//تعداد روزها
   consumptionAmount: Number; // مبلغ مصرف
   totalConsumption:string;   // مصرف کل
-
-
   id: string;
   BillId: string;
   StartDate: string;
@@ -99,6 +127,11 @@ export class PowerSharingAllocation {
   useType: UseTypeBuildingEnum;
 }
 
+export class PowerAllocation {
+  name: string;
+  billingId: string;
+
+}
 // export class BuildingList {
 //   buildingId: string;
 //   allocationPercentage: string;
