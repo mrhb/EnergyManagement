@@ -2,18 +2,18 @@ import {UseCodeGenerationEnum, UseTypeGeneration} from './generationEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class GenerationDto {
-  name: string;
+  name: string; // نام نیروگاه
+  useType: UseTypeGeneration; //  نوع نیروگاه 
+  capacity: string;  // ظرفیت 
+  useCode: UseCodeGenerationEnum;  //    نوع مصرف 
   address: string; // آدرس
   billingId: string;  // شناسه قبض 
   numberShare: string; //  شماره نیروگاه 
   fileNumber: string;
   serialShare: string;
-  useType: UseTypeGeneration; //  کاربری انشعاب 
   generationBranchDiameter: string;// قطر انشعاب اب
   sewageBranchDiameter: string;// قطر انشعاب فاضلاب
-  capacity: string;  // ظرفیت قراردادی 
   buildingList: GenerationBuildingAllocation[] = [];
-  useCode: UseCodeGenerationEnum;  //    کد و نوع تعرفه 
 
 }
 
@@ -30,12 +30,12 @@ export class GenerationBuildingAllocation {
 
 export class GenerationList {
   id: string;
-  name: string;
+  name: string; // نام نیروگاه
+  useType: UseTypeGeneration; //  نوع نیروگاه 
+  capacity: string;  // ظرفیت 
+  useCode: UseCodeGenerationEnum;  //    نوع مصرف 
   billingId: string;// شناسه قبض 
   numberShare: String; // شماره اشتراک
-  useType: UseTypeGeneration; //  کاربری انشعاب 
-  useCode: UseCodeGenerationEnum;  //    کد و نوع تعرفه 
-  capacity: string;  // ظرفیت قراردادی 
   buildingNum: string;
 }
 

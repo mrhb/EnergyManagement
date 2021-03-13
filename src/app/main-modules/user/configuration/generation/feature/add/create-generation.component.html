@@ -24,82 +24,32 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createGeneration()">
             <div class="form row">
-              <!-- نام مشترک -->
+              <!-- نام نیروگاه -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="name" class="form-label">نام مشترک</label>
+                  <label for="name" class="form-label">نام نیروگاه</label>
                   <input class="form-control text-right" id="name" placeholder=""
                          [(ngModel)]="generationDto.name"
                          formControlName="name"
-                         name="name"
-                  >
+                         name="name">
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- آدرس -->
-              <div class="mb-4 col-10">
-                <div class="w-100">
-                  <label for="address" class="form-label">آدرس</label>
-                  <textarea class="form-control text-right" id="address" placeholder=""
-                            [(ngModel)]="generationDto.address"
-                            formControlName="address"
-                            name="address"
-                  ></textarea>
-                </div>
-                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- شناسه قبض -->
+              <!-- شناسه نیروگاه -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="billingId" class="form-label">شناسه قبض</label>
+                  <label for="billingId" class="form-label">شناسه نیروگاه</label>
                   <input class="form-control text-right" id="billingId" placeholder=""
                          [(ngModel)]="generationDto.billingId"
                          formControlName="billingId"
-                         name="billingId"
-                  >
+                         name="billingId">
                 </div>
                 <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- شماره پرونده -->
+              <!-- نوع نیروگاه -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="fileNumber" class="form-label">شماره پرونده</label>
-                  <input class="form-control text-right" id="fileNumber" placeholder=""
-                         [(ngModel)]="generationDto.fileNumber"
-                         formControlName="fileNumber"
-                         name="fileNumber"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- شماره نیروگاه -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="numberShare" class="form-label">شماره اشتراک</label>
-                  <input class="form-control text-right" id="numberShare" placeholder=""
-                         [(ngModel)]="generationDto.numberShare"
-                         formControlName="numberShare"
-                         name="numberShare"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- شماره بدنه کنتور -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="serialShare" class="form-label">شماره بدنه کنتور</label>
-                  <input class="form-control text-right" id="serialShare" placeholder=""
-                         [(ngModel)]="generationDto.serialShare"
-                         formControlName="serialShare"
-                         name="serialShare"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- کاربری انشعاب -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="useType" class="form-label">کاربری انشعاب</label>
+                  <label for="useType" class="form-label">نوع نیروگاه</label>
                   <select id="useType"
                           class="form-control text-right"
                           [(ngModel)]="generationDto.useType"
@@ -112,46 +62,21 @@
                 </div>
                 <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- قطر انشعاب آب -->
+              <!-- ظرفیت -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="generationBranchDiameter" class="form-label">قطر انشعاب آب</label>
-                  <input class="form-control text-right" id="generationBranchDiameter" placeholder=""
-                         [(ngModel)]="generationDto.generationBranchDiameter"
-                         formControlName="generationBranchDiameter"
-                         name="generationBranchDiameter"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['generationBranchDiameter']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- قطر انشعاب فاضلاب -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="sewageBranchDiameter" class="form-label">قطر انشعاب فاضلاب</label>
-                  <input class="form-control text-right" id="sewageBranchDiameter" placeholder=""
-                         [(ngModel)]="generationDto.sewageBranchDiameter"
-                         formControlName="sewageBranchDiameter"
-                         name="sewageBranchDiameter"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['sewageBranchDiameter']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- ظرفیت قراردادی -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="capacity" class="form-label">ظرفیت قراردادی</label>
+                  <label for="capacity" class="form-label">ظرفیت</label>
                   <input class="form-control text-right" id="capacity" placeholder=""
                          [(ngModel)]="generationDto.capacity"
                          formControlName="capacity"
-                         name="capacity"
-                  >
+                         name="capacity">
                 </div>
                 <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- کد و نوع تعرفه -->
+              <!-- نوع مصرف -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="useCode" class="form-label">کد و نوع تعرفه</label>
+                  <label for="useCode" class="form-label">نوع مصرف</label>
                   <select id="useCode"
                           class="form-control text-right"
                           [(ngModel)]="generationDto.useCode"
@@ -164,12 +89,60 @@
                 </div>
                 <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
               </div>
+              
+
+              <!-- شماره نیروگاه -->
+              <!-- <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="numberShare" class="form-label">شماره اشتراک</label>
+                  <input class="form-control text-right" id="numberShare" placeholder=""
+                         [(ngModel)]="generationDto.numberShare"
+                         formControlName="numberShare"
+                         name="numberShare">
+                </div>
+                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
+              </div> -->
+              <!-- شماره بدنه کنتور -->
+              <!-- <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="serialShare" class="form-label">شماره بدنه کنتور</label>
+                  <input class="form-control text-right" id="serialShare" placeholder=""
+                         [(ngModel)]="generationDto.serialShare"
+                         formControlName="serialShare"
+                         name="serialShare">
+                </div>
+                <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
+              </div> -->
+
+              <!-- قطر انشعاب آب -->
+              <!-- <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="generationBranchDiameter" class="form-label">قطر انشعاب آب</label>
+                  <input class="form-control text-right" id="generationBranchDiameter" placeholder=""
+                         [(ngModel)]="generationDto.generationBranchDiameter"
+                         formControlName="generationBranchDiameter"
+                         name="generationBranchDiameter">
+                </div>
+                <app-alert-error [data]="form.controls['generationBranchDiameter']" [touched]="touched"></app-alert-error>
+              </div> -->
+              <!-- قطر انشعاب فاضلاب -->
+              <!-- <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="sewageBranchDiameter" class="form-label">قطر انشعاب فاضلاب</label>
+                  <input class="form-control text-right" id="sewageBranchDiameter" placeholder=""
+                         [(ngModel)]="generationDto.sewageBranchDiameter"
+                         formControlName="sewageBranchDiameter"
+                         name="sewageBranchDiameter">
+                </div>
+                <app-alert-error [data]="form.controls['sewageBranchDiameter']" [touched]="touched"></app-alert-error>
+              </div> -->
+
+
 
               <div class="col-12">
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!generationId">ثبت</button>
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="generationId">ویرایش</button>
               </div>
-
             </div>
           </form>
         </div>
@@ -191,8 +164,7 @@
                   <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
                   <input class="form-control text-right" id="allocationPercentage" placeholder=""
                          [(ngModel)]="buildingAllocation.allocationPercentage"
-                         name="allocationPercentage"
-                  >
+                         name="allocationPercentage">
                 </div>
               </div>
             </div>

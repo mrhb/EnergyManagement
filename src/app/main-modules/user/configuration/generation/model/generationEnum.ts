@@ -1,9 +1,10 @@
 export enum UseTypeGeneration {
-  PUBLIC = <any> 'عمومی',
+  PUBLIC = <any> 'دیزل ژنراتور',
+  PUBLIC1 = <any> 'فتوولتائیک',
+  PUBLIC2 = <any> 'تولید همزمان برق و برودت',
 }
 
 export enum UseCodeGenerationEnum {
-  PUBLIC = <any> 'عمومی',
-  GOVERNMENT = <any> 'دولتی',
-  HOME = <any> 'خانگی',
+  PUBLIC = <any> 'فروش به شبکه',
+  GOVERNMENT = <any> 'استفاده در محل',
 }
