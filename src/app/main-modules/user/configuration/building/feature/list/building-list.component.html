@@ -42,10 +42,15 @@
                 <thead>
                 <tr>
                   <th scope="col" width="40">#</th>
-                  <th scope="col">نام ساختمان</th>
-                  <th scope="col">سال ساخت</th>
-                  <th scope="col">کدپستی</th>
-                  <th scope="col">نوع کاربری</th>
+                  <th scope="col" width="40">نام ساختمان</th>
+                  <th scope="col" width="40">نوع کاربری</th>
+                  <th scope="col" width="40" >تعداد طبقات</th>
+                  <th scope="col" width="40" >مساحت عرصه</th>
+                  <th scope="col" width="40" >مساحت اعیان</th>
+                  <th scope="col" width="40" >مساحت مفید</th>
+                  <th scope="col" width="40" >تعداد انشعابها</th>
+                  <th scope="col" width="40" >نوع سیستم سرمایش  و گرمایش</th>
+                  <th scope="col" width="40" >کد پستی </th>
                   <th scope="col" width="40">نمودار</th>
                   <th scope="col" width="40">برچسب انرژی</th>
                   <th scope="col" width="40" colspan="2" class="text-center">عملیات</th>
@@ -55,15 +60,15 @@
                 <tr *ngFor="let building of buildingList; let i = index">
                   <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                   <td>{{building.name}}</td>
-                  <td>{{building.constructionYear}}</td>
+                  <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
+                  <td>{{building.floorNum}}</td>
+                  <td>{{building.arenaArea}}</td>
+                  <td>{{building.ayanArea}}</td>
+                  <td>{{building.useFullArea}}</td>
+                  <td>{{building.powerSharNum}}</td>
+                  <!-- <td>{{building.powerSharNum+building.gasSharNum+building.waterSharNum+building.energyCarierOthersNum}}</td> -->
+                  <td>{{coolingHeatingSystemType[building.coolingHeatingSystemType].toString()}}</td> 
                   <td>{{building.postalCode}}</td>
-                  <td>
-                    <div [ngSwitch]="building.useType">
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">مسکونی</div>
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">تجاری</div>
-                      <div *ngSwitchCase="useTypeEnum[useTypeEnum.OFFICIAL].toString()">اداری</div>
-                    </div>
-                  </td>
                   <td>
                     <a class="btn btn-outline-dark text-center" href="#chart" (click)="setOption()">نمودار</a>
                   </td>
@@ -197,18 +202,20 @@
                       <li class="nav-item active">
                         <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
                            aria-controls="home" aria-selected="true">
-                          گراف یک
+                          نمودار خط مبنا
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
                            aria-controls="profile" aria-selected="false">
-                          گراف دو
+                          خط مبنا به تفکیک حامل
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
-                           aria-controls="messages" aria-selected="false">گراف سه</a></li>
+                           aria-controls="messages" aria-selected="false">
+                           خط مبنا پارامترها
+                          </a></li>
                     </ul>
                     <div class="tab-content">
                       <div class="tab-pane active" id="home" role="tabpanel">

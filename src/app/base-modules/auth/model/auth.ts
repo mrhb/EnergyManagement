@@ -8,18 +8,19 @@ export namespace Auth {
   export class SignUp {
     firstName: string;
     lastName: string;
-    phone: string;
-    organizationalUnit: string;
+    phone: string; // شماره تلفن ثابت
+    organizationalUnit: string; //واحد سازمانی
     organizationalLevel: string;
-    address: string;
-    city: string;
-    province: string;
-    email: string;
-    mobile: string;
+    address: string;// آدرس
+    city: string; // شهر
+    province: string; //استان
+    email: string; //ایمیل
+    mobile: string; //شماره همراه
     password: string;
     passwordConfirm: string
   }
-  
+   // واحد سازمانی و شماره تلفن ثابت و آدرس وشهر واستان و ایمیل و شماره همراه از فرم ثبت نام حذف شد
+
   export class ReqForgetPassDto {
     tokenType: LoginTypeEnum;
     username: string;

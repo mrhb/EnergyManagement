@@ -2,13 +2,13 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Building} from '../../../model/building';
-import {UseTypeEnum} from '../../../model/useTypeEnum';
+import {UseTypeBuildingEnum} from '../../../model/useTypeEnum';
+import {CoolingHeatingSystemType, Ownership} from '../../../model/buildingEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
 import {Tools} from '../../../../../../../shared/tools/tools';
 import {Moment} from '../../../../../../../shared/tools/moment';
-import {CoolingHeatingSystemType, Ownership} from '../../../model/buildingEnum';
 
 @Component({
   selector: 'app-add-building',
@@ -20,9 +20,9 @@ export class AddBuildingComponent implements OnInit {
   myPattern = MyPattern;
   buildingDto = new Building();
   touched = false;
-  useTypeEnum = UseTypeEnum;
+  useTypeEnum = UseTypeBuildingEnum;
   ownershipEnum = Ownership;
-  CoolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
+  coolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
   moment = Moment;
 
   @Input() bId: string;
@@ -46,8 +46,13 @@ export class AddBuildingComponent implements OnInit {
       address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       coolingHeatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      powerSharNum: [''],
+      gasSharNum: [''],
+      waterSharNum: [''],
+      energyCarierOthersNum: [''],
     });
   }
+ 
 
   ngOnInit(): void {
     console.log('if (this.editedBuildingDto)', this.editedBuildingDto);

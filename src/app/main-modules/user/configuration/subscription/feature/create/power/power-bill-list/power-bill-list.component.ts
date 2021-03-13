@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { PowerBillList } from '../../../../model/power';
+import * as XLSX from 'xlsx';
+
+import { PowerBillDto, PowerBillList } from '../../../../model/power';
 import { UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
 import Notiflix from 'notiflix';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
+import { Moment } from 'src/app/shared/tools/moment';
+import { PeriodEnum } from '../../../../model/sharedEnum';
+declare var $: any;
+
+type AOA = any[][];
 
 @Component({
   selector: 'app-power-bill-list',
@@ -14,14 +21,24 @@ import { PowerReceiptService } from '../../../../service/power-receipt.service';
 })
 export class PowerBillListComponent implements OnInit {
 
+
+  data: AOA = [[1, 2], [3, 4]];
+  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
+  fileName: string = 'SheetJS.xlsx';
+
+
+
   pageSize = 10;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  moment = Moment;
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
+  periodEnum=PeriodEnum;
   powerBillList: PowerBillList[] = [];
+  xlsxPowerBillList: PowerBillDto[] = [];
   buildingList = [];
   constructor(public router: Router,
               private powerReceiptService: PowerReceiptService,
@@ -38,6 +55,50 @@ export class PowerBillListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileChange(evt: any) {
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(evt.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      console.log(this.data);
+
+      this.data.forEach(item => {
+       let bill=new PowerBillDto();
+
+                bill.numberShare = item[0];
+                bill.billId=item[1];
+   
+                this.xlsxPowerBillList.push(bill);
+    });
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  saveXlsxData()
+  {
+    this.powerReceiptService.createMultiReceipt(this.xlsxPowerBillList)
+    .subscribe((res: any) => {
+      if (res) {
+        Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
+        // setTimeout(() => {
+        //   $('#pills-building-tab').click();
+        // }, 200);
+        // this.router.navigate(['/index/user/configuration/powerList']);
+      }
+    });
+  }
 
   getPowerBillList(): void {
 

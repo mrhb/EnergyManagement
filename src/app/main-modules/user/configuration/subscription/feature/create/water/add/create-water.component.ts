@@ -50,12 +50,14 @@ export class CreateWaterComponent implements OnInit {
               private router: Router) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
+      address: [''],
       billingId: ['', [Validators.required]],
       numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       fileNumber: ['', [Validators.minLength(1)]],
       serialShare: [''],
       useType: ['', [Validators.required]],
-      sewageBranchDiameter: ['', [Validators.required]],
+      waterBranchDiameter: ['', [Validators.required]],
+      sewageBranchDiameter: [''],
       capacity: [''],
       useCode: ['', [Validators.required]],
     });
@@ -155,7 +157,7 @@ export class CreateWaterComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -163,7 +165,7 @@ export class CreateWaterComponent implements OnInit {
         this.waterService.deleteWaterBuildingAllocation({id: this.waterId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.waterDto.buildingList.splice(i, 1);
             }
           });

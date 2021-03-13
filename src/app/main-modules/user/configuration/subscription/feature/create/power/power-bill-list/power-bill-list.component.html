@@ -4,8 +4,9 @@
       <h1>
         لیست قبوض برق
       </h1>
-      <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/powerBillAdd'">افزودن قبض برق</button>
+      <div class="d-flex ">
+          <button class="btn btn-primary " [routerLink]="'/index/user/configuration/powerBillAdd'">افزودن قبض برق</button>
+          <button class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">ورود اطلاعات از اکسل</button>
       </div>
     </div>
     <div class="card-body">
@@ -14,7 +15,8 @@
           <thead>
           <tr>
             <th scope="col" width="40">#</th>
-            <th scope="col">   شناسه قبض </th>
+            <th scope="col"> نام مشترک </th>
+            <th scope="col"> دوره </th>
             <th scope="col"> از تاریخ</th>
             <th scope="col"> تا تاریخ</th>
             <th scope="col" width="40"> تعداد روزها</th>
@@ -26,12 +28,13 @@
           <tbody>
           <tr *ngFor="let power of powerBillList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-            <td>{{power.powerSharingId}}</td>
-            <td>{{power.fromDate}}</td>
-            <td>{{power.toDate}}</td>
+            <td>{{power.nameShare}}</td>
+            <td>{{periodEnum[power.period].toString()}}</td>
+            <td>{{this.moment.getJaliliDateFromIso(power.fromDate)}}</td>
+            <td>{{this.moment.getJaliliDateFromIso(power.toDate)}}</td>
             <td>{{power.numberDays}}</td>
+            <td>{{power.ConsumptionSum}}</td>
             <td>{{power.consumptionAmount}}</td>
-            <td>{{power.totalConsumption}}</td>
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: power.id}"
                                  [routerLink]="'/index/user/configuration/powerBillAdd'"></span></td>
@@ -52,16 +55,58 @@
       ></app-paginator>
     </div>
   </div>
-<!--    <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--      <div>-->
-<!--        <h1>-->
-<!--          <strong>لیست قبوض برق </strong>-->
-<!--        </h1>-->
-<!--      </div>-->
-<!--      <div class="d-flex">-->
-<!--        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/powerBillAdd'">افزودن قبض برق</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <hr>-->
+  </div>
 
+
+
+
+
+
+  
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">افزون قبوض از اکسل</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="card-header flex-card-header">
+          <input type="file" class="form-control-file"  (change)="onFileChange($event)" multiple="false" />
+        </div>
+
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" width="40">#</th>
+                  <th scope="col">نام مشترک</th>
+                  <th scope="col">کد آدرس</th>
+                </tr>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let item of xlsxPowerBillList; let i = index">
+                <tr>
+                  <th scope="row" width="40">{{i + 1}}</th>
+                  <td>{{item.name}}</td>
+                  <td>{{item.numberShare}}</td>
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+            
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+ 
+
+    </div>
   </div>

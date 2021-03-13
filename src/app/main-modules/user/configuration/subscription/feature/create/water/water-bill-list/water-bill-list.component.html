@@ -15,10 +15,10 @@
         <tr>
           <th scope="col" width="40">#</th>
           <th scope="col">نام مشترک</th>
-          <th scope="col">تاریخ شروع</th>
-          <th scope="col">تاریخ اتمام</th>
+          <th scope="col">  از تاریخ</th>
+          <th scope="col">تا تاریخ</th>
           <th scope="col">روزها</th>
-          <th scope="col">مصرف استاندارد</th>
+          <th scope="col">مصرف دوره</th>
           <th scope="col">مبلغ قابل پرداخت</th>
           <th scope="col" width="280" colspan="2" class="text-center">عملیات</th>
         </tr>
@@ -27,8 +27,8 @@
         <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
           <td>{{water.nameShare}}</td>
-          <td>{{water.fromDate}}</td>  
-          <td>{{water.toDate}}</td>
+          <td>{{this.moment.getJaliliDateFromIso(water.fromDate)}}</td>
+          <td>{{this.moment.getJaliliDateFromIso(water.toDate)}}</td>
           <td>{{water.numberDays}}</td>
           <td>{{water.consumptionDurat}}</td>
           <td>{{water.payableAmount}}</td>        

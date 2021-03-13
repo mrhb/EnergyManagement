@@ -7,7 +7,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PowerList} from '../../../../model/power';
-import {UseTypePowerEnum} from '../../../../model/powerEnum';
+import {GroupEnum, UseCodeEnum, UseTypePowerEnum} from '../../../../model/powerEnum';
 import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
@@ -25,6 +25,8 @@ export class PowerListComponent implements OnInit {
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
+  useCodeEnum=UseCodeEnum;
+  groupEnum=GroupEnum;
   powerList: PowerList[] = [];
   buildingList = [];
   constructor(public router: Router,
@@ -73,7 +75,7 @@ export class PowerListComponent implements OnInit {
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -81,7 +83,7 @@ export class PowerListComponent implements OnInit {
         this.powerService.deletePower({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.powerList.splice(i, 1);
             }
           });

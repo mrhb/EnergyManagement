@@ -1,7 +1,7 @@
 <form [formGroup]="form" class="w-100" (ngSubmit)="createArea()">
   <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p>
   <div class="form row">
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="arenaArea" class="form-label">مساحت عرصه</label>
         <input class="form-control text-right" id="arenaArea" placeholder=""
@@ -13,7 +13,7 @@
       </div>
       <app-alert-error [data]="form.controls['arenaArea']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="ayanArea" class="form-label">مساحت اعیان</label>
         <input class="form-control text-right" id="ayanArea" placeholder=""
@@ -26,7 +26,7 @@
       </div>
       <app-alert-error [data]="form.controls['ayanArea']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="useFullArea" class="form-label">مساحت مفید</label>
         <input class="form-control text-right" id="useFullArea" placeholder=""
@@ -39,7 +39,7 @@
       </div>
       <app-alert-error [data]="form.controls['useFullArea']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="externalWallsTotalArea" class="form-label">مساحت کل جداره های خارجی</label>
         <input class="form-control text-right" id="externalWallsTotalArea" placeholder=""
@@ -52,7 +52,7 @@
       </div>
       <app-alert-error [data]="form.controls['externalWallsTotalArea']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="externalGlassTotalArea" class="form-label">مساحت کل شیشه خارجی</label>
         <input class="form-control text-right" id="externalGlassTotalArea" placeholder=""

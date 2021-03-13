@@ -2,11 +2,11 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <span *ngIf="!waterId">افزودن اشتراک آب </span>
-        <span *ngIf="waterId">ویرایش اشتراک آب </span>
+        <span *ngIf="!waterId">افزودن کنتور آب </span>
+        <span *ngIf="waterId">ویرایش کنتور آب </span>
       </h1>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/waterList'">بازگشت به لیست</button>
+        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/waterList'">  لیست کنتورها</button>
       </div>
     </div>
     <div class="card-body">
@@ -24,7 +24,8 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <form [formGroup]="form" class="w-100" (ngSubmit)="createWater()">
             <div class="form row">
-              <div class="mb-4 col-md-3">
+              <!-- نام مشترک -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="name" class="form-label">نام مشترک</label>
                   <input class="form-control text-right" id="name" placeholder=""
@@ -35,7 +36,20 @@
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- آدرس -->
+              <div class="mb-4 col-10">
+                <div class="w-100">
+                  <label for="address" class="form-label">آدرس</label>
+                  <textarea class="form-control text-right" id="address" placeholder=""
+                            [(ngModel)]="waterDto.address"
+                            formControlName="address"
+                            name="address"
+                  ></textarea>
+                </div>
+                <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- شناسه قبض -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="billingId" class="form-label">شناسه قبض</label>
                   <input class="form-control text-right" id="billingId" placeholder=""
@@ -46,18 +60,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
-                <div class="w-100">
-                  <label for="numberShare" class="form-label">شماره اشتراک</label>
-                  <input class="form-control text-right" id="numberShare" placeholder=""
-                         [(ngModel)]="waterDto.numberShare"
-                         formControlName="numberShare"
-                         name="numberShare"
-                  >
-                </div>
-                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
-              </div>
-              <div class="mb-4 col-md-3">
+              <!-- شماره پرونده -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="fileNumber" class="form-label">شماره پرونده</label>
                   <input class="form-control text-right" id="fileNumber" placeholder=""
@@ -68,7 +72,20 @@
                 </div>
                 <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- شماره اشتراک -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="numberShare" class="form-label">شماره اشتراک</label>
+                  <input class="form-control text-right" id="numberShare" placeholder=""
+                         [(ngModel)]="waterDto.numberShare"
+                         formControlName="numberShare"
+                         name="numberShare"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['numberShare']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- شماره بدنه کنتور -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="serialShare" class="form-label">شماره بدنه کنتور</label>
                   <input class="form-control text-right" id="serialShare" placeholder=""
@@ -79,10 +96,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- کاربری انشعاب -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="useType" class="form-label">کاربری انشعاب</label>
-
                   <select id="useType"
                           class="form-control text-right"
                           [(ngModel)]="waterDto.useType"
@@ -95,7 +112,20 @@
                 </div>
                 <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- قطر انشعاب آب -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="waterBranchDiameter" class="form-label">قطر انشعاب آب</label>
+                  <input class="form-control text-right" id="waterBranchDiameter" placeholder=""
+                         [(ngModel)]="waterDto.waterBranchDiameter"
+                         formControlName="waterBranchDiameter"
+                         name="waterBranchDiameter"
+                  >
+                </div>
+                <app-alert-error [data]="form.controls['waterBranchDiameter']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- قطر انشعاب فاضلاب -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="sewageBranchDiameter" class="form-label">قطر انشعاب فاضلاب</label>
                   <input class="form-control text-right" id="sewageBranchDiameter" placeholder=""
@@ -106,7 +136,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['sewageBranchDiameter']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- ظرفیت قراردادی -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="capacity" class="form-label">ظرفیت قراردادی</label>
                   <input class="form-control text-right" id="capacity" placeholder=""
@@ -117,7 +148,8 @@
                 </div>
                 <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
               </div>
-              <div class="mb-4 col-md-3">
+              <!-- کد و نوع تعرفه -->
+              <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="useCode" class="form-label">کد و نوع تعرفه</label>
                   <select id="useCode"

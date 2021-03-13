@@ -48,6 +48,18 @@ import { WaterBillListComponent } from './subscription/feature/create/water/wate
 import { PowerReceiptService } from './subscription/service/power-receipt.service';
 import { WaterReceiptService } from './subscription/service/water-receipt.service';
 import { EnergyReceiptService } from './subscription/service/energy-receipt.service';
+import { CreateInstrumentComponent } from './instrument/feature/add/create-instrument.component';
+import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
+import { InstrumentService } from './instrument/service/instrument.service';
+import { FacilityService } from './facility/service/facility.service';
+import { FacilityListComponent } from './facility/feature/list/facility-list.component';
+import { AddFacilityComponent } from './facility/feature/create/add-facility/add-facility.component';
+import { GenerationBillListComponent } from './generation/feature/generation-bill-list/generation-bill-list.component';
+import { GenerationBillAddComponent } from './generation/feature/generation-bill-add/generation-bill-add.component';
+import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';
+import { GenerationService } from './generation/service/generation.service';
+import { GenerationReceiptService } from './generation/service/generation-receipt.service';
+import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 
 
 @NgModule({
@@ -61,6 +73,17 @@ import { EnergyReceiptService } from './subscription/service/energy-receipt.serv
     MapComponent,
     WallInformationComponent,
     BuildingListComponent,
+    //********GENERATION********** */
+    GenerationBillAddComponent,
+    GenerationBillListComponent,
+    CreateGenerationComponent,
+    GenerationListComponent,
+    //************* */
+
+    FacilityListComponent,
+    AddFacilityComponent,
+    CreateInstrumentComponent,
+    InstrumentListComponent,
     SubscriptionComponent,
     PowerCreateComponent,
     PowerListComponent,
@@ -79,7 +102,8 @@ import { EnergyReceiptService } from './subscription/service/energy-receipt.serv
     EnergyBillListComponent,
     EnergyBillAddComponent,
     WaterBillAddComponent,
-    WaterBillListComponent
+    WaterBillListComponent,
+    GenerationListComponent
   ],
     imports: [
         CommonModule,
@@ -93,7 +117,7 @@ import { EnergyReceiptService } from './subscription/service/energy-receipt.serv
         ChartModule,
         NgxEchartsModule
     ],
-  providers: [RegionService, BuildingService, EnergyBuildingService, PowerBuildingService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
+  providers: [RegionService, BuildingService,FacilityService, EnergyBuildingService, PowerBuildingService,GenerationService,GenerationReceiptService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
 })
 export class ConfigurationModule {
 }

@@ -34,7 +34,6 @@ export class PowerCreateComponent implements OnInit {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
-
   touched = false;
   edited = false;
   powerId = '';
@@ -48,7 +47,6 @@ export class PowerCreateComponent implements OnInit {
   groupEnum = GroupEnum;
   powerSupplyVoltageEnum = powerSupplyVoltage;
   buildingEnum = UseTypeBuildingEnum;
-
   filterBuilding = '';
   buildingList = [];
   editedAllocation = false;
@@ -74,19 +72,19 @@ export class PowerCreateComponent implements OnInit {
       address: [''],
       billingId: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      city: ['', [Validators.minLength(1)]],
-      domainCode: [''],
+      contract:  [''],
       addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
-      numberShare: [''],
       fileNumber: [''],
       serialShare: [''],
       useType: ['', [Validators.required]],
       useCode: ['', [Validators.required]],
       group: [''],
-      capacity: [''],
       coefficient: [''],
       voltageType: [''],
       powerSupplyVoltage: [''],
+      // numberShare: [''],
+      // capacity: [''],
+      // domainCode: [''], //کد حوزه
       // buildingList: [''],
       // buildingNum: ['', [Validators.pattern(this.myPattern.number)]],
     });
@@ -168,7 +166,7 @@ export class PowerCreateComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -176,7 +174,7 @@ export class PowerCreateComponent implements OnInit {
         this.powerService.deletePowerBuildingAllocation({id: this.powerId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.powerDto.buildingList.splice(i, 1);
             }
           });

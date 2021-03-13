@@ -16,6 +16,7 @@ import {BuildingAllocation} from '../../../../model/power';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
+import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
 declare var $: any;
 @Component({
   selector: 'app-create-energy',
@@ -33,6 +34,8 @@ export class CreateEnergyComponent implements OnInit {
   form: FormGroup;
   buildingEnum = UseTypeBuildingEnum;
   myPattern = MyPattern;
+  energyCarierEnum=EnergyCarierEnum;
+  carierUnitEnum=CarierUnitEnum;
   energyDto = new EnergyDto();
   buildingAllocation = new EnergyBuildingAllocation();
   filterBuilding = '';
@@ -49,6 +52,8 @@ export class CreateEnergyComponent implements OnInit {
       energyCarrier: ['', [Validators.required]],
       energyUnit: [''],
       shareNumber: [''],
+      capacity: [''],
+      kiloWatConvert: [''],
     });
 
     this.activatedRoute.queryParams.subscribe(params => {
@@ -148,7 +153,7 @@ export class CreateEnergyComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -156,7 +161,7 @@ export class CreateEnergyComponent implements OnInit {
         this.energyService.deleteEnergyBuildingAllocation({id: this.energyId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.energyDto.buildingList.splice(i, 1);
             }
           });

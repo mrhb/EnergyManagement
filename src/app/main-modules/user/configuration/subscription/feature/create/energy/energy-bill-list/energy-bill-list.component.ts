@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import { EnergyReceiptService } from '../../../../service/energy-receipt.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
+import { Moment } from 'src/app/shared/tools/moment';
 // import {EnergyService} from '../../../../service/energy.service';
 
 @Component({
@@ -16,6 +17,8 @@ export class EnergyBillListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  moment = Moment;
+
 
   energyBillList: EnergyBillList[] = [];
 
@@ -63,7 +66,7 @@ export class EnergyBillListComponent implements OnInit {
 
   deleteEnergy(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',

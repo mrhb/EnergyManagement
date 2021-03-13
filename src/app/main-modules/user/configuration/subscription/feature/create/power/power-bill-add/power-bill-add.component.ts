@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {Consumption, PowerBillDto, PowerList} from '../../../../model/power';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import { PowerService } from '../../../../service/power.service';
 import Notiflix from 'notiflix';
+import { Moment } from 'src/app/shared/tools/moment';
+import { PeriodEnum } from '../../../../model/sharedEnum';
 declare var $: any;
 
 @Component({
@@ -14,7 +16,7 @@ declare var $: any;
   templateUrl: './power-bill-add.component.html',
   styleUrls: ['./power-bill-add.component.scss']
 })
-export class PowerBillAddComponent implements OnInit {
+export class PowerBillAddComponent implements OnInit , AfterViewInit {
 
   pageSize = 20;
   pageIndex = 0;
@@ -22,13 +24,17 @@ export class PowerBillAddComponent implements OnInit {
   touched = false;
   edited = false;
   powerId = '';
+  periodEnum=PeriodEnum;
   powerList: PowerList[] = [];
   myPattern = MyPattern;
+  moment = Moment;
+
   form: FormGroup;
   formDiscrip: FormGroup;
   formIntermed: FormGroup;
   powerBillDto = new PowerBillDto();
   powerAllocation = new PowerAllocation();
+  formAmount: FormGroup;
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     // private buildingService: BuildingService,
@@ -108,19 +114,60 @@ export class PowerBillAddComponent implements OnInit {
       calculatedPower:[], // قدرت محاسبه شده
       powerConsumption:[], // قدرت مصرفی  
     });
+
+    //بهای قبض
+    this.formAmount=this.formBuilder.group({
+      consumptionAmount:[], //  مبلغ مصرف
+      subscription:[], // آبونمان
+      powerPrice:[], // بهای قدرت
+      seasonPrice:[], // بهای فصل
+      badPenaltiesForConsuming:[],// جریمه بدی مصرف 
+      payableAmount:[], // مبلغ قابل پرداخت
+    });
+
   }
     
+  ngAfterViewInit(): void {
+    this.jQueryDate();
+  }
 
-
-//     "reactive" : {
-//         "preCounter" : 7856,
-//         "currentCounter" : 6345,
-//         "coefficient" : 971,
-//         "totalConsumption" : 13457,
-//         "consumptionAfterLastChange" : 13245,
-//         "nerkh" : 186764,
-//         "mablagh" : 9987865
-//     },
+  jQueryDate(): void {
+    setTimeout(e1 => {
+      $('#fromDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#fromDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.powerBillDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        if (this.powerBillDto.fromDate > this.powerBillDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
+            this.powerBillDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.toDate));
+          }, 200);
+        }
+      });
+      $('#toDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#toDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.powerBillDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.powerBillDto.toDate', this.powerBillDto.toDate);
+        if (this.powerBillDto.fromDate > this.powerBillDto.toDate) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
+            this.powerBillDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.fromDate));
+          }, 200);
+        }
+      });
+    }, 100);
+  }
 
   getOneBill(pId): void {
     this.powerReceiptService.getOneReceipt({
@@ -129,6 +176,8 @@ export class PowerBillAddComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           this.powerBillDto = res.data;
+        $('#fromDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.fromDate));
+        $('#toDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.toDate));
           this.powerAllocation= res.data.powerSharing;
           // this.setEnumUseType();
         }
@@ -146,7 +195,7 @@ export class PowerBillAddComponent implements OnInit {
       this.powerReceiptService.createReceipt(this.powerBillDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد قبض برق با موفقیت انجام شد.');
             this.powerId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -159,7 +208,7 @@ export class PowerBillAddComponent implements OnInit {
       this.powerReceiptService.updateReceipt({id: this.powerId}, this.powerBillDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش قبض برق با موفقیت انجام شد.');
             // this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
@@ -183,5 +232,6 @@ export class PowerBillAddComponent implements OnInit {
 
   selectPower(item): void {
     this.powerAllocation = item;
+    this.powerBillDto.powerSharingId=item.id;
   }
 }

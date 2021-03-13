@@ -67,6 +67,11 @@ export class CreateBuildingComponent implements OnInit {
           this.buildingDto.address = res.data.address;
           this.buildingDto.ownership = res.data.ownership;
           this.buildingDto.coolingHeatingSystemType = res.data.coolingHeatingSystemType;
+          this.buildingDto.powerSharNum = res.data.powerSharNum;
+          this.buildingDto.gasSharNum = res.data.gasSharNum;
+          this.buildingDto.waterSharNum = res.data.waterSharNum;
+          this.buildingDto.energyCarierOthersNum = res.data.energyCarierOthersNum;
+          
 
           if (this.buildingDto.name) {
             this.completeStep.one = true;

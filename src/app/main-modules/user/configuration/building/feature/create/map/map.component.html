@@ -1,17 +1,16 @@
 <form [formGroup]="form" class="w-100" (ngSubmit)="createSpace()">
   <div class="form row">
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="title" class="form-label">عنوان نقشه</label>
         <input class="form-control text-right" id="title" placeholder=""
                [(ngModel)]="mapDto.title"
                formControlName="title"
-               name="title"
-        >
+               name="title">
       </div>
       <app-alert-error [data]="form.controls['title']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="category" class="form-label">دسته بندی نقشه</label>
         <select id="category"
@@ -29,19 +28,18 @@
       </div>
       <app-alert-error [data]="form.controls['category']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="number" class="form-label">شماره نقشه</label>
         <input class="form-control text-right" id="number" placeholder=""
                maxlength="12"
                [(ngModel)]="mapDto.number"
                formControlName="number"
-               name="number"
-        >
+               name="number">
       </div>
       <app-alert-error [data]="form.controls['number']" [touched]="touched"></app-alert-error>
     </div>
-    <div class="mb-4 col-md-4">
+    <div class="mb-4 col-md-2">
       <div class="w-100">
         <label class="form-label">بارگزاری نقشه</label>
         <div class="w-100 d-flex mb-3">
@@ -49,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-4 col-md-4" *ngIf="mapDto.fileLink && mapDto.fileLink !== ' '">
+    <div class="mb-4 col-md-2" *ngIf="mapDto.fileLink && mapDto.fileLink !== ' '">
       <div class="w-100">
         <div class="box-image">
           <a href="{{pathUrl + mapDto.fileLink}}" target="_blank">

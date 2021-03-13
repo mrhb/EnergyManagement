@@ -8,13 +8,14 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {BuildingList, EnergyLabel, Region} from '../../model/building';
 import {BuildingService} from '../../service/building.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UseTypeEnum} from '../../model/useTypeEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {EnergyLabelType} from '../../model/EnergyLabelType';
 import {Moment} from '../../../../../../shared/tools/moment';
 import {ChartFilter} from '../../model/chart';
 import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/chartEnum';
+import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
+import {CoolingHeatingSystemType} from '../../model/buildingEnum';
 
 declare var $: any;
 
@@ -29,9 +30,11 @@ export class BuildingListComponent implements OnInit, AfterViewInit {
   length = -1;
   totalPages = 1;
 
-  useTypeEnum = UseTypeEnum;
+  useTypeBuildingEnum = UseTypeBuildingEnum;
+  coolingHeatingSystemType = CoolingHeatingSystemType;
   region = new Region();
   buildingList: BuildingList[] = [];
+  buildingEnum = UseTypeBuildingEnum;
 
   moment = Moment;
   options;

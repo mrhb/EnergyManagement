@@ -21,6 +21,14 @@ import { EnergyBillAddComponent } from './subscription/feature/create/energy/ene
 import { EnergyBillListComponent } from './subscription/feature/create/energy/energy-bill-list/energy-bill-list.component';
 import { WaterBillAddComponent } from './subscription/feature/create/water/water-bill-add/water-bill-add.component';
 import { WaterBillListComponent } from './subscription/feature/create/water/water-bill-list/water-bill-list.component';
+import { CreateInstrumentComponent } from './instrument/feature/add/create-instrument.component';
+import { InstrumentListComponent } from './instrument/feature/list/instrument-list.component';
+import { FacilityListComponent } from './facility/feature/list/facility-list.component';
+import { AddFacilityComponent } from './facility/feature/create/add-facility/add-facility.component';
+import { GenerationBillAddComponent } from './generation/feature/generation-bill-add/generation-bill-add.component';
+import { GenerationBillListComponent } from './generation/feature/generation-bill-list/generation-bill-list.component';
+import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';
+import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 
 const routes: Routes = [
   {
@@ -42,6 +50,46 @@ const routes: Routes = [
   {
     path: 'buildingList',
     component: BuildingListComponent,
+  },
+  //*****GENERATION******** */
+  {
+    path: 'generationBillAdd',
+    component: GenerationBillAddComponent,
+  },
+  {
+    path: 'generationBillList',
+    component: GenerationBillListComponent,
+  },
+  {
+    path: 'createGeneration',
+    component: CreateGenerationComponent,
+  },
+  {
+    path: 'editGeneration',
+    component: CreateGenerationComponent,
+  },
+  {
+    path: 'generationList',
+    component: GenerationListComponent,
+  },
+
+  //*******FACILITY */
+
+  {
+    path: 'facilityList',
+    component: FacilityListComponent,
+  },
+  {
+    path: 'createFacility',
+    component: AddFacilityComponent,
+  },
+  {
+    path: 'createInstrument',
+    component: CreateInstrumentComponent,
+  },
+  {
+    path: 'instrumentList',
+    component: InstrumentListComponent,
   },
   {
     path: 'createPower',

@@ -30,14 +30,14 @@ export class SignupComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
-      email: ['', [Validators.required, Validators.pattern(this.myPattern.email)]],
-      phone: ['', [Validators.required, Validators.maxLength(12), Validators.pattern(this.myPattern.fixedPhone)]],
-      mobile: ['', [Validators.required, Validators.maxLength(11), Validators.pattern(this.myPattern.phone)]],
-      address: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
-      organizationalUnit: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       organizationalLevel: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
-      city: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
-      province: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
+      phone: ['', [ Validators.maxLength(12), Validators.pattern(this.myPattern.fixedPhone)]], //شماره تلفن ثابت
+      email: ['', [ Validators.pattern(this.myPattern.email)]], //ایمیل
+      mobile: ['', [ Validators.maxLength(11), Validators.pattern(this.myPattern.phone)]], // شماره همراه
+      address: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //آدرس
+      organizationalUnit: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //واحد سازمانی
+      city: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],// شهر
+      province: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],//استان
       password: ['', [Validators.required, Validators.pattern(this.myPattern.password)]],
       passwordConfirm: ['', [Validators.required, Validators.pattern(this.myPattern.password)]],
     }, {

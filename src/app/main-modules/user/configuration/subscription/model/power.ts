@@ -1,25 +1,27 @@
-import {GroupEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
+import {GroupEnum,powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './powerEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
+import { PeriodEnum } from './sharedEnum';
 
 export class PowerDto {
   name: string;
-  billingId: string;
-  systemPass: string;
-  city: string;
+  billingId: string; //             شناسه قبض  
+  city: string; // دیماند قراردادی
+  addressCode: string; //شماره بدنه کنتور
+  useType: UseTypePowerEnum; // عنوان تعرفه
+  useCode: UseCodeEnum;// کد تعرفه
+  group: GroupEnum; // نوع کنتور
+  coefficient: string; //ضریب کنتور
+  contract: string; // دیماند قراردادی
   domainCode: string;
-  addressCode: string;
   numberShare: string;
+  systemPass: string;
   fileNumber: string;
   serialShare: string;
   address: string;
-  useType: UseTypePowerEnum;
-  useCode: UseCodeEnum;
-  group: GroupEnum;
-  capacity: string;
-  coefficient: string;
   voltageType: VoltageTypeEnum;
   powerSupplyVoltage: powerSupplyVoltage;
   buildingList: BuildingAllocation[] = [];
+  // capacity: string;
   // buildingNum: string;
 }
 
@@ -35,10 +37,11 @@ export class Consumption {
 
 
 export class PowerBillDto {
+  powerSharingId: string;//شناسه اشتراک(id)
   billId: string;
-  numberShare:string;// شناسه اشتراک
+  numberShare:string;// شماره اشتراک
   paymentCode: string; // شناسه پرداخت
-  period: string; // دوره
+  period: PeriodEnum; // دوره
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   numberDays: string; // روزها
@@ -62,7 +65,8 @@ export class PowerBillDto {
   subscription: string; //   آبونمان 
   powerPrice: string; //   بهای قدرت 
   seasonPrice: string; //   بهای فصل 
-  payableAmount: string; //   بهای فصل 
+  badPenaltiesForConsuming:string;// جریمه بدی مصرف 
+  payableAmount: string; //   مبلغ قابل پرداخت
 
 }
 
@@ -79,30 +83,25 @@ export class BuildingAllocation {
 
 export class PowerList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
-  useType: UseTypePowerEnum;
-  createdAt: any;
-  buildingNum: string;
+  nameShare: string;// نام مشترک
+  billingId: string; // شناسه قبض  
+  group: GroupEnum; // نوع کنتور
+  useType: UseTypePowerEnum;//  عنوان تعرفه
+  useCode: UseCodeEnum;// کد تعرفه
+  contract: string; // دیماند قراردادی
+  buildingNum: string;// تعداد ساختمانها
 }
 
 export class PowerBillList {
   billingId: String; // شناسه اشتراک برق
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
+  period: PeriodEnum; // دوره
   fromDate: Date; // از تاریخ
   toDate:Date; // تا تاریخ
   numberDays:Number;//تعداد روزها
   consumptionAmount: Number; // مبلغ مصرف
-  totalConsumption:string;   // مصرف کل
-  id: string;
-  BillId: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Mablagh: string;
+  ConsumptionSum:string;   //مجموع مصرف
 }
 
 export class PowerBuildingAllocation {
@@ -130,6 +129,7 @@ export class PowerSharingAllocation {
 export class PowerAllocation {
   name: string;
   billingId: string;
+  powerSharingId: string;
 
 }
 // export class BuildingList {

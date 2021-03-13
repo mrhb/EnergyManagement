@@ -10,6 +10,7 @@ import {EnergyList} from '../../../../model/energy';
 import Notiflix from 'notiflix';
 import {EnergyService} from '../../../../service/energy.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
 @Component({
   selector: 'app-energy-list',
   templateUrl: './energy-list.component.html',
@@ -21,6 +22,8 @@ export class EnergyListComponent implements OnInit {
   length = -1;
   totalPages = 1;
 
+  energyCarierEnum=EnergyCarierEnum;
+  carierUnitEnum=CarierUnitEnum;
   energyList: EnergyList[] = [];
   constructor(private energyService: EnergyService,
               public router: Router,
@@ -72,7 +75,7 @@ export class EnergyListComponent implements OnInit {
 
   deleteEnergy(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -80,7 +83,7 @@ export class EnergyListComponent implements OnInit {
         this.energyService.deleteEnergy({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.energyList.splice(i, 1);
             }
           });

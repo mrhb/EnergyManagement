@@ -10,7 +10,7 @@ import {WaterList} from '../../../../model/water';
 import Notiflix from 'notiflix';
 import {WaterService} from '../../../../service/water.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UseTypeWater} from '../../../../model/waterEnum';
+import {UseCodeWaterEnum, UseTypeWater} from '../../../../model/waterEnum';
 
 @Component({
   selector: 'app-water-list',
@@ -24,6 +24,7 @@ export class WaterListComponent implements OnInit {
   totalPages = 1;
 
   useTypeEnum = UseTypeWater;
+  useCodeWaterEnum=UseCodeWaterEnum;
   waterList: WaterList[] = [];
   constructor(private waterService: WaterService,
               public router: Router,
@@ -76,7 +77,7 @@ export class WaterListComponent implements OnInit {
 
   deleteWater(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'قبض',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',
@@ -84,7 +85,7 @@ export class WaterListComponent implements OnInit {
         this.waterService.deleteWater({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
               this.waterList.splice(i, 1);
             }
           });

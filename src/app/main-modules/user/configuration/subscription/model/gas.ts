@@ -2,18 +2,20 @@ import {GroupGasEnum, UseTypeGasEnum} from './gasEnum';
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 
 export class GasDto {
-  name: string;
-  address: string;
+  name: string;  // نام مشترک
+  address: string; // آدرس
   billingId: string;
   city: string;
   domainCode: string;
   addressCode: string;
-  numberShare: string;
+  numberUnits:string;//تعداد واحدها
+  numberShare: string; // شماره اشتراک
+
   fileNumber: string;
   serialShare: string;
   useType: UseTypeGasEnum;
-  group: GroupGasEnum;
-  capacity: string;
+  group: GroupGasEnum; // گروه
+  capacity: string; // ظرفیت
   coefficient: string;
   buildingList: GasBuildingAllocation[] = [];
 }
@@ -31,25 +33,26 @@ export class GasBuildingAllocation {
 
 export class GasList {
   id: string;
-  name: string;
-  billingId: string;
-  addressCode: string;
-  useType: UseTypeGasEnum;
+  name: string;  // نام مشترک
+  billingId: string;  // شناسه قبض
+  addressCode: string;  // کد آدرس
+  useType: UseTypeGasEnum; 
   createdAt: any;
-  buildingNum: string;
+  group: GroupGasEnum; // گروه
+  numberShare: string; // شماره اشتراک
+  capacity: string; // ظرفیت
+  buildingNum: string;// تعداد ساختمانها
 }
-
 
 export class GasBillList {
-  id: string;
-  BillId: string;
-  StartDate: string;
-  EndDate: string;
-  Days: string;
-  Masraf: string;
-  Mablagh: string;
-}
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
+  consumptionDurat: string; // مصرف دوره
+  payableAmount: string; //    مبلغ قابل پرداخت      
 
+}
 
 export class GasBillDto {
   gasSharingId:string // (id)شناسه اشتراک
@@ -62,7 +65,7 @@ export class GasBillDto {
   currentCounter: string; //  رقم فعلی شماشگر
   consumptionDurat: string; // مصرف دوره
   totalCounter: string; //  کارکرد شمارشگر
-  estandardConsumption: string; //مصرف استاندارد  
+  estandardConsumption: string; //مصرف دوره  
   consumptionAmount: string; // بهای گاز مصرفی  
   subscription: string; //  آبونمان   
   gasTolls: string; //  عوارض گاز 

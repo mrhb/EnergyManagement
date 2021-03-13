@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand">
       <div class="brand-logo">
-        <strong>انرژی</strong>
+        <strong>سامانه پایش انرژی ساختمان و تاسیسات </strong>
       </div>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,60 +13,42 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            پیکربندی
+            ورود اطلاعات
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/buildingList'">ساختمان</a></li>
-            <li><div class="dropdown-divider"></div></li>
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اشتراک</a>
+           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">منطقه بندی</a></li>
+             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/buildingList'">اطلاعات ساختمان</a></li>
+             <li><div class="dropdown-divider"></div></li>
+             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/facilityList'">اطلاعات تاسیسات</a></li>
+             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/instrumentList'">اطلاعات تجهیزات</a></li>
+             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات تولید انرژی</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerList'">برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasList'">گاز</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterList'">آب</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyList'">انرژی</a></li>
-
-
-                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>-->
-                <!--                  <ul class="dropdown-menu">-->
-                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
-                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
-                <!--                  </ul>-->
-                <!--                </li>-->
-                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>-->
-                <!--                  <ul class="dropdown-menu">-->
-                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
-                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
-                <!--                  </ul>-->
-                <!--                </li>-->
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/generationList'">تعریف نیروگاه</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/generationBillList'">تولید انرژی نیروگاه</a></li>
               </ul>
             </li>
-            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">قبض</a>
+
+             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات قبوض</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerBillList'">برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'">گاز</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'">آب</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">انرژی</a></li>
-
-
-                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>-->
-                <!--                  <ul class="dropdown-menu">-->
-                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
-                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
-                <!--                  </ul>-->
-                <!--                </li>-->
-                <!--                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>-->
-                <!--                  <ul class="dropdown-menu">-->
-                <!--                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>-->
-                <!--                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>-->
-                <!--                  </ul>-->
-                <!--                </li>-->
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerList'">تعریف کنتور برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasList'">تعریف کنتور گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterList'">تعریف کنتور آب</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyList'"> تعریف کنتورانرژی</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerBillList'">ورود قبض برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'"> ورود قبض گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'"> ورود قبض آب</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> ورود قبض انرژی</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> تعرفه قبض برق </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">  تعرفه قبض گاز</a></li>
               </ul>
-            </li>
+             </li>
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
               <ul class="dropdown-menu">
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/createClimate'">تعریف شهر و اقلیم</a></li>
               </ul>
             </li>
+
+
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -76,23 +58,55 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل اشتراکات</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">گاز</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تحلیل اشتراکات برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تحلیل اشتراکات گاز</a></li>
               </ul>
             </li>
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">خط مبنا</a></li>
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی </a></li>
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">صحت سنجی قبوض</a></li>
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">تحلیل مصارف قبوض</a></li>
+
+
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تحلیل مصارف قبوض</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">صحت سنجی قبوض</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تحلیل مصارف تجهیزات</a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی ساختمان </a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">گزارش املاک و تاسیسات </a></li>
           </ul>
-          
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ماژولها  </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">ایزو 50001</a> 
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">خط مشی انرژی</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">دامنه و مرز </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تیم انرژی </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">تجهیزات و مصارف بارز </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">متغیرهای موثر </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">شاخص عملکرد انرژی </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'">خط مبنای انرژی  </a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/subscription'"> مستندات  </a></li>
+              </ul>
+            </li> 
+           
+          </ul>
+
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            مستندات
+          </a>
+        </li>
+
       </ul>
     </div>
   </nav>
 
   <div class="d-flex align-items-center">
-
+    <li class="nav-item dropdown">
+      <a href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        درباره ما
+      </a>
+    </li>
 
     <div class="user-info">
       <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
@@ -109,14 +123,31 @@
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <button class="dropdown-item text-right" type="button" [routerLink]="'/index/user/profile'">
-            <span class="fa fa-users"></span>
+            <span class="fa fa-address-card-o"></span>
             پروفایل
           </button>
+          <button class="dropdown-item text-right" type="button"
+                  (click)="logOut()">
+            <span class="fa fa-diamond"></span>
+            <span>سطح دسترسی </span>
+          </button>
+          <button class="dropdown-item text-right" type="button"
+                  (click)="logOut()">
+            <span class="fa fa-television"></span>
+            <span>تنظیمات ظاهر نرم افزار  </span>
+          </button>
+          <button class="dropdown-item text-right" type="button"
+                  (click)="logOut()">
+            <span class="fa fa-user"></span>
+            <span>سوابق ورود و خروج </span>
+          </button>
+
           <button class="dropdown-item text-right" type="button"
                   (click)="logOut()">
             <span class="fa fa-power-off"></span>
             <span>خروج</span>
           </button>
+
         </div>
       </div>
 

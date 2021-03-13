@@ -2,10 +2,10 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        لیست اشتراک های انرژی
+        لیست کنتورهای انرژی
       </h1>
       <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createEnergy'">افزودن اشتراک</button>
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createEnergy'">افزودن کنتور</button>
       </div>
     </div>
     <div class="card-body">
@@ -14,8 +14,12 @@
           <thead>
           <tr>
             <th scope="col" width="40">#</th>
-            <th scope="col">نام اشتراک</th>
-            <th scope="col">عنوان تعرفه</th>
+            <th scope="col">نام مشترک</th>
+            <th scope="col">حامل انرژی</th>
+            <th scope="col">واحد انرژی</th>
+            <th scope="col">شماره کنتور</th>
+            <th scope="col"> ظرفیت</th>
+            <th scope="col">  ضریب تبدیل به کیلووات</th>
             <th scope="col" width="120">تعداد ساختمان</th>
             <th scope="col" width="80" colspan="2" class="text-center">عملیات</th>
           </tr>
@@ -24,7 +28,11 @@
           <tr *ngFor="let energy of energyList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{energy.name}}</td>
-            <td>{{energy.addressCode}}</td>
+            <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td>
+            <td>{{carierUnitEnum[energy.energyUnit].toString()}}</td>
+            <td>{{energy.shareNumber}}</td>
+            <td>{{energy.capacity}}</td>
+            <td>{{energy.kiloWatConvert}}</td>
             <td>{{energy.buildingNum}}</td>
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: energy.id}"
