@@ -16,7 +16,7 @@ import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { GasBuildingAllocation } from '../../../subscription/model/gas';
 import { BuildingAllocation } from '../../../subscription/model/power';
 import { GenerationBuildingAllocation, GenerationDto } from '../../model/generation';
-import { UseCodeGenerationEnum, UseTypeGeneration } from '../../model/generationEnum';
+import { GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationService } from '../../service/generation.service';
 declare var $: any;
 @Component({
@@ -39,8 +39,8 @@ export class CreateGenerationComponent implements OnInit {
   buildingEnum = UseTypeBuildingEnum;
   filterBuilding = '';
   buildingList = [];
-  useTypeGenerationEnum = UseTypeGeneration;
-  useCodeGenerationEnum = UseCodeGenerationEnum;
+  generationTypeEnum = GenerationTypeEnum;
+  consumptionTypeEnum = ConsumptionTypeEnum;
   editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
@@ -55,11 +55,11 @@ export class CreateGenerationComponent implements OnInit {
       // numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       fileNumber: ['', [Validators.minLength(1)]],
       // serialShare: [''],
-      useType: ['', [Validators.required]],
+      generationType: ['', [Validators.required]],
       // generationBranchDiameter: ['', [Validators.required]],
       sewageBranchDiameter: [''],
       capacity: [''],
-      useCode: ['', [Validators.required]],
+      consumptionType: ['', [Validators.required]],
     });
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params', params);

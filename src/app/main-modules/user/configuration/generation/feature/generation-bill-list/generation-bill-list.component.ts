@@ -10,7 +10,7 @@ import Notiflix from 'notiflix';
 // import {GenerationService} from '../../../../service/generation.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Moment } from 'src/app/shared/tools/moment';
-import { UseTypeGeneration } from '../../model/generationEnum';
+import { GenerationTypeEnum } from '../../model/generationEnum';
 import { GenerationBillList } from '../../model/generation';
 import { GenerationReceiptService } from '../../service/generation-receipt.service';
 
@@ -27,7 +27,7 @@ export class GenerationBillListComponent implements OnInit {
   moment = Moment;
 
 
-  useTypeEnum = UseTypeGeneration;
+  useTypeEnum = GenerationTypeEnum;
   generationBillList: GenerationBillList[] = [];
   constructor(public router: Router,
     private generationReceiptService: GenerationReceiptService,

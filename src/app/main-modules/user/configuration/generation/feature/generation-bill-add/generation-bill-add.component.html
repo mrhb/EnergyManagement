@@ -26,28 +26,7 @@
           <legend>افزودن تولید</legend>
         <form [formGroup]="form" class="w-100"> <!-- (ngSubmit)="createGas()"> -->
           <div class="form row">
-            <!--شناسه نیروگاه -->
-            <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="billingId" class="form-label"> شناسه نیروگاه </label>
-                  <input class="form-control text-right" id="billingId" placeholder=""
-                         [(ngModel)]="generationBillDto.billingId"
-                         formControlName="billingId"
-                         name="billingId">
-                </div>
-                <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
-              </div>
-            <!--  نوع نیروگاه -->
-            <div class="mb-4 col-md-2">
-              <div class="w-100">
-                <label for="name" class="form-label">نوع نیروگاه</label>
-                <input class="form-control text-right" id="name" placeholder=""
-                       [(ngModel)]="generationBillDto.name"
-                       formControlName="name"
-                       name="name">
-              </div>
-              <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
-            </div>
+           
             <!-- تاریخ شروع  -->
             <div class="mb-4 col-md-2">
                 <div class="w-100">
@@ -71,13 +50,13 @@
             <!-- مقدار تولید  -->
             <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="generationValue" class="form-label">مقدار تولید </label>
-                  <input class="form-control text-right" id="generationValue" placeholder=""
-                         [(ngModel)]="generationBillDto.generationValue"
-                         formControlName="generationValue"
-                         name="generationValue">
+                  <label for="consumptionDurat" class="form-label">مقدار تولید </label>
+                  <input class="form-control text-right" id="consumptionDurat" placeholder=""
+                         [(ngModel)]="generationBillDto.consumptionDurat"
+                         formControlName="consumptionDurat"
+                         name="consumptionDurat">
                 </div>
-                <app-alert-error [data]="form.controls['generationValue']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
               </div>
 
             <!-- رقم فعلی -->

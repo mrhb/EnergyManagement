@@ -26,9 +26,9 @@
           <tr *ngFor="let generation of generationList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{generation.name}}</td>
-            <td>{{useTypeGeneration[generation.useType].toString()}}</td>
+            <td>{{generationTypeEnum[generation.generationType].toString()}}</td>
             <td>{{generation.capacity}}</td>
-            <td>{{useCodeGenerationEnum[generation.useCode].toString()}}</td>            
+            <td>{{consumptionTypeEnum[generation.consumptionType].toString()}}</td>            
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: generation.id}"
                                  [routerLink]="'/index/user/configuration/editGeneration'"></span></td>

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
-import { UseCodeGenerationEnum, UseTypeGeneration } from '../../model/generationEnum';
+import {GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationList } from '../../model/generation';
 import { GenerationService } from '../../service/generation.service';
 
@@ -23,8 +23,8 @@ export class GenerationListComponent implements OnInit {
   length = -1;
   totalPages = 1;
 
-  useTypeEnum = UseTypeGeneration;
-  useCodeGenerationEnum=UseCodeGenerationEnum;
+  generationTypeEnum = GenerationTypeEnum;
+  consumptionTypeEnum=ConsumptionTypeEnum;
   generationList: GenerationList[] = [];
   constructor(private generationService: GenerationService,
               public router: Router,
