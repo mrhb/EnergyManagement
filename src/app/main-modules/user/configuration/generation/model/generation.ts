@@ -8,10 +8,10 @@ export class GenerationDto {
   useCode: UseCodeGenerationEnum;  //    نوع مصرف 
   address: string; // آدرس
   billingId: string;  // شناسه قبض 
-  numberShare: string; //  شماره نیروگاه 
+  // numberShare: string; //  شماره نیروگاه 
   fileNumber: string;
-  serialShare: string;
-  generationBranchDiameter: string;// قطر انشعاب اب
+  // serialShare: string;
+  // generationBranchDiameter: string;// قطر انشعاب اب
   sewageBranchDiameter: string;// قطر انشعاب فاضلاب
   buildingList: GenerationBuildingAllocation[] = [];
 
@@ -34,16 +34,16 @@ export class GenerationList {
   useType: UseTypeGeneration; //  نوع نیروگاه 
   capacity: string;  // ظرفیت 
   useCode: UseCodeGenerationEnum;  //    نوع مصرف 
-  billingId: string;// شناسه قبض 
-  numberShare: String; // شماره اشتراک
-  buildingNum: string;
+  // billingId: string;// شناسه قبض 
+  // numberShare: String; // شماره اشتراک
+  // buildingNum: string;
 }
 
 
 export class GenerationBillList {
   billingId: string; // شناسه قبض
   generationSharingId: String; // شناسه نیروگاه
-  numberShare: String; // شماره اشتراک
+  // numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
   paymentCode: {type: String, required: true}; // شناسه پرداخت
   fromDate: {type: Date, required: true}; // از تاریخ

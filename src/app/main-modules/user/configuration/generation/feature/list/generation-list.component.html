@@ -15,13 +15,10 @@
           <thead>
           <tr>
             <th scope="col" width="40">#</th>
-            <th scope="col">نام مشترک</th>
-            <th scope="col">شناسه قبض</th>
-            <th scope="col">شماره اشتراک</th>
-            <th scope="col">کاربری انشعاب</th>
-            <th scope="col">کد و نوع تعرفه</th>
-            <th scope="col">ظرفیت قراردادی</th>
-            <th scope="col" width="120">تعداد ساختمان</th>
+            <th scope="col">نام نیروگاه</th>
+            <th scope="col">نوع نیروگاه</th>
+            <th scope="col">ظرفیت</th>
+            <th scope="col">نحوه مصرف	</th>
             <th scope="col" width="280" colspan="2" class="text-center">عملیات</th>
           </tr>
           </thead>
@@ -29,12 +26,9 @@
           <tr *ngFor="let generation of generationList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
             <td>{{generation.name}}</td>
-            <td>{{generation.billingId}}</td>
-            <td>{{generation.numberShare}}</td>
-            <td>{{useTypeEnum[generation.useType].toString()}}</td>
-            <td>{{useCodeGenerationEnum[generation.useCode].toString()}}</td>
+            <td>{{useTypeGeneration[generation.useType].toString()}}</td>
             <td>{{generation.capacity}}</td>
-            <td>{{generation.buildingNum}}</td>
+            <td>{{useCodeGenerationEnum[generation.useCode].toString()}}</td>            
             <td width="40"><span class="cursor-pointer fa fa-edit"
                                  [queryParams]="{id: generation.id}"
                                  [routerLink]="'/index/user/configuration/editGeneration'"></span></td>
