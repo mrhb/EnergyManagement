@@ -7,13 +7,13 @@ export class GenerationDto {
   capacity: string;  // ظرفیت 
   useCode: UseCodeGenerationEnum;  //    نوع مصرف 
   billingId: string;// شناسه نیروگاه 
-  address: string; // آدرس
+  buildingList: GenerationBuildingAllocation[] = [];
+  // address: string; // آدرس
   // numberShare: string; //  شماره نیروگاه 
-  fileNumber: string;
+  // fileNumber: string;
   // serialShare: string;
   // generationBranchDiameter: string;// قطر انشعاب اب
-  sewageBranchDiameter: string;// قطر انشعاب فاضلاب
-  buildingList: GenerationBuildingAllocation[] = [];
+  // sewageBranchDiameter: string;// قطر انشعاب فاضلاب
 
 }
 
