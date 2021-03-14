@@ -95,9 +95,9 @@ jQueryDate(): void {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billingId: [''],// شناسه قبض
-      paymentCode: [''],// شناسه پرداخت
+      useType: [''],// نوع نیروگاه
       fromDate:[], // تاریخ شروع 
+      billingId: [''],// شناسه قبض
       toDate:[], // تاریخ اتمام
       numberDays:[], // روزها      
       previousCounter:[], // رقم قبلی
