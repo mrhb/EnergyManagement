@@ -95,16 +95,9 @@ jQueryDate(): void {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      useType: [''],// نوع نیروگاه
       fromDate:[], // تاریخ شروع 
-      billingId: [''],// شناسه قبض
       toDate:[], // تاریخ اتمام
-      numberDays:[], // روزها      
-      previousCounter:[], // رقم قبلی
-      currentCounter:[], // رقم فعلی
-      consumptionDurat:[], // مصرف دوره
-      consumptionAmount:[], //  بهای آب مصرفی
-      payableAmount:[], //     مبلغ قابل پرداخت
+      consumptionDurat:[], // مقدار تولید
     }
     );
   }

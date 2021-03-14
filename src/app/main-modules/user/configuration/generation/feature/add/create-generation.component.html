@@ -49,18 +49,18 @@
               <!-- نوع نیروگاه -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="useType" class="form-label">نوع نیروگاه</label>
-                  <select id="useType"
+                  <label for="generationType" class="form-label">نوع نیروگاه</label>
+                  <select id="generationType"
                           class="form-control text-right"
-                          [(ngModel)]="generationDto.useType"
-                          formControlName="useType"
-                          name="useType">
-                    <option *ngFor="let item of useTypeGenerationEnum | enumKeyValue" [value]="item.key">
+                          [(ngModel)]="generationDto.generationType"
+                          formControlName="generationType"
+                          name="generationType">
+                    <option *ngFor="let item of generationTypeEnum | enumKeyValue" [value]="item.key">
                       {{item.value}}
                     </option>
                   </select>
                 </div>
-                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['generationType']" [touched]="touched"></app-alert-error>
               </div>
               <!-- ظرفیت -->
               <div class="mb-4 col-md-2">
@@ -76,18 +76,18 @@
               <!-- نوع مصرف -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="useCode" class="form-label">نوع مصرف</label>
-                  <select id="useCode"
+                  <label for="consumptionType" class="form-label">نوع مصرف</label>
+                  <select id="consumptionType"
                           class="form-control text-right"
-                          [(ngModel)]="generationDto.useCode"
-                          formControlName="useCode"
-                          name="useCode">
-                    <option *ngFor="let item of useCodeGenerationEnum | enumKeyValue" [value]="item.key">
+                          [(ngModel)]="generationDto.consumptionType"
+                          formControlName="consumptionType"
+                          name="consumptionType">
+                    <option *ngFor="let item of consumptionTypeEnum | enumKeyValue" [value]="item.key">
                       {{item.value}}
                     </option>
                   </select>
                 </div>
-                <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
               
 
