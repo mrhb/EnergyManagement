@@ -82,7 +82,7 @@ export class CreateEnergyComponent implements OnInit {
       this.energyService.createEnergy(this.energyDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد اشتراک انرژی با موفقیت انجام شد.');
             this.energyId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -95,7 +95,7 @@ export class CreateEnergyComponent implements OnInit {
       this.energyService.updateEnergy({id: this.energyId}, this.energyDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش اشتراک انرژی با موفقیت انجام شد.');
             // this.router.navigateByUrl('/index/user/configuration/energyList').then();
           }
         });

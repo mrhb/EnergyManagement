@@ -86,7 +86,7 @@
               <!-- توان مصرفی -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="consumptionPower" class="form-label">توان مصرفی </label>
+                  <label for="consumptionPower" class="form-label">توان مصرفی (وات) </label>
                   <input class="form-control text-right" id="consumptionPower" placeholder=""
                          [(ngModel)]="instrumentDto.consumptionPower"
                          formControlName="consumptionPower"
@@ -144,6 +144,7 @@
                 <div class="w-100">
                   <label for="coincidenceCoefficient" class="form-label">  ضریب همزمانی </label>
                   <input class="form-control text-right" id="coincidenceCoefficient" placeholder=""
+                          type="number" step="0.01"
                          [(ngModel)]="instrumentDto.coincidenceCoefficient"
                          formControlName="coincidenceCoefficient"
                          name="coincidenceCoefficient"
