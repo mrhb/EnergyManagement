@@ -18,11 +18,11 @@
         <div class="card h-100">
           لیست مناطق
           <hr>
-          <!-- <div class="card-body p-0 h-100">
+          <div class="card-body p-0 h-100">
             <div class="tree-view-box">
               <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
       <div class="col-md">
@@ -44,15 +44,17 @@
               <!-- نوع کاربری -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="useType" class="form-label">نوع کاربری</label>
-                  <input class="form-control text-right" id="useType" placeholder=""
-                        type="number" min="0"
-                        maxlength="12"
-                        [(ngModel)]="facilityDto.useType"
-                        formControlName="useType"
-                        name="useType">
+                  <label for="facilityUsage" class="form-label">نوع کاربری</label>
+                  <select name="facilityUsage" id="facilityUsage"
+                          class="form-control text-right"
+                          formControlName="facilityUsage"
+                          [(ngModel)]="facilityDto.facilityUsage">
+                    <option *ngFor="let item of facilityUsageEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
                 </div>
-                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['facilityUsage']" [touched]="touched"></app-alert-error>
               </div>
               <!-- بانک خازنی -->
               <div class="mb-4 col-md-3">

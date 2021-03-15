@@ -210,7 +210,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
         this.instrumentService.deleteInstrumentBuildingAllocation({id: this.instrumentId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف تجهیز با موفقیت انجام گردید');
               this.instrumentDto.buildingList.splice(i, 1);
             }
           });
