@@ -80,7 +80,7 @@ export class WaterBillListComponent implements OnInit {
         this.waterReceiptService.deleteReceipt({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.waterBillList.splice(i, 1);
             }
           });

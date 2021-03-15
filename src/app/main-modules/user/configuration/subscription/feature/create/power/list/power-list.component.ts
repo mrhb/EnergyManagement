@@ -83,7 +83,7 @@ export class PowerListComponent implements OnInit {
         this.powerService.deletePower({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.powerList.splice(i, 1);
             }
           });

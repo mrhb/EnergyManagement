@@ -174,7 +174,7 @@ export class PowerCreateComponent implements OnInit {
         this.powerService.deletePowerBuildingAllocation({id: this.powerId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.powerDto.buildingList.splice(i, 1);
             }
           });

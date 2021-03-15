@@ -84,7 +84,7 @@ export class GasListComponent implements OnInit {
         this.gasService.deleteGas({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.gasList.splice(i, 1);
             }
           });

@@ -161,7 +161,7 @@ export class CreateEnergyComponent implements OnInit {
         this.energyService.deleteEnergyBuildingAllocation({id: this.energyId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.energyDto.buildingList.splice(i, 1);
             }
           });

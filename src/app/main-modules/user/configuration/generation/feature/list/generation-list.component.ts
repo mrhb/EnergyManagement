@@ -85,7 +85,7 @@ export class GenerationListComponent implements OnInit {
         this.generationService.deleteGeneration({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.generationList.splice(i, 1);
             }
           });
