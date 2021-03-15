@@ -61,11 +61,11 @@ export class WallInformation {
 }
 
 export class FacilityList {
-  constructionYear: number;
-  createdAt: any;
-  id: string;
-  name: string;
-  postalCode: string;
+  name: string; //نام تاسیس 
+  facilityUsage: FacilityUsage; // نوع کاربری 
+  CapacitorBank: string; // بانک خازنی 
+  explanation: string; //توضیحات
+  address: string; //آدرس
   regionId: string;
 }
 

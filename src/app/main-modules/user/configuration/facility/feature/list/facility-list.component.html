@@ -34,9 +34,7 @@
               <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                   <thead>
-                  <tr>
-                          
-
+                  <tr>                        
                     <th scope="col" width="40">#</th>
                     <th scope="col">نام تاسیس</th>
                     <th scope="col">منطقه</th>
@@ -49,25 +47,19 @@
                   <tr *ngFor="let facility of facilityList; let i = index">
                     <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                     <td>{{facility.name}}</td>
-                    <td>تاسیس</td>
-                    <td>تاسیس</td>
-                    <td>
-                      <a class="btn btn-outline-dark text-center" href="#chart" (click)="setOption()">نمودار</a>
-                    </td>
-                    <td>
-                      <a class="btn btn-dark text-center" href="#energyLabel" (click)="getEnergyLabel(i)">مشاهده</a>
-                    </td>
-                    <td class="text-center">
-                <span class="cursor-pointer fa fa-edit"
-                      [queryParams]="{id: facility.id}"
-                      [routerLink]="'/index/user/configuration/createFacility'"></span>
-                    </td>
-                    <td class="text-center"><span class="cursor-pointer fa fa-trash" (click)="deleteFacility(i, facility.id)"></span></td>
-                  </tr>
+                    <td>{{facility.regionId}}</td>
+                    <td>{{facility.CapacitorBank}}</td>
+                    <td>{{facility.explanation}}</td>
+                    <td>{{facilityUsageEnum[instrument.facilityUsage].toString()}}</td>
+                    add-facility.component
+                    <td width="40"><span class="cursor-pointer fa fa-edit"
+                                          [queryParams]="{id: facility.id}"
+                                          [routerLink]="'/index/user/configuration/addFacility'"></span></td>
+                    <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteFacility(i, facility.id)"></span></td>
+                   </tr>                                     
                   </tbody>
                 </table>
               </div>
-
               <app-paginator
                 [matPaginator]="false"
                 [totalPages]="totalPages"

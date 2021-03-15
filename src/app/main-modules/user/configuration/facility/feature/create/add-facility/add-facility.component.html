@@ -2,8 +2,8 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
-        <!-- <span *ngIf="!facilityId">افزودن تجهیز </span>
-        <span *ngIf="facilityId">ویرایش تجهیز </span> -->
+        <span *ngIf="!facilityId">افزودن تجهیز </span>
+        <span *ngIf="facilityId">ویرایش تجهیز </span>
         افزودن تاسیسات
       </h1>       
       <div class="d-flex">
@@ -93,10 +93,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- <div class="col-12">
+              <div class="col-12">
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!facilityId">ثبت</button>
                 <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="facilityId">ویرایش</button>
-              </div> -->
+              </div>
             </div>
           </fieldset>
         </form>
