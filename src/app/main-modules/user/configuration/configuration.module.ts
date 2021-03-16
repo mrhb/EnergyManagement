@@ -29,9 +29,7 @@ import {EnergyListComponent} from './subscription/feature/create/energy/list/ene
 import {EnergyService} from './subscription/service/energy.service';
 import {EnergyBuildingService} from './building/service/energy-building.service';
 import {PowerBuildingService} from './building/service/power-building.service';
-import {AppModule} from '../../../app.module';
 import {ChartModule} from '../../../shared/tools/chart/chart.module';
-import {NgxEchartsModule} from 'ngx-echarts';
 import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
 import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
 import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-add/gaz-bill-add.component';
@@ -111,9 +109,8 @@ import { RegionModule } from 'src/app/base-modules/region/region.module';
         UploadFileModule,
         PaginatorModule,
         PipeModule,
-        ChartModule,
-        NgxEchartsModule
-    ],
+        ChartModule
+      ],
   providers: [BuildingService,FacilityService, EnergyBuildingService, PowerBuildingService,GenerationService,GenerationReceiptService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
 })
 export class ConfigurationModule {

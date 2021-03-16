@@ -51,7 +51,6 @@
                   <th scope="col" width="40" >تعداد انشعابها</th>
                   <th scope="col" width="40" >نوع سیستم سرمایش  و گرمایش</th>
                   <th scope="col" width="40" >کد پستی </th>
-                  <th scope="col" width="40">نمودار</th>
                   <th scope="col" width="40">برچسب انرژی</th>
                   <th scope="col" width="40" colspan="2" class="text-center">عملیات</th>
                 </tr>
@@ -69,9 +68,6 @@
                   <!-- <td>{{building.powerSharNum+building.gasSharNum+building.waterSharNum+building.energyCarierOthersNum}}</td> -->
                   <td>{{coolingHeatingSystemType[building.coolingHeatingSystemType].toString()}}</td> 
                   <td>{{building.postalCode}}</td>
-                  <td>
-                    <a class="btn btn-outline-dark text-center" href="#chart" (click)="setOption()">نمودار</a>
-                  </td>
                   <td>
                     <a class="btn btn-dark text-center" href="#energyLabel" (click)="getEnergyLabel(i)">مشاهده</a>
                   </td>
@@ -103,162 +99,6 @@
 
 
       <div class="col-12 pt-2">
-        <div class="e-card" id="chart">
-          <div class="card-header">
-            چارت
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="chart w-100">
-                <div class="filter">
-                  <div class="col-12">
-                    <div class="row align-items-center">
-                      <div class="col-lg-2 col-md-3">
-                        <div class="w-100">
-                          <label for="startDate" class="form-label">از تاریخ</label>
-                          <input class="form-control text-right" id="startDate" placeholder=""
-                                 name="startDate"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-lg-2 col-md-3">
-                        <div class="w-100">
-                          <label for="endDate" class="form-label">تا تاریخ</label>
-                          <input class="form-control text-right" id="endDate" placeholder=""
-                                 name="endDate"
-                          >
-                        </div>
-                      </div>
-                      <div class="col-auto mr-auto">
-                        <div class="btn-group btn-group-toggle">
-                          <div class="btn-group">
-                            <div class="dropdown e-not-close">
-                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                پارامترهای موثر
-                              </button>
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <div class="p-1" *ngFor="let item of effectiveParameterList; let i = index">
-                                  <input type="checkbox" class="form-check-input"
-                                         [ngModel]="getEffectiveParameterNgModel(item)"
-                                         (change)="onChangeEffectiveParameter($event, item)"
-                                         name="{{item}}" id="{{item}}">
-                                  <label class="form-check-label w-100 pr-3" for="{{item}}">{{item}}</label>
-                                </div>
-                                <!--                              <div>-->
-                                <!--                                <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">-->
-                                <!--                                <label class="form-check-label w-100" for="EDD">EDD</label>-->
-                                <!--                              </div>-->
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <div class="btn-group btn-group-toggle">
-                          <label for="LINEAR" class="btn btn-outline-secondary"
-                                 [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()]}">
-                            خطی
-                            <input type="radio" id="LINEAR" name="LINEAR"
-                                   [value]="chartTypeEnum[chartTypeEnum.LINEAR].toString()"
-                                   [(ngModel)]="chartFilter.chartType">
-                          </label>
-                          <label for="BAR" class="btn btn-outline-secondary"
-                                 [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()]}">
-                            میله ای
-                            <input type="radio" id="BAR" name="BAR"
-                                   [value]="chartTypeEnum[chartTypeEnum.BAR.toString()]"
-                                   [(ngModel)]="chartFilter.chartType">
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-auto">
-                        <div class="btn-group btn-group-toggle">
-                          <label for="MONTHLY" class="btn btn-outline-secondary"
-                                 [ngClass]="{'active': chartFilter.period === periodEnum[periodEnum.MONTHLY.toString()]}">
-                            ماهانه
-                            <input type="radio" id="MONTHLY" name="period"
-                                   [value]="periodEnum[periodEnum.MONTHLY].toString()" [(ngModel)]="chartFilter.period">
-                          </label>
-                          <label for="DAILY" class="btn btn-outline-secondary"
-                                 [ngClass]="{'active': chartFilter.period === periodEnum[periodEnum.DAILY.toString()]}">
-                            روزانه
-                            <input type="radio" id="DAILY" name="period" [value]="periodEnum[periodEnum.DAILY]"
-                                   [(ngModel)]="chartFilter.period">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <hr>
-                </div>
-
-
-                <div class="col-12">
-                  <div class="nav-tabs-boxed nav-tabs-boxed-right">
-                    <ul class="nav nav-tabs flex-column" role="tablist">
-                      <li class="nav-item active">
-                        <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
-                           aria-controls="home" aria-selected="true">
-                          نمودار خط مبنا
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
-                           aria-controls="profile" aria-selected="false">
-                          خط مبنا به تفکیک حامل
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
-                           aria-controls="messages" aria-selected="false">
-                           خط مبنا پارامترها
-                          </a></li>
-                    </ul>
-                    <div class="tab-content">
-                      <div class="tab-pane active" id="home" role="tabpanel">
-                        <ng-container
-                          *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="options2"></app-chart>
-                          <!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options2" class="demo-chart"></div>-->
-                        </ng-container>
-                        <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="options"></app-chart>
-                        </ng-container>
-                      </div>
-                      <div class="tab-pane" id="profile" role="tabpanel">
-                        <ng-container
-                          *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph2"></app-chart>
-                          <!--                        <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>-->
-                        </ng-container>
-                        <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph"></app-chart>
-                          <!--                        <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>-->
-                        </ng-container>
-                      </div>
-                      <div class="tab-pane" id="messages" role="tabpanel">
-                        <ng-container
-                          *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph2"></app-chart>
-                          <!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph2" class="demo-chart"></div>-->
-                        </ng-container>
-                        <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
-                          <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph"></app-chart>
-                          <!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph" class="demo-chart"></div>-->
-                        </ng-container>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
         <div class="e-card" id="energyLabel" *ngIf="energyLabel.ratio">
           <div class="card-header">
             برچسب انرژی
