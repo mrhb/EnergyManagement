@@ -6,8 +6,9 @@
       </h1>
       <div class="d-flex ">
           <button class="btn btn-primary " [routerLink]="'/index/user/configuration/powerBillAdd'">افزودن قبض برق</button>
-          <button class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">ورود اطلاعات از اکسل</button>
-      </div>
+          <button class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
+          <span class="cursor-pointer fa fa-file-excel-o"></span></button>
+        </div>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -56,18 +57,11 @@
     </div>
   </div>
   </div>
-
-
-
-
-
-
-  
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">افزون قبوض از اکسل</h5>
+          <h5 class="modal-title" id="exampleModalLabel">افزون قبض برق از اکسل</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -84,7 +78,12 @@
                 <tr>
                   <th scope="col" width="40">#</th>
                   <th scope="col">نام مشترک</th>
-                  <th scope="col">کد آدرس</th>
+                  <th scope="col"> دوره </th>
+                  <th scope="col"> از تاریخ</th>
+                  <th scope="col"> تا تاریخ</th>
+                  <th scope="col" width="40"> تعداد روزها</th>
+                  <th scope="col">  مصرف کل </th>
+                  <th scope="col" width="250"> مبلغ قابل پرداخت </th>
                 </tr>
               </thead>
               <tbody>
