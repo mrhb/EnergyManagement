@@ -7,7 +7,7 @@
       </h1>
       <div class="d-flex">
         <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/energyList'"> لیست کنتورها</button>
-      </div>
+        </div>
     </div>
     <div class="card-body">
       <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
@@ -31,8 +31,7 @@
                   <input class="form-control text-right" id="name" placeholder=""
                          [(ngModel)]="energyDto.name"
                          formControlName="name"
-                         name="name"
-                  >
+                         name="name">
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
               </div>
@@ -43,8 +42,7 @@
                   <textarea class="form-control text-right" id="address" placeholder=""
                   [(ngModel)]="energyDto.address"
                   formControlName="address"
-                  name="address"
-                  ></textarea>
+                  name="address"></textarea>
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
@@ -90,8 +88,7 @@
                   <input class="form-control text-right" id="shareNumber" placeholder=""
                          [(ngModel)]="energyDto.shareNumber"
                          formControlName="shareNumber"
-                         name="shareNumber"
-                  >
+                         name="shareNumber">
                 </div>
                 <app-alert-error [data]="form.controls['shareNumber']" [touched]="touched"></app-alert-error>
               </div>
@@ -102,8 +99,7 @@
                   <input class="form-control text-right" id="capacity" placeholder=""
                          [(ngModel)]="energyDto.capacity"
                          formControlName="capacity"
-                         name="capacity"
-                  >
+                         name="capacity" >
                 </div>
                 <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
               </div>
@@ -114,8 +110,7 @@
                   <input class="form-control text-right" id="kiloWatConvert" placeholder=""
                          [(ngModel)]="energyDto.kiloWatConvert"
                          formControlName="kiloWatConvert"
-                         name="kiloWatConvert"
-                  >
+                         name="kiloWatConvert">
                 </div>
                 <app-alert-error [data]="form.controls['kiloWatConvert']" [touched]="touched"></app-alert-error>
               </div>
@@ -147,8 +142,7 @@
                   <label for="allocationPercentage" class="form-label">درصد تخصیص</label>
                   <input class="form-control text-right" id="allocationPercentage" placeholder=""
                          [(ngModel)]="buildingAllocation.allocationPercentage"
-                         name="allocationPercentage"
-                  >
+                         name="allocationPercentage">
                 </div>
               </div>
             </div>
@@ -196,21 +190,6 @@
       </div>
     </div>
   </div>
-<!--  <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--    <div>-->
-<!--      <h1>-->
-<!--        <strong *ngIf="!energyId">افزودن اشتراک حامل انرژی </strong>-->
-<!--        <strong *ngIf="energyId">ویرایش اشتراک حامل انرژی </strong>-->
-<!--      </h1>-->
-<!--    </div>-->
-<!--    <div class="d-flex">-->
-<!--      <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/energyList'">بازگشت به لیست</button>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <hr>-->
-
-
-
 </div>
 
 

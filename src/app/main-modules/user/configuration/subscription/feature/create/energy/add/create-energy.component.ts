@@ -17,6 +17,7 @@ import {BuildingService} from '../../../../../building/service/building.service'
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
 import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
+
 declare var $: any;
 @Component({
   selector: 'app-create-energy',
@@ -68,7 +69,6 @@ export class CreateEnergyComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 
   createEnergy(): void {
     this.touched = true;

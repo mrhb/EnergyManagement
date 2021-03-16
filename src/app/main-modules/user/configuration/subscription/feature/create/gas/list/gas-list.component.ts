@@ -12,7 +12,6 @@ import {GroupGasEnum,UseTypeGasEnum} from '../../../../model/gasEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 
-import { GasReceiptService } from '../../../../service/gas-receipt.service';
 import * as XLSX from 'xlsx';
 type AOA = any[][];
 
@@ -34,7 +33,6 @@ export class GasListComponent implements OnInit {
 
   gasList: GasList[] = [];
   constructor(private gasService: GasService,
-              private gasReceiptService: GasReceiptService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -81,7 +79,7 @@ export class GasListComponent implements OnInit {
 
   saveXlsxData()
   {
-    this.gasReceiptService.createMultiReceipt(this.xlsxGasList)
+    this.gasService.createMultiReceipt(this.xlsxGasList)
     .subscribe((res: any) => {
       if (res) {
         Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
