@@ -17,6 +17,9 @@ export class GasService extends GeneralService {
   createGas(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create', body, errorSelector);
   }
+  createMultiReceipt(body: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('create-multi', body, errorSelector);
+  }
 
   updateGas(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update', body, errorSelector, param);
