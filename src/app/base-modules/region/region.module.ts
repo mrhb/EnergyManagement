@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RegionComponent } from 'src/app/main-modules/user/configuration/region/feature/index/region.component';
-import { TreeViewComponent } from 'src/app/main-modules/user/configuration/region/feature/treeView/tree-view.component';
-import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
+import { RegionComponent } from './feature/index/region.component';
+import { TreeViewComponent } from './feature/treeView/tree-view.component';
+import { RegionService } from './service/region.service';
 
 
 

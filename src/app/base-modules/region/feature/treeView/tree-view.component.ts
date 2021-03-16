@@ -7,9 +7,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Region, RegionOutput} from '../../model/region';
 import {RegionService} from '../../service/region.service';
-import {Tools} from '../../../../../../shared/tools/tools';
 // @ts-ignore
 import Notiflix from 'notiflix';
+import { Tools } from 'src/app/shared/tools/tools';
 
 @Component({
   selector: 'app-tree-view',

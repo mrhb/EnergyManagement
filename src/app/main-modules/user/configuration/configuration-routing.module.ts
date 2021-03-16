@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RegionComponent} from './region/feature/index/region.component';
 import {CreateBuildingComponent} from './building/feature/create/create-building.component';
 import {BuildingListComponent} from './building/feature/list/building-list.component';
 import {PowerCreateComponent} from './subscription/feature/create/power/create/power-create.component';
@@ -29,6 +28,7 @@ import { GenerationBillAddComponent } from './generation/feature/generation-bill
 import { GenerationBillListComponent } from './generation/feature/generation-bill-list/generation-bill-list.component';
 import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';
 import { GenerationListComponent } from './generation/feature/list/generation-list.component';
+import { RegionComponent } from 'src/app/base-modules/region/feature/index/region.component';
 
 const routes: Routes = [
   {
