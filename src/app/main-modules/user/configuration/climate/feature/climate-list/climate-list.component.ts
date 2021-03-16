@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClimateList } from '../../model/climate';
-import { UseTypePowerEnum, OstanEnum } from '../../model/climateEnum';
+import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import {Router} from '@angular/router';
 
 @Component({
@@ -15,7 +15,7 @@ export class ClimateListComponent implements OnInit {
   totalPages = 1;
 
   filterBuilding = '';
-  useTypeEnum = UseTypePowerEnum;
+  climateType = ClimateTypeEnum;
   climateList: ClimateList[] = [];
   buildingList = [];
 
@@ -32,8 +32,8 @@ export class ClimateListComponent implements OnInit {
     this.climateList = [
       {
         id: '1',
-        ostan: OstanEnum.o_1,
-        shahr: 'طرقبه',
+        province: ProvinceEnum.o_1,
+        city: 'طرقبه',
         longitude: '27.2',
         latitude:  '24.3',
         climateKind:  'گرم ',

@@ -32,8 +32,8 @@
           <tbody>
           <tr *ngFor="let climate of climateList; let i = index" class="vertical-align-middle">
             <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-            <td>{{climate.ostan}}</td>
-            <td>{{climate.shahr}}</td>
+            <td>{{climate.province}}</td>
+            <td>{{climate.city}}</td>
             <td>{{climate.longitude}}</td>
             <td>{{climate.latitude}}</td>
             <td>{{climate.climateKind}}</td>

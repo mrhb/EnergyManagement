@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClimateDto } from '../../model/climate';
 import { WeatherList } from '../../model/weather';
-import { UseTypePowerEnum,OstanEnum } from '../../model/climateEnum';
+import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 
 @Component({
   selector: 'app-creat-climate',
@@ -34,9 +34,9 @@ export class CreateClimateComponent implements OnInit {
       sunRadMean: "1", 
     }];
 
-  useTypeEnum = UseTypePowerEnum;
-  ostanEnum = OstanEnum;
-  useCodeEnum;
+    provinceEnum = ProvinceEnum;
+    climateTypeEnum = ClimateTypeEnum;
+    
 
   filterBuilding = '';
   buildingList = [];
@@ -49,10 +49,10 @@ export class CreateClimateComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      useType: ['', [Validators.required]],
-      ostan: ['', [Validators.required]],
-      shahr: ['', [Validators.required]],
-      rusta: ['', [Validators.required]],
+      climateType: ['', [Validators.required]], // نوع اقلیم 
+      province: ['', [Validators.required]], // استان  
+      city: ['', [Validators.required]], // شهر
+      rusta: [''],
       longitude: ['', [Validators.required]],
       latitude: ['', [Validators.required]],
       ertefa: ['', [Validators.required]],

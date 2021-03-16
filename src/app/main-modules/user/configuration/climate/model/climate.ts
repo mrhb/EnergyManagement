@@ -1,10 +1,10 @@
-import {OstanEnum, powerSupplyVoltage, UseCodeEnum, UseTypePowerEnum, VoltageTypeEnum} from './climateEnum';
+import {ProvinceEnum, ClimateTypeEnum} from './climateEnum';
 
 export class ClimateDto {
-  ostan: OstanEnum;
-  useType: UseTypePowerEnum;
-  shahr: string;
-  rusta: string;
+  province: ProvinceEnum;// استان  
+  climateType: ClimateTypeEnum; // نوع اقلیم 
+  city: string; // شهر
+  rusta: string;//
   longitude: string;
   latitude: string;
   ertefa: string;
@@ -20,8 +20,8 @@ export class ClimateDto {
 
 export class ClimateList {
   id: string;
-  ostan: OstanEnum;
-  shahr: string;
+  province: ProvinceEnum; // استان
+  city: string;// شهر
   longitude: string;
   latitude: string;
   climateKind: string;

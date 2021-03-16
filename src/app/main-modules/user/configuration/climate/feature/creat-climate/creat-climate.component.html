@@ -31,47 +31,47 @@
                   <!-- نوع اقلیم -->
                   <div class="mb-4 col-md-2">
                       <div class="w-100">
-                        <label for="useType" class="form-label">نوع اقلیم</label>
-                        <select id="useType"
+                        <label for="climateType" class="form-label">نوع اقلیم</label>
+                        <select id="climateType"
                                 class="form-control text-right"
                                 (change)="setEnumUseType(true)"
-                                formControlName="useType"
-                                name="ostan">
-                          <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                                formControlName="climateType"
+                                name="province">
+                          <option *ngFor="let item of climateTypeEnum | enumKeyValue" [value]="item.key">
                             {{item.value}}
                           </option>
                         </select>
                       </div>
-                      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['climateType']" [touched]="touched"></app-alert-error>
                   </div>                
  
                   <!-- استان -->
                   <div class="mb-4 col-md-2">
                       <div class="w-100">
-                        <label for="ostan" class="form-label">استان</label>
-                        <select id="ostan"
+                        <label for="province" class="form-label">استان</label>
+                        <select id="province"
                                 class="form-control text-right"
                                 (change)="setEnumUseType(true)"
-                                formControlName="ostan"
-                                name="ostan">
-                          <option *ngFor="let item of ostanEnum | enumKeyValue" [value]="item.key">
+                                formControlName="province"
+                                name="province">
+                          <option *ngFor="let item of provinceEnum | enumKeyValue" [value]="item.key">
                             {{item.value}}
                           </option>
                         </select>
                       </div>
-                      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['province']" [touched]="touched"></app-alert-error>
                   </div>  
 
                   <!-- شهر -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
-                      <label for="shahr" class="form-label"> شهر</label>
-                      <input class="form-control text-right" id="shahr" shahr=""
-                            formControlName="shahr"
-                            name="shahr"
+                      <label for="city" class="form-label"> شهر</label>
+                      <input class="form-control text-right" id="city" city=""
+                            formControlName="city"
+                            name="city"
                             >
                     </div>
-                        <app-alert-error [data]="form.controls['shahr']" [touched]="touched"></app-alert-error>
+                        <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
                   </div>
 
                   <!-- روستا -->
