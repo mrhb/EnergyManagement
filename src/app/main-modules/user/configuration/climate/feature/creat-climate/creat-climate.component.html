@@ -23,27 +23,11 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-city" role="tabpanel" aria-labelledby="pills-city-tab">
  
-          <form [formGroup]="form" class="w-100" (ngSubmit)="createPower()">
+          <form [formGroup]="form" class="w-100" (ngSubmit)="createCity()">
             <fieldset class="fieldset-border">
               <legend>اطلاعات اقلیم</legend>
 
                 <div class="form row">
-                  <!-- نوع اقلیم -->
-                  <div class="mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="climateType" class="form-label">نوع اقلیم</label>
-                        <select id="climateType"
-                                class="form-control text-right"
-                                (change)="setEnumUseType(true)"
-                                formControlName="climateType"
-                                name="province">
-                          <option *ngFor="let item of climateTypeEnum | enumKeyValue" [value]="item.key">
-                            {{item.value}}
-                          </option>
-                        </select>
-                      </div>
-                      <app-alert-error [data]="form.controls['climateType']" [touched]="touched"></app-alert-error>
-                  </div>                
  
                   <!-- استان -->
                   <div class="mb-4 col-md-2">
@@ -67,9 +51,9 @@
                     <div class="w-100">
                       <label for="city" class="form-label"> شهر</label>
                       <input class="form-control text-right" id="city" city=""
-                            formControlName="city"
-                            name="city"
-                            >
+                        [(ngModel)]="climateDto.city"
+                        formControlName="city"
+                        name="city">
                     </div>
                         <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
                   </div>
@@ -77,26 +61,24 @@
                   <!-- روستا -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
-                      <label for="rusta" class="form-label"> روستا</label>
-                      <input class="form-control text-right" id="rusta" rusta=""
-                            [(ngModel)]="climateDto.rusta"
-                            formControlName="rusta"
-                            name="rusta"
-                            >
+                      <label for="village" class="form-label"> روستا</label>
+                      <input class="form-control text-right" id="village" placeholder =""
+                            [(ngModel)]="climateDto.village"
+                            formControlName="village"
+                            name="village">
                     </div>
-                          <app-alert-error [data]="form.controls['rusta']" [touched]="touched"></app-alert-error>
+                          <app-alert-error [data]="form.controls['village']" [touched]="touched"></app-alert-error>
                   </div> 
 
                   <!-- طول جغرافیایی -->
                   <div class="mb-4 col-md-2">
                       <div class="w-100">
                         <label for="longitude" class="form-label"> طول جغرافیایی</label>
-                        <input class="form-control text-right" id="longitude" longitude=""
+                        <input class="form-control text-right" id="longitude" placeholder=""
                             type="number" step="0.01"
                              [(ngModel)]="climateDto.longitude"
                              formControlName="longitude"
-                             name="longitude"
-                             >
+                             name="longitude">
                       </div>
                           <app-alert-error [data]="form.controls['longitude']" [touched]="touched"></app-alert-error>
                   </div> 
@@ -105,12 +87,11 @@
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="latitude" class="form-label"> عرض جغرافیایی</label>
-                      <input class="form-control text-right" id="latitude" latitude=""
+                      <input class="form-control text-right" id="latitude" placeholder=""  
                       type="number" step="0.01"
-                            [(ngModel)]="climateDto.latitude"
-                            formControlName="latitude"
-                            name="latitude"
-                            >
+                      [(ngModel)]="climateDto.latitude"
+                      formControlName="latitude"
+                      name="latitude">
                     </div>
                         <app-alert-error [data]="form.controls['latitude']" [touched]="touched"></app-alert-error>
                   </div> 
@@ -118,38 +99,51 @@
                   <!--  ارتفاع از سطح دریا -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
-                      <label for="ertefa" class="form-label"> ارتفاع از سطح دریا </label>
-                      <input class="form-control text-right" id="ertefa" ertefa=""
-                            [(ngModel)]="climateDto.ertefa"
-                            formControlName="ertefa"
-                            name="ertefa"
-                            >
+                      <label for="height" class="form-label"> ارتفاع از سطح دریا </label>
+                      <input class="form-control text-right" id="height" placeholder=""
+                            [(ngModel)]="climateDto.height"
+                            formControlName="height"
+                            name="height">
                     </div>
-                      <app-alert-error [data]="form.controls['ertefa']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['height']" [touched]="touched"></app-alert-error>
                   </div> 
+                 <!-- نوع اقلیم -->
+                 <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="climateType" class="form-label">نوع اقلیم</label>
+                    <select id="climateType"
+                            class="form-control text-right"
+                            (change)="setEnumUseType(true)"
+                            formControlName="climateType"
+                            name="province">
+                      <option *ngFor="let item of climateTypeEnum | enumKeyValue" [value]="item.key">
+                        {{item.value}}
+                      </option>
+                    </select>
+                  </div>
+                  <app-alert-error [data]="form.controls['climateType']" [touched]="touched"></app-alert-error>
+              </div>                
 
                   <!-- نیاز غالب حرارتی -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
-                      <label for="ghaleb" class="form-label"> نیاز غالب حرارتی </label>
-                      <input class="form-control text-right" id="ghaleb" ghaleb=""
-                            [(ngModel)]="climateDto.ghaleb"
-                            formControlName="ghaleb"
-                            name="ghaleb"
-                            >
+                      <label for="dominantThermalReq" class="form-label"> نیاز غالب حرارتی </label>
+                      <input class="form-control text-right" id="dominantThermalReq" placeholder=""
+                            [(ngModel)]="climateDto.dominantThermalReq"
+                            formControlName="dominantThermalReq"
+                            name="dominantThermalReq">
                     </div>
-                      <app-alert-error [data]="form.controls['ghaleb']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['dominantThermalReq']" [touched]="touched"></app-alert-error>
                   </div> 
 
                   <!-- درجه انرژی -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="energyDegree" class="form-label"> درجه انرژی </label>
-                      <input class="form-control text-right" id="energyDegree" energyDegree=""
+                      <input class="form-control text-right" id="energyDegree" placeholder=""
                             [(ngModel)]="climateDto.energyDegree"
                             formControlName="energyDegree"
-                            name="energyDegree"
-                            >
+                            name="energyDegree">
                     </div>
                   <app-alert-error [data]="form.controls['energyDegree']" [touched]="touched"></app-alert-error>
                   </div> 
@@ -164,7 +158,21 @@
         </div>
 
         <div class="tab-pane fade" id="pills-climate" role="tabpanel" aria-labelledby="pills-climate-tab">
-            <div class="table-responsive">
+
+                  <!-- انتخاب سال -->
+                  <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="year" class="form-label"> انتخاب سال </label>
+                      <input class="form-control text-right" id="year" placeholder=""
+                      name="year"  type="number" step="1" min="1300">
+                            <!-- [(ngModel)]="climateDto.year"
+                            formControlName="year" -->
+                    </div>
+                  <!-- <app-alert-error [data]="form.controls['year']" [touched]="touched"></app-alert-error> -->
+                  </div> 
+         
+                  
+          <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -179,23 +187,9 @@
                   <th scope="col"> میانگین سرعت باد </th>
                   <th scope="col">میانگین تابش خورشید</th>
                   <th scope="col" width="280" colspan="2" class="text-center">عملیات</th>
-        
                 </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
-                  <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
-                  <td>{{weather.month}}</td>
-                  <td>{{weather.highDegMean}}</td>
-                  <td>{{weather.lowDegMean}}</td>
-                  <td>{{weather.DegMean}}</td>
-                  <td>{{weather.highHumidMean}}</td>
-                  <td>{{weather.lowHumidMean}}</td>
-                  <td>{{weather.HumidMean}}</td>
-                  <td>{{weather.windMean}}</td>
-                  <td>{{weather.sunRadMean}}</td>
-
-              </tr>
               <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
                 <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
                 <td>{{weather.month}}</td>
@@ -207,10 +201,9 @@
                 <td>{{weather.HumidMean}}</td>
                 <td>{{weather.windMean}}</td>
                 <td>{{weather.sunRadMean}}</td>
-
                 <td width="40"><span class="cursor-pointer fa fa-edit"
-                                     [queryParams]="{id: weather.id}"
-                                     [routerLink]="'/index/user/configuration/editclimate'"></span></td>
+                    [queryParams]="{id: weather.id}"
+                    [routerLink]="'/index/user/configuration/editclimate'"></span></td>
                 <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteclimate(i, weather.id)"></span></td>
               </tr>
               </tbody>
@@ -222,18 +215,4 @@
       </div>
     </div>
   </div>
-<!--    <div class="title-header d-flex justify-content-between align-items-center">-->
-<!--      <div>-->
-<!--        <h1>-->
-<!--          <strong *ngIf="!climateId"> افزودن شهر و اقلیم  </strong>-->
-<!--          <strong *ngIf="climateId">ویرایش شهر و اقلیم </strong>-->
-<!--        </h1>-->
-<!--      </div>-->
-<!--      <div class="d-flex">-->
-<!--        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/climateList'">بازگشت به لیست</button>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <hr>-->
-
 </div>

@@ -29,21 +29,7 @@ export class ClimateListComponent implements OnInit {
   getClimateList(): void {
     console.log('this.pageIndex', this.pageIndex);
     console.log('this.pageSize', this.pageSize);
-    this.climateList = [
-      {
-        id: '1',
-        province: ProvinceEnum.o_1,
-        city: 'طرقبه',
-        longitude: '27.2',
-        latitude:  '24.3',
-        climateKind:  'گرم ',
-        highDegMean:  ' 24',
-        lowDegMean:  '10 -',
-        highHumidMean: '80',
-        lowHumidMean:  '20',
-        windMean:  '60'
-      }
-    ];
+    this.climateList = [];
     // this.ClimateService.getClimateList(
     //   {
     //     page: this.pageIndex,
