@@ -16,7 +16,7 @@ import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { GasBuildingAllocation } from '../../../subscription/model/gas';
 import { BuildingAllocation } from '../../../subscription/model/power';
 import { GenerationBuildingAllocation, GenerationDto } from '../../model/generation';
-import { UseCodeGenerationEnum, UseTypeGeneration } from '../../model/generationEnum';
+import { GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationService } from '../../service/generation.service';
 declare var $: any;
 @Component({
@@ -39,8 +39,8 @@ export class CreateGenerationComponent implements OnInit {
   buildingEnum = UseTypeBuildingEnum;
   filterBuilding = '';
   buildingList = [];
-  useTypeGenerationEnum = UseTypeGeneration;
-  useCodeGenerationEnum = UseCodeGenerationEnum;
+  generationTypeEnum = GenerationTypeEnum;
+  consumptionTypeEnum = ConsumptionTypeEnum;
   editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
@@ -52,14 +52,14 @@ export class CreateGenerationComponent implements OnInit {
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
       billingId: ['', [Validators.required]],
-      numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
+      // numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
       fileNumber: ['', [Validators.minLength(1)]],
-      serialShare: [''],
-      useType: ['', [Validators.required]],
-      generationBranchDiameter: ['', [Validators.required]],
+      // serialShare: [''],
+      generationType: ['', [Validators.required]],
+      // generationBranchDiameter: ['', [Validators.required]],
       sewageBranchDiameter: [''],
       capacity: [''],
-      useCode: ['', [Validators.required]],
+      consumptionType: ['', [Validators.required]],
     });
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params', params);
@@ -165,7 +165,7 @@ export class CreateGenerationComponent implements OnInit {
         this.generationService.deleteGenerationBuildingAllocation({id: this.generationId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف نیروگاه با موفقیت انجام گردید');
               this.generationDto.buildingList.splice(i, 1);
             }
           });

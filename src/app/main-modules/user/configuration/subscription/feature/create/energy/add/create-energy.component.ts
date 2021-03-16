@@ -17,6 +17,7 @@ import {BuildingService} from '../../../../../building/service/building.service'
 import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
 import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
+
 declare var $: any;
 @Component({
   selector: 'app-create-energy',
@@ -69,7 +70,6 @@ export class CreateEnergyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   createEnergy(): void {
     this.touched = true;
     if (this.form.invalid) {
@@ -82,7 +82,7 @@ export class CreateEnergyComponent implements OnInit {
       this.energyService.createEnergy(this.energyDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد اشتراک انرژی با موفقیت انجام شد.');
             this.energyId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -95,7 +95,7 @@ export class CreateEnergyComponent implements OnInit {
       this.energyService.updateEnergy({id: this.energyId}, this.energyDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش اشتراک انرژی با موفقیت انجام شد.');
             // this.router.navigateByUrl('/index/user/configuration/energyList').then();
           }
         });
@@ -161,7 +161,7 @@ export class CreateEnergyComponent implements OnInit {
         this.energyService.deleteEnergyBuildingAllocation({id: this.energyId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.energyDto.buildingList.splice(i, 1);
             }
           });

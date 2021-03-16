@@ -2,6 +2,8 @@
   <div class="card">
     <div class="card-header flex-card-header">
       <h1>
+        <span *ngIf="!facilityId">افزودن تجهیز </span>
+        <span *ngIf="facilityId">ویرایش تجهیز </span>
         افزودن تاسیسات
       </h1>       
       <div class="d-flex">
@@ -16,13 +18,10 @@
         <div class="card h-100">
           لیست مناطق
           <hr>
-          <!-- <div class="card-header">
-            لیست مناطق
-          </div> -->
           <div class="card-body p-0 h-100">
-            <!-- <div class="tree-view-box">
+            <div class="tree-view-box">
               <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -45,15 +44,17 @@
               <!-- نوع کاربری -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="useType" class="form-label">نوع کاربری</label>
-                  <input class="form-control text-right" id="useType" placeholder=""
-                        type="number" min="0"
-                        maxlength="12"
-                        [(ngModel)]="facilityDto.useType"
-                        formControlName="useType"
-                        name="useType">
+                  <label for="facilityUsage" class="form-label">نوع کاربری</label>
+                  <select name="facilityUsage" id="facilityUsage"
+                          class="form-control text-right"
+                          formControlName="facilityUsage"
+                          [(ngModel)]="facilityDto.facilityUsage">
+                    <option *ngFor="let item of facilityUsageEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
                 </div>
-                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['facilityUsage']" [touched]="touched"></app-alert-error>
               </div>
               <!-- بانک خازنی -->
               <div class="mb-4 col-md-3">
@@ -92,7 +93,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
               </div>
-
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!facilityId">ثبت</button>
+                <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="facilityId">ویرایش</button>
+              </div>
             </div>
           </fieldset>
         </form>

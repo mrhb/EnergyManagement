@@ -109,7 +109,7 @@ export class ProfileComponent implements OnInit {
           if (res.flag) {
             localStorage.setItem('account', JSON.stringify(this.profile));
             DataService.setAccount(this.profile);
-            Notiflix.Notify.Success('آپدیت پروفایل با موفقیت تغییر یافت.');
+            Notiflix.Notify.Success('ویرایش پروفایل با موفقیت تغییر یافت.');
           }
         }
       });
@@ -156,7 +156,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.updatePassword(this.password)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('آپدیت رمز عبور با موفقیت تغییر یافت.');
+          Notiflix.Notify.Success('ویرایش رمز عبور با موفقیت تغییر یافت.');
         }
       });
   }

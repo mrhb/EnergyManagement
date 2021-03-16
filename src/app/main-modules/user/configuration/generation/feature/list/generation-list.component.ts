@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
-import { UseCodeGenerationEnum, UseTypeGeneration } from '../../model/generationEnum';
+import {GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationList } from '../../model/generation';
 import { GenerationService } from '../../service/generation.service';
 
@@ -23,8 +23,8 @@ export class GenerationListComponent implements OnInit {
   length = -1;
   totalPages = 1;
 
-  useTypeEnum = UseTypeGeneration;
-  useCodeGenerationEnum=UseCodeGenerationEnum;
+  generationTypeEnum = GenerationTypeEnum;
+  consumptionTypeEnum=ConsumptionTypeEnum;
   generationList: GenerationList[] = [];
   constructor(private generationService: GenerationService,
               public router: Router,
@@ -85,7 +85,7 @@ export class GenerationListComponent implements OnInit {
         this.generationService.deleteGeneration({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.generationList.splice(i, 1);
             }
           });

@@ -131,7 +131,7 @@ export class GasCreateComponent implements OnInit {
         this.gasService.deleteGasBuildingAllocation({id: this.gasId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.gasDto.buildingList.splice(i, 1);
             }
           });

@@ -128,7 +128,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       this.instrumentService.createInstrument(this.instrumentDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد تاسیس با موفقیت انجام شد.');
             this.instrumentId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -141,7 +141,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       this.instrumentService.updateInstrument({id: this.instrumentId}, this.instrumentDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش اشتراک آب با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش تاسیس با موفقیت انجام شد.');
             // this.router.navigateByUrl('/index/user/configuration/instrumentList').then();
           }
         });
@@ -210,7 +210,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
         this.instrumentService.deleteInstrumentBuildingAllocation({id: this.instrumentId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف تجهیز با موفقیت انجام گردید');
               this.instrumentDto.buildingList.splice(i, 1);
             }
           });

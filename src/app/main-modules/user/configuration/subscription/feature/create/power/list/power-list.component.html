@@ -7,6 +7,8 @@
       </h1>
       <div class="d-flex">
         <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createPower'">افزودن کنتور</button>
+        <button class="btn btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
+          <span class="cursor-pointer fa fa-file-excel-o"></span></button>
       </div>
     </div>
     <div class="card-body">
@@ -57,4 +59,55 @@
     </div>
   </div>
 
+</div>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">افزون کنتور برق از اکسل</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="card-header flex-card-header">
+        <input type="file" class="form-control-file"  (change)="onFileChange($event)" multiple="false" />
+      </div>
+
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col" width="40">#</th>
+                <th scope="col">نام مشترک</th>
+                <th scope="col">شناسه قبض</th>
+                <th scope="col">نوع کنتور</th>
+                <th scope="col"> عنوان تعرفه</th>
+                <th scope="col">کد تعرفه</th>
+                <th scope="col">دیماند قراردادی </th>
+              </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of xlsxPowerList; let i = index">
+              <tr>
+                <th scope="row" width="40">{{i + 1}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.numberShare}}</td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+          
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
 </div>

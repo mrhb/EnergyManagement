@@ -1,13 +1,13 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
-import {Facility} from '../../../model/facility';
+import {FacilityDto} from '../../../model/facility';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {FacilityService} from '../../../service/facility.service';
 import {Tools} from '../../../../../../../shared/tools/tools';
 import {Moment} from '../../../../../../../shared/tools/moment';
-import {CoolingHeatingSystemType, Ownership} from '../../../model/facilityEnum';
+import {FacilityUsage} from '../../../model/facilityEnum';
 
 @Component({
   selector: 'app-add-facility',
@@ -17,33 +17,29 @@ import {CoolingHeatingSystemType, Ownership} from '../../../model/facilityEnum';
 export class AddFacilityComponent implements OnInit {
   form: FormGroup;
   myPattern = MyPattern;
-  facilityDto = new Facility();
+  facilityDto = new FacilityDto();
   touched = false;
-  ownershipEnum = Ownership;
-  coolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
+  facilityUsageEnum = FacilityUsage;
   moment = Moment;
+  // facilityId = '';
 
   @Input() bId: string;
   @Input() regionId: string;
-  @Input() editedFacilityDto = new Facility();
+  @Input() editedFacilityDto = new FacilityDto();
   @Output() nextStep = new EventEmitter<any>();
   @Output() completeStep = new EventEmitter<any>();
   @Output() facilityId = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder,
               private facilityService: FacilityService) {
-    this.facilityDto.constructionYear = this.moment.convertIsoToJDateFa(new Date().toISOString()).split('/')[0];
-    console.log('this.facilityDto.constructionYear', this.facilityDto.constructionYear.split('/'));
+    // this.facilityDto.constructionYear = this.moment.convertIsoToJDateFa(new Date().toISOString()).split('/')[0];
+    // console.log('this.facilityDto.constructionYear', this.facilityDto.constructionYear.split('/'));
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      useType: ['', [Validators.required]],
-      constructionYear: ['', [Validators.required, Validators.minLength(4), Validators.pattern(this.myPattern.number)]],
-      floorNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      exploitationPersonnelNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      postalCode: ['', [Validators.required, Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
-      address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
-      ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      coolingHeatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.faAndEnNumberAndText)]], //نام تاسیس 
+      facilityUsage: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],// نوع کاربری 
+      CapacitorBank: [''], // بانک خازنی 
+      explanation: [''],//توضیحات
+      address: [''], //آدرس
     });
   }
 
@@ -64,7 +60,7 @@ export class AddFacilityComponent implements OnInit {
     this.touched = true;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
+      Notiflix.Notify.Failure('ورودی را بررسی کنید!');
       return;
     }
     console.log('this.facilityDto', this.facilityDto);
@@ -99,5 +95,15 @@ export class AddFacilityComponent implements OnInit {
 
   goBack(): void {
     this.nextStep.emit(0);
+  }
+  
+  getRegion($event): void {
+    // if (this.endActiveStep < 1) {
+    //   this.endActiveStep = 1;
+    // }
+    // this.region = $event;
+
+    // // this.buildingDto.regionTitle = this.region.regionTitle.replace('&', '<span class="fa fa-angle-left mx-2"></span>');
+    // this.buildingDto.regionTitle = this.region.regionTitle.split('&').join('<span class="fa fa-angle-left mx-2"></span>');
   }
 }

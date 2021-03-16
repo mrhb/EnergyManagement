@@ -1,4 +1,4 @@
-import {CoolingHeatingSystemType, Ownership} from './facilityEnum';
+import {FacilityUsage} from './facilityEnum';
 
 export class CompleteStep {
   zero: boolean;
@@ -14,19 +14,13 @@ export class Region {
   regionId: string;
 }
 
-export class Facility {
+export class FacilityDto {
   name: string; //نام تاسیس 
-  useType: string; // نوع کاربری 
+  facilityUsage: FacilityUsage; // نوع کاربری 
   CapacitorBank: string; // بانک خازنی 
   explanation: string; //توضیحات
   address: string; //آدرس
   regionId: string;
-  // regionTitle: string;
-  constructionYear: string;
-  // floorNum: string;
-  // postalCode: string;
-  // ownership: Ownership;
-  // coolingHeatingSystemType: CoolingHeatingSystemType;
 }
 
 export class Area {
@@ -67,11 +61,11 @@ export class WallInformation {
 }
 
 export class FacilityList {
-  constructionYear: number;
-  createdAt: any;
-  id: string;
-  name: string;
-  postalCode: string;
+  name: string; //نام تاسیس 
+  facilityUsage: FacilityUsage; // نوع کاربری 
+  CapacitorBank: string; // بانک خازنی 
+  explanation: string; //توضیحات
+  address: string; //آدرس
   regionId: string;
 }
 

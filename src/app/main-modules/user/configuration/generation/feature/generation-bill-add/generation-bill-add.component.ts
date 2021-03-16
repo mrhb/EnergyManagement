@@ -95,16 +95,9 @@ jQueryDate(): void {
 }
   ngOnInit(): void {
     this.form=this.formBuilder.group({
-      billingId: [''],// شناسه قبض
-      paymentCode: [''],// شناسه پرداخت
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
-      numberDays:[], // روزها      
-      previousCounter:[], // رقم قبلی
-      currentCounter:[], // رقم فعلی
-      consumptionDurat:[], // مصرف دوره
-      consumptionAmount:[], //  بهای آب مصرفی
-      payableAmount:[], //     مبلغ قابل پرداخت
+      consumptionDurat:[], // مقدار تولید
     }
     );
   }
@@ -135,7 +128,7 @@ createReceipt(): void {
     this.generationReceiptService.createReceipt(this.generationBillDto)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('ایجاد قبض آب با موفقیت انجام شد.');
+          Notiflix.Notify.Success('ایجاد تولید برای نیروگاه با موفقیت انجام شد.');
           this.generationId = res.data;
           setTimeout(() => {
             $('#pills-building-tab').click();
@@ -148,7 +141,7 @@ createReceipt(): void {
     this.generationReceiptService.updateReceipt({id: this.generationId}, this.generationBillDto)
       .subscribe((res: any) => {
         if (res) {
-          Notiflix.Notify.Success('ویرایش قبض آب با موفقیت انجام شد.');
+          Notiflix.Notify.Success('ویرایش تولید نیروگاه با موفقیت انجام شد.');
           // this.router.navigate(['/index/user/configuration/generationList']);
         }
       });

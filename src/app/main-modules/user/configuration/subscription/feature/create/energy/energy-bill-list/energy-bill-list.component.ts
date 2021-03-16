@@ -7,6 +7,9 @@ import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
 // import {EnergyService} from '../../../../service/energy.service';
 
+import * as XLSX from 'xlsx';
+type AOA = any[][];
+
 @Component({
   selector: 'app-energy-bill-list',
   templateUrl: './energy-bill-list.component.html',
@@ -18,7 +21,8 @@ export class EnergyBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
-
+  data: AOA = [[1, 2], [3, 4]];
+  xlsxEnergyBillList: EnergyBillList[] = [];
 
   energyBillList: EnergyBillList[] = [];
 
@@ -29,7 +33,53 @@ export class EnergyBillListComponent implements OnInit {
   ngOnInit(): void {
     this.getEnergyBillList();
   }
+  onFileChange(evt: any) {
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(evt.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
 
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      console.log(this.data);
+
+      this.data.forEach(item => {
+       let bill=new EnergyBillList();
+       bill.energyCarrier = item[0]; //حامل انرژی 
+      bill.fromDate=item[1]; // تاریخ شروع 
+      bill.toDate=item[1]; // تاریخ اتمام 
+      bill.numberDays=item[1]; // تعداد روز دوره
+      bill.consumptionAmount=item[1]; // میزان مصرف
+      bill.payableAmount=item[1];//    مبلغ قابل پرداخت      
+       this.xlsxEnergyBillList.push(bill);
+    });
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  saveXlsxData()
+  {
+    this.energyReceiptService.createMultiReceipt(this.xlsxEnergyBillList)
+    .subscribe((res: any) => {
+      if (res) {
+        Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
+        // setTimeout(() => {
+        //   $('#pills-building-tab').click();
+        // }, 200);
+        // this.router.navigate(['/index/user/configuration/powerList']);
+      }
+    });
+  }
+ 
   getEnergyBillList(): void {
     this.energyReceiptService.getReceiptList(
       {

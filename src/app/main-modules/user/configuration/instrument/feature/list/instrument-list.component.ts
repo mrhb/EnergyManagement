@@ -76,14 +76,14 @@ export class InstrumentListComponent implements OnInit {
   deleteInstrument(i, pId): void {
     Notiflix.Confirm.Show(
       'قبض',
-      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
+      'آیا اطمینان دارید که این تجهیز حذف گردد؟',
       'بله',
       'خیر',
       () => {
         this.instrumentService.deleteInstrument({id: pId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('قبض با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.instrumentList.splice(i, 1);
             }
           });

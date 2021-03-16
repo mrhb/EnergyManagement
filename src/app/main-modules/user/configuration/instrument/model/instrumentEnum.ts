@@ -3,6 +3,8 @@ export enum UseTypeInstrumentEnum {
   LIGHTING = <any> 'روشنایی',
   COOLING = <any> 'سرمایشی',
   HEATING = <any> 'گرمایشی',
+  HOME = <any> 'خانگی',
+  OFICE = <any> 'اداری',
 }
 //حامل انرژی
 export enum EnergyCarierEnum {

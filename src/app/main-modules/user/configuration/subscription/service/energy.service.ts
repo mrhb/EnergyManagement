@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class EnergyService  extends GeneralService {
+  [x: string]: any;
 
   constructor(public http: HttpClient) {
     super(http);
