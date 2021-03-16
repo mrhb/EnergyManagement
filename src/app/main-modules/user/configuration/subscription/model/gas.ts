@@ -51,7 +51,6 @@ export class GasBillList {
   numberDays: string; // تعداد روز دوره
   consumptionDurat: string; // مصرف دوره
   payableAmount: string; //    مبلغ قابل پرداخت      
-
 }
 
 export class GasBillDto {

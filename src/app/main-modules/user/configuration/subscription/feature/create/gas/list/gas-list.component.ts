@@ -27,10 +27,10 @@ export class GasListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   data: AOA = [[1, 2], [3, 4]];
+  xlsxGasList: GasList[] = [];
 
   useTypeEnum = UseTypeGasEnum;
   groupGasEnum = GroupGasEnum;
-  xlsxGasList: GasList[] = [];
 
   gasList: GasList[] = [];
   constructor(private gasService: GasService,

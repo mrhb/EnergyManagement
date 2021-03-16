@@ -14,6 +14,9 @@ import {WaterBillList} from '../../../../model/water';
 import { WaterReceiptService } from '../../../../service/water-receipt.service';
 import { Moment } from 'src/app/shared/tools/moment';
 
+import * as XLSX from 'xlsx';
+type AOA = any[][];
+
 @Component({
   selector: 'app-water-bill-list',
   templateUrl: './water-bill-list.component.html',
@@ -25,7 +28,8 @@ export class WaterBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
-
+  data: AOA = [[1, 2], [3, 4]];
+  xlsxWaterBillList: WaterBillList[] = [];
 
   useTypeEnum = UseTypeWater;
   waterBillList: WaterBillList[] = [];
@@ -36,6 +40,57 @@ export class WaterBillListComponent implements OnInit {
   ngOnInit(): void {
     this.getWaterBillList();
   }
+
+  onFileChange(evt: any) {
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(evt.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      console.log(this.data);
+
+      this.data.forEach(item => {
+       let bill=new WaterBillList();
+
+                bill.paymentCode = item[0]; // شناسه پرداخت
+                bill.fromDate=item[1]; // تاریخ شروع 
+                bill.toDate=item[1]; // تاریخ اتمام 
+                bill.numberDays=item[1]; // تعداد روز دوره
+                bill.consumptionDurat=item[1]; // مصرف دوره
+                bill.payableAmount=item[1];//    مبلغ قابل پرداخت      
+              
+                this.xlsxWaterBillList.push(bill);
+    });
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  saveXlsxData()
+  {
+    this.waterReceiptService.createMultiReceipt(this.xlsxWaterBillList)
+    .subscribe((res: any) => {
+      if (res) {
+        Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
+        // setTimeout(() => {
+        //   $('#pills-building-tab').click();
+        // }, 200);
+        // this.router.navigate(['/index/user/configuration/powerList']);
+      }
+    });
+  }
+ 
+
   getWaterBillList(): void {
     this.waterReceiptService.getReceiptList(
       {
