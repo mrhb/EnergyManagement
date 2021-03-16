@@ -20,6 +20,9 @@ export class CreateClimateComponent implements OnInit {
   climateId = '';
   form: FormGroup;
   climateDto = new ClimateDto();
+  // weatherList = new WeatherList();
+  year: number=0;//  سال
+
   weatherList: WeatherList[]=[
     {
       id: "1", 
@@ -52,12 +55,12 @@ export class CreateClimateComponent implements OnInit {
       climateType: ['', [Validators.required]], // نوع اقلیم 
       province: ['', [Validators.required]], // استان  
       city: ['', [Validators.required]], // شهر
-      rusta: [''],
-      longitude: ['', [Validators.required]],
-      latitude: ['', [Validators.required]],
-      ertefa: ['', [Validators.required]],
-      ghaleb: ['', [Validators.required]],
-      energyDegree: ['', [Validators.required]],
+      village: [''], //روستا
+      longitude: [''],// طول جغرافیایی
+      latitude: [''],// عرض جغرافیایی 
+      height: [''],// ارتفاع از سطح دریا
+      dominantThermalReq: [''],// نیاز غالب حرارتی
+      energyDegree: [''], // درجه انرژی
 
     });
   }
@@ -65,5 +68,6 @@ export class CreateClimateComponent implements OnInit {
   setEnumUseType(isChange?: boolean): void {
 
   }
-  createPower(): void {}
+  createClimate(): void {}
+  createCity(): void {}
 }
