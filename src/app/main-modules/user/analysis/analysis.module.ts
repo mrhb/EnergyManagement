@@ -7,6 +7,7 @@ import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
 import {NgxEchartsModule} from 'ngx-echarts';
 import { MainPanelComponent } from './main-panel/main-panel.component';
+import { RegionModule } from 'src/app/base-modules/region/region.module';
 
 
 
@@ -15,8 +16,8 @@ import { MainPanelComponent } from './main-panel/main-panel.component';
   imports: [
     CommonModule,
     AnalysisRoutingModule,
+    RegionModule,
     NgxEchartsModule
-
   ]
 })
 export class AnalysisModule { }

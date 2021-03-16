@@ -60,13 +60,12 @@ import { CreateGenerationComponent } from './generation/feature/add/create-gener
 import { GenerationService } from './generation/service/generation.service';
 import { GenerationReceiptService } from './generation/service/generation-receipt.service';
 import { GenerationListComponent } from './generation/feature/list/generation-list.component';
+import { RegionModule } from 'src/app/base-modules/region/region.module';
 
 
 @NgModule({
   declarations: [
-    RegionComponent,
     CreateBuildingComponent,
-    TreeViewComponent,
     AddBuildingComponent,
     AreaComponent,
     SpaceComponent,
@@ -108,6 +107,7 @@ import { GenerationListComponent } from './generation/feature/list/generation-li
     imports: [
         CommonModule,
         ConfigurationRoutingModule,
+        RegionModule,
         ReactiveFormsModule,
         AlertErrorModule,
         FormsModule,
