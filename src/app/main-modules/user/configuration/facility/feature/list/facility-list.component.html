@@ -47,7 +47,7 @@
                   <tr *ngFor="let facility of facilityList; let i = index">
                     <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                     <td>{{facility.name}}</td>
-                    <td>{{facility.regionId}}</td>
+                    <td>{{facility.facilitySharingId}}</td>
                     <td>{{facility.CapacitorBank}}</td>
                     <td>{{facility.explanation}}</td>
                     <td>{{facilityUsageEnum[instrument.facilityUsage].toString()}}</td>

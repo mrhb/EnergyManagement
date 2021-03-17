@@ -24,7 +24,7 @@ export class AddFacilityComponent implements OnInit {
   // facilityId = '';
 
   @Input() bId: string;
-  @Input() regionId: string;
+  @Input() facilitySharingId: string;
   @Input() editedFacilityDto = new FacilityDto();
   @Output() nextStep = new EventEmitter<any>();
   @Output() completeStep = new EventEmitter<any>();
@@ -45,12 +45,12 @@ export class AddFacilityComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('if (this.editedFacilityDto)', this.editedFacilityDto);
-    console.log('this.regionId', this.regionId);
+    console.log('this.facilitySharingId', this.facilitySharingId);
     console.log('this.bId   +', this.bId);
-    if (this.regionId) {
-      this.facilityDto.regionId = this.regionId;
+    if (this.facilitySharingId) {
+      this.facilityDto.facilitySharingId = this.facilitySharingId;
 
-      if (this.editedFacilityDto.regionId) {
+      if (this.editedFacilityDto.facilitySharingId) {
         this.facilityDto = this.editedFacilityDto;
       }
     }

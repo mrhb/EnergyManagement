@@ -33,7 +33,7 @@ export class AreaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('this.regionId', this.facilityId);
+    console.log('this.facilitySharingId', this.facilityId);
     if (this.facilityId) {
       console.log('this.editedAreaDto', this.editedAreaDto);
       if (this.editedAreaDto.arenaArea) {

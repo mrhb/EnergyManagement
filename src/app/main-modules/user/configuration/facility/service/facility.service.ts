@@ -48,8 +48,8 @@ export class FacilityService extends GeneralService {
     return super.putCheckService('update-wall-information', body, errorSelector, param);
   }
 
-  getFacilityList(param: any, regionId: any, errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-list-pageable-by-filter', regionId, errorSelector, param);
+  getFacilityList(param: any, facilitySharingId: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-list-pageable-by-filter', facilitySharingId, errorSelector, param);
   }
 
   deleteFacility(param: {id: string}, errorSelector?: string): Observable<any> {
