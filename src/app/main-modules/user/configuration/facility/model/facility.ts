@@ -11,7 +11,7 @@ export class CompleteStep {
 
 export class Region {
   regionTitle: string;
-  regionId: string;
+  facilitySharingId: string;
 }
 
 export class FacilityDto {
@@ -20,7 +20,7 @@ export class FacilityDto {
   CapacitorBank: string; // بانک خازنی 
   explanation: string; //توضیحات
   address: string; //آدرس
-  regionId: string;
+  facilitySharingId: string;
 }
 
 export class Area {
@@ -66,7 +66,7 @@ export class FacilityList {
   CapacitorBank: string; // بانک خازنی 
   explanation: string; //توضیحات
   address: string; //آدرس
-  regionId: string;
+  facilitySharingId: string;
 }
 
 export class EnergyLabel {

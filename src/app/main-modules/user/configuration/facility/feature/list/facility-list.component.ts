@@ -95,7 +95,7 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
     this.facilityService.getFacilityList({
       page: this.pageIndex,
       size: this.pageSize,
-    }, {regionId: this.region.regionId}).subscribe((res: any) => {
+    }, {facilitySharingId: this.region.facilitySharingId}).subscribe((res: any) => {
       if (res) {
         this.facilityList = res.content;
         this.length = res.totalElements;
