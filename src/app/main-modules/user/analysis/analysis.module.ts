@@ -14,11 +14,12 @@ import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
 import { StateService } from './state.service';
+import { VoltagComponent } from './suscriptions/power/features/voltag/voltag.component';
 
 
 
 @NgModule({
-  declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, MainPanelComponent, ChartPanelComponent, DemandComponent],
+  declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, MainPanelComponent, ChartPanelComponent, DemandComponent, VoltagComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,

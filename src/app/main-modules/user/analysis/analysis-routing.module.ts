@@ -6,6 +6,7 @@ import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
 import { MainPanelComponent } from './main-panel/main-panel.component';
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
+import { VoltagComponent } from './suscriptions/power/features/voltag/voltag.component';
 
 const routes: Routes = [
 
@@ -15,8 +16,12 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'power',
+        path: 'demand',
         component: DemandComponent,
+      },
+      {
+        path: 'voltag',
+        component: VoltagComponent,
       },
       {
         path: 'main',
