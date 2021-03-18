@@ -13,6 +13,7 @@ import { AlertErrorModule } from 'src/app/shared/tools/alert-error/alert-error.m
 import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
+import { StateService } from './state.service';
 
 
 
@@ -27,6 +28,7 @@ import { DemandComponent } from './suscriptions/power/features/demand/demand.com
     ReactiveFormsModule,
     AlertErrorModule,
     FormsModule,
-  ]
+  ],
+  providers: [StateService]
 })
 export class AnalysisModule { }
