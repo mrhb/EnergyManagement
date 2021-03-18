@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import Notiflix from 'notiflix';
 import {Moment} from '../../../../../../shared/tools/moment';
 import { FacilityService } from '../../service/facility.service';
+import { FacilityUsageEnum } from '../../model/facilityEnum';
 
 declare var $: any;
 
@@ -26,6 +27,7 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
   totalPages = 1;
 
   region = new Region();
+  facilityUsageEnum=FacilityUsageEnum;
   facilityList: FacilityList[] = [];
 
   moment = Moment;

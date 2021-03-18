@@ -47,16 +47,14 @@
                   <tr *ngFor="let facility of facilityList; let i = index">
                     <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                     <td>{{facility.name}}</td>
-                    <td>{{facility.facilitySharingId}}</td>
-                    <td>{{facility.CapacitorBank}}</td>
+                    <td>{{facility.regionTitle}}</td>
+                    <td>{{facilityUsageEnum[facility.facilityUsage].toString()}}</td>
                     <td>{{facility.explanation}}</td>
-                    <td>{{facilityUsageEnum[instrument.facilityUsage].toString()}}</td>
-                    add-facility.component
                     <td width="40"><span class="cursor-pointer fa fa-edit"
                                           [queryParams]="{id: facility.id}"
-                                          [routerLink]="'/index/user/configuration/addFacility'"></span></td>
+                                          [routerLink]="'/index/user/configuration/createFacility'"></span></td>
                     <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteFacility(i, facility.id)"></span></td>
-                   </tr>                                     
+                    </tr>     
                   </tbody>
                 </table>
               </div>

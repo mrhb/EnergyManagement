@@ -7,7 +7,7 @@ import Notiflix from 'notiflix';
 import {FacilityService} from '../../../service/facility.service';
 import {Tools} from '../../../../../../../shared/tools/tools';
 import {Moment} from '../../../../../../../shared/tools/moment';
-import {FacilityUsage} from '../../../model/facilityEnum';
+import { FacilityUsageEnum } from '../../../model/facilityEnum';
 
 @Component({
   selector: 'app-add-facility',
@@ -19,16 +19,14 @@ export class AddFacilityComponent implements OnInit {
   myPattern = MyPattern;
   facilityDto = new FacilityDto();
   touched = false;
-  facilityUsageEnum = FacilityUsage;
+  facilityUsageEnum = FacilityUsageEnum;
   moment = Moment;
-  // facilityId = '';
+  facilityId = '';
 
-  @Input() bId: string;
-  @Input() facilitySharingId: string;
-  @Input() editedFacilityDto = new FacilityDto();
-  @Output() nextStep = new EventEmitter<any>();
-  @Output() completeStep = new EventEmitter<any>();
-  @Output() facilityId = new EventEmitter<any>();
+   bId: string;
+   facilitySharingId: string;
+   editedFacilityDto = new FacilityDto();
+  region: any;
 
   constructor(private formBuilder: FormBuilder,
               private facilityService: FacilityService) {
@@ -64,28 +62,23 @@ export class AddFacilityComponent implements OnInit {
       return;
     }
     console.log('this.facilityDto', this.facilityDto);
-    console.log('this.bId', this.bId);
-    console.log('!this.bId', this.bId);
 
     if (Tools.isNullOrUndefined(this.bId)) {
       this.facilityService.createFacility(this.facilityDto)
         .subscribe((res: any) => {
           if (res) {
             if (res.data) {
-              this.facilityId.emit(res.data);
-              this.nextStep.emit(2);
-              this.completeStep.emit(1);
+              Notiflix.Notify.Success('افزودن تآسیس با موفقیت انجام شد.');
             }
           }
           console.log('facilityService res', res);
         });
-    } else {
-      this.facilityService.updateFacility({id: this.bId}, this.facilityDto)
+      } else {
+        this.facilityService.updateFacility({id: this.bId}, this.facilityDto)
         .subscribe((res: any) => {
           if (res) {
             if (res.data) {
-              this.facilityId.emit(res.data);
-              this.nextStep.emit(2);
+              Notiflix.Notify.Success('ویرایش  تآسیس با موفقیت انجام شد.');
             }
           }
           console.log('facilityService res', res);
@@ -93,17 +86,14 @@ export class AddFacilityComponent implements OnInit {
     }
   }
 
-  goBack(): void {
-    this.nextStep.emit(0);
-  }
-  
   getRegion($event): void {
     // if (this.endActiveStep < 1) {
     //   this.endActiveStep = 1;
     // }
-    // this.region = $event;
+     this.region = $event;
+     this.facilityDto.regionId = this.region.regionId;
 
-    // // this.buildingDto.regionTitle = this.region.regionTitle.replace('&', '<span class="fa fa-angle-left mx-2"></span>');
+    this.facilityDto.regionTitle = this.region.regionTitle.replace('&', '_');
     // this.buildingDto.regionTitle = this.region.regionTitle.split('&').join('<span class="fa fa-angle-left mx-2"></span>');
   }
 }
