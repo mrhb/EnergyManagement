@@ -5,6 +5,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
 import { MainPanelComponent } from './main-panel/main-panel.component';
+import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
 
 const routes: Routes = [
 
@@ -13,6 +14,10 @@ const routes: Routes = [
     component: MainPanelComponent,
 
     children: [
+      {
+        path: 'power',
+        component: DemandComponent,
+      },
       {
         path: 'main',
         component: SideBarComponent,
