@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Region } from 'src/app/base-modules/region/model/region';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'analysis-side-bar',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public stateService:StateService
+) { }
 
   ngOnInit(): void {
+  }
+
+  getRegion($event: any): void {
+   var str=$event.regionTitle.split('&').join('>');
+    this.stateService.region.next(str );
   }
 
 }

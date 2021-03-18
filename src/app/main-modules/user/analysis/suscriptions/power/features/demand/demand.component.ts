@@ -7,12 +7,14 @@ import { StateService } from '../../../../state.service';
   styleUrls: ['./demand.component.scss']
 })
 export class DemandComponent implements OnInit {
-  region
+  region="";
 
   constructor(
     public stateService:StateService
   ) {
-this.region=stateService.region.value;
+    stateService.region.subscribe(reg=>{
+      this.region=reg;
+    });
    }
 
   ngOnInit(): void {

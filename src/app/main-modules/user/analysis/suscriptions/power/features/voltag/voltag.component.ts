@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../../../../state.service';
 
 @Component({
   selector: 'app-voltag',
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./voltag.component.scss']
 })
 export class VoltagComponent implements OnInit {
+  region: string;
 
-  constructor() { }
-
+  constructor(
+    public stateService:StateService
+  ) {
+    stateService.region.subscribe(reg=>{
+      this.region=reg;
+    });
+   }
   ngOnInit(): void {
   }
 

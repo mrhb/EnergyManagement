@@ -5,5 +5,6 @@ import { BehaviorSubject } from 'rxjs';
 export class StateService {
   public region: BehaviorSubject<string>=new BehaviorSubject<string>("خراسان");
 
-  constructor() { }
+  constructor() { 
+  }
 }
