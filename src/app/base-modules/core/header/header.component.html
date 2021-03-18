@@ -58,7 +58,18 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل اشتراکات</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/power'">تحلیل اشتراکات برق</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item dropdown-toggle"  href="#">تحلیل اشتراکات برق</a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/voltag'">تحلیل ولتاژ کنتور</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/demand'">تحلیل دیماند</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/demandSum'">تحلیل مجموع دیماند</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/tariff'">تحلیل تعرفه</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/reactive'">تحلیل جریمه بار راکتیو</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/damandPenalty'">تحلیل جریمه بدی مصرف</a></li>
+                  </ul>
+                
+                
+                </li>
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">تحلیل اشتراکات گاز</a></li>
               </ul>
             </li>
