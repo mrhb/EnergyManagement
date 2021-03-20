@@ -30,18 +30,31 @@
 
              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات قبوض</a>
               <ul class="dropdown-menu">
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerList'">تعریف کنتور برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasList'">تعریف کنتور گاز</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterList'">تعریف کنتور آب</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyList'"> تعریف کنتورانرژی</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerBillList'">ورود قبض برق</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'"> ورود قبض گاز</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'"> ورود قبض آب</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> ورود قبض انرژی</a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> تعرفه قبض برق </a></li>
-                <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">  تعرفه قبض گاز</a></li>
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تعریف کنتور</a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerList'">تعریف کنتور برق</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasList'">تعریف کنتور گاز</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterList'">تعریف کنتور آب</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyList'"> تعریف کنتورانرژی</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تعرفه قبوض </a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> تعرفه قبض برق </a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'">  تعرفه قبض گاز</a></li>
+                  </ul>
+                 </li>
+                    <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">وارد کردن قبوض</a>
+                      <ul class="dropdown-menu">
+                        <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/powerBillList'">ورود قبض برق</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/gasBillList'"> ورود قبض گاز</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/waterBillList'"> ورود قبض آب</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/energyBillList'"> ورود قبض انرژی</a></li>
+                  </ul>
+                </li>
               </ul>
-             </li>
+            </li>
+
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
               <ul class="dropdown-menu">
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/createClimate'">تعریف شهر و اقلیم</a></li>
