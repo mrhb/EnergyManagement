@@ -11,6 +11,7 @@ import { DemandSumComponent } from './suscriptions/power/features/demandSum/dema
 import { TariffComponent } from './suscriptions/power/features/tariff/tariff.component';
 import { ReactiveComponent } from './suscriptions/power/features/reactive/reactive.component';
 import { DamandPenaltyComponent } from './suscriptions/power/features/damandPenalty/damandPenalty.component';
+import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity.component';
 
 const routes: Routes = [
 
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: 'damandPenalty',
         component: DamandPenaltyComponent,
+      }, 
+      {
+        path: 'capacity',
+        component: CapacityComponent,
       }, 
       {
         path: 'main',
