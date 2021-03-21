@@ -9,6 +9,8 @@ import { VoltagComponent } from './suscriptions/power/features/voltag/voltag.com
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
 import { DemandSumComponent } from './suscriptions/power/features/demandSum/demandSum.component';
 import { TariffComponent } from './suscriptions/power/features/tariff/tariff.component';
+import { ReactiveComponent } from './suscriptions/power/features/reactive/reactive.component';
+import { DamandPenaltyComponent } from './suscriptions/power/features/damandPenalty/damandPenalty.component';
 
 const routes: Routes = [
 
@@ -32,6 +34,14 @@ const routes: Routes = [
       {
         path: 'tariff',
         component: TariffComponent,
+      }, 
+      {
+        path: 'reactive',
+        component: ReactiveComponent,
+      }, 
+      {
+        path: 'damandPenalty',
+        component: DamandPenaltyComponent,
       }, 
       {
         path: 'main',

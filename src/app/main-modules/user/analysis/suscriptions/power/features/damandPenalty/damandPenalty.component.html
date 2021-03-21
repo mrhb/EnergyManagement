@@ -1,0 +1,21 @@
+<div>
+    <div class="col-12">
+        <div class="title-header d-flex justify-content-between align-items-center">
+            <div>
+              <h1>
+                <strong>تحلیل جریمه بدی مصرف اشتراکات برق  </strong>
+              </h1>
+              <p class="sub-title-header">
+                با انتخاب منطقه مورد نظر تحلیل جریمه بدی مصرف اشتراکات برق آن منطقه را می توان مشاهده کرد
+              </p>
+            </div>
+            <div class="d-flex">
+              <button class="btn btn-primary" [routerLink]="'/index/user/analysis/voltag'">تحلیل ولتاژ </button>
+            </div>
+          </div>
+    </div>
+    <div class="col-12">
+    <h1>{{region}}</h1>
+    <analysis-chart-panel category="BAR"></analysis-chart-panel>
+</div>
+

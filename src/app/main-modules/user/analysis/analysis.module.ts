@@ -17,13 +17,15 @@ import { VoltagComponent } from './suscriptions/power/features/voltag/voltag.com
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
 import { DemandSumComponent } from './suscriptions/power/features/demandSum/demandSum.component';
 import { TariffComponent } from './suscriptions/power/features/tariff/tariff.component';
+import { ReactiveComponent } from './suscriptions/power/features/reactive/reactive.component';
+import { DamandPenaltyComponent } from './suscriptions/power/features/damandPenalty/damandPenalty.component';
 
 
 
 @NgModule({
   declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent, VoltagComponent, DemandComponent, DemandSumComponent, 
-    TariffComponent],
+    TariffComponent,ReactiveComponent,DamandPenaltyComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,
