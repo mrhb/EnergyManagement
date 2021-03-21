@@ -18,7 +18,7 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'tariff',
+        path: 'voltag',
         component: VoltagComponent,
       },
       {
