@@ -8,6 +8,7 @@ import { MainPanelComponent } from './main-panel/main-panel.component';
 import { VoltagComponent } from './suscriptions/power/features/voltag/voltag.component';
 import { DemandComponent } from './suscriptions/power/features/demand/demand.component';
 import { DemandSumComponent } from './suscriptions/power/features/demandSum/demandSum.component';
+import { TariffComponent } from './suscriptions/power/features/tariff/tariff.component';
 
 const routes: Routes = [
 
@@ -17,7 +18,7 @@ const routes: Routes = [
 
     children: [
       {
-        path: 'voltag',
+        path: 'tariff',
         component: VoltagComponent,
       },
       {
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'demandSum',
         component: DemandSumComponent,
       },
+      {
+        path: 'tariff',
+        component: TariffComponent,
+      }, 
       {
         path: 'main',
         component: SideBarComponent,
