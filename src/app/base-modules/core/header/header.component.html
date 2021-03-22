@@ -54,14 +54,11 @@
                 </li>
               </ul>
             </li>
-
             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
               <ul class="dropdown-menu">
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/createClimate'">تعریف شهر و اقلیم</a></li>
               </ul>
             </li>
-
-
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -81,7 +78,6 @@
                     <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/reactive'">تحلیل جریمه بار راکتیو</a></li>
                     <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/damandPenalty'">تحلیل جریمه بدی مصرف</a></li>
                   </ul>
-                  
                 </li>
                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل اشتراکات گاز  </a>
                   <ul class="dropdown-menu">
@@ -94,9 +90,36 @@
                 
               </ul>
             </li>
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض</a>
+              <ul class="dropdown-menu">
 
-
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">تحلیل مصارف قبوض</a></li>
+                <li [routerLinkActive]="'active'"><a class="dropdown-item dropdown-toggle"  href="#">تحلیل مصارف قبوض برق</a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/voltag'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/voltag'">تحلیل هزینه </a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض گاز  </a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل هزینه</a></li>
+                  </ul>
+                 </li>
+                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض آب  </a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل هزینه</a></li>
+                  </ul>
+                 </li>
+                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض انرژی  </a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyConsumption'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل هزینه</a></li>
+                  </ul>
+                 </li>
+                
+              </ul>
+            </li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">صحت سنجی قبوض</a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">تحلیل مصارف تجهیزات</a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی ساختمان </a></li>

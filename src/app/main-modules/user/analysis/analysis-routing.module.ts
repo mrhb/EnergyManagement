@@ -15,6 +15,7 @@ import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity
 import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
 import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
 import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
+import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
 
 const routes: Routes = [
 
@@ -23,46 +24,17 @@ const routes: Routes = [
     component: MainPanelComponent,
 
     children: [
-      {
-        path: 'voltag',
-        component: VoltagComponent,
-      },
-      {
-        path: 'demand',
-        component: DemandComponent,
-      },    
-      {
-        path: 'demandSum',
-        component: DemandSumComponent,
-      },
-      {
-        path: 'tariff',
-        component: TariffComponent,
-      }, 
-      {
-        path: 'reactive',
-        component: ReactiveComponent,
-      }, 
-      {
-        path: 'damandPenalty',
-        component: DamandPenaltyComponent,
-      }, 
-      {
-        path: 'capacity',
-        component: CapacityComponent,
-      }, 
-      {
-        path: 'gasDemand',
-        component: GasDemandComponent,
-      }, 
-      {
-        path: 'gasType',
-        component: GasTypeComponent,
-      }, 
-      {
-        path: 'valveSize',
-        component: ValveSizeComponent,
-      }, 
+      {        path: 'voltag',        component: VoltagComponent,      },
+      {        path: 'demand',        component: DemandComponent,      },    
+      {        path: 'demandSum',     component: DemandSumComponent,   },
+      {        path: 'tariff',        component: TariffComponent,      }, 
+      {        path: 'reactive',      component: ReactiveComponent,    }, 
+      {        path: 'damandPenalty', component: DamandPenaltyComponent,}, 
+      {        path: 'capacity',      component: CapacityComponent,    }, 
+      {        path: 'gasDemand',     component: GasDemandComponent,   }, 
+      {        path: 'gasType',       component: GasTypeComponent,     }, 
+      {        path: 'valveSize',     component: ValveSizeComponent,   },
+      {        path: 'energyConsumption',     component: EnergyConsumptionComponent,   }, 
       {
         path: 'main',
         component: SideBarComponent,

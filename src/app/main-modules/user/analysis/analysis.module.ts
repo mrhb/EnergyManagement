@@ -23,13 +23,13 @@ import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity
 import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
 import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
 import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
-
+import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
 
 @NgModule({
   declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent, VoltagComponent, DemandComponent, DemandSumComponent, 
     TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent,GasDemandComponent,
-    GasTypeComponent,ValveSizeComponent],
+    GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,
