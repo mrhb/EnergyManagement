@@ -24,12 +24,20 @@ import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDem
 import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
 import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
 import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
+import { EnergyAmountComponent } from './bills/energy/features/energyAmount/energyAmount.component';
+import { GasConsumptionComponent } from './bills/gas/features/gasConsumption/gasConsumption.component';
+import { GasAmountComponent } from './bills/gas/features/gasAmount/gasAmount.component';
+import { PowerConsumptionComponent } from './bills/power/features/powerConsumption/powerConsumption.component';
+import { PowerAmountComponent } from './bills/power/features/powerAmount/powerAmount.component';
+import { WaterConsumptionComponent } from './bills/water/features/waterConsumption/waterConsumption.component';
+import { WaterAmountComponent } from './bills/water/features/waterAmount/waterAmount.component';
 
 @NgModule({
   declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent, VoltagComponent, DemandComponent, DemandSumComponent, 
     TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent,GasDemandComponent,
-    GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent],
+    GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
+    GasAmountComponent,PowerConsumptionComponent, PowerAmountComponent,WaterConsumptionComponent, WaterAmountComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,

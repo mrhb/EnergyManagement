@@ -16,6 +16,13 @@ import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDem
 import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
 import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
 import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
+import { EnergyAmountComponent } from './bills/energy/features/energyAmount/energyAmount.component';
+import { GasAmountComponent } from './bills/gas/features/gasAmount/gasAmount.component';
+import { GasConsumptionComponent } from './bills/gas/features/gasConsumption/gasConsumption.component';
+import { PowerAmountComponent } from './bills/power/features/powerAmount/powerAmount.component';
+import { PowerConsumptionComponent } from './bills/power/features/powerConsumption/powerConsumption.component';
+import { WaterAmountComponent } from './bills/water/features/waterAmount/waterAmount.component';
+import { WaterConsumptionComponent } from './bills/water/features/waterConsumption/waterConsumption.component';
 
 const routes: Routes = [
 
@@ -34,7 +41,14 @@ const routes: Routes = [
       {        path: 'gasDemand',     component: GasDemandComponent,   }, 
       {        path: 'gasType',       component: GasTypeComponent,     }, 
       {        path: 'valveSize',     component: ValveSizeComponent,   },
-      {        path: 'energyConsumption',     component: EnergyConsumptionComponent,   }, 
+      {        path: 'energyConsumption',component: EnergyConsumptionComponent,}, 
+      {        path: 'energyAmount',  component: EnergyAmountComponent,}, 
+      {        path: 'gasConsumption',component: GasConsumptionComponent,}, 
+      {        path: 'gasAmount',     component: GasAmountComponent,}, 
+      {        path: 'powerConsumption',component: PowerConsumptionComponent,}, 
+      {        path: 'powerAmount',   component: PowerAmountComponent,}, 
+      {        path: 'waterConsumption',component: WaterConsumptionComponent,}, 
+      {        path: 'waterAmount',   component: WaterAmountComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,
