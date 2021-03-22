@@ -27,6 +27,7 @@ import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/
 import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
 import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
 import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
+import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 
 const routes: Routes = [
 
@@ -46,17 +47,18 @@ const routes: Routes = [
       {        path: 'gasType',       component: GasTypeComponent,     }, 
       {        path: 'valveSize',     component: ValveSizeComponent,   },
       {        path: 'energyConsumption',component: EnergyConsumptionComponent,}, 
-      {        path: 'energyAmount',  component: EnergyAmountComponent,}, 
-      {        path: 'gasConsumption',component: GasConsumptionComponent,}, 
-      {        path: 'gasAmount',     component: GasAmountComponent,}, 
-      {        path: 'powerConsumption',component: PowerConsumptionComponent,}, 
-      {        path: 'powerAmount',   component: PowerAmountComponent,}, 
-      {        path: 'waterConsumption',component: WaterConsumptionComponent,}, 
-      {        path: 'waterAmount',   component: WaterAmountComponent,}, 
-      {        path: 'gasConsValid',  component: GasConsValidComponent,}, 
-      {        path: 'gasAmounValid', component: GasAmounValidComponent,}, 
-      {        path: 'powerConsValid',component: PowerConsValidComponent,}, 
+      {        path: 'energyAmount',     component: EnergyAmountComponent,}, 
+      {        path: 'gasConsumption',   component: GasConsumptionComponent,}, 
+      {        path: 'gasAmount',        component: GasAmountComponent,}, 
+      {        path: 'powerConsumption', component: PowerConsumptionComponent,}, 
+      {        path: 'powerAmount',      component: PowerAmountComponent,}, 
+      {        path: 'waterConsumption', component: WaterConsumptionComponent,}, 
+      {        path: 'waterAmount',      component: WaterAmountComponent,}, 
+      {        path: 'gasConsValid',     component: GasConsValidComponent,}, 
+      {        path: 'gasAmounValid',    component: GasAmounValidComponent,}, 
+      {        path: 'powerConsValid',   component: PowerConsValidComponent,}, 
       {        path: 'powerAmounValid',     component: PowerAmounValidComponent,}, 
+      {        path: 'instrumConsumption',  component: InstrumConsumptionComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,

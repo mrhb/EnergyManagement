@@ -35,6 +35,7 @@ import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/
 import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
 import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
 import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
+import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 
 @NgModule({
   declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
@@ -42,7 +43,8 @@ import { PowerConsValidComponent } from './validation/power/features/powerConsVa
     TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent,GasDemandComponent,
     GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
     GasAmountComponent,PowerConsumptionComponent, PowerAmountComponent,WaterConsumptionComponent,
-    WaterAmountComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, PowerAmounValidComponent],
+    WaterAmountComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
+    PowerAmounValidComponent, InstrumConsumptionComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,
