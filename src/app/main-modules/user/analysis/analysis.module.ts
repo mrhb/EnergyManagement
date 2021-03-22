@@ -20,12 +20,13 @@ import { TariffComponent } from './suscriptions/power/features/tariff/tariff.com
 import { ReactiveComponent } from './suscriptions/power/features/reactive/reactive.component';
 import { DamandPenaltyComponent } from './suscriptions/power/features/damandPenalty/damandPenalty.component';
 import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity.component';
+import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
 
 
 @NgModule({
   declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent, VoltagComponent, DemandComponent, DemandSumComponent, 
-    TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent],
+    TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent,GasDemandComponent],
   imports: [
     CommonModule,
     AnalysisRoutingModule,
