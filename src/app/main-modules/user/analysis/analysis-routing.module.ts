@@ -25,6 +25,8 @@ import { WaterAmountComponent } from './bills/water/features/waterAmount/waterAm
 import { WaterConsumptionComponent } from './bills/water/features/waterConsumption/waterConsumption.component';
 import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/gasAmounValid.component';
 import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
+import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
+import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
 
 const routes: Routes = [
 
@@ -51,8 +53,10 @@ const routes: Routes = [
       {        path: 'powerAmount',   component: PowerAmountComponent,}, 
       {        path: 'waterConsumption',component: WaterConsumptionComponent,}, 
       {        path: 'waterAmount',   component: WaterAmountComponent,}, 
-      {        path: 'gasConsValid',component: GasConsValidComponent,}, 
-      {        path: 'gasAmounValid',     component: GasAmounValidComponent,}, 
+      {        path: 'gasConsValid',  component: GasConsValidComponent,}, 
+      {        path: 'gasAmounValid', component: GasAmounValidComponent,}, 
+      {        path: 'powerConsValid',component: PowerConsValidComponent,}, 
+      {        path: 'powerAmounValid',     component: PowerAmounValidComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,
