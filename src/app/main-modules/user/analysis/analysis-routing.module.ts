@@ -13,6 +13,8 @@ import { ReactiveComponent } from './suscriptions/power/features/reactive/reacti
 import { DamandPenaltyComponent } from './suscriptions/power/features/damandPenalty/damandPenalty.component';
 import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity.component';
 import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
+import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
+import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
 
 const routes: Routes = [
 
@@ -52,6 +54,14 @@ const routes: Routes = [
       {
         path: 'gasDemand',
         component: GasDemandComponent,
+      }, 
+      {
+        path: 'gasType',
+        component: GasTypeComponent,
+      }, 
+      {
+        path: 'valveSize',
+        component: ValveSizeComponent,
       }, 
       {
         path: 'main',

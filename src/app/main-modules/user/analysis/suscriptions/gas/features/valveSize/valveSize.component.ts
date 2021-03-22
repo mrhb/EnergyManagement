@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { StateService } from '../../../../state.service';
 
 @Component({
-  selector: 'app-gasType',
-  templateUrl: './gasType.component.html',
-  styleUrls: ['./gasType.component.scss']
+  selector: 'app-valveSize',
+  templateUrl: './valveSize.component.html',
+  styleUrls: ['./valveSize.component.scss']
 })
-export class GasTypeComponent implements OnInit {
+export class ValveSizeComponent implements OnInit {
   region="";
 
   constructor(

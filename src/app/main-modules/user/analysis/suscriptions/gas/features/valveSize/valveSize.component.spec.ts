@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GasTypeComponent } from './gasType.component';
+import { ValveSizeComponent } from './valveSize.component';
 
-describe('GasTypeComponent', () => {
-  let component: GasTypeComponent;
-  let fixture: ComponentFixture<GasTypeComponent>;
+describe('ValveSizeComponent', () => {
+  let component: ValveSizeComponent;
+  let fixture: ComponentFixture<ValveSizeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GasTypeComponent ]
+      declarations: [ ValveSizeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GasTypeComponent);
+    fixture = TestBed.createComponent(ValveSizeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
