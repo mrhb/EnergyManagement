@@ -95,20 +95,20 @@
 
                 <li [routerLinkActive]="'active'"><a class="dropdown-item dropdown-toggle"  href="#">تحلیل مصارف قبوض برق</a>
                   <ul class="dropdown-menu">
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/voltag'">تحلیل میزان مصرف</a></li>
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/voltag'">تحلیل هزینه </a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/powerConsumption'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/powerAmount'">تحلیل هزینه </a></li>
                   </ul>
                 </li>
                 <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض گاز  </a>
                   <ul class="dropdown-menu">
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل میزان مصرف</a></li>
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل هزینه</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasConsumption'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasAmount'">تحلیل هزینه</a></li>
                   </ul>
                  </li>
                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض آب  </a>
                   <ul class="dropdown-menu">
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل میزان مصرف</a></li>
-                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/capacity'">تحلیل هزینه</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/waterConsumption'">تحلیل میزان مصرف</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/waterAmount'">تحلیل هزینه</a></li>
                   </ul>
                  </li>
                  <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">تحلیل مصارف قبوض انرژی  </a>
@@ -120,7 +120,27 @@
                 
               </ul>
             </li>
-            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">صحت سنجی قبوض</a></li>
+ 
+            <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">صحت سنجی قبوض </a>
+              <ul class="dropdown-menu">
+                <li [routerLinkActive]="'active'"><a class="dropdown-item dropdown-toggle"  href="#">صحت سنجی قبوض برق</a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/powerConsValid'">صحت سنجی میزان مصرف برق</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/powerAmounValid'">صحت سنجی هزینه برق</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">صحت سنجی قبوض گاز  </a>
+                  <ul class="dropdown-menu">
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasConsValid'">صحت سنجی میزان مصرف گاز</a></li>
+                    <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasAmounValid'">صحت سنجی هزینه گاز</a></li>
+                  </ul>
+                 </li>
+                
+              </ul>
+            </li>
+
+      
+
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">تحلیل مصارف تجهیزات</a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی ساختمان </a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">گزارش املاک و تاسیسات </a></li>

@@ -23,6 +23,8 @@ import { PowerAmountComponent } from './bills/power/features/powerAmount/powerAm
 import { PowerConsumptionComponent } from './bills/power/features/powerConsumption/powerConsumption.component';
 import { WaterAmountComponent } from './bills/water/features/waterAmount/waterAmount.component';
 import { WaterConsumptionComponent } from './bills/water/features/waterConsumption/waterConsumption.component';
+import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/gasAmounValid.component';
+import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
 
 const routes: Routes = [
 
@@ -49,6 +51,8 @@ const routes: Routes = [
       {        path: 'powerAmount',   component: PowerAmountComponent,}, 
       {        path: 'waterConsumption',component: WaterConsumptionComponent,}, 
       {        path: 'waterAmount',   component: WaterAmountComponent,}, 
+      {        path: 'gasConsValid',component: GasConsValidComponent,}, 
+      {        path: 'gasAmounValid',     component: GasAmounValidComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,
