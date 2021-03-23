@@ -10,7 +10,7 @@ export enum UseTypeInstrumentEnum {
 export enum EnergyCarierEnum {
   ELECTRICITY = <any> 'برق',
   GAS = <any> 'گاز',
-  GASOLIN = <any> 'گازوزیل',
+  GASOLIN = <any> 'گازوئیل',
   BENZIN = <any> 'بنزین',
 }
 // واحد

@@ -1,7 +1,7 @@
 //حامل انرژی
 export enum EnergyCarierEnum {
   GAS = <any> 'گاز',
-  GASOLIN = <any> 'گازوزیل',
+  GASOLIN = <any> 'گازوئیل',
   BENZIN = <any> 'بنزین',
 }
 // واحد
