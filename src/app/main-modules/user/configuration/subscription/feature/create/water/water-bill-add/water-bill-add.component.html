@@ -1,12 +1,10 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header flex-card-header">
-      <h1>
-        <span *ngIf="!waterId">افزودن قبض آب </span>
-        <span *ngIf="waterId">ویرایش قبض آب </span>
-      </h1>
+      <strong *ngIf="!waterId"> افزودن<small> قبض آب </small>  </strong>
+      <strong *ngIf="waterId"> ویرایش<small> قبض آب </small>  </strong>
       <div class="d-flex">
-        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/waterBillList'"> لیست قبوض آب</button>
+        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/waterBillList'">لیست <small> قبوض آب </small></button> 
       </div>
     </div>
     

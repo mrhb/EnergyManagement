@@ -1,12 +1,10 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header flex-card-header">
-      <h1>
-        <span *ngIf="!energyId">افزودن قبض انرژی </span>
-        <span *ngIf="energyId">ویرایش قبض انرژی </span>
-      </h1>
+      <strong *ngIf="!energyId"> افزودن<small> قبض انرژی </small>  </strong>
+      <strong *ngIf="energyId"> ویرایش<small> قبض انرژی </small>  </strong>
       <div class="d-flex">
-        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/energyBillList'"> لیست قبوض انرژی</button>
+        <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/energyBillList'"> لیست <small> قبوض انرژی  </small></button> 
       </div>
     </div>
     

@@ -1,12 +1,10 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header flex-card-header">
-      <h1>
-        <span *ngIf="!gasId">افزودن کنتور گاز </span>
-        <span *ngIf="gasId">ویرایش کنتور گاز </span>
-      </h1>
+      <strong *ngIf="!gasId"> افزودن<small> کنتور گاز </small>  </strong>
+      <strong *ngIf="gasId"> ویرایش<small> کنتور گاز </small>  </strong>
       <div class="d-flex">
-        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/gasList'">  لیست کنتورها</button>
+        <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/gasList'">لیست <small> کنتورهای گاز  </small></button> 
       </div>
     </div>
 
