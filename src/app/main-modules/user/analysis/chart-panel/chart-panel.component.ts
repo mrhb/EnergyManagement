@@ -43,6 +43,7 @@ export class ChartPanelComponent implements OnInit {
 
 
   lineChartType: ChartType = 'bar';
+  pieChartType: ChartType = 'pie';
 
   constructor() { 
   }
@@ -57,6 +58,11 @@ export class ChartPanelComponent implements OnInit {
         case 'BAR':
           this.lineChartType = 'bar';
           break;
+          case 'PIE':
+            this.pieChartType = 'pie'
+          break;
+         
+
         case 'COMBAR':
         break;
     }

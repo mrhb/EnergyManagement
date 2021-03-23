@@ -1,10 +1,8 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header flex-card-header">
-      <h1>
-        <strong *ngIf="!powerId">افزودن کنتور برق </strong>
-        <strong *ngIf="powerId">ویرایش کنتور برق </strong>
-      </h1>
+        <strong *ngIf="!powerId"> افزودن<small> کنتور برق </small>  </strong>
+        <strong *ngIf="powerId"> ویرایش<small> کنتور برق </small>  </strong>
       <div class="d-flex">
         <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'">  لیست کنتورها</button>
       </div>
