@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { SeriesInfo } from '../model/chart';
 import { CategoryEnum } from '../model/chartEnum';
 import { Backgrounds, Borders } from './ColorGenerator';
 
@@ -11,15 +12,25 @@ import { Backgrounds, Borders } from './ColorGenerator';
 })
 export class ChartPanelComponent implements OnInit {
   @Input() category: CategoryEnum=CategoryEnum.LINE;
+  @Input()
+  set seriesInput(input: SeriesInfo) {
+    this.lineChartData =input.series.map(i=>
+      {
+        return{data:i.data, label:i.name}
+      });
+    this.lineChartLabels=input.labels;
 
-  lineChartData: ChartDataSets[] = [
+  }
+  @Input() labels: string[]= ['January', 'February', 'March', 'April', 'May', 'June'];
+  lineChartData: ChartDataSets[] =
+   [
     { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
     { data: [67, 23, 96, 13, 88, 43], label: 'jhghjg' },
   ];
 
   lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
 
-  lineChartOptions = {
+  lineChartOptions:any = {
     responsive: true,
   };
  
@@ -48,6 +59,12 @@ export class ChartPanelComponent implements OnInit {
   constructor() { 
   }
   
+  // ngOnChanges(changes: SimpleChanges) {
+  //   this.lineChartData=(changes.series.currentValue as Series[]).map(i=>
+  //     {
+  //       return{data:i.data, label:i.name}
+  //     });
+  // }
   ngOnInit(): void {
     switch (this.category.toString())
     {
@@ -55,12 +72,27 @@ export class ChartPanelComponent implements OnInit {
         this.lineChartType = 'line';
         break;
         
-        case 'BAR':
-          this.lineChartType = 'bar';
-          break;
-          case 'PIE':
-            this.pieChartType = 'pie'
-          break;
+      case 'BAR':
+        this.lineChartType = 'bar';
+        break;
+
+      case 'STACKED_BAR':
+        this.lineChartType = 'bar';
+        this.lineChartOptions = {
+          responsive: true,
+          scales: {
+              xAxes: [{
+                  stacked: true
+              }],
+              yAxes: [{
+                  stacked: true
+              }]
+          }
+        };
+        break;
+      case 'PIE':
+        this.pieChartType = 'pie'
+      break;
          
 
         case 'COMBAR':

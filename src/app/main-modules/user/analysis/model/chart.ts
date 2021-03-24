@@ -8,3 +8,16 @@ export class ChartFilter {
   chartType: chartTypeEnum = chartTypeEnum[chartTypeEnum.LINEAR.toString()];
   buildingId: string;
 }
+
+
+export interface Serie {
+  data?: Array<number | null | undefined | number[]>;
+  name?: string;
+}
+
+
+export interface SeriesInfo {
+  series?:Serie[];
+  labels?:string[];
+}
+
