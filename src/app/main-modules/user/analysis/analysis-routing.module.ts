@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SubscriptionComponent } from './subscription/subscription.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
@@ -36,29 +35,29 @@ const routes: Routes = [
     component: MainPanelComponent,
 
     children: [
-      {        path: 'voltag',        component: VoltagComponent,      },
-      {        path: 'demand',        component: DemandComponent,      },    
-      {        path: 'demandSum',     component: DemandSumComponent,   },
-      {        path: 'tariff',        component: TariffComponent,      }, 
-      {        path: 'reactive',      component: ReactiveComponent,    }, 
-      {        path: 'damandPenalty', component: DamandPenaltyComponent,}, 
-      {        path: 'capacity',      component: CapacityComponent,    }, 
-      {        path: 'gasDemand',     component: GasDemandComponent,   }, 
-      {        path: 'gasType',       component: GasTypeComponent,     }, 
-      {        path: 'valveSize',     component: ValveSizeComponent,   },
-      {        path: 'energyConsumption',component: EnergyConsumptionComponent,}, 
-      {        path: 'energyAmount',     component: EnergyAmountComponent,}, 
-      {        path: 'gasConsumption',   component: GasConsumptionComponent,}, 
-      {        path: 'gasAmount',        component: GasAmountComponent,}, 
-      {        path: 'powerConsumption', component: PowerConsumptionComponent,}, 
-      {        path: 'powerAmount',      component: PowerAmountComponent,}, 
-      {        path: 'waterConsumption', component: WaterConsumptionComponent,}, 
-      {        path: 'waterAmount',      component: WaterAmountComponent,}, 
-      {        path: 'gasConsValid',     component: GasConsValidComponent,}, 
-      {        path: 'gasAmounValid',    component: GasAmounValidComponent,}, 
-      {        path: 'powerConsValid',   component: PowerConsValidComponent,}, 
-      {        path: 'powerAmounValid',     component: PowerAmounValidComponent,}, 
-      {        path: 'instrumConsumption',  component: InstrumConsumptionComponent,}, 
+      { path: 'voltag',                component: VoltagComponent,      },
+      { path: 'demand',                component: DemandComponent,      },    
+      { path: 'demandSum',             component: DemandSumComponent,   },
+      { path: 'tariff',                component: TariffComponent,      }, 
+      { path: 'reactive',              component: ReactiveComponent,    }, 
+      { path: 'damandPenalty',         component: DamandPenaltyComponent,}, 
+      { path: 'capacity',              component: CapacityComponent,    }, 
+      { path: 'gasDemand',             component: GasDemandComponent,   }, 
+      { path: 'gasType',               component: GasTypeComponent,     }, 
+      { path: 'valveSize',             component: ValveSizeComponent,   },
+      { path: 'energyConsumption',     component: EnergyConsumptionComponent,}, 
+      { path: 'energyAmount',          component: EnergyAmountComponent,}, 
+      { path: 'gasConsumption',        component: GasConsumptionComponent,}, 
+      { path: 'gasAmount',             component: GasAmountComponent,}, 
+      { path: 'powerConsumption',      component: PowerConsumptionComponent,}, 
+      { path: 'powerAmount',           component: PowerAmountComponent,}, 
+      { path: 'waterConsumption',      component: WaterConsumptionComponent,}, 
+      { path: 'waterAmount',           component: WaterAmountComponent,}, 
+      { path: 'gasConsValid',          component: GasConsValidComponent,}, 
+      { path: 'gasAmounValid',         component: GasAmounValidComponent,}, 
+      { path: 'powerConsValid',        component: PowerConsValidComponent,}, 
+      { path: 'powerAmounValid',       component: PowerAmounValidComponent,}, 
+      { path: 'instrumConsumption',    component: InstrumConsumptionComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,
@@ -70,11 +69,7 @@ const routes: Routes = [
       {
         path: 'energyLabel',
         component: EnergyLabelComponent,
-      },
-      {
-        path: 'subscription',
-        component: SubscriptionComponent,
-      },   
+      }, 
     ]
   }
   
