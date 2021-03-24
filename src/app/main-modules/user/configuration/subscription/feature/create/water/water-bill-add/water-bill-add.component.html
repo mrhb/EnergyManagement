@@ -39,9 +39,9 @@
       <div class="collapse" id="collapse2" role="tabpane2" aria-labelledby="heading2" data-parent="#accordion">
             <fieldset class="fieldset-border">
             <form [formGroup]="form" class="w-100"> 
-              <!-- <div class="form row"> -->
+              <div class="form row">
                 <!-- شناسه پرداخت -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="paymentCode" class="form-label">شناسه پرداخت</label>
                       <input class="form-control text-right" id="paymentCode" placeholder=""
@@ -52,7 +52,7 @@
                     <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
                   </div>
                 <!-- تاریخ شروع  -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="fromDate" class="form-label">از تاریخ</label>
                       <input class="form-control text-right" id="fromDate" placeholder=""
@@ -62,7 +62,7 @@
                     <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
                   </div>
                 <!-- تاریخ اتمام  -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="toDate" class="form-label">تا تاریخ</label>
                       <input class="form-control text-right" id="toDate" placeholder=""
@@ -72,7 +72,7 @@
                     <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
                   </div>
                 <!--تعداد روز دوره -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="numberDays" class="form-label"> تعداد روز دوره </label>
                       <input class="form-control text-right" id="numberDays" placeholder=""
@@ -83,7 +83,7 @@
                     <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
                   </div>
                 <!-- رقم قبلی -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="previousCounter" class="form-label">رقم قبلی</label>
                       <input class="form-control text-right" id="previousCounter" placeholder=""
@@ -94,7 +94,7 @@
                     <app-alert-error [data]="form.controls['previousCounter']" [touched]="touched"></app-alert-error>
                   </div>
                 <!-- رقم فعلی -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                   <div class="w-100">
                     <label for="currentCounter" class="form-label">رقم فعلی</label>
                     <input class="form-control text-right" id="currentCounter" placeholder=""
@@ -105,7 +105,7 @@
                   <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
                 </div>
                 <!-- مصرف دوره -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                   <div class="w-100">
                     <label for="consumptionDurat" class="form-label">مصرف دوره</label>
                     <input class="form-control text-right" id="consumptionDurat" placeholder=""
@@ -116,7 +116,7 @@
                   <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
                 </div>
                 <!-- بهای آب مصرفی  -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                   <div class="w-100">
                     <label for="consumptionAmount" class="form-label">بهای آب مصرفی </label>
                     <input class="form-control text-right" id="consumptionAmount" placeholder=""
@@ -127,7 +127,7 @@
                   <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
                 </div>
                 <!-- مبلغ قابل پرداخت     -->
-                <div class="mb-4 col-md-3">
+                <div class="mb-4 col-md-2">
                   <div class="w-100">
                     <label for="payableAmount" class="form-label">  مبلغ قابل پرداخت </label>
                     <input class="form-control text-right" id="payableAmount" placeholder=""
@@ -137,12 +137,10 @@
                   </div>
                   <app-alert-error [data]="form.controls['payableAmount']" [touched]="touched"></app-alert-error>
                 </div>
-              <!-- </div> -->
+              </div>
             </form>
           </fieldset>
-            </div>
-
-
+        </div>
     </div>
   </div>
 </div>
