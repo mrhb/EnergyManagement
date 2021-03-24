@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AnalysisRoutingModule } from './analysis-routing.module';
-import { SubscriptionComponent } from './subscription/subscription.component';
 import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
 import { MainPanelComponent } from './main-panel/main-panel.component';
@@ -38,7 +37,7 @@ import { PowerConsValidComponent } from './validation/power/features/powerConsVa
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 
 @NgModule({
-  declarations: [ SideBarComponent, SubscriptionComponent, BaseLineComponent, EnergyLabelComponent, 
+  declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent, VoltagComponent, DemandComponent, DemandSumComponent, 
     TariffComponent,ReactiveComponent,DamandPenaltyComponent,CapacityComponent,GasDemandComponent,
     GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
