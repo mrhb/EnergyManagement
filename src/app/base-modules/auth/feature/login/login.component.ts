@@ -111,7 +111,7 @@ export class LoginComponent implements OnInit {
       // this.router.navigate(['/index/admin']);
     } else if (role === ROLE_USER) {
       this.getAccount();
-      this.router.navigateByUrl('/index/user/configuration/buildingList').then();
+      this.router.navigateByUrl('/index/user/analysis/dashboard').then();
       // this.router.navigate(['/index/user']);
     }
   }

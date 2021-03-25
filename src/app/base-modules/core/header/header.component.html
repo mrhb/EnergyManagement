@@ -119,7 +119,6 @@
                     <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyAmount'">تحلیل هزینه</a></li>
                   </ul>
                  </li>
-                
               </ul>
             </li>
  
@@ -136,16 +135,14 @@
                     <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasConsValid'">صحت سنجی میزان مصرف گاز</a></li>
                     <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/gasAmounValid'">صحت سنجی هزینه گاز</a></li>
                   </ul>
-                 </li>
-                
+                 </li>               
               </ul>
             </li>
-
-      
 
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/instrumConsumption'">تحلیل مصارف تجهیزات</a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/energyLabel'">برچسب انرژی ساختمان </a></li>
             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">گزارش املاک و تاسیسات </a></li>
+            <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/dashboard'">گزارش مدیریتی </a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -163,10 +160,8 @@
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'">خط مبنای انرژی  </a></li>
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/analysis/baseLine'"> مستندات  </a></li>
               </ul>
-            </li> 
-           
+            </li>           
           </ul>
-
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -179,16 +174,21 @@
   </nav>
 
   <div class="d-flex align-items-center">
-    <li class="nav-item dropdown">
+    <!-- <li class="nav-item dropdown">
       <a href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         درباره ما
       </a>
-    </li>
-
+    </li> -->
+    <!-- عنوان و نام کاربر  -->
     <div class="user-info">
-      <span class="ml-1" *ngIf="role === 'admin'">ادمین</span>
-      <span class="ml-1" *ngIf="role === 'user'">{{account.firstName + ' ' + account.lastName}}</span>
-      <div class="dropdown">
+      <div class="mb-4">
+        <p class="sub-title mb-1" *ngIf="role === 'admin'"> ادمین</p>
+        <p class="sub-title mb-1" *ngIf="role === 'user'"> {{account.firstName + ' ' + account.lastName}}</p>
+        <div><span class="ml-1" *ngIf="role === 'user'">{{account.organizationalLevel}}</span> </div>
+      </div>
+
+    <!-- عکس کاربر  -->
+    <div class="dropdown">
         <div class="cursor-pointer" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <ng-container *ngIf="account && account.photo; else default">
             <img [src]="pathUrl + account.photo" alt="">
@@ -197,7 +197,7 @@
             <img src="../../../../../../assets/image/user.jpg" alt="">
           </ng-template>
         </div>
-
+    <!-- منوی اطلاعات کاربر  -->
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <button class="dropdown-item text-right" type="button" [routerLink]="'/index/user/profile'">
             <span class="fa fa-address-card-o"></span>

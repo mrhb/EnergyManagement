@@ -27,6 +27,7 @@ import { GasConsValidComponent } from './validation/gas/features/gasConsValid/ga
 import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
 import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
 
@@ -58,6 +59,7 @@ const routes: Routes = [
       { path: 'powerConsValid',        component: PowerConsValidComponent,}, 
       { path: 'powerAmounValid',       component: PowerAmounValidComponent,}, 
       { path: 'instrumConsumption',    component: InstrumConsumptionComponent,}, 
+      { path: 'dashboard',             component: DashboardComponent,}, 
       {
         path: 'main',
         component: SideBarComponent,
