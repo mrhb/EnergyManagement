@@ -49,8 +49,7 @@
             <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="userName" class="form-label">نام کاربری</label>
-                <input class="form-control text-right" id="userName" placeholder="021-12345678"
-                       maxlength="12"
+                <input class="form-control text-right" id="userName" placeholder=""
                        [(ngModel)]="dto.userName"
                        formControlName="userName"
                        name="userName">
@@ -72,14 +71,12 @@
               </div>
               <app-alert-error [data]="userForm.controls['mobile']" [touched]="touched"></app-alert-error>
             </div>
-      
-      
+       
         <!-- ایمیل  -->
         <div class="mb-4 col-md-6">
           <div class="w-100">
-            <label for="email" class="form-label">نام کاربری</label>
-            <input class="form-control text-right" id="email" placeholder="021-12345678"
-                   maxlength="12"
+            <label for="email" class="form-label">ایمیل</label>
+            <input class="form-control text-right" id="email" placeholder=""
                    [(ngModel)]="dto.email"
                    formControlName="email"
                    name="email">
@@ -87,72 +84,6 @@
           <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
         </div>
       
-      
-      
-      
-            <!-- ایمیل            -->
-            <!-- <div class="mb-4 col-md-6">
-              <div class="w-100">
-                <label for="email" class="form-label">ایمیل</label>
-                <input class="form-control text-right" id="email" (change)="checkEmailIsExist()" placeholder=""
-                       [(ngModel)]="dto.email"
-                       formControlName="email"
-                       name="email">
-              </div>
-              <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
-            </div> -->
-            <!-- <div class="mb-4 col-md-6">
-              <div class="w-100">
-                <label for="organizationalUnit" class="form-label">واحد سازمانی</label>
-                <input class="form-control text-right" id="organizationalUnit" placeholder=""
-                       [(ngModel)]="dto.organizationalUnit"
-                       formControlName="organizationalUnit"
-                       name="organizationalUnit"
-                       maxlength="11"
-                >
-              </div>
-              <app-alert-error [data]="userForm.controls['organizationalUnit']" [touched]="touched"></app-alert-error>
-            </div> -->
-
-            <!-- <div class="mb-4 col-md-4">
-              <div class="w-100">
-                <label for="province" class="form-label">استان</label>
-                <input class="form-control text-right" id="province" placeholder=""
-                       [(ngModel)]="dto.province"
-                       formControlName="province"
-                       name="province"
-                >
-              </div>
-              <app-alert-error [data]="userForm.controls['province']" [touched]="touched"></app-alert-error>
-            </div>
-            <div class="mb-4 col-md-4">
-              <div class="w-100">
-                <label for="city" class="form-label">شهر</label>
-                <input class="form-control text-right" id="city" placeholder=""
-                       [(ngModel)]="dto.city"
-                       formControlName="city"
-                       name="city"
-                >
-              </div>
-              <app-alert-error [data]="userForm.controls['city']" [touched]="touched"></app-alert-error>
-            </div> -->
-            <!-- <div class="mb-4 col-12">
-              <div class="w-100">
-                <label for="address" class="form-label">آدرس</label>
-                <textarea class="form-control text-right" id="address" placeholder=""
-                          [(ngModel)]="dto.address"
-                          formControlName="address"
-                          name="address"
-                ></textarea>
-              </div>
-              <app-alert-error [data]="userForm.controls['address']" [touched]="touched"></app-alert-error>
-            </div> -->
-            <!-- <div class="col-12">
-              <hr class="m-1">
-            </div> -->
-<!--            <div class="col-12 mb-4 mt-3">-->
-<!--              <strong>اطلاعات سیستمی</strong>-->
-<!--            </div>-->
             <!-- رمزعبور   -->
             <div class="mb-4 col-md-4">
               <div class="w-100">
