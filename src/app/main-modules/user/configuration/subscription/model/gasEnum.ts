@@ -17,3 +17,21 @@ export enum GroupGasEnum {
   DIMANDI = <any> 'A',
   UN_DIMANDI = <any> 'B',
 }
+
+export enum CapacityGasEnum {
+  G4 = <any> 'G4',
+  G6 = <any> 'G6',
+  G10 = <any> 'G10',
+  G16 = <any> 'G16',
+  G25 = <any> 'G25',
+  G40 = <any> 'G40',
+  G65 = <any> 'G65',
+  G100 = <any> 'G100',
+}
+
+    
+
+
+
+
+
