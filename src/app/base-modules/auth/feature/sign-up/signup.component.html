@@ -29,8 +29,7 @@
                 <input class="form-control text-right" id="lastName" placeholder=""
                        [(ngModel)]="dto.lastName"
                        formControlName="lastName"
-                       name="lastName"
-                >
+                       name="lastName">
               </div>
               <app-alert-error [data]="userForm.controls['lastName']" [touched]="touched"></app-alert-error>
             </div>
@@ -42,23 +41,24 @@
                        [(ngModel)]="dto.organizationalLevel"
                        formControlName="organizationalLevel"
                        name="organizationalLevel"
-                       maxlength="11"
-                >
+                       maxlength="11">
               </div>
               <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
             </div>
-            <!-- <div class="mb-4 col-md-6">
+            <!-- نام کاربری  -->
+            <div class="mb-4 col-md-6">
               <div class="w-100">
-                <label for="phone" class="form-label">شماره تلفن ثابت</label>
-                <input class="form-control text-right" id="phone" placeholder="021-12345678"
+                <label for="userName" class="form-label">نام کاربری</label>
+                <input class="form-control text-right" id="userName" placeholder="021-12345678"
                        maxlength="12"
-                       [(ngModel)]="dto.phone"
-                       formControlName="phone"
-                       name="phone"
-                >
+                       [(ngModel)]="dto.userName"
+                       formControlName="userName"
+                       name="userName">
               </div>
-              <app-alert-error [data]="userForm.controls['phone']" [touched]="touched"></app-alert-error>
-            </div> -->
+              <app-alert-error [data]="userForm.controls['userName']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!-- همراه -->
             <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="mobile" class="form-label">شماره همراه</label>
@@ -72,14 +72,32 @@
               </div>
               <app-alert-error [data]="userForm.controls['mobile']" [touched]="touched"></app-alert-error>
             </div>
+      
+      
+        <!-- ایمیل  -->
+        <div class="mb-4 col-md-6">
+          <div class="w-100">
+            <label for="email" class="form-label">نام کاربری</label>
+            <input class="form-control text-right" id="email" placeholder="021-12345678"
+                   maxlength="12"
+                   [(ngModel)]="dto.email"
+                   formControlName="email"
+                   name="email">
+          </div>
+          <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
+        </div>
+      
+      
+      
+      
+            <!-- ایمیل            -->
             <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="email" class="form-label">ایمیل</label>
                 <input class="form-control text-right" id="email" (change)="checkEmailIsExist()" placeholder=""
                        [(ngModel)]="dto.email"
                        formControlName="email"
-                       name="email"
-                >
+                       name="email">
               </div>
               <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
             </div> -->

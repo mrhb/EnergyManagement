@@ -34,6 +34,7 @@ export class SignupComponent implements OnInit {
       phone: ['', [ Validators.maxLength(12), Validators.pattern(this.myPattern.fixedPhone)]], //شماره تلفن ثابت
       email: ['', [ Validators.pattern(this.myPattern.email)]], //ایمیل
       mobile: ['', [ Validators.maxLength(11), Validators.pattern(this.myPattern.phone)]], // شماره همراه
+      useName: [''], // نام کاربری
       address: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //آدرس
       organizationalUnit: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //واحد سازمانی
       city: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],// شهر

@@ -9,6 +9,7 @@ export namespace Auth {
     firstName: string;
     lastName: string;
     phone: string; // شماره تلفن ثابت
+    userName: string; // نام کاربری
     organizationalUnit: string; //واحد سازمانی
     organizationalLevel: string;
     address: string;// آدرس
