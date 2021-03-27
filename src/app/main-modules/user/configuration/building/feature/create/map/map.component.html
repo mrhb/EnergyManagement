@@ -58,11 +58,11 @@
     </div>
 
     <div class="col-12">
-      <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <!-- <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div> -->
       <div (click)="cancelEdit()" *ngIf="edited" class="btn btn-outline-primary text-center ml-3">انصراف</div>
-      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">ثبت</button>
+      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">افزودن نقشه</button>
       <button type="submit" *ngIf="edited" class="btn btn-success text-center ml-3">ویرایش</button>
-      <button (click)="getNextStep()" *ngIf="!edited && mapList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button>
+      <!-- <button (click)="getNextStep()" *ngIf="!edited && mapList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button> -->
     </div>
 
     <ng-container *ngIf="mapList.length > 0">

@@ -29,7 +29,10 @@ export class AreaComponent implements OnInit {
       useFullArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       externalWallsTotalArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       externalGlassTotalArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+    }, {
+      validators: this.checkAreaValidators('arenaArea', 'ayanArea')
     });
+
   }
 
   ngOnInit(): void {
@@ -45,7 +48,14 @@ export class AreaComponent implements OnInit {
   goBack(): void {
     this.nextStep.emit(1);
   }
+  checkAreaValidators(item1: any, item2: any): (group: FormGroup) => any {
+    return (group: FormGroup) => {
 
+      if (  group.controls[item1].value<  group.controls[item2].value) {
+        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد');      
+      }
+    };
+  }
   createArea(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -61,6 +71,6 @@ export class AreaComponent implements OnInit {
             this.completeStep.emit(2);
           }
         }
-      });
+      });        
   }
 }
