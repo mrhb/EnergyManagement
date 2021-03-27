@@ -27,10 +27,10 @@ export class Building {
   postalCode: string; // کد پستی
   ownership: Ownership;
   coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
-  powerSharNum: string;  //تعداد انشعاب برق
-  gasSharNum: string;  //تعداد انشعاب گاز
-  waterSharNum: string;  //تعداد انشعاب آب
-  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
+  powerSharingNum: string;  //تعداد انشعاب برق
+  gasSharingNum: string;  //تعداد انشعاب گاز
+  waterSharingNum: string;  //تعداد انشعاب آب
+  nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
   address: string;
 }
 
@@ -81,10 +81,10 @@ export class BuildingList {
   id: string;//تعداد انشعابها
   coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
   postalCode: string; // کد پستی
-  powerSharNum: string;  //تعداد انشعاب برق
-  gasSharNum: string;  //تعداد انشعاب گاز
-  waterSharNum: string;  //تعداد انشعاب آب
-  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
+  powerSharingNum: string;  //تعداد انشعاب برق
+  gasSharingNum: string;  //تعداد انشعاب گاز
+  waterSharingNum: string;  //تعداد انشعاب آب
+  nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
 }
 
 export class EnergyLabel {

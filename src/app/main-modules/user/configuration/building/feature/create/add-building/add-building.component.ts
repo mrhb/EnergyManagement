@@ -46,10 +46,10 @@ export class AddBuildingComponent implements OnInit {
       address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       coolingHeatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      powerSharNum: [''],
-      gasSharNum: [''],
-      waterSharNum: [''],
-      energyCarierOthersNum: [''],
+      powerSharingNum: [''],
+      gasSharingNum: [''],
+      waterSharingNum: [''],
+      nonEnergyCarrierSharingNum: [''],
     });
   }
  

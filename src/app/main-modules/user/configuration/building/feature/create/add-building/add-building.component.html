@@ -19,17 +19,11 @@
                 class="form-control text-right"
                 formControlName="useType"
                 [(ngModel)]="buildingDto.useType">
-          <option [value]="useTypeEnum[useTypeEnum.RESIDENTIAL].toString()">
-            مسکونی
-          </option>
-          <option [value]="useTypeEnum[useTypeEnum.COMMERCIAL].toString()">
-            تجاری
-          </option>
-          <option [value]="useTypeEnum[useTypeEnum.OFFICIAL].toString()">
-            اداری
-          </option>
-        </select>
-      </div>
+                <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                  {{item.value}}
+                </option>
+              </select>
+            </div>
       <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
     </div>
     <!-- سال ساخت  -->
@@ -103,50 +97,50 @@
     <!-- تعداد انشعاب برق -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="powerSharNum" class="form-label">تعداد انشعاب برق</label>
-        <input class="form-control text-right" id="powerSharNum" placeholder=""
+        <label for="powerSharingNum" class="form-label">تعداد انشعاب برق</label>
+        <input class="form-control text-right" id="powerSharingNum" placeholder=""
                type="number" min="0"
-               [(ngModel)]="buildingDto.powerSharNum"
-               formControlName="powerSharNum"
-               name="powerSharNum">
+               [(ngModel)]="buildingDto.powerSharingNum"
+               formControlName="powerSharingNum"
+               name="powerSharingNum">
       </div>
-      <app-alert-error [data]="form.controls['powerSharNum']" [touched]="touched"></app-alert-error>
+      <app-alert-error [data]="form.controls['powerSharingNum']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد انشعاب گاز -->
         <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="gasSharNum" class="form-label">تعداد انشعاب گاز</label>
-        <input class="form-control text-right" id="gasSharNum" placeholder=""
+        <label for="gasSharingNum" class="form-label">تعداد انشعاب گاز</label>
+        <input class="form-control text-right" id="gasSharingNum" placeholder=""
                type="number" min="0"
-               [(ngModel)]="buildingDto.gasSharNum"
-               formControlName="gasSharNum"
-               name="gasSharNum">
+               [(ngModel)]="buildingDto.gasSharingNum"
+               formControlName="gasSharingNum"
+               name="gasSharingNum">
       </div>
-      <app-alert-error [data]="form.controls['gasSharNum']" [touched]="touched"></app-alert-error>
+      <app-alert-error [data]="form.controls['gasSharingNum']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد انشعاب آب  -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="waterSharNum" class="form-label">تعداد انشعاب آب </label>
-        <input class="form-control text-right" id="waterSharNum" placeholder=""
+        <label for="waterSharingNum" class="form-label">تعداد انشعاب آب </label>
+        <input class="form-control text-right" id="waterSharingNum" placeholder=""
                type="number" min="0"
-               [(ngModel)]="buildingDto.waterSharNum"
-               formControlName="waterSharNum"
-               name="waterSharNum">
+               [(ngModel)]="buildingDto.waterSharingNum"
+               formControlName="waterSharingNum"
+               name="waterSharingNum">
       </div>
-      <app-alert-error [data]="form.controls['waterSharNum']" [touched]="touched"></app-alert-error>
+      <app-alert-error [data]="form.controls['waterSharingNum']" [touched]="touched"></app-alert-error>
     </div>    
     <!-- تعداد حامل های انرژی غیر -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="energyCarierOthersNum" class="form-label">تعداد حامل های انرژی غیر </label>
-        <input class="form-control text-right" id="energyCarierOthersNum" placeholder=""
+        <label for="nonEnergyCarrierSharingNum" class="form-label">تعداد حامل های انرژی غیر </label>
+        <input class="form-control text-right" id="nonEnergyCarrierSharingNum" placeholder=""
                type="number" min="0"
-               [(ngModel)]="buildingDto.energyCarierOthersNum"
-               formControlName="energyCarierOthersNum"
-               name="energyCarierOthersNum">
+               [(ngModel)]="buildingDto.nonEnergyCarrierSharingNum"
+               formControlName="nonEnergyCarrierSharingNum"
+               name="nonEnergyCarrierSharingNum">
       </div>
-      <app-alert-error [data]="form.controls['energyCarierOthersNum']" [touched]="touched"></app-alert-error>
+      <app-alert-error [data]="form.controls['nonEnergyCarrierSharingNum']" [touched]="touched"></app-alert-error>
     </div>    
       <!-- کد پستی -->
       <div class="mb-4 col-md-2">
@@ -175,8 +169,8 @@
     </div>
     <div class="col-12">
       <!-- <div (click)="goBack()" class="btn btn-outline-primary text-center ml-3">بازگشت</div> -->
-      <button type="submit" class="btn btn-success text-center ml-3">افزودن ساختمان</button>
+      <button type="submit" class="btn btn-success text-center ml-3"*ngIf="!bId">ثبت</button>
+      <button type="submit" class="btn btn-success text-center ml-3"*ngIf="bId">ویرایش</button>  
     </div>
-
   </div>
 </form>

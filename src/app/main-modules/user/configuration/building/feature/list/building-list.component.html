@@ -1,9 +1,9 @@
 <div class="col-12">
   <div class="card">
     <div class="card-header flex-card-header">
-      <strong>لیست<small> ساختمان ها </small>  </strong>
+    <strong>لیست<small> ساختمان ها </small>  </strong>
       <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createBuilding'">افزودن <small> ساختمان</small></button> 
+        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createBuilding'">تعریف <small> ساختمان</small></button> 
         <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
           <span class="cursor-pointer fa fa-file-excel-o"></span></button>
       </div>
@@ -55,7 +55,8 @@
                   <td>{{building.arenaArea}}</td>
                   <td>{{building.ayanArea}}</td>
                   <td>{{building.useFullArea}}</td>
-                  <td>{{building.powerSharNum}}</td>
+                  <td>{{building.powerSharingNum+building.waterSharingNum+
+                    building.gasSharingNum+building.nonEnergyCarrierSharingNum}}</td>
                   <td>{{coolingHeatingSystemType[building.coolingHeatingSystemType].toString()}}</td> 
                   <td>{{building.postalCode}}</td>
                   <td class="text-center">    
