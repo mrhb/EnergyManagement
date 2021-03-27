@@ -79,20 +79,36 @@
       </div>
       <app-alert-error [data]="form.controls['ownership']" [touched]="touched"></app-alert-error>
     </div>
-    <!-- نوع سیستم گرمایشی/سرمایشی -->
+    <!-- نوع سیستم گرمایشی -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="coolingHeatingSystemType" class="form-label">نوع سیستم گرمایشی/سرمایشی</label>
-        <select name="coolingHeatingSystemType" id="coolingHeatingSystemType"
+        <label for="heatingSystemType" class="form-label">نوع سیستم گرمایشی</label>
+        <select name="heatingSystemType" id="heatingSystemType"
                 class="form-control text-right"
-                formControlName="coolingHeatingSystemType"
-                [(ngModel)]="buildingDto.coolingHeatingSystemType">
-          <option *ngFor="let item of coolingHeatingSystemTypeEnum | enumKeyValue" [value]="item.key">
+                formControlName="heatingSystemType"
+                [(ngModel)]="buildingDto.heatingSystemType">
+          <option *ngFor="let item of heatingSystemTypeEnum | enumKeyValue" [value]="item.key">
             {{item.value}}
           </option>
         </select>
       </div>
-      <app-alert-error [data]="form.controls['coolingHeatingSystemType']" [touched]="touched"></app-alert-error>
+      <app-alert-error [data]="form.controls['heatingSystemType']" [touched]="touched"></app-alert-error>
+    </div> 
+    
+    <!-- نوع سیستم سرمایشی -->
+    <div class="mb-4 col-md-2">
+      <div class="w-100">
+        <label for="coolingSystemType" class="form-label">نوع سیستم سرمایشی</label>
+        <select name="coolingSystemType" id="coolingSystemType"
+                class="form-control text-right"
+                formControlName="coolingSystemType"
+                [(ngModel)]="buildingDto.coolingSystemType">
+          <option *ngFor="let item of coolingSystemTypeEnum | enumKeyValue" [value]="item.key">
+            {{item.value}}
+          </option>
+        </select>
+      </div>
+      <app-alert-error [data]="form.controls['coolingSystemType']" [touched]="touched"></app-alert-error>
     </div>
     <!-- تعداد انشعاب برق -->
     <div class="mb-4 col-md-2">
@@ -167,8 +183,25 @@
       </div>
       <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
     </div>
+
+      <!-- <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p> -->
+     <!-- مساحت عرصه -->
+   <!-- <div class="form row">
+        <div class="mb-4 col-md-2">
+          <div class="w-100">
+            <label for="arenaArea" class="form-label">مساحت عرصه</label>
+            <input class="form-control text-right" id="arenaArea" placeholder=""
+            type="number" min="0"
+            [(ngModel)]="buildingDto.arenaArea"
+            formControlName="arenaArea"
+            name="arenaArea">
+          </div>
+          <app-alert-error [data]="form.controls['arenaArea']" [touched]="touched"></app-alert-error>
+        </div>
+      </div> -->
+        
+
     <div class="col-12">
-      <!-- <div (click)="goBack()" class="btn btn-outline-primary text-center ml-3">بازگشت</div> -->
       <button type="submit" class="btn btn-success text-center ml-3"*ngIf="!bId">ثبت</button>
       <button type="submit" class="btn btn-success text-center ml-3"*ngIf="bId">ویرایش</button>  
     </div>

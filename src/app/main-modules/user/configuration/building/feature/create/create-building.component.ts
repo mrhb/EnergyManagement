@@ -66,7 +66,8 @@ export class CreateBuildingComponent implements OnInit {
           this.buildingDto.postalCode = res.data.postalCode;
           this.buildingDto.address = res.data.address;
           this.buildingDto.ownership = res.data.ownership;
-          this.buildingDto.coolingHeatingSystemType = res.data.coolingHeatingSystemType;
+          this.buildingDto.coolingSystemType = res.data.coolingSystemType;
+          this.buildingDto.heatingSystemType = res.data.heatingSystemType;
           this.buildingDto.powerSharingNum = res.data.powerSharingNum;
           this.buildingDto.gasSharingNum = res.data.gasSharingNum;
           this.buildingDto.waterSharingNum = res.data.waterSharingNum;

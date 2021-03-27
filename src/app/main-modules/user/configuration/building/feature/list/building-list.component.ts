@@ -15,7 +15,7 @@ import {Moment} from '../../../../../../shared/tools/moment';
 import {ChartFilter} from '../../model/chart';
 import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/chartEnum';
 import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
-import {CoolingHeatingSystemType} from '../../model/buildingEnum';
+import {CoolingSystemType, HeatingSystemType} from '../../model/buildingEnum';
 import * as XLSX from 'xlsx';
 type AOA = any[][];
 
@@ -36,7 +36,8 @@ export class BuildingListComponent implements OnInit {
   data: AOA = [[1, 2], [3, 4]];
 
   useTypeBuildingEnum = UseTypeBuildingEnum;
-  coolingHeatingSystemType = CoolingHeatingSystemType;
+  coolingSystemType = CoolingSystemType;
+  heatingSystemType = HeatingSystemType;
   region = new Region();
   buildingList: BuildingList[] = [];
   buildingEnum = UseTypeBuildingEnum;

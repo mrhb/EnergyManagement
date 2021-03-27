@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Building} from '../../../model/building';
 import {UseTypeBuildingEnum} from '../../../model/useTypeEnum';
-import {CoolingHeatingSystemType, Ownership} from '../../../model/buildingEnum';
+import {HeatingSystemType,CoolingSystemType, Ownership} from '../../../model/buildingEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
@@ -22,7 +22,8 @@ export class AddBuildingComponent implements OnInit {
   touched = false;
   useTypeEnum = UseTypeBuildingEnum;
   ownershipEnum = Ownership;
-  coolingHeatingSystemTypeEnum = CoolingHeatingSystemType;
+  coolingSystemTypeEnum = CoolingSystemType;
+  heatingSystemTypeEnum = HeatingSystemType;
   moment = Moment;
 
   @Input() bId: string;
@@ -45,11 +46,12 @@ export class AddBuildingComponent implements OnInit {
       postalCode: ['', [Validators.required, Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
       address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      coolingHeatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      powerSharingNum: [''],
-      gasSharingNum: [''],
-      waterSharingNum: [''],
-      nonEnergyCarrierSharingNum: [''],
+      coolingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      heatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      powerSharNum: [''],
+      gasSharNum: [''],
+      waterSharNum: [''],
+      energyCarierOthersNum: [''],
     });
   }
  

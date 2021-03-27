@@ -1,5 +1,5 @@
 import {UseTypeBuildingEnum} from './useTypeEnum';
-import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
+import {CoolingSystemType,HeatingSystemType, Ownership} from './buildingEnum';
 import {EnergyLabelType} from './EnergyLabelType';
 
 export class CompleteStep {
@@ -26,7 +26,8 @@ export class Building {
   exploitationPersonnelNum: string; // تعداد نفرات بهره بردار 
   postalCode: string; // کد پستی
   ownership: Ownership;
-  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  heatingSystemType: HeatingSystemType; //نوع سیستم گرمایش
+  coolingSystemType: CoolingSystemType; //نوع سیستم سرمایش 
   powerSharingNum: string;  //تعداد انشعاب برق
   gasSharingNum: string;  //تعداد انشعاب گاز
   waterSharingNum: string;  //تعداد انشعاب آب
@@ -79,7 +80,8 @@ export class BuildingList {
   ayanArea: number; //مساحت اعیان
   useFullArea: number; //مساحت مفید
   id: string;//تعداد انشعابها
-  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  heatingSystemType: HeatingSystemType; //نوع سیستم گرمایش
+  coolingSystemType: CoolingSystemType; //نوع سیستم سرمایش 
   postalCode: string; // کد پستی
   powerSharingNum: string;  //تعداد انشعاب برق
   gasSharingNum: string;  //تعداد انشعاب گاز

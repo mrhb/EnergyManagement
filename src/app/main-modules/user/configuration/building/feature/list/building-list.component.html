@@ -41,7 +41,8 @@
                   <th scope="col"  >مساحت اعیان</th>
                   <th scope="col"  >مساحت مفید</th>
                   <th scope="col"  >تعداد انشعابها</th>
-                  <th scope="col"  >نوع سیستم سرمایش  و گرمایش</th>
+                  <th scope="col"  >نوع سیستم گرمایش</th>
+                  <th scope="col"  >نوع سیستم سرمایش</th>
                   <th scope="col" width="40" >کد پستی </th>
                   <th scope="col" width="40" colspan="3" class="text-center">عملیات</th>
                 </tr>
@@ -57,8 +58,9 @@
                   <td>{{building.useFullArea}}</td>
                   <td>{{building.powerSharingNum+building.waterSharingNum+
                     building.gasSharingNum+building.nonEnergyCarrierSharingNum}}</td>
-                  <td>{{coolingHeatingSystemType[building.coolingHeatingSystemType].toString()}}</td> 
-                  <td>{{building.postalCode}}</td>
+                    <td>{{coolingSystemType[building.coolingSystemType].toString()}}</td> 
+                    <td>{{heatingSystemType[building.heatingSystemType].toString()}}</td> 
+                    <td>{{building.postalCode}}</td>
                   <td class="text-center">    
                     <span class="cursor-pointer fa fa-edit"
                     [queryParams]="{id: building.id}"
