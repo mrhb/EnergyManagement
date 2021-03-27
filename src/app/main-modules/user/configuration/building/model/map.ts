@@ -1,4 +1,6 @@
 export enum MapEnum {
-  ARCHITECTURAL = <any> 'پلان معماری',
-  FACILITY = <any> 'پلان تاسیسات',
+  ARCHITECTURAL = <any> 'معماری',
+  FACILITY = <any> 'تاسیسات',
+  ELECTRICAL = <any> 'الکتریکی',
+  CITE = <any> 'سایت',
 }
