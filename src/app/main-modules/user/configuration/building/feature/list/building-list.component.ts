@@ -192,7 +192,7 @@ export class BuildingListComponent implements OnInit {
 
   deleteBuilding(i: number, bId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
+      'حذف ساختمان',
       'آیا اطمینان دارید که ساختمان حذف گردد؟',
       'بله',
       'خیر',
@@ -200,7 +200,7 @@ export class BuildingListComponent implements OnInit {
         this.buildingService.deleteBuilding({id: bId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف ساختمان با موفقیت انجام گردید');
               this.buildingList.splice(i, 1);
             }
           });
