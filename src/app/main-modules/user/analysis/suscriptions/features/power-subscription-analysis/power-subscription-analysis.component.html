@@ -10,6 +10,25 @@
             </div>
           </div>
     </div>
+    <form [formGroup]="form" class="w-100">
+      <!-- نوع تحلیل -->
+      <div class="mb-4 col-md-3">
+        <div class="w-100">
+          <label for="powerAnalysisType" class="form-label">انتخاب پارامتر</label>
+          <select id="powerAnalysisType"
+                  class="form-control text-right"
+                  [(ngModel)]="powerAnalysisDto.powerAnalysisType"
+                  (change)="updateChart()"
+                  formControlName="powerAnalysisType"
+                  name="powerAnalysisType">
+            <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+              {{item.value}}
+            </option>
+          </select>
+        </div>
+      </div>
+  </form>
+
     <div class="col-12">
     <h1>{{region}}</h1>
     <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>

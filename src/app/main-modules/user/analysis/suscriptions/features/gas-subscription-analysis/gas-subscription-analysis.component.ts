@@ -5,7 +5,7 @@ import { SeriesInfo } from '../../../model/chart';
 import { StateService } from '../../../state.service';
 import { GasAnalysisDto } from '../../model/gas';
 import { GasAnalysisTypeEnum } from '../../model/gasEnum';
-import { GasService } from '../../service/gas.service';
+import { GasAnalysisService } from '../../service/gas-analysis.service';
 
 
 declare var $: any;
@@ -34,7 +34,7 @@ export class GasSubscriptionAnalysisComponent implements OnInit {
   
   constructor(private formBuilder: FormBuilder,
     public stateService:StateService,
-    private gasService:GasService
+    private gasService:GasAnalysisService
     ) {
       stateService.region.subscribe(reg=>{
         this.region=reg;

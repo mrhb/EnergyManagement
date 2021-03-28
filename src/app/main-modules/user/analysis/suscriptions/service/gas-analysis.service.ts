@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class GasService extends GeneralService  {
+export class GasAnalysisService extends GeneralService  {
  
 
   constructor(public http: HttpClient) {

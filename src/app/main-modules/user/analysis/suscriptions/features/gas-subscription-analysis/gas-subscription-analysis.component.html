@@ -3,34 +3,31 @@
         <div class="title-header d-flex justify-content-between align-items-center">
             <div>
               <h1>
-                <strong>تحلیل ظرفیت کنتور اشتراکات گاز  </strong>
+                <strong>تحلیل اشتراکات گاز  </strong>
               </h1>
-              <p class="sub-title-header">
-                با انتخاب منطقه مورد نظر تحلیل ظرفیت کنتور اشتراکات گاز آن منطقه را می توان مشاهده کرد
-              </p>
             </div>
          
               <button class="btn btn-primary" [routerLink]="'/index/user/analysis/demandSum'">تحلیل  </button>
             </div>
     </div>
-      <form [formGroup]="form" class="w-100">
-          <!-- نوع تحلیل -->
-          <div class="mb-4 col-md-3">
-            <div class="w-100">
-              <label for="gasAnalysisType" class="form-label">انتخاب پارامتر</label>
-              <select id="gasAnalysisType"
-                      class="form-control text-right"
-                      [(ngModel)]="gasAnalysisDto.gasAnalysisType"
-                      (change)="updateChart()"
-                      formControlName="gasAnalysisType"
-                      name="gasAnalysisType">
-                <option *ngFor="let item of gasAnalysisTypeEnum | enumKeyValue" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
-            </div>
+    <form [formGroup]="form" class="w-100">
+        <!-- نوع تحلیل -->
+        <div class="mb-4 col-md-3">
+          <div class="w-100">
+            <label for="gasAnalysisType" class="form-label">انتخاب پارامتر</label>
+            <select id="gasAnalysisType"
+                    class="form-control text-right"
+                    [(ngModel)]="gasAnalysisDto.gasAnalysisType"
+                    (change)="updateChart()"
+                    formControlName="gasAnalysisType"
+                    name="gasAnalysisType">
+              <option *ngFor="let item of gasAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
           </div>
-      </form>
+        </div>
+    </form>
     <div class="col-12">
     <h1>{{region}}</h1>
     <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>
