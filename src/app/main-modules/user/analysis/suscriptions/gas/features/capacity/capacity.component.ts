@@ -2,9 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SeriesInfo } from '../../../../model/chart';
 import { StateService } from '../../../../state.service';
+import Notiflix from 'notiflix';
+
 import { GasAnalysisDto } from '../../../model/gas';
 import { GasAnalysisTypeEnum } from '../../../model/gasEnum';
 import { GasService } from '../../../service/gas.service';
+
+declare var $: any;
 
 @Component({
   selector: 'app-capacity',
@@ -26,11 +30,12 @@ export class CapacityComponent implements OnInit {
     
   }
   form: FormGroup;
+  regionId: { regionId: string; };
   
   
   constructor(private formBuilder: FormBuilder,
     public stateService:StateService,
-    gasService:GasService
+    private gasService:GasService
     ) {
       stateService.region.subscribe(reg=>{
         this.region=reg;
@@ -43,12 +48,30 @@ export class CapacityComponent implements OnInit {
     }
     
     ngOnInit(): void {
-    this.gasAnalysisDto.gasAnalysisType=GasAnalysisTypeEnum.CAPACITY ;
+    this.gasAnalysisDto.gasAnalysisType=GasAnalysisTypeEnum[GasAnalysisTypeEnum.CAPACITY.toString()] ;
   }
 
   updateChart(){
+    switch (this.gasAnalysisDto.gasAnalysisType) {
+      case GasAnalysisTypeEnum[GasAnalysisTypeEnum.CAPACITY.toString()]:
+        this.gasService.getCapacityAnalysis(this.regionId)
+        .subscribe((res: any) => {
+          if (res) {
+            this.series=res.data;
+            Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+            setTimeout(() => {
+              $('#pills-building-tab').click();
+            }, 200);
+            // this.router.navigate(['/index/user/configuration/powerList']);
+          }
+        });
 
-    
+        break;
+    }    
   }
 
 }
+function regionId(regionId: any) {
+  throw new Error('Function not implemented.');
+}
+
