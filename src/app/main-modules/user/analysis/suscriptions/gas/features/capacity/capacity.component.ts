@@ -58,7 +58,7 @@ export class CapacityComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             this.series=res.data;
-            Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
+            Notiflix.Notify.Success('اطلاعات ظرفیت کنتور های گاز دریافت شد.');
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
@@ -67,6 +67,49 @@ export class CapacityComponent implements OnInit {
         });
 
         break;
+        case GasAnalysisTypeEnum[GasAnalysisTypeEnum.CONSUPTION.toString()]:
+          this.gasService.gasConsuptionAnalysis(this.regionId)
+          .subscribe((res: any) => {
+            if (res) {
+              this.series=res.data;
+              Notiflix.Notify.Success('اطلاعات مصرف کنتور های گاز دریافت شد.');
+              setTimeout(() => {
+                $('#pills-building-tab').click();
+              }, 200);
+              // this.router.navigate(['/index/user/configuration/powerList']);
+            }
+          });
+  
+          break;
+          case GasAnalysisTypeEnum[GasAnalysisTypeEnum.CONTOR.toString()]:
+            this.gasService.getContorAnalysis(this.regionId)
+            .subscribe((res: any) => {
+              if (res) {
+                this.series=res.data;
+                Notiflix.Notify.Success('اطلاعات کنتور های گاز دریافت شد.');
+                setTimeout(() => {
+                  $('#pills-building-tab').click();
+                }, 200);
+                // this.router.navigate(['/index/user/configuration/powerList']);
+              }
+            });
+    
+            break;
+            case GasAnalysisTypeEnum[GasAnalysisTypeEnum.SHIR.toString()]:
+              this.gasService.getShirAnalysis(this.regionId)
+              .subscribe((res: any) => {
+                if (res) {
+                  this.series=res.data;
+                  Notiflix.Notify.Success('اطلاعات سایز شیر کنتور های گاز دریافت شد.');
+                  setTimeout(() => {
+                    $('#pills-building-tab').click();
+                  }, 200);
+                  // this.router.navigate(['/index/user/configuration/powerList']);
+                }
+              });
+      
+              break;
+
     }    
   }
 

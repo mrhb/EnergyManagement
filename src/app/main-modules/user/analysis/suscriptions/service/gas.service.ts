@@ -12,10 +12,19 @@ export class GasService extends GeneralService  {
 
   constructor(public http: HttpClient) {
     super(http);
-    this.prefixPath = GATEWAY_URL + '/api/analysis/suscriptions';
+    this.prefixPath = GATEWAY_URL + '/analysis/suscriptions';
    }
 
   getCapacityAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
-    return super.getCheckService('get-capacity', errorSelector, param);
+    return super.getCheckService('get-gas-capacity', errorSelector, param);
+  }
+  gasConsuptionAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-gas-consuption', errorSelector, param);
+  }
+  getContorAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-gas-contor', errorSelector, param);
+  }
+  getShirAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-gas-shir', errorSelector, param);
   }
 }
