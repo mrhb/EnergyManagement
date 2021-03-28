@@ -24,6 +24,7 @@ export class Building {
   constructionYear: string;
   floorNum: string; // تعداد طبقات
   exploitationPersonnelNum: string; // تعداد نفرات بهره بردار 
+  address: string; // آدرس 
   postalCode: string; // کد پستی
   ownership: Ownership;
   heatingSystemType: HeatingSystemType; //نوع سیستم گرمایش
@@ -32,7 +33,12 @@ export class Building {
   gasSharingNum: string;  //تعداد انشعاب گاز
   waterSharingNum: string;  //تعداد انشعاب آب
   nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
-  address: string;
+  arenaArea: number;  //مساحت عرصه
+  ayanArea: number; //مساحت اعیان
+  useFullArea: number; //مساحت مفید
+  externalWallsTotalArea: number; // مساحت کل جداره های خارجی 
+  externalGlassTotalArea: number;// مساحت کل شیشه های خارجی 
+
 }
 
 export class Area {

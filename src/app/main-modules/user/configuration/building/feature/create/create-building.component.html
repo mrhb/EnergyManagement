@@ -29,19 +29,19 @@
         <div class="md-step-bar-right"></div>
       </div>
       <!-- مساحت         -->
-      <div class="md-step"
+    <!--   <div class="md-step"
             (click)="getCurrentStep(2)"
             [ngClass]="{'active done': completeStep.two === true, 'active editable' : currentStep === 2}">
         <div class="md-step-circle"><span></span></div>
         <div class="md-step-title">مساحت</div>
-        <!--      <div class="md-step-optional">اختیاری</div>-->
+             <div class="md-step-optional">اختیاری</div>
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
-      </div>
+      </div>-->
       <!-- فضا -->
       <div class="md-step"
-            (click)="getCurrentStep(3)"
-            [ngClass]="{'active done': completeStep.three === true, 'active editable' : currentStep === 3}">
+            (click)="getCurrentStep(2)"
+            [ngClass]="{'active done': completeStep.two === true, 'active editable' : currentStep === 2}">
         <div class="md-step-circle"><span></span></div>
         <div class="md-step-title">فضا</div>
         <!--      <div class="md-step-optional">اختیاری</div>-->
@@ -50,8 +50,8 @@
       </div>
       <!-- نقشه -->
       <div class="md-step"
-            (click)="getCurrentStep(4)"
-            [ngClass]="{'active done': completeStep.four === true, 'active editable' : currentStep === 4}">
+            (click)="getCurrentStep(3)"
+            [ngClass]="{'active done': completeStep.three === true, 'active editable' : currentStep === 3}">
         <div class="md-step-circle"><span></span></div>
         <div class="md-step-title">نقشه</div>
         <!--      <div class="md-step-optional">اختیاری</div>-->
@@ -60,8 +60,8 @@
       </div>
       <!-- اطلاعات جداره ها -->
       <div class="md-step"
-            (click)="getCurrentStep(5)"
-            [ngClass]="{'active done': completeStep.five === true, 'active editable' : currentStep === 5}">
+            (click)="getCurrentStep(4)"
+            [ngClass]="{'active done': completeStep.four === true, 'active editable' : currentStep === 4}">
         <div class="md-step-circle"><span></span></div>
         <div class="md-step-title">اطلاعات جداره ها</div>
         <!--      <div class="md-step-optional">اختیاری</div>-->
@@ -87,22 +87,26 @@
                           (completeStep)="getComplete($event)"
                           (nextStep)="getStep($event)"></app-add-building>
       </div>
-      <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >=2">
+      <!-- مساحت ها -->
+      <!-- <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >=2">
         <app-area [editedAreaDto]="areaDto" [buildingId]="buildingId"
                   (completeStep)="getComplete($event)"
                   (nextStep)="getStep($event)"></app-area>
-      </div>
-      <div class="md-content-stepper" [hidden]="currentStep !== 3"  *ngIf="endActiveStep >=2">
+      </div> -->
+      <!-- فضا -->
+      <div class="md-content-stepper" [hidden]="currentStep !== 2"  *ngIf="endActiveStep >=1">
         <app-space [editedSpaceList]="spaceList" [buildingId]="buildingId"
                     (completeStep)="getComplete($event)"
                     (nextStep)="getStep($event)"></app-space>
       </div>
-      <div class="md-content-stepper" [hidden]="currentStep !== 4" *ngIf="endActiveStep >=2">
+      <!-- نقشه -->
+      <div class="md-content-stepper" [hidden]="currentStep !== 3" *ngIf="endActiveStep >=2">
         <app-map [editedMapList]="mapList" [buildingId]="buildingId"
                   (completeStep)="getComplete($event)"
                   (nextStep)="getStep($event)"></app-map>
       </div>
-      <div class="md-content-stepper" [hidden]="currentStep !== 5" *ngIf="endActiveStep >=2">
+      <!-- جداره -->
+      <div class="md-content-stepper" [hidden]="currentStep !== 4" *ngIf="endActiveStep >=3">
         <app-wall-information [editedWallInformation]="wallInformation" [buildingId]="buildingId"
                               (completeStep)="getComplete($event)"
                               (nextStep)="getStep($event)"></app-wall-information>

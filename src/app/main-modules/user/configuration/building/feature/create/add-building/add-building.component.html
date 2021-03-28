@@ -1,4 +1,5 @@
 <form [formGroup]="form" class="w-100" (ngSubmit)="updateBuilding()">
+  <div class="card">
   <div class="form row">
     <!-- نام ساختمان  -->
     <div class="mb-4 col-md-2">
@@ -93,8 +94,7 @@
         </select>
       </div>
       <app-alert-error [data]="form.controls['heatingSystemType']" [touched]="touched"></app-alert-error>
-    </div> 
-    
+    </div>   
     <!-- نوع سیستم سرمایشی -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
@@ -158,18 +158,18 @@
       </div>
       <app-alert-error [data]="form.controls['nonEnergyCarrierSharingNum']" [touched]="touched"></app-alert-error>
     </div>    
-      <!-- کد پستی -->
-      <div class="mb-4 col-md-2">
-      <div class="w-100">
-        <label for="postalCode" class="form-label">کد پستی</label>
-        <input class="form-control text-right" id="postalCode" placeholder=""
-                maxlength="10"
-                minlength="10"
-                [(ngModel)]="buildingDto.postalCode"
-                formControlName="postalCode"
-                name="postalCode">
-      </div>
-      <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
+    <!-- کد پستی -->
+    <div class="mb-4 col-md-2">
+    <div class="w-100">
+      <label for="postalCode" class="form-label">کد پستی</label>
+      <input class="form-control text-right" id="postalCode" placeholder=""
+              maxlength="10"
+              minlength="10"
+              [(ngModel)]="buildingDto.postalCode"
+              formControlName="postalCode"
+              name="postalCode">
+    </div>
+    <app-alert-error [data]="form.controls['postalCode']" [touched]="touched"></app-alert-error>
     </div>
     <!-- آدرس -->
     <div class="mb-4 col-12">
@@ -182,28 +182,82 @@
         ></textarea>
       </div>
       <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-    </div>
+    </div>      
+  </div>
+  </div>
 
-      <!-- <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p> -->
-     <!-- مساحت عرصه -->
-   <!-- <div class="form row">
-        <div class="mb-4 col-md-2">
-          <div class="w-100">
-            <label for="arenaArea" class="form-label">مساحت عرصه</label>
-            <input class="form-control text-right" id="arenaArea" placeholder=""
-            type="number" min="0"
-            [(ngModel)]="buildingDto.arenaArea"
-            formControlName="arenaArea"
-            name="arenaArea">
-          </div>
-          <app-alert-error [data]="form.controls['arenaArea']" [touched]="touched"></app-alert-error>
+  <div class="card">
+      <div class="card-header flex-card-header">
+        <strong >مساحت ها <small> تمامی ابعاد بر حسب متر مربع میباشد  </small>  </strong>  
+      </div>
+      <div class="form row">
+      <!-- مساحت عرصه -->
+      <div class="mb-4 col-md-2">
+        <div class="w-100">
+          <label for="arenaArea" class="form-label"> عرصه</label>
+          <input class="form-control text-right" id="arenaArea" placeholder=""
+          type="number" min="0"
+          [(ngModel)]="buildingDto.arenaArea"
+          formControlName="arenaArea"
+          name="arenaArea">
         </div>
-      </div> -->
-        
-
-    <div class="col-12">
-      <button type="submit" class="btn btn-success text-center ml-3"*ngIf="!bId">ثبت</button>
-      <button type="submit" class="btn btn-success text-center ml-3"*ngIf="bId">ویرایش</button>  
-    </div>
+        <app-alert-error [data]="form.controls['arenaArea']" [touched]="touched"></app-alert-error>
+      </div>
+      <!-- مساحت اعیان -->
+      <div class="mb-4 col-md-2">
+        <div class="w-100">
+          <label for="ayanArea" class="form-label"> اعیان</label>
+          <input class="form-control text-right" id="ayanArea" placeholder=""
+                type="number" min="0"
+                maxlength="12"
+                [(ngModel)]="buildingDto.ayanArea"
+                formControlName="ayanArea"
+                name="ayanArea">
+        </div>
+        <app-alert-error [data]="form.controls['ayanArea']" [touched]="touched"></app-alert-error>
+      </div>
+       <!-- مساحت مفید -->
+      <div class="mb-4 col-md-2">
+        <div class="w-100">
+          <label for="useFullArea" class="form-label"> مفید</label>
+          <input class="form-control text-right" id="useFullArea" placeholder=""
+                type="number" min="0"
+                maxlength="12"
+                [(ngModel)]="buildingDto.useFullArea"
+                formControlName="useFullArea"
+                name="useFullArea">
+        </div>
+        <app-alert-error [data]="form.controls['useFullArea']" [touched]="touched"></app-alert-error>
+      </div>
+      <!-- مساحت کل جداره های خارجی -->
+      <div class="mb-4 col-md-2">
+        <div class="w-100">
+          <label for="externalWallsTotalArea" class="form-label">  جداره های خارجی</label>
+          <input class="form-control text-right" id="externalWallsTotalArea" placeholder=""
+                type="number" min="0"
+                [(ngModel)]="buildingDto.externalWallsTotalArea "
+                formControlName="externalWallsTotalArea"
+                name="externalWallsTotalArea"
+                maxlength="3">
+        </div>
+        <app-alert-error [data]="form.controls['externalWallsTotalArea']" [touched]="touched"></app-alert-error>
+      </div>
+       <!-- مساحت کل شیشه های خارجی -->
+      <div class="mb-4 col-md-2">
+        <div class="w-100">
+          <label for="externalGlassTotalArea" class="form-label">  شیشه های خارجی</label>
+          <input class="form-control text-right" id="externalGlassTotalArea" placeholder=""
+                type="number" min="0"
+                [(ngModel)]="buildingDto.externalGlassTotalArea"
+                formControlName="externalGlassTotalArea"
+                name="externalGlassTotalArea">
+        </div>
+        <app-alert-error [data]="form.controls['externalGlassTotalArea']" [touched]="touched"></app-alert-error>
+      </div>
+  </div>
+</div>
+<div class="col-12">
+    <button type="submit" class="btn btn-success text-center ml-3"*ngIf="!bId">ثبت</button>
+    <button type="submit" class="btn btn-success text-center ml-3"*ngIf="bId">ویرایش</button>  
   </div>
 </form>
