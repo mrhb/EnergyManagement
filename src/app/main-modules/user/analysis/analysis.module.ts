@@ -35,6 +35,7 @@ import { GasConsValidComponent } from './validation/gas/features/gasConsValid/ga
 import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
 import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
+import { PipeModule } from 'src/app/shared/tools/pipe-module';
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
@@ -46,6 +47,7 @@ import { InstrumConsumptionComponent } from './instruments/features/instrumConsu
     PowerAmounValidComponent, InstrumConsumptionComponent],
   imports: [
     CommonModule,
+    PipeModule,
     AnalysisRoutingModule,
     RegionModule,
     ChartsModule,
