@@ -1,5 +1,5 @@
 <form [formGroup]="form" class="w-100" (ngSubmit)="createSpace()">
-  <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p>
+  <!-- <p class="sub-title-header">تمامی ابعاد بر حسب متر مربع میباشد</p> -->
   <div class="form row">
     <div class="mb-4 col-md-2">
       <div class="w-100">
@@ -7,8 +7,7 @@
         <input class="form-control text-right" id="name" placeholder=""
                [(ngModel)]="spaceDto.name"
                formControlName="name"
-               name="name"
-        >
+               name="name">
       </div>
       <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
     </div>
@@ -20,8 +19,7 @@
                maxlength="12"
                [(ngModel)]="spaceDto.number"
                formControlName="number"
-               name="number"
-        >
+               name="number">
       </div>
       <app-alert-error [data]="form.controls['number']" [touched]="touched"></app-alert-error>
     </div>
@@ -33,8 +31,7 @@
                maxlength="12"
                [(ngModel)]="spaceDto.floorNum"
                formControlName="floorNum"
-               name="floorNum"
-        >
+               name="floorNum">
       </div>
       <app-alert-error [data]="form.controls['floorNum']" [touched]="touched"></app-alert-error>
     </div>
@@ -44,37 +41,32 @@
         <input class="form-control text-right" id="useType" placeholder=""
                [(ngModel)]="spaceDto.useType "
                formControlName="useType"
-               name="useType"
-        >
+               name="useType">
       </div>
       <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
     </div>
     <div class="mb-4 col-md-2">
       <div class="w-100">
-        <label for="area" class="form-label">مساحت</label>
+        <label for="area" class="form-label">مساحت (متر مربع)</label>
         <input class="form-control text-right" id="area" placeholder=""
                type="number" min="0"
                [(ngModel)]="spaceDto.area"
                formControlName="area"
-               name="area"
-        >
+               name="area">
       </div>
       <app-alert-error [data]="form.controls['area']" [touched]="touched"></app-alert-error>
     </div>
-
     <div class="col-12">
-      <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <!-- <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div> -->
       <div (click)="cancelEdit()" *ngIf="edited" class="btn btn-outline-primary text-center ml-3">انصراف</div>
-      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">ثبت</button>
+      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">افزودن فضا</button>
       <button type="submit" *ngIf="edited" class="btn btn-success text-center ml-3">ویرایش</button>
-      <button (click)="getNextStep()" *ngIf="!edited && spaceList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button>
+      <!-- <button (click)="getNextStep()" *ngIf="!edited && spaceList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button> -->
     </div>
-
     <ng-container *ngIf="spaceList.length > 0">
       <div class="col-12">
         <hr>
       </div>
-
       <div class="col-12">
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
@@ -108,7 +100,5 @@
         </div>
       </div>
     </ng-container>
-
-
   </div>
 </form>

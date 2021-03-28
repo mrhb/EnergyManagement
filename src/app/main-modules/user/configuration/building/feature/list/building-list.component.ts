@@ -15,7 +15,9 @@ import {Moment} from '../../../../../../shared/tools/moment';
 import {ChartFilter} from '../../model/chart';
 import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/chartEnum';
 import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
-import {CoolingHeatingSystemType} from '../../model/buildingEnum';
+import {CoolingSystemType, HeatingSystemType} from '../../model/buildingEnum';
+import * as XLSX from 'xlsx';
+type AOA = any[][];
 
 declare var $: any;
 
@@ -29,9 +31,13 @@ export class BuildingListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  buildingId: string;
+  xlsxBuildingList: BuildingList[] = [];
+  data: AOA = [[1, 2], [3, 4]];
 
   useTypeBuildingEnum = UseTypeBuildingEnum;
-  coolingHeatingSystemType = CoolingHeatingSystemType;
+  coolingSystemType = CoolingSystemType;
+  heatingSystemType = HeatingSystemType;
   region = new Region();
   buildingList: BuildingList[] = [];
   buildingEnum = UseTypeBuildingEnum;
@@ -56,6 +62,50 @@ export class BuildingListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+  onFileChange(evt: any) {
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(evt.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      console.log(this.data);
+
+      this.data.forEach(item => {
+       let bill=new BuildingList();
+
+      bill.name = item[0]; // نام مشترک
+      bill.floorNum=item[1]; // تعداد طبقات
+
+      this.xlsxBuildingList.push(bill);
+    });
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  saveXlsxData()
+  {
+    this.buildingService.createMultiReceipt(this.xlsxBuildingList)
+    .subscribe((res: any) => {
+      if (res) {
+        Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
+        // setTimeout(() => {
+        //   $('#pills-building-tab').click();
+        // }, 200);
+        // this.router.navigate(['/index/user/configuration/powerList']);
+      }
+    });
   }
 
   getEnergyLabel(index): void {

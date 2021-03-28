@@ -28,11 +28,11 @@ export class SpaceComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService) {
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      number: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      floorNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      useType: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      area: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      name: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      number: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      floorNum: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      useType: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
+      area: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
     });
   }
 

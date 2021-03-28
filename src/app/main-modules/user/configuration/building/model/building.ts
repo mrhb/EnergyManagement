@@ -1,5 +1,5 @@
 import {UseTypeBuildingEnum} from './useTypeEnum';
-import {CoolingHeatingSystemType, Ownership} from './buildingEnum';
+import {CoolingSystemType,HeatingSystemType, Ownership} from './buildingEnum';
 import {EnergyLabelType} from './EnergyLabelType';
 
 export class CompleteStep {
@@ -24,14 +24,21 @@ export class Building {
   constructionYear: string;
   floorNum: string; // تعداد طبقات
   exploitationPersonnelNum: string; // تعداد نفرات بهره بردار 
+  address: string; // آدرس 
   postalCode: string; // کد پستی
   ownership: Ownership;
-  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
-  powerSharNum: string;  //تعداد انشعاب برق
-  gasSharNum: string;  //تعداد انشعاب گاز
-  waterSharNum: string;  //تعداد انشعاب آب
-  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
-  address: string;
+  heatingSystemType: HeatingSystemType; //نوع سیستم گرمایش
+  coolingSystemType: CoolingSystemType; //نوع سیستم سرمایش 
+  powerSharingNum: string;  //تعداد انشعاب برق
+  gasSharingNum: string;  //تعداد انشعاب گاز
+  waterSharingNum: string;  //تعداد انشعاب آب
+  nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
+  arenaArea: number;  //مساحت عرصه
+  ayanArea: number; //مساحت اعیان
+  useFullArea: number; //مساحت مفید
+  externalWallsTotalArea: number; // مساحت کل جداره های خارجی 
+  externalGlassTotalArea: number;// مساحت کل شیشه های خارجی 
+
 }
 
 export class Area {
@@ -79,12 +86,13 @@ export class BuildingList {
   ayanArea: number; //مساحت اعیان
   useFullArea: number; //مساحت مفید
   id: string;//تعداد انشعابها
-  coolingHeatingSystemType: CoolingHeatingSystemType; //نوع سیستم سرمایش  و گرمایش
+  heatingSystemType: HeatingSystemType; //نوع سیستم گرمایش
+  coolingSystemType: CoolingSystemType; //نوع سیستم سرمایش 
   postalCode: string; // کد پستی
-  powerSharNum: string;  //تعداد انشعاب برق
-  gasSharNum: string;  //تعداد انشعاب گاز
-  waterSharNum: string;  //تعداد انشعاب آب
-  energyCarierOthersNum: string;  // تعداد حامل های انرژی غیر 
+  powerSharingNum: string;  //تعداد انشعاب برق
+  gasSharingNum: string;  //تعداد انشعاب گاز
+  waterSharingNum: string;  //تعداد انشعاب آب
+  nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
 }
 
 export class EnergyLabel {

@@ -1,4 +1,5 @@
-<form [formGroup]="form" class="w-100" (ngSubmit)="createSpace()">
+  <!-- عنوان نقشه -->
+  <form [formGroup]="form" class="w-100" (ngSubmit)="createMap()">
   <div class="form row">
     <div class="mb-4 col-md-2">
       <div class="w-100">
@@ -10,6 +11,9 @@
       </div>
       <app-alert-error [data]="form.controls['title']" [touched]="touched"></app-alert-error>
     </div>
+
+
+  <!-- دسته بندی نقشه -->
     <div class="mb-4 col-md-2">
       <div class="w-100">
         <label for="category" class="form-label">دسته بندی نقشه</label>
@@ -18,12 +22,8 @@
                 [(ngModel)]="mapDto.category"
                 formControlName="category"
                 name="category">
-          <option [value]="mapEnum[mapEnum.ARCHITECTURAL].toString()">
-            پلان معماری
-          </option>
-          <option [value]="mapEnum[mapEnum.FACILITY].toString()">
-            پلان تاسیسات
-          </option>
+                <option *ngFor="let item of mapEnum | enumKeyValue" [value]="item.key">
+                  {{item.value}} </option>
         </select>
       </div>
       <app-alert-error [data]="form.controls['category']" [touched]="touched"></app-alert-error>
@@ -58,11 +58,11 @@
     </div>
 
     <div class="col-12">
-      <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div>
+      <!-- <div (click)="goBack()" *ngIf="!edited" class="btn btn-outline-primary text-center ml-3">بازگشت</div> -->
       <div (click)="cancelEdit()" *ngIf="edited" class="btn btn-outline-primary text-center ml-3">انصراف</div>
-      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">ثبت</button>
+      <button type="submit" *ngIf="!edited" class="btn btn-success text-center ml-3">افزودن نقشه</button>
       <button type="submit" *ngIf="edited" class="btn btn-success text-center ml-3">ویرایش</button>
-      <button (click)="getNextStep()" *ngIf="!edited && mapList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button>
+      <!-- <button (click)="getNextStep()" *ngIf="!edited && mapList.length > 0" class="btn btn-primary text-center ml-3">ادامه</button> -->
     </div>
 
     <ng-container *ngIf="mapList.length > 0">
@@ -89,8 +89,8 @@
                 <td>{{item.title}}</td>
                 <td>{{mapEnum[item.category].toString()}}</td>
                 <td>{{item.number}}</td>
-                <td width="40"><span class="cursor-pointer fa fa-edit" (click)="editSpace(item)"></span></td>
-                <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteSpace(i, item.id)"></span></td>
+                <td width="40"><span class="cursor-pointer fa fa-edit" (click)="editMap(item)"></span></td>
+                <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteMap(i, item.id)"></span></td>
               </tr>
             </ng-container>
             </tbody>
@@ -98,7 +98,5 @@
         </div>
       </div>
     </ng-container>
-
-
   </div>
 </form>

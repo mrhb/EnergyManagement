@@ -66,25 +66,31 @@ export class CreateBuildingComponent implements OnInit {
           this.buildingDto.postalCode = res.data.postalCode;
           this.buildingDto.address = res.data.address;
           this.buildingDto.ownership = res.data.ownership;
-          this.buildingDto.coolingHeatingSystemType = res.data.coolingHeatingSystemType;
-          this.buildingDto.powerSharNum = res.data.powerSharNum;
-          this.buildingDto.gasSharNum = res.data.gasSharNum;
-          this.buildingDto.waterSharNum = res.data.waterSharNum;
-          this.buildingDto.energyCarierOthersNum = res.data.energyCarierOthersNum;
-          
-
+          this.buildingDto.coolingSystemType = res.data.coolingSystemType;
+          this.buildingDto.heatingSystemType = res.data.heatingSystemType;
+          this.buildingDto.powerSharingNum = res.data.powerSharingNum;
+          this.buildingDto.gasSharingNum = res.data.gasSharingNum;
+          this.buildingDto.waterSharingNum = res.data.waterSharingNum;
+          this.buildingDto.nonEnergyCarrierSharingNum = res.data.nonEnergyCarrierSharingNum;
+          // area
+          this.buildingDto.arenaArea = res.data.arenaArea;          
+          this.buildingDto.ayanArea = res.data.ayanArea;          
+          this.buildingDto.useFullArea = res.data.useFullArea;          
+          this.buildingDto.externalWallsTotalArea = res.data.externalWallsTotalArea;          
+          this.buildingDto.externalGlassTotalArea = res.data.externalGlassTotalArea;          
+                                      
           if (this.buildingDto.name) {
             this.completeStep.one = true;
             this.endActiveStep = 2;
           }
-
+          
           // area
-          this.areaDto.arenaArea = res.data.arenaArea;
+          // this.areaDto.arenaArea = res.data.arenaArea;          
           this.areaDto.ayanArea = res.data.ayanArea;
           this.areaDto.useFullArea = res.data.useFullArea;
           this.areaDto.externalWallsTotalArea = res.data.externalWallsTotalArea;
           this.areaDto.externalGlassTotalArea = res.data.externalGlassTotalArea;
-          if (this.areaDto.arenaArea) {
+          if (this.buildingDto.arenaArea) {
             this.completeStep.two = true;
           }
 
