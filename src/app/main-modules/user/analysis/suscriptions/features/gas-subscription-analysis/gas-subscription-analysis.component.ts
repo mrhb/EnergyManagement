@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SeriesInfo } from '../../../../model/chart';
-import { StateService } from '../../../../state.service';
 import Notiflix from 'notiflix';
+import { SeriesInfo } from '../../../model/chart';
+import { StateService } from '../../../state.service';
+import { GasAnalysisDto } from '../../model/gas';
+import { GasAnalysisTypeEnum } from '../../model/gasEnum';
+import { GasService } from '../../service/gas.service';
 
-import { GasAnalysisDto } from '../../../model/gas';
-import { GasAnalysisTypeEnum } from '../../../model/gasEnum';
-import { GasService } from '../../../service/gas.service';
 
 declare var $: any;
-
 @Component({
-  selector: 'app-capacity',
-  templateUrl: './capacity.component.html',
-  styleUrls: ['./capacity.component.scss']
+  selector: 'app-gas-subscription-analysis',
+  templateUrl: './gas-subscription-analysis.component.html',
+  styleUrls: ['./gas-subscription-analysis.component.scss']
 })
-export class CapacityComponent implements OnInit {
+export class GasSubscriptionAnalysisComponent implements OnInit {
   gasAnalysisDto= new GasAnalysisDto();
   
   gasAnalysisTypeEnum=GasAnalysisTypeEnum;

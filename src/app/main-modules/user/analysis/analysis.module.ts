@@ -12,10 +12,6 @@ import { AlertErrorModule } from 'src/app/shared/tools/alert-error/alert-error.m
 import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { StateService } from './state.service';
-import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity.component';
-import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
-import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
-import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
 import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
 import { EnergyAmountComponent } from './bills/energy/features/energyAmount/energyAmount.component';
 import { GasConsumptionComponent } from './bills/gas/features/gasConsumption/gasConsumption.component';
@@ -31,14 +27,14 @@ import { PowerConsValidComponent } from './validation/power/features/powerConsVa
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 import { PipeModule } from 'src/app/shared/tools/pipe-module';
 import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/power-subscription-analysis/power-subscription-analysis.component';
+import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
-    MainPanelComponent, ChartPanelComponent,CapacityComponent,GasDemandComponent,
-    GasTypeComponent,ValveSizeComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
+    MainPanelComponent, ChartPanelComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
     GasAmountComponent,PowerConsumptionComponent, PowerAmountComponent,WaterConsumptionComponent,
     WaterAmountComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
-    PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent],
+    PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent],
   imports: [
     CommonModule,
     PipeModule,

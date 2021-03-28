@@ -4,10 +4,6 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { BaseLineComponent } from './base-line/base-line.component';
 import { EnergyLabelComponent } from './energy-label/energy-label.component';
 import { MainPanelComponent } from './main-panel/main-panel.component';
-import { CapacityComponent } from './suscriptions/gas/features/capacity/capacity.component';
-import { GasDemandComponent } from './suscriptions/gas/features/gasDemand/gasDemand.component';
-import { GasTypeComponent } from './suscriptions/gas/features/gasType/gasType.component';
-import { ValveSizeComponent } from './suscriptions/gas/features/valveSize/valveSize.component';
 import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
 import { EnergyAmountComponent } from './bills/energy/features/energyAmount/energyAmount.component';
 import { GasAmountComponent } from './bills/gas/features/gasAmount/gasAmount.component';
@@ -23,6 +19,7 @@ import { PowerConsValidComponent } from './validation/power/features/powerConsVa
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/power-subscription-analysis/power-subscription-analysis.component';
+import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
 
 const routes: Routes = [
 
@@ -32,10 +29,7 @@ const routes: Routes = [
 
     children: [
       { path: 'power-subscription-analysis',                component: PowerSubscriptionAnalysisComponent,      },
-      { path: 'capacity',              component: CapacityComponent,    }, 
-      { path: 'gasDemand',             component: GasDemandComponent,   }, 
-      { path: 'gasType',               component: GasTypeComponent,     }, 
-      { path: 'valveSize',             component: ValveSizeComponent,   },
+      { path: 'gas-subscription-analysis',              component: GasSubscriptionAnalysisComponent,    }, 
       { path: 'energyConsumption',     component: EnergyConsumptionComponent,}, 
       { path: 'energyAmount',          component: EnergyAmountComponent,}, 
       { path: 'gasConsumption',        component: GasConsumptionComponent,}, 
