@@ -4,6 +4,7 @@ import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Building} from '../../../model/building';
 import {UseTypeBuildingEnum} from '../../../model/useTypeEnum';
 import {HeatingSystemType,CoolingSystemType, Ownership} from '../../../model/buildingEnum';
+import {Router} from '@angular/router';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {BuildingService} from '../../../service/building.service';
@@ -34,7 +35,8 @@ export class AddBuildingComponent implements OnInit {
   @Output() buildingId = new EventEmitter<any>();
 
   constructor(private formBuilder: FormBuilder,
-              private buildingService: BuildingService) {
+    public router: Router,
+    private buildingService: BuildingService) {
     this.buildingDto.constructionYear = this.moment.convertIsoToJDateFa(new Date().toISOString()).split('/')[0];
     console.log('this.buildingDto.constructionYear', this.buildingDto.constructionYear.split('/'));
     this.form = this.formBuilder.group({
@@ -95,6 +97,8 @@ export class AddBuildingComponent implements OnInit {
               this.buildingId.emit(res.data);
               this.nextStep.emit(2);
               this.completeStep.emit(1);
+              Notiflix.Notify.Success('تعریف ساختمان با موفقیت انجام شد.');
+              this.router.navigate(['/index/user/configuration/buildingList']);
             }
           }
           console.log('buildingService res', res);
@@ -106,14 +110,25 @@ export class AddBuildingComponent implements OnInit {
             if (res.data) {
               this.buildingId.emit(res.data);
               this.nextStep.emit(2);
+              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              this.router.navigate(['/index/user/configuration/buildingList']);
             }
           }
           console.log('buildingService res', res);
         });
     }
   }
+  // navigate(): void {   
+  //   this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
+  //     queryParams: {
+  //       // pageIndex: this.pageIndex,
+  //       // pageSize: this.pageSize,
+  //     },
+  //   });
 
-  goBack(): void {
+  // }
+
+ goBack(): void {
     this.nextStep.emit(0);
   }
   checkAreaValidators(item1: any, item2: any): (group: FormGroup) => any {
