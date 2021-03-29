@@ -14,7 +14,6 @@ import {UploadFileModule} from '../../../shared/tools/upload-file/upload-file.mo
 import {WallInformationComponent} from './building/feature/create/wall-information/wall-information.component';
 import {BuildingListComponent} from './building/feature/list/building-list.component';
 import {PaginatorModule} from '../../../shared/paginator/paginator.module';
-import {SubscriptionComponent} from './subscription/feature/create/subscription.component';
 
 import {PowerCreateComponent} from './subscription/feature/create/power/create/power-create.component';
 import {PipeModule} from '../../../shared/tools/pipe-module';
@@ -78,7 +77,6 @@ import { RegionModule } from 'src/app/base-modules/region/region.module';
     AddFacilityComponent,
     CreateInstrumentComponent,
     InstrumentListComponent,
-    SubscriptionComponent,
     PowerCreateComponent,
     PowerListComponent,
     GasCreateComponent,
