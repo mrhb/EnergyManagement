@@ -1,6 +1,6 @@
  
 // Some random pastel backgrounds with saturation in range 25-95% and lightness in range 85-95%:
-const hues=[266,288,187,111,70,17,45];
+const hues=[260,288,187,111,70,17,45];
 
 const backgrounds=[];
 const borders=[];
@@ -13,7 +13,7 @@ for (let  f = 0; f < hues.length; f++){
 
 
     var a=0.8
-    backgrounds[f]="hsl(" +(h) + ',' + s + '%,' +l + '%, 0.25)' ;
+    backgrounds[f]="hsl(" +(h) + ',' + s + '%,' +l + '%, 0.50)' ;
     borders[f]="hsl(" +(h) + ',' + s + '%,' +l + '%)';
 }
 
