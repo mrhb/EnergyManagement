@@ -1,225 +1,223 @@
 <div class="container">
-<div class="row">
-  <form [formGroup]="form" class="form" enctype="multipart/form-data" (ngSubmit)="createPower()">
-  <div class="col-lg-12">
-    <div class="card">
-      <div class="card-header flex-card-header">
-        <strong *ngIf="!powerId"> افزودن<small> کنتور برق </small>  </strong>
-        <strong *ngIf="powerId"> ویرایش<small> کنتور برق </small>  </strong>
-        <div class="d-flex">
-          <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'"> لیست <small> کنتورهای برق </small></button> 
-        </div>
-     </div>     
-      <div class="card-body">
-      <!-- اطلاعات اشتراک -->
-        <div class="form-group row">
-          <!-- نام مشترک   -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="name" class="form-label">نام مشترک</label>
-              <input class="form-control text-right" id="name" placeholder=""
-                      [(ngModel)]="powerDto.name"
-                      formControlName="name"
-                      name="name">
-            </div>
-            <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
+  <div class="row">
+    <form [formGroup]="form" class="form" enctype="multipart/form-data" (ngSubmit)="createPower()">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header flex-card-header">
+          <strong *ngIf="!powerId"> افزودن<small> کنتور برق </small>  </strong>
+          <strong *ngIf="powerId"> ویرایش<small> کنتور برق </small>  </strong>
+          <div class="d-flex">
+            <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'"> لیست <small> کنتورهای برق </small></button> 
           </div>
-
-          <!-- نشانی محل مصرف   -->
-          <div class="mb-4 col-10">
-            <div class="w-100">
-              <label for="address" class="form-label">نشانی محل مصرف</label>
-              <textarea class="form-control text-right" id="address" placeholder=""
-                        [(ngModel)]="powerDto.address"
-                        formControlName="address"
-                        name="address"
-              ></textarea>
-            </div>
-            <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
-          </div>
-
-          <!-- شناسه قبض  -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="billingId" class="form-label">شناسه قبض</label>
-              <input class="form-control text-right" id="billingId" placeholder=""
-                      [(ngModel)]="powerDto.billingId"
-                      formControlName="billingId"
-                      name="billingId">
-            </div>
-            <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
-          </div>
-
-          <!-- شماره پرونده  -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="fileNumber" class="form-label">شماره پرونده</label>
-              <input class="form-control text-right" id="fileNumber" placeholder=""
-                      [(ngModel)]="powerDto.fileNumber"
-                      formControlName="fileNumber"
-                      name="fileNumber">
-            </div>
-            <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
-          </div>
-
-          <!-- رمز رایانه  -->
+      </div>     
+        <div class="card-body">
+        <!-- اطلاعات اشتراک -->
+          <div class="form-group row">
+            <!-- نام مشترک   -->
             <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="systemPass" class="form-label">رمز رایانه</label>
-              <input class="form-control text-right" id="systemPass" placeholder=""
-                      [(ngModel)]="powerDto.systemPass"
-                      formControlName="systemPass"
-                      name="systemPass">
+              <div class="w-100">
+                <label for="name" class="form-label">نام مشترک</label>
+                <input class="form-control text-right" id="name" placeholder=""
+                        [(ngModel)]="powerDto.name"
+                        formControlName="name"
+                        name="name">
+              </div>
+              <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['systemPass']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!-- شماره بدنه کنتور -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="addressCode" class="form-label">شماره بدنه کنتور</label>
-              <input class="form-control text-right" id="addressCode" placeholder=""
-                      [(ngModel)]="powerDto.addressCode"
-                      formControlName="addressCode"
-                      name="addressCode">
+            <!-- نشانی محل مصرف   -->
+            <div class="mb-4 col-10">
+              <div class="w-100">
+                <label for="address" class="form-label">نشانی محل مصرف</label>
+                <textarea class="form-control text-right" id="address" placeholder=""
+                          [(ngModel)]="powerDto.address"
+                          formControlName="address"
+                          name="address"
+                ></textarea>
+              </div>
+              <app-alert-error [data]="form.controls['address']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!-- نوع کنتور -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="group" class="form-label">نوع کنتور</label>
-              <select id="group"
-                      class="form-control text-right"
-                      [(ngModel)]="powerDto.group"
-                      formControlName="group"
-                      name="group">
-                <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
+            <!-- شناسه قبض  -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="billingId" class="form-label">شناسه قبض</label>
+                <input class="form-control text-right" id="billingId" placeholder=""
+                        [(ngModel)]="powerDto.billingId"
+                        formControlName="billingId"
+                        name="billingId">
+              </div>
+              <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!-- نوع ولتاژ -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="voltageType" class="form-label">نوع ولتاژ</label>
-              <select id="voltageType"
-                      class="form-control text-right"
-                      [(ngModel)]="powerDto.voltageType"
-                      formControlName="voltageType"
-                      name="voltageType">
-                <option *ngFor="let item of voltageTypeEnum | enumKeyValue" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
+            <!-- شماره پرونده  -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="fileNumber" class="form-label">شماره پرونده</label>
+                <input class="form-control text-right" id="fileNumber" placeholder=""
+                        [(ngModel)]="powerDto.fileNumber"
+                        formControlName="fileNumber"
+                        name="fileNumber">
+              </div>
+              <app-alert-error [data]="form.controls['fileNumber']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!--  عنوان تعرفه -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="useType" class="form-label">عنوان تعرفه</label>
-              <select id="useType"
-                      class="form-control text-right"
-                      [(ngModel)]="powerDto.useType"
-                      (change)="setEnumUseType(true)"
-                      formControlName="useType"
-                      name="useType">
-                <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
+            <!-- رمز رایانه  -->
+              <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="systemPass" class="form-label">رمز رایانه</label>
+                <input class="form-control text-right" id="systemPass" placeholder=""
+                        [(ngModel)]="powerDto.systemPass"
+                        formControlName="systemPass"
+                        name="systemPass">
+              </div>
+              <app-alert-error [data]="form.controls['systemPass']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!--  کد تعرفه -->
-          <div class="mb-4 col-md-2" *ngIf="powerDto.useType">
-            <div class="w-100">
-              <label for="useCode" class="form-label">کد تعرفه </label>
-              <select id="useCode"
-                      class="form-control text-right"
-                      [(ngModel)]="powerDto.useCode"
-                      formControlName="useCode"
-                      name="useCode">
-                <option *ngFor="let item of useCodeEnum | enumKeyValue" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
+            <!-- شماره بدنه کنتور -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="addressCode" class="form-label">شماره بدنه کنتور</label>
+                <input class="form-control text-right" id="addressCode" placeholder=""
+                        [(ngModel)]="powerDto.addressCode"
+                        formControlName="addressCode"
+                        name="addressCode">
+              </div>
+              <app-alert-error [data]="form.controls['addressCode']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!--   ولتاژ تغذیه -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="powerSupplyVoltage" class="form-label">ولتاژ تغذیه</label>
-              <select id="powerSupplyVoltage"
-                      class="form-control text-right"
-                      [(ngModel)]="powerDto.powerSupplyVoltage"
-                      formControlName="powerSupplyVoltage"
-                      name="powerSupplyVoltage">
-                <option *ngFor="let item of powerSupplyVoltageEnum | enumKeyValue: 'number'" [value]="item.key">
-                  {{item.value}}
-                </option>
-              </select>
+            <!-- نوع کنتور -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="group" class="form-label">نوع کنتور</label>
+                <select id="group"
+                        class="form-control text-right"
+                        [(ngModel)]="powerDto.group"
+                        formControlName="group"
+                        name="group">
+                  <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['powerSupplyVoltage']" [touched]="touched"></app-alert-error>
-          </div>
-                  
-          <!--   دیماند قراردادی -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="contract" class="form-label">دیماند قراردادی</label>
-              <input class="form-control text-right" id="contract" placeholder=""
-                      [(ngModel)]="powerDto.contract"
-                      formControlName="contract"
-                      name="contract">
-            </div>
-            <app-alert-error [data]="form.controls['contract']" [touched]="touched"></app-alert-error>
-          </div>
 
-          <!--   ضریب کنتور -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="coefficient" class="form-label">ضریب کنتور</label>
-              <input class="form-control text-right" id="coefficient" placeholder=""
-                      [(ngModel)]="powerDto.coefficient"
-                      formControlName="coefficient"
-                      name="coefficient">
+            <!-- نوع ولتاژ -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="voltageType" class="form-label">نوع ولتاژ</label>
+                <select id="voltageType"
+                        class="form-control text-right"
+                        [(ngModel)]="powerDto.voltageType"
+                        formControlName="voltageType"
+                        name="voltageType">
+                  <option *ngFor="let item of voltageTypeEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['voltageType']" [touched]="touched"></app-alert-error>
             </div>
-            <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
-          </div>
-        </div>      
-     </div>
-      <!-- ثبت اطلاعات  -->
-      <div class="card-footer">
-        <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!powerId">ثبت</button>
-        <button type="submit" class="btn btn-success text-center ml-3" *ngIf="powerId">ویرایش</button>
-        <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+
+            <!--  عنوان تعرفه -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="useType" class="form-label">عنوان تعرفه</label>
+                <select id="useType"
+                        class="form-control text-right"
+                        [(ngModel)]="powerDto.useType"
+                        (change)="setEnumUseType(true)"
+                        formControlName="useType"
+                        name="useType">
+                  <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!--  کد تعرفه -->
+            <div class="mb-4 col-md-2" *ngIf="powerDto.useType">
+              <div class="w-100">
+                <label for="useCode" class="form-label">کد تعرفه </label>
+                <select id="useCode"
+                        class="form-control text-right"
+                        [(ngModel)]="powerDto.useCode"
+                        formControlName="useCode"
+                        name="useCode">
+                  <option *ngFor="let item of useCodeEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!--   ولتاژ تغذیه -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="powerSupplyVoltage" class="form-label">ولتاژ تغذیه</label>
+                <select id="powerSupplyVoltage"
+                        class="form-control text-right"
+                        [(ngModel)]="powerDto.powerSupplyVoltage"
+                        formControlName="powerSupplyVoltage"
+                        name="powerSupplyVoltage">
+                  <option *ngFor="let item of powerSupplyVoltageEnum | enumKeyValue: 'number'" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['powerSupplyVoltage']" [touched]="touched"></app-alert-error>
+            </div>
+                    
+            <!--   دیماند قراردادی -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="contract" class="form-label">دیماند قراردادی</label>
+                <input class="form-control text-right" id="contract" placeholder=""
+                        [(ngModel)]="powerDto.contract"
+                        formControlName="contract"
+                        name="contract">
+              </div>
+              <app-alert-error [data]="form.controls['contract']" [touched]="touched"></app-alert-error>
+            </div>
+
+            <!--   ضریب کنتور -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="coefficient" class="form-label">ضریب کنتور</label>
+                <input class="form-control text-right" id="coefficient" placeholder=""
+                        [(ngModel)]="powerDto.coefficient"
+                        formControlName="coefficient"
+                        name="coefficient">
+              </div>
+              <app-alert-error [data]="form.controls['coefficient']" [touched]="touched"></app-alert-error>
+            </div>
+          </div>      
       </div>
-    </div>
-  </div> 
-</form>
-</div>
-
+        <!-- ثبت اطلاعات  -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!powerId">ثبت</button>
+          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="powerId">ویرایش</button>
+          <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+        </div>
+      </div>
+    </div> 
+  </form>
+  </div>
 <!-- اطلاعات ساختمان -->
   <div class="row" style="padding-top: 20px;">
     <div class="col-lg-12">
       <div class="card border-primary">
-
-      <!-- <div class="card"> -->
+        <!-- عنوان جدول -->
         <div class="card-header flex-card-header">
-          <strong id= "billingSearchId"> لیست ساختمان تخصیص یافته</strong>
+          <strong id= "billingSearchId"> لیست ساختمان <small> تخصیص یافته </small></strong>
         </div> 
+        <!-- جدول ساختمان های  -->
         <div class="card-body">
-         <!-- جدول ساختمان های  -->
-          <div class="table" *ngIf="powerDto.buildingList?.length > 0">
+            <div class="table" *ngIf="powerDto.buildingList?.length > 0">
               <table class="table table-striped table-bordered">
               <thead class="thead-light">
               <tr>
@@ -253,7 +251,8 @@
               </ng-container>
               </tbody>
             </table>
-          </div> 
+        </div> 
+        <!-- انتخاب ساختمان -->   
           <div class="form-group row"> 
             <div class="col-md-3">
               <p class="form-control-static">انتخاب</p>
@@ -261,7 +260,7 @@
             <div class="col-md-9">
               <p class="form-control-static">درصد تخصیص</p>
             </div>
-          <!-- انتخاب ساختمان -->
+          <!-- انتخاب  -->
           <div class="col-md-3">
               <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
               <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
@@ -269,79 +268,82 @@
               </span>
             </div>
             <!-- درصد تخصیص -->
-            <!-- <div class="col-md-9"> -->
               <div class="mb-4 col-md-2">
-                <!-- <div class="w-100"> -->
               <input class="form-control text-right" id="allocationPercentage" placeholder=""
                     [(ngModel)]="buildingAllocation.allocationPercentage"
                     name="allocationPercentage">
                 </div>
-              <!-- </div>     -->
-            <!-- </div>     -->
           </div>    
         </div>
+        <!-- ته برگ فرم -->
         <div class="card-footer">
           <button class="btn btn-primary" (click)="addBuildingAllocation()">ثبت ساختمان</button>
         </div>
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">لیست ساختمان ها</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="d-flex align-items-end">
-          <div class="mb-4 col-md-2 mt-2">
-            <div class="w-100">
-              <label for="filterBuilding" class="form-label">عنوان ساختمان</label>
-              <input class="form-control text-right" id="filterBuilding" placeholder=""
-                    [(ngModel)]="filterBuilding"
-                    name="filterBuilding">
-            </div>
-          </div>
-          <div class="mb-4 col-auto mt-2">
-            <div class="btn btn-primary" (click)="getListBuilding()">
-              جستجو
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead class="thead-light">
-              <tr>
-                <th scope="col" width="40">#</th>
-                <th scope="col">عنوان ساختمان</th>
-                <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
-                <th scope="col" width="80">عملیات</th>
-              </tr>
-              </thead>
-              <tbody>
-              <ng-container *ngFor="let item of buildingList; let i = index">
-                <tr>
-                  <th scope="row" width="40">{{i + 1}}</th>
-                  <td>{{item.name}}</td>
-                  <td>{{buildingEnum[item.useType].toString()}}</td>
-                  <td>{{item.postalCode}}</td>
-                  <td width="40">
-                  <span class="cursor-pointer text-center btn btn-primary"
-                        data-dismiss="modal"
-                        (click)="selectBuildingAllocation(item)">انتخاب</span>
-                  </td>
 
-                </tr>
-              </ng-container>
-              </tbody>
-            </table>
-          </div>
-        </div>
+         <!-- فرم محاوره ای لیست ساختمانها -->
+         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="container-fluid">
+           <div class="modal-dialog modal-lg">
+             <div class="card border-warning">
+               <div class="modal-content">
+                <!-- سربرگ  فرم  -->
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">لیست ساختمان ها</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="d-flex align-items-end">
+                  <!-- عنوان ساختمان -->
+                  <div class="mb-4 col-md-2 mt-2">
+                    <div class="w-100">
+                      <label for="filterBuilding" class="form-label">عنوان ساختمان</label>
+                      <input class="form-control text-right" id="filterBuilding" placeholder=""
+                            [(ngModel)]="filterBuilding"
+                            name="filterBuilding">
+                    </div>
+                  </div>
+                  <!-- جستجو -->
+                  <div class="mb-4 col-auto mt-2">
+                    <div class="btn btn-primary" (click)="getListBuilding()">جستجو  </div>
+                  </div>
+                </div>
+                <!-- جدول ساختمانها -->
+                <div class="col-12">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered">
+                      <thead class="thead-light">
+                      <tr>
+                        <th scope="col" width="40">#</th>
+                        <th scope="col">عنوان ساختمان</th>
+                        <th scope="col">نوع</th>
+                        <th scope="col">کد پستی</th>
+                        <th scope="col" width="80">عملیات</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <ng-container *ngFor="let item of buildingList; let i = index">
+                        <tr>
+                          <th scope="row" width="40">{{i + 1}}</th>
+                          <td>{{item.name}}</td>
+                          <td>{{buildingEnum[item.useType].toString()}}</td>
+                          <td>{{item.postalCode}}</td>
+                          <td width="40">
+                          <span class="cursor-pointer text-center btn btn-primary"
+                                data-dismiss="modal"
+                                (click)="selectBuildingAllocation(item)">انتخاب</span>
+                          </td>
+                        </tr>
+                      </ng-container>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+           </div>
+         </div>
+       </div>
       </div>
-    </div>
+    </div>      
   </div>
-    </div>
-</div>      
-</div>
-</div>
+</div></div>
