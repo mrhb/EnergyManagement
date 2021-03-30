@@ -3,6 +3,7 @@ import {GeneralService} from '../../../../../_base/service/_service/general.serv
 import {HttpClient} from '@angular/common/http';
 import {GATEWAY_URL} from '../../../../../_base/service/model/rest-constants';
 import {Observable} from 'rxjs';
+import { BillAnalysisDto } from '../model/bill';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,11 @@ export class BillAnalysisService extends GeneralService  {
     this.prefixPath = GATEWAY_URL + '/analysis/bills';
    }
 
-  getRawBillCostAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
-    return super.getCheckService('get-raw-bill-cost', errorSelector, param);
+   getRawBillCostAnalysis(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-raw-bill-cost',body, errorSelector, param);
   }
-  getRawBillAmountAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
+
+  getRawBillConsumptionAnalysis(param: {regionId: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-raw-bill-consumption', errorSelector, param);
   }
   

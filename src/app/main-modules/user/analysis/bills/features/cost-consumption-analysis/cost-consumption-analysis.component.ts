@@ -43,8 +43,10 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
       this.jQueryDate();
 
        //initializeform
-       $('#fromDate').val( this.moment.add(new Date(),-1,'year'));
-       $('#toDate').val( this.moment.convertIsoToJDateFa(new Date().toISOString()));
+       $('#fromDate').val(this.billAnalysisDto.fromDate);
+       $('#toDate').val( this.billAnalysisDto.toDate);
+       this.updateChart();
+
     }
   jQueryDate(): void {
     setTimeout(e1 => {
@@ -85,7 +87,7 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
   }
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      billAnalysisType: [],
+      billType: [],
       billAnalysisParam: [],
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
@@ -93,25 +95,26 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
 
 //initializeform
        this.billAnalysisDto.billAnalysisParam=BillAnalysisParamEnum[BillAnalysisParamEnum.CONSUMPTION.toString()] ;
-       this.billAnalysisDto.billAnalysisType=BillTypeEnum[BillTypeEnum.POWER.toString()] ;
+       this.billAnalysisDto.billType=BillTypeEnum[BillTypeEnum.POWER.toString()] ;
+       this.billAnalysisDto.fromDate=this.moment.add(new Date(),-1).toString();
+       this.billAnalysisDto.toDate=this.moment.convertIsoToJDateFa(new Date().toISOString());
  
-       this.updateChart();
   }
 
   updateChart(){
-    switch (this.billAnalysisDto.billAnalysisType) {
+    this.billService.getRawBillCostAnalysis('',this.billAnalysisDto)
+    .subscribe((res: any) => {
+      if (res) {
+        this.series=res.data;
+        Notiflix.Notify.Success('اطلاعات قبوض دریافت شد.');
+        setTimeout(() => {
+          $('#pills-building-tab').click();
+        }, 200);
+        // this.router.navigate(['/index/user/configuration/powerList']);
+      }
+    });
+    switch (this.billAnalysisDto.billType) {
       case BillTypeEnum[BillTypeEnum.POWER.toString()]:
-        this.billService.getRawBillAmountAnalysis(this.regionId)
-        .subscribe((res: any) => {
-          if (res) {
-            this.series=res.data;
-            Notiflix.Notify.Success('اطلاعات ظرفیت کنتور های گاز دریافت شد.');
-            setTimeout(() => {
-              $('#pills-building-tab').click();
-            }, 200);
-            // this.router.navigate(['/index/user/configuration/powerList']);
-          }
-        });
 
         break;
     }    

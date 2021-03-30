@@ -8,9 +8,9 @@ import {Tools} from "./tools";
 
 export class Moment {
 
-  public static add(date,amount,unit) {
+  public static add(date,unit) {
     if (date) {
-      return moment(date).add(amount,unit).format('jYYYY/jMM/jDD-HH:mm:s:ms');
+      return moment(date).add('year',unit).format('jYYYY/jMM/jDD');
     }
     return false;
   }

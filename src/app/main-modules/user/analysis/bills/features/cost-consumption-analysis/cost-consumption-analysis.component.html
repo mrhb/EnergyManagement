@@ -15,13 +15,13 @@
         <!-- نوع قبض -->
         <div class=" mb-4 col-md-2">
           <div class="w-100">
-            <label for="billAnalysisType" class="form-label">انتخاب نوع قبض</label>
-            <select id="billAnalysisType"
+            <label for="billType" class="form-label">انتخاب نوع قبض</label>
+            <select id="billType"
                     class="form-control text-right"
-                    [(ngModel)]="billAnalysisDto.billAnalysisType"
+                    [(ngModel)]="billAnalysisDto.billType"
                     (change)="updateChart()"
-                    formControlName="billAnalysisType"
-                    name="billAnalysisType">
+                    formControlName="billType"
+                    name="billType">
               <option *ngFor="let item of billTypeEnum | enumKeyValue" [value]="item.key">
                 {{item.value}}
               </option>
