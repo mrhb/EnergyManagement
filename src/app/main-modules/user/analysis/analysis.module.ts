@@ -12,14 +12,6 @@ import { AlertErrorModule } from 'src/app/shared/tools/alert-error/alert-error.m
 import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { StateService } from './state.service';
-import { EnergyConsumptionComponent } from './bills/energy/features/energyConsumption/energyConsumption.component';
-import { EnergyAmountComponent } from './bills/energy/features/energyAmount/energyAmount.component';
-import { GasConsumptionComponent } from './bills/gas/features/gasConsumption/gasConsumption.component';
-import { GasAmountComponent } from './bills/gas/features/gasAmount/gasAmount.component';
-import { PowerConsumptionComponent } from './bills/power/features/powerConsumption/powerConsumption.component';
-import { PowerAmountComponent } from './bills/power/features/powerAmount/powerAmount.component';
-import { WaterConsumptionComponent } from './bills/water/features/waterConsumption/waterConsumption.component';
-import { WaterAmountComponent } from './bills/water/features/waterAmount/waterAmount.component';
 import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/gasAmounValid.component';
 import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
 import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
@@ -32,9 +24,7 @@ import { CostConsumptionAnalysisComponent } from './bills/features/cost-consumpt
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
-    MainPanelComponent, ChartPanelComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
-    GasAmountComponent,PowerConsumptionComponent, PowerAmountComponent,WaterConsumptionComponent,
-    WaterAmountComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
+    MainPanelComponent, ChartPanelComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
     PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, CostConsumptionAnalysisComponent],
   imports: [
     CommonModule,
