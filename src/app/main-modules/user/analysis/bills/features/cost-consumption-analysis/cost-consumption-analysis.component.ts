@@ -38,6 +38,10 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
       stateService.region.subscribe(reg=>{
         this.region=reg;
       });
+
+      stateService.regionId.subscribe(regId=>{
+        this.billAnalysisDto.regionId=regId;
+      });
     }
     ngAfterViewInit(): void {
       this.jQueryDate();

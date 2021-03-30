@@ -10,15 +10,16 @@ import { StateService } from '../state.service';
 export class SideBarComponent implements OnInit {
 
   constructor(
-    public stateService:StateService
-) { }
+      public stateService:StateService
+  ) { }
 
   ngOnInit(): void {
   }
 
   getRegion($event: any): void {
    var str=$event.regionTitle.split('&').join('>');
-    this.stateService.region.next(str );
+   this.stateService.region.next(str);
+   this.stateService.regionId.next($event.regionId);
   }
 
 }
