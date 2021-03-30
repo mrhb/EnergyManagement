@@ -20,6 +20,7 @@ import { InstrumConsumptionComponent } from './instruments/features/instrumConsu
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/power-subscription-analysis/power-subscription-analysis.component';
 import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
+import { CostConsumptionAnalysisComponent } from './bills/features/cost-consumption-analysis/cost-consumption-analysis.component';
 
 const routes: Routes = [
 
@@ -30,6 +31,7 @@ const routes: Routes = [
     children: [
       { path: 'power-subscription-analysis',  component: PowerSubscriptionAnalysisComponent,      },
       { path: 'gas-subscription-analysis',    component: GasSubscriptionAnalysisComponent,    }, 
+      { path: 'cost-consumption-analysis',    component: CostConsumptionAnalysisComponent,    }, 
       { path: 'energyConsumption',            component: EnergyConsumptionComponent,}, 
       { path: 'energyAmount',                 component: EnergyAmountComponent,}, 
       { path: 'gasConsumption',               component: GasConsumptionComponent,}, 

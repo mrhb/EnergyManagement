@@ -1,0 +1,55 @@
+<div>
+    <div class="col-12">
+        <div class="title-header d-flex justify-content-between align-items-center">
+            <div>
+              <h1>
+                <strong>تحلیل قبوض  </strong>
+              </h1>
+            </div>
+         
+              <button class="btn btn-primary" [routerLink]="'/index/user/analysis/demandSum'">تحلیل  </button>
+            </div>
+    </div>
+    <form  [formGroup]="form" class="w-100">
+      <div class="form-group row">
+        <!-- نوع قبض -->
+        <div class=" mb-4 col-md-2">
+          <div class="w-100">
+            <label for="billAnalysisType" class="form-label">انتخاب نوع قبض</label>
+            <select id="billAnalysisType"
+                    class="form-control text-right"
+                    [(ngModel)]="billAnalysisDto.billAnalysisType"
+                    (change)="updateChart()"
+                    formControlName="billAnalysisType"
+                    name="billAnalysisType">
+              <option *ngFor="let item of billAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
+          </div>
+        </div>  
+        <!-- نوع پارامتر -->
+        <div class="  mb-4  col-md-2">
+          <div class="w-100">
+            <label for="billAnalysisParam" class="form-label">انتخاب پارامتر</label>
+            <select id="billAnalysisParam"
+                    class="form-control text-right"
+                    [(ngModel)]="billAnalysisDto.billAnalysisParam"
+                    (change)="updateChart()"
+                    formControlName="billAnalysisParam"
+                    name="billAnalysisParam">
+              <option *ngFor="let item of billAnalysisParamEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
+          </div>
+        </div>
+    </div>
+
+      
+    </form>
+    <div class="col-12">
+    <h1>{{region}}</h1>
+    <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>
+</div>
+

@@ -28,13 +28,14 @@ import { InstrumConsumptionComponent } from './instruments/features/instrumConsu
 import { PipeModule } from 'src/app/shared/tools/pipe-module';
 import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/power-subscription-analysis/power-subscription-analysis.component';
 import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
+import { CostConsumptionAnalysisComponent } from './bills/features/cost-consumption-analysis/cost-consumption-analysis.component';
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
     MainPanelComponent, ChartPanelComponent,EnergyConsumptionComponent,EnergyAmountComponent,GasConsumptionComponent,
     GasAmountComponent,PowerConsumptionComponent, PowerAmountComponent,WaterConsumptionComponent,
     WaterAmountComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
-    PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent],
+    PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, CostConsumptionAnalysisComponent],
   imports: [
     CommonModule,
     PipeModule,
