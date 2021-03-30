@@ -156,6 +156,7 @@ export class PowerCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
+            // this.router.navigate(['/index/user/configuration/powerCreate' ],{fragment: "billingSearchId"});
             // this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
@@ -202,6 +203,8 @@ export class PowerCreateComponent implements OnInit {
           if (res) {
             this.buildingAllocation = new PowerBuildingAllocation();
             this.powerDto.buildingList.push(res.data);
+            this.router.navigate(['/index/user/configuration/powerList']);
+            Notiflix.Notify.Success('تخصیص ساختمان با موفقیت انجام شد.');
           }
         });
     } else {
@@ -210,9 +213,10 @@ export class PowerCreateComponent implements OnInit {
           if (res) {
             const index = this.powerDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
             if (index !== -1 ) {
-              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              Notiflix.Notify.Success('ویرایش ساختمان تخصیصی با موفقیت انجام شد.');
               this.powerDto.buildingList[index] = this.buildingAllocation;
               this.buildingAllocation = new PowerBuildingAllocation();
+              this.router.navigate(['/index/user/configuration/powerList']);
             }
           }
         });
