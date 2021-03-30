@@ -1,8 +1,8 @@
-import { BillAnalysisParamEnum, BillAnalysisTypeEnum } from "./billEnum";
+import { BillAnalysisParamEnum, BillTypeEnum } from "./billEnum";
 
 export class BillAnalysisDto {
   regionId:string
-  billAnalysisType: BillAnalysisTypeEnum; //  نوع قبض 
+  billAnalysisType: BillTypeEnum; //  نوع قبض 
   billAnalysisParam: BillAnalysisParamEnum; //  نوع پارامتر 
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام

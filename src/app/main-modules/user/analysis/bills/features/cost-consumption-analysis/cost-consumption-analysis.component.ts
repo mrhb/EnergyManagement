@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 import { SeriesInfo } from '../../../model/chart';
 import { StateService } from '../../../state.service';
 import { BillAnalysisDto } from '../../model/bill';
-import { BillAnalysisParamEnum, BillAnalysisTypeEnum } from '../../model/billEnum';
+import { BillAnalysisParamEnum, BillTypeEnum } from '../../model/billEnum';
 import { BillAnalysisService } from '../../service/bill-analysis.service';
 
 declare var $: any;
@@ -17,7 +17,7 @@ declare var $: any;
 })
 export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
   moment = Moment;
-  billAnalysisTypeEnum=BillAnalysisTypeEnum;
+  billTypeEnum=BillTypeEnum;
   billAnalysisParamEnum=BillAnalysisParamEnum;
   billAnalysisDto= new BillAnalysisDto();
 
@@ -42,13 +42,9 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
     ngAfterViewInit(): void {
       this.jQueryDate();
 
-      //initializeform
-      $('#fromDate').val( this.moment.add(new Date(),-1,'year'));
-      $('#toDate').val( this.moment.convertIsoToJDateFa(new Date().toISOString()));
-      this.billAnalysisDto.billAnalysisParam=BillAnalysisParamEnum[BillAnalysisParamEnum.CONSUMPTION.toString()] ;
-      this.billAnalysisDto.billAnalysisType=BillAnalysisTypeEnum[BillAnalysisTypeEnum.POWER.toString()] ;
-
-      this.updateChart();
+       //initializeform
+       $('#fromDate').val( this.moment.add(new Date(),-1,'year'));
+       $('#toDate').val( this.moment.convertIsoToJDateFa(new Date().toISOString()));
     }
   jQueryDate(): void {
     setTimeout(e1 => {
@@ -94,11 +90,17 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
     });
+
+//initializeform
+       this.billAnalysisDto.billAnalysisParam=BillAnalysisParamEnum[BillAnalysisParamEnum.CONSUMPTION.toString()] ;
+       this.billAnalysisDto.billAnalysisType=BillTypeEnum[BillTypeEnum.POWER.toString()] ;
+ 
+       this.updateChart();
   }
 
   updateChart(){
     switch (this.billAnalysisDto.billAnalysisType) {
-      case BillAnalysisTypeEnum[BillAnalysisTypeEnum.POWER.toString()]:
+      case BillTypeEnum[BillTypeEnum.POWER.toString()]:
         this.billService.getRawBillAmountAnalysis(this.regionId)
         .subscribe((res: any) => {
           if (res) {

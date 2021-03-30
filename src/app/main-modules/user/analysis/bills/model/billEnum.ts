@@ -1,5 +1,5 @@
 // نوع قبض
-export enum BillAnalysisTypeEnum {
+export enum BillTypeEnum {
   WATER = <any> 'آب',
   POWER = <any> 'برق',
   GAS = <any> 'گاز',

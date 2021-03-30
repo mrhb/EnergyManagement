@@ -22,7 +22,7 @@
                     (change)="updateChart()"
                     formControlName="billAnalysisType"
                     name="billAnalysisType">
-              <option *ngFor="let item of billAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+              <option *ngFor="let item of billTypeEnum | enumKeyValue" [value]="item.key">
                 {{item.value}}
               </option>
             </select>
