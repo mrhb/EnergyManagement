@@ -1,590 +1,623 @@
-<div class="col-12">
-  <div class="card">
-    <div class="card-header flex-card-header">
-      <strong *ngIf="!powerId"> افزودن<small> قبض برق </small>  </strong>
-      <strong *ngIf="powerId"> ویرایش<small> قبض برق </small>  </strong>
-    <div class="d-flex">
-      <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerBillList'"> لیست <small> قبوض برق </small></button>
-    </div>
-  </div>
-
-<!-- Collapse -->
-  <div class="card-body">
-      <div class="accordion" id="accordion" role="tablist">
-      <!--  تخصیص اشتراک -->
-      <div class="card mb-0">
-      <!--  سربرگ -->
-      <div class="card-header" id="heading1" role="tab">
-          <h5 class="mb-0"><a data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1">تخصیص اشتراک</a></h5>
-        </div>
-        <!--  بدنه  -->
-      <div class="collapse show" id="collapse1" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-auto d-flex flex-column">
-              <div class="d-flex align-items-center">
-              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
-              <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
-                  (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.billingId}})
-                </span>
-              </div>
-            </div>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header flex-card-header">
+          <strong *ngIf="!powerId"> افزودن<small> قبض برق </small>  </strong>
+          <strong *ngIf="powerId"> ویرایش<small> قبض برق </small>  </strong>
+              <div class="d-flex">
+            <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerBillList'"> لیست <small> قبوض برق </small></button>
           </div>
-        </div>
-      </div>
-       </div>         
-       <!-- اطلاعات قبض -->
-       <div class="card mb-0">   
-         <!--  سربرگ -->
-         <div class="card-header" id="heading2" role="tab" >
-           <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">اطلاعات قبض</a></h5>
-          </div>
-          <!--  بدنه  -->
-        <div class="collapse" id="collapse2" role="tabpanel" aria-labelledby="heading2" data-parent="#accordion">
-          <form [formGroup]="form" class="w-100" >
-            <fieldset class="fieldset-border"> 
-              <div class="form row">
-              <!-- شناسه پرداخت  -->
-              <div class="mb-4 col-md-2">
-              <div class="w-200">
-                <label for="paymentCode" class="form-label">شناسه پرداخت</label>
-                <input class="form-control text-right" id="paymentCode" placeholder=""
-                      [(ngModel)]="powerBillDto.paymentCode"
-                      formControlName="paymentCode"
-                      name="paymentCode">
-              </div>
-              <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- دوره  -->
-            <div class="mb-4 col-md-2">
-              <div class="w-100">
-                <label for="period" class="form-label">دوره</label>
-                <select id="period"
-                        class="form-control text-right"
-                        [(ngModel)]="powerBillDto.period"
-                        formControlName="period"
-                        name="period">
-                  <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
-                    {{item.value}}
-                  </option>
-                </select>
-              </div>
-              <app-alert-error [data]="form.controls['period']" [touched]="touched"></app-alert-error>
+      </div> 
+      
+      <div class="card-body">
+       <!-- اطلاعات اشتراک -->
+       <div class="card-header flex-card-header">
+         <strong id= "billingSearchId"> شماره اشتراک  <small> تخصیص یافته </small></strong>
+       </div> 
+       <div class="form-group row">
+       <div class="row">
+         <div class="col-auto d-flex flex-column">
+           <div class="d-flex align-items-center">
+           <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
+           <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
+               (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.paymentCode}})
+             </span>
+           </div>
+         </div>
+       </div>
+       </div>
+       <div class="form-group row">
+      <!-- Collapse -->
+      <div class="card-body">
+        <div class="accordion" id="accordion" role="tablist">
+          <!-- اطلاعات قبض -->
+          <div class="card mb-0">
+            <!--  سربرگ اطلاعات قبض-->
+            <div class="card-header" id="heading1" role="tab">
+              <h5 class="mb-0"><a data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1">اطلاعات قبض</a></h5>
             </div>
-
-              <!-- تاریخ شروع -->
-              <div class="mb-4 col-md-2">
-                <div class="w-200">
-                  <label for="fromDate" class="form-label">از تاریخ</label>
-                  <input class="form-control text-right" id="fromDate" placeholder=""
-                          formControlName="fromDate"
-                          name="fromDate">
+          <!-- اطلاعات قبض بدنه-->
+          <div class="collapse show" id="collapse1" role="tabpanel" aria-labelledby="heading1" data-parent="#accordion">
+              <div class="card-body">
+                <form [formGroup]="formInformation" class="w-100" >
+                  <fieldset class="fieldset-border"> 
+                    <div class="form row">
+                    <!-- شناسه پرداخت  -->
+                    <div class="mb-2 col-md-1">
+                    <div class="w-100">
+                      <label for="paymentCode" class="form-label">شناسه پرداخت</label>
+                      <input class="form-control text-right" id="paymentCode" placeholder=""
+                            [(ngModel)]="powerBillDto.paymentCode"
+                            formControlName="paymentCode"
+                            name="paymentCode">
+                    </div>
+                    <app-alert-error [data]="formInformation.controls['paymentCode']" [touched]="touched"></app-alert-error>
+                    </div>
+                    <!-- دوره  -->
+                  <div class="mb-2 col-md-1">
+                    <div class="w-100">
+                      <label for="period" class="form-label">دوره</label>
+                      <select id="period"
+                              class="form-control text-right"
+                              [(ngModel)]="powerBillDto.period"
+                              formControlName="period"
+                              name="period">
+                        <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
+                          {{item.value}}
+                        </option>
+                      </select>
+                    </div>
+                    <app-alert-error [data]="formInformation.controls['period']" [touched]="touched"></app-alert-error>
+                  </div>
+            
+                    <!-- تاریخ شروع -->
+                    <div class="mb-2 col-md-1">
+                      <div class="w-100">
+                        <label for="fromDate" class="form-label">از تاریخ</label>
+                        <input class="form-control text-right" id="fromDate" placeholder=""
+                                formControlName="fromDate"
+                                name="fromDate">
+                      </div>
+                      <app-alert-error [data]="formInformation.controls['fromDate']" [touched]="touched"></app-alert-error>
+                    </div>  
+                    <!-- تاریخ اتمام -->
+                    <div class="mb-2 col-md-1">
+                      <div class="w-100">
+                        <label for="toDate" class="form-label">تا تاریخ </label>
+                        <input class="form-control text-right" id="toDate" placeholder=""
+                              formControlName="toDate"
+                              name="toDate">
+                      </div>
+                      <app-alert-error [data]="formInformation.controls['toDate']" [touched]="touched"></app-alert-error>
+                    </div>  
+                    <!-- تعداد روز دوره -->
+                    <div class="mb-2 col-md-1">
+                      <div class="w-100">
+                      <label for="numberDays" class="form-label"> تعداد روز دوره </label>
+                      <input class="form-control text-right" id="numberDays" placeholder=""
+                            [(ngModel)]="powerBillDto.numberDays"
+                            formControlName="numberDays"
+                            name="numberDays">
+                    </div>
+                    <app-alert-error [data]="formInformation.controls['numberDays']" [touched]="touched"></app-alert-error>
+                  </div>   
                 </div>
-                <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
-              </div>  
-              <!-- تاریخ اتمام -->
-              <div class="mb-4 col-md-2">
-                <div class="w-200">
-                  <label for="toDate" class="form-label">تا تاریخ </label>
-                  <input class="form-control text-right" id="toDate" placeholder=""
-                        formControlName="toDate"
-                        name="toDate">
-                </div>
-                <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
-              </div>  
-              <!-- تعداد روز دوره -->
-              <div class="mb-4 col-md-2">
-                <div class="w-200">
-                <label for="numberDays" class="form-label"> تعداد روز دوره </label>
-                <input class="form-control text-right" id="numberDays" placeholder=""
-                      [(ngModel)]="powerBillDto.numberDays"
-                      formControlName="numberDays"
-                      name="numberDays">
+              </fieldset>
+                </form>
               </div>
-              <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
-            </div>   
-          </div>
-         </fieldset>
-        </form> 
-        </div>
-      </div>              
-       <!-- شرح مصارف  -->
-       <div class="card mb-0">   
-         <!--  سربرگ -->
-         <div class="card-header" id="heading3" role="tab">
-           <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">شرح مصارف</a></h5>
-          </div>
-          <!--  بدنه  -->
-        <div class="collapse" id="collapse3" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion">
-          <div class="container">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col" width="40">شرح</th>
-                    <th scope="col" width="40">  شمارنده قبلی </th>
-                    <th scope="col" width="40"> شمارنده کنونی </th>
-                    <th scope="col" width="40"> ضریب </th>
-                    <th scope="col" width="40">  مصرف کل </th>
-                    <th scope="col"  width="40">  مصرف بعد از آخرین تغییرات</th>
-                    <th scope="col" width="40"> نرخ </th>
-                    <th scope="col" width="40"> مبلغ </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table"> 
-                    <th scope="row" >میان باری</th>            
-                    <!-- شمارنده قبلی میان باری -->
-                    <th scope="row" >
-                      <div >
-                      <div >
-                        <input  id="intermediate_preCounter" placeholder="شمارنده قبلی میان باری"
-                        [(ngModel)]="powerBillDto.intermediate.preCounter"
-                        formControlName="intermediate_preCounter"
-                        name="intermediate_preCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['intermediate_preCounter']" [touched]="touched"></app-alert-error>
-                    </div>
-                    </th> 
-                    <!-- شمارنده کنونی - میان باری -->
-                    <th scope="row" > 
-                    <div >
-                      <div >
-                      <input  id="intermediate_currentCounter" placeholder="شمارنده کنونی میان باری"
-                      [(ngModel)]="powerBillDto.intermediate.currentCounter"
-                      formControlName="intermediate_currentCounter"
-                      name="intermediate_currentCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['intermediate_currentCounter']" [touched]="touched"></app-alert-error>
-                    </div>  
-                    </th> 
-                    <!-- ضریب میان باری  -->
-                    <th scope="row" > 
-                      <div >
-                        <div >
-                        <input  id="intermediate_coefficient" placeholder="ضریب میان باری"
-                        [(ngModel)]="powerBillDto.intermediate.coefficient"
-                        formControlName="intermediate_coefficient"
-                        name="intermediate_coefficient">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['intermediate_coefficient']" [touched]="touched"></app-alert-error>
-                      </div>  
-                      </th> 
-                    <!-- مصرف کل میان باری  -->
-                    <th scope="row" >
-                        <div >
-                          <div >
-                          <input  id="intermediate_totalConsumption" placeholder="مصرف کل میان باری"
-                          [(ngModel)]="powerBillDto.intermediate.totalConsumption"
-                          formControlName="intermediate_totalConsumption"
-                          name="intermediate_totalConsumption">
-                          </div>
-                          <app-alert-error [data]="formIntermed.controls['intermediate_totalConsumption']" [touched]="touched"></app-alert-error>
-                        </div>  
-                      </th>                          
-                    <!-- مصرف بعد از آخرین تغییرات میان باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="intermediate_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات میان باری"
-                        [(ngModel)]="powerBillDto.intermediate.consumptionAfterLastChange"
-                        formControlName="intermediate_totalAfterLast"
-                        name="intermediate_totalAfterLast">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['intermediate_totalAfterLast']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- نرخ میان باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="intermediate_nerkh" placeholder="نرخ میان باری"
-                        [(ngModel)]="powerBillDto.intermediate.nerkh"
-                        formControlName="intermediate_nerkh"
-                        name="intermediate_nerkh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['intermediate_nerkh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- مبلغ میان باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="intermediate_mablagh" placeholder="مبلغ میان باری"
-                        [(ngModel)]="powerBillDto.intermediate.mablagh"
-                        formControlName="intermediate_mablagh"
-                        name="intermediate_mablagh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['intermediate_mablagh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                  </tr>
-                  <tr> 
-                    <th scope="row"> اوج بار </th>                          
-                    <!-- شمارنده قبلی اوج باری -->
-                    <th scope="row" >
-                      <div >
-                      <div >
-                        <input  id="peakLoad_preCounter" placeholder="شمارنده قبلی اوج باری"
-                        [(ngModel)]="powerBillDto.peakLoad.preCounter"
-                        formControlName="peakLoad_preCounter"
-                        name="peakLoad_preCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['peakLoad_preCounter']" [touched]="touched"></app-alert-error>
-                    </div>
-                    </th> 
-                    <!-- شمارنده کنونی - اوج باری -->
-                    <th scope="row" > 
-                    <div >
-                      <div >
-                      <input  id="peakLoad_currentCounter" placeholder="شمارنده کنونی اوج باری"
-                      [(ngModel)]="powerBillDto.peakLoad.currentCounter"
-                      formControlName="peakLoad_currentCounter"
-                      name="peakLoad_currentCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['peakLoad_currentCounter']" [touched]="touched"></app-alert-error>
-                    </div>  
-                    </th> 
-                    <!-- ضریب اوج باری  -->
-                    <th scope="row" > 
-                      <div >
-                        <div >
-                        <input  id="peakLoad_coefficient" placeholder="ضریب اوج باری"
-                        [(ngModel)]="powerBillDto.peakLoad.coefficient"
-                        formControlName="peakLoad_coefficient"
-                        name="peakLoad_coefficient">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakLoad_coefficient']" [touched]="touched"></app-alert-error>
-                      </div>  
-                      </th> 
-                    <!-- مصرف کل اوج باری  -->
-                    <th scope="row" >
-                        <div >
-                          <div >
-                          <input  id="peakLoad_totalConsumption" placeholder="مصرف کل اوج باری"
-                          [(ngModel)]="powerBillDto.peakLoad.totalConsumption"
-                          formControlName="peakLoad_totalConsumption"
-                          name="peakLoad_totalConsumption">
-                          </div>
-                          <app-alert-error [data]="formIntermed.controls['peakLoad_totalConsumption']" [touched]="touched"></app-alert-error>
-                        </div>  
-                      </th>                          
-                    <!-- مصرف بعد از آخرین تغییرات اوج باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakLoad_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات اوج باری"
-                        [(ngModel)]="powerBillDto.peakLoad.consumptionAfterLastChange"
-                        formControlName="peakLoad_totalAfterLast"
-                        name="peakLoad_totalAfterLast">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakLoad_totalAfterLast']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- نرخ اوج باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakLoad_nerkh" placeholder="نرخ اوج باری"
-                        [(ngModel)]="powerBillDto.peakLoad.nerkh"
-                        formControlName="peakLoad_nerkh"
-                        name="peakLoad_nerkh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakLoad_nerkh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- مبلغ اوج باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakLoad_mablagh" placeholder="مبلغ اوج باری"
-                        [(ngModel)]="powerBillDto.peakLoad.mablagh"
-                        formControlName="peakLoad_mablagh"
-                        name="peakLoad_mablagh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakLoad_mablagh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>  
-                  <tr class="table"> 
-                    <th scope="row"> کم بار </th>                         
-                    <!-- شمارنده قبلی کم باری -->
-                    <th scope="row" >
-                      <div >
-                      <div >
-                        <input  id="lowLoad_preCounter" placeholder="شمارنده قبلی کم باری"
-                        [(ngModel)]="powerBillDto.lowLoad.preCounter"
-                        formControlName="lowLoad_preCounter"
-                        name="lowLoad_preCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['lowLoad_preCounter']" [touched]="touched"></app-alert-error>
-                    </div>
-                    </th> 
-                    <!-- شمارنده کنونی - کم باری -->
-                    <th scope="row" > 
-                    <div >
-                      <div >
-                      <input  id="lowLoad_currentCounter" placeholder="شمارنده کنونی کم باری"
-                      [(ngModel)]="powerBillDto.lowLoad.currentCounter"
-                      formControlName="lowLoad_currentCounter"
-                      name="lowLoad_currentCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['lowLoad_currentCounter']" [touched]="touched"></app-alert-error>
-                    </div>  
-                    </th> 
-                    <!-- ضریب کم باری  -->
-                    <th scope="row" > 
-                      <div >
-                        <div >
-                        <input  id="lowLoad_coefficient" placeholder="ضریب کم باری"
-                        [(ngModel)]="powerBillDto.lowLoad.coefficient"
-                        formControlName="lowLoad_coefficient"
-                        name="lowLoad_coefficient">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['lowLoad_coefficient']" [touched]="touched"></app-alert-error>
-                      </div>  
-                      </th> 
-                    <!-- مصرف کل کم باری  -->
-                    <th scope="row" >
-                        <div >
-                          <div >
-                          <input  id="lowLoad_totalConsumption" placeholder="مصرف کل کم باری"
-                          [(ngModel)]="powerBillDto.lowLoad.totalConsumption"
-                          formControlName="lowLoad_totalConsumption"
-                          name="lowLoad_totalConsumption">
-                          </div>
-                          <app-alert-error [data]="formIntermed.controls['lowLoad_totalConsumption']" [touched]="touched"></app-alert-error>
-                        </div>  
-                      </th>                          
-                    <!-- مصرف بعد از آخرین تغییرات کم باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="lowLoad_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات کم باری"
-                        [(ngModel)]="powerBillDto.lowLoad.consumptionAfterLastChange"
-                        formControlName="lowLoad_totalAfterLast"
-                        name="lowLoad_totalAfterLast">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['lowLoad_totalAfterLast']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- نرخ کم باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="lowLoad_nerkh" placeholder="نرخ کم باری"
-                        [(ngModel)]="powerBillDto.lowLoad.nerkh"
-                        formControlName="lowLoad_nerkh"
-                        name="lowLoad_nerkh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['lowLoad_nerkh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- مبلغ کم باری  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="lowLoad_mablagh" placeholder="مبلغ کم باری"
-                        [(ngModel)]="powerBillDto.lowLoad.mablagh"
-                        formControlName="lowLoad_mablagh"
-                        name="lowLoad_mablagh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['lowLoad_mablagh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                                                
-                  <tr>                                               
-                    <th scope="row">اوج بار جمعه </th>                          
-                    <!-- شمارنده قبلی اوج بار جمعه -->
-                    <th scope="row" >
-                      <div >
-                      <div >
-                        <input  id="peakTimesFriday_preCounter" placeholder="شمارنده قبلی اوج بار جمعه"
-                        [(ngModel)]="powerBillDto.peakTimesFriday.preCounter"
-                        formControlName="peakTimesFriday_preCounter"
-                        name="peakTimesFriday_preCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['peakTimesFriday_preCounter']" [touched]="touched"></app-alert-error>
-                    </div>
-                    </th> 
-                    <!-- شمارنده کنونی - اوج بار جمعه -->
-                    <th scope="row" > 
-                    <div >
-                      <div >
-                      <input  id="peakTimesFriday_currentCounter" placeholder="شمارنده کنونی اوج بار جمعه"
-                      [(ngModel)]="powerBillDto.peakTimesFriday.currentCounter"
-                      formControlName="peakTimesFriday_currentCounter"
-                      name="peakTimesFriday_currentCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['peakTimesFriday_currentCounter']" [touched]="touched"></app-alert-error>
-                    </div>  
-                    </th> 
-                    <!-- ضریب اوج بار جمعه  -->
-                    <th scope="row" > 
-                      <div >
-                        <div >
-                        <input  id="peakTimesFriday_coefficient" placeholder="ضریب اوج بار جمعه"
-                        [(ngModel)]="powerBillDto.peakTimesFriday.coefficient"
-                        formControlName="peakTimesFriday_coefficient"
-                        name="peakTimesFriday_coefficient">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_coefficient']" [touched]="touched"></app-alert-error>
-                      </div>  
-                      </th> 
-                    <!-- مصرف کل اوج بار جمعه  -->
-                    <th scope="row" >
-                        <div >
-                          <div >
-                          <input  id="peakTimesFriday_totalConsumption" placeholder="مصرف کل اوج بار جمعه"
-                          [(ngModel)]="powerBillDto.peakTimesFriday.totalConsumption"
-                          formControlName="peakTimesFriday_totalConsumption"
-                          name="peakTimesFriday_totalConsumption">
-                          </div>
-                          <app-alert-error [data]="formIntermed.controls['peakTimesFriday_totalConsumption']" [touched]="touched"></app-alert-error>
-                        </div>  
-                      </th>                          
-                    <!-- مصرف بعد از آخرین تغییرات اوج بار جمعه  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakTimesFriday_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات اوج بار جمعه"
-                        [(ngModel)]="powerBillDto.peakTimesFriday.consumptionAfterLastChange"
-                        formControlName="peakTimesFriday_totalAfterLast"
-                        name="peakTimesFriday_totalAfterLast">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_totalAfterLast']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- نرخ اوج بار جمعه  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakTimesFriday_nerkh" placeholder="نرخ اوج بار جمعه"
-                        [(ngModel)]="powerBillDto.peakTimesFriday.nerkh"
-                        formControlName="peakTimesFriday_nerkh"
-                        name="peakTimesFriday_nerkh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_nerkh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- مبلغ اوج بار جمعه  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="peakTimesFriday_mablagh" placeholder="مبلغ اوج بار جمعه"
-                        [(ngModel)]="powerBillDto.peakTimesFriday.mablagh"
-                        formControlName="peakTimesFriday_mablagh"
-                        name="peakTimesFriday_mablagh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_mablagh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                                                 
-                  <tr class="table"> 
-                    <th scope="row"> راکتیو </th>                          
-                    <!-- شمارنده قبلی راکتیو -->
-                    <th scope="row" >
-                      <div >
-                      <div >
-                        <input  id="reactive_preCounter" placeholder="شمارنده قبلی راکتیو"
-                        [(ngModel)]="powerBillDto.reactive.preCounter"
-                        formControlName="reactive_preCounter"
-                        name="reactive_preCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['reactive_preCounter']" [touched]="touched"></app-alert-error>
-                    </div>
-                    </th> 
-                    <!-- شمارنده کنونی - راکتیو -->
-                    <th scope="row" > 
-                    <div >
-                      <div >
-                      <input  id="reactive_currentCounter" placeholder="شمارنده کنونی راکتیو"
-                      [(ngModel)]="powerBillDto.reactive.currentCounter"
-                      formControlName="reactive_currentCounter"
-                      name="reactive_currentCounter">
-                      </div>
-                      <app-alert-error [data]="formIntermed.controls['reactive_currentCounter']" [touched]="touched"></app-alert-error>
-                    </div>  
-                    </th> 
-                    <!-- ضریب راکتیو  -->
-                    <th scope="row" > 
-                      <div >
-                        <div >
-                        <input  id="reactive_coefficient" placeholder="ضریب راکتیو"
-                        [(ngModel)]="powerBillDto.reactive.coefficient"
-                        formControlName="reactive_coefficient"
-                        name="reactive_coefficient">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['reactive_coefficient']" [touched]="touched"></app-alert-error>
-                      </div>  
-                      </th> 
-                    <!-- مصرف کل راکتیو  -->
-                    <th scope="row" >
-                        <div >
-                          <div >
-                          <input  id="reactive_totalConsumption" placeholder="مصرف کل راکتیو"
-                          [(ngModel)]="powerBillDto.reactive.totalConsumption"
-                          formControlName="reactive_totalConsumption"
-                          name="reactive_totalConsumption">
-                          </div>
-                          <app-alert-error [data]="formIntermed.controls['reactive_totalConsumption']" [touched]="touched"></app-alert-error>
-                        </div>  
-                      </th>                          
-                    <!-- مصرف بعد از آخرین تغییرات راکتیو  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="reactive_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات راکتیو"
-                        [(ngModel)]="powerBillDto.reactive.consumptionAfterLastChange"
-                        formControlName="reactive_totalAfterLast"
-                        name="reactive_totalAfterLast">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['reactive_totalAfterLast']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- نرخ راکتیو  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="reactive_nerkh" placeholder="نرخ راکتیو"
-                        [(ngModel)]="powerBillDto.reactive.nerkh"
-                        formControlName="reactive_nerkh"
-                        name="reactive_nerkh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['reactive_nerkh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                          
-                    <!-- مبلغ راکتیو  -->
-                    <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="reactive_mablagh" placeholder="مبلغ راکتیو"
-                        [(ngModel)]="powerBillDto.reactive.mablagh"
-                        formControlName="reactive_mablagh"
-                        name="reactive_mablagh">
-                        </div>
-                        <app-alert-error [data]="formIntermed.controls['reactive_mablagh']" [touched]="touched"></app-alert-error>
-                      </div>  
-                    </th>                                                 
-                  </tbody>
-                </table>
             </div>
-        </div>
+          </div>         
+          <!-- شرح مصارف  -->
+          <div class="card mb-0">   
+            <!--  سربرگ -->
+            <div class="card-header" id="heading3" role="tab">
+              <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">شرح مصارف</a></h5>
+            </div>
+            <!--  بدنه  -->
+          <div class="collapse" id="collapse3" role="tabpanel" aria-labelledby="heading3" data-parent="#accordion">
+            <form [formGroup]="formIntermed" class="w-100" >
+              <div class="container">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" width="40">شرح</th>
+                      <th scope="col" width="40">  شمارنده قبلی </th>
+                      <th scope="col" width="40"> شمارنده کنونی </th>
+                      <th scope="col" width="40"> ضریب </th>
+                      <th scope="col" width="40">  مصرف کل </th>
+                      <th scope="col"  width="40">  مصرف بعد از آخرین تغییرات</th>
+                      <th scope="col" width="40"> نرخ </th>
+                      <th scope="col" width="40"> مبلغ </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table"> 
+                      <th scope="row" >میان باری</th>            
+                      <!-- شمارنده قبلی میان باری -->
+                      <th scope="row" >
+                        <div class="mb-2 col-md-1">
+                          <div class="w-100">
+                          <input  id="intermediate_preCounter" placeholder=""
+                          [(ngModel)]="powerBillDto.intermediate.preCounter"
+                          formControlName="intermediate_preCounter"
+                          name="intermediate_preCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['intermediate_preCounter']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th> 
+                      <!-- شمارنده کنونی - میان باری -->
+                      <th scope="row" > 
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
 
+                        <input  id="intermediate_currentCounter" placeholder="شمارنده کنونی میان باری"
+                        [(ngModel)]="powerBillDto.intermediate.currentCounter"
+                        formControlName="intermediate_currentCounter"
+                        name="intermediate_currentCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['intermediate_currentCounter']" [touched]="touched"></app-alert-error>
+                      </div>  
+                      </th> 
+                      <!-- ضریب میان باری  -->
+                      <th scope="row" > 
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
 
-        </div>
-        </div>              
-       <!-- اطلاعات محاسباتی   -->
-       <div class="card mb-0">   
-         <!--  سربرگ -->
-         <div class="card-header" id="heading4" role="tab">
-           <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">اطلاعات محاسباتی</a></h5>
+                          <input  id="intermediate_coefficient" placeholder="ضریب میان باری"
+                          [(ngModel)]="powerBillDto.intermediate.coefficient"
+                          formControlName="intermediate_coefficient"
+                          name="intermediate_coefficient">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['intermediate_coefficient']" [touched]="touched"></app-alert-error>
+                        </div>  
+                        </th> 
+                      <!-- مصرف کل میان باری  -->
+                      <th scope="row" >
+                         <div class="mb-2 col-md-1">
+                           <div class="w-100">
+
+                            <input  id="intermediate_totalConsumption" placeholder="مصرف کل میان باری"
+                            [(ngModel)]="powerBillDto.intermediate.totalConsumption"
+                            formControlName="intermediate_totalConsumption"
+                            name="intermediate_totalConsumption">
+                            </div>
+                            <app-alert-error [data]="formIntermed.controls['intermediate_totalConsumption']" [touched]="touched"></app-alert-error>
+                          </div>  
+                        </th>                          
+                      <!-- مصرف بعد از آخرین تغییرات میان باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="intermediate_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات میان باری"
+                          [(ngModel)]="powerBillDto.intermediate.consumptionAfterLastChange"
+                          formControlName="intermediate_totalAfterLast"
+                          name="intermediate_totalAfterLast">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['intermediate_totalAfterLast']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- نرخ میان باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="intermediate_nerkh" placeholder="نرخ میان باری"
+                          [(ngModel)]="powerBillDto.intermediate.nerkh"
+                          formControlName="intermediate_nerkh"
+                          name="intermediate_nerkh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['intermediate_nerkh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- مبلغ میان باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="intermediate_mablagh" placeholder="مبلغ میان باری"
+                          [(ngModel)]="powerBillDto.intermediate.mablagh"
+                          formControlName="intermediate_mablagh"
+                          name="intermediate_mablagh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['intermediate_mablagh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                    </tr>
+                    <tr> 
+                      <th scope="row"> اوج بار </th>                          
+                      <!-- شمارنده قبلی اوج باری -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                          <input  id="peakLoad_preCounter" placeholder="شمارنده قبلی اوج باری"
+                          [(ngModel)]="powerBillDto.peakLoad.preCounter"
+                          formControlName="peakLoad_preCounter"
+                          name="peakLoad_preCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['peakLoad_preCounter']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th> 
+                      <!-- شمارنده کنونی - اوج باری -->
+                      <th scope="row" > 
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="peakLoad_currentCounter" placeholder="شمارنده کنونی اوج باری"
+                        [(ngModel)]="powerBillDto.peakLoad.currentCounter"
+                        formControlName="peakLoad_currentCounter"
+                        name="peakLoad_currentCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['peakLoad_currentCounter']" [touched]="touched"></app-alert-error>
+                      </div>  
+                      </th> 
+                      <!-- ضریب اوج باری  -->
+                      <th scope="row" > 
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakLoad_coefficient" placeholder="ضریب اوج باری"
+                          [(ngModel)]="powerBillDto.peakLoad.coefficient"
+                          formControlName="peakLoad_coefficient"
+                          name="peakLoad_coefficient">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakLoad_coefficient']" [touched]="touched"></app-alert-error>
+                        </div>  
+                        </th> 
+                      <!-- مصرف کل اوج باری  -->
+                      <th scope="row" >
+                         <div class="mb-2 col-md-1">
+                           <div class="w-100">
+
+                            <input  id="peakLoad_totalConsumption" placeholder="مصرف کل اوج باری"
+                            [(ngModel)]="powerBillDto.peakLoad.totalConsumption"
+                            formControlName="peakLoad_totalConsumption"
+                            name="peakLoad_totalConsumption">
+                            </div>
+                            <app-alert-error [data]="formIntermed.controls['peakLoad_totalConsumption']" [touched]="touched"></app-alert-error>
+                          </div>  
+                        </th>                          
+                      <!-- مصرف بعد از آخرین تغییرات اوج باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakLoad_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات اوج باری"
+                          [(ngModel)]="powerBillDto.peakLoad.consumptionAfterLastChange"
+                          formControlName="peakLoad_totalAfterLast"
+                          name="peakLoad_totalAfterLast">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakLoad_totalAfterLast']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- نرخ اوج باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakLoad_nerkh" placeholder="نرخ اوج باری"
+                          [(ngModel)]="powerBillDto.peakLoad.nerkh"
+                          formControlName="peakLoad_nerkh"
+                          name="peakLoad_nerkh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakLoad_nerkh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- مبلغ اوج باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakLoad_mablagh" placeholder="مبلغ اوج باری"
+                          [(ngModel)]="powerBillDto.peakLoad.mablagh"
+                          formControlName="peakLoad_mablagh"
+                          name="peakLoad_mablagh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakLoad_mablagh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>  
+                    <tr class="table"> 
+                      <th scope="row"> کم بار </th>                         
+                      <!-- شمارنده قبلی کم باری -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                          <input  id="lowLoad_preCounter" placeholder="شمارنده قبلی کم باری"
+                          [(ngModel)]="powerBillDto.lowLoad.preCounter"
+                          formControlName="lowLoad_preCounter"
+                          name="lowLoad_preCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['lowLoad_preCounter']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th> 
+                      <!-- شمارنده کنونی - کم باری -->
+                      <th scope="row" > 
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="lowLoad_currentCounter" placeholder="شمارنده کنونی کم باری"
+                        [(ngModel)]="powerBillDto.lowLoad.currentCounter"
+                        formControlName="lowLoad_currentCounter"
+                        name="lowLoad_currentCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['lowLoad_currentCounter']" [touched]="touched"></app-alert-error>
+                      </div>  
+                      </th> 
+                      <!-- ضریب کم باری  -->
+                      <th scope="row" > 
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="lowLoad_coefficient" placeholder="ضریب کم باری"
+                          [(ngModel)]="powerBillDto.lowLoad.coefficient"
+                          formControlName="lowLoad_coefficient"
+                          name="lowLoad_coefficient">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['lowLoad_coefficient']" [touched]="touched"></app-alert-error>
+                        </div>  
+                        </th> 
+                      <!-- مصرف کل کم باری  -->
+                      <th scope="row" >
+                         <div class="mb-2 col-md-1">
+                           <div class="w-100">
+
+                            <input  id="lowLoad_totalConsumption" placeholder="مصرف کل کم باری"
+                            [(ngModel)]="powerBillDto.lowLoad.totalConsumption"
+                            formControlName="lowLoad_totalConsumption"
+                            name="lowLoad_totalConsumption">
+                            </div>
+                            <app-alert-error [data]="formIntermed.controls['lowLoad_totalConsumption']" [touched]="touched"></app-alert-error>
+                          </div>  
+                        </th>                          
+                      <!-- مصرف بعد از آخرین تغییرات کم باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="lowLoad_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات کم باری"
+                          [(ngModel)]="powerBillDto.lowLoad.consumptionAfterLastChange"
+                          formControlName="lowLoad_totalAfterLast"
+                          name="lowLoad_totalAfterLast">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['lowLoad_totalAfterLast']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- نرخ کم باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="lowLoad_nerkh" placeholder="نرخ کم باری"
+                          [(ngModel)]="powerBillDto.lowLoad.nerkh"
+                          formControlName="lowLoad_nerkh"
+                          name="lowLoad_nerkh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['lowLoad_nerkh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- مبلغ کم باری  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="lowLoad_mablagh" placeholder="مبلغ کم باری"
+                          [(ngModel)]="powerBillDto.lowLoad.mablagh"
+                          formControlName="lowLoad_mablagh"
+                          name="lowLoad_mablagh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['lowLoad_mablagh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                                                
+                    <tr>                                               
+                      <th scope="row">اوج بار جمعه </th>                          
+                      <!-- شمارنده قبلی اوج بار جمعه -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                          <input  id="peakTimesFriday_preCounter" placeholder="شمارنده قبلی "
+                          [(ngModel)]="powerBillDto.peakTimesFriday.preCounter"
+                          formControlName="peakTimesFriday_preCounter"
+                          name="peakTimesFriday_preCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_preCounter']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th> 
+                      <!-- شمارنده کنونی - اوج بار جمعه -->
+                      <th scope="row" > 
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="peakTimesFriday_currentCounter" placeholder="شمارنده کنونی "
+                        [(ngModel)]="powerBillDto.peakTimesFriday.currentCounter"
+                        formControlName="peakTimesFriday_currentCounter"
+                        name="peakTimesFriday_currentCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['peakTimesFriday_currentCounter']" [touched]="touched"></app-alert-error>
+                      </div>  
+                      </th> 
+                      <!-- ضریب اوج بار جمعه  -->
+                      <th scope="row" > 
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakTimesFriday_coefficient" placeholder="ضریب "
+                          [(ngModel)]="powerBillDto.peakTimesFriday.coefficient"
+                          formControlName="peakTimesFriday_coefficient"
+                          name="peakTimesFriday_coefficient">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakTimesFriday_coefficient']" [touched]="touched"></app-alert-error>
+                        </div>  
+                        </th> 
+                      <!-- مصرف کل اوج بار جمعه  -->
+                      <th scope="row" >
+                         <div class="mb-2 col-md-1">
+                           <div class="w-100">
+
+                            <input  id="peakTimesFriday_totalConsumption" placeholder="مصرف کل "
+                            [(ngModel)]="powerBillDto.peakTimesFriday.totalConsumption"
+                            formControlName="peakTimesFriday_totalConsumption"
+                            name="peakTimesFriday_totalConsumption">
+                            </div>
+                            <app-alert-error [data]="formIntermed.controls['peakTimesFriday_totalConsumption']" [touched]="touched"></app-alert-error>
+                          </div>  
+                        </th>                          
+                      <!-- مصرف بعد از آخرین تغییرات اوج بار جمعه  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakTimesFriday_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات "
+                          [(ngModel)]="powerBillDto.peakTimesFriday.consumptionAfterLastChange"
+                          formControlName="peakTimesFriday_totalAfterLast"
+                          name="peakTimesFriday_totalAfterLast">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakTimesFriday_totalAfterLast']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- نرخ اوج بار جمعه  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakTimesFriday_nerkh" placeholder="نرخ "
+                          [(ngModel)]="powerBillDto.peakTimesFriday.nerkh"
+                          formControlName="peakTimesFriday_nerkh"
+                          name="peakTimesFriday_nerkh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakTimesFriday_nerkh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- مبلغ اوج بار جمعه  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="peakTimesFriday_mablagh" placeholder="مبلغ "
+                          [(ngModel)]="powerBillDto.peakTimesFriday.mablagh"
+                          formControlName="peakTimesFriday_mablagh"
+                          name="peakTimesFriday_mablagh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['peakTimesFriday_mablagh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                                                 
+                    <tr class="table"> 
+                      <th scope="row"> راکتیو </th>                          
+                      <!-- شمارنده قبلی راکتیو -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                          <input  id="reactive_preCounter" placeholder=""
+                          [(ngModel)]="powerBillDto.reactive.preCounter"
+                          formControlName="reactive_preCounter"
+                          name="reactive_preCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['reactive_preCounter']" [touched]="touched"></app-alert-error>
+                      </div>
+                      </th> 
+                      <!-- شمارنده کنونی - راکتیو -->
+                      <th scope="row" > 
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="reactive_currentCounter" placeholder=""
+                        [(ngModel)]="powerBillDto.reactive.currentCounter"
+                        formControlName="reactive_currentCounter"
+                        name="reactive_currentCounter">
+                        </div>
+                        <app-alert-error [data]="formIntermed.controls['reactive_currentCounter']" [touched]="touched"></app-alert-error>
+                      </div>  
+                      </th> 
+                      <!-- ضریب راکتیو  -->
+                      <th scope="row" > 
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="reactive_coefficient" placeholder="ضریب "
+                          [(ngModel)]="powerBillDto.reactive.coefficient"
+                          formControlName="reactive_coefficient"
+                          name="reactive_coefficient">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['reactive_coefficient']" [touched]="touched"></app-alert-error>
+                        </div>  
+                        </th> 
+                      <!-- مصرف کل راکتیو  -->
+                      <th scope="row" >
+                         <div class="mb-2 col-md-1">
+                           <div class="w-100">
+
+                            <input  id="reactive_totalConsumption" placeholder="مصرف کل "
+                            [(ngModel)]="powerBillDto.reactive.totalConsumption"
+                            formControlName="reactive_totalConsumption"
+                            name="reactive_totalConsumption">
+                            </div>
+                            <app-alert-error [data]="formIntermed.controls['reactive_totalConsumption']" [touched]="touched"></app-alert-error>
+                          </div>  
+                        </th>                          
+                      <!-- مصرف بعد از آخرین تغییرات راکتیو  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="reactive_totalAfterLast" placeholder="مصرف بعد از آخرین تغییرات "
+                          [(ngModel)]="powerBillDto.reactive.consumptionAfterLastChange"
+                          formControlName="reactive_totalAfterLast"
+                          name="reactive_totalAfterLast">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['reactive_totalAfterLast']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- نرخ راکتیو  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="reactive_nerkh" placeholder="نرخ "
+                          [(ngModel)]="powerBillDto.reactive.nerkh"
+                          formControlName="reactive_nerkh"
+                          name="reactive_nerkh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['reactive_nerkh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                          
+                      <!-- مبلغ راکتیو  -->
+                      <th scope="row" >
+                       <div class="mb-2 col-md-1">
+                         <div class="w-100">
+
+                          <input  id="reactive_mablagh" placeholder="مبلغ "
+                          [(ngModel)]="powerBillDto.reactive.mablagh"
+                          formControlName="reactive_mablagh"
+                          name="reactive_mablagh">
+                          </div>
+                          <app-alert-error [data]="formIntermed.controls['reactive_mablagh']" [touched]="touched"></app-alert-error>
+                        </div>  
+                      </th>                                                 
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </form> 
+          </div>
+         </div>
+        <!-- اطلاعات محاسباتی   -->
+        <div class="card mb-0">   
+          <!--  سربرگ -->
+          <div class="card-header" id="heading4" role="tab">
+            <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">اطلاعات محاسباتی</a></h5>
         </div>
         <!--  بدنه  -->
         <div class="collapse" id="collapse4" role="tabpanel" aria-labelledby="heading4" data-parent="#accordion">
           <form [formGroup]="formDiscrip" class="w-100" >
             <fieldset class="fieldset-border"> 
-            <!-- <legend>اطلاعات محاسباتی   </legend> -->
             <div class="form row">
             <!-- قدرت قراردادی  -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
               <div class="w-100">
               <label for="contractualPower" class="form-label"> قدرت قراردادی </label>
               <input class="form-control text-right" id="contractualPower" placeholder=""
@@ -595,7 +628,7 @@
             <app-alert-error [data]="formDiscrip.controls['contractualPower']" [touched]="touched"></app-alert-error>
             </div>
             <!-- قدرت محاسبه شده -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
               <div class="w-100">
                 <label for="calculatedPower" class="form-label"> قدرت محاسبه شده </label>
                 <input class="form-control text-right" id="calculatedPower" placeholder=""
@@ -606,7 +639,7 @@
               <app-alert-error [data]="formDiscrip.controls['calculatedPower']" [touched]="touched"></app-alert-error>
             </div>     
             <!-- قدرت مصرفی -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
               <div class="w-100">
                 <label for="powerConsumption" class="form-label"> قدرت مصرفی  </label>
                 <input class="form-control text-right" id="powerConsumption" placeholder=""
@@ -617,7 +650,7 @@
               <app-alert-error [data]="formDiscrip.controls['powerConsumption']" [touched]="touched"></app-alert-error>
             </div>      
             <!-- ضریب زیان بدی مصرف -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
               <div class="w-100">
                   <label for="badConsumptionLossRatio" class="form-label"> ضریب زیان بدی مصرف  </label>
                   <input class="form-control text-right" id="badConsumptionLossRatio" placeholder=""
@@ -628,7 +661,7 @@
                 <app-alert-error [data]="formDiscrip.controls['badConsumptionLossRatio']" [touched]="touched"></app-alert-error>
             </div>
             <!-- مهلت پرداخت -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
               <div class="w-100">
                 <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
                 <input class="form-control text-right" id="paymentDeadLine" placeholder=""
@@ -639,7 +672,7 @@
               <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
             </div>
             <!-- عدد ماکسیمتر -->
-            <div class="mb-4 col-md-2">
+            <div class="mb-2 col-md-1">
             <div class="w-100">
               <label for="maximeterNumber" class="form-label"> عدد ماکسیمتر </label>
                 <input class="form-control text-right" id="maximeterNumber" placeholder=""
@@ -653,15 +686,15 @@
           </fieldset>
         </form>
         </div>
-       </div>                 
-       <!-- بهای قبض  -->
-       <div class="card mb-0">   
-         <!--  سربرگ -->
-         <div class="card-header" id="heading5" role="tab">
-           <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">بهای قبض</a></h5>
-        </div>
-        <!--  بدنه  -->
-        <div class="collapse" id="collapse5" role="tabpanel" aria-labelledby="heading5" data-parent="#accordion">
+        </div>  
+         <!-- بهای قبض  -->
+        <div class="card mb-0">   
+          <!--  سربرگ -->
+          <div class="card-header" id="heading5" role="tab">
+            <h5 class="mb-0"><a class="collapsed" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">بهای قبض</a></h5>
+          </div>
+          <!--  بدنه  -->
+          <div class="collapse" id="collapse5" role="tabpanel" aria-labelledby="heading5" data-parent="#accordion">
           <form [formGroup]="formAmount" class="w-100" >
             <fieldset class="fieldset-border">
               <div class="form row">
@@ -680,8 +713,9 @@
                   <tr class="table-info"> 
                     <th scope="row" >
                       <!-- مبلغ مصرف -->
-                      <div >
-                      <div >
+                     <div class="mb-2 col-md-1">
+                     <div class="w-100">
+
                         <input  id="consumptionAmount" placeholder="مبلغ مصرف"
                         [(ngModel)]="powerBillDto.consumptionAmount"
                         formControlName="consumptionAmount"
@@ -693,8 +727,9 @@
 
                     <!-- آبونمان -->
                     <th scope="row" >
-                      <div >
-                        <div >
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
                         <input  id="subscription" placeholder="آبونمان"
                         [(ngModel)]="powerBillDto.subscription"
                         formControlName="subscription"
@@ -707,9 +742,10 @@
 
                     <!-- بهای قدرت -->
                     <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="powerPrice" placeholder="بهای قدرت"
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="powerPrice" placeholder=" "
                         [(ngModel)]="powerBillDto.powerPrice"
                         formControlName="powerPrice"
                         name="powerPrice">
@@ -720,9 +756,10 @@
 
                     <!-- 	بهای فصل -->
                     <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="seasonPrice" placeholder="	بهای فصل"
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="seasonPrice" placeholder=""
                         [(ngModel)]="powerBillDto.seasonPrice"
                         formControlName="seasonPrice"
                         name="seasonPrice">
@@ -735,9 +772,10 @@
                     
                     <!-- جریمه بدی مصرف -->
                     <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="badPenaltiesForConsuming" placeholder="جریمه بدی مصرف "
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="badPenaltiesForConsuming" placeholder="  "
                         [(ngModel)]="powerBillDto.badPenaltiesForConsuming"
                         formControlName="badPenaltiesForConsuming"
                         name="badPenaltiesForConsuming">
@@ -748,9 +786,10 @@
 
                     <!-- 		مبلغ قابل پرداخت -->
                     <th scope="row" >
-                      <div >
-                        <div >
-                        <input  id="payableAmount" placeholder="	مبلغ قابل پرداخت"
+                     <div class="mb-2 col-md-1">
+                       <div class="w-100">
+
+                        <input  id="payableAmount" placeholder="	  "
                         [(ngModel)]="powerBillDto.payableAmount"
                         formControlName="payableAmount"
                         name="payableAmount">
@@ -764,61 +803,75 @@
             </div>
           </fieldset>
         </form> 
-      </div>
-     <!-- end collape -->     
-     </div>
+          </div>
+          <!-- end collape -->                 
+        </div>  
+      </div>  
+    </div>      
   </div>
-    <!-- اطلاعات اشتراک  --> 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">لیست اشتراک ها</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="d-flex align-items-end">
-          <div class="mb-4 col-md-6 mt-2">
-            <div class="w-100">
-              <label for="filterBuilding" class="form-label">عنوان اشتراک</label>
-            </div>
-          </div>
-          <div class="mb-4 col-auto mt-2">
-            <div class="btn btn-primary" (click)="getListPower()">
-              جستجو
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead class="thead-light">
-              <tr>
-                <th scope="col" width="40">#</th>
-                <th scope="col">نام مشترک</th>
-                <th scope="col" width="80">عملیات</th>
-              </tr>
-              </thead>
-              <tbody>
-              <ng-container *ngFor="let item of powerList; let i = index">
-                <tr>
-                  <th scope="row" width="40">{{i + 1}}</th>
-                  <td>{{item.name}}</td>
-                  <td width="40">
-                  <span class="cursor-pointer text-center btn btn-primary"
-                        data-dismiss="modal"
-                        (click)="selectPower(item)">انتخاب</span>
-                  </td>
 
-                </tr>
-              </ng-container>
-              </tbody>
-            </table>
+   
+   
+        <!-- ثبت اطلاعات  -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success text-center ml-3" (click)="createReceipt()" *ngIf="!powerId">ثبت</button>
+          <button type="submit" class="btn btn-success text-center ml-3" (click)="createReceipt()" *ngIf="powerId">ویرایش</button>
+          <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+        </div>
+      </div>
+    </div> 
+  <!-- </form> -->
+</div>
+
+ <!-- اطلاعات اشتراک  --> 
+ <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">لیست اشتراک ها</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="d-flex align-items-end">
+        <div class="mb-4 col-md-6 mt-2">
+          <div class="w-100">
+            <label for="filterBuilding" class="form-label">عنوان اشتراک</label>
           </div>
+        </div>
+        <div class="mb-4 col-auto mt-2">
+          <div class="btn btn-primary" (click)="getListPower()">
+            جستجو
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="thead-light">
+            <tr>
+              <th scope="col" width="40">#</th>
+              <th scope="col">نام مشترک</th>
+              <th scope="col" width="80">عملیات</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of powerList; let i = index">
+              <tr>
+                <th scope="row" width="40">{{i + 1}}</th>
+                <td>{{item.name}}</td>
+                <td width="40">
+                <span class="cursor-pointer text-center btn btn-primary"
+                      data-dismiss="modal"
+                      (click)="selectPower(item)">انتخاب</span>
+                </td>
+
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-  
-  <button class="btn btn-primary"  (click)="createReceipt()">ثبت قبض</button>
+</div>

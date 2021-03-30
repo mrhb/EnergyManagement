@@ -29,7 +29,8 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
   myPattern = MyPattern;
   moment = Moment;
 
-  form: FormGroup;
+  // form: FormGroup;
+  formInformation: FormGroup;
   formDiscrip: FormGroup;
   formIntermed: FormGroup;
   powerBillDto = new PowerBillDto();
@@ -53,7 +54,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
     }
 
   ngOnInit(): void {
-    this.form=this.formBuilder.group({
+    this.formInformation=this.formBuilder.group({
       numberShare: [''],// شماره اشتراک
       paymentCode: [''], // شناسه پرداخت
       period:[], // دوره
@@ -185,8 +186,8 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
   }
   createReceipt(): void {
     this.touched = true;
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
+    if (this.formInformation.invalid) {
+      this.formInformation.markAllAsTouched();
       Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
       return;
     }
