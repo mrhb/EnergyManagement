@@ -44,6 +44,28 @@
             </select>
           </div>
         </div>
+
+        <!-- تاریخ شروع   -->
+        <div class="mb-4 col-md-2">
+          <div class="w-100">
+            <label for="fromDate" class="form-label">از تاریخ</label>
+            <input class="form-control text-right" id="fromDate" placeholder=""
+                    formControlName="fromDate"
+                    name="fromDate">
+          </div>
+          <app-alert-error [data]="form.controls['fromDate']" ></app-alert-error>
+          </div>
+          <!-- تاریخ اتمام   -->
+          <div class="mb-4 col-md-2">
+          <div class="w-100">
+            <label for="toDate" class="form-label">تا تاریخ</label>
+            <input class="form-control text-right" id="toDate" placeholder=""
+                    formControlName="toDate"
+                    name="toDate">
+          </div>
+          <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
+          </div>
+
     </div>
 
       

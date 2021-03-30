@@ -7,6 +7,14 @@ import {DateConvert} from './date-convert';
 import {Tools} from "./tools";
 
 export class Moment {
+
+  public static add(date,amount,unit) {
+    if (date) {
+      return moment(date).add(amount,unit).format('jYYYY/jMM/jDD-HH:mm:s:ms');
+    }
+    return false;
+  }
+
   public static getJaliliDateFromIsoOrFull2(date) {
     if (date) {
       return moment(date).format('jYYYY/jMM/jDD-HH:mm:s:ms');
