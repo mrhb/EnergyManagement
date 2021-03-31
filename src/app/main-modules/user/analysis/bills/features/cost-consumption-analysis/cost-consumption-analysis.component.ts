@@ -47,8 +47,8 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
       this.jQueryDate();
 
        //initializeform
-       $('#fromDate').val(this.billAnalysisDto.fromDate);
-       $('#toDate').val( this.billAnalysisDto.toDate);
+       $('#fromDate').val(this.moment.getJaliliDateFromIso(this.billAnalysisDto.fromDate));
+       $('#toDate').val(this.moment.getJaliliDateFromIso(this.billAnalysisDto.toDate));
        this.updateChart();
 
     }
@@ -100,8 +100,13 @@ export class CostConsumptionAnalysisComponent implements OnInit, AfterViewInit{
 //initializeform
        this.billAnalysisDto.billAnalysisParam=BillAnalysisParamEnum[BillAnalysisParamEnum.CONSUMPTION.toString()] ;
        this.billAnalysisDto.billType=BillTypeEnum[BillTypeEnum.POWER.toString()] ;
-       this.billAnalysisDto.fromDate=this.moment.add(new Date(),-1).toString();
-       this.billAnalysisDto.toDate=this.moment.convertIsoToJDateFa(new Date().toISOString());
+       
+
+       var date = new Date();
+       date.setDate( date.getDate() - 0 );
+       this.billAnalysisDto.toDate=date.toISOString();
+       date.setDate( date.getDate() - 365 );
+       this.billAnalysisDto.fromDate=date.toISOString();
  
   }
 
