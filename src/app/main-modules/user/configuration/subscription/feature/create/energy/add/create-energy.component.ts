@@ -42,6 +42,7 @@ export class CreateEnergyComponent implements OnInit {
   filterBuilding = '';
   buildingList = [];
   editedAllocation = false;
+  router: any;
 
   constructor(private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
@@ -96,7 +97,6 @@ export class CreateEnergyComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک انرژی با موفقیت انجام شد.');
-            // this.router.navigateByUrl('/index/user/configuration/energyList').then();
           }
         });
     }
@@ -133,6 +133,7 @@ export class CreateEnergyComponent implements OnInit {
             this.buildingAllocation = new GasBuildingAllocation();
             Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
             this.energyDto.buildingList.push(res.data);
+            // this.router.navigate('/index/user/configuration/energyList').then();
           }
         });
     } else {
