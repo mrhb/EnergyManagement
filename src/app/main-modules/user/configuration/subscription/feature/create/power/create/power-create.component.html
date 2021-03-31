@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <form [formGroup]="form" class="form" enctype="multipart/form-data" (ngSubmit)="createPower()">
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header flex-card-header">
-          <strong *ngIf="!powerId"> افزودن<small> کنتور برق </small>  </strong>
+          <strong *ngIf="!powerId"> تعریف<small> کنتور برق </small>  </strong>
           <strong *ngIf="powerId"> ویرایش<small> کنتور برق </small>  </strong>
           <div class="d-flex">
             <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/powerList'"> لیست <small> کنتورهای برق </small></button> 
@@ -175,7 +175,7 @@
             <!--   دیماند قراردادی -->
             <div class="mb-4 col-md-2">
               <div class="w-100">
-                <label for="contract" class="form-label">دیماند قراردادی</label>
+                <label for="contract" class="form-label"> دیماند قراردادی (kw)</label>
                 <input class="form-control text-right" id="contract" placeholder=""
                         [(ngModel)]="powerDto.contract"
                         formControlName="contract"
@@ -208,12 +208,13 @@
   </form>
   </div>
 <!-- اطلاعات ساختمان -->
+<div *ngIf="powerId">
   <div class="row" style="padding-top: 20px;">
     <div class="col-lg-12">
       <div class="card border-primary">
         <!-- عنوان جدول -->
         <div class="card-header flex-card-header">
-          <strong id= "billingSearchId"> لیست ساختمان <small> تخصیص یافته </small></strong>
+          <strong id= "billingSearchId"> تخصیص کنتور </strong>
         </div> 
         <!-- جدول ساختمان های  -->
         <div class="card-body">
@@ -255,7 +256,7 @@
         <!-- انتخاب ساختمان -->   
           <div class="form-group row"> 
             <div class="col-md-3">
-              <p class="form-control-static">انتخاب</p>
+              <p class="form-control-static"> انتخاب ساختمان یا تاسیسات</p>
             </div>
             <div class="col-md-9">
               <p class="form-control-static">درصد تخصیص</p>

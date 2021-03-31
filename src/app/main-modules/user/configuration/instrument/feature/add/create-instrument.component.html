@@ -26,6 +26,24 @@
           <legend>اطلاعات تجهیز </legend>
           <form [formGroup]="form" class="w-100" (ngSubmit)="createInstrument()">
             <div class="form row">
+
+            <!-- کاربری تجهیز -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="instrumentUsage" class="form-label">کاربری تجهیز</label>
+                <select id="instrumentUsage"
+                        class="form-control text-right"
+                        [(ngModel)]="instrumentDto.instrumentUsage"
+                        formControlName="instrumentUsage"
+                        name="instrumentUsage">
+                  <option *ngFor="let item of useTypeInstrumentEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+              <app-alert-error [data]="form.controls['instrumentUsage']" [touched]="touched"></app-alert-error>
+            </div>
+
               <!-- نام تجهیز -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
@@ -67,22 +85,7 @@
                 </div>
                 <app-alert-error [data]="form.controls['instrumentNum']" [touched]="touched"></app-alert-error>
               </div>              
-              <!-- کاربری تجهیز -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="instrumentUsage" class="form-label">کاربری تجهیز</label>
-                  <select id="instrumentUsage"
-                          class="form-control text-right"
-                          [(ngModel)]="instrumentDto.instrumentUsage"
-                          formControlName="instrumentUsage"
-                          name="instrumentUsage">
-                    <option *ngFor="let item of useTypeInstrumentEnum | enumKeyValue" [value]="item.key">
-                      {{item.value}}
-                    </option>
-                  </select>
-                </div>
-                <app-alert-error [data]="form.controls['instrumentUsage']" [touched]="touched"></app-alert-error>
-              </div>
+           
               <!-- توان مصرفی -->          
               <div class="mb-4 col-md-2">
                 <div class="w-100">
