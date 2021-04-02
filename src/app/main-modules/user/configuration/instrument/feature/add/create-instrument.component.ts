@@ -16,7 +16,11 @@ import {ActivatedRoute} from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { BuildingAllocation } from '../../../subscription/model/power';
-import { UseTypeInstrumentEnum,UnitInstrumentEnum, EnergyCarierEnum } from '../../model/instrumentEnum';
+import { 
+  UseTypeInstrumentEnum,  UnitInstrumentEnum,
+  CenteralairConditionEnum, LocalairConditionEnum, OficeEnum,
+  LightingEnum, ServerEnum, KitchrnEnum, OthersEnum , 
+  EnergyCarierEnum } from '../../model/instrumentEnum';
 import { Moment } from 'src/app/shared/tools/moment';
 declare var $: any;
 @Component({
@@ -34,7 +38,8 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   edited = false;
   form: FormGroup;
   buildingEnum = UseTypeBuildingEnum;
-  useTypeInstrumentEnum = UseTypeInstrumentEnum;
+  useTypeEnum = UseTypeInstrumentEnum; //کاربری تجهیر
+  nameEnum; //نام تجهیر
   energyCarierEnum=EnergyCarierEnum;//حاملهای انرژی
   myPattern = MyPattern;
   moment = Moment;
@@ -49,19 +54,6 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
               private activatedRoute: ActivatedRoute,
               private buildingService: BuildingService,
               private instrumentService: InstrumentService) {
-    this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern(this.myPattern.nameAndFamily)]],
-      instrumentCarrier: [''],// حامل انرژی 
-      instrumentNum:  [''], //تعداد
-      instrumentUsage:  [''], //کاربری تجهیر
-      consumptionPower:  [''], //توان مصرفی 
-      dailyOperatHours:  [''], // ساعت کارکرد روز 
-      AnnualWorkDayNum:  [''], //  تعداد روز کارکرد در سال 
-      fromDate:  [''], //  تاریخ شروع کار تجهیز
-      toDate:  [''], //  تاریخ خاتمه کار تجهیز
-      coincidenceCoefficient:  [''], //    ضریب همزمانی 
-    });
-
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params', params);
       if (params.id) {
@@ -73,6 +65,18 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      instrumentUsage:  ['', [Validators.required ]], //کاربری تجهیر
+      name: ['', [Validators.required ]], // نام تجهیز
+      instrumentCarrier: [''],// حامل انرژی 
+      instrumentNum:  [''], //تعداد
+      consumptionPower:  [''], //توان مصرفی 
+      dailyOperatHours:  [''], // ساعت کارکرد روز 
+      AnnualWorkDayNum:  [''], //  تعداد روز کارکرد در سال 
+      fromDate:  [''], //  تاریخ شروع کار تجهیز
+      toDate:  [''], //  تاریخ خاتمه کار تجهیز
+      coincidenceCoefficient:  [''], //    ضریب همزمانی 
+    });
   }
   ngAfterViewInit(): void {
     this.jQueryDate();
@@ -133,7 +137,6 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigate(['/index/user/configuration/instrumentList']).then();
             // this.router.navigateByUrl('/index/user/configuration/instrumentList').then();
           }
         });
@@ -153,13 +156,46 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       .subscribe((res: any) => {
         if (res) {
           this.instrumentDto = res.data;
+          this.setEnumUseType();
           $('#fromDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.fromDate));
           $('#toDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.toDate));
 
         }
       });
   }
-
+  setEnumUseType(isChange?: boolean): void {
+    switch (this.instrumentDto.instrumentUsage) {
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum. CENTERALAIRCONDITION.toString()]:
+        this.nameEnum = CenteralairConditionEnum;
+        break;
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.LOCALAIRCONDITION.toString()]:
+        this.nameEnum = LocalairConditionEnum;
+        break;
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.OFICE.toString()]:
+        this.nameEnum = OficeEnum;
+        break; 
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.LIGHTING.toString()]:
+        this.nameEnum = LightingEnum;
+        break; 
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.SERVER.toString()]:
+        this.nameEnum = ServerEnum;
+        break;         
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.KITCHEN.toString()]:
+        this.nameEnum = KitchrnEnum;
+        break;    
+      case UseTypeInstrumentEnum[UseTypeInstrumentEnum.OTHERS.toString()]:
+        this.nameEnum = OthersEnum;
+        break;             
+    }
+    if (this.nameEnum && isChange) {
+      Object.keys(this.nameEnum).map((key, index) => {
+        if ((index % 2) === 0) {
+          this.instrumentDto.name = this.nameEnum[this.nameEnum[key.toString()]];
+          return;
+        }
+      });
+    }
+  }
   getListBuilding(): void {
     this.buildingService.getListBuilding({
       page: this.pageIndex,

@@ -201,7 +201,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigate(['/index/user/configuration/powerList']);
+            this.router.navigate(['/index/user/configuration/powerBillList']);
           }
         });
     } else {
@@ -210,7 +210,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش قبض برق با موفقیت انجام شد.');
-            // this.router.navigate(['/index/user/configuration/powerList']);
+            this.router.navigate(['/index/user/configuration/powerBillList']);
           }
         });
     }

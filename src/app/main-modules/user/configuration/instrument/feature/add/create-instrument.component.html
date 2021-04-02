@@ -26,36 +26,39 @@
           <legend>اطلاعات تجهیز </legend>
           <form [formGroup]="form" class="w-100" (ngSubmit)="createInstrument()">
             <div class="form row">
-
-            <!-- کاربری تجهیز -->
-            <div class="mb-4 col-md-2">
-              <div class="w-100">
-                <label for="instrumentUsage" class="form-label">کاربری تجهیز</label>
-                <select id="instrumentUsage"
-                        class="form-control text-right"
-                        [(ngModel)]="instrumentDto.instrumentUsage"
-                        formControlName="instrumentUsage"
-                        name="instrumentUsage">
-                  <option *ngFor="let item of useTypeInstrumentEnum | enumKeyValue" [value]="item.key">
-                    {{item.value}}
-                  </option>
-                </select>
-              </div>
-              <app-alert-error [data]="form.controls['instrumentUsage']" [touched]="touched"></app-alert-error>
-            </div>
-
-              <!-- نام تجهیز -->          
+             <!-- کاربری تجهیز -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="name" class="form-label">نام تجهیز</label>
-                  <input class="form-control text-right" id="name" placeholder=""
-                         [(ngModel)]="instrumentDto.name"
-                         formControlName="name"
-                         name="name">
+                  <label for="instrumentUsage" class="form-label">کاربری تجهیز</label>
+                  <select id="instrumentUsage"
+                          class="form-control text-right"
+                          [(ngModel)]="instrumentDto.instrumentUsage"
+                          (change)="setEnumUseType(true)"
+                          formControlName="instrumentUsage"
+                          name="instrumentUsage">
+                    <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['instrumentUsage']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- نام تجهیز -->          
+              <div class="mb-4 col-md-2" *ngIf="instrumentDto.name">
+                <div class="w-100">
+                  <label for="name" class="form-label">نام تجهیز </label>
+                  <select id="name"
+                          class="form-control text-right"
+                          [(ngModel)]="instrumentDto.name"
+                          formControlName="name"
+                          name="name">
+                    <option *ngFor="let item of nameEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
                 </div>
                 <app-alert-error [data]="form.controls['name']" [touched]="touched"></app-alert-error>
-              </div>
-             
+              </div>             
               <!-- حامل انرژی -->   
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
@@ -164,6 +167,8 @@
           </form>
         </fieldset>
         </div>
+
+        
         <div class="tab-pane fade" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
           <fieldset class="fieldset-border">
             <legend>افزودن ساختمان</legend>
