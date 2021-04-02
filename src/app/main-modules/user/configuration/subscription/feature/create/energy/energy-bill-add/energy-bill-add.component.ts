@@ -170,6 +170,8 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
   }
   selectEnergy(item): void {
     this.energyAllocation = item;
+    
     this.energyBillDto.energySharingId=item.id;
+    this.energyBillDto.energyCarrier=item.id;
   }
 }

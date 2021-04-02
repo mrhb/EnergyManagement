@@ -11,22 +11,18 @@
       </div> 
       
       <div class="card-body">
-       <!-- اطلاعات اشتراک -->
-       <div class="card-header flex-card-header">
-         <strong id= "billingSearchId"> شماره اشتراک  <small> تخصیص یافته </small></strong>
-       </div> 
-       <div class="form-group row">
-       <div class="row">
-         <div class="col-auto d-flex flex-column">
-           <div class="d-flex align-items-center">
-           <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
-           <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
-               (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.paymentCode}})
-             </span>
-           </div>
-         </div>
-       </div>
-       </div>
+      <!-- انتخاب اشتراک -->
+      <div class="form-group row">
+        <div class="col-12">
+          <div class="w-100">
+            <label class="form-label">شماره اشتراک کنتور   :</label>
+            <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
+            <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
+                (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.paymentCode}})
+               </span>
+          </div>
+        </div>
+      </div>
        <div class="form-group row">
       <!-- Collapse -->
       <div class="card-body">
