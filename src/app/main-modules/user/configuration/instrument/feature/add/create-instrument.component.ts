@@ -120,8 +120,10 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
     }, 100);
   }
 
-  createInstrument(): void {
+  createEdit(): void {
     this.touched = true;
+
+    this.instrumentDto.buildingId=this.buildingAllocation.buildingId;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
@@ -132,7 +134,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       this.instrumentService.createInstrument(this.instrumentDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ایجاد تاسیس با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ایجاد تجهیز با موفقیت انجام شد.');
             this.instrumentId = res.data;
             setTimeout(() => {
               $('#pills-building-tab').click();
@@ -144,7 +146,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       this.instrumentService.updateInstrument({id: this.instrumentId}, this.instrumentDto)
         .subscribe((res: any) => {
           if (res) {
-            Notiflix.Notify.Success('ویرایش تاسیس با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ویرایش تجهیز با موفقیت انجام شد.');
             // this.router.navigateByUrl('/index/user/configuration/instrumentList').then();
           }
         });
@@ -210,56 +212,9 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
     });
   }
 
-  addBuildingAllocation(): void {
-    if (!this.editedAllocation) {
-      this.instrumentService.addBuildingAllocation({id: this.instrumentId}, this.buildingAllocation)
-        .subscribe((res: any) => {
-          if (res) {
-            this.buildingAllocation = new EnergyBuildingAllocation();
-            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
-            this.instrumentDto.buildingList.push(res.data);
-          }
-        });
-    } else {
-      this.instrumentService.updateBuildingAllocation({id: this.instrumentId}, this.buildingAllocation)
-        .subscribe((res: any) => {
-          if (res) {
-            this.editedAllocation = false;
-            const index = this.instrumentDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
-            if (index !== -1 ) {
-              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
-              this.instrumentDto.buildingList[index] = this.buildingAllocation;
-              this.buildingAllocation = new EnergyBuildingAllocation();
-            }
-          }
-        });
-    }
-  }
-
-  deleteBuilding(item: BuildingAllocation, i): void {
-    Notiflix.Confirm.Show(
-      'قبض',
-      'آیا اطمینان دارید که این اشتراک حذف گردد؟',
-      'بله',
-      'خیر',
-      () => {
-        this.instrumentService.deleteInstrumentBuildingAllocation({id: this.instrumentId, allocationId: item.id})
-          .subscribe((res: any) => {
-            if (res) {
-              Notiflix.Notify.Success('حذف تجهیز با موفقیت انجام گردید');
-              this.instrumentDto.buildingList.splice(i, 1);
-            }
-          });
-      });
-  }
 
   selectBuildingAllocation(item): void {
     this.buildingAllocation.name = item.name;
     this.buildingAllocation.buildingId = item.id;
-  }
-
-  editAllocationPercentage(item: InstrumentBuildingAllocation): void {
-    this.editedAllocation = true;
-    this.buildingAllocation = JSON.parse(JSON.stringify(item));
   }
 }

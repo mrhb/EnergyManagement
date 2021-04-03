@@ -2,6 +2,8 @@ import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
 import { UseTypeInstrumentEnum, UnitInstrumentEnum, EnergyCarierEnum } from './instrumentEnum';
 
 export class InstrumentDto {
+  buildingId: string;
+
   name: string; //نام تجهیز 
   instrumentCarrier: EnergyCarierEnum; // حامل انرژی 
   instrumentNum: string; //تعداد
@@ -12,7 +14,6 @@ export class InstrumentDto {
   fromDate: string; //  تاریخ شروع کار تجهیز
   toDate: string; //  تاریخ خاتمه کار تجهیز
   coincidenceCoefficient: string; //   ضریب همزمانی  
-  buildingList: InstrumentBuildingAllocation[] = [];
 }
 
 export class InstrumentBuildingAllocation {
