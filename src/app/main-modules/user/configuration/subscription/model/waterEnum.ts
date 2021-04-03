@@ -7,7 +7,7 @@ export enum UseTypeWater {
   PRODUCTION = <any> 'تولیدی',
   COMMERCIAL = <any> 'مصارف تجاری',
 }
-	 
+
 export enum UseCodeWaterEnum {
   RESIDENTIAL = <any> 'مسکونی',
   PUBLIC_GOVERNMENTAL = <any> 'عمومی و دولتی',
