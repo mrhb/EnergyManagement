@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfigurationStateService } from '../configuration-state.service';
+import { RegionService } from '../region/service/region.service';
 
 @Component({
   selector: 'configuration-side-bar',
@@ -9,7 +9,7 @@ import { ConfigurationStateService } from '../configuration-state.service';
 export class ConfigurationSideBarComponent implements OnInit {
 
   constructor(
-    public stateService:ConfigurationStateService
+    public stateService:RegionService
   ) { }
 
   ngOnInit(): void {

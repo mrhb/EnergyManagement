@@ -58,6 +58,7 @@ import { RegionModule } from 'src/app/base-modules/region/region.module';
 import { RegionEditeComponent } from './region/feature/region-edite/region-edite.component';
 import { ConfigurationMainPanelComponent } from './configuration-main-panel/configuration-main-panel.component';
 import { ConfigurationSideBarComponent } from './configuration-side-bar/configuration-side-bar.component';
+import { RegionTreeViewComponent } from './region/feature/region-tree-view/region-tree-view.component';
 
 
 @NgModule({
@@ -101,7 +102,8 @@ import { ConfigurationSideBarComponent } from './configuration-side-bar/configur
     GenerationListComponent,
     RegionEditeComponent,
     ConfigurationMainPanelComponent,
-    ConfigurationSideBarComponent
+    ConfigurationSideBarComponent,
+    RegionTreeViewComponent
   ],
     imports: [
         CommonModule,

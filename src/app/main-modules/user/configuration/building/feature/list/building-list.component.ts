@@ -17,7 +17,7 @@ import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/cha
 import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
 import {CoolingSystemType, HeatingSystemType} from '../../model/buildingEnum';
 import * as XLSX from 'xlsx';
-import { ConfigurationStateService } from '../../../configuration-state.service';
+import { RegionService } from '../../../region/service/region.service';
 type AOA = any[][];
 
 declare var $: any;
@@ -50,15 +50,12 @@ export class BuildingListComponent implements OnInit {
   energyLabelEnum = EnergyLabelType;
 
   constructor(
-    stateService:ConfigurationStateService,
+    private stateService:RegionService,
     private buildingService: BuildingService,
     public router: Router,
     private activatedRoute: ActivatedRoute) {
 
-    stateService.regionId.subscribe(reg=>{
-      this.regionId=reg;
-      this.getBuildingList();
-    });
+
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.pageIndex) {
         this.pageIndex = params.pageIndex;
@@ -70,6 +67,10 @@ export class BuildingListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getBuildingList();
+    });
   }
   onFileChange(evt: any) {
     /* wire up file reader */
