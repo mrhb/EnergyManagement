@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../../shared/tools/myPattern';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GasBuildingAllocation, GasDto} from '../../../../model/gas';
-import {GroupGasEnum, UseTypeGasEnum} from '../../../../model/gasEnum';
+import {GroupGasEnum, UseTypeGasEnum , CapacityGasEnum} from '../../../../model/gasEnum';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {GasService} from '../../../../service/gas.service';
@@ -37,6 +37,8 @@ export class GasCreateComponent implements OnInit {
   myPattern = MyPattern;
   gasDto = new GasDto();
   groupEnum = GroupGasEnum;
+  capacityEnum = CapacityGasEnum;
+  
   useTypeGasEnum = UseTypeGasEnum;
 
   filterBuilding = '';
@@ -75,7 +77,7 @@ export class GasCreateComponent implements OnInit {
       serialShare: [''],
       useType: ['', [Validators.required]],
       group: ['', [Validators.required]],
-      capacity: [''],
+      capacity: ['', [Validators.required]],
       coefficient: [''],
     });
   }
