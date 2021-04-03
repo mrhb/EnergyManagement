@@ -1,0 +1,128 @@
+.tree {
+    height: 100%;
+    overflow-y: auto;
+    white-space: nowrap;
+    min-height: calc(100vh - 310px);
+  
+    .navbar {
+      padding: 0;
+      border: none;
+      margin-left: 0;
+      background-color: inherit;
+    }
+    .side-menu-container {
+      width: 100%;
+    }
+    .navbar-nav {
+      padding-right: 0;
+      .navbar-nav {
+        font-size: 13px;
+        margin-right: 19px;
+      }
+  
+      .panel {
+        border: 0 none;
+        box-shadow: none;
+        margin: 0;
+        background: inherit;
+      }
+      li {
+        display: block;
+        width: 100%;
+        a {
+          padding: 15px 15px 15px 0;
+          display: inline-flex;
+          color: #5f5f5f;
+          align-items: center;
+          width: 31px;
+          .glyphicon, .fa {
+            margin-left: 8px;
+          }
+          &.selected {
+            color: unset;
+          }
+          span.fa-angle-left {
+            -webkit-transition: all 0.1s ease;
+            -moz-transition: all 0.1s ease;
+            -ms-transition: all 0.1s ease;
+            -o-transition: all 0.1s ease;
+            transition: all 0.1s ease;
+          }
+  
+          &[aria-expanded="true"] {
+            span.fa-angle-left {
+              transform: rotate(-90deg);
+            }
+          }
+  
+          & > .fa:first-child {
+            min-width: 16px;
+            text-align: center;
+          }
+        }
+      }
+  
+      .parent-tree {
+        position: relative;
+  
+        &:before {
+          content: "";
+          width: 1px;
+          right: 21px;
+          top: 36px;
+          z-index: 1;
+          position: absolute;
+          height: calc(100% - 58px);
+          background: #C2C7C7;
+        }
+        .navbar-nav {
+          li > a {
+            position: relative;
+            &:before {
+              position: absolute;
+              content: "";
+              width: 8px;
+              height: 1px;
+              background: #c2c7c7;
+              right: 2px;
+            }
+          }
+  
+          .sub-tree {
+            margin-right: 6px;
+            position: relative;
+            &:before {
+              position: absolute;
+              content: "";
+              width: 1px;
+              height: calc(100% - 15px);
+              background: #c2c7c7;
+              right: 16px;
+              top: -9px;
+            }
+  
+            .navbar-nav {
+              font-size: 13px;
+              margin-right: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  a,
+  a:focus,
+  a:hover {
+    text-decoration: none;
+  }
+  
+  .selected {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    font-weight: bold;
+  }
+  
