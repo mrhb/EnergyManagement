@@ -24,166 +24,164 @@
             </div>
           </div>
           <!-- اطلاعات قبض -->
-          <!-- <div class="form-group row"> -->
-            <form [formGroup]="form" class="w-100">
-              <fieldset class="fieldset-border">
-                <div class="form row">               
-                  <!-- شناسه پرداخت -->
-                  <div class="mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="paymentCode" class="form-label">شناسه پرداخت</label>
-                        <input class="form-control text-right" id="paymentCode" placeholder=""
-                              [(ngModel)]="gasBillDto.paymentCode"
-                              formControlName="paymentCode"
-                              name="paymentCode">
-                      </div>
-                      <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
-                  </div>
-                  <!-- تاریخ شروع -->
-                  <div class="mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="fromDate" class="form-label">از تاریخ</label>
-                        <input class="form-control text-right" id="fromDate" placeholder=""
-                        formControlName="fromDate"
-                        name="fromDate">
-                      </div>
-                      <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
-                    </div>
-                  <!-- تاریخ اتمام -->
-                  <div class="mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="toDate" class="form-label">تا تاریخ </label>
-                        <input class="form-control text-right" id="toDate" placeholder=""
-                        formControlName="toDate"
-                        name="toDate">
-                      </div>
-                      <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
-                    </div>
-                  <!-- تعداد روز دوره -->
-                  <div class="mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="numberDays" class="form-label"> تعداد روز دوره </label>
-                        <input class="form-control text-right" id="numberDays" placeholder=""
-                              [(ngModel)]="gasBillDto.numberDays"
-                              formControlName="numberDays"
-                              name="numberDays">
-                      </div>
-                      <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
-                  </div>
-                  <!-- رقم پیشین شمارشگر -->
-                  <div class="mb-4 col-md-2">
+          <form [formGroup]="form" class="w-100">
+            <fieldset class="fieldset-border">
+              <div class="form row">               
+                <!-- شناسه پرداخت -->
+                <div class="mb-4 col-md-2">
                     <div class="w-100">
-                      <label for="previousCounter" class="form-label">رقم پیشین شمارشگر</label>
-                      <input class="form-control text-right" id="previousCounter" placeholder=""
-                              [(ngModel)]="gasBillDto.previousCounter"
-                              formControlName="previousCounter"
-                              name="previousCounter">
+                      <label for="paymentCode" class="form-label">شناسه پرداخت</label>
+                      <input class="form-control text-right" id="paymentCode" placeholder=""
+                            [(ngModel)]="gasBillDto.paymentCode"
+                            formControlName="paymentCode"
+                            name="paymentCode">
                     </div>
-                    <app-alert-error [data]="form.controls['previousCounter']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!-- رقم فعلی شمارشگر -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="currentCounter" class="form-label">رقم فعلی شمارشگر</label>
-                      <input class="form-control text-right" id="currentCounter" placeholder=""
-                            [(ngModel)]="gasBillDto.currentCounter"
-                            formControlName="currentCounter"
-                            name="currentCounter">
-                    </div>
-                    <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!-- مصرف دوره -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="consumptionDurat" class="form-label">مصرف دوره</label>
-                      <input class="form-control text-right" id="consumptionDurat" placeholder=""
-                            [(ngModel)]="gasBillDto.consumptionDurat"
-                            formControlName="consumptionDurat"
-                            name="consumptionDurat">
-                    </div>
-                    <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!-- کارکرد شمارشگر -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="totalCounter" class="form-label">کارکرد شمارشگر</label>
-                      <input class="form-control text-right" id="totalCounter" placeholder=""
-                              [(ngModel)]="gasBillDto.totalCounter"
-                              formControlName="totalCounter"
-                              name="totalCounter">
-                    </div>
-                    <app-alert-error [data]="form.controls['totalCounter']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--  مصرف دوره -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="estandardConsumption" class="form-label">مصرف دوره </label>
-                      <input class="form-control text-right" id="estandardConsumption" placeholder=""
-                              [(ngModel)]="gasBillDto.estandardConsumption"
-                              formControlName="estandardConsumption"
-                              name="estandardConsumption">
-                    </div>
-                    <app-alert-error [data]="form.controls['estandardConsumption']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--  بهای گاز مصرفی -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="consumptionAmount" class="form-label">بهای گاز مصرفی  </label>
-                      <input class="form-control text-right" id="consumptionAmount" placeholder=""
-                              [(ngModel)]="gasBillDto.consumptionAmount"
-                              formControlName="consumptionAmount"
-                              name="consumptionAmount">
-                    </div>
-                    <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--  آبونمان   -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="subscription" class="form-label">آبونمان </label>
-                      <input class="form-control text-right" id="subscription" placeholder=""
-                              [(ngModel)]="gasBillDto.subscription"
-                              formControlName="subscription"
-                              name="subscription">
-                    </div>
-                    <app-alert-error [data]="form.controls['subscription']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--  عوارض   -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="gasTolls" class="form-label">عوارض </label>
-                      <input class="form-control text-right" id="gasTolls" placeholder=""
-                              [(ngModel)]="gasBillDto.gasTolls"
-                              formControlName="gasTolls"
-                              name="gasTolls">
-                    </div>
-                    <app-alert-error [data]="form.controls['gasTolls']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--  بیمه   -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="insurance" class="form-label">بیمه </label>
-                      <input class="form-control text-right" id="insurance" placeholder=""
-                              [(ngModel)]="gasBillDto.insurance"
-                              formControlName="insurance"
-                              name="insurance">
-                    </div>
-                    <app-alert-error [data]="form.controls['insurance']" [touched]="touched"></app-alert-error>
-                  </div>  
-                  <!--     مبلغ قابل پرداخت  -->
-                  <div class="mb-4 col-md-2">
-                    <div class="w-100">
-                      <label for="payableAmount" class="form-label">  مبلغ قابل پرداخت  </label>
-                      <input class="form-control text-right" id="payableAmount" placeholder=""
-                              [(ngModel)]="gasBillDto.payableAmount"
-                              formControlName="payableAmount"
-                              name="payableAmount">
-                    </div>
-                    <app-alert-error [data]="form.controls['payableAmount']" [touched]="touched"></app-alert-error>
-                  </div>   
+                    <app-alert-error [data]="form.controls['paymentCode']" [touched]="touched"></app-alert-error>
                 </div>
-              </fieldset>
-            </form>
-          <!-- </div>  -->
+                <!-- تاریخ شروع -->
+                <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="fromDate" class="form-label">از تاریخ</label>
+                      <input class="form-control text-right" id="fromDate" placeholder=""
+                      formControlName="fromDate"
+                      name="fromDate">
+                    </div>
+                    <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
+                  </div>
+                <!-- تاریخ اتمام -->
+                <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="toDate" class="form-label">تا تاریخ </label>
+                      <input class="form-control text-right" id="toDate" placeholder=""
+                      formControlName="toDate"
+                      name="toDate">
+                    </div>
+                    <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
+                  </div>
+                <!-- تعداد روز دوره -->
+                <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="numberDays" class="form-label"> تعداد روز دوره </label>
+                      <input class="form-control text-right" id="numberDays" placeholder=""
+                            [(ngModel)]="gasBillDto.numberDays"
+                            formControlName="numberDays"
+                            name="numberDays">
+                    </div>
+                    <app-alert-error [data]="form.controls['numberDays']" [touched]="touched"></app-alert-error>
+                </div>
+                <!-- رقم پیشین شمارشگر -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="previousCounter" class="form-label">رقم پیشین شمارشگر</label>
+                    <input class="form-control text-right" id="previousCounter" placeholder=""
+                            [(ngModel)]="gasBillDto.previousCounter"
+                            formControlName="previousCounter"
+                            name="previousCounter">
+                  </div>
+                  <app-alert-error [data]="form.controls['previousCounter']" [touched]="touched"></app-alert-error>
+                </div>  
+                <!-- رقم فعلی شمارشگر -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="currentCounter" class="form-label">رقم فعلی شمارشگر</label>
+                    <input class="form-control text-right" id="currentCounter" placeholder=""
+                          [(ngModel)]="gasBillDto.currentCounter"
+                          formControlName="currentCounter"
+                          name="currentCounter">
+                  </div>
+                  <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
+                </div>  
+                <!-- مصرف استاندارد -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="consumptionDurat" class="form-label">مصرف استاندارد</label>
+                    <input class="form-control text-right" id="consumptionDurat" placeholder=""
+                          [(ngModel)]="gasBillDto.consumptionDurat"
+                          formControlName="consumptionDurat"
+                          name="consumptionDurat">
+                  </div>
+                  <app-alert-error [data]="form.controls['currentCounter']" [touched]="touched"></app-alert-error>
+                </div>  
+                <!-- کارکرد شمارشگر -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="totalCounter" class="form-label">کارکرد شمارشگر</label>
+                    <input class="form-control text-right" id="totalCounter" placeholder=""
+                            [(ngModel)]="gasBillDto.totalCounter"
+                            formControlName="totalCounter"
+                            name="totalCounter">
+                  </div>
+                  <app-alert-error [data]="form.controls['totalCounter']" [touched]="touched"></app-alert-error>
+                </div>  
+                <!--  مصرف استاندارد -->
+                <!-- <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="estandardConsumption" class="form-label">مصرف استاندارد </label>
+                    <input class="form-control text-right" id="estandardConsumption" placeholder=""
+                            [(ngModel)]="gasBillDto.estandardConsumption"
+                            formControlName="estandardConsumption"
+                            name="estandardConsumption">
+                  </div>
+                  <app-alert-error [data]="form.controls['estandardConsumption']" [touched]="touched"></app-alert-error>
+                </div>   -->
+                <!--  بهای گاز مصرفی -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="consumptionAmount" class="form-label">بهای گاز مصرفی  </label>
+                    <input class="form-control text-right" id="consumptionAmount" placeholder=""
+                            [(ngModel)]="gasBillDto.consumptionAmount"
+                            formControlName="consumptionAmount"
+                            name="consumptionAmount">
+                  </div>
+                  <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
+                </div>  
+                <!--  آبونمان   -->
+                <!-- <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="subscription" class="form-label">آبونمان </label>
+                    <input class="form-control text-right" id="subscription" placeholder=""
+                            [(ngModel)]="gasBillDto.subscription"
+                            formControlName="subscription"
+                            name="subscription">
+                  </div>
+                  <app-alert-error [data]="form.controls['subscription']" [touched]="touched"></app-alert-error>
+                </div>   -->
+                <!--  عوارض   -->
+                <!-- <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="gasTolls" class="form-label">عوارض </label>
+                    <input class="form-control text-right" id="gasTolls" placeholder=""
+                            [(ngModel)]="gasBillDto.gasTolls"
+                            formControlName="gasTolls"
+                            name="gasTolls">
+                  </div>
+                  <app-alert-error [data]="form.controls['gasTolls']" [touched]="touched"></app-alert-error>
+                </div>   -->
+                <!--  بیمه   -->
+                <!-- <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="insurance" class="form-label">بیمه </label>
+                    <input class="form-control text-right" id="insurance" placeholder=""
+                            [(ngModel)]="gasBillDto.insurance"
+                            formControlName="insurance"
+                            name="insurance">
+                  </div>
+                  <app-alert-error [data]="form.controls['insurance']" [touched]="touched"></app-alert-error>
+                </div>   -->
+                <!--     مبلغ قابل پرداخت  -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="payableAmount" class="form-label">  مبلغ قابل پرداخت  </label>
+                    <input class="form-control text-right" id="payableAmount" placeholder=""
+                            [(ngModel)]="gasBillDto.payableAmount"
+                            formControlName="payableAmount"
+                            name="payableAmount">
+                  </div>
+                  <app-alert-error [data]="form.controls['payableAmount']" [touched]="touched"></app-alert-error>
+                </div>   
+              </div>
+            </fieldset>
+          </form>
         </div>
         <!-- ثبت اطلاعات  -->
         <div class="card-footer">
