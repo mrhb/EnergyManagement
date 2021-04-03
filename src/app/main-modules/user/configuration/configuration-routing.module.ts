@@ -29,6 +29,7 @@ import { GenerationBillListComponent } from './generation/feature/generation-bil
 import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';
 import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 import { RegionComponent } from 'src/app/base-modules/region/feature/index/region.component';
+import { RegionEditeComponent } from './region/feature/region-edite/region-edite.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,12 @@ const routes: Routes = [
     path: 'region',
     component: RegionComponent,
   },
+
+  {
+    path: 'regionEdit',
+    component: RegionEditeComponent,
+  },
+
   {
     path: 'createBuilding',
     component: CreateBuildingComponent,

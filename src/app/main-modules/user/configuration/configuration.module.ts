@@ -55,6 +55,7 @@ import { GenerationService } from './generation/service/generation.service';
 import { GenerationReceiptService } from './generation/service/generation-receipt.service';
 import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 import { RegionModule } from 'src/app/base-modules/region/region.module';
+import { RegionEditeComponent } from './region/feature/region-edite/region-edite.component';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { RegionModule } from 'src/app/base-modules/region/region.module';
     EnergyBillAddComponent,
     WaterBillAddComponent,
     WaterBillListComponent,
-    GenerationListComponent
+    GenerationListComponent,
+    RegionEditeComponent
   ],
     imports: [
         CommonModule,
