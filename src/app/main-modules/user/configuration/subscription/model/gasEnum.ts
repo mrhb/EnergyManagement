@@ -14,19 +14,22 @@ export enum UseTypeGasEnum {
 }
 
 export enum GroupGasEnum {
-  DIMANDI = <any> 'A',
-  UN_DIMANDI = <any> 'B',
+  ONE = <any> 'یک',
+  TWO = <any> 'دو',
+  TREE = <any> 'سه',
+  FOUR = <any> 'چهار',
+  FIVE = <any> 'پنج',
+  SIX = <any> 'شش',
 }
-
 export enum CapacityGasEnum {
-  G4 = <any> 'G4',
-  G6 = <any> 'G6',
-  G10 = <any> 'G10',
-  G16 = <any> 'G16',
-  G25 = <any> 'G25',
-  G40 = <any> 'G40',
-  G65 = <any> 'G65',
-  G100 = <any> 'G100',
+  G_004 = <any> 'G4',
+  G_006 = <any> 'G6',
+  G_010 = <any> 'G10',
+  G_016 = <any> 'G16',
+  G_025 = <any> 'G25',
+  G_040 = <any> 'G40',
+  G_065 = <any> 'G65',
+  G_100 = <any> 'G100',
 }
 
     

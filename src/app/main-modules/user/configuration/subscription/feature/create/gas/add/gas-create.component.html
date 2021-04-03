@@ -124,10 +124,10 @@
                 </div>
                 <app-alert-error [data]="form.controls['serialShare']" [touched]="touched"></app-alert-error>
               </div>
-              <!-- عنوان تعرفه -->
+              <!-- نوع مصرف -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
-                  <label for="useType" class="form-label">عنوان تعرفه</label>
+                  <label for="useType" class="form-label">نوع مصرف</label>
                   <select id="useType"
                           class="form-control text-right"
                           [(ngModel)]="gasDto.useType"
@@ -160,13 +160,29 @@
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="capacity" class="form-label">ظرفیت</label>
+                  <select id="capacity"
+                          class="form-control text-right"
+                          [(ngModel)]="gasDto.capacity"
+                          formControlName="capacity"
+                          name="capacity">
+                    <option *ngFor="let item of capacityEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+                <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
+              </div>
+              <!-- ظرفیت -->
+              <!-- <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="capacity" class="form-label">ظرفیت</label>
                   <input class="form-control text-right" id="capacity" placeholder=""
                          [(ngModel)]="gasDto.capacity"
                          formControlName="capacity"
                          name="capacity">
                 </div>
                 <app-alert-error [data]="form.controls['capacity']" [touched]="touched"></app-alert-error>
-              </div>
+              </div> -->
               <!-- ضریب کنتور -->
               <div class="mb-4 col-md-2">
                 <div class="w-100">
