@@ -19,6 +19,22 @@ export class RegionService extends GeneralService {
     getOne(parentId, errorSelector?: string): Observable<any> {
       return super.getCheckService('get-list-by-parent-id/' + parentId, errorSelector);
     }
+
+    getSubRegions(parentId, errorSelector?: string): Observable<any> {
+      return super.getCheckService('get-list-by-parent-id/' + parentId, errorSelector);
+    }
+
+    addSubRegion(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+      return super.postCheckService('create', body, errorSelector, param);
+    } 
+
+    updateSubRegion(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+      return super.putCheckService('update', body, errorSelector, param);
+    }
+  
+    deleteSubRegion(param: {id: string}, errorSelector?: string): Observable<any> {
+      return super.deleteCheckService('delete', errorSelector, param);
+    }
   
   }
   

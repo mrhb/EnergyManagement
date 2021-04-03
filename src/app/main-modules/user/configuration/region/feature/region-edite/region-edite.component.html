@@ -20,12 +20,15 @@
             </div>
              <!-- عنوان منطقه -->
              <div class="col-md-3">
-                <input class="form-control text-right" id="allocationPercentage" placeholder=""
-                    name="allocationPercentage">
+                <input class="form-control text-right" id="title" placeholder=""
+                [(ngModel)]="regionDto.title"
+                name="title">
                 </div>
           <!-- افزودن  -->
           <div class="col-md-9">
-              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" >افزودن</button>
+              <!-- <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" >افزودن</button> -->
+              <button class="btn btn-outline-primary text-center" data-target=".bd-example-modal-lg"  *ngIf="!editedSubRegion" (click)="addSubRegion()">افزودن</button>
+              <button class="btn btn-outline-primary text-center" data-target=".bd-example-modal-lg"  *ngIf="editedSubRegion" (click)="addSubRegion()">ویرایش</button>
               <!-- <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
                 ({{buildingAllocation.name}})
               </span> -->
@@ -37,27 +40,24 @@
               <thead class="thead-light">
               <tr>
                 <th scope="col" width="40">#</th>
-                <th scope="col">عنوان منطقه</th>
                 <th scope="col">عنوان زیر منطقه</th>
                 <th scope="col" width="80" colspan="2">عملیات</th>
               </tr>
               </thead>
               <tbody>
-              <!-- <ng-container *ngFor="let item of powerDto.buildingList; let i = index"> -->
-              <ng-container >
+              <ng-container *ngFor="let item of subRegions; let i = index">
                 <tr>
-                  <th scope="row" width="40">{{ 1}}</th>
-                  <td>خالی</td>
-                  <td>خالی</td>
+                  <th scope="row">{{(i + 1 + (pageIndex * subRegions.length))}}</th>
+                  <td>{{item.title}}</td>
                   <td width="40" class="text-center">
-                <span class="cursor-pointer text-center fa fa-edit"></span>
-                      <!-- (click)="editAllocationPercentage(item)">
-                </span> -->
+                <span class="cursor-pointer text-center fa fa-edit"
+                      (click)="editSubRegionName(item)">
+                </span>
                   </td>
                   <td width="40" class="text-center">
-                <span class="cursor-pointer text-center fa fa-trash"></span>
-                      <!-- (click)="deleteBuilding(item, 1)"> 
-                </span>-->
+                <span class="cursor-pointer text-center fa fa-trash"
+                      (click)="deleteSubRegion(item, i)"> 
+                </span>
                   </td>
                 </tr>
               </ng-container>

@@ -14,3 +14,10 @@ export class RegionOutput {
   regId: string;
   regTitle: string;
 }
+
+
+export class RegionDto {
+  id:string;
+  parentId: string;
+  title: string;
+}
