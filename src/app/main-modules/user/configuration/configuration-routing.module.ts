@@ -30,163 +30,53 @@ import { CreateGenerationComponent } from './generation/feature/add/create-gener
 import { GenerationListComponent } from './generation/feature/list/generation-list.component';
 import { RegionComponent } from 'src/app/base-modules/region/feature/index/region.component';
 import { RegionEditeComponent } from './region/feature/region-edite/region-edite.component';
+import { ConfigurationMainPanelComponent } from './configuration-main-panel/configuration-main-panel.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'region',
-  },
-  {
-    path: 'region',
-    component: RegionComponent,
-  },
-
-  {
-    path: 'regionEdit',
-    component: RegionEditeComponent,
-  },
-
-  {
-    path: 'createBuilding',
-    component: CreateBuildingComponent,
-  },
-  {
-    path: 'editBuilding',
-    component: CreateBuildingComponent,
-  },
-  {
-    path: 'buildingList',
-    component: BuildingListComponent,
-  },
-  //*****GENERATION******** */
-  {
-    path: 'generationBillAdd',
-    component: GenerationBillAddComponent,
-  },
-  {
-    path: 'generationBillList',
-    component: GenerationBillListComponent,
-  },
-  {
-    path: 'createGeneration',
-    component: CreateGenerationComponent,
-  },
-  {
-    path: 'editGeneration',
-    component: CreateGenerationComponent,
-  },
-  {
-    path: 'generationList',
-    component: GenerationListComponent,
-  },
-
-  //*******FACILITY */
-
-  {
-    path: 'facilityList',
-    component: FacilityListComponent,
-  },
-  {
-    path: 'createFacility',
-    component: AddFacilityComponent,
-  },
-  {
-    path: 'createInstrument',
-    component: CreateInstrumentComponent,
-  },
-  {
-    path: 'instrumentList',
-    component: InstrumentListComponent,
-  },
-  {
-    path: 'createPower',
-    component: PowerCreateComponent,
-  },
-  {
-    path: 'editPower',
-    component: PowerCreateComponent,
-  },
-  {
-    path: 'powerList',
-    component: PowerListComponent,
-  },
-  {
-    path: 'createGas',
-    component: GasCreateComponent,
-  },
-  {
-    path: 'editGas',
-    component: GasCreateComponent,
-  },
-  {
-    path: 'gasList',
-    component: GasListComponent,
-  },
-  {
-    path: 'createWater',
-    component: CreateWaterComponent,
-  },
-  {
-    path: 'editWater',
-    component: CreateWaterComponent,
-  },
-  {
-    path: 'waterList',
-    component: WaterListComponent,
-  },
-  {
-    path: 'createEnergy',
-    component: CreateEnergyComponent,
-  },
-  {
-    path: 'editEnergy',
-    component: CreateEnergyComponent,
-  },
-  {
-    path: 'energyList',
-    component: EnergyListComponent,
-  },
-  {
-    path: 'createClimate',
-    component: CreateClimateComponent,
-  },
-  {
-    path: 'climateList',
-    component: ClimateListComponent,
-  },
-  {
-    path: 'gazBillAdd',
-    component: GazBillAddComponent,
-  },
-  {
-    path: 'gasBillList',
-    component: GazBillListComponent,
-  },
-  {
-    path: 'powerBillAdd',
-    component: PowerBillAddComponent,
-  },
-  {
-    path: 'powerBillList',
-    component: PowerBillListComponent,
-  },
-  {
-    path: 'energyBillAdd',
-    component: EnergyBillAddComponent,
-  },
-  {
-    path: 'energyBillList',
-    component: EnergyBillListComponent,
-  },
-  {
-    path: 'waterBillAdd',
-    component: WaterBillAddComponent,
-  },
-  {
-    path: 'waterBillList',
-    component: WaterBillListComponent,
-  },
-];
+    path: '',component: ConfigurationMainPanelComponent,
+    children: [
+      {path: 'region',component: RegionComponent,},
+      {path: 'regionEdit',component: RegionEditeComponent,},
+      {path: 'createBuilding',component: CreateBuildingComponent,},
+      {path: 'editBuilding',component: CreateBuildingComponent,},
+      {path: 'buildingList',component: BuildingListComponent,},
+      //*****GENERATION******** */
+      {path: 'generationBillAdd',component: GenerationBillAddComponent,},
+      {path: 'generationBillList',component: GenerationBillListComponent,},
+      {path: 'createGeneration',component: CreateGenerationComponent,},
+      {path: 'editGeneration',component: CreateGenerationComponent,},
+      {path: 'generationList',component: GenerationListComponent,},
+      //*******FACILITY */
+      {path: 'facilityList',component: FacilityListComponent,},
+      {path: 'createFacility',component: AddFacilityComponent,},
+      {path: 'createInstrument',component: CreateInstrumentComponent,},
+      {path: 'instrumentList',component: InstrumentListComponent,},
+      {path: 'createPower',component: PowerCreateComponent,},
+      {path: 'editPower',component: PowerCreateComponent,},
+      {path: 'powerList',component: PowerListComponent,},
+      {path: 'createGas',component: GasCreateComponent,},
+      {path: 'editGas',component: GasCreateComponent,},
+      {path: 'gasList',component: GasListComponent,},
+      {path: 'createWater',component: CreateWaterComponent,},
+      {path: 'editWater',component: CreateWaterComponent,},
+      {path: 'waterList',component: WaterListComponent,},
+      {path: 'createEnergy',component: CreateEnergyComponent,},
+      {path: 'editEnergy',component: CreateEnergyComponent,},
+      {path: 'energyList',component: EnergyListComponent,},
+      {path: 'createClimate',component: CreateClimateComponent,},
+      {path: 'climateList',component: ClimateListComponent,},
+      {path: 'gazBillAdd',component: GazBillAddComponent,},
+      {path: 'gasBillList',component: GazBillListComponent,},
+      {path: 'powerBillAdd',component: PowerBillAddComponent,},
+      {path: 'powerBillList',component: PowerBillListComponent,},
+      {path: 'energyBillAdd',component: EnergyBillAddComponent,},
+      {path: 'energyBillList',component: EnergyBillListComponent,},
+      {path: 'waterBillAdd',component: WaterBillAddComponent,},
+      {path: 'waterBillList',component: WaterBillListComponent,},
+    ]
+  }
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

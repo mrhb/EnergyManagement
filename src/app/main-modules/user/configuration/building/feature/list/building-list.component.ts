@@ -17,6 +17,7 @@ import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/cha
 import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
 import {CoolingSystemType, HeatingSystemType} from '../../model/buildingEnum';
 import * as XLSX from 'xlsx';
+import { ConfigurationStateService } from '../../../configuration-state.service';
 type AOA = any[][];
 
 declare var $: any;
@@ -38,7 +39,7 @@ export class BuildingListComponent implements OnInit {
   useTypeBuildingEnum = UseTypeBuildingEnum;
   coolingSystemType = CoolingSystemType;
   heatingSystemType = HeatingSystemType;
-  region = new Region();
+  regionId ="111111111111111111111111";
   buildingList: BuildingList[] = [];
   buildingEnum = UseTypeBuildingEnum;
 
@@ -48,9 +49,16 @@ export class BuildingListComponent implements OnInit {
   energyLabel = new EnergyLabel();
   energyLabelEnum = EnergyLabelType;
 
-  constructor(private buildingService: BuildingService,
-              public router: Router,
-              private activatedRoute: ActivatedRoute) {
+  constructor(
+    stateService:ConfigurationStateService,
+    private buildingService: BuildingService,
+    public router: Router,
+    private activatedRoute: ActivatedRoute) {
+
+    stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getBuildingList();
+    });
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.pageIndex) {
         this.pageIndex = params.pageIndex;
@@ -108,79 +116,11 @@ export class BuildingListComponent implements OnInit {
     });
   }
 
-  getEnergyLabel(index): void {
-    const list: EnergyLabel[] = [];
-    const a: EnergyLabel = {
-      consumptionIndex: '1277',
-      label: 'A',
-      labelType: EnergyLabelType.NON_RESIDENTIAL,
-      ratio: '10.98'
-    };
-
-    const b: EnergyLabel = {
-      consumptionIndex: '1858',
-      label: 'B',
-      labelType: EnergyLabelType.OFFICIAL,
-      ratio: '75.66'
-    };
-
-    const c: EnergyLabel = {
-      consumptionIndex: '1002',
-      label: 'C',
-      labelType: EnergyLabelType.RESIDENTIAL,
-      ratio: '44.77'
-    };
-
-    const d: EnergyLabel = {
-      consumptionIndex: '9502',
-      label: 'D',
-      labelType: EnergyLabelType.NON_RESIDENTIAL,
-      ratio: '15.98'
-    };
-
-    const e: EnergyLabel = {
-      consumptionIndex: '1102',
-      label: 'E',
-      labelType: EnergyLabelType.OFFICIAL,
-      ratio: '16.48'
-    };
-
-    const f: EnergyLabel = {
-      consumptionIndex: '16112',
-      label: 'F',
-      labelType: EnergyLabelType.RESIDENTIAL,
-      ratio: '76.48'
-    };
-
-    const g: EnergyLabel = {
-      consumptionIndex: '2266',
-      label: 'G',
-      labelType: EnergyLabelType.OFFICIAL,
-      ratio: '79.12'
-    };
-
-    list.push(a);
-    list.push(b);
-    list.push(c);
-    list.push(d);
-    list.push(e);
-    list.push(f);
-    list.push(g);
-
-    this.energyLabel = list[index];
-  }
-
-  getRegion($event: any): void {
-    this.region = $event;
-    console.log('this.region', this.region);
-    this.getBuildingList();
-  }
-
   getBuildingList(): void {
     this.buildingService.getBuildingList({
       page: this.pageIndex,
       size: this.pageSize,
-    }, {regionId: this.region.regionId}).subscribe((res: any) => {
+    }, {regionId: this.regionId}).subscribe((res: any) => {
       if (res) {
         this.buildingList = res.content;
         this.length = res.totalElements;
