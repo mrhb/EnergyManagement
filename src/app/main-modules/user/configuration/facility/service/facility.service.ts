@@ -19,8 +19,8 @@ export class FacilityService extends GeneralService {
   updateFacility(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update', body, errorSelector, param);
   }
-  getFacilityList(param: any, facilitySharingId: any, errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-facility-list-pageable-by-filter', facilitySharingId, errorSelector, param);
+  getFacilityList(param: any, regionId: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-facility-list-pageable-by-filter', regionId, errorSelector, param);
   }
 
   deleteFacility(param: {id: string}, errorSelector?: string): Observable<any> {

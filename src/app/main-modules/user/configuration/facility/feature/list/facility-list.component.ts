@@ -12,6 +12,7 @@ import Notiflix from 'notiflix';
 import {Moment} from '../../../../../../shared/tools/moment';
 import { FacilityService } from '../../service/facility.service';
 import { FacilityUsageEnum } from '../../model/facilityEnum';
+import { RegionService } from '../../../region/service/region.service';
 
 declare var $: any;
 
@@ -25,8 +26,8 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  regionId ="111111111111111111111111";
 
-  region = new Region();
   facilityUsageEnum=FacilityUsageEnum;
   facilityList: FacilityList[] = [];
 
@@ -47,7 +48,9 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
 
   energyLabel = new EnergyLabel();
 
-  constructor(private facilityService: FacilityService,
+  constructor(
+    private stateService:RegionService,
+    private facilityService: FacilityService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -61,43 +64,21 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    // this.getFacilityList();
-    $('.e-not-close a').on('click', (event) => {
-      $(this).parent().toggleClass('open');
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getFacilityList();
     });
-
-    $('body').on('click', (e) => {
-      if (!$('.e-not-close').is(e.target)
-        && $('.e-not-close').has(e.target).length === 0
-        && $('.show').has(e.target).length === 0
-      ) {
-        $('.e-not-close').addClass('show');
-      } else {
-        $('.e-not-close').removeClass('show');
-      }
-    });
-
-
-    const currentYear = this.moment.getJDateFromIsoOnlyYear(new Date().toISOString());
-    const Gregorian = this.moment.convertJaliliToGregorian(currentYear + '/1/1');
 
   }
 
   ngAfterViewInit(): void {
   }
 
-
-  getRegion($event: any): void {
-    this.region = $event;
-    console.log('this.region', this.region);
-    this.getFacilityList();
-  }
-
   getFacilityList(): void {
     this.facilityService.getFacilityList({
       page: this.pageIndex,
       size: this.pageSize,
-    }, {facilitySharingId: this.region.facilitySharingId}).subscribe((res: any) => {
+    }, {regionId: this.regionId}).subscribe((res: any) => {
       if (res) {
         this.facilityList = res.content;
         this.length = res.totalElements;
