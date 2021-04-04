@@ -47,7 +47,7 @@ import { InstrumentListComponent } from './instrument/feature/list/instrument-li
 import { InstrumentService } from './instrument/service/instrument.service';
 import { FacilityService } from './facility/service/facility.service';
 import { FacilityListComponent } from './facility/feature/list/facility-list.component';
-import { AddFacilityComponent } from './facility/feature/create/add-facility/add-facility.component';
+import { AddFacilityComponent } from './facility/feature/add-facility/add-facility.component';
 import { GenerationBillListComponent } from './generation/feature/generation-bill-list/generation-bill-list.component';
 import { GenerationBillAddComponent } from './generation/feature/generation-bill-add/generation-bill-add.component';
 import { CreateGenerationComponent } from './generation/feature/add/create-generation.component';

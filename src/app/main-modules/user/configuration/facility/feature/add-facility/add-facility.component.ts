@@ -1,14 +1,14 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MyPattern} from '../../../../../../../shared/tools/myPattern';
-import {FacilityDto} from '../../../model/facility';
+import {MyPattern} from '../../../../../../shared/tools/myPattern';
+import {FacilityDto} from '../../model/facility';
 // @ts-ignore
 import Notiflix from 'notiflix';
-import {FacilityService} from '../../../service/facility.service';
-import {Tools} from '../../../../../../../shared/tools/tools';
-import {Moment} from '../../../../../../../shared/tools/moment';
-import { FacilityUsageEnum } from '../../../model/facilityEnum';
-import { UtilityTypeEnum } from '../../../../building/model/useTypeEnum';
+import {FacilityService} from '../../service/facility.service';
+import {Tools} from '../../../../../../shared/tools/tools';
+import {Moment} from '../../../../../../shared/tools/moment';
+import { FacilityUsageEnum } from '../../model/facilityEnum';
+import { UtilityTypeEnum } from '../../../building/model/useTypeEnum';
 
 @Component({
   selector: 'app-add-facility',
