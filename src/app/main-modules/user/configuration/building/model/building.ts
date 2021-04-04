@@ -1,4 +1,4 @@
-import {UseTypeBuildingEnum} from './useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from './useTypeEnum';
 import {CoolingSystemType,HeatingSystemType, Ownership} from './buildingEnum';
 import {EnergyLabelType} from './EnergyLabelType';
 
@@ -20,6 +20,7 @@ export class Building {
   regionId: string;
   regionTitle: string;
   name: string; // نام ساختمان
+  utilityType: UtilityTypeEnum; //نوع کاربری
   useType: UseTypeBuildingEnum; //نوع کاربری
   constructionYear: string;
   floorNum: string; // تعداد طبقات

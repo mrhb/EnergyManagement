@@ -2,7 +2,7 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MyPattern} from '../../../../../../../shared/tools/myPattern';
 import {Building} from '../../../model/building';
-import {UseTypeBuildingEnum} from '../../../model/useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../model/useTypeEnum';
 import {HeatingSystemType,CoolingSystemType, Ownership} from '../../../model/buildingEnum';
 import {Router} from '@angular/router';
 // @ts-ignore
@@ -79,6 +79,7 @@ export class AddBuildingComponent implements OnInit {
   }
 
   updateBuilding(): void {
+    this.buildingDto.utilityType=UtilityTypeEnum[UtilityTypeEnum.BUILDING.toString()];
     this.touched = true;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
