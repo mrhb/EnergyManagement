@@ -1,6 +1,142 @@
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <!-- سربرگ فرم اصلی -->
+          <div class="card-header flex-card-header">
+            <strong *ngIf="!generationId"> افزودن<small> تولید نیروگاه </small>  </strong>
+            <strong *ngIf="generationId"> ویرایش<small> تولید نیروگاه </small>  </strong>
+                <div class="d-flex">
+              <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/generationBillList'"> لیست <small> قبوض گاز </small></button>
+            </div>
+          </div> 
+          <div class="card-body">
+          <!-- انتخاب نیروگاه -->
+          <div class="form-group row">
+            <div class="col-12">
+              <div class="w-100">
+                <label class="form-label">مشخصات نیروگاه :</label>
+                <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListGeneration()">انتخاب</button>
+                  <span class="mr-2" style="font-size: 13px;" *ngIf="generationAllocation.name">
+                    (نام مشترک: {{generationAllocation.name}} و  شماره اختصاصی: {{generationAllocation.billingId}})
+                  </span>
+              </div>
+            </div>
+          </div>
+          <!-- اطلاعات قبض -->
+          <form [formGroup]="form" class="w-100">
+            <fieldset class="fieldset-border">
+              <div class="form row">               
+                <!-- تاریخ شروع  -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="fromDate" class="form-label">از تاریخ</label>
+                    <input class="form-control text-right" id="fromDate" placeholder=""
+                           formControlName="fromDate"
+                           name="fromDate">
+                  </div>
+                  <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
+                </div>
+              <!-- تاریخ اتمام  -->
+              <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="toDate" class="form-label">تا تاریخ</label>
+                    <input class="form-control text-right" id="toDate" placeholder=""
+                           formControlName="toDate"
+                           name="toDate">
+                  </div>
+                  <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
+                </div>
+              <!-- مقدار تولید  -->
+              <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="consumptionDurat" class="form-label">مقدار تولید </label>
+                    <input class="form-control text-right" id="consumptionDurat" placeholder=""
+                           [(ngModel)]="generationBillDto.consumptionDurat"
+                           formControlName="consumptionDurat"
+                           name="consumptionDurat">
+                  </div>
+                  <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
+                </div>  
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <!-- ثبت اطلاعات  -->
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success text-center ml-3" (click)="createReceipt()" *ngIf="!generationId">ثبت</button>
+          <button type="submit" class="btn btn-success text-center ml-3" (click)="createReceipt()" *ngIf="generationId">ویرایش</button>
+          <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- لیست نیروگاه ها -->
+ <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">لیست نیروگاه ها</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="d-flex align-items-end">
+          <div class="mb-4 col-md-6 mt-2">
+            <label class="form-label">   جستجو برای انتخاب نیروگاه مورد نظر     </label>
+            <div class="w-100">
+              <label for="filterBuilding" class="form-label">نام مشترک </label>
+              <input>
+              <!-- <input class="form-control text-right" id="filterBuilding" placeholder=""
+              [(ngModel)]="filterBuilding"
+              name="filterBuilding"> -->
+            </div>
+          </div>
+          <div class="mb-4 col-auto mt-2">
+            <div class="btn btn-primary" (click)="getListGeneration()">
+              جستجو
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col" width="40">#</th>
+                <!-- <th scope="col">شناسه قبض</th> -->
+                <th scope="col">نام مشترک</th>
+                <th scope="col" width="80">عملیات</th>
+              </tr>
+              </thead>
+              <tbody>
+              <ng-container *ngFor="let item of generationList; let i = index">
+                <tr>
+                  <th scope="row" width="40">{{i + 1}}</th>
+                  <!-- <td>{{item.billingId}}</td> -->
+                  <td>{{item.name}}</td>
+                  <td width="40">
+                  <span class="cursor-pointer text-center btn btn-primary"
+                        data-dismiss="modal"
+                        (click)="selectGeneration(item)">انتخاب</span>
+                  </td>
+
+                </tr>
+              </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>  </div>
+
+
+
+
+
 <div class="col-12">
   <div class="card">
-    <div class="card-header flex-card-header">
+    <!-- <div class="card-header flex-card-header">
       <h1>
         <span *ngIf="!generationId">افزودن تولید نیروگاه </span>
         <span *ngIf="generationId">ویرایش تولید نیروگاه </span>
@@ -8,65 +144,24 @@
       <div class="d-flex">
         <button class="btn btn-outline-primary"  [routerLink]="'/index/user/configuration/generationBillList'"> لیست تولید نیروگاه</button>
       </div>
-    </div>
+    </div> -->
     <hr>
-    <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
+    <!-- <ul class="nav nav-pills mb-3 pr-0" id="pills-tab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="pills-building-tab" data-toggle="pill" href="#pills-building" role="tab" aria-controls="pills-building" aria-selected="false">اطلاعات نیروگاه</a>
       </li>
       <li class="nav-item" [ngClass]="{'disabled': generationId === ''}">
         <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">اطلاعات پایه</a>
       </li>
-    </ul>
+    </ul> -->
     <hr>
   
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <fieldset class="fieldset-border">
-          <legend>افزودن تولید</legend>
-        <form [formGroup]="form" class="w-100"> <!-- (ngSubmit)="createGas()"> -->
-          <div class="form row">
-           
-            <!-- تاریخ شروع  -->
-            <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="fromDate" class="form-label">از تاریخ</label>
-                  <input class="form-control text-right" id="fromDate" placeholder=""
-                         formControlName="fromDate"
-                         name="fromDate">
-                </div>
-                <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
-              </div>
-            <!-- تاریخ اتمام  -->
-            <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="toDate" class="form-label">تا تاریخ</label>
-                  <input class="form-control text-right" id="toDate" placeholder=""
-                         formControlName="toDate"
-                         name="toDate">
-                </div>
-                <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
-              </div>
-            <!-- مقدار تولید  -->
-            <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="consumptionDurat" class="form-label">مقدار تولید </label>
-                  <input class="form-control text-right" id="consumptionDurat" placeholder=""
-                         [(ngModel)]="generationBillDto.consumptionDurat"
-                         formControlName="consumptionDurat"
-                         name="consumptionDurat">
-                </div>
-                <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
-              </div>
-          </div>
-        </form>
-      </fieldset>
-      </div>
+    
       <div class="tab-pane fade show active" id="pills-building" role="tabpanel" aria-labelledby="pills-building-tab">
 
 
-      <fieldset class="fieldset-border">
-        <legend>تخصیص اشتراک</legend>
+      <!-- <fieldset class="fieldset-border">
+        <legend>تخصیص نیروگاه</legend>
         <div class="row">
           <div class="col-auto d-flex flex-column">
           <div class="d-flex align-items-center">
@@ -79,13 +174,13 @@
         </div>
 
         <hr>
-      </fieldset>
+      </fieldset> -->
         </div>
       </div>
     </div>
   </div>
 
-  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -133,8 +228,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-12">
+  </div> -->
+  <!-- <div class="col-12">
     <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="!generationId" (click)="createReceipt()">ثبت</button>
     <button type="submit" class="btn btn-primary text-center ml-3" *ngIf="generationId" (click)="createReceipt()">ویرایش</button>
-  </div>
+  </div> -->
