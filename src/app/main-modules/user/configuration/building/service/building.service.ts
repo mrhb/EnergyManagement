@@ -14,7 +14,7 @@ export class BuildingService extends GeneralService {
   }
 
   createBuilding(body: any, errorSelector?: string): Observable<any> {
-    return super.postCheckService('create', body, errorSelector);
+    return super.postCheckService('create-building', body, errorSelector);
   }
 
   updateBuilding(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
@@ -50,7 +50,7 @@ export class BuildingService extends GeneralService {
   }
 
   getBuildingList(param: any, regionId: any, errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-list-pageable-by-filter', regionId, errorSelector, param);
+    return super.postCheckService('get-building-list-pageable-by-filter', regionId, errorSelector, param);
   }
 
   deleteBuilding(param: {id: string}, errorSelector?: string): Observable<any> {

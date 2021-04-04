@@ -44,30 +44,30 @@
               <!-- نوع کاربری -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="facilityUsage" class="form-label">نوع کاربری</label>
-                  <select name="facilityUsage" id="facilityUsage"
+                  <label for="useType" class="form-label">نوع کاربری</label>
+                  <select name="useType" id="useType"
                           class="form-control text-right"
-                          formControlName="facilityUsage"
-                          [(ngModel)]="facilityDto.facilityUsage">
-                    <option *ngFor="let item of facilityUsageEnum | enumKeyValue" [value]="item.key">
+                          formControlName="useType"
+                          [(ngModel)]="facilityDto.useType">
+                    <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
                       {{item.value}}
                     </option>
                   </select>
                 </div>
-                <app-alert-error [data]="form.controls['facilityUsage']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
               </div>
               <!-- بانک خازنی -->
               <div class="mb-4 col-md-3">
                 <div class="w-100">
-                  <label for="CapacitorBank" class="form-label">بانک خازنی</label>
-                  <input class="form-control text-right" id="CapacitorBank" placeholder="kvar"
+                  <label for="capacitorBank" class="form-label">بانک خازنی</label>
+                  <input class="form-control text-right" id="capacitorBank" placeholder="kvar"
                         type="number" min="0"
-                        [(ngModel)]="facilityDto.CapacitorBank "
-                        formControlName="CapacitorBank"
-                        name="CapacitorBank"
+                        [(ngModel)]="facilityDto.capacitorBank "
+                        formControlName="capacitorBank"
+                        name="capacitorBank"
                         maxlength="3">
                 </div>
-                <app-alert-error [data]="form.controls['CapacitorBank']" [touched]="touched"></app-alert-error>
+                <app-alert-error [data]="form.controls['capacitorBank']" [touched]="touched"></app-alert-error>
               </div>
               <!-- توضیحات -->
               <div class="mb-4 col-12">

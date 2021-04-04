@@ -8,6 +8,7 @@ import {FacilityService} from '../../../service/facility.service';
 import {Tools} from '../../../../../../../shared/tools/tools';
 import {Moment} from '../../../../../../../shared/tools/moment';
 import { FacilityUsageEnum } from '../../../model/facilityEnum';
+import { UtilityTypeEnum } from '../../../../building/model/useTypeEnum';
 
 @Component({
   selector: 'app-add-facility',
@@ -19,7 +20,7 @@ export class AddFacilityComponent implements OnInit {
   myPattern = MyPattern;
   facilityDto = new FacilityDto();
   touched = false;
-  facilityUsageEnum = FacilityUsageEnum;
+  useTypeEnum = FacilityUsageEnum;
   moment = Moment;
   facilityId = '';
 
@@ -34,8 +35,8 @@ export class AddFacilityComponent implements OnInit {
     // console.log('this.facilityDto.constructionYear', this.facilityDto.constructionYear.split('/'));
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.faAndEnNumberAndText)]], //نام تاسیس 
-      facilityUsage: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],// نوع کاربری 
-      CapacitorBank: [''], // بانک خازنی 
+      useType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],// نوع کاربری 
+      capacitorBank: [''], // بانک خازنی 
       explanation: [''],//توضیحات
       address: [''], //آدرس
     });
@@ -55,6 +56,8 @@ export class AddFacilityComponent implements OnInit {
   }
 
   updateFacility(): void {
+    this.facilityDto.utilityType=UtilityTypeEnum[UtilityTypeEnum.FACILITY.toString()];
+
     this.touched = true;
     if (this.form.invalid) {
       this.form.markAllAsTouched();
@@ -93,7 +96,5 @@ export class AddFacilityComponent implements OnInit {
      this.region = $event;
      this.facilityDto.regionId = this.region.regionId;
 
-    this.facilityDto.regionTitle = this.region.regionTitle.replace('&', '_');
-    // this.buildingDto.regionTitle = this.region.regionTitle.split('&').join('<span class="fa fa-angle-left mx-2"></span>');
   }
 }

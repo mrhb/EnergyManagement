@@ -37,7 +37,7 @@
                   <tr>                        
                     <th scope="col" width="40">#</th>
                     <th scope="col">نام تاسیس</th>
-                    <th scope="col">منطقه</th>
+                    <!-- <th scope="col">منطقه</th> -->
                     <th scope="col">کاربری</th>
                     <th scope="col">توضیحات </th>
                     <th scope="col" width="40" colspan="2" class="text-center">عملیات</th>
@@ -47,8 +47,8 @@
                   <tr *ngFor="let facility of facilityList; let i = index">
                     <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                     <td>{{facility.name}}</td>
-                    <td>{{facility.regionTitle}}</td>
-                    <td>{{facilityUsageEnum[facility.facilityUsage].toString()}}</td>
+                    <!-- <td>{{facility.regionTitle}}</td> -->
+                    <td>{{facilityUsageEnum[facility.useType].toString()}}</td>
                     <td>{{facility.explanation}}</td>
                     <td width="40"><span class="cursor-pointer fa fa-edit"
                                           [queryParams]="{id: facility.id}"

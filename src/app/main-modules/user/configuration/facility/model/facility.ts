@@ -1,3 +1,4 @@
+import { UtilityTypeEnum } from '../../building/model/useTypeEnum';
 import {FacilityUsageEnum} from './facilityEnum';
 
 export class CompleteStep {
@@ -16,10 +17,10 @@ export class Region {
 
 export class FacilityDto {
   regionId: string;
-  regionTitle: string;
+  utilityType: UtilityTypeEnum;
   name: string; //نام تاسیس 
-  facilityUsage: FacilityUsageEnum; // نوع کاربری 
-  CapacitorBank: string; // بانک خازنی 
+  useType: FacilityUsageEnum; // نوع کاربری 
+  capacitorBank: string; // بانک خازنی 
   explanation: string; //توضیحات
   address: string; //آدرس
   facilitySharingId: string;
@@ -65,7 +66,7 @@ export class WallInformation {
 export class FacilityList {
   name: string; //نام تاسیس 
   regionTitle: string;//نام منطقه
-  facilityUsage: FacilityUsageEnum; // نوع کاربری 
+  useType: FacilityUsageEnum; // نوع کاربری 
   CapacitorBank: string; // بانک خازنی 
   explanation: string; //توضیحات
   address: string; //آدرس
