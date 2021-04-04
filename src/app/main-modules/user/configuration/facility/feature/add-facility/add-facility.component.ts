@@ -10,7 +10,7 @@ import {Moment} from '../../../../../../shared/tools/moment';
 import { FacilityUsageEnum } from '../../model/facilityEnum';
 import { UtilityTypeEnum } from '../../../building/model/useTypeEnum';
 import { RegionService } from '../../../region/service/region.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-facility',
@@ -30,11 +30,11 @@ export class AddFacilityComponent implements OnInit {
    facilitySharingId: string;
    editedFacilityDto = new FacilityDto();
   edited: boolean=false;
-  router: any;
 
   constructor(
     private stateService:RegionService,
     private formBuilder: FormBuilder,
+    public router: Router,
     private activatedRoute: ActivatedRoute,
     private facilityService: FacilityService
     ) {
