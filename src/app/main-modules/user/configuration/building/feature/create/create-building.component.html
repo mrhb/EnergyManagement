@@ -7,18 +7,20 @@
       <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/buildingList'">لیست<small>  ساختمان ها </small></button>
     </div>
   </div>
-
-  <!-- انتخاب منطقه -->
+  <p class="alert alert-success" *ngIf="buildingDto.regionTitle">
+    <span [innerHTML]="buildingDto.regionTitle"></span>
+  </p>
   <div class="card-body">
     <div class="md-stepper-horizontal green persian-number">
-      <div class="md-step"
+      <!-- انتخاب منطقه -->
+      <!-- <div class="md-step"
             (click)="getCurrentStep(0)"
             [ngClass]="{'done': completeStep.zero === true, 'active editable' : currentStep === 0}">
         <div class="md-step-circle"><span></span></div>
         <div class="md-step-title">انتخاب منطقه</div>
         <div class="md-step-bar-left"></div>
         <div class="md-step-bar-right"></div>
-      </div>
+      </div> -->
       <!-- اطلاعات ساختمان -->
       <div class="md-step"
             (click)="getCurrentStep(1)"
@@ -73,9 +75,9 @@
 
 <!-- منطقه بندی  -->
     <div class="md-wrapper-stepper">
-      <p class="alert alert-success" *ngIf="buildingDto.regionTitle">
+      <!-- <p class="alert alert-success" *ngIf="buildingDto.regionTitle">
         <span [innerHTML]="buildingDto.regionTitle"></span>
-      </p>
+      </p> -->
       <div class="md-content-stepper" [hidden]="currentStep !== 0" *ngIf="endActiveStep >= 0">
         <app-tree-view (regionOutput)="getRegion($event)"></app-tree-view>
         <div class="mt-3">
