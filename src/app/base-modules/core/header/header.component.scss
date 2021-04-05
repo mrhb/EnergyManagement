@@ -12,10 +12,20 @@
   .brand-logo {
     color: #1320BF;
   }
+  img {
+    width: 50px;
+    height: 45px;
+    object-fit: cover;
+  }
 
   .user-info {
     display: flex;
+    align-items: center;
 
+    .p{
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
     .dropdown-menu {
       right: auto;
       left: 0;
@@ -23,10 +33,11 @@
 
     & > span {
       align-items: center;
-      display: flex;
+      // display: flex;
     }
 
     img {
+      
       width: 40px;
       height: 40px;
       border-radius: 50%;

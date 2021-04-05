@@ -3,7 +3,7 @@
     <a class="navbar-brand">
       <div class="brand-logo">
         <!-- <div >    <img src="../../../../assets/image/pasaLogo.jpg" alt=""> </div> -->
-          <img src="../../../../assets/image/pasaLogo.jpg" alt=""> 
+          <img src="assets/image/Logo.png" alt=""> 
         <strong>  سامانه پایش انرژی ساختمان و تاسیسات (پاسا) </strong>
       </div>
     </a>
@@ -137,20 +137,19 @@
     </li> -->
     <!-- عنوان و نام کاربر  -->
     <div class="user-info">
-      <div class="mb-4">
+      
         <p class="sub-title mb-1" *ngIf="role === 'admin'"> ادمین</p>
         <p class="sub-title mb-1" *ngIf="role === 'user'"> {{account.firstName + ' ' + account.lastName}}</p>
-        <div><span class="ml-1" *ngIf="role === 'user'">{{account.organizationalLevel}}</span> </div>
-      </div>
+        <div><span class="ml-1" *ngIf="role === 'user'">({{account.organizationalLevel}})</span> </div>
 
-    <!-- عکس کاربر  -->
+<!-- عکس کاربر  -->
     <div class="dropdown">
         <div class="cursor-pointer" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <ng-container *ngIf="account && account.photo; else default">
             <img [src]="pathUrl + account.photo" alt="">
           </ng-container>
           <ng-template #default>
-            <img src="../../../../../../assets/image/user.jpg" alt="">
+            <img src="assets/image/user.jpg" alt="">
           </ng-template>
         </div>
     <!-- منوی اطلاعات کاربر  -->
