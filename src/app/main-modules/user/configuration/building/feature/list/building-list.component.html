@@ -1,146 +1,94 @@
-<div class="col-12">
-  <div class="card">
-    <div class="card-header flex-card-header">
-    <strong>لیست<small> ساختمان ها </small>  </strong>
-      <div class="d-flex">
-        <button class="btn btn-primary" [routerLink]="'/index/user/configuration/createBuilding'">تعریف <small> ساختمان</small></button> 
-        <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
-          <span class="cursor-pointer fa fa-file-excel-o"></span></button>
-      </div>
-    </div>
- 
-    <div class="row">
-      <div class="col-md">
-        <div class="card">
-          <div class="card-header">
-            لیست ساختمان ها
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th scope="col" width="20">#</th>
-                  <th scope="col" width="100">نام ساختمان</th>
-                  <th scope="col" width="100">نوع کاربری</th>
-                  <th scope="col"  >تعداد طبقات</th>
-                  <th scope="col"  >مساحت عرصه</th>
-                  <th scope="col"  >مساحت اعیان</th>
-                  <th scope="col"  >مساحت مفید</th>
-                  <th scope="col"  >تعداد انشعابها</th>
-                  <th scope="col"  >نوع سیستم گرمایش</th>
-                  <th scope="col"  >نوع سیستم سرمایش</th>
-                  <th scope="col" width="40" >کد پستی </th>
-                  <th scope="col" width="40" colspan="3" class="text-center">عملیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let building of buildingList; let i = index">
-                  <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                  <td>{{building.name}}</td>
-                  <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
-                  <td>{{building.floorNum}}</td>
-                  <td>{{building.arenaArea}}</td>
-                  <td>{{building.ayanArea}}</td>
-                  <td>{{building.useFullArea}}</td>
-                  <td>{{building.powerSharingNum+building.waterSharingNum+
-                    building.gasSharingNum+building.nonEnergyCarrierSharingNum}}</td>
-                    <td>{{coolingSystemType[building.coolingSystemType].toString()}}</td> 
-                    <td>{{heatingSystemType[building.heatingSystemType].toString()}}</td> 
-                    <td>{{building.postalCode}}</td>
-                  <td class="text-center">    
-                    <span class="cursor-pointer fa fa-edit"
-                    [queryParams]="{id: building.id}"
-                    [routerLink]="'/index/user/configuration/createBuilding'"></span>
-                  </td>
-                  <td class="text-center"><span class="cursor-pointer fa fa-trash" (click)="deleteBuilding(i, building.id)"></span></td>
-                  <td class="text-center"><span class="cursor-pointer fa fa-file-excel-o" ></span></td>
-                   
-                </tbody>
-              </table>
-            </div>
-
-            <app-paginator
-              [matPaginator]="false"
-              [totalPages]="totalPages"
-              [totalElements]="length"
-              [pageSize]="pageSize"
-              [pageIndex]="pageIndex"
-              [pageSizeOptions]="[1,5,10,15,25]"
-              [showFirstLastButtons]="true"
-              (page)="changePage($event)"
-            ></app-paginator>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- برچسب انرژی -->
-      <div class="col-12 pt-2">
-        <div class="e-card" id="energyLabel" *ngIf="energyLabel.ratio">
-          <div class="card-header">
-            برچسب انرژی
-          </div>
-          <div class="card-body">
-            <div class="box-label-energy w-100">
-              <div class="head">
-                <div class="right">
-                  <img src="assets/image/enregy.jpg" alt="energy">
-                </div>
-                <div class="left">
-                  <!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
-                  {{energyLabel.labelType}}
-                </div>
+<div class="c-body">
+  <main class="c-main">
+    <div class="container-fluid">
+      <div class="fade-in">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- سربرگ فرم اصلی -->
+            <div class="card">
+              <div class="card-header flex-card-header">
+                <strong > لیست<small> ساختمان ها </small>  </strong>
+                <div class="d-flex">
+                  <button class="btn btn-outline-primary text-center" [routerLink]="'/index/user/configuration/createBuilding'">تعریف <small> ساختمان</small></button> 
+                  <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
+                   <span class="cursor-pointer fa fa-file-excel-o"></span></button>
+                </div>              
               </div>
-              <div class="result">
-                <div class="right">
-                  <div class="tag" [ngClass]="energyLabel.label">
-                    {{energyLabel.label}}
-                  </div>
-                </div>
-                <div class="left">
-                  <p>بازدهی بیشتر</p>
-                  <ul>
-                    <li><span>A</span></li>
-                    <li><span>B</span></li>
-                    <li><span>C</span></li>
-                    <li><span>D</span></li>
-                    <li><span>E</span></li>
-                    <li><span>F</span></li>
-                    <li><span>G</span></li>
-                  </ul>
-                  <p class="mb-0">بازدهی کمتر</p>
-                </div>
+              <div class="card-body">
+                <table class="table table-responsive-sm table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col" width="20">#</th>
+                      <th scope="col" width="100">نام ساختمان</th>
+                      <th scope="col" width="100">نوع کاربری</th>
+                      <th scope="col"  >تعداد طبقات</th>
+                      <th scope="col"  >مساحت عرصه</th>
+                      <th scope="col"  >مساحت اعیان</th>
+                      <th scope="col"  >مساحت مفید</th>
+                      <th scope="col"  >تعداد انشعابها</th>
+                      <th scope="col"  >نوع سیستم گرمایش</th>
+                      <th scope="col"  >نوع سیستم سرمایش</th>
+                      <th scope="col" width="40" >کد پستی </th>
+                      <th scope="col" width="40" colspan="3" class="text-center">عملیات</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let building of buildingList; let i = index">
+                      <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
+                      <td>{{building.name}}</td>
+                      <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
+                      <td>{{building.floorNum}}</td>
+                      <td>{{building.arenaArea}}</td>
+                      <td>{{building.ayanArea}}</td>
+                      <td>{{building.useFullArea}}</td>
+                      <td>{{building.powerSharingNum+building.waterSharingNum+
+                        building.gasSharingNum+building.nonEnergyCarrierSharingNum}}</td>
+                        <td>{{coolingSystemType[building.coolingSystemType].toString()}}</td> 
+                        <td>{{heatingSystemType[building.heatingSystemType].toString()}}</td> 
+                        <td>{{building.postalCode}}</td>
+                      <td class="text-center">    
+                        <span class="cursor-pointer fa fa-edit"
+                        [queryParams]="{id: building.id}"
+                        [routerLink]="'/index/user/configuration/createBuilding'"></span>
+                      </td>
+                      <td class="text-center"><span class="fa fa-trash" (click)="deleteBuilding(i, building.id)"></span></td>
+                    </tbody>
+                  <!-- <tbody>
+                    <tr>
+                  <td>Yiorgos Avraamu</td>
+                  <td>2012/01/01</td>
+                  <td>Member</td>
+                  <td><span class="badge badge-success">ویرایش</span></td>
+                  <td><span class="badge badge-secondary">حذف</span></td>
+                  <td><span class="badge badge-danger">اکسل</span></td>
+                  <td class="text-center"><span class="fa fa-trash"></span></td>
+                  </tr>        
+                  </tbody> -->
+                  </table>
               </div>
-              <div class="space">
-
+              <!-- ته برگ فرم -->
+                <div class = col-md-6>
+                  <!-- صفحه بندی -->
+                  <app-paginator
+                  [matPaginator]="false"
+                  [totalPages]="totalPages"
+                  [totalElements]="length"
+                  [pageSize]="pageSize"
+                  [pageIndex]="pageIndex"
+                  [pageSizeOptions]="[1,5,10,15,25]"
+                  [showFirstLastButtons]="true"
+                  (page)="changePage($event)"
+                  ></app-paginator>
               </div>
-              <div class="energy-info energy-ratio">
-                <div class="text-center">نسبت انرژی:</div>
-                <div class="text-center">
-                  میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
-                </div>
-                <div>
-                  R= {{energyLabel.ratio}}
-                </div>
-              </div>
-              <div class="energy-info">
-                <div class="text-center">شاخص مصرف انرژی:</div>
-                <div class="text-center">
-                  برحسب کیلووات ساعتبر متر مربع در سال
-                </div>
-                <div>
-                  {{energyLabel.consumptionIndex}}
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </div>
+
+
 
 <!-- افزون ساختمان از اکسل -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
