@@ -2,10 +2,14 @@
 .main {
     margin-right: 160px; /* Same as the width of the sidebar */
     padding: 0px 10px;
+    height: calc(100vh - 150px);
+    width: calc(100vW - 180px);
+    overflow-y: scroll;
+
   }
   
   /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+    .sidenav {padding-top: 10px;}
     .sidenav a {font-size: 18px;}
   }

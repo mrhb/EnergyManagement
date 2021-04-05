@@ -68,6 +68,7 @@ export class RegionEditeComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             this.regionDto = new RegionDto();
+            this.regionDto.parentId=this.regionId;
             Notiflix.Notify.Success('افزودن زیر مجموعه با موفقیت انجام شد.');
             this.subRegions.push(res.data);
 
@@ -83,6 +84,7 @@ export class RegionEditeComponent implements OnInit {
               Notiflix.Notify.Success('ویرایش نام زیر مجموعه با موفقیت انجام شد.');
               this.subRegions[index] = this.regionDto;
               this.regionDto = new RegionDto();
+              this.regionDto.parentId=this.regionId;
             }
           }
         });
