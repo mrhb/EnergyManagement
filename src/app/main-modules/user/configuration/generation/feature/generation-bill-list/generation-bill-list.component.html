@@ -27,12 +27,9 @@
         <tbody>
         <tr *ngFor="let generation of generationBillList; let i = index" class="vertical-align-middle">
           <th scope="row">{{(i + 1 + (pageIndex * generationBillList.length))}}</th>
-          <!-- <td>{{generationTypeEnum[generation.generationType].toString()}}</td>
+          <td>{{generationTypeEnum[generation.generationType].toString()}}</td>
           <td>{{consumptionTypeEnum[generation.consumptionType].toString()}}</td>            
-          <td>{{generation.capacity}}</td> -->
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{generation.capacity}}</td>
           <td>{{this.moment.getJaliliDateFromIso(generation.fromDate)}}</td>
           <td>{{this.moment.getJaliliDateFromIso(generation.toDate)}}</td>
           <td>{{generation.numberDays}}</td>
