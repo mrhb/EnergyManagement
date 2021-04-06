@@ -8,27 +8,27 @@
       <div class="small text-muted"> {{region}}</div>
      </div>
      <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
-             <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
-              <form [formGroup]="form" class="w-100">
-                <!-- نوع تحلیل -->
-                <label for="powerAnalysisType" class="form-label">انتخاب پارامتر</label>
-                <select id="powerAnalysisType"
-                        class="form-control text-right"
-                        [(ngModel)]="powerAnalysisDto.powerAnalysisType"
-                        (change)="updateChart()"
-                        formControlName="powerAnalysisType"
-                        name="powerAnalysisType">
-                  <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
-                    {{item.value}}
-                  </option>
-                </select>
-              </form>
-            </div>
+       <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+      <form [formGroup]="form" class="w-100">
+        <!-- نوع تحلیل -->
+        <label for="powerAnalysisType" class="form-label">انتخاب پارامتر</label>
+        <select id="powerAnalysisType"
+                class="form-control text-right"
+                [(ngModel)]="powerAnalysisDto.powerAnalysisType"
+                (change)="updateChart()"
+                formControlName="powerAnalysisType"
+                name="powerAnalysisType">
+          <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+            {{item.value}}
+          </option>
+        </select>
+      </form>
+       </div>
      </div>
     </div>
     <div class="c-chart-wrapper" >
     <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
-    <div class="col-12">
+      <div class="col-12">
     <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>
     </div>
     </div>

@@ -20,7 +20,8 @@ export class CreateClimateComponent implements OnInit {
   climateId = '';
   form: FormGroup;
   climateDto = new ClimateDto();
-  // weatherList = new WeatherList();
+  provinceEnum = ProvinceEnum;
+  climateTypeEnum = ClimateTypeEnum;
   year: number=0;//  سال
 
   weatherList: WeatherList[]=[
@@ -37,8 +38,6 @@ export class CreateClimateComponent implements OnInit {
       sunRadMean: "1", 
     }];
 
-    provinceEnum = ProvinceEnum;
-    climateTypeEnum = ClimateTypeEnum;
     
 
   filterBuilding = '';
@@ -48,6 +47,7 @@ export class CreateClimateComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
               private router: Router,
+              
   ) { }
 
   ngOnInit(): void {
