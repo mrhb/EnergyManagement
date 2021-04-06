@@ -1,36 +1,43 @@
-<div>
-    <div class="col-12">
-        <div class="title-header d-flex justify-content-between align-items-center">
-            <div>
-              <h1>
-                <strong>تحلیل  اشتراکات برق  </strong>
-              </h1>
+
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+     <div>
+      <strong>تحلیل <small> اشتراکات برق  </small>    </strong>
+      <div class="small text-muted">فروردین 1400</div>
+      <div class="small text-muted"> {{region}}</div>
+     </div>
+     <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+             <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+              <form [formGroup]="form" class="w-100">
+                <!-- نوع تحلیل -->
+                <label for="powerAnalysisType" class="form-label">انتخاب پارامتر</label>
+                <select id="powerAnalysisType"
+                        class="form-control text-right"
+                        [(ngModel)]="powerAnalysisDto.powerAnalysisType"
+                        (change)="updateChart()"
+                        formControlName="powerAnalysisType"
+                        name="powerAnalysisType">
+                  <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </form>
             </div>
-            <div class="d-flex">
-            </div>
-          </div>
+     </div>
     </div>
-    <form [formGroup]="form" class="w-100">
-      <!-- نوع تحلیل -->
-      <div class="mb-4 col-md-3">
-        <div class="w-100">
-          <label for="powerAnalysisType" class="form-label">انتخاب پارامتر</label>
-          <select id="powerAnalysisType"
-                  class="form-control text-right"
-                  [(ngModel)]="powerAnalysisDto.powerAnalysisType"
-                  (change)="updateChart()"
-                  formControlName="powerAnalysisType"
-                  name="powerAnalysisType">
-            <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
-              {{item.value}}
-            </option>
-          </select>
-        </div>
-      </div>
-  </form>
-
+    <div class="c-chart-wrapper" >
+    <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
     <div class="col-12">
-    <h1>{{region}}</h1>
     <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>
+    </div>
+    </div>
+   </div>
+  <div class="card-footer">
+    <div class="row text-center">
+      <div class="col-sm-12 col-md mb-sm-2 mb-0">
+        <div class="text-muted">تحلیل اشتراکات</div><strong>برق</strong>
+      </div>
+    </div>
+  </div>
 </div>
-
