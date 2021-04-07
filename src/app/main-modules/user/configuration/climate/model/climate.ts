@@ -14,7 +14,7 @@ export class ClimateDto {
 }
 
   //  اطلاعات آب و هوا و اقلیم (کلی)    
-export class ClimateList {
+export class ClimateListDto {
   province: ProvinceEnum;// استان  
   climateType: ClimateTypeEnum; // نوع اقلیم 
   city: string; // شهر

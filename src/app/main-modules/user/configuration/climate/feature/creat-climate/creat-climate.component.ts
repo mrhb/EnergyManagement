@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClimateDto } from '../../model/climate';
-import { WeatherList } from '../../model/weather';
+import { WeatherListDto } from '../../model/weather';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import { ClimateService } from '../../service/climate.service';
 import Notiflix from 'notiflix';
@@ -24,7 +24,7 @@ export class CreateClimateComponent implements OnInit {
   climateDto = new ClimateDto();
   provinceEnum = ProvinceEnum;
   climateTypeEnum = ClimateTypeEnum;
-  weatherList: WeatherList;
+  weatherList: WeatherListDto;
   year: number=0;//  سال
   region="";
   regionId: string;

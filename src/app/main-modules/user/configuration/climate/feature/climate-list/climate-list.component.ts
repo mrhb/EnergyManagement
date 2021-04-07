@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClimateList } from '../../model/climate';
+import { ClimateListDto } from '../../model/climate';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
-import {Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RegionService } from '../../../region/service/region.service';
+import { ClimateService } from '../../service/climate.service';
 
 @Component({
   selector: 'app-climate-list',
@@ -16,11 +18,16 @@ export class ClimateListComponent implements OnInit {
 
   filterBuilding = '';
   climateType = ClimateTypeEnum;
-  climateList: ClimateList[] = [];
+  climateList: ClimateListDto[] = [];
   buildingList = [];
+  climateListDto = new ClimateListDto();
 
-  constructor(public router: Router,) {
-}
+  constructor(
+    private router: Router,
+    private climateService: ClimateService,
+    private stateService:RegionService,
+  ){}
+
 
   ngOnInit(): void {
     this.getClimateList();
@@ -30,16 +37,16 @@ export class ClimateListComponent implements OnInit {
     console.log('this.pageIndex', this.pageIndex);
     console.log('this.pageSize', this.pageSize);
     this.climateList = [];
-    // this.ClimateService.getClimateList(
-    //   {
-    //     page: this.pageIndex,
-    //     size: this.pageSize,
-    //   }, ''
-    // ).subscribe((res: any) => {
-    //   if (res) {
-    //     this.climateList = res.content;
-    //   }
-    // });
+    this.climateService.getClimateList(
+      {
+        page: this.pageIndex,
+        size: this.pageSize,
+      }, ''
+    ).subscribe((res: any) => {
+      if (res) {
+        this.climateList = res.content;
+      }
+    });
   }
   navigate(): void {
     // console.log(this.activatedRoute.snapshot.url[0].path);

@@ -35,11 +35,11 @@
                   <tbody>
                     <tr *ngFor="let climate of climateList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                      <td>{{climate.province}}</td>
+                      <td>{{provinceEnum[climate.province].toString()}}</td>
                       <td>{{climate.city}}</td>
                       <td>{{climate.village}}</td>
                       <td>{{climate.latitude}}</td>
-                      <td>{{climate.climateKind}}</td>
+                      <td>{{climateTypeEnum[climate.climateType].toString()}}</td>
                       <td>{{climate.highDegMean}}</td>
                       <td>{{climate.lowDegMean}}</td>
                       <td>{{climate.highHumidMean}}</td>
