@@ -18,6 +18,9 @@ export class ClimateService extends GeneralService {
   updateClimate(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-climate', body, errorSelector, param);
   }
+  updateweather(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-weather', body, errorSelector, param);
+  }
 
   getOneClimate(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);

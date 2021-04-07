@@ -240,9 +240,10 @@
                 <!-- سربرگ  فرم  -->
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">لیست آب و هوای روزانه</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="resetInputFile()">
                     <span aria-hidden="true">&times;</span>
                   </button>
+                  
                 </div>
                 <div class="d-flex align-items-end">
                   <!-- عنوان آب و هوا -->
@@ -250,13 +251,14 @@
                     <div class="w-100">
                       <label for="filterBuilding" class="form-label">عنوان آب و هوا</label>
                       <input class="form-control text-right" id="filterBuilding" placeholder=""
-                            [(ngModel)]="filterBuilding"
+                      [(ngModel)]="filterBuilding"
                             name="filterBuilding">
-                    </div>
-                  </div> -->
-                  <!-- جستجو -->
-                  <div class="mb-4 col-auto mt-2">
-                    <!-- <div class="btn btn-primary" (click)="getListBuilding()">جستجو  </div> -->
+                          </div>
+                        </div> -->
+                        <!-- جستجو -->
+                        <div class="mb-4 col-auto mt-2">
+                          <input #fileInput type="file" class="form-control-file"  (change)="onFileChange($event)" multiple="false" />
+                          <!-- <div class="btn btn-primary" (click)="getListBuilding()">جستجو  </div> -->
                   </div>
                 </div>
                 <!-- جدول آب و هواها -->
@@ -265,7 +267,7 @@
                     <table class="table table-striped table-bordered">
                       <thead class="thead-light">
                       <tr>
-                        <th scope="col"> ماه </th>
+                        <th scope="col"> تاریخ </th>
                         <th scope="col">  حداکثر دما</th>
                         <th scope="col">  حداقل دما</th>
                         <th scope="col" width="50"> میانگین دما</th>
@@ -278,17 +280,16 @@
                       </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
-                          <!-- <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th> -->
-                          <td>{{weather.month}}</td>
-                          <td>{{weather.highDegMean}}</td>
-                          <td>{{weather.lowDegMean}}</td>
-                          <td>{{weather.DegMean}}</td>
-                          <td>{{weather.highHumidMean}}</td>
-                          <td>{{weather.lowHumidMean}}</td>
-                          <td>{{weather.HumidMean}}</td>
-                          <td>{{weather.windMean}}</td>
-                          <td>{{weather.sunRadMean}}</td>
+                        <tr *ngFor="let weather of xlsxWeatherList; let i = index" class="vertical-align-middle">
+                          <td>{{weather.forDate}}</td>
+                          <td>{{weather.tempMax}}</td>
+                          <td>{{weather.tempMin}}</td>
+                          <td>{{weather.tempAvg}}</td>
+                          <td>{{weather.humidityMin}}</td>
+                          <td>{{weather.humidityMax}}</td>
+                          <td>{{weather.humidityAvg}}</td>
+                          <td>{{weather.sunRad}}</td>
+                          <td>{{weather.wind}}</td>
                           <td width="40"><span class="cursor-pointer fa fa-edit"
                               [queryParams]="{id: weather.id}"
                               [routerLink]="'/index/user/configuration/editclimate'"></span></td>
@@ -296,6 +297,9 @@
                         </tr>
                       </tbody>
                     </table>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+                    </div>
                   </div>
                 </div>
               </div>
