@@ -17,7 +17,7 @@ declare var $: any;
 export class PowerSubscriptionAnalysisComponent implements OnInit {
   powerAnalysisDto= new PowerAnalysisDto();
   
-  PowerAnalysisTypeEnum=PowerAnalysisTypeEnum;
+  powerAnalysisTypeEnum=PowerAnalysisTypeEnum;
   
   region="";
   series: SeriesInfo= {

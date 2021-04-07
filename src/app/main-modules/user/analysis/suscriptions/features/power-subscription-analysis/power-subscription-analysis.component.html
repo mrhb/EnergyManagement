@@ -18,7 +18,7 @@
                 (change)="updateChart()"
                 formControlName="powerAnalysisType"
                 name="powerAnalysisType">
-          <option *ngFor="let item of PowerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
+          <option *ngFor="let item of powerAnalysisTypeEnum | enumKeyValue" [value]="item.key">
             {{item.value}}
           </option>
         </select>

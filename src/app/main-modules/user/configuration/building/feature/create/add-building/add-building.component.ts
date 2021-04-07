@@ -57,8 +57,8 @@ export class AddBuildingComponent implements OnInit {
       arenaArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       ayanArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       useFullArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      externalWallsTotalArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      externalGlassTotalArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      externalWallsTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      externalGlassTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
                 }, {
       validators: this.checkAreaValidators('arenaArea', 'ayanArea')
     });

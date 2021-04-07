@@ -144,7 +144,7 @@
       <div class="card border-primary">
         <!-- عنوان جدول -->
         <div class="card-header flex-card-header">
-          <strong id= "billingSearchId"> ورود  </strong>
+          <strong id= "billingSearchId"> اطلاعات<small> آب و هوا </small>   </strong>
         </div> 
             <!-- انتخاب سال -->
             <div class="mb-4 col-md-2">
@@ -197,22 +197,22 @@
                 </tbody>
             </table>
         </div> 
-        <!-- انتخاب آب و هوا -->   
+
+        <!-- دریافت آب و هوا -->   
           <div class="form-group row"> 
             <div class="col-md-3">
-              <p class="form-control-static"> انتخاب آب و هوا یا تاسیسات</p>
-            </div>
-            <div class="col-md-9">
-              <p class="form-control-static">درصد تخصیص</p>
+              <p class="form-control-static"> دریافت اطلاعات روزانه آب و هوا</p>
             </div>
             
-          <!-- انتخاب  -->
-          <!-- <div class="col-md-3">
-              <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
-              <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
+            
+          <!-- دریافت   -->
+          <div class="col-md-3">
+            <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg">دریافت</button>
+            <!-- <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getListBuilding()">انتخاب</button>
+            <span class="mr-2" style="font-size: 13px;" *ngIf="buildingAllocation.name">
                 ({{buildingAllocation.name}})
-              </span>
-            </div> -->
+              </span> -->
+            </div>
             <!-- درصد تخصیص -->
               <!-- <div class="mb-4 col-md-2">
               <input class="form-control text-right" id="allocationPercentage" placeholder=""
@@ -226,15 +226,16 @@
           <button class="btn btn-primary" (click)="addBuildingAllocation()">ثبت آب و هوا</button>
         </div> -->
 
-        <!-- فرم محاوره ای لیست آب و هواها -->
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="container-fluid">
+        <!-- فرم محاوره ای لیست آب و هوای روزانه -->
+        <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> -->
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="container-fluid">
           <div class="modal-dialog modal-lg">
             <div class="card border-warning">
               <div class="modal-content">
                 <!-- سربرگ  فرم  -->
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">لیست آب و هوا ها</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">لیست آب و هوای روزانه</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -260,22 +261,21 @@
                     <table class="table table-striped table-bordered">
                       <thead class="thead-light">
                       <tr>
-                        <th scope="col" width="40">#</th>
                         <th scope="col"> ماه </th>
-                        <th scope="col"> میانگین حداکثر دما</th>
-                        <th scope="col"> میانگین حداقل دما</th>
+                        <th scope="col">  حداکثر دما</th>
+                        <th scope="col">  حداقل دما</th>
                         <th scope="col" width="50"> میانگین دما</th>
-                        <th scope="col"> میانگین حداکثر رطوبت</th>
-                        <th scope="col"> میانگین حداقل رطوبت</th>
+                        <th scope="col">  حداکثر رطوبت</th>
+                        <th scope="col">  حداقل رطوبت</th>
                         <th scope="col" width="50">  میانگین رطوبت</th>
-                        <th scope="col"> میانگین سرعت باد </th>
                         <th scope="col">میانگین تابش خورشید</th>
-                      <th scope="col" width="80">عملیات</th>
+                        <th scope="col"> میانگین سرعت باد </th>
+                        <th scope="col" width="80" colspan="2">عملیات</th>
                       </tr>
                       </thead>
                       <tbody>
                         <tr *ngFor="let weather of weatherList; let i = index" class="vertical-align-middle">
-                          <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th>
+                          <!-- <th scope="row">{{(i + 1 + (pageIndex * weatherList.length))}}</th> -->
                           <td>{{weather.month}}</td>
                           <td>{{weather.highDegMean}}</td>
                           <td>{{weather.lowDegMean}}</td>
