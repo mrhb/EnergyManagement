@@ -2,7 +2,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClimateDto } from '../../model/climate';
+<<<<<<< HEAD
 import { WeatherDto, WeatherListDto } from '../../model/weather';
+=======
+import { WeatherListDto } from '../../model/weather';
+>>>>>>> 3e1db4dfce4355f554cff86af56376f00b63b16c
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import { ClimateService } from '../../service/climate.service';
 import Notiflix from 'notiflix';

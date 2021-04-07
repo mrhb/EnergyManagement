@@ -22,6 +22,14 @@ export class ClimateService extends GeneralService {
     return super.putCheckService('update-weather', body, errorSelector, param);
   }
 
+  getClimateList(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-climate-list-pageable-by-filter', body, errorSelector, param);
+  }
+
+  getWeatherList(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-weather-list-by-yaer', body, errorSelector, param);
+  }
+
   getOneClimate(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
   }
@@ -38,9 +46,7 @@ export class ClimateService extends GeneralService {
     return super.deleteCheckService('delete-building-allocation', errorSelector, param);
   }
 
-  getClimateList(param: any, body: any,  errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
-  }
+
 
   getClimateBillList(param: any, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('get-bill-list-pageable-by-filter', body, errorSelector, param);

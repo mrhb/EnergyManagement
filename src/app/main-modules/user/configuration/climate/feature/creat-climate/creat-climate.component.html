@@ -132,8 +132,8 @@
       </div>
         <!-- ثبت اطلاعات  -->
         <div class="card-footer">
-          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!regionId">ثبت</button>
-          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="regionId">ویرایش</button>
+          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!climateDto.climateType">ثبت</button>
+          <button type="submit" class="btn btn-success text-center ml-3" *ngIf="climateDto.climateType">ویرایش</button>
           <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
         </div>
       </div>
@@ -142,7 +142,7 @@
   </div>
 
   <!-- اطلاعات آب و هوا -->
-  <!-- <div *ngIf="climateId">  -->
+  <div *ngIf="climateDto.climateType"> 
   <div class="row" style="padding-top: 20px;">
     <div class="col-lg-12">
       <div class="card border-primary">
@@ -309,5 +309,5 @@
       </div>
     </div>      
   </div>
-  <!-- </div> -->
+  </div>
 </div></div>
