@@ -10,7 +10,6 @@ import { RegionService } from '../../../region/service/region.service';
 declare var $: any;
 
 import * as XLSX from 'xlsx';
-import { ThemeService } from 'ng2-charts';
 import { Moment } from 'src/app/shared/tools/moment';
 type AOA = any[][];
 
@@ -31,10 +30,6 @@ xlsxWeatherList: WeatherDto[] = [];
 moment = Moment;
 
 
-
-// powerBillList: PowerBillList[] = [];
-//
-
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -46,11 +41,11 @@ moment = Moment;
   provinceEnum = ProvinceEnum;
   climateTypeEnum = ClimateTypeEnum;
   weatherList: WeatherListDto[]=[];
-  year: number=0;//  سال
+
   region="";
   regionId: string;
 
-  weatherReqDto: WeatherReqDto;
+  weatherReqDto= new WeatherReqDto();
 
 
 
@@ -72,6 +67,10 @@ moment = Moment;
 
 ngAfterViewInit(): void {
   this.jQueryDate();
+   //initializeform
+   $('#fromDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.fromDate));
+   $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.toDate));
+  //  this.updateChart();
 }
 
 jQueryDate(): void {
@@ -127,6 +126,14 @@ jQueryDate(): void {
       toDate:[], // تاریخ اتمام 
 
     });
+     
+
+    var date = new Date();
+    date.setDate( date.getDate() - 0 );
+    this.weatherReqDto.toDate=date.toISOString();
+    date.setDate( date.getDate() - 90 );
+    this.weatherReqDto.fromDate=date.toISOString();
+
     this.form = this.formBuilder.group({
       province: [''], // استان  
       city: [''], // شهر
@@ -138,6 +145,13 @@ jQueryDate(): void {
       dominantThermalReq: [''],// نیاز غالب حرارتی
       energyDegree: [''], // درجه انرژی
     });
+
+
+        // var date = new Date();
+    // date.setDate( date.getDate() - 0 );
+    // this.weatherReqDto.toDate=date.toISOString();
+    // date.setDate( date.getDate() - 90 );
+    // this.weatherReqDto.fromDate=date.toISOString();
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params', params);
       if (params.id) {
@@ -175,17 +189,18 @@ jQueryDate(): void {
       console.log(this.data);
       // this.resetInputFile();
 
+      this.data.shift();
+
       this.data.forEach(item => {
        let Weather=new WeatherDto();
-
        if(item.length<8){
         Notiflix.Notify.Error('خطا در خواندن داده های فایل .');
        }
 
        Weather.forDate = this.moment.convertJaliliToIsoDate( item[0]).split("T")[0];
       //  Weather.forDate = item[0];
-       Weather.tempMax=item[1];
-       Weather.tempMin=item[2];
+       Weather.tempMin=item[1];
+       Weather.tempMax=item[2];
        Weather.tempAvg=item[3];
        Weather.humidityMin=item[3];
        Weather.humidityMax=item[4];
@@ -235,21 +250,6 @@ jQueryDate(): void {
         Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
         return;
       }
-      // if (!this.edited) {
-      //   this.climateService.updateClimate({id:this.regionId},this.climateDto)
-      //     .subscribe((res: any) => {
-      //       if (res) {
-      //         Notiflix.Notify.Success('ایجاد اقلیم با موفقیت انجام شد.');
-      //         this.regionId = res.data;
-      //         // setTimeout(() => {
-      //         //   $('#pills-building-tab').click();
-      //         // }, 200);
-      //         // this.router.navigate(['/index/user/configuration/climateList']).then();
-      //         // this.router.navigateByUrl('/index/user/configuration/climateList').then();
-      //       }
-      //     });
-
-      // } else {
         this.climateService.updateClimate({id: this.regionId}, this.climateDto)
           .subscribe((res: any) => {
             if (res) {
@@ -260,10 +260,4 @@ jQueryDate(): void {
       }
     
 }
-
-    function regionId(regionId: any) {
-      throw new Error('Function not implemented.');
-    }
-  
-  // createCity(): void {}
 
