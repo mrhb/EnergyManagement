@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClimateDto } from '../../model/climate';
-import { WeatherDto, WeatherListDto } from '../../model/weather';
+import { WeatherDto, WeatherListDto, WeatherReqDto } from '../../model/weather';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import { ClimateService } from '../../service/climate.service';
 import Notiflix from 'notiflix';
@@ -50,11 +50,15 @@ moment = Moment;
   region="";
   regionId: string;
 
+  weatherReqDto: WeatherReqDto;
+
+
 
   stateServiceRegion_subscribe:any;
   stateServiceRegionId_subscribe:any;
 
   @ViewChild('fileInput') fileInputVariable: ElementRef;
+  weatherForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,7 +70,47 @@ moment = Moment;
    
 }
 
+ngAfterViewInit(): void {
+  this.jQueryDate();
+}
 
+jQueryDate(): void {
+  setTimeout(e1 => {
+    $('#fromDate').MdPersianDateTimePicker({
+      Placement: 'bottom', // default is 'bottom'
+      Trigger: 'focus', // default is 'focus',
+      targetTextSelector: '#fromDate',
+      disableAfterToday: false,
+      disableBeforeToday: false,
+    }).on('change', (e) => {
+      this.weatherReqDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+      if (this.weatherReqDto.fromDate > this.weatherReqDto.toDate) {
+        setTimeout(() => {
+          Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
+          this.weatherReqDto.toDate = null;
+          $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.toDate));
+        }, 200);
+      }
+    });
+    $('#toDate').MdPersianDateTimePicker({
+      Placement: 'bottom', // default is 'bottom'
+      Trigger: 'focus', // default is 'focus',
+      targetTextSelector: '#toDate',
+      disableAfterToday: false,
+      disableBeforeToday: false,
+    }).on('change', (e) => {
+      this.weatherReqDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+      console.log('this.weatherReqDto.toDate', this.weatherReqDto.toDate);
+      if (this.weatherReqDto.fromDate > this.weatherReqDto.toDate) {
+        setTimeout(() => {
+          Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
+          this.weatherReqDto.toDate = null;
+          $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.fromDate));
+        }, 200);
+      }
+    });
+  }, 100);
+}
   ngOnInit(): void {
 
     this.stateServiceRegion_subscribe=this.stateService.region.subscribe(reg=>{
@@ -77,6 +121,12 @@ moment = Moment;
     });
 
 
+    this.weatherForm = this.formBuilder.group({
+
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام 
+
+    });
     this.form = this.formBuilder.group({
       province: [''], // استان  
       city: [''], // شهر

@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row">
     <form [formGroup]="form" class="form" enctype="multipart/form-data" (ngSubmit)="createClimate()">
@@ -15,6 +16,7 @@
 
         <!-- اطلاعات شهر و اقلیم -->
           <div class="form-group row">
+
                   <!-- استان -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
@@ -150,17 +152,34 @@
         <div class="card-header flex-card-header">
           <strong id= "billingSearchId"> اطلاعات<small> آب و هوا </small>   </strong>
         </div> 
-            <!-- انتخاب سال -->
-            <div class="mb-4 col-md-2">
-              <div class="w-100">
-                <label for="year" class="form-label"> انتخاب سال </label>
-                <input class="form-control text-right" id="year" placeholder=""
-                name="year"  type="number" step="1" min="1300">
-                      <!-- [(ngModel)]="climateDto.year"
-                      formControlName="year" -->
-              </div>
-            <!-- <app-alert-error [data]="form.controls['year']" [touched]="touched"></app-alert-error> -->
-            </div> 
+        <form [formGroup]="weatherForm" class="form" enctype="multipart/form-data" (ngSubmit)="createClimate()">
+          <fieldset class="fieldset-border">
+            <div class="form-group row">
+          <!-- تاریخ شروع -->
+          <div class="mb-4 col-md-2">
+            <div class="w-100">
+              <label for="fromDate" class="form-label">از تاریخ</label>
+              <input class="form-control text-right" id="fromDate" placeholder=""
+              formControlName="fromDate"
+              name="fromDate">
+            </div>
+            <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
+          </div>
+        <!-- تاریخ اتمام -->
+        <div class="mb-4 col-md-2">
+            <div class="w-100">
+              <label for="toDate" class="form-label">تا تاریخ </label>
+              <input class="form-control text-right" id="toDate" placeholder=""
+              formControlName="toDate"
+              name="toDate">
+            </div>
+            <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
+          </div>
+
+          </div>
+          </fieldset>
+
+</form>
         <!-- جدول آب و هوای روزانه  -->
         <div class="card-body">
           <div >

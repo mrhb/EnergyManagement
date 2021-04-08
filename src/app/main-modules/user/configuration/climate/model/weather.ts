@@ -23,3 +23,10 @@ export class WeatherDto {
   sunRad: string; //تابش
   wind: string;//سرعت باد
 }
+
+
+export class WeatherReqDto {
+
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+}
