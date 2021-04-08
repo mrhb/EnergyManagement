@@ -14,16 +14,14 @@ export class WeatherListDto {
   //  اطلاعات آب و هوا (روزانه)    
 export class WeatherDto {
   forDate: string; // از تاریخ 
-  tempMax: string; // حداکثر دما روزانه
-  tempMin: string; // حداقل دما روزانه
-  tempAvg: string; // میانگین دما روزانه
-  humidityMin: string; // حداقل رطوبت روزانه
-  humidityMax: string; //حداکثر رطوبت روزانه
-  humidityAvg: string; //میانگین رطوبت روزانه
-  sunRad: string; //تابش
-  wind: string;//سرعت باد
-  sunRadAvg: any;
-  windAvg: any;
+  tempMax: number; // حداکثر دما روزانه
+  tempMin: number; // حداقل دما روزانه
+  tempAvg: number; // میانگین دما روزانه
+  humidityMin: number; // حداقل رطوبت روزانه
+  humidityMax: number; //حداکثر رطوبت روزانه
+  humidityAvg: number; //میانگین رطوبت روزانه
+  sunRad: number; //تابش
+  wind: number;//سرعت باد
 }
 
 
