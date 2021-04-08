@@ -70,7 +70,7 @@ ngAfterViewInit(): void {
    //initializeform
    $('#fromDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.fromDate));
    $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.toDate));
-  //  this.updateChart();
+   this.updateweatherList();
 }
 
 jQueryDate(): void {
@@ -157,6 +157,7 @@ jQueryDate(): void {
       if (params.id) {
         this.edited = true;
         this.regionId = params.id;
+        
         this.getOneClimate(params.id);
 
         this.stateServiceRegionId_subscribe.unsubscribe();
@@ -258,6 +259,18 @@ jQueryDate(): void {
             }
           });
       }
+  
+  updateweatherList(){
+    this.weatherReqDto.regionId=this.regionId;
+    this.climateService.getWeatherList('',this.weatherReqDto)
+    .subscribe((res: any) => {
+      if (res) {
+        this.xlsxWeatherList=res.data;
+        Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
+      }
+    });
+
+  }
     
 }
 

@@ -26,7 +26,7 @@ export class WeatherDto {
 
 
 export class WeatherReqDto {
-
+  regionId:string;
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
 }
