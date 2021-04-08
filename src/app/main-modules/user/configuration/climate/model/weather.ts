@@ -22,6 +22,8 @@ export class WeatherDto {
   humidityAvg: string; //میانگین رطوبت روزانه
   sunRad: string; //تابش
   wind: string;//سرعت باد
+  sunRadAvg: any;
+  windAvg: any;
 }
 
 
