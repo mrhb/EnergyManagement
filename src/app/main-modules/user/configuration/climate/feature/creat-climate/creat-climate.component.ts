@@ -214,6 +214,15 @@ jQueryDate(): void {
        this.xlsxWeatherList.push(Weather);
     });
 
+    this.calAvg();
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  calAvg()
+  {
+    
     let average: WeatherDto={
       forDate:"",
       tempMax:0,
@@ -240,10 +249,6 @@ jQueryDate(): void {
 
   }, new WeatherDto()) ;
 
-
-  
-
-
   this.weatherAvg={
     forDate:"",
     tempMax:this.weatherAvg.tempMax/this.xlsxWeatherList.length,
@@ -255,9 +260,6 @@ jQueryDate(): void {
     sunRad:this.weatherAvg.sunRad/this.xlsxWeatherList.length,
     wind:this.weatherAvg.wind/this.xlsxWeatherList.length,
   };
-
-    };
-    reader.readAsBinaryString(target.files[0]);
   }
 
   saveXlsxData()
@@ -310,6 +312,7 @@ jQueryDate(): void {
     .subscribe((res: any) => {
       if (res) {
         this.xlsxWeatherList=res.data;
+        this.calAvg();
         Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
       }
     });

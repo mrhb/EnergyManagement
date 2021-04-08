@@ -221,16 +221,13 @@
                   <tr class="vertical-align-middle; table-dark"> 
                     <td>میانگین</td>
                     <td>{{weatherAvg.tempMax}}</td>
-                    <td>{{weatherAvg.tempMin}}</td>
-                    <td>{{weatherAvg.tempAvg}}</td>
-                    <td>{{weatherAvg.humidityMin}}</td>
-                    <td>{{weatherAvg.humidityMax}}</td>
-                    <td>{{weatherAvg.humidityAvg}}</td>
-                    <td>{{weatherAvg.sunRad}}</td>
-                    <td>{{weatherAvg.wind}}</td>
-
-                    
-                  </tr>
+                    <td>{{weatherAvg.tempMin  | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.tempAvg | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.humidityMin | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.humidityMax | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.humidityAvg | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.sunRad | number:'0.0-2'}}</td>
+                    <td>{{weatherAvg.wind | number:'0.0-2'}}</td>
                 </tfoot>
               </table>
               <div class="col-12">
