@@ -17,7 +17,8 @@ export class ClimateListComponent implements OnInit {
   totalPages = 1;
 
   filterBuilding = '';
-  climateType = ClimateTypeEnum;
+  climateTypeEnum = ClimateTypeEnum;
+  provinceEnum=ProvinceEnum;
   climateList: ClimateListDto[] = [];
   buildingList = [];
   climateListDto = new ClimateListDto();
