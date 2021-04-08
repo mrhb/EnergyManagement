@@ -27,6 +27,7 @@ data: AOA = [[1, 2], [3, 4]];
 wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 fileName: string = 'SheetJS.xlsx';
 xlsxWeatherList: WeatherDto[] = [];
+WeatherAvgList: WeatherDto[] = [];
 moment = Moment;
 
 
@@ -208,7 +209,9 @@ jQueryDate(): void {
        Weather.humidityAvg=item[5];
        Weather.sunRad=item[6];
        Weather.wind=item[7];
-   
+       Weather.sunRadAvg=item[6];
+       Weather.windAvg=item[7];
+
        this.xlsxWeatherList.push(Weather);
     });
 

@@ -1,10 +1,8 @@
 import {ProvinceEnum, ClimateTypeEnum} from './climateEnum';
   //  اطلاعات اقلیم    
 export class ClimateDto {
-
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
-  
   regionId: string;// شناسه منطقه  
   province: ProvinceEnum;// استان  
   city: string; // شهر

@@ -16,7 +16,6 @@
 
         <!-- اطلاعات شهر و اقلیم -->
           <div class="form-group row">
-
                   <!-- استان -->
                   <div class="mb-4 col-md-2">
                     <div class="w-100">
@@ -197,13 +196,12 @@
                   <th scope="col"> تاریخ </th>
                   <th scope="col">  حداکثر دما</th>
                   <th scope="col">  حداقل دما</th>
-                  <th scope="col" width="50"> میانگین دما</th>
+                  <th scope="col"> میانگین دما</th>
                   <th scope="col">  حداکثر رطوبت</th>
                   <th scope="col">  حداقل رطوبت</th>
-                  <th scope="col" width="50">  میانگین رطوبت</th>
+                  <th scope="col">  میانگین رطوبت</th>
                   <th scope="col">میانگین تابش خورشید</th>
                   <th scope="col"> میانگین سرعت باد </th>
-                  <th scope="col" width="80" colspan="2">عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -217,12 +215,31 @@
                     <td>{{weather.humidityAvg}}</td>
                     <td>{{weather.sunRad}}</td>
                     <td>{{weather.wind}}</td>
-                    <td width="40"><span class="cursor-pointer fa fa-edit"
-                        [queryParams]="{id: weather.id}"
-                        [routerLink]="'/index/user/configuration/editclimate'"></span></td>
-                    <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteclimate(i, weather.id)"></span></td>
                   </tr>
                 </tbody>
+                <tfoot>
+                  <tr class="vertical-align-middle; table-dark"> 
+                    <td>میانگین</td>
+                    <td>weather.tempMax</td>
+                    <td>tempMaxMean</td>
+                    <td>tempMinMean</td>
+                    <td>tempAvg</td>
+                    <td>HumidMaxMean</td>
+                    <td>lowHumidMean</td>
+                    <td>humidityAvg</td>
+                    <td>sunRadAvg</td>
+                    <td>windAvg</td>
+                    <!-- <td>{{weatherAvg.forDate}}</td>
+                    <td>{{weatherAvg.tempMaxMean}}</td>
+                    <td>{{weatherAvg.tempMinMean}}</td>
+                    <td>{{weatherAvg.tempAvg}}</td>
+                    <td>{{weatherAvg.HumidMaxMean}}</td>
+                    <td>{{weatherAvg.lowHumidMean}}</td>
+                    <td>{{weatherAvg.humidityAvg}}</td>
+                    <td>{{weatherAvg.sunRad}}</td>
+                    <td>{{weatherAvg.wind}}</td> -->
+                  </tr>
+                </tfoot>
               </table>
               <div class="col-12">
                 <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
@@ -233,3 +250,4 @@
   </div>
   </div>
 </div></div>
+
