@@ -50,6 +50,10 @@ moment = Moment;
   region="";
   regionId: string;
 
+
+  stateServiceRegion_subscribe:any;
+  stateServiceRegionId_subscribe:any;
+
   @ViewChild('fileInput') fileInputVariable: ElementRef;
 
   constructor(
@@ -59,16 +63,20 @@ moment = Moment;
               private activatedRoute: ActivatedRoute,
               private stateService:RegionService,
   ) { 
-    stateService.region.subscribe(reg=>{
-      this.region=reg;
-  });
+   
 }
 
 
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+
+    this.stateServiceRegion_subscribe=this.stateService.region.subscribe(reg=>{
+      this.region=reg;
+  });
+    this.stateServiceRegionId_subscribe= this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
     });
+
+
     this.form = this.formBuilder.group({
       province: [''], // استان  
       city: [''], // شهر
@@ -86,6 +94,9 @@ moment = Moment;
         this.edited = true;
         this.regionId = params.id;
         this.getOneClimate(params.id);
+
+        this.stateServiceRegionId_subscribe.unsubscribe();
+        this.stateServiceRegion_subscribe.unsubscribe();
       }
     });
   }
@@ -155,7 +166,13 @@ moment = Moment;
 
 
   getOneClimate(id: any) {
-    throw new Error('Method not implemented.');
+    this.climateService.getOneClimate({id: id})
+    .subscribe((res: any) => {
+      if (res) {
+        this.climateDto = res.data;
+        this.region=res.data.title;
+      }
+    });
   }
   
   setEnumUseType(isChange?: boolean): void {

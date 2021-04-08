@@ -26,12 +26,13 @@ export class ClimateService extends GeneralService {
     return super.postCheckService('get-climate-list-pageable-by-filter', body, errorSelector, param);
   }
 
-  getWeatherList(param: any, body: any,  errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-weather-list-by-yaer', body, errorSelector, param);
-  }
-
   getOneClimate(param: {id: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-one', errorSelector, param);
+  }
+
+
+  getWeatherList(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-weather-list-by-yaer', body, errorSelector, param);
   }
 
   addBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
