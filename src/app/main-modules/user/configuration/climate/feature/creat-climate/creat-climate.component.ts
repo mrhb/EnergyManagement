@@ -166,11 +166,11 @@ jQueryDate(): void {
         this.stateServiceRegion_subscribe.unsubscribe();
       }
     });
+
   }
   resetInputFile() {
     this.fileInputVariable.nativeElement.value = "";
 }
-
   
   onFileChange(evt: any) {
     this.xlsxWeatherList=[];

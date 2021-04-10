@@ -11,8 +11,10 @@
             <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/climateList'"> لیست </button> 
           </div>
         </div>     
+        <p class="alert alert-success">
+          <span [innerHTML]="region"></span>
+        </p>
         <div class="card-body">
-          <div class="small text-muted"> {{region}}</div>
           <!-- اطلاعات شهر و اقلیم -->
           <div class="form-group row">
             <!-- استان -->
@@ -178,82 +180,82 @@
                   <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
                 </div>
               </div>
-
-          <!-- تاریخ شروع -->
-          <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="fromDate" class="form-label">از تاریخ</label>
-              <input class="form-control text-right" id="fromDate" placeholder=""
-              formControlName="fromDate"
-              name="fromDate">
-            </div>
-            <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
-          </div>
-        <!-- تاریخ اتمام -->
-        <div class="mb-4 col-md-2">
-            <div class="w-100">
-              <label for="toDate" class="form-label">تا تاریخ </label>
-              <input class="form-control text-right" id="toDate" placeholder=""
-              formControlName="toDate"
-              name="toDate">
-            </div>
-            <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
-          </div>
-
-          </div>
-          </fieldset>
-
-</form>
-        <!-- جدول آب و هوای روزانه  -->
-        <div class="card-body">
-          <div class="col-12">
-            <div class="table-responsive">
-              <table class="table table-striped table-bordered">
-                <thead class="thead-light">
-                <tr>
-                  <th scope="col"> تاریخ </th>
-                  <th scope="col">  حداکثر دما</th>
-                  <th scope="col">  حداقل دما</th>
-                  <th scope="col"> میانگین دما</th>
-                  <th scope="col">  حداکثر رطوبت</th>
-                  <th scope="col">  حداقل رطوبت</th>
-                  <th scope="col">  میانگین رطوبت</th>
-                  <th scope="col">میانگین تابش خورشید</th>
-                  <th scope="col"> میانگین سرعت باد </th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let weather of xlsxWeatherList; let i = index" class="vertical-align-middle">
-                    <td>{{weather.forDate}}</td>
-                    <td>{{weather.tempMax}}</td>
-                    <td>{{weather.tempMin}}</td>
-                    <td>{{weather.tempAvg}}</td>
-                    <td>{{weather.humidityMin}}</td>
-                    <td>{{weather.humidityMax}}</td>
-                    <td>{{weather.humidityAvg}}</td>
-                    <td>{{weather.sunRad}}</td>
-                    <td>{{weather.wind}}</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr class="vertical-align-middle; table-dark"> 
-                    <td>میانگین</td>
-                    <td>{{weatherAvg.tempMax}}</td>
-                    <td>{{weatherAvg.tempMin  | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.tempAvg | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.humidityMin | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.humidityMax | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.humidityAvg | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.sunRad | number:'0.0-2'}}</td>
-                    <td>{{weatherAvg.wind | number:'0.0-2'}}</td>
-                </tfoot>
-              </table>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+              <!-- تاریخ شروع -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="fromDate" class="form-label">از تاریخ</label>
+                  <input class="form-control text-right" id="fromDate" placeholder=""
+                  formControlName="fromDate"
+                  name="fromDate">
+                </div>
+                <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
               </div>
-            </div>
-          </div>      
+              <!-- تاریخ اتمام -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="toDate" class="form-label">تا تاریخ </label>
+                  <input class="form-control text-right" id="toDate" placeholder=""
+                  formControlName="toDate"
+                  name="toDate">
+                </div>
+                <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
+              </div>
+            </fieldset>
+          </form>
+          <!-- جدول آب و هوای روزانه  -->
+          <div class="card-body">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col"> تاریخ </th>
+                      <th scope="col">  حداکثر دما</th>
+                      <th scope="col">  حداقل دما</th>
+                      <th scope="col"> میانگین دما</th>
+                      <th scope="col">  حداکثر رطوبت</th>
+                      <th scope="col">  حداقل رطوبت</th>
+                      <th scope="col">  میانگین رطوبت</th>
+                      <th scope="col">میانگین تابش خورشید</th>
+                      <th scope="col"> میانگین سرعت باد </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let weather of xlsxWeatherList; let i = index" class="vertical-align-middle">
+                      <td>{{weather.forDate}}</td>
+                      <td>{{weather.tempMax}}</td>
+                      <td>{{weather.tempMin}}</td>
+                      <td>{{weather.tempAvg}}</td>
+                      <td>{{weather.humidityMin}}</td>
+                      <td>{{weather.humidityMax}}</td>
+                      <td>{{weather.humidityAvg}}</td>
+                      <td>{{weather.sunRad}}</td>
+                      <td>{{weather.wind}}</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr class="vertical-align-middle; table-dark"> 
+                      <td>میانگین</td>
+                      <td>{{weatherAvg.tempMax}}</td>
+                      <td>{{weatherAvg.tempMin  | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.tempAvg | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.humidityMin | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.humidityMax | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.humidityAvg | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.sunRad | number:'0.0-2'}}</td>
+                      <td>{{weatherAvg.wind | number:'0.0-2'}}</td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+                </div>
+              </div>
+            </div>      
+          </div>
+        </div>
       </div>
-      </div>
-</div></div>
+    </div>
+  </div>
+</div>
 
