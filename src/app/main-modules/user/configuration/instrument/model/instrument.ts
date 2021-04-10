@@ -1,10 +1,10 @@
 import {UseTypeBuildingEnum} from '../../building/model/useTypeEnum';
-import { UseTypeInstrumentEnum, UnitInstrumentEnum, EnergyCarierEnum } from './instrumentEnum';
+import { UseTypeInstrumentEnum, UnitInstrumentEnum, EnergyCarierEnum, NameEnum } from './instrumentEnum';
 
 export class InstrumentDto {
   buildingId: string;
 
-  name: string; //نام تجهیز 
+  name: NameEnum; //نام تجهیز 
   instrumentCarrier: EnergyCarierEnum; // حامل انرژی 
   instrumentNum: string; //تعداد
   instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیر
@@ -29,7 +29,7 @@ export class InstrumentBuildingAllocation {
 
 export class InstrumentList {
   id: string;
-  name: string; //نام تجهیز 
+  name: NameEnum; //نام تجهیز 
   instrumentCarrier: string; //نام حامل انرژی 
   instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیر
   instrumentNum: string; //تعداد

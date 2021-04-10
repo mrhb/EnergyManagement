@@ -30,7 +30,7 @@
                   <tbody>
                     <tr *ngFor="let instrument of instrumentList; let i = index">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                      <td>{{instrument.name}}</td>          
+                      <td>{{nameEnum[instrument.name].toString()}}</td>
                       <td>{{energyCarierEnum[instrument.instrumentCarrier].toString()}}</td>
                       <td>{{useTypeInstrumentEnum[instrument.instrumentUsage].toString()}}</td>
                       <td>{{instrument.instrumentNum}}</td>
