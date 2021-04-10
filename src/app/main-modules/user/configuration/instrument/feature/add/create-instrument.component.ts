@@ -158,6 +158,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       .subscribe((res: any) => {
         if (res) {
           this.instrumentDto = res.data;
+          this.buildingAllocation.name=res.data.buildingName
           this.setEnumUseType();
           $('#fromDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.fromDate));
           $('#toDate').val(this.moment.getJaliliDateFromIso(this.instrumentDto.toDate));
