@@ -43,7 +43,6 @@ moment = Moment;
   provinceEnum = ProvinceEnum;
   climateTypeEnum = ClimateTypeEnum;
   weatherList: WeatherListDto[]=[];
-
   region="";
   regionId: string;
 
