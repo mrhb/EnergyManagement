@@ -213,6 +213,10 @@ jQueryDate(): void {
        this.xlsxWeatherList.push(Weather);
     });
 
+    this.xlsxWeatherList.forEach(element => {
+      element.forDate=this.moment.getJaliliDateFromIso(element.forDate);
+});
+
     this.calAvg();
 
     };
@@ -310,7 +314,12 @@ jQueryDate(): void {
     this.climateService.getWeatherList('',this.weatherReqDto)
     .subscribe((res: any) => {
       if (res) {
+      res.data.forEach(element => {
+                element.forDate=this.moment.getJaliliDateFromIso(element.forDate);
+      });
         this.xlsxWeatherList=res.data;
+
+
         this.calAvg();
         Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
       }

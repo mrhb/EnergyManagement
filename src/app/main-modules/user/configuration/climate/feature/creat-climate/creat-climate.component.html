@@ -152,7 +152,7 @@
           <div class="card-header flex-card-header">
             <strong id= "billingSearchId"> اطلاعات<small> آب و هوا </small>   </strong>
           </div> 
-          <form [formGroup]="weatherForm" class="form" enctype="multipart/form-data" (ngSubmit)="createClimate()">
+          <form [formGroup]="weatherForm" class="form" enctype="multipart/form-data" (ngSubmit)="updateweatherList()">
             <fieldset class="fieldset-border">
               <div class="form-group row">
                 <div class="mb-4 col-auto mt-2">
@@ -179,26 +179,10 @@
                   </div>
                   <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
                 </div>
-              </div>
-              <!-- تاریخ شروع -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="fromDate" class="form-label">از تاریخ</label>
-                  <input class="form-control text-right" id="fromDate" placeholder=""
-                  formControlName="fromDate"
-                  name="fromDate">
+                <div class="col-12">
+                  <button class="btn btn-primary text-center ml-3">فراخوانی داده ها </button>
                 </div>
-                <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
-              </div>
-              <!-- تاریخ اتمام -->
-              <div class="mb-4 col-md-2">
-                <div class="w-100">
-                  <label for="toDate" class="form-label">تا تاریخ </label>
-                  <input class="form-control text-right" id="toDate" placeholder=""
-                  formControlName="toDate"
-                  name="toDate">
-                </div>
-                <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
+
               </div>
             </fieldset>
           </form>
@@ -248,7 +232,7 @@
                   </tfoot>
                 </table>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
+                  <button class="btn btn-primary text-center ml-3" (click)="saveXlsxData()">ثبت </button>
                 </div>
               </div>
             </div>      
