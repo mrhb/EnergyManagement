@@ -27,7 +27,8 @@ data: AOA = [[1, 2], [3, 4]];
 wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 fileName: string = 'SheetJS.xlsx';
 xlsxWeatherList: WeatherDto[] = [];
-WeatherAvgList: WeatherDto[] = [];
+weatherAvg=new WeatherDto();
+averageList: WeatherDto[] = [];
 moment = Moment;
 
 
@@ -71,7 +72,7 @@ ngAfterViewInit(): void {
    //initializeform
    $('#fromDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.fromDate));
    $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.toDate));
-  //  this.updateChart();
+   this.updateweatherList();
 }
 
 jQueryDate(): void {
@@ -158,6 +159,7 @@ jQueryDate(): void {
       if (params.id) {
         this.edited = true;
         this.regionId = params.id;
+        
         this.getOneClimate(params.id);
 
         this.stateServiceRegionId_subscribe.unsubscribe();
@@ -208,14 +210,56 @@ jQueryDate(): void {
        Weather.humidityAvg=item[5];
        Weather.sunRad=item[6];
        Weather.wind=item[7];
-       Weather.sunRadAvg=item[6];
-       Weather.windAvg=item[7];
-
+      
        this.xlsxWeatherList.push(Weather);
     });
 
+    this.calAvg();
+
     };
     reader.readAsBinaryString(target.files[0]);
+  }
+
+  calAvg()
+  {
+    
+    let average: WeatherDto={
+      forDate:"",
+      tempMax:0,
+      tempMin:0,
+      tempAvg:0,
+      humidityMin:0,
+      humidityMax:0,
+      humidityAvg:0,
+      sunRad:0,
+      wind:0,
+    };
+
+    this.weatherAvg = this.xlsxWeatherList.reduce<WeatherDto>(function (sum, value){
+      average.tempMax=average.tempMax+value.tempMax;
+      average.tempMin=average.tempMin+value.tempMin;
+      average.tempAvg=average.tempAvg+value.tempAvg;
+      average.humidityMin=average.humidityMin+value.humidityMin;
+      average.humidityMax=average.humidityMax+value.humidityMax;
+      average.humidityAvg=average.humidityAvg+value.humidityAvg;
+      average.sunRad=average.sunRad+value.sunRad;
+      average.wind=average.wind+value.wind;
+
+      return average ;
+
+  }, new WeatherDto()) ;
+
+  this.weatherAvg={
+    forDate:"",
+    tempMax:this.weatherAvg.tempMax/this.xlsxWeatherList.length,
+    tempMin:this.weatherAvg.tempMin/this.xlsxWeatherList.length,
+    tempAvg:this.weatherAvg.tempAvg/this.xlsxWeatherList.length,
+    humidityMin:this.weatherAvg.humidityMin/this.xlsxWeatherList.length,
+    humidityMax:this.weatherAvg.humidityMax/this.xlsxWeatherList.length,
+    humidityAvg:this.weatherAvg.humidityAvg/this.xlsxWeatherList.length,
+    sunRad:this.weatherAvg.sunRad/this.xlsxWeatherList.length,
+    wind:this.weatherAvg.wind/this.xlsxWeatherList.length,
+  };
   }
 
   saveXlsxData()
@@ -261,6 +305,19 @@ jQueryDate(): void {
             }
           });
       }
+  
+  updateweatherList(){
+    this.weatherReqDto.regionId=this.regionId;
+    this.climateService.getWeatherList('',this.weatherReqDto)
+    .subscribe((res: any) => {
+      if (res) {
+        this.xlsxWeatherList=res.data;
+        this.calAvg();
+        Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
+      }
+    });
+
+  }
     
 }
 

@@ -19,6 +19,7 @@
                   <thead>
                     <tr>
                       <th scope="col" width="20">#</th>
+                      <th scope="col"> نام منطقه</th>
                       <th scope="col"> استان</th>
                       <th scope="col">شهر</th>
                       <th scope="col" width="50">طول جغرافیایی</th>
@@ -35,16 +36,15 @@
                   <tbody>
                     <tr *ngFor="let climate of climateList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
+                      <td>{{climate.title}}</td>
                       <td>{{provinceEnum[climate.province].toString()}}</td>
                       <td>{{climate.city}}</td>
-                      <td></td>
-                      <td></td>
-                      <!-- <td>{{climate.village}}</td> -->
-                      <!-- <td>{{climate.latitude}}</td> -->
+                      <td>{{climate.latitude}}</td>
+                      <td>{{climate.longitude}}</td>
                       <td>{{climateTypeEnum[climate.climateType].toString()}}</td>
-                      <td>{{climate.highDegMean}}</td>
-                      <td>{{climate.lowDegMean}}</td>
-                      <td>{{climate.highHumidMean}}</td>
+                      <td>{{climate.tempMaxMean}}</td>
+                      <td>{{climate.tempMinMean}}</td>
+                      <td>{{climate.HumidMaxMean}}</td>
                       <td>{{climate.lowHumidMean}}</td>
                       <td>{{climate.windMean}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"

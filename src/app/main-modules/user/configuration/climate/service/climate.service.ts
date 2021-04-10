@@ -3,6 +3,7 @@ import {GeneralService} from '../../../../../_base/service/_service/general.serv
 import {HttpClient} from '@angular/common/http';
 import {GATEWAY_URL} from '../../../../../_base/service/model/rest-constants';
 import {Observable} from 'rxjs';
+import { WeatherReqDto } from '../model/weather';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class ClimateService extends GeneralService {
 
 
   getWeatherList(param: any, body: any,  errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-weather-list-by-yaer', body, errorSelector, param);
+    return super.postCheckService('get-weather-list-by-Date', body, errorSelector, param);
   }
 
   addBuildingAllocation(param: {id: string}, body: any,  errorSelector?: string): Observable<any> {
