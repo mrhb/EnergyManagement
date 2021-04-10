@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component,  OnDestroy, OnInit} from '@angular/core';
 import { EnergyLabel, FacilityList, Region} from '../../model/facility';
 import {ActivatedRoute, Router} from '@angular/router';
 // @ts-ignore
@@ -21,7 +21,7 @@ declare var $: any;
   templateUrl: './facility-list.component.html',
   styleUrls: ['./facility-list.component.scss']
 })
-export class FacilityListComponent implements OnInit, AfterViewInit {
+export class FacilityListComponent implements OnInit, AfterViewInit,OnDestroy  {
   pageSize = 5;
   pageIndex = 0;
   length = -1;
@@ -47,12 +47,14 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
 
 
   energyLabel = new EnergyLabel();
+  regionIdSubscribe: any;
 
   constructor(
     private stateService:RegionService,
     private facilityService: FacilityService,
               public router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              ) {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.pageIndex) {
         this.pageIndex = params.pageIndex;
@@ -62,9 +64,11 @@ export class FacilityListComponent implements OnInit, AfterViewInit {
     });
 
   }
-
+ ngOnDestroy() {
+  this.regionIdSubscribe.unsubscribe();
+  }
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+    this.regionIdSubscribe=this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getFacilityList();
     });
