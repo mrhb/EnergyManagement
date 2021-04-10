@@ -25,6 +25,7 @@ export class AddFacilityComponent implements OnInit {
   useTypeEnum = FacilityUsageEnum;
   moment = Moment;
   facilityId = '';
+  region="";
 
    bId: string;
    facilitySharingId: string;
@@ -70,6 +71,9 @@ export class AddFacilityComponent implements OnInit {
   ngOnInit(): void {
     this.stateService.regionId.subscribe(reg=>{
       this.facilityDto.regionId=reg;
+    });
+    this.stateService.region.subscribe(reg=>{
+      this.region=reg;
     });
   }
 

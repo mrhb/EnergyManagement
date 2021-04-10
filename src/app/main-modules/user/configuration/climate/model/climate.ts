@@ -4,6 +4,7 @@ export class ClimateDto {
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   regionId: string;// شناسه منطقه  
+  regionTitle: string; // عنوان منطقه  
   province: ProvinceEnum;// استان  
   city: string; // شهر
   village: string;//روستا

@@ -4,6 +4,7 @@ import {MyPattern} from '../../../../../../shared/tools/myPattern';
 import {Area, Building, CompleteStep, MapInformation, Region, Space, WallInformation} from '../../model/building';
 import {ActivatedRoute} from '@angular/router';
 import {BuildingService} from '../../service/building.service';
+import { RegionService } from '../../../region/service/region.service';
 
 @Component({
   selector: 'app-create-building',
@@ -15,7 +16,7 @@ export class CreateBuildingComponent implements OnInit {
   myPattern = MyPattern;
   currentStep = 0;
   endActiveStep = 0;
-  region = new Region();
+  region ="";
   buildingId: string;
   completeStep = new CompleteStep();
 
@@ -24,10 +25,14 @@ export class CreateBuildingComponent implements OnInit {
   spaceList: Space[] = [];
   mapList: MapInformation[] = [];
   wallInformation = new WallInformation();
+  stateServiceRegion_subscribe: any;
+  stateServiceRegionId_subscribe: any;
+  regionId: string;
 
 
   constructor(private formBuilder: FormBuilder,
               private buildingService: BuildingService,
+              private stateService:RegionService,
               private activatedRoute: ActivatedRoute) {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
@@ -44,6 +49,13 @@ export class CreateBuildingComponent implements OnInit {
         this.getOne(params.id);
       }
     });
+
+    this.stateServiceRegion_subscribe=this.stateService.region.subscribe(reg=>{
+      this.region=reg;
+  });
+    this.stateServiceRegionId_subscribe= this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+    });
   }
 
   getOne(bId): void {
@@ -52,10 +64,10 @@ export class CreateBuildingComponent implements OnInit {
       .subscribe((res: any) => {
         if (res) {
           console.log('getOneBuilding res', res);
-          this.region.regionId = res.data.regionId;
+          this.regionId = res.data.regionId;
 
           this.buildingDto.regionTitle = res.data.regionTitle;
-
+    
           // building
           this.buildingDto.regionId = res.data.regionId;
           this.buildingDto.name = res.data.name;
@@ -159,21 +171,13 @@ export class CreateBuildingComponent implements OnInit {
   }
 
   getCurrentStep(Step): void {
-    if (this.region.regionId === undefined && Step > 0 || this.buildingId === undefined && Step > 1) {
+    if (this.regionId === undefined && Step > 0 || this.buildingId === undefined && Step > 1) {
       return;
     }
     this.currentStep = Step;
   }
 
-  getRegion($event): void {
-    if (this.endActiveStep < 1) {
-      this.endActiveStep = 1;
-    }
-    this.region = $event;
 
-    // this.buildingDto.regionTitle = this.region.regionTitle.replace('&', '<span class="fa fa-angle-left mx-2"></span>');
-    this.buildingDto.regionTitle = this.region.regionTitle.split('&').join('<span class="fa fa-angle-left mx-2"></span>');
-  }
 
   getBuildingId($event: any): void {
     this.buildingId = $event;

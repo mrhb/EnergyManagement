@@ -43,7 +43,6 @@ moment = Moment;
   provinceEnum = ProvinceEnum;
   climateTypeEnum = ClimateTypeEnum;
   weatherList: WeatherListDto[]=[];
-
   region="";
   regionId: string;
 
@@ -166,11 +165,11 @@ jQueryDate(): void {
         this.stateServiceRegion_subscribe.unsubscribe();
       }
     });
+
   }
   resetInputFile() {
     this.fileInputVariable.nativeElement.value = "";
 }
-
   
   onFileChange(evt: any) {
     this.xlsxWeatherList=[];
