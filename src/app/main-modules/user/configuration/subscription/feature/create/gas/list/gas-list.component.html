@@ -40,9 +40,9 @@
                       <td>{{capacityEnum[gas.capacity].toString()}}</td>
                       <td>{{gas.buildingNum}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                           [queryParams]="{id: gas.id}"
+                                           [queryParams]="{id: gas._id}"
                                            [routerLink]="'/index/user/configuration/editGas'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gas.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGas(i, gas._id)"></span></td>
                     </tr>
                     </tbody>
                   </table>

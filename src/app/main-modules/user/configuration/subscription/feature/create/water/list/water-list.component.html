@@ -40,9 +40,9 @@
                       <td>{{water.capacity}}</td>
                       <td>{{water.buildingNum}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                           [queryParams]="{id: water.id}"
+                                           [queryParams]="{id: water._id}"
                                            [routerLink]="'/index/user/configuration/editWater'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water._id)"></span></td>
                     </tr>
                    </tbody>
                   </table>

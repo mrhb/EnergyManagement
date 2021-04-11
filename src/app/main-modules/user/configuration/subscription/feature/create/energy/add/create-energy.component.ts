@@ -14,7 +14,7 @@ import {EnergyService} from '../../../../service/energy.service';
 import {GasBuildingAllocation} from '../../../../model/gas';
 import {BuildingAllocation} from '../../../../model/power';
 import {BuildingService} from '../../../../../building/service/building.service';
-import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
 import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
 
@@ -33,7 +33,8 @@ export class CreateEnergyComponent implements OnInit {
   touched = false;
   edited = false;
   form: FormGroup;
-  buildingEnum = UseTypeBuildingEnum;
+
+  utilityTypeEnum = UtilityTypeEnum;
   myPattern = MyPattern;
   energyCarierEnum=EnergyCarierEnum;
   carierUnitEnum=CarierUnitEnum;
@@ -112,7 +113,7 @@ export class CreateEnergyComponent implements OnInit {
   }
 
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,

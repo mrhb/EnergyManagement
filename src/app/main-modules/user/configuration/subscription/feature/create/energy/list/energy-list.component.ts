@@ -11,6 +11,7 @@ import Notiflix from 'notiflix';
 import {EnergyService} from '../../../../service/energy.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
+import {UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 
 import * as XLSX from 'xlsx';
 type AOA = any[][];
@@ -29,6 +30,7 @@ export class EnergyListComponent implements OnInit {
 
   data: AOA = [[1, 2], [3, 4]];
   xlsxEnergyList: EnergyList[] = [];
+  utilityTypeEnum = UtilityTypeEnum;
 
   energyCarierEnum=EnergyCarierEnum;
   carierUnitEnum=CarierUnitEnum;

@@ -14,7 +14,7 @@ import Notiflix from 'notiflix';
 import {WaterService} from '../../../../service/water.service';
 import {BuildingAllocation} from '../../../../model/power';
 import {GasBuildingAllocation} from '../../../../model/gas';
-import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {UseCodeWaterEnum, UseTypeWater} from '../../../../model/waterEnum';
 import {EnergyBuildingAllocation} from '../../../../model/energy';
@@ -37,6 +37,8 @@ export class CreateWaterComponent implements OnInit {
   waterDto = new WaterDto();
   buildingAllocation = new WaterBuildingAllocation();
   buildingEnum = UseTypeBuildingEnum;
+  utilityTypeEnum = UtilityTypeEnum;
+
   filterBuilding = '';
   buildingList = [];
   useTypeWaterEnum = UseTypeWater;
@@ -114,9 +116,9 @@ export class CreateWaterComponent implements OnInit {
         }
       });
   }
-
+  
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,

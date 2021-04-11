@@ -40,9 +40,9 @@
                       <td>{{energy.kiloWatConvert}}</td>
                       <td>{{energy.buildingNum}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                           [queryParams]="{id: energy.id}"
+                                           [queryParams]="{id: energy._id}"
                                            [routerLink]="'/index/user/configuration/editEnergy'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteEnergy(i, energy.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteEnergy(i, energy._id)"></span></td>
                     </tr>
                    </tbody>
                   </table>

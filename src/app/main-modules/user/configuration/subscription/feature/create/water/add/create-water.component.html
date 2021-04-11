@@ -175,9 +175,8 @@
             <thead class="thead-light">
             <tr>
               <th scope="col" width="40">#</th>
-              <th scope="col">عنوان ساختمان</th>
+              <th scope="col">عنوان </th>
               <th scope="col">نوع</th>
-              <th scope="col">کد پستی</th>
               <th scope="col" width="140">درصد تخصیص</th>
               <th scope="col" width="80" colspan="2">عملیات</th>
             </tr>
@@ -187,8 +186,7 @@
               <tr>
                 <th scope="row" width="40">{{i + 1}}</th>
                 <td>{{item.name}}</td>
-                <td>{{buildingEnum[item.useType].toString()}}</td>
-                <td>{{item.postalCode}}</td>
+                <td>{{utilityTypeEnum[item.utilityType].toString()}}</td>
                 <td>{{item.allocationPercentage}}</td>
                 <td width="40" class="text-center">
               <span class="cursor-pointer text-center fa fa-edit"
@@ -241,16 +239,16 @@
              <div class="modal-content">
               <!-- سربرگ  فرم  -->
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">لیست ساختمان ها</h5>
+                <h5 class="modal-title" id="exampleModalLabel">لیست ساختمان ها و تاسیسات</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="d-flex align-items-end">
-                <!-- عنوان ساختمان -->
+                <!-- عنوان ساختمان یا تاسیس -->
                 <div class="mb-4 col-md-2 mt-2">
                   <div class="w-100">
-                    <label for="filterBuilding" class="form-label">عنوان ساختمان</label>
+                    <label for="filterBuilding" class="form-label">عنوان </label>
                     <input class="form-control text-right" id="filterBuilding" placeholder=""
                           [(ngModel)]="filterBuilding"
                           name="filterBuilding">
@@ -268,9 +266,8 @@
                     <thead class="thead-light">
                     <tr>
                       <th scope="col" width="40">#</th>
-                      <th scope="col">عنوان ساختمان</th>
+                      <th scope="col">عنوان </th>
                       <th scope="col">نوع</th>
-                      <th scope="col">کد پستی</th>
                       <th scope="col" width="80">عملیات</th>
                     </tr>
                     </thead>
@@ -279,8 +276,7 @@
                       <tr>
                         <th scope="row" width="40">{{i + 1}}</th>
                         <td>{{item.name}}</td>
-                        <td>{{buildingEnum[item.useType].toString()}}</td>
-                        <td>{{item.postalCode}}</td>
+                        <td>{{utilityTypeEnum[item.utilityType].toString()}}</td>
                         <td width="40">
                         <span class="cursor-pointer text-center btn btn-primary"
                               data-dismiss="modal"

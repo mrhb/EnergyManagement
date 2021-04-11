@@ -15,7 +15,7 @@ import Notiflix from 'notiflix';
 import {GasService} from '../../../../service/gas.service';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {BuildingAllocation} from '../../../../model/power';
-import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 import {EnergyBuildingAllocation} from '../../../../model/energy';
 
 declare var $: any;
@@ -38,7 +38,8 @@ export class GasCreateComponent implements OnInit {
   gasDto = new GasDto();
   groupEnum = GroupGasEnum;
   capacityEnum = CapacityGasEnum;
-  
+  utilityTypeEnum = UtilityTypeEnum;
+
   useTypeGasEnum = UseTypeGasEnum;
 
   filterBuilding = '';
@@ -141,7 +142,7 @@ export class GasCreateComponent implements OnInit {
   }
 
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,
@@ -177,10 +178,8 @@ export class GasCreateComponent implements OnInit {
             }
           }
         });
+      }
     }
-
-
-  }
 
   selectBuildingAllocation(item): void {
     this.buildingAllocation.name = item.name;
