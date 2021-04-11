@@ -10,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
-import { UseTypeBuildingEnum } from '../../../building/model/useTypeEnum';
+import {  UtilityTypeEnum } from '../../../building/model/useTypeEnum';
 import { BuildingService } from '../../../building/service/building.service';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { GasBuildingAllocation } from '../../../subscription/model/gas';
@@ -36,7 +36,7 @@ export class CreateGenerationComponent implements OnInit {
   myPattern = MyPattern;
   generationDto = new GenerationDto();
   buildingAllocation = new GenerationBuildingAllocation();
-  buildingEnum = UseTypeBuildingEnum;
+  utilityTypeEnum = UtilityTypeEnum;
   filterBuilding = '';
   buildingList = [];
   generationTypeEnum = GenerationTypeEnum;
@@ -116,7 +116,7 @@ export class CreateGenerationComponent implements OnInit {
   }
 
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,
