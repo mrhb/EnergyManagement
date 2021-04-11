@@ -10,7 +10,7 @@ import {InstrumentList} from '../../model/instrument';
 import Notiflix from 'notiflix';
 import {InstrumentService} from '../../service/instrument.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import { EnergyCarierEnum, UseTypeInstrumentEnum } from '../../model/instrumentEnum';
+import { EnergyCarierEnum, NameEnum, UseTypeInstrumentEnum } from '../../model/instrumentEnum';
 @Component({
   selector: 'app-instrument-list',
   templateUrl: './instrument-list.component.html',
@@ -23,6 +23,7 @@ export class InstrumentListComponent implements OnInit {
   totalPages = 1;
   energyCarierEnum=EnergyCarierEnum;
   useTypeInstrumentEnum= UseTypeInstrumentEnum;
+  nameEnum=NameEnum;
   instrumentList: InstrumentList[] = [];
   constructor(private instrumentService: InstrumentService,
               public router: Router,

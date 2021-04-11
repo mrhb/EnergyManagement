@@ -13,7 +13,7 @@ export class WeatherListDto {
 
   //  اطلاعات آب و هوا (روزانه)    
 export class WeatherDto {
-  forDate: string; // از تاریخ 
+  forDate: string|false; // از تاریخ 
   tempMax: number; // حداکثر دما روزانه
   tempMin: number; // حداقل دما روزانه
   tempAvg: number; // میانگین دما روزانه
