@@ -18,7 +18,7 @@
             <label class="form-label">شماره اشتراک کنتور   :</label>
             <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"  (click)="getListPower()">انتخاب</button>
             <span class="mr-2" style="font-size: 13px;" *ngIf="powerAllocation.name">
-                (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.paymentCode}})
+                (نام مشترک: {{powerAllocation.name}} و شناسه قبض: {{powerAllocation.billingId}})
                </span>
           </div>
         </div>
@@ -39,10 +39,10 @@
                 <form [formGroup]="formInformation" class="w-20" >
                   <fieldset class="fieldset-border"> 
                     <div class="form row">
-                    <!-- شناسه قبض  -->
+                    <!-- شناسه پرداخت  -->
                     <div class="mb-4 col-md-2">
                     <div class="w-20">
-                      <label for="paymentCode" class="form-label">شناسه قبض</label>
+                      <label for="paymentCode" class="form-label">شناسه پرداخت</label>
                       <input class="form-control text-right" id="paymentCode" placeholder=""
                             [(ngModel)]="powerBillDto.paymentCode"
                             formControlName="paymentCode"

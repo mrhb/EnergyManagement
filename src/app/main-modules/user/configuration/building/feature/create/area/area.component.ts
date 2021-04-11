@@ -13,6 +13,7 @@ import Notiflix from 'notiflix';
 })
 export class AreaComponent implements OnInit {
   form: FormGroup;
+  
   myPattern = MyPattern;
   areaDto = new Area();
   touched = false;
