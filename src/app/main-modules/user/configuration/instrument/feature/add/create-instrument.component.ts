@@ -11,7 +11,7 @@ import {InstrumentBuildingAllocation, InstrumentDto} from '../../model/instrumen
 import Notiflix from 'notiflix';
 import {InstrumentService} from '../../service/instrument.service';
 import {BuildingService} from '../../../building/service/building.service';
-import {UseTypeBuildingEnum} from '../../../building/model/useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
@@ -37,7 +37,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   touched = false;
   edited = false;
   form: FormGroup;
-  buildingEnum = UseTypeBuildingEnum;
+  utilityTypeEnum = UtilityTypeEnum;
   useTypeEnum = UseTypeInstrumentEnum; //کاربری تجهیر
   nameEnum; //نام تجهیر
   energyCarierEnum=EnergyCarierEnum;//حاملهای انرژی
@@ -202,7 +202,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
     }
   }
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,

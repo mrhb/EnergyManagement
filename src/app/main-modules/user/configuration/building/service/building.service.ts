@@ -64,4 +64,8 @@ export class BuildingService extends GeneralService {
   getListBuilding(param, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-list-pageable-by-term', errorSelector, param);
   }
+
+  getListBuildingForSelection(param, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-list-pageable-by-term-for-selection', errorSelector, param);
+  }
 }
