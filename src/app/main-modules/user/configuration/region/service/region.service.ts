@@ -8,8 +8,8 @@ import { GATEWAY_URL } from 'src/app/_base/service/model/rest-constants';
   providedIn: 'root'
 })
 export class RegionService extends GeneralService {
-    public region: BehaviorSubject<string>=new BehaviorSubject<string>("خراسان");
-    public regionId: BehaviorSubject<string>=new BehaviorSubject<string>("000000000000000000000000");
+    public region: BehaviorSubject<string>=new BehaviorSubject<string>("منطقه را انتخاب کنید...");
+    public regionId: BehaviorSubject<string>=new BehaviorSubject<string>("000000000000000000000001");
     
     constructor(public http: HttpClient) {
       super(http);
