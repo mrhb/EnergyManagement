@@ -109,7 +109,7 @@ export class MapComponent implements OnInit {
       'بله',
       'خیر',
       () => {
-        this.buildingService.deleteMap({id: this.buildingId, spaceId: sId})
+        this.buildingService.deleteMap({id: this.buildingId, mapId: sId})
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('حذف نقشه با موفقیت انجام گردید');

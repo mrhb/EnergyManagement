@@ -41,6 +41,9 @@ export class BuildingService extends GeneralService {
     return super.postCheckService('create-map-information', body, errorSelector, param);
   }
 
+  deleteMap(param: {id: string, mapId: string}, errorSelector?: string): Observable<any> {
+    return super.deleteCheckService('delete-map-information', errorSelector, param);
+  }
   updateMap(param: {id: string}, body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-map-information', body, errorSelector, param);
   }
