@@ -19,7 +19,7 @@ import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
-import {UseTypeBuildingEnum} from '../../../../../building/model/useTypeEnum';
+import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {EnergyBuildingAllocation} from '../../../../model/energy';
 
@@ -46,7 +46,7 @@ export class PowerCreateComponent implements OnInit {
   useCodeEnum;
   groupEnum = GroupEnum;
   powerSupplyVoltageEnum = powerSupplyVoltage;
-  buildingEnum = UseTypeBuildingEnum;
+  utilityTypeEnum = UtilityTypeEnum;
   filterBuilding = '';
   buildingList = [];
   editedAllocation = false;
@@ -183,7 +183,7 @@ export class PowerCreateComponent implements OnInit {
   }
 
   getListBuilding(): void {
-    this.buildingService.getListBuilding({
+    this.buildingService.getListBuildingForSelection({
       page: this.pageIndex,
       size: this.pageSize,
       term: this.filterBuilding,

@@ -225,7 +225,6 @@
                 <th scope="col" width="40">#</th>
                 <th scope="col">عنوان ساختمان</th>
                 <th scope="col">نوع</th>
-                <th scope="col">کد پستی</th>
                 <th scope="col" width="140">درصد تخصیص</th>
                 <th scope="col" width="80" colspan="2">عملیات</th>
               </tr>
@@ -235,8 +234,7 @@
                 <tr>
                   <th scope="row" width="40">{{i + 1}}</th>
                   <td>{{item.name}}</td>
-                  <td>{{buildingEnum[item.useType].toString()}}</td>
-                  <td>{{item.postalCode}}</td>
+                  <td>{{utilityTypeEnum[item.utilityType].toString()}}</td>
                   <td>{{item.allocationPercentage}}</td>
                   <td width="40" class="text-center">
                 <span class="cursor-pointer text-center fa fa-edit"
@@ -318,7 +316,6 @@
                         <th scope="col" width="40">#</th>
                         <th scope="col">عنوان ساختمان</th>
                         <th scope="col">نوع</th>
-                        <th scope="col">کد پستی</th>
                         <th scope="col" width="80">عملیات</th>
                       </tr>
                       </thead>
@@ -327,8 +324,7 @@
                         <tr>
                           <th scope="row" width="40">{{i + 1}}</th>
                           <td>{{item.name}}</td>
-                          <td>{{buildingEnum[item.useType].toString()}}</td>
-                          <td>{{item.postalCode}}</td>
+                          <td>{{utilityTypeEnum[item.utilityType].toString()}}</td>
                           <td width="40">
                           <span class="cursor-pointer text-center btn btn-primary"
                                 data-dismiss="modal"
