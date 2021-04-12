@@ -179,7 +179,7 @@ getListGas(): void {
 }
 selectGas(item): void {
   this.gasAllocation = item;
-  this.gasBillDto.gasSharingId=item.id;
+  this.gasBillDto.gasSharingId=item._id;
 
 }
 }

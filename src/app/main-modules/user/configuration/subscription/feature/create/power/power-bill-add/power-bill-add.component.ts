@@ -233,6 +233,6 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
 
   selectPower(item): void {
     this.powerAllocation = item;
-    this.powerBillDto.powerSharingId=item.id;
+    this.powerBillDto.powerSharingId=item._id;
   }
 }

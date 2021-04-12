@@ -170,6 +170,6 @@ getListWater(): void {
 }
 selectWater(item): void {
   this.waterAllocation = item;
-  this.waterBillDto.waterSharingId=item.id;
+  this.waterBillDto.waterSharingId=item._id;
 }
 }
