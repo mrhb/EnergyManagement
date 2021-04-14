@@ -31,12 +31,16 @@ import { GenerationListComponent } from './generation/feature/list/generation-li
 import { RegionComponent } from 'src/app/base-modules/region/feature/index/region.component';
 import { RegionEditeComponent } from './region/feature/region-edite/region-edite.component';
 import { ConfigurationMainPanelComponent } from './configuration-main-panel/configuration-main-panel.component';
+import { TariffCreateComponent } from './tariff/feature/tariff-create/tariff-create.component';
+import { TariffListComponent } from './tariff/feature/tariff-list/tariff-list.component';
 
 const routes: Routes = [
   {
     path: '',component: ConfigurationMainPanelComponent,
     children: [
       {path: 'region',component: RegionComponent,},
+      {path: 'createTariff',component: TariffCreateComponent,},
+      {path: 'listTariff',component:TariffListComponent ,},
       {path: 'regionEdit',component: RegionEditeComponent,},
       {path: 'createBuilding',component: CreateBuildingComponent,},
       {path: 'editBuilding',component: CreateBuildingComponent,},
