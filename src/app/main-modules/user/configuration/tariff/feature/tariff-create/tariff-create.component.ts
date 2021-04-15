@@ -33,9 +33,6 @@ export class TariffCreateComponent implements OnInit {
   @ViewChild('tariffParamsContainer', { read: ViewContainerRef }) tariffParams: ViewContainerRef;
 
 
-  // @ViewChild(TariffParamsViewDirective, {static: true}) 
-  // public tariffParams: TariffParamsViewDirective;
-
   [x: string]: any;
   
   pageSize = 20;
