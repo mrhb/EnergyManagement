@@ -11,6 +11,14 @@ export class TariffDto {
   params:Power1Params|Power2Params;
 }
 
+export class TariffInfo {
+  group: GroupEnum; // نوع تعرفه
+  useType: PowerUseTypeEnum; // عنوان تعرفه
+  useCode: UseCodeEnum;// کد تعرفه
+  approvalDate: string;  //  تاریخ تصویب
+  fromDate: string; // تاریخ شروع اعتبار 
+  toDate: string; //  تاریخ اتمام اعتبار 
+}
 
 export class Power1Params {
     garmsMonth: Boolean[];

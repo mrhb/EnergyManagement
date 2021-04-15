@@ -36,7 +36,6 @@ export class TariffPowerParam1Component implements  OnInit {
     this.powerParams.xGarm=[234,35,34,345,344,345];
     this.powerParams.yGarm=[234,35,34,345,344,345];
 
-    this.paramOutputEvent.emit(this.powerParams)
 }
 
 }

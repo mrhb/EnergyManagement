@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Power1Params, TariffInfo } from '../../model/tariff';
 
 @Component({
   selector: 'app-tariff-power-param2',
@@ -6,7 +7,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./tariff-power-param2.component.scss']
 })
 export class TariffPowerParam2Component implements OnInit {
-  @Output() paramOutputEvent : EventEmitter<Number> = new EventEmitter<Number>();
+  @Input() TariffInfo: TariffInfo;
+  powerParams=new Power1Params();
 
   constructor() { }
 
@@ -16,6 +18,11 @@ export class TariffPowerParam2Component implements OnInit {
   }
 
   someFunc() {
-    this.paramOutputEvent.emit(55555)
+    this.powerParams.demandPrice=132423;
+    this.powerParams.x=[234,35,34,345,344,345];
+    this.powerParams.y=[234,35,34,345,344,345];
+    this.powerParams.xGarm=[234,35,34,345,344,345];
+    this.powerParams.yGarm=[234,35,34,345,344,345];
+
 }
 }
