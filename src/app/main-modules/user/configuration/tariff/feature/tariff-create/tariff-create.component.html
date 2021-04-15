@@ -1,0 +1,118 @@
+<div class="c-body">
+  <main class="c-main">
+    <form [formGroup]="form" class="form" enctype="multipart/form-data" (ngSubmit)="createTariff()">
+
+    <div class="container-fluid">
+      <div class="fade-in">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- سربرگ فرم اصلی -->
+            <div class="card">
+              <div class="card-header flex-card-header">
+                <strong *ngIf="!tariffId"> تعریف<small> تعرفه </small>  </strong>
+                <strong *ngIf="tariffId"> ویرایش<small> تعرفه </small>  </strong>
+                <div class="d-flex">
+                  <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/listTariff'"> لیست </button> 
+                </div>
+              </div>     
+              <div class="card-body">
+                <!-- اطلاعات اشتراک -->
+                  <div class="form-group row">
+                     <!-- نوع تعرفه -->
+                    <div class="mb-4 col-md-2">
+                      <div class="w-100">
+                        <label for="group" class="form-label">نوع تعرفه</label>
+                        <select id="group"
+                                class="form-control text-right"
+                                [(ngModel)]="tariffDto.group"
+                                (change)="setUseTypeEnum(true)"
+                                formControlName="group"
+                                name="group">
+                          <option *ngFor="let item of groupEnum | enumKeyValue" [value]="item.key">
+                            {{item.value}}
+                          </option>
+                        </select>
+                      </div>
+                      <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
+                    </div>
+                    <!--  عنوان تعرفه -->
+                    <div class="mb-4 col-md-2">
+                      <div class="w-100">
+                        <label for="useType" class="form-label">عنوان تعرفه</label>
+                        <select id="useType"
+                                class="form-control text-right"
+                                [(ngModel)]="tariffDto.useType"
+                                (change)="setUseCodeEnum(true)"
+                                formControlName="useType"
+                                name="useType">
+                          <option *ngFor="let item of useTypeEnum | enumKeyValue" [value]="item.key">
+                            {{item.value}}
+                          </option>
+                        </select>
+                      </div>
+                      <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
+                    </div>
+                    <!--  کد تعرفه -->
+                    <div class="mb-4 col-md-2" *ngIf="tariffDto.useType">
+                      <div class="w-100">
+                        <label for="useCode" class="form-label">کد تعرفه </label>
+                        <select id="useCode"
+                                class="form-control text-right"
+                                [(ngModel)]="tariffDto.useCode"
+                                formControlName="useCode"
+                                name="useCode">
+                          <option *ngFor="let item of useCodeEnum | enumKeyValue" [value]="item.key">
+                            {{item.value}}
+                          </option>
+                        </select>
+                      </div>
+                      <app-alert-error [data]="form.controls['useCode']" [touched]="touched"></app-alert-error>
+                    </div>
+                     <!-- تاریخ تصویب -->
+                    <div class="mb-4 col-md-2">
+                      <div class="w-100">
+                        <label for="approvalDate" class="form-label"> تاریخ تصویب</label>
+                        <input class="form-control text-right" id="approvalDate" placeholder=""
+                        formControlName="approvalDate"
+                        name="approvalDate">
+                      </div>
+                      <app-alert-error [data]="form.controls['approvalDate']" [touched]="touched"></app-alert-error>
+                    </div>
+                     <!-- تاریخ شروع اعتبار -->
+                     <div class="mb-4 col-md-2">
+                      <div class="w-100">
+                        <label for="fromDate" class="form-label"> تاریخ شروع اعتبار</label>
+                        <input class="form-control text-right" id="fromDate" placeholder=""
+                        formControlName="fromDate"
+                        name="fromDate">
+                      </div>
+                      <app-alert-error [data]="form.controls['fromDate']" [touched]="touched"></app-alert-error>
+                    </div>
+                    <!--  تاریخ شروع اعتبار -->
+                    <div class="mb-4 col-md-2">
+                      <div class="w-100">
+                        <label for="toDate" class="form-label"> تاریخ اتمام اعتبار </label>
+                        <input class="form-control text-right" id="toDate" placeholder=""
+                        formControlName="toDate"
+                        name="toDate">
+                      </div>
+                      <app-alert-error [data]="form.controls['toDate']" [touched]="touched"></app-alert-error>
+                    </div>
+        
+                  </div>      
+              </div>
+                <!-- ثبت اطلاعات  -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!tariffId">ثبت</button>
+                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="tariffId">ویرایش</button>
+                  <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+                </div>            
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  </main>
+</div>

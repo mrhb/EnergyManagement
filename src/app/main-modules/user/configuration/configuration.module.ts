@@ -59,6 +59,9 @@ import { RegionEditeComponent } from './region/feature/region-edite/region-edite
 import { ConfigurationMainPanelComponent } from './configuration-main-panel/configuration-main-panel.component';
 import { ConfigurationSideBarComponent } from './configuration-side-bar/configuration-side-bar.component';
 import { RegionTreeViewComponent } from './region/feature/region-tree-view/region-tree-view.component';
+import { TariffCreateComponent } from './tariff/feature/tariff-create/tariff-create.component';
+import { TariffListComponent } from './tariff/feature/tariff-list/tariff-list.component';
+import { TariffService } from './tariff/service/tariff.service';
 
 
 @NgModule({
@@ -103,7 +106,9 @@ import { RegionTreeViewComponent } from './region/feature/region-tree-view/regio
     RegionEditeComponent,
     ConfigurationMainPanelComponent,
     ConfigurationSideBarComponent,
-    RegionTreeViewComponent
+    RegionTreeViewComponent,
+    TariffCreateComponent,
+    TariffListComponent
   ],
     imports: [
         CommonModule,
@@ -117,7 +122,7 @@ import { RegionTreeViewComponent } from './region/feature/region-tree-view/regio
         PipeModule,
         ChartModule
       ],
-  providers: [BuildingService,FacilityService, EnergyBuildingService, PowerBuildingService,GenerationService,GenerationReceiptService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService],
+  providers: [BuildingService,FacilityService, EnergyBuildingService, PowerBuildingService,GenerationService,GenerationReceiptService,InstrumentService, PowerService,PowerReceiptService, EnergyService,WaterReceiptService,EnergyReceiptService,TariffService],
 })
 export class ConfigurationModule {
 }
