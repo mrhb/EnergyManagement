@@ -243,14 +243,22 @@ export class TariffCreateComponent implements OnInit {
       case GroupEnum[GroupEnum.POWER.toString()]:
            this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam1Component);
            this.componentRef = this.tariffParams.createComponent(this.factory);
-           this.componentRef.instance.paramOutputEvent.subscribe(val => console.log(val));
+           this.componentRef.instance.paramOutputEvent.subscribe(val => 
+            {
+              console.log(val);
+              this.tariffDto.params=val;
+            });
         break; 
 
         case GroupEnum[GroupEnum.GAS.toString()]:
 
           this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam2Component);
            this.componentRef = this.tariffParams.createComponent(this.factory);
-           this.componentRef.instance.paramOutputEvent.subscribe(val => console.log(val));
+           this.componentRef.instance.paramOutputEvent.subscribe(val =>
+            {
+              console.log(val);
+              this.tariffDto.params=val;
+            });
         break;
       case GroupEnum[GroupEnum.WATER.toString()]:
           break;
