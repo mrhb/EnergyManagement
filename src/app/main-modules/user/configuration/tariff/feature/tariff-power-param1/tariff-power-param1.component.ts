@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { TariffParamsViewDirective } from '../tariff-create/tariff-params-view.directive';
+import { TariffParamsViewDirective } from '../tariff-params-view.directive';
 
 @Component({
   selector: 'app-tariff-power-param1',

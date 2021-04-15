@@ -20,7 +20,7 @@
   import { Moment } from 'src/app/shared/tools/moment';
 import { TariffPowerParam1Component } from '../tariff-power-param1/tariff-power-param1.component';
 import { TariffPowerParam2Component } from '../tariff-power-param2/tariff-power-param2.component';
-import { TariffParamsViewDirective } from './tariff-params-view.directive';
+import { TariffParamsViewDirective } from '../tariff-params-view.directive';
  
  declare var $: any;
 @Component({

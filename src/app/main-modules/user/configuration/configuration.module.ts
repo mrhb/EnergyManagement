@@ -64,7 +64,7 @@ import { TariffListComponent } from './tariff/feature/tariff-list/tariff-list.co
 import { TariffService } from './tariff/service/tariff.service';
 import { TariffPowerParam1Component } from './tariff/feature/tariff-power-param1/tariff-power-param1.component';
 import { TariffPowerParam2Component } from './tariff/feature/tariff-power-param2/tariff-power-param2.component';
-import { TariffParamsViewDirective } from './tariff/feature/tariff-create/tariff-params-view.directive';
+import { TariffParamsViewDirective } from './tariff/feature/tariff-params-view.directive';
 
 
 @NgModule({
