@@ -103,11 +103,10 @@
               </div>
                 <!-- ثبت اطلاعات  -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!tariffId">ثبت</button>
-                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="tariffId">ویرایش</button>
-                  <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+                  <!-- <button type="button" class="btn btn-primary text-center ml-3" (click)="show1? show1=false: show1=true"  >ادامه</button> -->
+                  <!-- <button type="submit" class="btn btn-success text-center ml-3" *ngIf="tariffId">ویرایش</button>
+                  <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button> -->
                 </div>            
-             
             </div>
           </div>
         </div>
@@ -118,8 +117,8 @@
 </div>
 
 
-
-<div class="c-body">
+<!-- <div class="c-body" > *ngIf="show1" -->
+<div class="c-body" > 
   <main class="c-main">
     <div class="container-fluid">
       <div class="fade-in">
@@ -136,8 +135,6 @@
               </div>     
               <div class="card-body">
                 <ng-template #tariffParamsContainer  ></ng-template>
-                <!-- <ng-template TariffParamsView  ></ng-template> -->
-
               </div>
                 <!-- ثبت اطلاعات  -->
                 <div class="card-footer">
