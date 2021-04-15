@@ -77,6 +77,24 @@ export class TariffCreateComponent implements OnInit {
   
   jQueryDate(): void {
     setTimeout(e1 => {
+      $('#approvalDate').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#approvalDate',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.tariffDto.approvalDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.tariffDto.approvalDate', this.tariffDto.approvalDate);
+        // if (this.tariffDto.fromDate > this.tariffDto.toDate) {
+        //   setTimeout(() => {
+        //     Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
+        //     this.tariffDto.toDate = null;
+        //     $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.fromDate));
+        //   }, 200);
+        // }
+      });
+
       $('#fromDate').MdPersianDateTimePicker({
         Placement: 'bottom', // default is 'bottom'
         Trigger: 'focus', // default is 'focus',
@@ -113,6 +131,7 @@ export class TariffCreateComponent implements OnInit {
           }, 200);
         }
       });
+
     }, 100);
   }
 

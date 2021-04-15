@@ -118,4 +118,37 @@
 </div>
 
 
-<ng-template TariffParamsView ></ng-template>
+
+<div class="c-body">
+  <main class="c-main">
+    <div class="container-fluid">
+      <div class="fade-in">
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- سربرگ فرم اصلی -->
+            <div class="card">
+              <div class="card-header flex-card-header">
+                <strong *ngIf="!tariffId"> تعریف<small> پارامترها </small>  </strong>
+                <strong *ngIf="tariffId"> ویرایش<small> پارامترها </small>  </strong>
+                <div class="d-flex">
+                  <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/listTariff'"> لیست </button> 
+                </div>
+              </div>     
+              <div class="card-body">
+                <ng-template TariffParamsView ></ng-template>
+
+              </div>
+                <!-- ثبت اطلاعات  -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="!tariffId">ثبت</button>
+                  <button type="submit" class="btn btn-success text-center ml-3" *ngIf="tariffId">ویرایش</button>
+                  <button class="btn btn-sm btn-danger" type="reset"> پاکسازی فرم</button>
+                </div>            
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
