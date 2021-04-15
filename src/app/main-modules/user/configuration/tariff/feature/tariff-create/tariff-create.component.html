@@ -36,7 +36,7 @@
                       <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
                     </div>
                     <!--  عنوان تعرفه -->
-                    <div class="mb-4 col-md-2">
+                    <div class="mb-4 col-md-2" *ngIf="tariffDto.group">
                       <div class="w-100">
                         <label for="useType" class="form-label">عنوان تعرفه</label>
                         <select id="useType"
