@@ -1,3 +1,89 @@
-<p>tariff-power-param1 works!</p>
-
+<!-- عنوان جدول -->
+<div class="card-header flex-card-header">
+    <strong > اطلاعات تعرفه برق  </strong>
+    <strong > /مصارف خانگی  </strong>
+    <strong > /مناطق عادی و ماه های غیر گرم مناطق گرمسیر  </strong>
+</div> 
+<!-- ورود اطلاعات تعرفه -->   
+<div class="card-body">
+    <form [formGroup]="form" class="w-20" >
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="thead-light">
+                <tr>
+                    <th scope="col">متوسط انرزی مصرفی</th>
+                    <th scope="col">قیمت پایه هر کیلو وات</th>
+                </tr>
+              </thead>
+              <tbody>
+               <tr class="table" width="250">
+                  <th scope="row">از 0 تا 100</th>
+                    <!-- قیمت پایه از 0 تا 100  -->
+                 <td>
+                <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY1" placeholder=""
+                name="paramY1">
+                <app-alert-error [data]="form.controls['paramY1']" [touched]="touched"></app-alert-error>
+               </td> 
+                </tr>
+                <tr class="table" width="250">
+                    <th scope="row">از 100 تا 200</th>
+                    <!-- قیمت پایه از 100 تا 200  -->
+                    <td>
+                        <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY2" placeholder=""
+                        name="paramY2">
+                        <app-alert-error [data]="form.controls['paramY2']" [touched]="touched"></app-alert-error>
+                    </td>   
+                </tr>
+                <tr class="table" width="250">  
+                    <th scope="row">از 200 تا 300</th>
+                    <!-- قیمت پایه از 200 تا 300  -->
+                    <td>
+                        <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY3" placeholder=""
+                        name="paramY3">
+                        <app-alert-error [data]="form.controls['paramY3']" [touched]="touched"></app-alert-error>
+                    </td>    
+                </tr>
+                <tr class="table" width="250">  
+                    <th scope="row">از 300 تا 400</th>                 
+                    <!-- قیمت پایه از 300 تا 400  -->
+                    <td>
+                        <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY4" placeholder=""
+                        name="paramY4">
+                        <app-alert-error [data]="form.controls['paramY4']" [touched]="touched"></app-alert-error>
+                    </td>  
+                </tr>
+                <tr class="table" width="250">  
+                    <th scope="row">از 400 تا 500</th>    
+                    <!-- قیمت پایه از 400 تا 500  -->
+                    <td>
+                    <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY5" placeholder=""
+                    name="paramY5">
+                    <app-alert-error [data]="form.controls['paramY5']" [touched]="touched"></app-alert-error>
+                </td>  
+                </tr>
+                <tr class="table" width="250">  
+                    <th scope="row">از 500 تا 600</th>   
+                    <!-- قیمت پایه از 500 تا 600  -->
+                        <td>
+                        <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY6" placeholder=""
+                        name="paramY6">
+                        <app-alert-error [data]="form.controls['paramY6']" [touched]="touched"></app-alert-error>
+                    </td>  
+                </tr>
+                <tr class="table" width="250">  
+                    <th scope="row">مازاد بر 600</th>   
+                    <!-- قیمت پایه مازاد بر 600  -->
+                    <td>
+                        <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="paramY7" placeholder=""
+                        name="paramY7">
+                        <app-alert-error [data]="form.controls['paramY7']" [touched]="touched"></app-alert-error>
+                    </td>   
+                </tr>
+                
+    </tbody>
+</table>
+</div>
+</form>
+    </div>
 <button (click)="someFunc()"></button>
+

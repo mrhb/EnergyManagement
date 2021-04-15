@@ -1,4 +1,5 @@
 import { Component, OnInit,  EventEmitter, Output, ViewContainerRef, } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Power1Params } from '../../model/tariff';
 
 @Component({
@@ -9,11 +10,22 @@ import { Power1Params } from '../../model/tariff';
 export class TariffPowerParam1Component implements  OnInit {
   @Output() paramOutputEvent : EventEmitter<Power1Params> = new EventEmitter<Power1Params>();
 
+  pageSize = 20;
+  pageIndex = 0;
+  length = -1;
+  touched = false;
+  edited = false;
+  form: FormGroup;
+
   powerParams=new Power1Params();
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
 
+    this.form = this.formBuilder.group({
+      paramY1: [''],// قیمت پایه از 0 تا 100 
+    });
+  
     this.someFunc();
   }
 
