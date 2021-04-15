@@ -24,7 +24,7 @@
                         <label for="group" class="form-label">نوع تعرفه</label>
                         <select id="group"
                                 class="form-control text-right"
-                                [(ngModel)]="tariffDto.group"
+                                [(ngModel)]="tariffInfo.group"
                                 (change)="setUseTypeEnum(true)"
                                 formControlName="group"
                                 name="group">
@@ -36,12 +36,12 @@
                       <app-alert-error [data]="form.controls['group']" [touched]="touched"></app-alert-error>
                     </div>
                     <!--  عنوان تعرفه -->
-                    <div class="mb-4 col-md-2" *ngIf="tariffDto.group">
+                    <div class="mb-4 col-md-2" *ngIf="tariffInfo.group">
                       <div class="w-100">
                         <label for="useType" class="form-label">عنوان تعرفه</label>
                         <select id="useType"
                                 class="form-control text-right"
-                                [(ngModel)]="tariffDto.useType"
+                                [(ngModel)]="tariffInfo.useType"
                                 (change)="setUseCodeEnum(true)"
                                 formControlName="useType"
                                 name="useType">
@@ -53,12 +53,12 @@
                       <app-alert-error [data]="form.controls['useType']" [touched]="touched"></app-alert-error>
                     </div>
                     <!--  کد تعرفه -->
-                    <div class="mb-4 col-md-2" *ngIf="tariffDto.useType">
+                    <div class="mb-4 col-md-2" *ngIf="tariffInfo.useType">
                       <div class="w-100">
                         <label for="useCode" class="form-label">کد تعرفه </label>
                         <select id="useCode"
                                 class="form-control text-right"
-                                [(ngModel)]="tariffDto.useCode"
+                                [(ngModel)]="tariffInfo.useCode"
                                 formControlName="useCode"
                                 name="useCode">
                           <option *ngFor="let item of useCodeEnum | enumKeyValue" [value]="item.key">
