@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
- import {Component, OnInit} from '@angular/core';
+ import {Component, ComponentFactoryResolver, OnInit, ViewChild,ElementRef } from '@angular/core';
  import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 //  import {BuildingAllocation, TariffBuildingAllocation, TariffDto} from '../../../../model/tariff';
  import {
@@ -18,6 +18,9 @@
   import { TariffService } from '../../service/tariff.service';
   import { TariffDto } from '../../model/tariff';
   import { Moment } from 'src/app/shared/tools/moment';
+import { TariffPowerParam1Component } from '../tariff-power-param1/tariff-power-param1.component';
+import { TariffPowerParam2Component } from '../tariff-power-param2/tariff-power-param2.component';
+import { TariffParamsViewDirective } from './tariff-params-view.directive';
  
  declare var $: any;
 @Component({
@@ -27,6 +30,10 @@
 
 })
 export class TariffCreateComponent implements OnInit {
+
+  @ViewChild(TariffParamsViewDirective, {static: true}) 
+  public tariffParams: TariffParamsViewDirective;
+
   [x: string]: any;
   
   pageSize = 20;
@@ -46,7 +53,9 @@ export class TariffCreateComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private  tariffService: TariffService) {
+              private  tariffService: TariffService,
+              private componentFactoryResolver: ComponentFactoryResolver
+              ) {
     this.activatedRoute.queryParams.subscribe(params => {
       console.log('params', params);
       if (params.id) {
@@ -63,7 +72,7 @@ export class TariffCreateComponent implements OnInit {
      $('#fromDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.fromDate));
      $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.toDate));
      $('#approvalDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.approvalDate));
-
+    
   }
   
   jQueryDate(): void {
@@ -75,6 +84,9 @@ export class TariffCreateComponent implements OnInit {
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
+
+        this.LoadTariffParamView("table");
+
         this.tariffDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
         if (this.tariffDto.fromDate > this.tariffDto.toDate) {
           setTimeout(() => {
@@ -207,9 +219,25 @@ export class TariffCreateComponent implements OnInit {
         break;
     }
   }
-  
+  LoadTariffParamView(Type:string) {
+    const viewContainerRef = this.tariffParams.viewContainerRef;
+     viewContainerRef.clear();
 
-
+    let componentFactory : any;//this.componentFactoryResolver.resolveComponentFactory(TableviewComponent);
+    switch(Type) { 
+      case "table": { 
+           componentFactory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam1Component);
+        //statements; 
+        break; 
+      } 
+      default: { 
+         componentFactory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam2Component);
+        // statements; 
+        break; 
+      } 
+   } 
+ viewContainerRef.createComponent<TariffParamsViewDirective>(componentFactory);
+  }
   createTariff(): void {
     this.touched = true;
     if (this.form.invalid) {

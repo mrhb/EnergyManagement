@@ -62,6 +62,9 @@ import { RegionTreeViewComponent } from './region/feature/region-tree-view/regio
 import { TariffCreateComponent } from './tariff/feature/tariff-create/tariff-create.component';
 import { TariffListComponent } from './tariff/feature/tariff-list/tariff-list.component';
 import { TariffService } from './tariff/service/tariff.service';
+import { TariffPowerParam1Component } from './tariff/feature/tariff-power-param1/tariff-power-param1.component';
+import { TariffPowerParam2Component } from './tariff/feature/tariff-power-param2/tariff-power-param2.component';
+import { TariffParamsViewDirective } from './tariff/feature/tariff-create/tariff-params-view.directive';
 
 
 @NgModule({
@@ -108,7 +111,10 @@ import { TariffService } from './tariff/service/tariff.service';
     ConfigurationSideBarComponent,
     RegionTreeViewComponent,
     TariffCreateComponent,
-    TariffListComponent
+    TariffListComponent,
+    TariffPowerParam1Component,
+    TariffPowerParam2Component,
+    TariffParamsViewDirective
   ],
     imports: [
         CommonModule,
