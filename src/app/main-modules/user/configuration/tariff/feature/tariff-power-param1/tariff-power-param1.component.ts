@@ -1,4 +1,5 @@
 import { Component, OnInit,  EventEmitter, Output, ViewContainerRef, } from '@angular/core';
+import { Power1Params } from '../../model/tariff';
 
 @Component({
   selector: 'app-tariff-power-param1',
@@ -6,8 +7,9 @@ import { Component, OnInit,  EventEmitter, Output, ViewContainerRef, } from '@an
   styleUrls: ['./tariff-power-param1.component.scss']
 })
 export class TariffPowerParam1Component implements  OnInit {
-  @Output() paramOutputEvent : EventEmitter<Number> = new EventEmitter<Number>();
+  @Output() paramOutputEvent : EventEmitter<Power1Params> = new EventEmitter<Power1Params>();
 
+  powerParams=new Power1Params();
   constructor() { }
 
   ngOnInit(): void {
@@ -16,7 +18,13 @@ export class TariffPowerParam1Component implements  OnInit {
   }
 
   someFunc() {
-    this.paramOutputEvent.emit(122212)
+    this.powerParams.demandPrice=132423;
+    this.powerParams.x=[234,35,34,345,344,345];
+    this.powerParams.y=[234,35,34,345,344,345];
+    this.powerParams.xGarm=[234,35,34,345,344,345];
+    this.powerParams.yGarm=[234,35,34,345,344,345];
+
+    this.paramOutputEvent.emit(this.powerParams)
 }
 
 }
