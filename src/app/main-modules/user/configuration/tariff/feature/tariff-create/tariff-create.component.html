@@ -131,11 +131,12 @@
                 <strong *ngIf="!tariffId"> تعریف<small> پارامترها </small>  </strong>
                 <strong *ngIf="tariffId"> ویرایش<small> پارامترها </small>  </strong>
                 <div class="d-flex">
-                  <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/listTariff'"> لیست </button> 
+                  <!-- <button class="btn btn-outline-primary" [routerLink]="'/index/user/configuration/listTariff'"> لیست </button>  -->
                 </div>
               </div>     
               <div class="card-body">
-                <ng-template TariffParamsView ></ng-template>
+                <ng-template #tariffParamsContainer  ></ng-template>
+                <!-- <ng-template TariffParamsView  ></ng-template> -->
 
               </div>
                 <!-- ثبت اطلاعات  -->

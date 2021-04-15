@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
- import {Component, ComponentFactoryResolver, OnInit, ViewChild,ElementRef } from '@angular/core';
+ import {Component, ComponentFactoryResolver, OnInit, ViewChild,ElementRef, ViewContainerRef } from '@angular/core';
  import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 //  import {BuildingAllocation, TariffBuildingAllocation, TariffDto} from '../../../../model/tariff';
  import {
@@ -20,7 +20,6 @@
   import { Moment } from 'src/app/shared/tools/moment';
 import { TariffPowerParam1Component } from '../tariff-power-param1/tariff-power-param1.component';
 import { TariffPowerParam2Component } from '../tariff-power-param2/tariff-power-param2.component';
-import { TariffParamsViewDirective } from '../tariff-params-view.directive';
  
  declare var $: any;
 @Component({
@@ -31,8 +30,11 @@ import { TariffParamsViewDirective } from '../tariff-params-view.directive';
 })
 export class TariffCreateComponent implements OnInit {
 
-  @ViewChild(TariffParamsViewDirective, {static: true}) 
-  public tariffParams: TariffParamsViewDirective;
+  @ViewChild('tariffParamsContainer', { read: ViewContainerRef }) tariffParams: ViewContainerRef;
+
+
+  // @ViewChild(TariffParamsViewDirective, {static: true}) 
+  // public tariffParams: TariffParamsViewDirective;
 
   [x: string]: any;
   
@@ -102,9 +104,6 @@ export class TariffCreateComponent implements OnInit {
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-
-        this.LoadTariffParamView("table");
-
         this.tariffDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
         if (this.tariffDto.fromDate > this.tariffDto.toDate) {
           setTimeout(() => {
@@ -176,6 +175,7 @@ export class TariffCreateComponent implements OnInit {
         this.useTypeEnum= WaterUseTypeEnum;
         break;
     }
+    this.LoadTariffParamView();
 
   }
   
@@ -191,6 +191,8 @@ export class TariffCreateComponent implements OnInit {
           this.setEnumUseCodeWater(isChange)
           break;
     }
+
+    this.LoadTariffParamView();
 
   }
   setEnumUseCodePower(isChange?: boolean): void {
@@ -238,24 +240,28 @@ export class TariffCreateComponent implements OnInit {
         break;
     }
   }
-  LoadTariffParamView(Type:string) {
-    const viewContainerRef = this.tariffParams.viewContainerRef;
-     viewContainerRef.clear();
-
-    let componentFactory : any;//this.componentFactoryResolver.resolveComponentFactory(TableviewComponent);
-    switch(Type) { 
-      case "table": { 
-           componentFactory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam1Component);
-        //statements; 
+  LoadTariffParamView() {
+    this.tariffParams.clear();
+      switch (this.tariffDto.group) {
+      case GroupEnum[GroupEnum.POWER.toString()]:
+           this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam1Component);
+           this.componentRef = this.tariffParams.createComponent(this.factory);
+           this.componentRef.instance.paramOutputEvent.subscribe(val => console.log(val));
         break; 
-      } 
+
+        case GroupEnum[GroupEnum.GAS.toString()]:
+
+          this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam2Component);
+           this.componentRef = this.tariffParams.createComponent(this.factory);
+           this.componentRef.instance.paramOutputEvent.subscribe(val => console.log(val));
+        break;
+      case GroupEnum[GroupEnum.WATER.toString()]:
+          break;
+
       default: { 
-         componentFactory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam2Component);
-        // statements; 
         break; 
       } 
    } 
- viewContainerRef.createComponent<TariffParamsViewDirective>(componentFactory);
   }
   createTariff(): void {
     this.touched = true;
