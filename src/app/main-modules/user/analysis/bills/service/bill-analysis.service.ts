@@ -32,4 +32,13 @@ export class BillAnalysisService extends GeneralService  {
     return super.getCheckService('get-raw-bill-consumption', errorSelector, param);
   }
 
+
+  getRawBillCostValidation(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-validation-bill-cost',body, errorSelector, param);
+  }
+
+  getRawBillConsumptionValidation(param: {regionId: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-validation-bill-consumption', errorSelector, param);
+  }
+  
 }

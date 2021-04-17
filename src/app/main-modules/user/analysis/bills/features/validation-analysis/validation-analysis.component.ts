@@ -111,7 +111,7 @@ declare var $: any;
   }
 
   updateChart(){
-    this.billService.getRawBillCostAnalysis('',this.billAnalysisDto)
+    this.billService.getRawBillCostValidation('',this.billAnalysisDto)
     .subscribe((res: any) => {
       if (res) {
         this.series=res.data;
