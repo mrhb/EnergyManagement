@@ -30,18 +30,19 @@
                     </thead>
                     <tbody>
                       <tr *ngFor="let triff of triffList; let i = index" class="vertical-align-middle">
-                        <!-- <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                        <td>{{triff.name}}</td>
-                        <td>{{triff.billingId}}</td> 
+                        <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
+                       
                         <td>{{groupEnum[triff.group].toString()}}</td> 
-                        <td>{{useTypeEnum[triff.useType].toString()}}</td>
-                        <td>{{useCodeEnum[triff.useCode].toString()}}</td>
-                        <td>{{triff.contract}}</td> -->
-                        <!-- <td>{{triff.buildingNum}}</td>  -->
+                        <td>{{triff.useType}}</td>
+                        <td>{{triff.useCode}}</td>
+                        <td>{{this.moment.getJaliliDateFromIso(triff.approvalDate)}}</td>
+                        <td>{{this.moment.getJaliliDateFromIso(triff.fromDate)}}</td>
+                        <td>{{this.moment.getJaliliDateFromIso(triff.toDate)}}</td>
+
                         <td class="text-center" width="40"><span class="cursor-pointer fa fa-edit"
                                              [queryParams]="{id: triff._id}"
-                                             [routerLink]="'/index/user/configuration/editPower'"></span></td>
-                        <td class="text-center" width="40"><span class="cursor-pointer fa fa-trash" (click)="deletePower(i, triff._id)"></span></td>
+                                             [routerLink]="'/index/user/configuration/createTariff'"></span></td>
+                        <td class="text-center" width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteTariff(i, triff.id)"></span></td>
                       </tr>
                     </tbody>
                     </table>
@@ -49,7 +50,7 @@
                 <!-- ته برگ فرم -->
                   <div class = col-md-6>
                     <!-- صفحه بندی -->
-                    <!-- <app-paginator
+                    <app-paginator
                     [matPaginator]="false"
                     [totalPages]="totalPages"
                     [totalElements]="length"
@@ -58,7 +59,7 @@
                     [pageSizeOptions]="[1,5,10,15,25]"
                     [showFirstLastButtons]="true"
                     (page)="changePage($event)"
-                    ></app-paginator> -->
+                    ></app-paginator>
                 </div>
               </div>
             </div>
