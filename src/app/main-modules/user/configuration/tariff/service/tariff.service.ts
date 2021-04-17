@@ -9,11 +9,11 @@ export class TariffService extends GeneralService {
 
   constructor(public http: HttpClient) {
     super(http);
-    this.prefixPath = GATEWAY_URL + '/api/tariff-sharing';
+    this.prefixPath = GATEWAY_URL + '/api/tariff';
   }
 
   createTariff(body: any, errorSelector?: string): Observable<any> {
-    return super.postCheckService('create', body, errorSelector);
+    return super.postCheckService('create-power1', body, errorSelector);
   }
 
   getOneTariff(param: {id: string}, errorSelector?: string): Observable<any> {

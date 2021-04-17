@@ -24,17 +24,27 @@ export class TariffPowerParam1Component implements  OnInit {
 
     this.form = this.formBuilder.group({
       paramY1: [''],// قیمت پایه از 0 تا 100 
+      paramY2: [''],// قیمت پایه از 0 تا 100 
+      paramY3: [''],// قیمت پایه از 0 تا 100 
+      paramY4: [''],// قیمت پایه از 0 تا 100 
+      paramY5: [''],// قیمت پایه از 0 تا 100 
+      paramY6: [''],// قیمت پایه از 0 تا 100 
+      paramY7: [''],// قیمت پایه از 0 تا 100 
     });
   
     this.someFunc();
   }
 
   someFunc() {
+    this.powerParams.garmsMonth=[true,true,true,true,true,true,true,true,true,true,true,true];
     this.powerParams.demandPrice=132423;
-    this.powerParams.x=[234,35,34,345,344,345];
+    this.powerParams.x=[100,200,300,400,500,600];
     this.powerParams.y=[234,35,34,345,344,345];
     this.powerParams.xGarm=[234,35,34,345,344,345];
     this.powerParams.yGarm=[234,35,34,345,344,345];
+
+    this.paramOutputEvent.emit(this.powerParams)
+
 
 }
 

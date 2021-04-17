@@ -6,7 +6,7 @@
 
  import {Component, ComponentFactoryResolver, OnInit, ViewChild,ElementRef, ViewContainerRef } from '@angular/core';
  import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-//  import {BuildingAllocation, TariffBuildingAllocation, tariffInfo} from '../../../../model/tariff';
+//  import {BuildingAllocation, TariffBuildingAllocation, tariffDto} from '../../../../model/tariff';
  import {
    GeneralEnum, GroupEnum, HomeEnum,  Industry_productsEnum, OtherEnum,Water_productsEnum, 
    PowerUseTypeEnum, WaterUseTypeEnum, GasUseTypeEnum
@@ -16,7 +16,7 @@
   import {ActivatedRoute, Router} from '@angular/router';
   import { MyPattern } from 'src/app/shared/tools/myPattern';
   import { TariffService } from '../../service/tariff.service';
-  import { TariffInfo } from '../../model/tariff';
+  import { TariffDto, TariffInfo } from '../../model/tariff';
   import { Moment } from 'src/app/shared/tools/moment';
 import { TariffPowerParam1Component } from '../tariff-power-param1/tariff-power-param1.component';
 import { TariffPowerParam2Component } from '../tariff-power-param2/tariff-power-param2.component';
@@ -43,7 +43,7 @@ export class TariffCreateComponent implements OnInit {
   tariffId = '';
   form: FormGroup;
   myPattern = MyPattern;
-  tariffInfo = new TariffInfo();
+  tariffDto = new TariffDto();
   groupEnum = GroupEnum;
   useTypeEnum ;
   useCodeEnum ;
@@ -68,9 +68,9 @@ export class TariffCreateComponent implements OnInit {
   ngAfterViewInit(): void {
     this.jQueryDate();
      //initializeform
-     $('#fromDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.fromDate));
-     $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.toDate));
-     $('#approvalDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.approvalDate));
+     $('#fromDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.fromDate));
+     $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.toDate));
+     $('#approvalDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.approvalDate));
     
   }
   
@@ -83,13 +83,13 @@ export class TariffCreateComponent implements OnInit {
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-        this.tariffInfo.approvalDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
-        console.log('this.tariffInfo.approvalDate', this.tariffInfo.approvalDate);
-        // if (this.tariffInfo.fromDate > this.tariffInfo.toDate) {
+        this.tariffDto.approvalDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.tariffDto.approvalDate', this.tariffDto.approvalDate);
+        // if (this.tariffDto.fromDate > this.tariffDto.toDate) {
         //   setTimeout(() => {
         //     Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
-        //     this.tariffInfo.toDate = null;
-        //     $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.fromDate));
+        //     this.tariffDto.toDate = null;
+        //     $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.fromDate));
         //   }, 200);
         // }
       });
@@ -101,12 +101,12 @@ export class TariffCreateComponent implements OnInit {
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-        this.tariffInfo.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
-        if (this.tariffInfo.fromDate > this.tariffInfo.toDate) {
+        this.tariffDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        if (this.tariffDto.fromDate > this.tariffDto.toDate) {
           setTimeout(() => {
             Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
-            this.tariffInfo.toDate = null;
-            $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.toDate));
+            this.tariffDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.toDate));
           }, 200);
         }
       });
@@ -117,13 +117,13 @@ export class TariffCreateComponent implements OnInit {
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-        this.tariffInfo.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
-        console.log('this.tariffInfo.toDate', this.tariffInfo.toDate);
-        if (this.tariffInfo.fromDate > this.tariffInfo.toDate) {
+        this.tariffDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.tariffDto.toDate', this.tariffDto.toDate);
+        if (this.tariffDto.fromDate > this.tariffDto.toDate) {
           setTimeout(() => {
             Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
-            this.tariffInfo.toDate = null;
-            $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffInfo.fromDate));
+            this.tariffDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.tariffDto.fromDate));
           }, 200);
         }
       });
@@ -134,10 +134,10 @@ export class TariffCreateComponent implements OnInit {
   ngOnInit(): void {
     var date = new Date();
     date.setDate( date.getDate() - 0 );
-    this.tariffInfo.approvalDate=date.toISOString();
-    this.tariffInfo.fromDate=date.toISOString();
+    this.tariffDto.approvalDate=date.toISOString();
+    this.tariffDto.fromDate=date.toISOString();
     date.setDate( date.getDate() + 365 );
-    this.tariffInfo.toDate=date.toISOString();
+    this.tariffDto.toDate=date.toISOString();
 
     this.form = this.formBuilder.group({
       group: [''],// نوع تعرفه
@@ -155,13 +155,13 @@ export class TariffCreateComponent implements OnInit {
     })
       .subscribe((res: any) => {
         if (res) {
-          this.tariffInfo = res.data;     
+          this.tariffDto = res.data;     
         }
       });
   }
 
   setUseTypeEnum(isChange?: boolean): void {
-    switch (this.tariffInfo.group) {
+    switch (this.tariffDto.group) {
       case GroupEnum[GroupEnum.POWER.toString()]:
         this.useTypeEnum= PowerUseTypeEnum;
         break;
@@ -177,7 +177,7 @@ export class TariffCreateComponent implements OnInit {
   }
   
   setUseCodeEnum(isChange?: boolean): void {
-    switch (this.tariffInfo.group) {
+    switch (this.tariffDto.group) {
       case GroupEnum[GroupEnum.POWER.toString()]:
         this.setEnumUseCodePower(isChange)
         break;
@@ -193,7 +193,7 @@ export class TariffCreateComponent implements OnInit {
 
   }
   setEnumUseCodePower(isChange?: boolean): void {
-    switch (this.tariffInfo.useType) {
+    switch (this.tariffDto.useType) {
       case PowerUseTypeEnum[PowerUseTypeEnum.HOME.toString()]:
         this.useCodeEnum = HomeEnum;
         break;
@@ -213,7 +213,7 @@ export class TariffCreateComponent implements OnInit {
 
   }
   setEnumUseCodeWater(isChange?: boolean): void {
-    switch (this.tariffInfo.useType) {
+    switch (this.tariffDto.useType) {
       case WaterUseTypeEnum[WaterUseTypeEnum.DOMESTIC.toString()]: // 'آب و فاضلاب خانگی'
         this.useCodeEnum = HomeEnum;
         break;
@@ -239,22 +239,28 @@ export class TariffCreateComponent implements OnInit {
   }
   LoadTariffParamView() {
     this.tariffParams.clear();
-      switch (this.tariffInfo.group) {
+      switch (this.tariffDto.group) {
       case GroupEnum[GroupEnum.POWER.toString()]:
            this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam1Component);
            this.componentRef = this.tariffParams.createComponent(this.factory);
+           this.componentRef.instance.tariffDto=this.tariffDto;
+           this.componentRef.instance.paramOutputEvent.subscribe(val =>
+            {
+              console.log(val);
+              this.tariffDto.params=val;
+            });
             break; 
 
         case GroupEnum[GroupEnum.GAS.toString()]:
 
           this.factory = this.componentFactoryResolver.resolveComponentFactory(TariffPowerParam2Component);
            this.componentRef = this.tariffParams.createComponent(this.factory);
-           this.componentRef.instance.tariffInfo=this.tariffInfo;
-          //  this.componentRef.instance.paramOutputEvent.subscribe(val =>
-          //   {
-          //     console.log(val);
-          //     this.tariffInfo.params=val;
-          //   });
+           this.componentRef.instance.tariffDto=this.tariffDto;
+           this.componentRef.instance.paramOutputEvent.subscribe(val =>
+            {
+              console.log(val);
+              this.tariffDto.params=val;
+            });
         break;
       case GroupEnum[GroupEnum.WATER.toString()]:
           break;
@@ -273,7 +279,7 @@ export class TariffCreateComponent implements OnInit {
     }
 
     if (!this.edited) {
-      this.tariffService.createTariff(this.tariffInfo)
+      this.tariffService.createTariff(this.tariffDto)
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ایجاد تعرفه با موفقیت انجام شد.');
@@ -286,7 +292,7 @@ export class TariffCreateComponent implements OnInit {
         });
     } else {
 
-      this.tariffService.updateTariff({id: this.tariffId}, this.tariffInfo)
+      this.tariffService.updateTariff({id: this.tariffId}, this.tariffDto)
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش تعرفه با موفقیت انجام شد.');
