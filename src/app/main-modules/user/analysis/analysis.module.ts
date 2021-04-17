@@ -12,20 +12,17 @@ import { AlertErrorModule } from 'src/app/shared/tools/alert-error/alert-error.m
 import { ChartPanelComponent } from './chart-panel/chart-panel.component';
 import { ChartsModule } from 'ng2-charts';
 import { StateService } from './state.service';
-import { GasAmounValidComponent } from './validation/gas/features/gasAmounValid/gasAmounValid.component';
-import { GasConsValidComponent } from './validation/gas/features/gasConsValid/gasConsValid.component';
-import { PowerAmounValidComponent } from './validation/power/features/powerAmounValid/powerAmounValid.component';
-import { PowerConsValidComponent } from './validation/power/features/powerConsValid/powerConsValid.component';
+
 import { InstrumConsumptionComponent } from './instruments/features/instrumConsumption/instrumConsumption.component';
 import { PipeModule } from 'src/app/shared/tools/pipe-module';
 import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/power-subscription-analysis/power-subscription-analysis.component';
 import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
 import { CostConsumptionAnalysisComponent } from './bills/features/cost-consumption-analysis/cost-consumption-analysis.component';
+import { ValidationAnalysisComponent } from './bills/features/validation-analysis/validation-analysis.component';
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
-    MainPanelComponent, ChartPanelComponent,GasConsValidComponent, GasAmounValidComponent,PowerConsValidComponent, 
-    PowerAmounValidComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, CostConsumptionAnalysisComponent],
+    MainPanelComponent, ChartPanelComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, CostConsumptionAnalysisComponent, ValidationAnalysisComponent],
   imports: [
     CommonModule,
     PipeModule,
