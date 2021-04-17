@@ -1,1 +1,86 @@
-<p>validation-analysis works!</p>
+
+<div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+       <div>
+        <strong>صحت سنجی <small> قبوض  </small>    </strong>
+        <div class="small text-muted">فروردین 1400</div>
+        <div class="small text-muted"> {{region}}</div>
+       </div>
+       <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+         <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+          <form [formGroup]="form" class="w-100">
+            <div class="form-group row">
+              <!-- نوع قبض -->
+              <div class=" mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="billType" class="form-label">نوع قبض</label>
+                  <select id="billType"
+                          class="form-control text-right"
+                          [(ngModel)]="billAnalysisDto.billType"
+                          (change)="updateChart()"
+                          formControlName="billType"
+                          name="billType">
+                    <option *ngFor="let item of billTypeEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+              </div>  
+              <!-- نوع پارامتر -->
+              <div class="  mb-4  col-md-2">
+                <div class="w-100">
+                  <label for="billAnalysisParam" class="form-label"> پارامتر</label>
+                  <select id="billAnalysisParam"
+                          class="form-control text-right"
+                          [(ngModel)]="billAnalysisDto.billAnalysisParam"
+                          (change)="updateChart()"
+                          formControlName="billAnalysisParam"
+                          name="billAnalysisParam">
+                    <option *ngFor="let item of billAnalysisParamEnum | enumKeyValue" [value]="item.key">
+                      {{item.value}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- تاریخ شروع   -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="fromDate" class="form-label">از تاریخ</label>
+                  <input class="form-control text-right" id="fromDate" placeholder=""
+                          formControlName="fromDate"
+                          name="fromDate">
+                </div>
+                <app-alert-error [data]="form.controls['fromDate']" ></app-alert-error>
+              </div>
+              <!-- تاریخ اتمام   -->
+              <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="toDate" class="form-label">تا تاریخ</label>
+                <input class="form-control text-right" id="toDate" placeholder=""
+                        formControlName="toDate"
+                        name="toDate">
+              </div>
+              <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
+              </div>
+            </div>
+          </form>
+         </div>
+       </div>
+      </div>
+      <div class="c-chart-wrapper" >
+      <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
+        <div class="col-12">
+           <analysis-chart-panel category="STACKED_BAR"  [seriesInput]="series"></analysis-chart-panel>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row text-center">
+        <div class="col-sm-12 col-md mb-sm-2 mb-0">
+          <div class="text-muted">تحلیل </div><strong>قبوض</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+  

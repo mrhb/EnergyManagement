@@ -22,7 +22,7 @@ const routes: Routes = [
       { path: 'power-subscription-analysis',  component: PowerSubscriptionAnalysisComponent,      },
       { path: 'gas-subscription-analysis',    component: GasSubscriptionAnalysisComponent,    }, 
       { path: 'cost-consumption-analysis',    component: CostConsumptionAnalysisComponent,    }, 
-      { path: 'validation-analysis',    component: ValidationAnalysisComponent,    }, 
+      { path: 'validation-analysis',          component: ValidationAnalysisComponent,    }, 
       { path: 'instrumConsumption',           component: InstrumConsumptionComponent,}, 
       { path: 'dashboard',                    component: DashboardComponent,}, 
       {       
