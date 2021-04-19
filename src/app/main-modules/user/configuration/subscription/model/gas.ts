@@ -54,7 +54,7 @@ export class GasBillList {
 }
 
 export class GasBillDto {
-  gasSharingId:string // (id)شناسه اشتراک
+  sharingId:string // (id)شناسه اشتراک
   billingId: string; // شناسه قبض
   paymentCode: string; // شناسه پرداخت
   fromDate: string; // تاریخ شروع 
@@ -75,7 +75,7 @@ export class GasBillDto {
 export class GasAllocation {
   name: string;
   billingId: string;
-  gasSharingId: string;
+  sharingId: string;
 
 }
 

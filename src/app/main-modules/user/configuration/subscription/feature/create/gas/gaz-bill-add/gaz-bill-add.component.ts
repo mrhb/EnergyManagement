@@ -127,7 +127,7 @@ getOneBill(pId): void {
         this.gasBillDto = res.data;
         $('#fromDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.fromDate));
         $('#toDate').val(this.moment.getJaliliDateFromIso(this.gasBillDto.toDate));
-        this.gasAllocation= res.data.gasSharing;
+        this.gasAllocation= res.data.sharing;
         // this.setEnumUseType();
       }
     });
@@ -179,7 +179,7 @@ getListGas(): void {
 }
 selectGas(item): void {
   this.gasAllocation = item;
-  this.gasBillDto.gasSharingId=item._id;
+  this.gasBillDto.sharingId=item._id;
 
 }
 }
