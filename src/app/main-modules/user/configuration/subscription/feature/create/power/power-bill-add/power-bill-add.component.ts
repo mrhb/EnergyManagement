@@ -179,7 +179,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
           this.powerBillDto = res.data;
         $('#fromDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.fromDate));
         $('#toDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.toDate));
-          this.powerAllocation= res.data.powerSharing;
+          this.powerAllocation= res.data.sharing;
           // this.setEnumUseType();
         }
       });
@@ -191,6 +191,8 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       Notiflix.Notify.Failure('ورودی رو بررسی کنید!');
       return;
     }
+
+    this.powerBillDto.consumptionDurat="12345";
 
     if (!this.edited) {
       this.powerReceiptService.createReceipt(this.powerBillDto)
@@ -233,6 +235,6 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
 
   selectPower(item): void {
     this.powerAllocation = item;
-    this.powerBillDto.powerSharingId=item._id;
+    this.powerBillDto.sharingId=item._id;
   }
 }

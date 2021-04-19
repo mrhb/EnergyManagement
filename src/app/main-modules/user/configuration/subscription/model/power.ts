@@ -37,7 +37,7 @@ export class Consumption {
 
 
 export class PowerBillDto {
-  powerSharingId: string;//شناسه اشتراک(id)
+  sharingId: string;//شناسه اشتراک(id)
   billId: string;
   numberShare:string;// شماره اشتراک
   paymentCode: string; // شناسه پرداخت
@@ -62,6 +62,7 @@ export class PowerBillDto {
   badConsumptionLossRatio: string; //      ضریب زیان بدی مصرف 
   paymentDeadLine: string; //  مهلت پرداخت
   consumptionAmount: string; //   مبلغ مصرف
+  consumptionDurat: string; // میزان مصرف
   subscription: string; //   آبونمان 
   powerPrice: string; //   بهای قدرت 
   seasonPrice: string; //   بهای فصل 
@@ -129,7 +130,7 @@ export class PowerSharingAllocation {
 export class PowerAllocation {
   name: string;
   billingId: string;
-  powerSharingId: string;
+  sharingId: string;
 
 }
 // export class BuildingList {
