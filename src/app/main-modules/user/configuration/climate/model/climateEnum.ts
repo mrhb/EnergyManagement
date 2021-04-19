@@ -34,11 +34,12 @@ export enum ProvinceEnum {
 }
 // نوع اقلیم 
 export enum ClimateTypeEnum {
-  VERY_HOT_DRY = <any> ' بسیار گرم و خشک',
-  HOT_DRY = <any> 'گرم و خشک',
-  SEMI_DRY = <any> 'نیمه خشک',
-  VERY_HOT_HUMID = <any> ' بسیار گرم و مرطوب',
+  VERYCOLD = <any> 'بسیار سرد',
+  COLD = <any> 'سرد',
   TEMPER_RAINY = <any> ' معتدل و بارانی',
   SEMI_TEMPER_RAINY = <any> ' نیمه معتدل و بارانی',
-  COLD = <any> 'سرد',
+  SEMI_DRY = <any> 'نیمه خشک',
+  HOT_DRY = <any> 'گرم و خشک',
+  VERY_HOT_DRY = <any> ' بسیار گرم و خشک',
+  VERY_HOT_HUMID = <any> ' بسیار گرم و مرطوب',
 }
