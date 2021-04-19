@@ -135,6 +135,7 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
       this.energyReceiptService.createReceipt(this.energyBillDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد قبض انرژی با موفقیت انجام شد.');
             this.energyId = res.data;
             setTimeout(() => {

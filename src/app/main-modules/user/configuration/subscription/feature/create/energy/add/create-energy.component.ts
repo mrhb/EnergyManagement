@@ -84,6 +84,7 @@ export class CreateEnergyComponent implements OnInit {
       this.energyService.createEnergy(this.energyDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد اشتراک انرژی با موفقیت انجام شد.');
             this.energyId = res.data;
             setTimeout(() => {

@@ -144,6 +144,7 @@ createReceipt(): void {
     this.gasReceiptService.createReceipt(this.gasBillDto)
       .subscribe((res: any) => {
         if (res) {
+          this.edited=true;
           Notiflix.Notify.Success('ایجاد قبض گاز با موفقیت انجام شد.');
           this.gasId = res.data;
           setTimeout(() => {

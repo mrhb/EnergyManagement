@@ -142,6 +142,7 @@ export class PowerCreateComponent implements OnInit {
       this.powerService.createPower(this.powerDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد اشتراک برق با موفقیت انجام شد.');
             this.powerId = res.data;
             setTimeout(() => {

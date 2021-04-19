@@ -95,6 +95,7 @@ export class GasCreateComponent implements OnInit {
       this.gasService.createGas(this.gasDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد اشتراک گاز با موفقیت انجام شد.');
             this.gasId = res.data;
             setTimeout(() => {

@@ -88,6 +88,7 @@ export class CreateWaterComponent implements OnInit {
       this.waterService.createWater(this.waterDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد اشتراک آب با موفقیت انجام شد.');
             this.waterId = res.data;
             setTimeout(() => {

@@ -198,6 +198,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       this.powerReceiptService.createReceipt(this.powerBillDto)
         .subscribe((res: any) => {
           if (res) {
+            this.edited=true;
             Notiflix.Notify.Success('ایجاد قبض برق با موفقیت انجام شد.');
             this.powerId = res.data;
             setTimeout(() => {

@@ -135,6 +135,7 @@ createReceipt(): void {
     this.waterReceiptService.createReceipt(this.waterBillDto)
       .subscribe((res: any) => {
         if (res) {
+          this.edited=true;
           Notiflix.Notify.Success('ایجاد قبض آب با موفقیت انجام شد.');
           this.waterId = res.data;
           setTimeout(() => {
