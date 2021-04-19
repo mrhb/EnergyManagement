@@ -49,7 +49,7 @@ export class EnergyBillList {
 }
 
 export class EnergyBillDto {
-  energySharingId:string ;//شناسه اشتراک
+  sharingId:string ;//شناسه اشتراک
   energyCarrier: string; //حامل انرژی 
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام

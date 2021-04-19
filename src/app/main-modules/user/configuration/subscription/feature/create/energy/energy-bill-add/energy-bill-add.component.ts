@@ -118,7 +118,7 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
           this.energyBillDto = res.data;
           $('#fromDate').val(this.moment.getJaliliDateFromIso(this.energyBillDto.fromDate));
           $('#toDate').val(this.moment.getJaliliDateFromIso(this.energyBillDto.toDate));
-          this.energyAllocation= res.data.energySharing;
+          this.energyAllocation= res.data.sharing;
             // this.setEnumUseType();
         }
       });
@@ -171,6 +171,6 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
   selectEnergy(item): void {
     this.energyAllocation = item;
     
-    this.energyBillDto.energySharingId=item._id;
+    this.energyBillDto.sharingId=item._id;
   }
 }
