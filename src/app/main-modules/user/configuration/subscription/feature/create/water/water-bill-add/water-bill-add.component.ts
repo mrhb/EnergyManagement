@@ -118,7 +118,7 @@ getOneBill(pId): void {
         this.waterBillDto = res.data;
         $('#fromDate').val(this.moment.getJaliliDateFromIso(this.waterBillDto.fromDate));
         $('#toDate').val(this.moment.getJaliliDateFromIso(this.waterBillDto.toDate));
-        this.waterAllocation= res.data.waterSharing;
+        this.waterAllocation= res.data.sharing;
         // this.setEnumUseType();
       }
     });
@@ -170,6 +170,6 @@ getListWater(): void {
 }
 selectWater(item): void {
   this.waterAllocation = item;
-  this.waterBillDto.waterSharingId=item._id;
+  this.waterBillDto.sharingId=item._id;
 }
 }
