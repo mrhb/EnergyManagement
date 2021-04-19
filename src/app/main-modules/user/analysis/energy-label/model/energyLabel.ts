@@ -6,3 +6,7 @@ export class EnergyLabel {
   label: string;
   labelType: EnergyLabelType;
 }
+
+export class EnergyLableDto {
+  year: number;
+}

@@ -324,8 +324,6 @@ jQueryDate(): void {
         Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
       }
     });
-
   }
-    
 }
 
