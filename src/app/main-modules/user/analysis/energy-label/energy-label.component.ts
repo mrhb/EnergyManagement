@@ -5,6 +5,7 @@ import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
 import { EnergyLabelType } from './model/EnergyLabelType';
 import { EnergyLabelService } from './service/energy-label.service';
+import { LabelService } from './service/label.service';
 
 @Component({
   selector: 'app-energy-label',
@@ -34,7 +35,8 @@ export class EnergyLabelComponent implements OnInit {
   };
   
 constructor(private formBuilder: FormBuilder,
-  private energyLabelService: EnergyLabelService,
+  private buildingService: EnergyLabelService,
+  private labelService: LabelService,
   public router: Router,
 
   ) { 
@@ -48,12 +50,13 @@ constructor(private formBuilder: FormBuilder,
   ngOnInit(): void {
     this.energyLableDto.year = 1399;
     this.getBuildingList();
+    this.getBuildingLabel();
 
   }
 
 
   getBuildingList(): void {
-    this.energyLabelService.getBuildingList({
+    this.buildingService.getBuildingList({
       page: this.pageIndex,
       size: this.pageSize,
     }, {regionId: this.regionId}).subscribe((res: any) => {
@@ -66,6 +69,19 @@ constructor(private formBuilder: FormBuilder,
     });
   }
 
+  getBuildingLabel(): void {
+    this.energyLabel.ratio ="12341";
+    this.energyLableDto.buildingId="607d3c195eb88805b4c98934";
+    this.labelService.getLabel('',this.energyLableDto).subscribe((res: any) => {
+      if (res) {
+
+        this.energyLabel.ratio = res.data.ratio;
+        this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
+        // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
+        // this.energyLabel.label="A";
+      }
+    });
+  }
   navigate(): void {
     this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {

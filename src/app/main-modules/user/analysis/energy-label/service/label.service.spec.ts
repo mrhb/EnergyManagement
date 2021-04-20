@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EnergyLabelService } from './energy-label.service';
+import { LabelService } from './label.service';
 
-describe('EnergyLabelService', () => {
-  let service: EnergyLabelService;
+describe('LabelService', () => {
+  let service: LabelService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EnergyLabelService);
+    service = TestBed.inject(LabelService);
   });
 
   it('should be created', () => {

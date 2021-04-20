@@ -14,7 +14,6 @@ export class EnergyLabelService  extends GeneralService{
     super(http);
     this.prefixPath = GATEWAY_URL + '/api/building';
   }
-
   getBuildingList(param: any, regionId: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('get-building-list-pageable-by-filter', regionId, errorSelector, param);
   }

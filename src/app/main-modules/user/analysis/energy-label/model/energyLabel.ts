@@ -9,4 +9,5 @@ export class EnergyLabel {
 
 export class EnergyLableDto {
   year: number;
+  buildingId:string;
 }
