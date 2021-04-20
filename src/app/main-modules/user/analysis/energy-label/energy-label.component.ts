@@ -78,7 +78,7 @@ constructor(private formBuilder: FormBuilder,
         this.energyLabel.ratio = res.data.ratio;
         this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
         // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
-        // this.energyLabel.label="A";
+        this.energyLabel.label= res.data.label;
       }
     });
   }
