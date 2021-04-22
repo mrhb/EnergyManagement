@@ -2,7 +2,7 @@
 export enum EnergyCarierEnum {
   GAS = <any> 'گاز',
   GASOLIN = <any> 'گازوئیل',
-  BENZIN = <any> 'بنزین',
+  BENZIN = <any> 'مازوت',
 }
 // واحد
 export enum CarierUnitEnum {
