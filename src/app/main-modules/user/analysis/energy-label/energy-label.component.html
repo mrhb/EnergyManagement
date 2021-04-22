@@ -47,9 +47,8 @@
                               <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                               <td>{{building.name}}</td>
                               <td>{{building.useFullArea}}</td>
-                              <!-- <td width="40"><span class="cursor-pointer fa fa-edit"
-                                [queryParams]="{id: building.id}"
-                                [routerLink]="'/index/user/configuration/createInstrument'"></span></td> -->
+                              <td width="40"><span class="cursor-pointer fa fa-edit"
+                               (click)="getBuildingLabel(building.id)"></span></td>
                             </tbody>
                           </table>
                       </div>
@@ -99,16 +98,16 @@
                           میزان مصرف انرژی ساختمان نسبت به ساختمان ایده آل
                         </div>
                         <div>
-                          R= {{energyLabel.ratio}}
+                          R= {{energyLabel.ratio | number: '0.0-2'}}
                         </div>
                       </div>
                       <div class="energy-info">
                         <div class="text-center">شاخص مصرف انرژی:</div>
                         <div class="text-center">
-                          برحسب کیلووات ساعتبر متر مربع در سال
+                          برحسب کیلووات ساعت بر متر مربع در سال
                         </div>
                         <div>
-                          {{energyLabel.consumptionIndex}}
+                          {{energyLabel.consumptionIndex | number: '0.0-2'}}
                         </div>
                       </div>
                     </div>
