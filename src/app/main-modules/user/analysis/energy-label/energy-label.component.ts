@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
+import { StateService } from '../state.service';
 import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
 import { EnergyLabelType } from './model/EnergyLabelType';
 import { EnergyLabelService } from './service/energy-label.service';
@@ -37,6 +38,7 @@ export class EnergyLabelComponent implements OnInit {
 constructor(private formBuilder: FormBuilder,
   private buildingService: EnergyLabelService,
   private labelService: LabelService,
+  private stateService:StateService,
   public router: Router,
 
   ) { 
@@ -49,9 +51,11 @@ constructor(private formBuilder: FormBuilder,
 
   ngOnInit(): void {
     this.energyLableDto.year = 1399;
-    this.getBuildingList();
-    this.getBuildingLabel();
 
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getBuildingList();
+    });
   }
 
 
@@ -69,9 +73,8 @@ constructor(private formBuilder: FormBuilder,
     });
   }
 
-  getBuildingLabel(): void {
-    this.energyLabel.ratio ="12341";
-    this.energyLableDto.buildingId="607d3c195eb88805b4c98934";
+  getBuildingLabel(buildingId): void {
+    this.energyLableDto.buildingId=buildingId;//"607d3c195eb88805b4c98934";
     this.labelService.getLabel('',this.energyLableDto).subscribe((res: any) => {
       if (res) {
 
