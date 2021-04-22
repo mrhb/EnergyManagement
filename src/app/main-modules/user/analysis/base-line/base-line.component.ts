@@ -3,6 +3,10 @@ import { Moment } from 'src/app/shared/tools/moment';
 import { ChartFilter } from '../model/chart';
 import { chartTypeEnum, EffectiveParameterEnum, PeriodEnum } from '../model/chartEnum';
 import Notiflix from 'notiflix';
+import { MyPattern } from 'src/app/shared/tools/myPattern';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { BaseLineDto } from './model/baseLine';
+import { BaseLineParamEnum, EnergyTypeEnum } from './model/baseLineEnum';
 
 declare var $: any;
 
@@ -19,22 +23,36 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   optionsOneGraph;
   optionsOneGraph2;
 
+  myPattern = MyPattern;
+  form: FormGroup;
+  touched = false;
+  
   optionsThreeGraph;
   optionsThreeGraph2;
 
-
+  buildingList = [];
+  baseLineDto = new BaseLineDto();
   chartFilter = new ChartFilter();
   periodEnum = PeriodEnum;
   effectiveParameterEnum = EffectiveParameterEnum;
   effectiveParameterList = [];
   chartTypeEnum = chartTypeEnum;
-
+  energyTypeEnum= EnergyTypeEnum;
+  baseLineParamEnum=BaseLineParamEnum;
   options2: any;
 
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+
+    this.form = this.formBuilder.group({
+      energyType: [],
+      baseLineParam: [],
+      fromDate:[], // تاریخ شروع 
+      toDate:[], // تاریخ اتمام
+    });
+
 
       // this.getBuildingList();
       // // $('.e-not-close a').on('click', (event) => {
