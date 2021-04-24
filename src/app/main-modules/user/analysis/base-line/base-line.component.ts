@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { BaseLineDto } from './model/baseLine';
 import { BaseLineParamEnum, EnergyTypeEnum } from './model/baseLineEnum';
 
+
 declare var $: any;
 
 @Component({
@@ -53,6 +54,17 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
       toDate:[], // تاریخ اتمام
     });
 
+    //initializeform
+    this.baseLineDto.energyType=EnergyTypeEnum[EnergyTypeEnum.POWER.toString()] ;
+    
+
+    var date = new Date();
+    date.setDate( date.getDate() - 0 );
+    this.baseLineDto.toDate=date.toISOString();
+    date.setDate( date.getDate() - 365 );
+    this.baseLineDto.fromDate=date.toISOString();
+
+
 
       // this.getBuildingList();
       // // $('.e-not-close a').on('click', (event) => {
@@ -70,6 +82,11 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
       //   }
       // });
   
+
+
+
+
+
       this.effectiveParameterList = Object.keys(this.effectiveParameterEnum);
   
       const currentYear = this.moment.getJDateFromIsoOnlyYear(new Date().toISOString());
@@ -85,46 +102,47 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.jQueryDate();
+         //initializeform
+         $('#fromDate').val(this.moment.getJaliliDateFromIso(this.baseLineDto.fromDate));
+         $('#toDate').val(this.moment.getJaliliDateFromIso(this.baseLineDto.toDate));
   }
-
   jQueryDate(): void {
     setTimeout(e1 => {
-      $('#startDate').MdPersianDateTimePicker({
+      $('#fromDate').MdPersianDateTimePicker({
         Placement: 'bottom', // default is 'bottom'
         Trigger: 'focus', // default is 'focus',
-        targetTextSelector: '#startDate',
+        targetTextSelector: '#fromDate',
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-        this.chartFilter.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
-        if (this.chartFilter.fromDate > this.chartFilter.toDate) {
+        this.baseLineDto.fromDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        if (this.baseLineDto.fromDate > this.baseLineDto.toDate) {
           setTimeout(() => {
             Notiflix.Notify.Failure('تاریخ شروع باید قبل از تاریخ پایان انتخاب شود');
-            this.chartFilter.toDate = null;
-            $('#endDate').val('');
+            this.baseLineDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.baseLineDto.toDate));
           }, 200);
         }
       });
-      $('#endDate').MdPersianDateTimePicker({
+      $('#toDate').MdPersianDateTimePicker({
         Placement: 'bottom', // default is 'bottom'
         Trigger: 'focus', // default is 'focus',
-        targetTextSelector: '#endDate',
+        targetTextSelector: '#toDate',
         disableAfterToday: false,
         disableBeforeToday: false,
       }).on('change', (e) => {
-        this.chartFilter.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
-        console.log('this.chartFilter.toDate', this.chartFilter.toDate);
-        if (this.chartFilter.fromDate > this.chartFilter.toDate) {
+        this.baseLineDto.toDate = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.baseLineDto.toDate', this.baseLineDto.toDate);
+        if (this.baseLineDto.fromDate > this.baseLineDto.toDate) {
           setTimeout(() => {
             Notiflix.Notify.Failure('تاریخ وارده باید قبل از تاریخ شروع انتخاب شود');
-            this.chartFilter.toDate = null;
-            $('#endDate').val('');
+            this.baseLineDto.toDate = null;
+            $('#toDate').val(this.moment.getJaliliDateFromIso(this.baseLineDto.fromDate));
           }, 200);
         }
       });
     }, 100);
   }
-
   
   getEffectiveParameterNgModel(item: any): boolean {
     const index = this.chartFilter.effectiveParameterList.findIndex(e => e === item);

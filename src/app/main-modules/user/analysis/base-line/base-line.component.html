@@ -1,91 +1,168 @@
-<div class="container-fluid">
-  <!-- <div class="row">
-    <div class="col-lg-12"> -->
-      <div class="card">
+
+<div class="card">
+  <div class="card-body">
         <div class="card-header flex-card-header">
           <strong> خط مبنا  </strong>
-        </div>  
-        <div class="card-body">
-          <!-- اطلاعات خط مبنا -->
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <form [formGroup]="form" class="w-100">
-                  <div class="form-group row">
-                     <!-- نوع حامل -->
-                    <div class=" mb-4 col-md-2">
-                      <div class="w-100">
-                        <label for="energyType" class="form-label">نوع حامل</label>
-                        <select id="energyType"
-                                class="form-control text-right"
-                                [(ngModel)]="baseLineDto.energyType"
-                                formControlName="energyType"
-                                name="energyType">
-                                <!-- (change)="updateChart()" -->
-                          <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
-                            {{item.value}}
-                          </option>
-                        </select>
-                      </div>
-                    </div>  
-                    <!-- نوع پارامتر -->
-                    <div class="  mb-4  col-md-2">
-                      <div class="w-100">
-                        <label for="baseLineParam" class="form-label"> پارامتر</label>
-                        <select id="baseLineParam"
-                                class="form-control text-right"
-                                [(ngModel)]="baseLineDto.baseLineParam"
-                                formControlName="baseLineParam"
-                                name="baseLineParam">
-                                <!-- (change)="updateChart()" -->
-                          <option *ngFor="let item of baseLineParamEnum | enumKeyValue" [value]="item.key">
-                            {{item.value}}
-                          </option>
-                        </select>
+
+
+          <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+            <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+             <form [formGroup]="form" class="w-100">
+               <div class="form-group row">
+                 <!-- نوع قبض -->
+              
+                 <!-- نوع پارامتر -->
+                 <!-- <div class="  mb-4  col-md-2">
+                   <div class="w-100">
+                     <label for="billAnalysisParam" class="form-label"> پارامتر</label>
+                     <select id="billAnalysisParam"
+                             class="form-control text-right"
+                             [(ngModel)]="billAnalysisDto.billAnalysisParam"
+                             (change)="updateChart()"
+                             formControlName="billAnalysisParam"
+                             name="billAnalysisParam">
+                       <option *ngFor="let item of billAnalysisParamEnum | enumKeyValue" [value]="item.key">
+                         {{item.value}}
+                       </option>
+                     </select>
+                   </div>
+                 </div> -->
+
+                 <div class="col-auto mr-auto">
+                  <div class="btn-group btn-group-toggle">
+                    <div class="btn-group">
+                      <div class="dropdown e-not-close">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          پارامترهای موثر
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <div class="p-1" *ngFor="let item of effectiveParameterList; let i = index">
+                            <input type="checkbox" class="form-check-input"
+                                   [ngModel]="getEffectiveParameterNgModel(item)"
+                                   (change)="onChangeEffectiveParameter($event, item)"
+                                   name="{{item}}" id="{{item}}">
+                            <label class="form-check-label w-100 pr-3" for="{{item}}">{{item}}</label>
+                          </div>
+                          <!--                              <div>-->
+                          <!--                                <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">-->
+                          <!--                                <label class="form-check-label w-100" for="EDD">EDD</label>-->
+                          <!--                              </div>-->
+                        </div>
                       </div>
                     </div>
                   </div>
-                </form>
-                <div class="row" style="padding-top: 20px;">
-                  <div class="col-lg-12">
-                    <div class="card border-primary">
-                      <!-- عنوان جدول -->
-                      <div class="card-header flex-card-header"><strong >  انتخاب ساختمان یا تاسیس </strong> </div> 
-                      <!--جدول ساختمان و تاسیس  -->
-                      <div class="card-body">
-                        <table class="table table-responsive-sm table-striped">
-                          <thead>
-                            <tr>
-                              <th scope="col" width="20">#</th>
-                              <th scope="col">نام </th>
-                              <th scope="col" width="20" class="text-center">عملیات</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let building of buildingList; let i = index">
-                              <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                              <!-- <td>{{building.name}}</td> -->
-                              <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
-                              <!-- <td>{{building.useFullArea}}</td>
-                              <td>{{building.useFullArea}}</td> -->
-                              <td width="20"><span class="cursor-pointer fa fa-edit"
-                                [queryParams]="{id: instrument.id}"
-                                [routerLink]="'/index/user/configuration/createInstrument'"></span></td>
-                            </tbody>
-                          </table>
-                      </div>
-                    </div> 
-                  </div> 
-                </div> 
-                <!-- نمودار  -->
+                </div>
 
+                <!-- روزانه ماهانه -->
+                <div class=" mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="energyType" class="form-label">روزانه ماهانه</label>
+                    <select id="energyType"
+                            class="form-control text-right"
+                            [(ngModel)]="baseLineDto.energyType"
+                            formControlName="energyType"
+                            name="energyType">
+                            <!-- (change)="updateChart()" -->
+                      <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
+                        {{item.value}}
+                      </option>
+                    </select>
+                  </div>
+                </div>  
+                  <!-- نوع حامل -->
+                 <div class=" mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="energyType" class="form-label">نوع حامل</label>
+                    <select id="energyType"
+                            class="form-control text-right"
+                            [(ngModel)]="baseLineDto.energyType"
+                            formControlName="energyType"
+                            name="energyType">
+                            <!-- (change)="updateChart()" -->
+                      <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
+                        {{item.value}}
+                      </option>
+                    </select>
+                  </div>
+                </div>  
+            <!-- تاریخ شروع   -->
+            <div class="mb-4 col-md-2">
+              <div class="w-100">
+                <label for="fromDate" class="form-label">از تاریخ</label>
+                <input class="form-control text-right" id="fromDate" placeholder=""
+                        formControlName="fromDate"
+                        name="fromDate">
               </div>
+              <app-alert-error [data]="form.controls['fromDate']" ></app-alert-error>
+            </div>
+                 <!-- تاریخ اتمام   -->
+                 <div class="mb-4 col-md-2">
+                 <div class="w-100">
+                   <label for="toDate" class="form-label">تا تاریخ</label>
+                   <input class="form-control text-right" id="toDate" placeholder=""
+                           formControlName="toDate"
+                           name="toDate">
+                 </div>
+                 <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
+                 </div>
+
+     
+               </div>
+             </form>
             </div>
           </div>
-        </div>
+
+        </div>  
+                  <!-- اطلاعات خط مبنا -->
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="row" style="padding-top: 20px;">
+                          <div class="col-lg-12">
+                            <div class="card border-primary">
+                              <!-- عنوان جدول -->
+                              <div class="card-header flex-card-header"><strong >  انتخاب ساختمان یا تاسیس </strong> </div> 
+                              <!--جدول ساختمان و تاسیس  -->
+                              <div class="card-body">
+                                <table class="table table-responsive-sm table-striped">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col" width="20">#</th>
+                                      <th scope="col">نام </th>
+                                      <th scope="col" width="20" class="text-center">عملیات</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let building of buildingList; let i = index">
+                                      <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
+                                      <!-- <td>{{building.name}}</td> -->
+                                      <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
+                                      <!-- <td>{{building.useFullArea}}</td>
+                                      <td>{{building.useFullArea}}</td> -->
+                                      <td width="20"><span class="cursor-pointer fa fa-edit"
+                                        [queryParams]="{id: instrument.id}"
+                                        [routerLink]="'/index/user/configuration/createInstrument'"></span></td>
+                                    </tbody>
+                                  </table>
+                              </div>
+                            </div> 
+                          </div> 
+                        </div> 
+                        <!-- نمودار  -->
+        
+                      </div>
+                    </div>
+                  </div>
+        
+
       </div>
-    </div>
-  <!-- </div>
+</div>
+
+
+
+
+      <!-- </div>
 </div> -->
 <div class="row" style="padding-top: 20px;">
   <div class="col-lg-12">
@@ -128,6 +205,10 @@
                     >
                   </div>
                 </div>
+
+
+
+
                 <div class="col-auto mr-auto">
                   <div class="btn-group btn-group-toggle">
                     <div class="btn-group">
@@ -151,24 +232,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-auto">
-                  <div class="btn-group btn-group-toggle">
-                    <label for="LINEAR" class="btn btn-outline-secondary"
-                           [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()]}">
-                      خطی
-                      <input type="radio" id="LINEAR" name="LINEAR"
-                             [value]="chartTypeEnum[chartTypeEnum.LINEAR].toString()"
-                             [(ngModel)]="chartFilter.chartType">
-                    </label>
-                    <label for="BAR" class="btn btn-outline-secondary"
-                           [ngClass]="{'active': chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()]}">
-                      میله ای
-                      <input type="radio" id="BAR" name="BAR"
-                             [value]="chartTypeEnum[chartTypeEnum.BAR.toString()]"
-                             [(ngModel)]="chartFilter.chartType">
-                    </label>
                   </div>
                 </div>
                 <div class="col-auto">
