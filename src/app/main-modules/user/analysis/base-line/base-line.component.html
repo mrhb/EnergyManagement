@@ -9,62 +9,18 @@
             <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
              <form [formGroup]="form" class="w-100">
                <div class="form-group row">
-                 <!-- نوع قبض -->
               
-                 <!-- نوع پارامتر -->
-                 <!-- <div class="  mb-4  col-md-2">
-                   <div class="w-100">
-                     <label for="billAnalysisParam" class="form-label"> پارامتر</label>
-                     <select id="billAnalysisParam"
-                             class="form-control text-right"
-                             [(ngModel)]="billAnalysisDto.billAnalysisParam"
-                             (change)="updateChart()"
-                             formControlName="billAnalysisParam"
-                             name="billAnalysisParam">
-                       <option *ngFor="let item of billAnalysisParamEnum | enumKeyValue" [value]="item.key">
-                         {{item.value}}
-                       </option>
-                     </select>
-                   </div>
-                 </div> -->
-
-                 <div class="col-auto mr-auto">
-                  <div class="btn-group btn-group-toggle">
-                    <div class="btn-group">
-                      <div class="dropdown e-not-close">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          پارامترهای موثر
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <div class="p-1" *ngFor="let item of effectiveParameterList; let i = index">
-                            <input type="checkbox" class="form-check-input"
-                                   [ngModel]="getEffectiveParameterNgModel(item)"
-                                   (change)="onChangeEffectiveParameter($event, item)"
-                                   name="{{item}}" id="{{item}}">
-                            <label class="form-check-label w-100 pr-3" for="{{item}}">{{item}}</label>
-                          </div>
-                          <!--                              <div>-->
-                          <!--                                <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">-->
-                          <!--                                <label class="form-check-label w-100" for="EDD">EDD</label>-->
-                          <!--                              </div>-->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 <!-- روزانه ماهانه -->
                 <div class=" mb-4 col-md-2">
                   <div class="w-100">
-                    <label for="energyType" class="form-label">روزانه ماهانه</label>
-                    <select id="energyType"
+                    <label for="period" class="form-label">روزانه ماهانه</label>
+                    <select id="period"
                             class="form-control text-right"
-                            [(ngModel)]="baseLineDto.energyType"
-                            formControlName="energyType"
-                            name="energyType">
+                            [(ngModel)]="baseLineDto.period"
+                            formControlName="period"
+                            name="period">
                             <!-- (change)="updateChart()" -->
-                      <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
+                      <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
                         {{item.value}}
                       </option>
                     </select>
@@ -155,31 +111,18 @@
                     </div>
                   </div>
         
+<div class="c-chart-wrapper" >
+  <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
+    <div class="col-12">
+       <analysis-chart-panel category="LINE" ></analysis-chart-panel>
+    </div>
+  </div>
 
       </div>
 </div>
-
-
-
-
-      <!-- </div>
-</div> -->
-<div class="row" style="padding-top: 20px;">
-  <div class="col-lg-12">
-    <div class="card border-primary">
-    <!-- عنوان جدول -->
-    <div class="card-header flex-card-header">
-      <strong> نمودار</strong>
-    </div>       
-
-
-  </div>       
-</div>       
-</div>       
-
               <!-- نمودار  -->
 <!-- /////////////////// -->
-<div class="e-card" id="chart">
+<!-- <div class="e-card" id="chart">
     <div class="card-header">
       چارت
     </div>
@@ -225,10 +168,10 @@
                                    name="{{item}}" id="{{item}}">
                             <label class="form-check-label w-100 pr-3" for="{{item}}">{{item}}</label>
                           </div>
-                          <!--                              <div>-->
-                          <!--                                <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">-->
-                          <!--                                <label class="form-check-label w-100" for="EDD">EDD</label>-->
-                          <!--                              </div>-->
+                                                       <div>
+                                                         <input type="checkbox" class="form-check-input" name="EDD" [(ngModel)]="chartFilter.effectiveParameterList" id="EDD">
+                                                         <label class="form-check-label w-100" for="EDD">EDD</label>
+                                                       </div>
                         </div>
                       </div>
                     </div>
@@ -282,7 +225,6 @@
                   <ng-container
                     *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="options2"></app-chart>
-                    <!-- <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="options2" class="demo-chart"></div>-->
                   </ng-container>
                   <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="options"></app-chart>
@@ -292,22 +234,18 @@
                   <ng-container
                     *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph2"></app-chart>
-                    <!--  <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph2" class="demo-chart"></div>-->
                   </ng-container>
                   <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsOneGraph"></app-chart>
-                    <!--  <div echarts [autoResize]="true" style="min-height: 400px; max-height: 400px" [loading]="isLoadingChart" [options]="optionsOneGraph" class="demo-chart"></div>-->
                   </ng-container>
                 </div>
                 <div class="tab-pane" id="messages" role="tabpanel">
                   <ng-container
                     *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.LINEAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph2"></app-chart>
-                    <!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph2" class="demo-chart"></div>-->
                   </ng-container>
                   <ng-container *ngIf="chartFilter.chartType === chartTypeEnum[chartTypeEnum.BAR.toString()];">
                     <app-chart [isLoadingChart]="isLoadingChart" [options]="optionsThreeGraph"></app-chart>
-                    <!--                        <div echarts [autoResize]="true" [loading]="isLoadingChart" style="min-height: 400px; max-height: 400px" [options]="optionsThreeGraph" class="demo-chart"></div>-->
                   </ng-container>
                 </div>
               </div>
@@ -317,4 +255,4 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
