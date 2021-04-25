@@ -24,8 +24,8 @@ export class ChartPanelComponent implements OnInit {
   @Input() labels: string[]= ['January', 'February', 'March', 'April', 'May', 'June'];
   lineChartData: ChartDataSets[] =
    [
-    { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
-    { data: [67, 23, 96, 13, 88, 43], label: 'jhghjg' },
+    { data: [85, 72, 78, 75, 77, 75], label: 'Crude' },
+    { data: [67, 23, 96, 13, 88, 43], label: 'oil' },
   ];
 
   lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];

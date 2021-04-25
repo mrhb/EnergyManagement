@@ -85,20 +85,20 @@
                                   <thead>
                                     <tr>
                                       <th scope="col" width="20">#</th>
-                                      <th scope="col">نام </th>
+                                      <th scope="col">نام ساختمان</th>
+                                      <!-- <th scope="col">نوع کاربری</th> -->
+                                      <!-- <th scope="col">مساحت مفید</th> -->
                                       <th scope="col" width="20" class="text-center">عملیات</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr *ngFor="let building of buildingList; let i = index">
                                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                                      <!-- <td>{{building.name}}</td> -->
+                                      <td>{{building.name}}</td>
                                       <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
-                                      <!-- <td>{{building.useFullArea}}</td>
-                                      <td>{{building.useFullArea}}</td> -->
-                                      <td width="20"><span class="cursor-pointer fa fa-edit"
-                                        [queryParams]="{id: instrument.id}"
-                                        [routerLink]="'/index/user/configuration/createInstrument'"></span></td>
+                                      <!-- <td>{{building.useFullArea}}</td> -->
+                                      <td width="40"><span class="cursor-pointer fa fa-edit"
+                                       (click)="getBuildingBaseLine(building.id)"></span></td>
                                     </tbody>
                                   </table>
                               </div>
@@ -114,7 +114,7 @@
 <div class="c-chart-wrapper" >
   <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
     <div class="col-12">
-       <analysis-chart-panel category="LINE" ></analysis-chart-panel>
+       <analysis-chart-panel category="LINE" [seriesInput]="series" ></analysis-chart-panel>
     </div>
   </div>
 

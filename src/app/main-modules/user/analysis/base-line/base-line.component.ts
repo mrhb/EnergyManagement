@@ -1,12 +1,16 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Moment } from 'src/app/shared/tools/moment';
-import { ChartFilter } from '../model/chart';
+import { ChartFilter, SeriesInfo } from '../model/chart';
 import { chartTypeEnum, EffectiveParameterEnum, PeriodEnum } from '../model/chartEnum';
 import Notiflix from 'notiflix';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { BaseLineDto } from './model/baseLine';
 import { BaseLineParamEnum, EnergyTypeEnum } from './model/baseLineEnum';
+import { BaseLineService } from './service/baseLine.service';
+import { EnergyLabelService } from '../energy-label/service/energy-label.service';
+import { StateService } from '../state.service';
+import { Router } from '@angular/router';
 
 
 declare var $: any;
@@ -18,6 +22,22 @@ declare var $: any;
 })
 export class BaseLineComponent implements OnInit, AfterViewInit {
  
+  regionId ="111111111111111111111111";
+
+  series: SeriesInfo= {
+    series:[
+      { data: [85, 12, 78, 75], name: 'power' },
+      { data: [67, 23, 96, 13], name: 'powerBaseline' }
+    ],
+    labels:["5/1", "4/1","3/1","2/1"]
+  }
+  
+  pageSize = 5;
+  pageIndex = 0;
+  length = -1;
+  totalPages = 1;
+
+
   moment = Moment;
   options;
   isLoadingChart = false;
@@ -43,7 +63,11 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   options2: any;
 
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,
+    private buildingService: EnergyLabelService,
+    private baseLineService: BaseLineService,
+    private stateService:StateService,
+    public router: Router) {}
 
   ngOnInit(): void {
 
@@ -54,7 +78,10 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
     });
-
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getBuildingList();
+    });
     //initializeform
     this.baseLineDto.period=PeriodEnum[PeriodEnum.MONTHLY.toString()] ;
     this.baseLineDto.energyType=EnergyTypeEnum[EnergyTypeEnum.POWER.toString()] ;
@@ -101,6 +128,35 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
       $('#endDate').val(this.moment.getJaliliDateFromIso(this.chartFilter.toDate));
       // this.setOption();
 
+  }
+  
+
+  getBuildingList(): void {
+    this.buildingService.getBuildingList({
+      page: this.pageIndex,
+      size: this.pageSize,
+    }, {regionId: this.regionId}).subscribe((res: any) => {
+      if (res) {
+        this.buildingList = res.content;
+        this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
+      }
+    });
+  }
+  getBuildingBaseLine(buildingId): void {
+    this.baseLineDto.buildingId=buildingId;//"607d3c195eb88805b4c98934";
+    this.baseLineService.getBaseLine('',this.baseLineDto).subscribe((res: any) => {
+      if (res) {
+        this.series=res.data;
+        Notiflix.Notify.Success('اطلاعات قبوض دریافت شد.');
+
+        // this.energyLabel.ratio = res.data.ratio;
+        // this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
+        // // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
+        // this.energyLabel.label= res.data.label;
+      }
+    });
   }
   ngAfterViewInit(): void {
     this.jQueryDate();
