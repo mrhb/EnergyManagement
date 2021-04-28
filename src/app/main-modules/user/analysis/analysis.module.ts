@@ -22,7 +22,9 @@ import { ValidationAnalysisComponent } from './bills/features/validation-analysi
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
-    MainPanelComponent, ChartPanelComponent, InstrumConsumptionComponent, PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, CostConsumptionAnalysisComponent, ValidationAnalysisComponent],
+    MainPanelComponent, ChartPanelComponent, InstrumConsumptionComponent, 
+    PowerSubscriptionAnalysisComponent, GasSubscriptionAnalysisComponent, 
+    CostConsumptionAnalysisComponent, ValidationAnalysisComponent],
   imports: [
     CommonModule,
     PipeModule,

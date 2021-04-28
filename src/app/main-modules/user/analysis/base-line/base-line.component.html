@@ -1,47 +1,44 @@
 
 <div class="card">
   <div class="card-body">
-        <div class="card-header flex-card-header">
-          <strong> خط مبنا  </strong>
-
-
-          <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
-            <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
-             <form [formGroup]="form" class="w-100">
-               <div class="form-group row">
-              
-                <!-- روزانه ماهانه -->
-                <div class=" mb-4 col-md-2">
-                  <div class="w-100">
-                    <label for="period" class="form-label">روزانه ماهانه</label>
-                    <select id="period"
-                            class="form-control text-right"
-                            [(ngModel)]="baseLineDto.period"
-                            formControlName="period"
-                            name="period">
-                            <!-- (change)="updateChart()" -->
-                      <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
-                        {{item.value}}
-                      </option>
-                    </select>
-                  </div>
-                </div>  
-                  <!-- نوع حامل -->
-                 <div class=" mb-4 col-md-2">
-                  <div class="w-100">
-                    <label for="energyType" class="form-label">نوع حامل</label>
-                    <select id="energyType"
-                            class="form-control text-right"
-                            [(ngModel)]="baseLineDto.energyType"
-                            formControlName="energyType"
-                            name="energyType">
-                            <!-- (change)="updateChart()" -->
-                      <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
-                        {{item.value}}
-                      </option>
-                    </select>
-                  </div>
-                </div>  
+    <div class="card-header flex-card-header">
+      <strong> خط مبنا  </strong>
+      <div class="btn-toolbar d-none d-md-block" role="toolbar" aria-label="Toolbar with buttons">
+        <div class="btn-group btn-group-toggle mx-3" data-toggle="buttons">
+          <form [formGroup]="form" class="w-100">
+            <div class="form-group row">
+            <!-- روزانه ماهانه -->
+            <div class=" mb-4 col-md-2">
+              <div class="w-100">
+                <label for="period" class="form-label">روزانه ماهانه</label>
+                <select id="period"
+                        class="form-control text-right"
+                        [(ngModel)]="baseLineDto.period"
+                        formControlName="period"
+                        name="period">
+                        <!-- (change)="updateChart()" -->
+                  <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
+                    {{item.value}}
+                  </option>
+                </select>
+              </div>
+            </div>  
+            <!-- نوع حامل -->
+            <div class=" mb-4 col-md-2">
+            <div class="w-100">
+              <label for="energyType" class="form-label">نوع حامل</label>
+              <select id="energyType"
+                      class="form-control text-right"
+                      [(ngModel)]="baseLineDto.energyType"
+                      formControlName="energyType"
+                      name="energyType">
+                      <!-- (change)="updateChart()" -->
+                <option *ngFor="let item of energyTypeEnum | enumKeyValue" [value]="item.key">
+                  {{item.value}}
+                </option>
+              </select>
+            </div>
+            </div>  
             <!-- تاریخ شروع   -->
             <div class="mb-4 col-md-2">
               <div class="w-100">
@@ -52,73 +49,68 @@
               </div>
               <app-alert-error [data]="form.controls['fromDate']" ></app-alert-error>
             </div>
-                 <!-- تاریخ اتمام   -->
-                 <div class="mb-4 col-md-2">
-                 <div class="w-100">
-                   <label for="toDate" class="form-label">تا تاریخ</label>
-                   <input class="form-control text-right" id="toDate" placeholder=""
-                           formControlName="toDate"
-                           name="toDate">
-                 </div>
-                 <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
-                 </div>
-
-     
-               </div>
-             </form>
+            <!-- تاریخ اتمام   -->
+            <div class="mb-4 col-md-2">
+            <div class="w-100">
+              <label for="toDate" class="form-label">تا تاریخ</label>
+              <input class="form-control text-right" id="toDate" placeholder=""
+                      formControlName="toDate"
+                      name="toDate">
             </div>
-          </div>
+            <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>  
+    <!-- اطلاعات خط مبنا -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="row" style="padding-top: 20px;">
+            <div class="col-lg-12">
+              <div class="card border-primary">
+                <!-- عنوان جدول -->
+                <div class="card-header flex-card-header"><strong >  انتخاب ساختمان یا تاسیس </strong> </div> 
+                <!--جدول ساختمان و تاسیس  -->
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="20">#</th>
+                        <th scope="col">نام ساختمان</th>
+                        <!-- <th scope="col">نوع کاربری</th> -->
+                        <!-- <th scope="col">مساحت مفید</th> -->
+                        <th scope="col" width="20" class="text-center">عملیات</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let building of buildingList; let i = index">
+                        <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
+                        <td>{{building.name}}</td>
+                        <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
+                        <!-- <td>{{building.useFullArea}}</td> -->
+                        <td width="40"><span class="cursor-pointer fa fa-edit"
+                          (click)="getBuildingBaseLine(building.id)"></span></td>
+                      </tbody>
+                    </table>
+                </div>
+              </div> 
+            </div> 
+          </div> 
+          <!-- نمودار  -->
 
-        </div>  
-                  <!-- اطلاعات خط مبنا -->
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        <div class="row" style="padding-top: 20px;">
-                          <div class="col-lg-12">
-                            <div class="card border-primary">
-                              <!-- عنوان جدول -->
-                              <div class="card-header flex-card-header"><strong >  انتخاب ساختمان یا تاسیس </strong> </div> 
-                              <!--جدول ساختمان و تاسیس  -->
-                              <div class="card-body">
-                                <table class="table table-responsive-sm table-striped">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col" width="20">#</th>
-                                      <th scope="col">نام ساختمان</th>
-                                      <!-- <th scope="col">نوع کاربری</th> -->
-                                      <!-- <th scope="col">مساحت مفید</th> -->
-                                      <th scope="col" width="20" class="text-center">عملیات</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr *ngFor="let building of buildingList; let i = index">
-                                      <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                                      <td>{{building.name}}</td>
-                                      <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
-                                      <!-- <td>{{building.useFullArea}}</td> -->
-                                      <td width="40"><span class="cursor-pointer fa fa-edit"
-                                       (click)="getBuildingBaseLine(building.id)"></span></td>
-                                    </tbody>
-                                  </table>
-                              </div>
-                            </div> 
-                          </div> 
-                        </div> 
-                        <!-- نمودار  -->
-        
-                      </div>
-                    </div>
-                  </div>
-        
-<div class="c-chart-wrapper" >
-  <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
-    <div class="col-12">
-       <analysis-chart-panel category="LINE" [seriesInput]="series" ></analysis-chart-panel>
+        </div>
+      </div>
+    </div>
+    <div class="c-chart-wrapper" >
+    <!-- <div class="c-chart-wrapper" style="height:300px;margin-top:40px;"> -->
+      <div class="col-12">
+        <analysis-chart-panel category="LINE" [seriesInput]="series" ></analysis-chart-panel>
+      </div>
     </div>
   </div>
-
-      </div>
 </div>
               <!-- نمودار  -->
 <!-- /////////////////// -->
