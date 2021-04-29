@@ -26,13 +26,13 @@ export class PowerDto {
 }
 
 export class Consumption {
-  preCounter          : String;//شمارنده قبلی
-  currentCounter      : String;//شمارنده کنونی
-  coefficient         : String;//ضریب
-  totalConsumption      : String;//مصرف کل
-  consumptionAfterLastChange      : String;//مصرف بعد از آخرین تغییرات
-  nerkh               : String;//نرخ
-  mablagh             : String//مبلغ
+  preCounter          : Number;//شمارنده قبلی
+  currentCounter      : Number;//شمارنده کنونی
+  coefficient         : Number;//ضریب
+  totalConsumption      : Number;//مصرف کل
+  consumptionAfterLastChange      : Number;//مصرف بعد از آخرین تغییرات
+  nerkh               : Number;//نرخ
+  mablagh             : Number//مبلغ
 };
 
 
@@ -57,9 +57,9 @@ export class PowerBillDto {
   explanationExpenses: string; // روزها
   contractualPower: string; // قدرت قراردادی
   calculatedPower: string; // قدرت محاسبه شده
-  maximeterNumber: string; //       عدد ماکسیمتر
-  powerConsumption: string; //     قدرت مصرفی
-  badConsumptionLossRatio: string; //      ضریب زیان بدی مصرف 
+  maximeterNumber: string; //  عدد ماکسیمتر
+  powerConsumption: string; // قدرت مصرفی
+  badConsumptionLossRatio: string; //   ضریب زیان بدی مصرف 
   paymentDeadLine: string; //  مهلت پرداخت
   consumptionAmount: string; //   مبلغ مصرف
   consumptionDurat: string; // میزان مصرف
