@@ -206,15 +206,15 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let weather of xlsxWeatherList; let i = index" class="vertical-align-middle">
-                      <td>{{weather.forDate}}</td>
-                      <td>{{weather.tempMax}}</td>
-                      <td>{{weather.tempMin}}</td>
-                      <td>{{weather.tempAvg}}</td>
-                      <td>{{weather.humidityMin}}</td>
-                      <td>{{weather.humidityMax}}</td>
-                      <td>{{weather.humidityAvg}}</td>
-                      <td>{{weather.sunRad}}</td>
-                      <td>{{weather.wind}}</td>
+                      <td>{{moment.getJaliliDateFromIso(weather.forDate)}}</td>
+                      <td>{{weather.tempMax | number:'0.0-2'}}</td>
+                      <td>{{weather.tempMin | number:'0.0-2'}}</td>
+                      <td>{{weather.tempAvg | number:'0.0-2'}}</td>
+                      <td>{{weather.humidityMin | number:'0.0-2'}}</td>
+                      <td>{{weather.humidityMax | number:'0.0-2'}}</td>
+                      <td>{{weather.humidityAvg | number:'0.0-2'}}</td>
+                      <td>{{weather.sunRad | number:'0.0-2'}}</td>
+                      <td>{{weather.wind | number:'0.0-2'}}</td>
                     </tr>
                   </tbody>
                   <tfoot>
