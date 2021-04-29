@@ -167,6 +167,23 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
           }, 200);
         }
       });
+      $('#paymentDeadLine').MdPersianDateTimePicker({
+        Placement: 'bottom', // default is 'bottom'
+        Trigger: 'focus', // default is 'focus',
+        targetTextSelector: '#paymentDeadLine',
+        disableAfterToday: false,
+        disableBeforeToday: false,
+      }).on('change', (e) => {
+        this.powerBillDto.paymentDeadLine = this.moment.convertJaliliToIsoDate($(e.currentTarget).val());
+        console.log('this.powerBillDto.paymentDeadLine', this.powerBillDto.paymentDeadLine);
+        if (this.powerBillDto.toDate > this.powerBillDto.paymentDeadLine) {
+          setTimeout(() => {
+            Notiflix.Notify.Failure('مهلت پرداخت باید بعد از تاریخ انتهای دوره انتخاب شود');
+            this.powerBillDto.paymentDeadLine = null;
+            $('#paymentDeadLine').val(this.moment.getJaliliDateFromIso(this.powerBillDto.toDate));
+          }, 200);
+        }
+      });
     }, 100);
   }
 
@@ -179,6 +196,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
           this.powerBillDto = res.data;
         $('#fromDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.fromDate));
         $('#toDate').val(this.moment.getJaliliDateFromIso(this.powerBillDto.toDate));
+        $('#paymentDeadLine').val(this.moment.getJaliliDateFromIso(this.powerBillDto.paymentDeadLine));
           this.powerAllocation= res.data.sharing;
           // this.setEnumUseType();
         }
@@ -192,7 +210,7 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
       return;
     }
 
-    this.powerBillDto.consumptionDurat="12345";
+    this.powerBillDto.consumptionDurat=12345;
 
     if (!this.edited) {
       this.powerReceiptService.createReceipt(this.powerBillDto)

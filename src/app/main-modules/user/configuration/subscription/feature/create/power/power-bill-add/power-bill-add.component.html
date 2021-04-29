@@ -650,6 +650,16 @@
             <!-- مهلت پرداخت -->
             <div class="mb-4 col-md-2">
               <div class="w-20">
+                <label for="paymentDeadLine" class="form-label">مهلت پرداخت</label>
+                <input class="form-control text-right" id="paymentDeadLine" placeholder=""
+                        formControlName="paymentDeadLine"
+                        name="paymentDeadLine">
+              </div>
+              <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
+            </div>  
+
+            <!-- <div class="mb-4 col-md-2">
+              <div class="w-20">
                 <label for="paymentDeadLine" class="form-label"> مهلت پرداخت </label>
                 <input class="form-control text-right" id="paymentDeadLine" placeholder=""
                         [(ngModel)]="powerBillDto.paymentDeadLine"
@@ -657,7 +667,7 @@
                         name="paymentDeadLine">
               </div>
               <app-alert-error [data]="formDiscrip.controls['paymentDeadLine']" [touched]="touched"></app-alert-error>
-            </div>
+            </div> -->
             <!-- عدد ماکسیمتر -->
             <div class="mb-4 col-md-2">
             <div class="w-20">

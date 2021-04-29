@@ -54,20 +54,20 @@ export class PowerBillDto {
     reactive: Consumption=new Consumption();; // راکتیو
     //*************** */
 
-  explanationExpenses: string; // روزها
-  contractualPower: string; // قدرت قراردادی
-  calculatedPower: string; // قدرت محاسبه شده
-  maximeterNumber: string; //  عدد ماکسیمتر
-  powerConsumption: string; // قدرت مصرفی
-  badConsumptionLossRatio: string; //   ضریب زیان بدی مصرف 
-  paymentDeadLine: string; //  مهلت پرداخت
-  consumptionAmount: string; //   مبلغ مصرف
-  consumptionDurat: string; // میزان مصرف
-  subscription: string; //   آبونمان 
-  powerPrice: string; //   بهای قدرت 
-  seasonPrice: string; //   بهای فصل 
-  badPenaltiesForConsuming:string;// جریمه بدی مصرف 
-  payableAmount: string; //   مبلغ قابل پرداخت
+  explanationExpenses: String; // روزها
+  contractualPower: Number; // قدرت قراردادی
+  calculatedPower: Number; // قدرت محاسبه شده
+  maximeterNumber: Number; //  عدد ماکسیمتر
+  powerConsumption: Number; // قدرت مصرفی
+  badConsumptionLossRatio: Number; //   ضریب زیان بدی مصرف 
+  paymentDeadLine: String; //  مهلت پرداخت
+  consumptionAmount: Number; //   مبلغ مصرف
+  consumptionDurat: Number; // میزان مصرف
+  subscription: Number; //   آبونمان 
+  powerPrice: Number; //   بهای قدرت 
+  seasonPrice: Number; //   بهای فصل 
+  badPenaltiesForConsuming:Number;// جریمه بدی مصرف 
+  payableAmount: Number; //   مبلغ قابل پرداخت
 
 }
 
