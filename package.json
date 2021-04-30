@@ -29,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "jalali-moment": "^3.3.8",
     "jquery": "^3.5.1",
+    "mathjs": "^9.3.2",
     "md.bootstrappersiandatetimepicker": "^3.10.0",
     "ng2-charts": "^2.3.3",
     "ngx-bootstrap": "^6.2.0",
