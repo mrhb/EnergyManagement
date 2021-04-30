@@ -62,14 +62,16 @@ export class GazBillListComponent implements OnInit {
       this.data.forEach(item => {
        let bill=new GasBillList();
 
-                bill.paymentCode = item[0]; // شناسه پرداخت
-                bill.fromDate=item[1]; // تاریخ شروع 
-                bill.toDate=item[1]; // تاریخ اتمام 
-                bill.numberDays=item[1]; // تعداد روز دوره
-                bill.consumptionDurat=item[1]; // مصرف دوره
-                bill.payableAmount=item[1];//    مبلغ قابل پرداخت      
-              
-                this.xlsxGasBillList.push(bill);
+        bill.billingId = item[0]; // شماره اشتراک
+        bill.paymentCode = item[1]; // شناسه پرداخت
+        bill.fromDate=item[2]; // تاریخ قبلی 
+        bill.toDate=item[3]; // تاریخ فعلی 
+        bill.previousCounter=item[4]; //رقم قبلی 
+        bill.currentCounter=item[5]; //رقم فعلی 
+        bill.consumptionDurat=item[6]; // مصرف دوره
+        bill.payableAmount=item[7];//    مبلغ قابل پرداخت      
+      
+        this.xlsxGasBillList.push(bill);
     });
 
     };

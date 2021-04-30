@@ -31,7 +31,7 @@
                   <tbody>
                     <tr *ngFor="let gasBill of gasBillList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * gasBillList.length))}}</th>
-                      <td>{{gasBill.paymentCode}}</td>
+                      <td>{{gasBill.nameShare}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate)}}</td>
                       <td>{{gasBill.numberDays}}</td>
@@ -85,21 +85,28 @@
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
             <thead class="thead-light">
-              <tr>
+              <!-- <tr>
+                <th scope="col">شماره اشتراک </th>
                 <th scope="col">شناسه پرداخت</th>
-                <th scope="col">از تاریخ </th>
-                <th scope="col">تا تاریخ </th>
-                <th scope="col">روزها</th>
+                <th scope="col">تاریخ قبلی  </th>
+                <th scope="col">تاریخ فعلی  </th>
+                <th scope="col">رقم قبلی</th>
+                <th scope="col">رقم فعلی</th>
                 <th scope="col">مصرف دوره </th>
                 <th scope="col">مبلغ قابل پرداخت</th>
-            </tr>
+            </tr> -->
             </thead>
             <tbody>
             <ng-container *ngFor="let item of xlsxGasBillList; let i = index">
               <tr>
-                <th scope="row" width="40">{{i + 1}}</th>
-                <td>{{item.name}}</td>
-                <td>{{item.floorNum}}</td>
+                <td>{{item.paymentCode}}</td>
+                <td>{{item.paymentCode}}</td>
+                <td>{{item.fromDate}}</td>
+                <td>{{item.toDate}}</td>
+                <td>{{item.previousCounter}}</td>
+                <td>{{item.currentCounter}}</td>
+                <td>{{item.consumptionDurat}}</td>
+                <td>{{item.payableAmount}}</td>
               </tr>
             </ng-container>
             </tbody>
