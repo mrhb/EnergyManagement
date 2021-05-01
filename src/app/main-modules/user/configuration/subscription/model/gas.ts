@@ -57,6 +57,21 @@ export class GasBillList {
   payableAmount: string; //    مبلغ قابل پرداخت      
 }
 
+
+export class GasBillExcelList {
+  billingId: string; // شناسه اشتراک 
+  nameShare: string; // نام مشترک 
+  sharingId: string; // شماره اشتراک 
+  paymentCode: string; // شناسه پرداخت
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  previousCounter: string; // رقم پیشین شماشگر
+  currentCounter: string; //  رقم فعلی شماشگر
+  consumptionDurat: string; // مصرف دوره
+  consumptionAmount: string; // بهای گاز مصرفی  
+  payableAmount: string; //    مبلغ قابل پرداخت      
+}
+
 export class GasBillDto {
   sharingId:string // (id)شناسه اشتراک
   billingId: string; // شناسه قبض

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {GasBillList} from '../../../../model/gas';
+import {GasBillExcelList, GasBillList} from '../../../../model/gas';
 import { GroupGasEnum,UseTypeGasEnum } from '../../../../model/gasEnum';
 import { Moment } from 'src/app/shared/tools/moment';
 
@@ -29,7 +29,7 @@ export class GazBillListComponent implements OnInit {
   totalPages = 1;
   moment = Moment;
   data: AOA = [[1, 2], [3, 4]];
-  xlsxGasBillList: GasBillList[] = [];
+  xlsxGasBillList: GasBillExcelList[] = [];
 
   useTypeEnum = UseTypeGasEnum;
   groupGasEnum = GroupGasEnum;
@@ -59,16 +59,19 @@ export class GazBillListComponent implements OnInit {
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
       console.log(this.data);
 
-      this.data.forEach(item => {
-       let bill=new GasBillList();
+      this.data.shift();
 
-        bill.billingId = item[0]; // شماره اشتراک
+      this.data.forEach(item => {
+       let bill=new GasBillExcelList();
+
+        bill.billingId = item[0].toString(); // شماره اشتراک
         bill.paymentCode = item[1]; // شناسه پرداخت
         bill.fromDate=item[2]; // تاریخ قبلی 
         bill.toDate=item[3]; // تاریخ فعلی 
         bill.previousCounter=item[4]; //رقم قبلی 
         bill.currentCounter=item[5]; //رقم فعلی 
         bill.consumptionDurat=item[6]; // مصرف دوره
+        bill.consumptionAmount=item[6]; // مصرف دوره
         bill.payableAmount=item[7];//    مبلغ قابل پرداخت      
       
         this.xlsxGasBillList.push(bill);
