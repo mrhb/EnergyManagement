@@ -66,8 +66,10 @@ export class GazBillListComponent implements OnInit {
 
         bill.billingId = item[0].toString(); // شماره اشتراک
         bill.paymentCode = item[1]; // شناسه پرداخت
-        bill.fromDate=item[2]; // تاریخ قبلی 
-        bill.toDate=item[3]; // تاریخ فعلی 
+        bill.fromDate=this.moment.convertJaliliToIsoDate(item[2].toString()) // تاریخ قبلی 
+        bill.toDate=this.moment.convertJaliliToIsoDate(item[3].toString()); // تاریخ فعلی 
+        // bill.toDate=item[2]; // تاریخ قبلی 
+        // bill.toDate=item[3]; // تاریخ فعلی 
         bill.previousCounter=item[4]; //رقم قبلی 
         bill.currentCounter=item[5]; //رقم فعلی 
         bill.consumptionDurat=item[6]; // مصرف دوره

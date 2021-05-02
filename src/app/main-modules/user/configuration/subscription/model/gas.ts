@@ -65,6 +65,7 @@ export class GasBillExcelList {
   paymentCode: string; // شناسه پرداخت
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
+  numberDays: string; // تعداد روز دوره
   previousCounter: string; // رقم پیشین شماشگر
   currentCounter: string; //  رقم فعلی شماشگر
   consumptionDurat: string; // مصرف دوره

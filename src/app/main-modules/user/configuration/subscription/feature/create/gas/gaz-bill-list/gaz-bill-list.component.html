@@ -85,7 +85,7 @@
         <div class="table-responsive">
           <table class="table table-striped table-bordered">
             <thead class="thead-light">
-              <!-- <tr>
+              <tr>
                 <th scope="col">شماره اشتراک </th>
                 <th scope="col">شناسه پرداخت</th>
                 <th scope="col">تاریخ قبلی  </th>
@@ -94,13 +94,15 @@
                 <th scope="col">رقم فعلی</th>
                 <th scope="col">مصرف دوره </th>
                 <th scope="col">مبلغ قابل پرداخت</th>
-            </tr> -->
+            </tr>
             </thead>
             <tbody>
             <ng-container *ngFor="let item of xlsxGasBillList; let i = index">
               <tr>
                 <td>{{item.billingId}}</td>
                 <td>{{item.paymentCode}}</td>
+                <!-- <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate.toString())}}</td>
+                <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate.toString())}}</td> -->
                 <td>{{item.fromDate}}</td>
                 <td>{{item.toDate}}</td>
                 <td>{{item.previousCounter}}</td>

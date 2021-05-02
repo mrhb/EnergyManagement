@@ -150,7 +150,7 @@ createReceipt(): void {
           setTimeout(() => {
             $('#pills-building-tab').click();
           }, 200);
-          // this.router.navigate(['/index/user/configuration/gasList']);
+          this.router.navigate(['/index/user/configuration/gasBillList']);
         }
       });
   } else {
@@ -159,7 +159,7 @@ createReceipt(): void {
       .subscribe((res: any) => {
         if (res) {
           Notiflix.Notify.Success('ویرایش قبض گاز با موفقیت انجام شد.');
-          // this.router.navigate(['/index/user/configuration/gasList']);
+          this.router.navigate(['/index/user/configuration/gasBillList']);
         }
       });
   }
