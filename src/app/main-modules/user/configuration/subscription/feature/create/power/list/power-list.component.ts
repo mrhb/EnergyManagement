@@ -6,7 +6,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {PowerList} from '../../../../model/power';
+import {PowerBillExcelList, PowerList} from '../../../../model/power';
 import {GroupEnum, UseCodeEnum, UseTypePowerEnum} from '../../../../model/powerEnum';
 import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
@@ -32,6 +32,7 @@ export class PowerListComponent implements OnInit {
   groupEnum=GroupEnum;
   powerList: PowerList[] = [];
   xlsxPowerList: PowerList[] = [];
+  xlsxPowerBillList: PowerBillExcelList[] = [];
 
   buildingList = [];
   constructor(public router: Router,
@@ -61,13 +62,24 @@ export class PowerListComponent implements OnInit {
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
       console.log(this.data);
 
-      this.data.forEach(item => {
-       let bill=new PowerList();
+      this.data.shift();
 
-                bill.nameShare = item[0];
-                bill.group=item[1];
-   
-                this.xlsxPowerList.push(bill);
+      this.data.forEach(item => {
+       let bill=new PowerBillExcelList();
+
+        // bill.billingId = item[0].toString(); // شماره اشتراک
+        // bill.paymentCode = item[1]; // شناسه پرداخت
+        // bill.fromDate=this.moment.convertJaliliToIsoDate(item[2].toString()) // تاریخ قبلی 
+        // bill.toDate=this.moment.convertJaliliToIsoDate(item[3].toString()); // تاریخ فعلی 
+        // bill.toDate=item[2]; // تاریخ قبلی 
+        // bill.toDate=item[3]; // تاریخ فعلی 
+        // bill.previousCounter=item[4]; //رقم قبلی 
+        // bill.currentCounter=item[5]; //رقم فعلی 
+        // bill.consumptionDurat=item[6]; // مصرف دوره
+        // bill.consumptionAmount=item[6]; // مصرف دوره
+        // bill.payableAmount=item[7];//    مبلغ قابل پرداخت      
+      
+        this.xlsxPowerBillList.push(bill);
     });
 
     };

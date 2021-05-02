@@ -71,6 +71,42 @@ export class PowerBillDto {
 
 }
 
+
+export class PowerBillExcelList {
+  sharingId: string;//شناسه اشتراک(id)
+  billId: string;
+  numberShare:string;// شماره اشتراک
+  paymentCode: string; // شناسه پرداخت
+  period: PeriodEnum; // دوره
+  fromDate: string; // تاریخ شروع 
+  toDate: string; // تاریخ اتمام
+  numberDays: string; // روزها
+
+    //*******Consumptions******* */
+    intermediate:  Consumption=new Consumption(); // میان باری
+    // peakLoad:  Consumption=new Consumption();; // اوج بار
+    // lowLoad:  Consumption=new Consumption();; // کم بار
+    // peakTimesFriday: Consumption=new Consumption();; // اوج بار جمعه
+    // reactive: Consumption=new Consumption();; // راکتیو
+    //*************** */
+
+  // explanationExpenses: String; // روزها
+  // contractualPower: Number; // قدرت قراردادی
+  // calculatedPower: Number; // قدرت محاسبه شده
+  // maximeterNumber: Number; //  عدد ماکسیمتر
+  // powerConsumption: Number; // قدرت مصرفی
+  // badConsumptionLossRatio: Number; //   ضریب زیان بدی مصرف 
+  // paymentDeadLine: String; //  مهلت پرداخت
+  consumptionAmount: Number; //   مبلغ مصرف
+  consumptionDurat: Number; // میزان مصرف
+  // subscription: Number; //   آبونمان 
+  // powerPrice: Number; //   بهای قدرت 
+  // seasonPrice: Number; //   بهای فصل 
+  // badPenaltiesForConsuming:Number;// جریمه بدی مصرف 
+  payableAmount: Number; //   مبلغ قابل پرداخت
+
+}
+
 export class BuildingAllocation {
   allocationPercentage: string;
   buildingId: string;

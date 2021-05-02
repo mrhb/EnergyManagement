@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PowerBillDto, PowerBillList } from '../../../../model/power';
+import { PowerBillDto, PowerBillExcelList, PowerBillList } from '../../../../model/power';
 import { UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
@@ -40,7 +40,7 @@ export class PowerBillListComponent implements OnInit {
   useTypeEnum = UseTypePowerEnum;
   periodEnum=PeriodEnum;
   powerBillList: PowerBillList[] = [];
-  xlsxPowerBillList: PowerBillDto[] = [];
+  xlsxPowerBillList: PowerBillExcelList[] = [];
   buildingList = [];
   constructor(public router: Router,
               private powerReceiptService: PowerReceiptService,
@@ -75,13 +75,22 @@ export class PowerBillListComponent implements OnInit {
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
       console.log(this.data);
 
-      this.data.forEach(item => {
-       let bill=new PowerBillDto();
+      this.data.shift();
 
-                bill.numberShare = item[0];
-                bill.billId=item[1];
-   
-                this.xlsxPowerBillList.push(bill);
+      this.data.forEach(item => {
+       let bill=new PowerBillExcelList();
+
+       bill.billId = item[0].toString(); // شناسه قبض
+       bill.paymentCode = item[1]; // شناسه پرداخت
+       bill.period=item[2]; //  دوره
+       bill.fromDate=this.moment.convertJaliliToIsoDate(item[3].toString()) // تاریخ قبلی 
+       bill.toDate=this.moment.convertJaliliToIsoDate(item[4].toString()); // تاریخ فعلی 
+       bill.intermediate=item[5]; //میان باری 
+       bill.consumptionDurat=item[5]; //  میزان مصرف
+       bill.consumptionAmount=item[6]; // مبلغ مصرف
+       bill.payableAmount=item[7];//    مبلغ قابل پرداخت     
+
+       this.xlsxPowerBillList.push(bill);
     });
 
     };
@@ -97,7 +106,7 @@ export class PowerBillListComponent implements OnInit {
         // setTimeout(() => {
         //   $('#pills-building-tab').click();
         // }, 200);
-        // this.router.navigate(['/index/user/configuration/powerList']);
+        this.router.navigate(['/index/user/configuration/powerBillList']);
       }
     });
   }

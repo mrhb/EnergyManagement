@@ -69,6 +69,7 @@
   </main>
 </div>
 
+
 <!-- افزون قبض برق از اکسل -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -87,11 +88,10 @@
           <table class="table table-striped table-bordered">
             <thead class="thead-light">
               <tr>
-                <th scope="col">نام مشترک</th>
+                <th scope="col"> نام مشترک </th>
                 <th scope="col"> دوره </th>
                 <th scope="col"> از تاریخ</th>
                 <th scope="col"> تا تاریخ</th>
-                <th scope="col" width="40"> تعداد روزها</th>
                 <th scope="col">  مصرف کل </th>
                 <th scope="col" width="250"> مبلغ قابل پرداخت </th>
             </tr>
@@ -99,9 +99,14 @@
             <tbody>
             <ng-container *ngFor="let item of xlsxPowerBillList; let i = index">
               <tr>
-                <th scope="row" width="40">{{i + 1}}</th>
-                <td>{{item.name}}</td>
-                <td>{{item.floorNum}}</td>
+                <td>{{item.billId}}</td>
+                <td>{{item.period}}</td>
+                <!-- <td>{{this.moment.getJaliliDateFromIso(PowerBill.fromDate)}}</td> -->
+                <!-- <td>{{this.moment.getJaliliDateFromIso(PowerBill.toDate.toString())}}</td> -->
+                <td>{{item.fromDate}}</td> 
+                 <td>{{item.toDate}}</td>
+                <td>{{item.consumptionDurat}}</td>
+                <td>{{item.payableAmount}}</td>
               </tr>
             </ng-container>
             </tbody>
