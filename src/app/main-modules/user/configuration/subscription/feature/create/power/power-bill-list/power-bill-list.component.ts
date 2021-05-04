@@ -23,18 +23,15 @@ declare var $: any;
 })
 export class PowerBillListComponent implements OnInit {
 
-
-  data: AOA = [[1, 2], [3, 4]];
-  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
-  fileName: string = 'SheetJS.xlsx';
-
-
-
   pageSize = 10;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
   moment = Moment;
+
+  data: AOA = [[1, 2], [3, 4]];
+  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
+  fileName: string = 'SheetJS.xlsx';
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
@@ -42,6 +39,7 @@ export class PowerBillListComponent implements OnInit {
   powerBillList: PowerBillList[] = [];
   xlsxPowerBillList: PowerBillExcelList[] = [];
   buildingList = [];
+
   constructor(public router: Router,
               private powerReceiptService: PowerReceiptService,
               private activatedRoute: ActivatedRoute) {
@@ -85,10 +83,11 @@ export class PowerBillListComponent implements OnInit {
        bill.period=item[2]; //  دوره
        bill.fromDate=this.moment.convertJaliliToIsoDate(item[3].toString()) // تاریخ قبلی 
        bill.toDate=this.moment.convertJaliliToIsoDate(item[4].toString()); // تاریخ فعلی 
-       bill.intermediate=item[5]; //میان باری 
-       bill.consumptionDurat=item[5]; //  میزان مصرف
-       bill.consumptionAmount=item[6]; // مبلغ مصرف
-       bill.payableAmount=item[7];//    مبلغ قابل پرداخت     
+       bill.intermediate=item[5]; //مجموع مصرف  
+      //  bill.intermediate=item[9]; // مجموع مصرف راکتیو  
+       bill.consumptionDurat=item[15]; //  میزان مصرف
+       bill.consumptionAmount=item[15]; // مبلغ مصرف
+       bill.payableAmount=item[20];//    مبلغ قابل پرداخت     
 
        this.xlsxPowerBillList.push(bill);
     });
