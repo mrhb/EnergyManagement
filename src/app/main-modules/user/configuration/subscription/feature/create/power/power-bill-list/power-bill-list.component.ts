@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { PowerBillDto, PowerBillExcelList, PowerBillList } from '../../../../model/power';
+import { Consumption, PowerBillDto, PowerBillExcelList, PowerBillList } from '../../../../model/power';
 import { UseTypePowerEnum } from '../../../../model/powerEnum';
 
 
@@ -28,7 +28,7 @@ export class PowerBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
-
+period=PeriodEnum;
   data: AOA = [[1, 2], [3, 4]];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';
@@ -78,16 +78,48 @@ export class PowerBillListComponent implements OnInit {
       this.data.forEach(item => {
        let bill=new PowerBillExcelList();
 
-       bill.billId = item[0].toString(); // شناسه قبض
+var periodName=[
+'یکم',
+'دوم',
+'سوم',
+'چهارم',
+'پنجم',
+'ششم',
+'هفتم',
+'هشتم',
+'نهم',
+'دهم',
+'یازدهم',
+'دوازدهم'];
+       bill.billingId = item[0].toString(); // شماره اشتراک
        bill.paymentCode = item[1]; // شناسه پرداخت
-       bill.period=item[2]; //  دوره
+       bill.period= this.period[periodName[item[2]]];//item[2]; //  دوره
        bill.fromDate=this.moment.convertJaliliToIsoDate(item[3].toString()) // تاریخ قبلی 
        bill.toDate=this.moment.convertJaliliToIsoDate(item[4].toString()); // تاریخ فعلی 
-       bill.intermediate=item[5]; //مجموع مصرف  
-      //  bill.intermediate=item[9]; // مجموع مصرف راکتیو  
-       bill.consumptionDurat=item[15]; //  میزان مصرف
-       bill.consumptionAmount=item[15]; // مبلغ مصرف
-       bill.payableAmount=item[20];//    مبلغ قابل پرداخت     
+       bill.intermediate= new Consumption();
+       bill.peakLoad= new Consumption();
+       bill.lowLoad= new Consumption();
+       bill.peakTimesFriday= new Consumption();
+       bill.reactive= new Consumption();
+
+        bill.intermediate.totalConsumption=item[5]; //مجموع مصرف  
+        bill.peakLoad.totalConsumption=item[6]; //مجموع مصرف  
+        bill.lowLoad.totalConsumption=item[7]; //مجموع مصرف  
+        bill.peakTimesFriday.totalConsumption=item[8]; //مجموع مصرف  
+        bill.reactive.totalConsumption=item[9]; //مجموع مصرف  
+
+  bill.contractualPower=item[10]; // قدرت قراردادی
+  bill.calculatedPower=item[11]; // قدرت محاسبه شده
+  bill.powerConsumption=item[12]; // قدرت مصرفی
+  bill.badConsumptionLossRatio=item[13]; //   ضریب زیان بدی مصرف 
+  bill.maximeterNumber=item[14]; //  عدد ماکسیمتر
+  bill.consumptionAmount=item[15]; //   مبلغ مصرف
+  bill.consumptionDurat=item[15]; //   میزان مصرف
+  bill.powerPrice=item[16]; //   بهای قدرت 
+  bill.seasonPrice=item[17]; //   بهای فصل 
+  bill.badPenaltiesForConsuming=item[18];// جریمه بدی مصرف 
+  bill.payableAmount=item[19]; //   مبلغ قابل پرداخت
+
 
        this.xlsxPowerBillList.push(bill);
     });

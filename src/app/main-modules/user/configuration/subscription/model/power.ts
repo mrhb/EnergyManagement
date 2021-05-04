@@ -74,7 +74,7 @@ export class PowerBillDto {
 
 export class PowerBillExcelList {
   sharingId: string;//شناسه اشتراک(id)
-  billId: string;
+  billingId: string;
   numberShare:string;// شماره اشتراک
   paymentCode: string; // شناسه پرداخت
   period: PeriodEnum; // دوره
