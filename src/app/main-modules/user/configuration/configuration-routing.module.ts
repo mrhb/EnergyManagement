@@ -12,8 +12,8 @@ import {CreateEnergyComponent} from './subscription/feature/create/energy/add/cr
 import {EnergyListComponent} from './subscription/feature/create/energy/list/energy-list.component';
 import {CreateClimateComponent} from './climate/feature/creat-climate/creat-climate.component';
 import {ClimateListComponent} from './climate/feature/climate-list/climate-list.component';
-import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-add/gaz-bill-add.component';
-import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill-list/gaz-bill-list.component';
+import { GasBillAddComponent } from './subscription/feature/create/gas/gas-bill-add/gas-bill-add.component';
+import { GasBillListComponent } from './subscription/feature/create/gas/gas-bill-list/gas-bill-list.component';
 import { PowerBillAddComponent } from './subscription/feature/create/power/power-bill-add/power-bill-add.component';
 import { PowerBillListComponent } from './subscription/feature/create/power/power-bill-list/power-bill-list.component';
 import { EnergyBillAddComponent } from './subscription/feature/create/energy/energy-bill-add/energy-bill-add.component';
@@ -70,8 +70,8 @@ const routes: Routes = [
       {path: 'energyList',component: EnergyListComponent,},
       {path: 'createClimate',component: CreateClimateComponent,},
       {path: 'climateList',component: ClimateListComponent,},
-      {path: 'gazBillAdd',component: GazBillAddComponent,},
-      {path: 'gasBillList',component: GazBillListComponent,},
+      {path: 'gazBillAdd',component: GasBillAddComponent,},
+      {path: 'gasBillList',component: GasBillListComponent,},
       {path: 'powerBillAdd',component: PowerBillAddComponent,},
       {path: 'powerBillList',component: PowerBillListComponent,},
       {path: 'energyBillAdd',component: EnergyBillAddComponent,},

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GazBillListComponent } from './gaz-bill-list.component';
+import { GasBillListComponent } from './gas-bill-list.component';
 
-describe('GazBillListComponent', () => {
-  let component: GazBillListComponent;
-  let fixture: ComponentFixture<GazBillListComponent>;
+describe('GasBillListComponent', () => {
+  let component: GasBillListComponent;
+  let fixture: ComponentFixture<GasBillListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GazBillListComponent ]
+      declarations: [ GasBillListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GazBillListComponent);
+    fixture = TestBed.createComponent(GasBillListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

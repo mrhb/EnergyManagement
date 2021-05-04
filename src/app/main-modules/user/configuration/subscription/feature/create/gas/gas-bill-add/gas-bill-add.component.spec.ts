@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GazBillAddComponent } from './gaz-bill-add.component';
+import { GasBillAddComponent } from './gas-bill-add.component';
 
-describe('GazBillAddComponent', () => {
-  let component: GazBillAddComponent;
-  let fixture: ComponentFixture<GazBillAddComponent>;
+describe('GasBillAddComponent', () => {
+  let component: GasBillAddComponent;
+  let fixture: ComponentFixture<GasBillAddComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GazBillAddComponent ]
+      declarations: [ GasBillAddComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GazBillAddComponent);
+    fixture = TestBed.createComponent(GasBillAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

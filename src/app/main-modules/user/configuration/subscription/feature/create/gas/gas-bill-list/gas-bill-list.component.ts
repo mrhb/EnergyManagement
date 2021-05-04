@@ -18,11 +18,11 @@ import * as XLSX from 'xlsx';
 type AOA = any[][];
 
 @Component({
-  selector: 'app-gaz-bill-list',
-  templateUrl: './gaz-bill-list.component.html',
-  styleUrls: ['./gaz-bill-list.component.scss']
+  selector: 'app-gas-bill-list',
+  templateUrl: './gas-bill-list.component.html',
+  styleUrls: ['./gas-bill-list.component.scss']
 })
-export class GazBillListComponent implements OnInit {
+export class GasBillListComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
   length = -1;

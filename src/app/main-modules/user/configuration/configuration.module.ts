@@ -31,8 +31,8 @@ import {PowerBuildingService} from './building/service/power-building.service';
 import {ChartModule} from '../../../shared/tools/chart/chart.module';
 import { CreateClimateComponent } from './climate/feature/creat-climate/creat-climate.component';
 import { ClimateListComponent } from './climate/feature/climate-list/climate-list.component';
-import { GazBillAddComponent } from './subscription/feature/create/gas/gaz-bill-add/gaz-bill-add.component';
-import { GazBillListComponent } from './subscription/feature/create/gas/gaz-bill-list/gaz-bill-list.component';
+import { GasBillAddComponent } from './subscription/feature/create/gas/gas-bill-add/gas-bill-add.component';
+import { GasBillListComponent } from './subscription/feature/create/gas/gas-bill-list/gas-bill-list.component';
 import { PowerBillAddComponent } from './subscription/feature/create/power/power-bill-add/power-bill-add.component';
 import { PowerBillListComponent } from './subscription/feature/create/power/power-bill-list/power-bill-list.component';
 import { EnergyBillListComponent } from './subscription/feature/create/energy/energy-bill-list/energy-bill-list.component';
@@ -96,8 +96,8 @@ import { TariffPowerParam2Component } from './tariff/feature/tariff-power-param2
     EnergyListComponent,
     CreateClimateComponent,
     ClimateListComponent,
-    GazBillAddComponent,
-    GazBillListComponent,
+    GasBillAddComponent,
+    GasBillListComponent,
     PowerBillAddComponent,
     PowerBillListComponent,
     EnergyBillListComponent,

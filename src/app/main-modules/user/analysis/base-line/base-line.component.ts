@@ -228,7 +228,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   // setOption(): void {
   //   this.isLoadingChart = true;
   //   const xAxisData = [];
-  //   const eGaz = [];
+  //   const eGas = [];
   //   const eAct = [];
 
   //   const xAxisDataG2 = [];
@@ -236,17 +236,17 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //   const CDD = [];
 
   //   const xAxisDataG3 = [];
-  //   const gaz = [];
+  //   const gas = [];
   //   const power = [];
   //   const energy = [];
 
-  //   const chartData = this.fakeDataGenerator(['eGaz', 'eAct', 'date'], 18);
+  //   const chartData = this.fakeDataGenerator(['eGas', 'eAct', 'date'], 18);
   //   const length = chartData.length;
   //   for (let i = 0; i < length; i++) {
   //     // xAxisData.push(this.moment.getJaliliDateFromIso(chartData[i].date));
   //     xAxisData.push(this.moment.getJaliliDateFromIso(chartData[i].date));
   //     // console.log('chartData[i]', chartData[i]);
-  //     eGaz.push(chartData[i].eGaz);
+  //     eGas.push(chartData[i].eGas);
   //     eAct.push(chartData[i].eAct);
   //   }
   //   this.options = {
@@ -273,7 +273,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //       {
   //         name: 'گاز',
   //         type: 'bar',
-  //         data: eGaz,
+  //         data: eGas,
   //         smooth: true,
   //         showSymbol: false,
   //         animationDelay: (idx) => idx * 10,
@@ -317,7 +317,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //       {
   //         name: 'گاز',
   //         type: 'line',
-  //         data: eGaz,
+  //         data: eGas,
   //         smooth: true,
   //         areaStyle: {},
   //         showSymbol: false,
@@ -429,12 +429,12 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //     animationDelayUpdate: (idx) => idx * 5,
   //   };
 
-  //   const chartDataGraph2 = this.fakeDataGenerator(['gaz', 'power', 'energy', 'date'], 18);
+  //   const chartDataGraph2 = this.fakeDataGenerator(['gas', 'power', 'energy', 'date'], 18);
   //   const lengthGraph2 = chartDataGraph2.length;
   //   for (let i = 0; i < lengthGraph2; i++) {
   //     xAxisDataG3.push(this.moment.getJaliliDateFromIso(chartDataGraph2[i].date));
   //     power.push(chartDataGraph2[i].power);
-  //     gaz.push(chartDataGraph2[i].gaz);
+  //     gas.push(chartDataGraph2[i].gas);
   //     energy.push(chartDataGraph2[i].energy);
   //   }
   //   this.optionsThreeGraph = {
@@ -461,7 +461,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //       {
   //         name: 'گاز',
   //         type: 'bar',
-  //         data: gaz,
+  //         data: gas,
   //         smooth: true,
   //         animationDelay: (idx) => idx * 10,
   //       },
@@ -511,7 +511,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   //       {
   //         name: 'گاز',
   //         type: 'line',
-  //         data: gaz,
+  //         data: gas,
   //         smooth: true,
   //         areaStyle: {},
   //         showSymbol: false,

@@ -16,11 +16,11 @@ import { Moment } from 'src/app/shared/tools/moment';
 declare var $: any;
 
 @Component({
-  selector: 'app-gaz-bill-add',
-  templateUrl: './gaz-bill-add.component.html',
-  styleUrls: ['./gaz-bill-add.component.scss']
+  selector: 'app-gas-bill-add',
+  templateUrl: './gas-bill-add.component.html',
+  styleUrls: ['./gas-bill-add.component.scss']
 })
-export class GazBillAddComponent implements OnInit , AfterViewInit{
+export class GasBillAddComponent implements OnInit , AfterViewInit{
   pageSize = 20;
   pageIndex = 0;
   length = -1;
