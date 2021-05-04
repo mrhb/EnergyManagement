@@ -99,7 +99,7 @@ declare var $: any;
 
 //initializeform
        this.billAnalysisDto.billAnalysisParam=BillAnalysisParamEnum[BillAnalysisParamEnum.CONSUMPTION.toString()] ;
-       this.billAnalysisDto.billType=BillTypeEnum[BillTypeEnum.POWER.toString()] ;
+       this.billAnalysisDto.billType=BillTypeEnum[BillTypeEnum.powerReceipt.toString()] ;
        
 
        var date = new Date();
@@ -123,7 +123,7 @@ declare var $: any;
       }
     });
     switch (this.billAnalysisDto.billType) {
-      case BillTypeEnum[BillTypeEnum.POWER.toString()]:
+      case BillTypeEnum[BillTypeEnum.powerReceipt.toString()]:
 
         break;
     }    

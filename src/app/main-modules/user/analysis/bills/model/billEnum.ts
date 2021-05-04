@@ -1,8 +1,8 @@
 // نوع قبض
 export enum BillTypeEnum {
-  WATER = <any> 'آب',
-  POWER = <any> 'برق',
-  GAS = <any> 'گاز',
+  waterReceipt = <any> 'آب',
+  powerReceipt = <any> 'برق',
+  gasReceipt = <any> 'گاز',
   ENERGY = <any> 'انرژی',
   }
 
