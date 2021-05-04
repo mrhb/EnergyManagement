@@ -37,7 +37,7 @@
                       <td>{{gasBill.nameShare}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate)}}</td>
-                      <td>{{gasBill.numberDays}}</td>
+                      <td>{{this.moment.DateDiff(gasBill.fromDate,gasBill.toDate)}}</td>
                       <td>{{gasBill.consumptionDurat}}</td>
                       <td>{{gasBill.payableAmount}}</td>
                       <!-- <td width="40"><span class="cursor-pointer fa fa-edit" -->

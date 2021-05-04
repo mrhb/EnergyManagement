@@ -39,7 +39,7 @@
                       <td>{{periodEnum[power.period].toString()}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(power.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(power.toDate)}}</td>
-                      <td>{{power.numberDays | number:'0.0-0'}}</td>
+                      <td>{{this.moment.DateDiff(power.fromDate,power.toDate)}}</td>
                       <td>{{power.ConsumptionSum}}</td>
                       <td>{{power.consumptionAmount}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"

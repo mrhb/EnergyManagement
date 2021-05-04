@@ -50,6 +50,14 @@ export class Moment {
     return false;
   }
 
+  public static DateDiff(start,end) {
+    if (start && end )
+     {
+      return moment(end).diff( moment(start),'days');
+    }
+    return false;
+  }
+
   public static getGregorianDateFromIsoOrFull(date) {
     if (date) {
       return moment(date).format('HH:mm - YYYY/MM/DD');

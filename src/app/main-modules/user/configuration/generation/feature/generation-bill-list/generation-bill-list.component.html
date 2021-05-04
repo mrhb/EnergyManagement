@@ -38,7 +38,7 @@
                       <td>{{generation.capacity}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(generation.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(generation.toDate)}}</td>
-                      <td>{{generation.numberDays}}</td>
+                      <td>{{this.moment.DateDiff(generation.fromDate,generation.toDate)}}</td>
                       <td>{{generation.consumptionDurat}}</td>     
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: generation.id}"

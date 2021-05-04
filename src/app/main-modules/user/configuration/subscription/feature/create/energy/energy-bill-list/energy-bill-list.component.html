@@ -36,7 +36,7 @@
                       <!-- <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td> -->
                       <td>{{this.moment.getJaliliDateFromIso(energy.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(energy.toDate)}}</td>
-                      <td>{{energy.numberDays}}</td>
+                      <td>{{this.moment.DateDiff(energy.fromDate,energy.toDate)}}</td>
                       <td>{{energy.consumptionDurat}}</td>
                       <td>{{energy.consumptionAmount}}</td>
                       <td>{{energy.payableAmount}}</td>
