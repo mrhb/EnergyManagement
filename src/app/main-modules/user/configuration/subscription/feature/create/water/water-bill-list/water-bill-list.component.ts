@@ -10,7 +10,7 @@ import Notiflix from 'notiflix';
 // import {WaterService} from '../../../../service/water.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UseTypeWater} from '../../../../model/waterEnum';
-import {WaterBillList} from '../../../../model/water';
+import {WaterBillExcelList, WaterBillList} from '../../../../model/water';
 import { WaterReceiptService } from '../../../../service/water-receipt.service';
 import { Moment } from 'src/app/shared/tools/moment';
 
@@ -29,7 +29,7 @@ export class WaterBillListComponent implements OnInit {
   totalPages = 1;
   moment = Moment;
   data: AOA = [[1, 2], [3, 4]];
-  xlsxWaterBillList: WaterBillList[] = [];
+  xlsxWaterBillList: WaterBillExcelList[] = [];
 
   useTypeEnum = UseTypeWater;
   waterBillList: WaterBillList[] = [];
@@ -59,17 +59,24 @@ export class WaterBillListComponent implements OnInit {
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
       console.log(this.data);
 
-      this.data.forEach(item => {
-       let bill=new WaterBillList();
+      this.data.shift();
 
-                bill.paymentCode = item[0]; // شناسه پرداخت
-                bill.fromDate=item[1]; // تاریخ شروع 
-                bill.toDate=item[1]; // تاریخ اتمام 
-                bill.numberDays=item[1]; // تعداد روز دوره
-                bill.consumptionDurat=item[1]; // مصرف دوره
-                bill.payableAmount=item[1];//    مبلغ قابل پرداخت      
-              
-                this.xlsxWaterBillList.push(bill);
+      this.data.forEach(item => {
+       let bill=new WaterBillExcelList();
+
+         bill.billingId = item[0].toString(); // شماره اشتراک
+         bill.paymentCode = item[1]; // شناسه پرداخت
+         bill.fromDate=item[2]; // تاریخ قبلی 
+         bill.toDate=item[3]; // تاریخ قبلی 
+         //  bill.fromDate =this.moment.convertJaliliToIsoDate(item[2].toString()); // تاریخ قبلی 
+         //  bill.toDate =this.moment.convertJaliliToIsoDate(item[3].toString()); // تاریخ قبلی 
+         bill.previousCounter=item[4]; //  رقم قبلی 
+         bill.currentCounter=item[5]; //  رقم فعلی 
+         bill.consumptionDurat=item[6];//    مصرف دوره      
+         bill.consumptionAmount=item[7];//    بهای آب مصرفی      
+         bill.payableAmount=item[8];//    مبلغ قابل پرداخت      
+     
+         this.xlsxWaterBillList.push(bill);
     });
 
     };
@@ -85,7 +92,7 @@ export class WaterBillListComponent implements OnInit {
         // setTimeout(() => {
         //   $('#pills-building-tab').click();
         // }, 200);
-        // this.router.navigate(['/index/user/configuration/powerList']);
+        this.router.navigate(['/index/user/configuration/waterBillList']);
       }
     });
   }

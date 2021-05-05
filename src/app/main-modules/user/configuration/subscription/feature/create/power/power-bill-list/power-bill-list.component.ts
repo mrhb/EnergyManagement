@@ -8,7 +8,6 @@ import Notiflix from 'notiflix';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Moment } from 'src/app/shared/tools/moment';
 import { PeriodEnum } from '../../../../model/sharedEnum';
-
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import * as XLSX from 'xlsx';
 type AOA = any[][];
@@ -28,7 +27,7 @@ export class PowerBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
-period=PeriodEnum;
+  period=PeriodEnum;
   data: AOA = [[1, 2], [3, 4]];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName: string = 'SheetJS.xlsx';

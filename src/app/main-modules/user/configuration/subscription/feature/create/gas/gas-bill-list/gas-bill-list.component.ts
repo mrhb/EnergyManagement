@@ -71,7 +71,7 @@ export class GasBillListComponent implements OnInit {
         bill.previousCounter=item[4]; //رقم قبلی 
         bill.currentCounter=item[5]; //رقم فعلی 
         bill.consumptionDurat=item[6]; // مصرف دوره
-        bill.consumptionAmount=item[6]; // مصرف دوره
+        bill.consumptionAmount=item[6]; // بهای گاز مصرفی 
         bill.payableAmount=item[7];//    مبلغ قابل پرداخت      
       
         this.xlsxGasBillList.push(bill);

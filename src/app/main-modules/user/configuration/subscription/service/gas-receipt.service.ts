@@ -17,11 +17,12 @@ export class GasReceiptService extends GeneralService {
     return super.postCheckService('create', body, errorSelector);
   }
 
-  getOneReceipt(param: {id: string}, errorSelector?: string): Observable<any> {
-    return super.getCheckService('get-one', errorSelector, param);
-  }
   createMultiReceipt(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create-multi', body, errorSelector);
+  }
+  
+  getOneReceipt(param: {id: string}, errorSelector?: string): Observable<any> {
+    return super.getCheckService('get-one', errorSelector, param);
   }
 
   updateReceipt(param: {id: string}, body: any, errorSelector?: string): Observable<any> {

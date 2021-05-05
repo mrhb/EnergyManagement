@@ -62,7 +62,7 @@ export class GasBillAddComponent implements OnInit , AfterViewInit{
       currentCounter:[], // رقم فعلی شمارشگر
       consumptionDurat:[], // مصرف دوره
       totalCounter:[],  // کارکرد شمارشگر
-      estandardConsumption:[],  //  مصرف دوره
+      estandardConsumption:[],  //  دوره استاندارد
       consumptionAmount:[],  //   بهای گاز مصرفی
       subscription:[],  //    آبونمان
       gasTolls:[],  //    عوارض

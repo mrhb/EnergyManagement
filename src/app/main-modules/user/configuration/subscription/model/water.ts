@@ -48,11 +48,29 @@ export class WaterBillList {
   paymentCode: {type: String, required: true}; // شناسه پرداخت
   fromDate: {type: Date, required: true}; // از تاریخ
   toDate: {type: Date, required: true}; // تا تاریخ
-  numberDays: {type: Number, required: true}; // تعداد روز دوره
-  previousCounter: {type: String, required: true}; // شمارنده قبلی
-  currentCounter: {type: String, required: true}; // شمارنده کنونی
+  numberDays: {type: Number}; // تعداد روز دوره
+  previousCounter: {type: String}; // شمارنده قبلی
+  currentCounter: {type: String}; // شمارنده کنونی
   consumptionDurat: {type: String, required: true}; // مصرف دوره
-  consumptionAmount: {type: Number, required: true}; // مبلغ مصرف
+  consumptionAmount: {type: Number}; // مبلغ مصرف
+  payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
+
+  id: string;
+}
+
+
+export class WaterBillExcelList {
+  billingId: string; // شناسه قبض
+  sharingId: String; // شناسه اشتراک آب
+  numberShare: String; // شماره اشتراک
+  nameShare: String;// نام اشتراک
+  paymentCode: {type: String, required: true}; // شناسه پرداخت
+  fromDate: {type: Date, required: true}; // از تاریخ
+  toDate: {type: Date, required: true}; // تا تاریخ
+  previousCounter: {type: String}; // شمارنده قبلی
+  currentCounter: {type: String}; // شمارنده کنونی
+  consumptionDurat: {type: String, required: true}; // مصرف دوره
+  consumptionAmount: {type: Number}; // مبلغ مصرف
   payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
 
   id: string;
