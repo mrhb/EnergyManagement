@@ -65,8 +65,8 @@ export class WaterBillExcelList {
   numberShare: String; // شماره اشتراک
   nameShare: String;// نام اشتراک
   paymentCode: {type: String, required: true}; // شناسه پرداخت
-  fromDate: {type: Date, required: true}; // از تاریخ
-  toDate: {type: Date, required: true}; // تا تاریخ
+  fromDate:String// {type: String, required: true}; // از تاریخ
+  toDate:string// // تا تاریخ
   previousCounter: {type: String}; // شمارنده قبلی
   currentCounter: {type: String}; // شمارنده کنونی
   consumptionDurat: {type: String, required: true}; // مصرف دوره

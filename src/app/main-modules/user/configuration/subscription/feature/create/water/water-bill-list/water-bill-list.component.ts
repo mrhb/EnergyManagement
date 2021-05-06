@@ -66,10 +66,8 @@ export class WaterBillListComponent implements OnInit {
 
          bill.billingId = item[0].toString(); // شماره اشتراک
          bill.paymentCode = item[1]; // شناسه پرداخت
-         bill.fromDate=item[2]; // تاریخ قبلی 
-         bill.toDate=item[3]; // تاریخ قبلی 
-         //  bill.fromDate =this.moment.convertJaliliToIsoDate(item[2].toString()); // تاریخ قبلی 
-         //  bill.toDate =this.moment.convertJaliliToIsoDate(item[3].toString()); // تاریخ قبلی 
+         bill.fromDate =this.moment.convertJaliliToIsoDate(item[2].toString()); // تاریخ قبلی 
+         bill.toDate =this.moment.convertJaliliToIsoDate(item[3].toString()); // تاریخ قبلی 
          bill.previousCounter=item[4]; //  رقم قبلی 
          bill.currentCounter=item[5]; //  رقم فعلی 
          bill.consumptionDurat=item[6];//    مصرف دوره      
