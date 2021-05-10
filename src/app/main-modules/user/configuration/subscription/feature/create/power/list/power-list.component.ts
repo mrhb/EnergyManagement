@@ -110,6 +110,9 @@ export class PowerListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.powerList = res.content;
+        this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
   }

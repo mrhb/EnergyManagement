@@ -106,6 +106,8 @@ export class WaterBillListComponent implements OnInit {
       if (res) {
         this.waterBillList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
 

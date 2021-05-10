@@ -105,6 +105,8 @@ export class GasBillListComponent implements OnInit {
       if (res) {
         this.gasBillList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
 }
