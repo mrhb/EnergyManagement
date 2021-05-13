@@ -133,7 +133,7 @@ createReceipt(): void {
           setTimeout(() => {
             $('#pills-building-tab').click();
           }, 200);
-          // this.router.navigate(['/index/user/configuration/generationList']);
+          this.router.navigate(['/index/user/configuration/generationList']);
         }
       });
   } else {

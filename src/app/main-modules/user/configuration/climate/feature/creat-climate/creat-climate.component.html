@@ -155,39 +155,44 @@
           <form [formGroup]="weatherForm" class="form" enctype="multipart/form-data" (ngSubmit)="updateweatherList()">
             <fieldset class="fieldset-border">
               <div class="form-group row">
-                <div class="mb-4 col-auto mt-2">
-                  <!-- <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
-                    <span class="cursor-pointer fa fa-file-excel-o"></span></button> -->
-                  <input #fileInput type="file" class="form-control-file"  (change)="onFileChange($event)" multiple="false" />
-                  <a href="assets/templateFiles/weather template.xlsx" download="weatherTemplate.xlsx">
+                <div class="row" style="padding-top: 20px;">
+                  <div class="mb-4 col-md-2">  
+                    <a href="assets/templateFiles/weather template.xlsx" download="weatherTemplate.xlsx">
                     نمونه فایل اطلاعات آب و هوا
                   </a>
                   <!-- <div class="btn btn-primary" (click)="getListBuilding()">جستجو  </div> -->
                 </div>
-                <!-- تاریخ شروع -->
-                <div class="mb-4 col-md-2">
-                  <div class="w-100">
-                    <label for="fromDate" class="form-label">از تاریخ</label>
-                    <input class="form-control text-right" id="fromDate" placeholder=""
-                    formControlName="fromDate"
-                    name="fromDate">
+                  <div class="mb-4 col-md-2">
+                    <!-- <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
+                      <span class="cursor-pointer fa fa-file-excel-o"></span></button> -->
+                    <input #fileInput type="file" class="form-control-file"  (change)="onFileChange($event)" multiple="false" />
                   </div>
-                  <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
-                </div>
-                <!-- تاریخ اتمام -->
-                <div class="mb-4 col-md-2">
-                  <div class="w-100">
-                    <label for="toDate" class="form-label">تا تاریخ </label>
-                    <input class="form-control text-right" id="toDate" placeholder=""
-                    formControlName="toDate"
-                    name="toDate">
+               
+                  <!-- تاریخ شروع -->
+                  <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="fromDate" class="form-label">از تاریخ</label>
+                      <input class="form-control text-right" id="fromDate" placeholder=""
+                      formControlName="fromDate"
+                      name="fromDate">
+                    </div>
+                    <app-alert-error [data]="weatherForm.controls['fromDate']" [touched]="touched"></app-alert-error>
                   </div>
-                  <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
+                  <!-- تاریخ اتمام -->
+                  <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                      <label for="toDate" class="form-label">تا تاریخ </label>
+                      <input class="form-control text-right" id="toDate" placeholder=""
+                      formControlName="toDate"
+                      name="toDate">
+                    </div>
+                    <app-alert-error [data]="weatherForm.controls['toDate']" [touched]="touched"></app-alert-error>
+                  </div>
+                   <!-- فراخوانی داده ها -->
+                  <div class="mb-4 col-md-2">
+                    <button class="btn btn-primary text-center ml-3">فراخوانی داده ها </button>
+                  </div>
                 </div>
-                <div class="col-12">
-                  <button class="btn btn-primary text-center ml-3">فراخوانی داده ها </button>
-                </div>
-
               </div>
             </fieldset>
           </form>
