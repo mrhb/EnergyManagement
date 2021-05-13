@@ -47,6 +47,8 @@ export class GenerationBillListComponent implements OnInit {
       if (res) {
         this.generationBillList = res.content;
         this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
 

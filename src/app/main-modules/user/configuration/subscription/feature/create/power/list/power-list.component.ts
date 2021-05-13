@@ -12,6 +12,7 @@ import {PowerService} from '../../../../service/power.service';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import * as XLSX from 'xlsx';
+import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
 type AOA = any[][];
 
 @Component({
@@ -25,6 +26,7 @@ export class PowerListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  regionId ="111111111111111111111111";
 
   filterBuilding = '';
   useTypeEnum = UseTypePowerEnum;
@@ -35,13 +37,18 @@ export class PowerListComponent implements OnInit {
   xlsxPowerBillList: PowerBillExcelList[] = [];
 
   buildingList = [];
-  constructor(public router: Router,
-              private powerService: PowerService,
-              private activatedRoute: ActivatedRoute) {
+  constructor(    
+    private stateService:RegionService,
+    public router: Router,
+    private powerService: PowerService,
+    private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getListPower();
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListPower();
+    })
   }
 
   onFileChange(evt: any) {
@@ -106,7 +113,7 @@ export class PowerListComponent implements OnInit {
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      },{regionId: this.regionId}
     ).subscribe((res: any) => {
       if (res) {
         this.powerList = res.content;
