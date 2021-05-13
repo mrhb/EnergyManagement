@@ -1,9 +1,7 @@
   /* Style page content */
 .main {
   margin-right: 160px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
-  height: calc(100vh - 150px);
-  width: calc(100vW - 180px);
+  height: calc(100vh - 100px);
   overflow-y: scroll;
 
 }
