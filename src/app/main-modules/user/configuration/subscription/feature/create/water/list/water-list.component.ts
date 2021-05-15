@@ -13,6 +13,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {UseCodeWaterEnum, UseTypeWater} from '../../../../model/waterEnum';
 
 import * as XLSX from 'xlsx';
+import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
 type AOA = any[][];
 
 @Component({
@@ -25,14 +26,17 @@ export class WaterListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
-  
+  regionId ="111111111111111111111111";
+
   xlsxWaterList: WaterList[] = [];
   data: AOA = [[1, 2], [3, 4]];
 
   useTypeEnum = UseTypeWater;
   useCodeWaterEnum=UseCodeWaterEnum;
   waterList: WaterList[] = [];
-  constructor(private waterService: WaterService,
+  constructor(
+    private stateService:RegionService,
+    private waterService: WaterService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -45,6 +49,10 @@ export class WaterListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListWater();
+    })
   }
   onFileChange(evt: any) {
     /* wire up file reader */
@@ -97,7 +105,7 @@ export class WaterListComponent implements OnInit {
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      },{regionId: this.regionId}
     ).subscribe((res: any) => {
       if (res) {
         this.waterList = res.content;
