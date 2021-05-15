@@ -13,6 +13,7 @@ import {GroupGasEnum,UseTypeGasEnum , CapacityGasEnum} from '../../../../model/g
 import Notiflix from 'notiflix';
 
 import * as XLSX from 'xlsx';
+import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
 type AOA = any[][];
 
 @Component({
@@ -25,6 +26,8 @@ export class GasListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  regionId ="111111111111111111111111";
+
   data: AOA = [[1, 2], [3, 4]];
   xlsxGasList: GasList[] = [];
 
@@ -33,7 +36,9 @@ export class GasListComponent implements OnInit {
   capacityEnum = CapacityGasEnum;
 
   gasList: GasList[] = [];
-  constructor(private gasService: GasService,
+  constructor(
+    private stateService:RegionService,
+    private gasService: GasService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -46,6 +51,10 @@ export class GasListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListGas();
+    })
   }
   onFileChange(evt: any) {
     /* wire up file reader */
@@ -97,7 +106,7 @@ export class GasListComponent implements OnInit {
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      },{regionId: this.regionId}
     ).subscribe((res: any) => {
       if (res) {
         this.gasList = res.content;

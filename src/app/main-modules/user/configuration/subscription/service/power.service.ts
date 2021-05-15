@@ -24,8 +24,8 @@ export class PowerService extends GeneralService {
     return super.putCheckService('update', body, errorSelector, param);
   }
 
-  getPowerList(param: any, body: any,  errorSelector?: string): Observable<any> {
-    return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
+  getPowerList(param: any, regionId: any, errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-list-pageable-by-filter', regionId, errorSelector, param);
   }
   createMultiList(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create-multi', body, errorSelector);

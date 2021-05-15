@@ -46,6 +46,9 @@ export class ClimateListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         this.climateList = res.content;
+        this.length = res.totalElements;
+        this.pageIndex = res.page;
+        this.totalPages = res. totalPages;
       }
     });
   }
