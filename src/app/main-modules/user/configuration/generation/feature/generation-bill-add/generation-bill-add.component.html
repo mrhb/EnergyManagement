@@ -58,6 +58,17 @@
                   </div>
                   <app-alert-error [data]="form.controls['consumptionDurat']" [touched]="touched"></app-alert-error>
                 </div>  
+                <!-- درآمد تولید  -->
+                <div class="mb-4 col-md-2">
+                  <div class="w-100">
+                    <label for="consumptionAmount" class="form-label">درآمد تولید </label>
+                    <input class="form-control text-right" id="consumptionAmount" placeholder=""
+                            [(ngModel)]="generationBillDto.consumptionAmount"
+                            formControlName="consumptionAmount"
+                            name="consumptionAmount">
+                  </div>
+                  <app-alert-error [data]="form.controls['consumptionAmount']" [touched]="touched"></app-alert-error>
+                </div>  
               </div>
             </fieldset>
           </form>

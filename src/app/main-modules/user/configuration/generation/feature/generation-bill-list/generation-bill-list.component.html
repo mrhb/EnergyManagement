@@ -43,9 +43,9 @@
                       <td>{{this.moment.DateDiff(generation.fromDate,generation.toDate)}}</td>
                       <td>{{generation.consumptionDurat}}</td>     
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                           [queryParams]="{id: generation.id}"
+                                           [queryParams]="{id: generation._id}"
                                            [routerLink]="'/index/user/configuration/generationBillAdd'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGeneration(i, generation.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteGeneration(i, generation._id)"></span></td>
                     </tr>
                    </tbody>
                   </table>
