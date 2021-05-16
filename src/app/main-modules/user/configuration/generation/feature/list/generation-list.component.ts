@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationList } from '../../model/generation';
 import { GenerationService } from '../../service/generation.service';
+import { RegionService } from '../../../region/service/region.service';
 
 @Component({
   selector: 'app-generation-list',
@@ -22,11 +23,15 @@ export class GenerationListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  regionId ="111111111111111111111111";
+
 
   generationTypeEnum = GenerationTypeEnum;
   consumptionTypeEnum=ConsumptionTypeEnum;
   generationList: GenerationList[] = [];
-  constructor(private generationService: GenerationService,
+  constructor(
+    private stateService:RegionService,
+    private generationService: GenerationService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -39,6 +44,10 @@ export class GenerationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListGeneration();
+    })
   }
 
   getListGeneration(): void {
@@ -46,8 +55,8 @@ export class GenerationListComponent implements OnInit {
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
+      },{regionId: this.regionId}
+      ).subscribe((res: any) => {
       if (res) {
         this.generationList = res.content;
         this.length = res.totalElements;
