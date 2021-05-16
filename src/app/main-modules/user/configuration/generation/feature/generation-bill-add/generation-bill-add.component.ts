@@ -98,6 +98,7 @@ jQueryDate(): void {
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
       consumptionDurat:[], // مقدار تولید
+      consumptionAmount:[],//درآمد تولید
     }
     );
   }
@@ -133,7 +134,7 @@ createReceipt(): void {
           setTimeout(() => {
             $('#pills-building-tab').click();
           }, 200);
-          this.router.navigate(['/index/user/configuration/generationList']);
+          this.router.navigate(['/index/user/configuration/generationBillList']);
         }
       });
   } else {
@@ -163,6 +164,6 @@ getListGeneration(): void {
 }
 selectGeneration(item): void {
   this.generationAllocation = item;
-  this.generationBillDto.generationSharingId=item.id;
+  this.generationBillDto.sharingId=item._id;
 }
 }

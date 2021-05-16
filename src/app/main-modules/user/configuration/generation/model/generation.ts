@@ -57,12 +57,13 @@ export class GenerationBillList {
   // payableAmount: {type: Number, required: true}; // مبلغ قابل پرداخت
 }
 export class GenerationBillDto {
-  generationSharingId: String; // شناسه نیروگاه
+  sharingId: String; // شناسه نیروگاه
   name: string; // نام نیروگاه
   billingId: string;// شناسه نیروگاه 
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
   consumptionDurat: string; // مقدار تولید
+  consumptionAmount:string;//درآمد تولید
 }
 
 export class GenerationAllocation {
