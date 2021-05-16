@@ -17,7 +17,7 @@ import { EnergyCarierEnum, NameEnum, UseTypeInstrumentEnum } from '../../model/i
   styleUrls: ['./instrument-list.component.scss']
 })
 export class InstrumentListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 5;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
