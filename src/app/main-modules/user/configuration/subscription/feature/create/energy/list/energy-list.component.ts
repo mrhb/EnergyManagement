@@ -14,6 +14,7 @@ import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
 import {UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
 
 import * as XLSX from 'xlsx';
+import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
 type AOA = any[][];
 
 
@@ -27,6 +28,8 @@ export class EnergyListComponent implements OnInit {
   pageIndex = 0;
   length = -1;
   totalPages = 1;
+  regionId ="111111111111111111111111";
+
 
   data: AOA = [[1, 2], [3, 4]];
   xlsxEnergyList: EnergyList[] = [];
@@ -35,7 +38,9 @@ export class EnergyListComponent implements OnInit {
   energyCarierEnum=EnergyCarierEnum;
   carierUnitEnum=CarierUnitEnum;
   energyList: EnergyList[] = [];
-  constructor(private energyService: EnergyService,
+  constructor(    
+    private stateService:RegionService,
+    private energyService: EnergyService,
               public router: Router,
               private activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
@@ -48,6 +53,10 @@ export class EnergyListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListEnergy();
+    })
   }
 
   onFileChange(evt: any) {
@@ -102,8 +111,8 @@ export class EnergyListComponent implements OnInit {
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
+      },{regionId: this.regionId}
+      ).subscribe((res: any) => {
       if (res) {
         this.energyList = res.content;
         this.length = res.totalElements;
