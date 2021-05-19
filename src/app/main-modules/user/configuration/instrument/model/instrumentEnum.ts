@@ -1,4 +1,4 @@
-//کاربری تجهیر
+//کاربری تجهیز
 export enum UseTypeInstrumentEnum {
   CENTERALAIRCONDITION = <any>'تاسیسات مرکزی تهویه مطبوع',
   LOCALAIRCONDITION = <any>'تاسیسات موضعی تهویه مطبوع',

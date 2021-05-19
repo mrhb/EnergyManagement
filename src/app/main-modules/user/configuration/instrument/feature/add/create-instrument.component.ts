@@ -13,6 +13,7 @@ import {InstrumentService} from '../../service/instrument.service';
 import {BuildingService} from '../../../building/service/building.service';
 import {UseTypeBuildingEnum, UtilityTypeEnum} from '../../../building/model/useTypeEnum';
 import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { EnergyBuildingAllocation } from '../../../subscription/model/energy';
 import { BuildingAllocation } from '../../../subscription/model/power';
@@ -29,6 +30,7 @@ declare var $: any;
   styleUrls: ['./create-instrument.component.scss']
 })
 export class CreateInstrumentComponent implements OnInit,AfterViewInit {
+  [x: string]: any;
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -38,8 +40,8 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   edited = false;
   form: FormGroup;
   utilityTypeEnum = UtilityTypeEnum;
-  useTypeEnum = UseTypeInstrumentEnum; //کاربری تجهیر
-  nameEnum; //نام تجهیر
+  useTypeEnum = UseTypeInstrumentEnum; //کاربری تجهیز
+  nameEnum; //نام تجهیز
   energyCarierEnum=EnergyCarierEnum;//حاملهای انرژی
   myPattern = MyPattern;
   moment = Moment;
@@ -51,6 +53,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
   editedAllocation = false;
 
   constructor(private formBuilder: FormBuilder,
+              public router: Router,
               private activatedRoute: ActivatedRoute,
               private buildingService: BuildingService,
               private instrumentService: InstrumentService) {
@@ -66,7 +69,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      instrumentUsage:  ['', [Validators.required ]], //کاربری تجهیر
+      instrumentUsage:  ['', [Validators.required ]], //کاربری تجهیز
       name: ['', [Validators.required ]], // نام تجهیز
       instrumentCarrier: [''],// حامل انرژی 
       instrumentNum:  [''], //تعداد
@@ -76,6 +79,8 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       fromDate:  [''], //  تاریخ شروع کار تجهیز
       toDate:  [''], //  تاریخ خاتمه کار تجهیز
       coincidenceCoefficient:  [''], //    ضریب همزمانی 
+    }, {
+      validators: this.checkAreaValidators('coincidenceCoefficient')
     });
   }
   ngAfterViewInit(): void {
@@ -139,7 +144,8 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigateByUrl('/index/user/configuration/instrumentList').then();
+            this.router.navigate(['/index/user/configuration/instrumentList']);
+
           }
         });
     } else {
@@ -147,6 +153,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش تجهیز با موفقیت انجام شد.');
+            this.router.navigate(['/index/user/configuration/instrumentList']);
             // this.router.navigateByUrl('/index/user/configuration/instrumentList').then();
           }
         });
@@ -214,7 +221,15 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       }
     });
   }
+  // مقایسه ضریب همزمانی
+  checkAreaValidators(item1: any): (group: FormGroup) => any {
+    return (group: FormGroup) => {
 
+      if (  group.controls[item1].value< 1 ) {
+        Notiflix.Notify.Failure('ضریب همزمانی باید کمتر از 1 باشد');      
+      }
+    };
+  }
 
   selectBuildingAllocation(item): void {
     this.buildingAllocation.name = item.name;

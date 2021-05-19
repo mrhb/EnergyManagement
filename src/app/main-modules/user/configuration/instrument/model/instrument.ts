@@ -7,7 +7,7 @@ export class InstrumentDto {
   name: NameEnum; //نام تجهیز 
   instrumentCarrier: EnergyCarierEnum; // حامل انرژی 
   instrumentNum: string; //تعداد
-  instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیر
+  instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیز
   consumptionPower: string; //توان مصرفی 
   dailyOperatHours: string; // ساعت کارکرد روز 
   AnnualWorkDayNum: string; //  تعداد روز کارکرد در سال 
@@ -31,7 +31,7 @@ export class InstrumentList {
   id: string;
   name: NameEnum; //نام تجهیز 
   instrumentCarrier: string; //نام حامل انرژی 
-  instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیر
+  instrumentUsage: UseTypeInstrumentEnum; //کاربری تجهیز
   instrumentNum: string; //تعداد
   consumptionPower: string; //توان مصرفی 
 }
