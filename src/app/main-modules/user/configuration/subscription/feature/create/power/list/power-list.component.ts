@@ -146,7 +146,7 @@ export class PowerListComponent implements OnInit {
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
+      'اشتراک',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',

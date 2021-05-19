@@ -157,8 +157,8 @@ export class CreateGenerationComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'قبض',
-      'آیا اطمینان دارید که این ساختمانحذف گردد؟',
+      'ساختمان',
+      'آیا اطمینان دارید که این ساختمان حذف گردد؟',
       'بله',
       'خیر',
       () => {

@@ -86,7 +86,7 @@ export class GenerationListComponent implements OnInit {
 
   deleteGeneration(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
+      'نیروگاه',
       'آیا اطمینان دارید که این نیروگاه حذف گردد؟',
       'بله',
       'خیر',

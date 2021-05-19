@@ -76,7 +76,7 @@ export class InstrumentListComponent implements OnInit {
 
   deleteInstrument(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
+      'تجهیز',
       'آیا اطمینان دارید که این تجهیز حذف گردد؟',
       'بله',
       'خیر',

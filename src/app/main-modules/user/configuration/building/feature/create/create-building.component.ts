@@ -95,9 +95,9 @@ constructor(private formBuilder: FormBuilder,
       useFullArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       externalWallsTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
       externalGlassTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-                }, {
-      validators: this.checkAreaValidators('arenaArea', 'ayanArea')
-    });
+          }, {
+            validators: this.checkAreaValidators('ayanArea', 'useFullArea')
+          });
     // متغیرهای فضا
     this.spaceForm = this.formBuilder.group({
       name: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
@@ -282,11 +282,20 @@ constructor(private formBuilder: FormBuilder,
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
-        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد');      
+        Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');      
       }
     };
   }
   
+  // مقایسه مساحت مفید و اعیان
+  checkAreaValidators1(item1: any, item2: any): (group: FormGroup) => any {
+    return (group: FormGroup) => {
+
+      if (  group.controls[item1].value<  group.controls[item2].value) {
+        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد');      
+      }
+    };
+  }
   // بررسی اطلاعات ساختمان
   updateBuilding(): void {
     this.buildingDto.utilityType=UtilityTypeEnum[UtilityTypeEnum.BUILDING.toString()];

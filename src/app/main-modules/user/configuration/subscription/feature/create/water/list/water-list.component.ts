@@ -136,7 +136,7 @@ export class WaterListComponent implements OnInit {
 
   deleteWater(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
+      'اشتراک',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',

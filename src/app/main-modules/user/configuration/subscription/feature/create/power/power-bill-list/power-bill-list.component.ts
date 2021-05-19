@@ -181,7 +181,7 @@ var periodName=[
 
   deletePower(i, pId): void {
     Notiflix.Confirm.Show(
-      'حذف قبض',
+      'قبض',
       'آیا اطمینان دارید که این قبض حذف گردد؟',
       'بله',
       'خیر',

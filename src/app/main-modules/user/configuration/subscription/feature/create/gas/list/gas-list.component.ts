@@ -136,7 +136,7 @@ export class GasListComponent implements OnInit {
 
   deleteGas(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
+      'اشتراک',
       'آیا اطمینان دارید که این اشتراک حذف گردد؟',
       'بله',
       'خیر',

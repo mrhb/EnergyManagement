@@ -118,8 +118,8 @@ export class EnergyBillListComponent implements OnInit {
 
   deleteEnergy(i, pId): void {
     Notiflix.Confirm.Show(
-      'قبض',
-      'آیا اطمینان دارید که این قبض حذف گردد؟',
+      'تولید',
+      'آیا اطمینان دارید که این تولید حذف گردد؟',
       'بله',
       'خیر',
       () => {
