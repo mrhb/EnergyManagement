@@ -18,6 +18,7 @@ import { BuildingAllocation } from '../../../subscription/model/power';
 import { GenerationBuildingAllocation, GenerationDto } from '../../model/generation';
 import { GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEnum';
 import { GenerationService } from '../../service/generation.service';
+
 declare var $: any;
 @Component({
   selector: 'app-create-generation',
@@ -100,7 +101,7 @@ export class CreateGenerationComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش نیروگاه با موفقیت انجام شد.');
-            // this.router.navigateByUrl('/index/user/configuration/generationList').then();
+            this.router.navigate(['/index/user/configuration/generationList']);
           }
         });
     }
@@ -137,6 +138,7 @@ export class CreateGenerationComponent implements OnInit {
             this.buildingAllocation = new GasBuildingAllocation();
             Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
             this.generationDto.buildingList.push(res.data);
+            this.router.navigate(['/index/user/configuration/generationList']);
           }
         });
     } else {

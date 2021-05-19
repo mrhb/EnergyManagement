@@ -166,6 +166,6 @@ export enum EnergyCarierEnum {
 // واحد
 export enum UnitInstrumentEnum {
   LITER = <any> 'لیتر',
-  KWATT = <any> 'کیلووات',
+  KWATT = <any> 'کیلووات ساعت',
   METER3 = <any> 'مترمکعب',
 }

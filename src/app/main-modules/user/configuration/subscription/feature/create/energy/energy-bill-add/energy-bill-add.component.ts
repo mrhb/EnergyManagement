@@ -141,7 +141,7 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigate(['/index/user/configuration/energyList']);
+            // this.router.navigate(['/index/user/configuration/energyBillList']);
           }
         });
     } else {
@@ -150,7 +150,7 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش قبض انرژی با موفقیت انجام شد.');
-            // this.router.navigate(['/index/user/configuration/energyList']);
+            this.router.navigate(['/index/user/configuration/energyBillList']);
           }
         });
     }

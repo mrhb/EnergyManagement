@@ -71,10 +71,10 @@ export class PowerCreateComponent implements OnInit {
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
       billingId: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
-      systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.smartCode)]],
       contract:  [''],
       addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
-      fileNumber: [''],
+      fileNumber: ['',[ Validators.pattern(this.myPattern.smartCode)]],
       serialShare: [''],
       useType: ['', [Validators.required]],
       useCode: ['', [Validators.required]],
@@ -157,8 +157,7 @@ export class PowerCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک برق با موفقیت انجام شد.');
-            // this.router.navigate(['/index/user/configuration/powerCreate' ],{fragment: "billingSearchId"});
-            // this.router.navigate(['/index/user/configuration/powerList']);
+            this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
     }
@@ -206,6 +205,7 @@ export class PowerCreateComponent implements OnInit {
             this.powerDto.buildingList.push(res.data);
             this.router.navigate(['/index/user/configuration/powerList']);
             Notiflix.Notify.Success('تخصیص ساختمان با موفقیت انجام شد.');
+            this.router.navigate(['/index/user/configuration/powerList']);
           }
         });
     } else {

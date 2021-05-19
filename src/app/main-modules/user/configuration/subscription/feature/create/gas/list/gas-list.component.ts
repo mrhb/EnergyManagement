@@ -96,7 +96,7 @@ export class GasListComponent implements OnInit {
         // setTimeout(() => {
         //   $('#pills-building-tab').click();
         // }, 200);
-        // this.router.navigate(['/index/user/configuration/powerList']);
+        // this.router.navigate(['/index/user/configuration/gasList']);
       }
     });
   }

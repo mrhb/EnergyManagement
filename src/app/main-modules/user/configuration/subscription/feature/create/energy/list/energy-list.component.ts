@@ -85,7 +85,7 @@ export class EnergyListComponent implements OnInit {
        bill.energyUnit = item[0]; //واحد انرژی
        bill.shareNumber = item[0]; //شماره کنتور
        bill.capacity = item[0]; //ظرفیت
-       bill.kiloWatConvert = item[0]; // ضریب تبدیل به کیلووات
+       bill.kiloWatConvert = item[0]; // ضریب تبدیل به kwh
        this.xlsxEnergyList.push(bill);
     });
 

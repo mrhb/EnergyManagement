@@ -22,7 +22,7 @@
                       <th scope="col"> نوع انرژی مصرفی</th>
                       <th scope="col"> از تاریخ</th>
                       <th scope="col"> تا تاریخ</th>
-                      <th scope="col" width="40"> تعداد روزها</th>
+                      <th scope="col"> تعداد روزها</th>
                       <th scope="col"> میزان مصرف </th>
                       <th scope="col"> هزینه انرژی </th>
                       <th scope="col" width="250"> مبلغ قابل پرداخت </th>
@@ -38,8 +38,8 @@
                       <td>{{this.moment.getJaliliDateFromIso(energy.toDate)}}</td>
                       <td>{{this.moment.DateDiff(energy.fromDate,energy.toDate)}}</td>
                       <td>{{energy.consumptionDurat}}</td>
-                      <td>{{energy.consumptionAmount}}</td>
-                      <td>{{energy.payableAmount}}</td>
+                      <td>{{energy.consumptionAmount| number: '0.0-2'}}</td>
+                      <td>{{energy.payableAmount| number: '0.0-2'}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                           [queryParams]="{id: energy.id}"
                           [routerLink]="'/index/user/configuration/energyBillAdd'"></span></td>
@@ -70,12 +70,12 @@
   </main>
 </div>
 
-<!-- افزون قبض انرژی از اکسل -->
+<!-- افزودن قبض انرژی از اکسل -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">افزون قبض انرژی از اکسل</h5>
+        <h5 class="modal-title" id="exampleModalLabel">افزودن قبض انرژی از اکسل</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

@@ -15,7 +15,7 @@ import {GasBuildingAllocation} from '../../../../model/gas';
 import {BuildingAllocation} from '../../../../model/power';
 import {BuildingService} from '../../../../../building/service/building.service';
 import {UtilityTypeEnum} from '../../../../../building/model/useTypeEnum';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { CarierUnitEnum, EnergyCarierEnum } from '../../../../model/energyEnum';
 
 declare var $: any;
@@ -43,11 +43,11 @@ export class CreateEnergyComponent implements OnInit {
   filterBuilding = '';
   buildingList = [];
   editedAllocation = false;
-  router: any;
 
   constructor(private formBuilder: FormBuilder,
               private activatedRoute: ActivatedRoute,
               private buildingService: BuildingService,
+              private router: Router,
               private energyService: EnergyService) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.pattern(this.myPattern.nameAndFamily)]],
@@ -90,8 +90,7 @@ export class CreateEnergyComponent implements OnInit {
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigate(['/index/user/configuration/energyList']).then();
-            // this.router.navigateByUrl('/index/user/configuration/energyList').then();
+            // this.router.navigate(['/index/user/configuration/energyList']);
           }
         });
     } else {
@@ -99,6 +98,7 @@ export class CreateEnergyComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک انرژی با موفقیت انجام شد.');
+            this.router.navigate(['/index/user/configuration/energyList']);
           }
         });
     }
@@ -135,7 +135,7 @@ export class CreateEnergyComponent implements OnInit {
             this.buildingAllocation = new GasBuildingAllocation();
             Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
             this.energyDto.buildingList.push(res.data);
-            // this.router.navigate('/index/user/configuration/energyList').then();
+            this.router.navigate(['/index/user/configuration/energyList']);
           }
         });
     } else {

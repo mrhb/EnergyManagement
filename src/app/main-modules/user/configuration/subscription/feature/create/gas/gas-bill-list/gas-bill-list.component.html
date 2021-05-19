@@ -40,8 +40,8 @@
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate)}}</td>
                       <td>{{this.moment.DateDiff(gasBill.fromDate,gasBill.toDate)}}</td>
-                      <td>{{gasBill.consumptionDurat}}</td>
-                      <td>{{gasBill.payableAmount}}</td>
+                      <td>{{gasBill.consumptionDurat| number:'0.0-2'}}</td>
+                      <td>{{gasBill.payableAmount| number:'0.0-2'}}</td>
                       <!-- <td width="40"><span class="cursor-pointer fa fa-edit" -->
                         <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: gasBill.id}"
@@ -73,12 +73,12 @@
   </main>
 </div>
 
-<!-- افزون قبض گاز از اکسل -->
+<!-- افزودن قبض گاز از اکسل -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">افزون قبض گاز از اکسل</h5>
+        <h5 class="modal-title" id="exampleModalLabel">افزودن قبض گاز از اکسل</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

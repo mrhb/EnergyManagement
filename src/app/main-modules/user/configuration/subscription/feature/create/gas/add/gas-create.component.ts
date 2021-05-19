@@ -101,8 +101,7 @@ export class GasCreateComponent implements OnInit {
             setTimeout(() => {
               $('#pills-building-tab').click();
             }, 200);
-            // this.router.navigate(['/index/user/configuration/gasList']).then();
-            // this.router.navigateByUrl('/index/user/configuration/gasList').then();
+        // this.router.navigate(['/index/user/configuration/gasList']);
           }
         });
     } else {
@@ -110,7 +109,7 @@ export class GasCreateComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             Notiflix.Notify.Success('ویرایش اشتراک گاز با موفقیت انجام شد.');
-            // this.router.navigateByUrl('/index/user/configuration/gasList').then();
+            this.router.navigate(['/index/user/configuration/gasList']);
           }
         });
     }
@@ -165,6 +164,7 @@ export class GasCreateComponent implements OnInit {
             Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
             this.buildingAllocation = new GasBuildingAllocation();
             this.gasDto.buildingList.push(res.data);
+            this.router.navigate(['/index/user/configuration/gasList']);
           }
         });
     } else {

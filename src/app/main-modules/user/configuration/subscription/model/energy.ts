@@ -7,7 +7,7 @@ export class EnergyDto {
   energyUnit: string; //واحد انرژی
   shareNumber: string; //شماره کنتور
   capacity: string; //ظرفیت
-  kiloWatConvert: string; // ضریب تبدیل به کیلووات
+  kiloWatConvert: string; // ضریب تبدیل به kwh
   creatorId: string;
   ownerId: string;
   buildingList: EnergyBuildingAllocation[] = [];
@@ -31,7 +31,7 @@ export class EnergyList {
   energyUnit: string; //واحد انرژی
   shareNumber: string; //شماره کنتور
   capacity: string; //ظرفیت
-  kiloWatConvert: string; // ضریب تبدیل به کیلووات
+  kiloWatConvert: string; // ضریب تبدیل به kwh
   buildingNum: string;//تعداد ساختمان
   billingId: string;
   addressCode: string;

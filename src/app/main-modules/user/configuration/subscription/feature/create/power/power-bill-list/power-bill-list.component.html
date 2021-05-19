@@ -73,12 +73,12 @@
 </div>
 
 
-<!-- افزون قبض برق از اکسل -->
+<!-- افزودن قبض برق از اکسل -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">افزون قبض برق از اکسل</h5>
+        <h5 class="modal-title" id="exampleModalLabel">افزودن قبض برق از اکسل</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -92,11 +92,25 @@
           <table class="table table-striped table-bordered">
             <thead class="thead-light">
               <tr>
-                <th scope="col"> نام مشترک </th>
+                <th scope="col"> شناسه قبض </th>
+                <th scope="col"> شناسه پرداخت </th>
                 <th scope="col"> دوره </th>
                 <th scope="col"> از تاریخ</th>
                 <th scope="col"> تا تاریخ</th>
-                <th scope="col">  مصرف کل </th>
+                <th scope="col">  میان باری  </th>
+                <th scope="col">  اوج بار  </th>
+                <th scope="col">  کم بار  </th>
+                <th scope="col">  اوج بار جمعه  </th>
+                <th scope="col">  راکتیو  </th>
+                <th scope="col">  قدرت قراردادی  </th>
+                <th scope="col">  قدرت محاسبه شده  </th>
+                <th scope="col">  قدرت مصرفی  </th>
+                <th scope="col">  ضریب بدی مصرف  </th>
+                <th scope="col">  عدد ماکسیمتر  </th>
+                <th scope="col">  مبلغ مصرف  </th>
+                <th scope="col">  بهای قدرت </th>
+                <th scope="col"> بهای فصل </th>
+                <th scope="col">  جریمه بدی مصرف </th>
                 <th scope="col" width="250"> مبلغ قابل پرداخت </th>
             </tr>
             </thead>
@@ -104,12 +118,26 @@
             <ng-container *ngFor="let item of xlsxPowerBillList; let i = index">
               <tr>
                 <td>{{item.billingId}}</td>
+                <td>{{item.paymentCode}}</td>
                 <td>{{item.period}}</td>
                 <!-- <td>{{this.moment.getJaliliDateFromIso(PowerBill.fromDate)}}</td> -->
                 <!-- <td>{{this.moment.getJaliliDateFromIso(PowerBill.toDate.toString())}}</td> -->
                 <td>{{item.fromDate}}</td> 
                  <td>{{item.toDate}}</td>
-                <td>{{item.consumptionDurat}}</td>
+                <td>{{item.intermediate}}</td>
+                <td>{{item.peakLoad}}</td>
+                <td>{{item.lowLoad}}</td>
+                <td>{{item.peakTimesFriday}}</td>
+                <td>{{item.reactive}}</td>
+                <td>{{item.contractualPower}}</td>
+                <td>{{item.calculatedPower}}</td>
+                <td>{{item.powerConsumption}}</td>
+                <td>{{item.badConsumptionLossRatio}}</td>
+                <td>{{item.maximeterNumber}}</td>
+                <td>{{item.consumptionAmount}}</td>
+                <td>{{item.powerPrice}}</td>
+                <td>{{item.seasonPrice}}</td>
+                <td>{{item.badPenaltiesForConsuming}}</td>
                 <td>{{item.payableAmount}}</td>
               </tr>
             </ng-container>
