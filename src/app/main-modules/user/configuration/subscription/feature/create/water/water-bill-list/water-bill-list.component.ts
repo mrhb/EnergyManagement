@@ -15,6 +15,7 @@ import { WaterReceiptService } from '../../../../service/water-receipt.service';
 import { Moment } from 'src/app/shared/tools/moment';
 
 import * as XLSX from 'xlsx';
+import { BillFilterDto } from '../../../../model/billFilter';
 type AOA = any[][];
 
 @Component({
@@ -28,6 +29,10 @@ export class WaterBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
+
+  billFilter= new BillFilterDto();
+
+  
   data: AOA = [[1, 2], [3, 4]];
   xlsxWaterBillList: WaterBillExcelList[] = [];
 
@@ -95,15 +100,22 @@ export class WaterBillListComponent implements OnInit {
     });
   }
  
-
+  filterChange(event) {
+    this.billFilter=event;
+    this.pageSize = 10;
+    this.pageIndex = 0;
+    this.getWaterBillList()
+  }
   getWaterBillList(): void {
     this.waterReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      }, this.billFilter
     ).subscribe((res: any) => {
       if (res) {
+        Notiflix.Notify.Success('داده جدید دریافت شد.');
+
         this.waterBillList = res.content;
         this.length = res.totalElements;
         this.pageIndex = res.page;

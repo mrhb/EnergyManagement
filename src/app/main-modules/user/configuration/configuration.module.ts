@@ -64,6 +64,7 @@ import { TariffListComponent } from './tariff/feature/tariff-list/tariff-list.co
 import { TariffService } from './tariff/service/tariff.service';
 import { TariffPowerParam1Component } from './tariff/feature/tariff-power-param1/tariff-power-param1.component';
 import { TariffPowerParam2Component } from './tariff/feature/tariff-power-param2/tariff-power-param2.component';
+import { BillFilterComponent } from './subscription/feature/bill-filter/bill-filter.component';
 
 
 @NgModule({
@@ -113,6 +114,7 @@ import { TariffPowerParam2Component } from './tariff/feature/tariff-power-param2
     TariffListComponent,
     TariffPowerParam1Component,
     TariffPowerParam2Component,
+    BillFilterComponent,
   ],
     imports: [
         CommonModule,

@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between">
+            <form [formGroup]="form" class="w-100">
+                <div class="form-group row">
+                    <div class="mb-4 col-md-2">
+                        <label for="fromDate" class="form-label">شناسه قبض</label>
+                        <input type="text" 
+                        name="billingId"
+                          onchange="billingIdChange()"/>
+                      </div>
+                      
+                    <!-- تاریخ شروع   -->
+                    <div class="mb-4 col-md-2">
+                        <div class="w-100">
+                            <label for="fromDate" class="form-label">از تاریخ</label>
+                            <input class="form-control text-right" id="fromDate" placeholder=""
+                            formControlName="fromDate"
+                     name="fromDate">
+                    </div>
+                    <app-alert-error [data]="form.controls['fromDate']" ></app-alert-error>
+                </div>
+                <!-- تاریخ اتمام   -->
+                <div class="mb-4 col-md-2">
+                    <div class="w-100">
+                        <label for="toDate" class="form-label">تا تاریخ</label>
+                        <input class="form-control text-right" id="toDate" placeholder=""
+                        formControlName="toDate"
+                        name="toDate">
+                    </div>
+                    <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
+                </div>
+            </div>
+        </form>
+</div>
