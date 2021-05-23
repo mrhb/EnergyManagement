@@ -32,9 +32,9 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       organizationalLevel: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       phone: ['', [ Validators.maxLength(12), Validators.pattern(this.myPattern.fixedPhone)]], //شماره تلفن ثابت
-      email: ['', [ Validators.pattern(this.myPattern.email)]], //ایمیل
-      mobile: ['', [ Validators.maxLength(11), Validators.pattern(this.myPattern.phone)]], // شماره همراه
-      userName: [''], // نام کاربری
+      email: ['', [Validators.required, Validators.pattern(this.myPattern.email)]], //ایمیل
+      mobile: ['', [Validators.required, Validators.maxLength(11), Validators.pattern(this.myPattern.phone)]], // شماره همراه
+      // userName: [''], // نام کاربری
       address: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //آدرس
       organizationalUnit: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]], //واحد سازمانی
       city: ['', [ Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],// شهر
@@ -108,7 +108,7 @@ export class SignupComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             if (res.data && res.flag) {
-              Notiflix.Notify.Failure('ایمیل وارد شده تکراری می باشد.');
+              Notiflix.Notify.Failure('نام کاربری (ایمیل) وارد شده تکراری می باشد.');
               this.dto.email = '';
             }
           } else {
