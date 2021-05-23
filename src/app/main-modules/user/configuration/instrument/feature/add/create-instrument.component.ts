@@ -80,7 +80,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       toDate:  [''], //  تاریخ خاتمه کار تجهیز
       coincidenceCoefficient:  [''], //    ضریب همزمانی 
     }, {
-      validators: this.checkAreaValidators('coincidenceCoefficient')
+      validators: this.checkCoinCoefValidators('coincidenceCoefficient')
     });
   }
   ngAfterViewInit(): void {
@@ -222,7 +222,7 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
     });
   }
   // مقایسه ضریب همزمانی
-  checkAreaValidators(item1: any): (group: FormGroup) => any {
+  checkCoinCoefValidators(item1: any): (group: FormGroup) => any {
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value< 1 ) {

@@ -11,7 +11,7 @@
           </div>
           <div class="form row">
              <!-- نام  -->
-            <div class="mb-4 col-md-6">
+            <div class="mb-4 col-md-4">
               <div class="w-100">
                 <label for="firstName" class="form-label">نام</label>
                 <input class="form-control text-right" id="firstName" placeholder=""
@@ -23,7 +23,7 @@
               <app-alert-error [data]="userForm.controls['firstName']" [touched]="touched"></app-alert-error>
             </div>
             <!-- نام خانوادگی  -->
-            <div class="mb-4 col-md-6">
+            <div class="mb-4 col-md-4">
               <div class="w-100">
                 <label for="lastName" class="form-label">نام خانوادگی</label>
                 <input class="form-control text-right" id="lastName" placeholder=""
@@ -46,7 +46,7 @@
               <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
             </div>
             <!-- نام کاربری  -->
-            <div class="mb-4 col-md-6">
+            <!-- <div class="mb-4 col-md-6">
               <div class="w-100">
                 <label for="userName" class="form-label">نام کاربری</label>
                 <input class="form-control text-right" id="userName" placeholder=""
@@ -55,8 +55,19 @@
                        name="userName">
               </div>
               <app-alert-error [data]="userForm.controls['userName']" [touched]="touched"></app-alert-error>
+            </div> -->
+            
+            <!-- ایمیل  -->
+            <div class="mb-4 col-md-6">
+              <div class="w-100">
+                <label for="email" class="form-label">نام کاربری (ایمیل)</label>
+                <input class="form-control text-right" id="email" placeholder=""
+                       [(ngModel)]="dto.email"
+                       formControlName="email"
+                       name="email">
+              </div>
+              <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
             </div>
-
             <!-- همراه -->
             <div class="mb-4 col-md-6">
               <div class="w-100">
@@ -65,24 +76,11 @@
                        [(ngModel)]="dto.mobile"
                        formControlName="mobile"
                        name="mobile"
-                       maxlength="11"
-                >
-                
+                       maxlength="11">
               </div>
               <app-alert-error [data]="userForm.controls['mobile']" [touched]="touched"></app-alert-error>
             </div>
        
-        <!-- ایمیل  -->
-        <div class="mb-4 col-md-6">
-          <div class="w-100">
-            <label for="email" class="form-label">ایمیل</label>
-            <input class="form-control text-right" id="email" placeholder=""
-                   [(ngModel)]="dto.email"
-                   formControlName="email"
-                   name="email">
-          </div>
-          <app-alert-error [data]="userForm.controls['email']" [touched]="touched"></app-alert-error>
-        </div>
       
             <!-- رمزعبور   -->
             <div class="mb-4 col-md-4">

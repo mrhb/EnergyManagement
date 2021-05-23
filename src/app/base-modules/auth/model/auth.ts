@@ -1,3 +1,5 @@
+import { ProvinceEnum } from "src/app/main-modules/user/configuration/climate/model/climateEnum";
+
 export namespace Auth {
   export class SignIn {
     username: string;
@@ -14,7 +16,8 @@ export namespace Auth {
     organizationalLevel: string;
     address: string;// آدرس
     city: string; // شهر
-    province: string; //استان
+    // province: string; //استان
+    province: ProvinceEnum;// استان  
     email: string; //ایمیل
     mobile: string; //شماره همراه
     password: string;
