@@ -15,9 +15,10 @@
                   <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
                     <span class="cursor-pointer fa fa-file-excel-o"></span></button>
                     <button class="btn btn-outline-primary text-center" [routerLink]="'/index/user/configuration/waterBillAdd'">افزودن</button> 
-                </div>              
+                </div>   
               </div>
               <div class="card-body">
+                <app-bill-filter (billFilterChange)="filterChange($event)"></app-bill-filter>           
                 <table class="table table-responsive-sm table-striped">
                   <thead>
                     <tr>
