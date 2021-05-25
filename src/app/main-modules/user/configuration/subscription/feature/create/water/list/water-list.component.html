@@ -33,12 +33,12 @@
                     <tr *ngFor="let water of waterList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                       <td>{{water.name}}</td>
-                      <td>{{water.billingId}}</td>
-                      <td>{{water.numberShare}}</td>
+                      <td class="text-center">{{water.billingId}}</td>
+                      <td class="text-center">{{water.numberShare}}</td>
                       <td>{{useTypeEnum[water.useType].toString()}}</td>
                       <td>{{useCodeWaterEnum[water.useCode].toString()}}</td>
-                      <td>{{water.capacity}}</td>
-                      <td>{{water.buildingNum}}</td>
+                      <td class="text-center">{{water.capacity}}</td>
+                      <td class="text-center">{{water.buildingNum}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: water._id}"
                                            [routerLink]="'/index/user/configuration/editWater'"></span></td>

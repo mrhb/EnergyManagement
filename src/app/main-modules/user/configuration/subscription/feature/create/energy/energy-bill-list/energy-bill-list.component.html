@@ -36,10 +36,10 @@
                       <!-- <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td> -->
                       <td>{{this.moment.getJaliliDateFromIso(energy.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(energy.toDate)}}</td>
-                      <td>{{this.moment.DateDiff(energy.fromDate,energy.toDate)}}</td>
-                      <td>{{energy.consumptionDurat}}</td>
-                      <td>{{energy.consumptionAmount| number: '0.0-2'}}</td>
-                      <td>{{energy.payableAmount| number: '0.0-2'}}</td>
+                      <td class="text-center">{{this.moment.DateDiff(energy.fromDate,energy.toDate)}}</td>
+                      <td class="text-center">{{energy.consumptionDurat}}</td>
+                      <td class="text-center">{{energy.consumptionAmount| number: '0.0-2'}}</td>
+                      <td class="text-center">{{energy.payableAmount| number: '0.0-2'}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                           [queryParams]="{id: energy.id}"
                           [routerLink]="'/index/user/configuration/energyBillAdd'"></span></td>

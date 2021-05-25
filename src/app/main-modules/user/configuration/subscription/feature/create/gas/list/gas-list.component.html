@@ -33,12 +33,12 @@
                     <tr *ngFor="let gas of gasList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * gasList.length))}}</th>
                       <td>{{gas.name}}</td>
-                      <td>{{gas.billingId}}</td>
-                      <td>{{gas.numberShare}}</td>
+                      <td class="text-center">{{gas.billingId}}</td>
+                      <td class="text-center">{{gas.numberShare}}</td>
                       <td>{{useTypeEnum[gas.useType].toString()}}</td>
                       <td>{{groupGasEnum[gas.group].toString()}}</td>
-                      <td>{{capacityEnum[gas.capacity].toString()}}</td>
-                      <td>{{gas.buildingNum}}</td>
+                      <td class="text-center">{{capacityEnum[gas.capacity].toString()}}</td>
+                      <td class="text-center">{{gas.buildingNum}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: gas._id}"
                                            [routerLink]="'/index/user/configuration/editGas'"></span></td>

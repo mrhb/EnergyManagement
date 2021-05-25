@@ -39,9 +39,9 @@
                       <td>{{gasBill.nameShare}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(gasBill.toDate)}}</td>
-                      <td>{{this.moment.DateDiff(gasBill.fromDate,gasBill.toDate)}}</td>
-                      <td>{{gasBill.consumptionDurat| number:'0.0-2'}}</td>
-                      <td>{{gasBill.payableAmount| number:'0.0-2'}}</td>
+                      <td class="text-center">{{this.moment.DateDiff(gasBill.fromDate,gasBill.toDate)}}</td>
+                      <td class="text-center">{{gasBill.consumptionDurat| number:'0.0-2'}}</td>
+                      <td class="text-center">{{gasBill.payableAmount| number:'0.0-2'}}</td>
                       <!-- <td width="40"><span class="cursor-pointer fa fa-edit" -->
                         <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: gasBill.id}"

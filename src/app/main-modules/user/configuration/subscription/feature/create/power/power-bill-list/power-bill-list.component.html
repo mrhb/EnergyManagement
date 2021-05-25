@@ -39,9 +39,9 @@
                       <td>{{periodEnum[power.period].toString()}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(power.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(power.toDate)}}</td>
-                      <td>{{this.moment.DateDiff(power.fromDate,power.toDate)}}</td>
-                      <td>{{power.ConsumptionSum}}</td>
-                      <td>{{power.consumptionAmount}}</td>
+                      <td class="text-center">{{this.moment.DateDiff(power.fromDate,power.toDate)}}</td>
+                      <td class="text-center">{{power.ConsumptionSum}}</td>
+                      <td class="text-center">{{power.consumptionAmount}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: power.id}"
                                            [routerLink]="'/index/user/configuration/powerBillAdd'"></span></td>

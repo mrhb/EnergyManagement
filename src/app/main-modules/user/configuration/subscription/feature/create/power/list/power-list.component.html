@@ -24,7 +24,7 @@
                       <th scope="col">نوع کنتور</th>
                       <th scope="col"> عنوان تعرفه</th>
                       <th scope="col">کد تعرفه</th>
-                      <th scope="col">دیماند قراردادی </th>
+                      <th scope="col" width="120">دیماند قراردادی </th>
                       <th scope="col" width="120">تعداد ساختمان</th>
                       <th scope="col" width="40" colspan="3" class="text-center">عملیات</th>
                     </tr>
@@ -32,13 +32,13 @@
                   <tbody>
                     <tr *ngFor="let power of powerList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
-                      <td>{{power.name}}</td>
-                      <td>{{power.billingId}}</td> 
+                      <td >{{power.name}}</td>
+                      <td class="text-center">{{power.billingId}}</td> 
                       <td>{{groupEnum[power.group].toString()}}</td> 
                       <td>{{useTypeEnum[power.useType].toString()}}</td>
                       <td>{{useCodeEnum[power.useCode].toString()}}</td>
-                      <td>{{power.contract}}</td>
-                      <td>{{power.buildingNum}}</td> 
+                      <td class="text-center">{{power.contract}}</td>
+                      <td class="text-center">{{power.buildingNum}}</td> 
                       <td class="text-center" width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: power._id}"
                                            [routerLink]="'/index/user/configuration/editPower'"></span></td>
