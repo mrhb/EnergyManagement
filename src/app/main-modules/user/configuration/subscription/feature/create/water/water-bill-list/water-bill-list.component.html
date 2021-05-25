@@ -23,6 +23,7 @@
                   <thead>
                     <tr>
                       <th scope="col" width="20">#</th>
+                      <th scope="col">نام مشترک</th>
                       <th scope="col">شناسه قبض</th>
                       <th scope="col">  از تاریخ</th>
                       <th scope="col">تا تاریخ</th>
@@ -35,6 +36,7 @@
                   <tbody>
                     <tr *ngFor="let water of waterBillList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * waterBillList.length))}}</th>
+                      <td>{{water.nameShare}}</td>
                       <td>{{water.nameShare}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(water.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(water.toDate)}}</td>

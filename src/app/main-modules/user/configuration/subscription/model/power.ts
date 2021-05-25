@@ -132,7 +132,7 @@ export class PowerList {
 export class PowerBillList {
   billingId: String; // شناسه اشتراک برق
   numberShare: String; // شماره اشتراک
-  nameShare: String;// نام اشتراک
+  nameShare: String;// نام مشترک
   period: PeriodEnum; // دوره
   fromDate: Date; // از تاریخ
   toDate:Date; // تا تاریخ
