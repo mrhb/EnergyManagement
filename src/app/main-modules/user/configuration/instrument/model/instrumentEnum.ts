@@ -20,6 +20,8 @@ export enum  CenteralairConditionEnum {
   AIRWASHER = <any> 'ایرواشر ',
   PUMP = <any> 'پمپ ',
   OTHER1 = <any> 'سایر تجهیزات ',
+  OTHER11 = <any> '  ',
+  
 }//  'تاسیسات موضعی تهویه مطبوع
 
 export enum LocalairConditionEnum {
@@ -31,6 +33,7 @@ export enum LocalairConditionEnum {
   PACKAGE = <any> 'پکیج ',
   WATER_HEATER = <any> 'آبگرمکن ',
   OTHER2 = <any> 'سایر ',
+  OTHER21 = <any> '  ',
 } // تاسیسات موضعی تهویه مطبوع
 
 export enum OficeEnum {
@@ -44,6 +47,7 @@ export enum OficeEnum {
   FAX = <any> 'فکس ',
   PHOTOCOPY = <any> 'فتوکپی ',
   OTHER3 = <any> 'سایر ',
+  OTHER31 = <any> '  ',
 }// تجهیزات اداری پر کاربرد
 
 export enum LightingEnum {
@@ -57,12 +61,14 @@ export enum LightingEnum {
   STRING = <any> 'رشته ای ',
   HALOGEN = <any> 'هالوژن ',
   OTHER4 = <any> 'سایر ',
+  OTHER41 = <any> '  ',
 } //تجهیزات روشنایی
 
 export enum ServerEnum {
   SERVER = <any> 'سرور',
   SWITCH = <any> 'سوئیچ',
   OTHER5 = <any> 'سایر',
+  OTHER51 = <any> '  ',
    } //تجهیزات سروری
       
 export enum KitchrnEnum {
@@ -76,7 +82,8 @@ export enum KitchrnEnum {
   HOOD = <any> 'هود',
   AIR_DISCHARGE_FAN = <any> 'فن تخلیه هوا',
   OTHER6 = <any> 'سایر',
-   } //تجهیزات آبدارخانه و آشپزخانه
+  OTHER61 = <any> '  ',
+} //تجهیزات آبدارخانه و آشپزخانه
 
 export enum OthersEnum {
   TELEVISION = <any> 'تلویزیون',
@@ -89,6 +96,7 @@ export enum OthersEnum {
   WASHING_MACHINE = <any> 'ماشین لباسشویی',
   VACUUM_CLEANER = <any> 'جاروبرقی',
   OTHER7 = <any> 'سایر',
+  OTHER71 = <any> '  ',
    } //تجهیزات  متفرقه',
 
 export enum NameEnum {
