@@ -179,7 +179,7 @@
                     <div class="mb-4 col-md-2">
                     <div class="w-100">
                       <label for="postalCode" class="form-label">کد پستی</label>
-                      <input class="form-control text-right" id="postalCode" placeholder=""
+                      <input class="form-control text-right" id="postalCode" (change)="checkPostalCodeIsExist()" placeholder=""
                               maxlength="10"
                               minlength="10"
                               [(ngModel)]="buildingDto.postalCode"

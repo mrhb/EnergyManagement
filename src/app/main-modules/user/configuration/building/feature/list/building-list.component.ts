@@ -28,7 +28,7 @@ declare var $: any;
   styleUrls: ['./building-list.component.scss']
 })
 export class BuildingListComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

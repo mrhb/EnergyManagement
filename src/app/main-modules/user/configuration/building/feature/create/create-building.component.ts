@@ -272,6 +272,20 @@ constructor(private formBuilder: FormBuilder,
   //   this.currentStep = Step;
   // }
 
+  // بررسی کد پستی تکراری
+  checkPostalCodeIsExist(): void {
+    if (!Tools.isNullOrUndefined(this.buildingDto.postalCode) && this.buildingDto.postalCode.length === 10) {
+      this.buildingService.checkPostalCodeService(this.buildingDto.postalCode)
+        .subscribe((res: any) => {
+          if (res) {
+            if (res.data && res.flag) {
+              Notiflix.Notify.Failure('کد پستی وارد شده تکراری می باشد.');
+              this.buildingDto.postalCode = '';
+            }
+          }
+        });
+    }
+  }
 
 
   getBuildingId($event: any): void {
@@ -282,7 +296,7 @@ constructor(private formBuilder: FormBuilder,
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
-        Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');      
+        Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');  
       }
     };
   }
