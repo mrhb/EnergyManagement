@@ -115,14 +115,14 @@ constructor(private formBuilder: FormBuilder,
     this.pathUrl = GATEWAY_URL + '/api/file/get?link=';
     // متغیرهای جداره ها
     this.wallForm = this.formBuilder.group({
-      exWallAdjOutSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exFloorAdjOutSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exWallAdjNotControlledSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exFloorAdjNotControlledSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exRoofAdjOutSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      outWindowAdjOutSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exRoofAdjNotControlledSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      windowAdjNotControlledSpaceArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exWallAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exFloorAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exWallAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exFloorAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exRoofAdjOutSpaceArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      outWindowAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exRoofAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      windowAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
     });
   }
 
@@ -215,7 +215,8 @@ constructor(private formBuilder: FormBuilder,
 
           // wall information
           this.wallInformation = res.data.wallInformation;
-          if (this.wallInformation) {
+          if (!this.wallInformation) {
+            this.wallInformation=new WallInformation();
             this.completeStep.five = true;
           }
 
@@ -520,8 +521,8 @@ createWallInformation(): void {
 
   this.buildingService.updateWallInformation({id: this.buildingId}, this.wallInformation)
     .subscribe( (res: any) => {  
+      if (res) {
       if (res.data) {
-      if (res.flag && res.data) {
           Notiflix.Notify.Success('اطلاعات جداره ها با موفقیت انجام شد.');
           
             this.router.navigate(['/index/user/configuration/buildingList']);

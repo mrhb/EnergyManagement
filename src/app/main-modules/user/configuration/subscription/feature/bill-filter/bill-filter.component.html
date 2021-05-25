@@ -1,13 +1,19 @@
 <div class="d-flex justify-content-between">
-            <form [formGroup]="form" class="w-100">
+            <form [formGroup]="form" class="w-100" (ngSubmit)="EmitChanges()">
                 <div class="form-group row">
-                    <div class="mb-4 col-md-2">
-                        <label for="fromDate" class="form-label">شناسه قبض</label>
-                        <input type="text" 
-                        name="billingId"
-                          onchange="billingIdChange()"/>
-                      </div>
-                      
+
+                                  <!-- نام مشترک -->
+              <div class="mb-4 col-md-2">
+                <div class="w-100">
+                  <label for="name" class="form-label">شناسه قبض</label>
+                  <input class="form-control text-right" id="name" placeholder=""
+                         [(ngModel)]="billFilterDto.billingId"
+                         formControlName="billingId"
+                         name="billingId">
+                </div>
+                <!-- <app-alert-error [data]="form.controls['billingId']" [touched]="touched"></app-alert-error> -->
+              </div>
+
                     <!-- تاریخ شروع   -->
                     <div class="mb-4 col-md-2">
                         <div class="w-100">
@@ -28,6 +34,13 @@
                     </div>
                     <app-alert-error [data]="form.controls['toDate']" ></app-alert-error>
                 </div>
+                
+                
+                <!-- تاریخ اتمام   -->
+                <div class="mb-4 col-md-2">
+                    <button type="submit"  class="btn btn-success   text-center ml-3">اعمال</button>
+                </div>
+
             </div>
         </form>
 </div>

@@ -30,14 +30,18 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
     $('#toDate').val(this.moment.getJaliliDateFromIso(this.billFilterDto.toDate));
     // this.updateChart();
     }
+
+    EmitChanges()
+    {
+      this.billFilterChange.emit(this.billFilterDto);
+    }
    
   ngOnInit(): void {
 
     this.stateService.regionId.subscribe(reg=>{
       this.billFilterDto.regionId=reg;
-      this.billFilterChange.emit(this.billFilterDto);
+      this.EmitChanges();
     })
-    this.billFilterDto.billingId="sdfvdsfvseth";
     this.form = this.formBuilder.group({
       billingId: [],
       fromDate:[], // تاریخ شروع 
@@ -68,10 +72,7 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
             $('#toDate').val(this.moment.getJaliliDateFromIso(this.billFilterDto.toDate));
           }, 200);
         }
-        else{
-          this.billFilterChange.emit(this.billFilterDto);
-        }
-      });
+          });
       $('#toDate').MdPersianDateTimePicker({
         Placement: 'bottom', // default is 'bottom'
         Trigger: 'focus', // default is 'focus',
@@ -87,10 +88,6 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
             this.billFilterDto.toDate = null;
             $('#toDate').val(this.moment.getJaliliDateFromIso(this.billFilterDto.fromDate));
           }, 200);
-        }
-        else
-        {
-          this.billFilterChange.emit(this.billFilterDto);
         }
       });
    }, 100);

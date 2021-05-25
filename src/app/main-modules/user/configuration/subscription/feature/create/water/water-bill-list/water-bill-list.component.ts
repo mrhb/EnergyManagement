@@ -99,12 +99,12 @@ export class WaterBillListComponent implements OnInit {
       }
     });
   }
- 
-  filterChange(event) {
+  
+  filterChange(event) : void {
     this.billFilter=event;
     this.pageSize = 20;
     this.pageIndex = 0;
-    this.getWaterBillList()
+    this.getWaterBillList();    
   }
   getWaterBillList(): void {
     this.waterReceiptService.getReceiptList(
@@ -115,7 +115,6 @@ export class WaterBillListComponent implements OnInit {
     ).subscribe((res: any) => {
       if (res) {
         Notiflix.Notify.Success('داده جدید دریافت شد.');
-
         this.waterBillList = res.content;
         this.length = res.totalElements;
         this.pageIndex = res.page;
