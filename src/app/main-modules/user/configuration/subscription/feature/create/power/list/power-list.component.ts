@@ -22,7 +22,7 @@ type AOA = any[][];
 })
 export class PowerListComponent implements OnInit {
   data: AOA = [[1, 2], [3, 4]];
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

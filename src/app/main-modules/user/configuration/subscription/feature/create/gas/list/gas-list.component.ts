@@ -22,7 +22,7 @@ type AOA = any[][];
   styleUrls: ['./gas-list.component.scss']
 })
 export class GasListComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

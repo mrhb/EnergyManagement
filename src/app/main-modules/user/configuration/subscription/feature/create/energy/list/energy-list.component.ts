@@ -24,7 +24,7 @@ type AOA = any[][];
   styleUrls: ['./energy-list.component.scss']
 })
 export class EnergyListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

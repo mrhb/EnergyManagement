@@ -24,7 +24,7 @@ type AOA = any[][];
   styleUrls: ['./water-bill-list.component.scss']
 })
 export class WaterBillListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
@@ -102,7 +102,7 @@ export class WaterBillListComponent implements OnInit {
  
   filterChange(event) {
     this.billFilter=event;
-    this.pageSize = 10;
+    this.pageSize = 20;
     this.pageIndex = 0;
     this.getWaterBillList()
   }

@@ -16,7 +16,7 @@ type AOA = any[][];
   styleUrls: ['./energy-bill-list.component.scss']
 })
 export class EnergyBillListComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

@@ -32,7 +32,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
     labels:["5/1", "4/1","3/1","2/1"]
   }
   
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

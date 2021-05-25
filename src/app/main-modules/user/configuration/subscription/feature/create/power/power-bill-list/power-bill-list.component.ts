@@ -22,7 +22,7 @@ declare var $: any;
 })
 export class PowerBillListComponent implements OnInit {
 
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

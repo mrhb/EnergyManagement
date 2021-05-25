@@ -19,7 +19,7 @@ import { RegionService } from '../../../region/service/region.service';
   styleUrls: ['./generation-list.component.scss']
 })
 export class GenerationListComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

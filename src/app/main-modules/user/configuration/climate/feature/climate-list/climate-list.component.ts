@@ -11,7 +11,7 @@ import { ClimateService } from '../../service/climate.service';
   styleUrls: ['./climate-list.component.scss']
 })
 export class ClimateListComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

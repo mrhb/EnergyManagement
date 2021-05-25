@@ -9,7 +9,7 @@ import {Model} from './model';
   styleUrls: ['./test-pagination.component.scss']
 })
 export class TestPaginationComponent implements OnInit {
-  pageSize = 10;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   term: string;

@@ -22,7 +22,7 @@ declare var $: any;
   styleUrls: ['./facility-list.component.scss']
 })
 export class FacilityListComponent implements OnInit, AfterViewInit,OnDestroy  {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

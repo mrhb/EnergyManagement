@@ -14,7 +14,7 @@ import { LabelService } from './service/label.service';
   styleUrls: ['./energy-label.component.scss']
 })
 export class EnergyLabelComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;

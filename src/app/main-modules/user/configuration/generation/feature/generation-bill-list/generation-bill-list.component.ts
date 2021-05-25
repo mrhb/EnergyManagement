@@ -20,7 +20,7 @@ import { GenerationReceiptService } from '../../service/generation-receipt.servi
   styleUrls: ['./generation-bill-list.component.scss']
 })
 export class GenerationBillListComponent implements OnInit {
-  pageSize = 5;
+  pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
