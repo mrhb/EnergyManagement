@@ -38,6 +38,13 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
    
   ngOnInit(): void {
 
+    var date = new Date();
+    date.setDate( date.getDate() - 0 );
+    this.billFilterDto.toDate=date.toISOString();
+    date.setDate( date.getDate() - 365 );
+    this.billFilterDto.fromDate=date.toISOString();
+
+    
     this.stateService.regionId.subscribe(reg=>{
       this.billFilterDto.regionId=reg;
       this.EmitChanges();
@@ -47,13 +54,6 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
     });
-
-    
-    var date = new Date();
-    date.setDate( date.getDate() - 0 );
-    this.billFilterDto.toDate=date.toISOString();
-    date.setDate( date.getDate() - 365 );
-    this.billFilterDto.fromDate=date.toISOString();
   }
   jQueryDate(): void {
     setTimeout(e1 => {

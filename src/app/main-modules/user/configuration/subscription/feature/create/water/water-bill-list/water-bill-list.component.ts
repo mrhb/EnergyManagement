@@ -43,7 +43,7 @@ export class WaterBillListComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getWaterBillList();
+    //this.getWaterBillList();
   }
 
   onFileChange(evt: any) {
@@ -114,7 +114,6 @@ export class WaterBillListComponent implements OnInit {
       }, this.billFilter
     ).subscribe((res: any) => {
       if (res) {
-        Notiflix.Notify.Success('داده جدید دریافت شد.');
         this.waterBillList = res.content;
         this.length = res.totalElements;
         this.pageIndex = res.page;
