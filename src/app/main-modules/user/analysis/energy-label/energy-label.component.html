@@ -38,8 +38,10 @@
                             <tr>
                               <th scope="col" width="20">#</th>
                               <th scope="col">نام ساختمان</th>
-                              <th scope="col">نوع کاربری</th>
-                              <th scope="col">مساحت مفید</th>
+                              <th scope="col">کاربری</th>
+                              <th scope="col">شهر</th>
+                              <th scope="col">اقلیم</th>
+                              <th scope="col" width="150">مساحت مفید</th>
                               <th scope="col" width="20" class="text-center">عملیات</th>
                             </tr>
                           </thead>
@@ -49,10 +51,72 @@
                               <td>{{building.name}}</td>
                               <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
                               <td>{{building.useFullArea}}</td>
+                              <td>{{building.useFullArea}}</td>
+                              <td>{{building.useFullArea}}</td>
+                              <td class="text-center">{{building.useFullArea}}</td>
                               <td width="40"><span class="cursor-pointer fa fa-edit"
                                (click)="getBuildingLabel(building.id)"></span></td>
                             </tbody>
                           </table>
+                      </div>
+                    </div> 
+                  </div> 
+                </div> 
+                <div class="row" style="padding-top: 20px;">
+                  <div class="col-lg-12">
+                    <div class="card border-success">
+                      <!-- عنوان جدول -->
+                      <div class="card-header flex-card-header"><strong > نتایج محاسبات </strong> </div> 
+                      <!--جدول نتایج -->
+                      <div class="card-body">
+                        <table class="table table-responsive-sm table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col" width="20">#</th>
+                              <th scope="col">عنوان</th>
+                              <th scope="col">واحد</th>
+                              <th scope="col">مقدار</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="col">1</th>
+                              <th scope="col">مصرف سالیانه برق</th>
+                              <th scope="col">kWh</th>
+                              <th scope="col">4</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">2</th>
+                              <th scope="col">مصرف سالیانه گاز طبیعی</th>
+                              <th scope="col">m3</th>
+                              <th scope="col">4</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">3</th>
+                              <th scope="col">مصرف سالیانه گازوییل</th>
+                              <th scope="col">lit</th>
+                              <th scope="col">4</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">4</th>
+                              <th scope="col">مصرف سالیانه مازوت</th>
+                              <th scope="col">lit</th>
+                              <th scope="col">4</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">5</th>
+                              <th scope="col">نسبت انرژی </th>
+                              <th scope="col">R</th>
+                              <th scope="col">{{energyLabel.ratio | number: '0.0-2'}}</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">6</th>
+                              <th scope="col">شاخص مصرف انرژی </th>
+                              <th scope="col">Index</th>
+                              <th scope="col">{{energyLabel.consumptionIndex | number: '0.0-2'}}</th>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div> 
                   </div> 
@@ -68,7 +132,7 @@
                           <img src="assets/image/enregy.jpg" alt="energy">
                         </div>
                         <div class="left">
-                          <!--          نوع برچسب انرژی ساختمان را انتخاب کنید-->
+                          <!--  نوع برچسب انرژی ساختمان راانتخاب کنید-->
                           {{energyLabel.labelType}}
                         </div>
                       </div>
@@ -123,7 +187,8 @@
         <div class="card-footer">
           <div class="row text-center">
             <div class="col-sm-12 col-md mb-sm-2 mb-0">
-              <div class="text-muted">برچسب </div><strong>انرژی</strong>
+              <!-- <div class="text-muted"> </div> -->
+              <!-- <strong>انرژی</strong> -->
             </div>
           </div>
         </div>

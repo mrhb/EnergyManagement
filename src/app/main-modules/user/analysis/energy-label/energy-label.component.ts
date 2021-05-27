@@ -51,13 +51,11 @@ constructor(private formBuilder: FormBuilder,
 
   ngOnInit(): void {
     this.energyLableDto.year = 1399;
-
     this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getBuildingList();
     });
   }
-
 
   getBuildingList(): void {
     this.buildingService.getBuildingList({
