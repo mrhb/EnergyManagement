@@ -10,6 +10,7 @@ import { Moment } from 'src/app/shared/tools/moment';
 import { PeriodEnum } from '../../../../model/sharedEnum';
 import { PowerReceiptService } from '../../../../service/power-receipt.service';
 import * as XLSX from 'xlsx';
+import { BillFilterDto } from '../../../../model/billFilter';
 type AOA = any[][];
 
 declare var $: any;
@@ -27,6 +28,9 @@ export class PowerBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
+
+  billFilter= new BillFilterDto();
+
   period=PeriodEnum;
   data: AOA = [[1, 2], [3, 4]];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
@@ -140,15 +144,21 @@ var periodName=[
       }
     });
   }
-
+  
+  filterChange(event) : void {
+    this.billFilter=event;
+    this.pageSize = 20;
+    this.pageIndex = 0;
+    this.getPowerBillList();    
+  }
   getPowerBillList(): void {
 
     this.powerReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
+      }, this.billFilter
+      ).subscribe((res: any) => {
       if (res) {
         this.powerBillList = res.content;
         this.length = res.totalElements;
