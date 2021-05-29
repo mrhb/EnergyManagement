@@ -78,9 +78,9 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
       AnnualWorkDayNum:  [''], //  تعداد روز کارکرد در سال 
       fromDate:  [''], //  تاریخ شروع کار تجهیز
       toDate:  [''], //  تاریخ خاتمه کار تجهیز
-      coincidenceCoefficient:  [''], //    ضریب همزمانی 
+      coincidenceCoefficient:  ['',[Validators.min(0),Validators.max(1)]], //    ضریب همزمانی 
     }, {
-      validators: this.checkCoinCoefValidators('coincidenceCoefficient')
+      //validators: this.checkCoinCoefValidators('coincidenceCoefficient')
     });
   }
   ngAfterViewInit(): void {
