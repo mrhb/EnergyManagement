@@ -15,6 +15,7 @@ import { Moment } from 'src/app/shared/tools/moment';
 
 import { GasReceiptService } from '../../../../service/gas-receipt.service';
 import * as XLSX from 'xlsx';
+import { BillFilterDto } from '../../../../model/billFilter';
 type AOA = any[][];
 
 @Component({
@@ -28,6 +29,11 @@ export class GasBillListComponent implements OnInit {
   length = -1;
   totalPages = 1;
   moment = Moment;
+
+  billFilter= new BillFilterDto();
+
+
+  
   data: AOA = [[1, 2], [3, 4]];
   xlsxGasBillList: GasBillExcelList[] = [];
 
@@ -41,6 +47,7 @@ export class GasBillListComponent implements OnInit {
   ngOnInit(): void {
     this.getGasBillList();
   }
+  
   onFileChange(evt: any) {
     /* wire up file reader */
     const target: DataTransfer = <DataTransfer>(evt.target);
@@ -94,13 +101,19 @@ export class GasBillListComponent implements OnInit {
       }
     });
   }
- 
+   
+  filterChange(event) : void {
+    this.billFilter=event;
+    this.pageSize = 20;
+    this.pageIndex = 0;
+    this.getGasBillList();    
+  }
   getGasBillList(): void {   
     this.gasReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      }, this.billFilter
     ).subscribe((res: any) => {
       if (res) {
         this.gasBillList = res.content;
