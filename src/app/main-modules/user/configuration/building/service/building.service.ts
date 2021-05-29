@@ -71,7 +71,7 @@ export class BuildingService extends GeneralService {
   getListBuildingForSelection(param, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-list-pageable-by-term-for-selection', errorSelector, param);
   }
-  checkPostalCodeService(param, errorSelector?: string): Observable<any> {
+  checkPostalCodeService(param: {postalCode: string}, errorSelector?: string): Observable<any> {
     return super.getCheckService('get-postal-code-is-exit', errorSelector, param);
   }
 
