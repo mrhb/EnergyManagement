@@ -292,22 +292,24 @@ constructor(private formBuilder: FormBuilder,
   getBuildingId($event: any): void {
     this.buildingId = $event;
   }
-  // مقایسه مساحت عرصه و اعیان
+  // مقایسه مساحت مفید و اعیان
   checkAreaValidators(item1: any, item2: any): (group: FormGroup) => any {
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
         Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');  
+        this.buildingDto.useFullArea = 0;  
       }
     };
   }
   
-  // مقایسه مساحت مفید و اعیان
+  // مقایسه مساحت عرصه و اعیان
   checkAreaValidators1(item1: any, item2: any): (group: FormGroup) => any {
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
-        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد');      
+        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد'); 
+        this.buildingDto.ayanArea = 0;  
       }
     };
   }
