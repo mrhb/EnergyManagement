@@ -19,6 +19,7 @@ import { PowerSubscriptionAnalysisComponent } from './suscriptions/features/powe
 import { GasSubscriptionAnalysisComponent } from './suscriptions/features/gas-subscription-analysis/gas-subscription-analysis.component';
 import { CostConsumptionAnalysisComponent } from './bills/features/cost-consumption-analysis/cost-consumption-analysis.component';
 import { ValidationAnalysisComponent } from './bills/features/validation-analysis/validation-analysis.component';
+import { PaginatorModule } from 'src/app/shared/paginator/paginator.module';
 
 @NgModule({
   declarations: [ SideBarComponent,BaseLineComponent, EnergyLabelComponent, 
@@ -35,6 +36,8 @@ import { ValidationAnalysisComponent } from './bills/features/validation-analysi
     ReactiveFormsModule,
     AlertErrorModule,
     FormsModule,
+    PaginatorModule,
+
   ],
   providers: [StateService]
 })

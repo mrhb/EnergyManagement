@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { UseTypeBuildingEnum } from '../../configuration/building/model/useTypeEnum';
+import { ClimateTypeEnum } from '../../configuration/climate/model/climateEnum';
 import { StateService } from '../state.service';
 import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
 import { EnergyLabelType } from './model/EnergyLabelType';
@@ -26,6 +27,7 @@ export class EnergyLabelComponent implements OnInit {
   energyLableDto = new EnergyLableDto();
   buildingList = [];
   useTypeBuildingEnum = UseTypeBuildingEnum;
+  climateTypeEnum=ClimateTypeEnum;
   regionId ="111111111111111111111111";
 
 

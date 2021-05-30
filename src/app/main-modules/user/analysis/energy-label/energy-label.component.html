@@ -50,15 +50,32 @@
                               <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                               <td>{{building.name}}</td>
                               <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
-                              <td>{{building.useFullArea}}</td>
-                              <td>{{building.useFullArea}}</td>
+                              <td>{{building.city}}</td>
+                              <td>{{climateTypeEnum[building.climateType].toString()}}</td>
                               <td>{{building.useFullArea}}</td>
                               <td class="text-center">{{building.useFullArea}}</td>
                               <td width="40"><span class="cursor-pointer fa fa-edit"
-                               (click)="getBuildingLabel(building.id)"></span></td>
+                               (click)="getBuildingLabel(building._id)"></span></td>
                             </tbody>
                           </table>
                       </div>
+
+           <!-- ته برگ فرم -->
+           <div class = col-md-6>
+            <!-- صفحه بندی -->
+            <app-paginator
+            [matPaginator]="false"
+            [totalPages]="totalPages"
+            [totalElements]="length"
+            [pageSize]="pageSize"
+            [pageIndex]="pageIndex"
+            [pageSizeOptions]="[1,5,10,15,25]"
+            [showFirstLastButtons]="true"
+            (page)="changePage($event)"
+            ></app-paginator>
+        </div>
+
+
                     </div> 
                   </div> 
                 </div> 
