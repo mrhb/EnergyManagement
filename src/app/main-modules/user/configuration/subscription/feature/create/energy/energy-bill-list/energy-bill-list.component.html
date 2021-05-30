@@ -15,6 +15,8 @@
                 </div>              
               </div>
               <div class="card-body">
+                <app-bill-filter (billFilterChange)="filterChange($event)" filterName="نام مشترک"></app-bill-filter>           
+
                 <table class="table table-responsive-sm table-striped">
                   <thead>
                     <tr>
@@ -33,9 +35,9 @@
                   <tbody>
                     <tr *ngFor="let energy of energyBillList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * energyBillList.length))}}</th>
-                      <td> 000گازوئیل</td>
-                      <td> 000گازوئیل</td>
-                      <!-- <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td> -->
+                      <td> {{energy.name}}</td>
+                      <!-- <td> 000گازوئیل</td> -->
+                      <td>{{energyCarierEnum[energy.energyCarrier].toString()}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(energy.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(energy.toDate)}}</td>
                       <td class="text-center">{{this.moment.DateDiff(energy.fromDate,energy.toDate)}}</td>
@@ -43,9 +45,9 @@
                       <td class="text-center">{{energy.consumptionAmount| number: '0.0-2'}}</td>
                       <td class="text-center">{{energy.payableAmount| number: '0.0-2'}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                          [queryParams]="{id: energy.id}"
+                          [queryParams]="{id: energy._id}"
                           [routerLink]="'/index/user/configuration/energyBillAdd'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteEnergy(i, energy.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteEnergy(i, energy._id)"></span></td>
                     </tr>
                    </tbody>
                   </table>

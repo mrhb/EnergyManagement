@@ -8,6 +8,8 @@ import { Moment } from 'src/app/shared/tools/moment';
 // import {EnergyService} from '../../../../service/energy.service';
 
 import * as XLSX from 'xlsx';
+import { BillFilterDto } from '../../../../model/billFilter';
+import { EnergyCarierEnum } from '../../../../model/energyEnum';
 type AOA = any[][];
 
 @Component({
@@ -23,8 +25,9 @@ export class EnergyBillListComponent implements OnInit {
   moment = Moment;
   data: AOA = [[1, 2], [3, 4]];
   xlsxEnergyBillList: EnergyBillList[] = [];
-
+  energyCarierEnum=EnergyCarierEnum;
   energyBillList: EnergyBillList[] = [];
+  billFilter: BillFilterDto;
 
   constructor(public router: Router,
     private energyReceiptService: EnergyReceiptService,
@@ -79,13 +82,18 @@ export class EnergyBillListComponent implements OnInit {
       }
     });
   }
- 
+  filterChange(event) : void {
+    this.billFilter=event;
+    this.pageSize = 20;
+    this.pageIndex = 0;
+    this.getEnergyBillList();    
+  }
   getEnergyBillList(): void {
     this.energyReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
+      }, this.billFilter
     ).subscribe((res: any) => {
       if (res) {
         this.energyBillList = res.content;

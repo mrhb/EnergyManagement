@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BillFilterDto } from '../../model/billFilter';
 import Notiflix from 'notiflix';
@@ -12,13 +12,14 @@ declare var $: any;
   styleUrls: ['./bill-filter.component.scss']
 })
 export class BillFilterComponent implements OnInit , AfterViewInit{
+  @Input() filterName: string='شناسه قبض';
+  @Output() billFilterChange: EventEmitter<BillFilterDto> = new EventEmitter<BillFilterDto>();
   regionId ="111111111111111111111111";
   moment = Moment;
   form: FormGroup;
   
   billFilterDto= new BillFilterDto();
   
-  @Output() billFilterChange: EventEmitter<BillFilterDto> = new EventEmitter<BillFilterDto>();
   constructor(    private stateService:RegionService,
     private formBuilder: FormBuilder)
   {}
