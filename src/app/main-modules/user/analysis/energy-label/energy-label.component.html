@@ -49,7 +49,7 @@
                             <tr *ngFor="let building of buildingList; let i = index">
                               <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                               <td>{{building.name}}</td>
-                              <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
+                              <td>{{useTypeBuildingEnum[building.useType].toString()}}</td>
                               <td>{{building.useFullArea}}</td>
                               <td>{{building.useFullArea}}</td>
                               <td>{{building.useFullArea}}</td>
