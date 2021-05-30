@@ -82,7 +82,7 @@ constructor(private formBuilder: FormBuilder,
       constructionYear: ['', [Validators.required, Validators.minLength(4), Validators.pattern(this.myPattern.number)]],
       floorNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
       exploitationPersonnelNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      postalCode: ['', [ Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
+      postalCode: ['', [Validators.required, Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
       address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       coolingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
@@ -277,7 +277,7 @@ constructor(private formBuilder: FormBuilder,
   // بررسی کد پستی تکراری
   checkPostalCodeIsExist(): void {
     if (!Tools.isNullOrUndefined(this.buildingDto.postalCode) && this.buildingDto.postalCode.length === 10) {
-      this.buildingService.checkPostalCodeService(this.buildingDto.postalCode)
+      this.buildingService.checkPostalCodeService({postalCode:this.buildingDto.postalCode})
         .subscribe((res: any) => {
           if (res) {
             if (res.data && res.flag) {

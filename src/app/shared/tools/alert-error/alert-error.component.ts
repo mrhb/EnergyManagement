@@ -13,6 +13,8 @@ export class AlertErrorComponent implements OnInit, OnChanges{
   @Input() minlengthMsg: string | undefined;
   @Input() requiredMsg: string | undefined;
   @Input() patternMsg: string | undefined;
+  @Input() maxMsg: string | undefined;
+  @Input() minMsg: string | undefined;
 
   constructor() { }
 
@@ -37,6 +39,14 @@ export class AlertErrorComponent implements OnInit, OnChanges{
         } else if(!Tools.isNullOrUndefined(error.minlength)) {
           const length = error.minlength.requiredLength;
           this.minlengthMsg = 'مقدار وارد شده حداقل باید '+ length +' کاراکتر باشد';
+        }
+        else if(!Tools.isNullOrUndefined(error.max)) {
+          const max = error.max.max;
+          this.maxMsg = 'مقدار وارد شده حداکثر باید '+ max +' باشد';
+        }
+        else if(!Tools.isNullOrUndefined(error.min)) {
+          const max = error.min.min;
+          this.minMsg = 'مقدار وارد شده حداقل باید '+ max +' باشد';
         }
       }
     });

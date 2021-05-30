@@ -2,5 +2,7 @@
   <div class="invalid-alert" *ngIf="data.hasError('required')">{{requiredMsg}}</div>
   <div class="invalid-alert" *ngIf="data.hasError('maxlength')">{{maxlengthMsg}}</div>
   <div class="invalid-alert" *ngIf="data.hasError('minlength')">{{minlengthMsg}}</div>
+  <div class="invalid-alert" *ngIf="data.hasError('min')">{{minMsg}}</div>
+  <div class="invalid-alert" *ngIf="data.hasError('max')">{{maxMsg}}</div>
   <div class="invalid-alert" *ngIf="!data.hasError('maxlength') && data.hasError('pattern')">{{patternMsg}}</div>
 </div>

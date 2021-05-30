@@ -44,9 +44,9 @@
                       <td class="text-center">{{water.consumptionDurat| number:'0.0-2'}}</td>
                       <td class="text-center">{{water.consumptionAmount | number:'0.0-2'}}</td>        
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                           [queryParams]="{id: water.id}"
+                                           [queryParams]="{id: water._id}"
                                            [routerLink]="'/index/user/configuration/waterBillAdd'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteWater(i, water._id)"></span></td>
                     </tr>
                    </tbody>
                   </table>
