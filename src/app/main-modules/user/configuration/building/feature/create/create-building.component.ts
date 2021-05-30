@@ -14,6 +14,7 @@ import {GATEWAY_URL} from '../../../../../../_base/service/model/rest-constants'
 import {MapEnum} from '../../model/map';
 
 import Notiflix from 'notiflix';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 declare var $: any;
 
 
@@ -297,11 +298,15 @@ constructor(private formBuilder: FormBuilder,
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
+        // this.form.controls['ayanArea'].setErrors({incorrect:true});
         Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');  
         this.buildingDto.useFullArea = 0;  
-      }
-    };
-  }
+      } 
+      // else if (  group.controls[item1].value>= group.controls[item2].value) {
+      // this.form.controls['ayanArea'].setErrors({});
+      // }
+  };
+}
   
   // مقایسه مساحت عرصه و اعیان
   checkAreaValidators1(item1: any, item2: any): (group: FormGroup) => any {

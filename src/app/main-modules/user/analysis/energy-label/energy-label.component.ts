@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
+import { UseTypeBuildingEnum } from '../../configuration/building/model/useTypeEnum';
 import { StateService } from '../state.service';
 import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
 import { EnergyLabelType } from './model/EnergyLabelType';
@@ -24,7 +25,7 @@ export class EnergyLabelComponent implements OnInit {
   touched = false;
   energyLableDto = new EnergyLableDto();
   buildingList = [];
-
+  useTypeBuildingEnum = UseTypeBuildingEnum;
   regionId ="111111111111111111111111";
 
 
