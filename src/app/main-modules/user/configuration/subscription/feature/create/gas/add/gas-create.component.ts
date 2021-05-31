@@ -67,12 +67,11 @@ export class GasCreateComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
-      billingId: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
+      billingId: ['', [Validators.required, Validators.pattern(this.myPattern.EnNumber)]],
       city: ['', [Validators.minLength(1)]],
       domainCode: [''],
-      addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
+      addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.EnNumber)]],
       numberUnits: [''],//تعداد واحدها
-
       numberShare: [''],
       fileNumber: [''],
       serialShare: [''],

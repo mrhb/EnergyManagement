@@ -70,10 +70,10 @@ export class PowerCreateComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
-      billingId: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
+      billingId: ['', [Validators.required, Validators.pattern(this.myPattern.EnNumber)]],
       systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.smartCode)]],
       contract:  [''],
-      addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.number)]],
+      addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.EnNumber)]],
       fileNumber: ['',[ Validators.pattern(this.myPattern.smartCode)]],
       serialShare: [''],
       useType: ['', [Validators.required]],
