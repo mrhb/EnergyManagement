@@ -79,33 +79,33 @@ constructor(private formBuilder: FormBuilder,
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       useType: ['', [Validators.required]],
-      constructionYear: ['', [Validators.required, Validators.minLength(4), Validators.pattern(this.myPattern.number)]],
-      floorNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      exploitationPersonnelNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      constructionYear: ['', [Validators.required, Validators.minLength(4), Validators.pattern(this.myPattern.EnNumber)]],
+      floorNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.EnNumber)]],
+      exploitationPersonnelNum: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
       postalCode: ['', [Validators.required, Validators.minLength(10), Validators.pattern(this.myPattern.postalCode)]],
       address: ['', [Validators.maxLength(400), Validators.pattern(this.myPattern.faAndEnNumberAndTextParagraph)]],
       ownership: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       coolingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
       heatingSystemType: ['', [Validators.required, Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      powerSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      gasSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      waterSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      nonEnergyCarrierSharingNum: ['', [Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
-      arenaArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      ayanArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      useFullArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      externalWallsTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      externalGlassTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      powerSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.EnNumber)]],
+      gasSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.EnNumber)]],
+      waterSharingNum: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.EnNumber)]],
+      nonEnergyCarrierSharingNum: ['', [Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.EnNumber)]],
+      arenaArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      ayanArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      useFullArea: ['', [Validators.required, Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      externalWallsTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      externalGlassTotalArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
           }, {
             validators: this.checkAreaValidators('ayanArea', 'useFullArea')
           });
     // متغیرهای فضا
     this.spaceForm = this.formBuilder.group({
       name: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      number: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      floorNum: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      number: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      floorNum: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
       useType: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.faAndEnNumberAndText)]],
-      area: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      area: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
     });
     // متغیرهای نقشه
     this.mapForm = this.formBuilder.group({
@@ -116,14 +116,14 @@ constructor(private formBuilder: FormBuilder,
     this.pathUrl = GATEWAY_URL + '/api/file/get?link=';
     // متغیرهای جداره ها
     this.wallForm = this.formBuilder.group({
-      exWallAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exFloorAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exWallAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exFloorAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exRoofAdjOutSpaceArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      outWindowAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      exRoofAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
-      windowAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.number)]],
+      exWallAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      exFloorAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      exWallAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      exFloorAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      exRoofAdjOutSpaceArea: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      outWindowAdjOutSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      exRoofAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
+      windowAdjNotControlledSpaceArea: ['', [ Validators.minLength(1), Validators.pattern(this.myPattern.EnNumber)]],
     });
   }
 
