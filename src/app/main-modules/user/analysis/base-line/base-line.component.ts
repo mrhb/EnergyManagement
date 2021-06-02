@@ -77,6 +77,8 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
       period:[],//روزانه /ماهانه
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
+      coolingBase:[], //دمای پایه سرمایش
+      heatingBase:[],//دمای پایه گرمایش
     });
     this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
@@ -153,7 +155,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
 
         // this.energyLabel.ratio = res.data.ratio;
         // this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
-        // // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
+        // // this.energyLabel.labelType=EnergyLabelType.RESIDENTIAL;
         // this.energyLabel.label= res.data.label;
       }
     });
@@ -200,6 +202,22 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
         }
       });
     }, 100);
+  }
+  navigate(): void {
+    this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
+      queryParams: {
+        pageIndex: this.pageIndex,
+        pageSize: this.pageSize,
+      },
+    });
+    }
+  
+  changePage(event: any): void {
+    console.log('event.length', event.length);
+    this.length = event.length;
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.navigate();
   }
   
   // getEffectiveParameterNgModel(item: any): boolean {

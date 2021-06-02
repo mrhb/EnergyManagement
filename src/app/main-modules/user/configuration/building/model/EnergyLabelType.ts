@@ -1,5 +1,6 @@
 export enum EnergyLabelType {
-  RESIDENTIAL = <any> 'مسکونی',
-  NON_RESIDENTIAL = <any> 'غیر مسکونی',
-  OFFICIAL = <any> 'اداری',
+  RESIDENTIALLARG = <any> ' مسکونی بزرگ',
+  RESIDENTIALSMAL = <any> ' مسکونی کوچک',
+  OFFICIAL = <any> 'غیرمسکونی دولتی',
+  NONOFFICIAL = <any> 'غیرمسکونی خصوصی',
 }

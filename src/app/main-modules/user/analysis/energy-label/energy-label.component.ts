@@ -27,6 +27,7 @@ export class EnergyLabelComponent implements OnInit {
   energyLableDto = new EnergyLableDto();
   buildingList = [];
   useTypeBuildingEnum = UseTypeBuildingEnum;
+  energyLabelType = EnergyLabelType;
   climateTypeEnum=ClimateTypeEnum;
   regionId ="111111111111111111111111";
 
@@ -34,7 +35,7 @@ export class EnergyLabelComponent implements OnInit {
   energyLabel:EnergyLabel = {
     consumptionIndex: '1277',
     label: 'A',
-    labelType: EnergyLabelType.NON_RESIDENTIAL,
+    labelType: EnergyLabelType.RESIDENTIALLARG,
     ratio: '10.98'
   };
   
@@ -81,7 +82,7 @@ constructor(private formBuilder: FormBuilder,
 
         this.energyLabel.ratio = res.data.ratio;
         this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
-        // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
+        // this.energyLabel.labelType=EnergyLabelType.RESIDENTIAL;
         this.energyLabel.label= res.data.label;
       }
     });

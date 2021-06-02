@@ -8,4 +8,6 @@ export class BaseLineDto {
   baseLineParam: BaseLineParamEnum; //  نوع پارامتر 
   fromDate: string; // تاریخ شروع 
   toDate: string; // تاریخ اتمام
+  coolingBase: number; //دمای پایه سرمایش
+  heatingBase: number; //دمای پایه گرمایش
   }
