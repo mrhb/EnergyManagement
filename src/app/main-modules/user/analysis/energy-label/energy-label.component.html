@@ -60,20 +60,20 @@
                           </table>
                       </div>
 
-           <!-- ته برگ فرم -->
-           <div class = col-md-6>
-            <!-- صفحه بندی -->
-            <app-paginator
-            [matPaginator]="false"
-            [totalPages]="totalPages"
-            [totalElements]="length"
-            [pageSize]="pageSize"
-            [pageIndex]="pageIndex"
-            [pageSizeOptions]="[1,5,10,15,25]"
-            [showFirstLastButtons]="true"
-            (page)="changePage($event)"
-            ></app-paginator>
-        </div>
+                      <!-- ته برگ فرم -->
+                      <div class = col-md-6>
+                        <!-- صفحه بندی -->
+                        <app-paginator
+                        [matPaginator]="false"
+                        [totalPages]="totalPages"
+                        [totalElements]="length"
+                        [pageSize]="pageSize"
+                        [pageIndex]="pageIndex"
+                        [pageSizeOptions]="[1,5,10,15,25]"
+                        [showFirstLastButtons]="true"
+                        (page)="changePage($event)"
+                        ></app-paginator>
+                    </div>
 
 
                     </div> 
@@ -151,9 +151,27 @@
                         <div class="left">
                           <!--  نوع برچسب انرژی ساختمان راانتخاب کنید-->
                           {{energyLabel.labelType}}
+                          
                         </div>
                       </div>
-                      <div class="result">
+                      <!-- انتخاب کاربری -->
+                      <form [formGroup]="form" >
+                      <div class="left">
+                     <div class="text-center">
+                      <label for="energyLabelType" class="form-label">انتخاب کاربری </label>
+                        <select name="energyLabelType" id="energyLabelType"
+                                class="form-control text-right"
+                                formControlName="energyLabelType"
+                                [(ngModel)]="energyLableDto.energyLabelType">
+                                <option *ngFor="let item of energyLabelType | enumKeyValue" [value]="item.key">
+                                  {{item.value}}
+                                </option>
+                              </select>
+                            </div>
+                      <app-alert-error [data]="form.controls['energyLabelType']" [touched]="touched"></app-alert-error>
+                    </div>
+                  </form>
+                    <div class="result">
                         <div class="right">
                           <div class="tag" [ngClass]="energyLabel.label">
                             {{energyLabel.label}}

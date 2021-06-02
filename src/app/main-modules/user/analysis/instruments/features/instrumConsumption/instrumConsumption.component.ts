@@ -155,7 +155,7 @@ export class InstrumConsumptionComponent implements OnInit  {
 
         // this.energyLabel.ratio = res.data.ratio;
         // this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
-        // // this.energyLabel.labelType=EnergyLabelType.NON_RESIDENTIAL;
+        // // this.energyLabel.labelType=EnergyLabelType.RESIDENTIAL;
         // this.energyLabel.label= res.data.label;
       }
     });

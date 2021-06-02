@@ -54,7 +54,7 @@ export class CreateWaterComponent implements OnInit {
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
       billingId: ['', [Validators.required]],
-      numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.number)]],
+      numberShare: ['', [Validators.required, Validators.pattern(this.myPattern.EnNumber)]],
       fileNumber: ['', [Validators.minLength(1)]],
       serialShare: [''],
       useType: ['', [Validators.required]],
