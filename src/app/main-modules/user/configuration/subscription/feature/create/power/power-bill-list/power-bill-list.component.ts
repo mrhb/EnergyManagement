@@ -96,7 +96,7 @@ var periodName=[
 'دوازدهم'];
        bill.billingId = item[0].toString(); // شماره اشتراک
        bill.paymentCode = item[1]; // شناسه پرداخت
-       bill.period= this.period[periodName[item[2]]];//item[2]; //  دوره
+       bill.period= this.period[periodName[item[2]-1]];//item[2]; //  دوره
        bill.fromDate=this.moment.convertJaliliToIsoDate(item[3].toString()) // تاریخ قبلی 
        bill.toDate=this.moment.convertJaliliToIsoDate(item[4].toString()); // تاریخ فعلی 
        bill.intermediate= new Consumption();
