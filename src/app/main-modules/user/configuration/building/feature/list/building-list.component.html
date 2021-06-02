@@ -48,10 +48,10 @@
                         <td>{{building.postalCode}}</td>
                       <td class="text-center">    
                         <span class="cursor-pointer fa fa-edit"
-                        [queryParams]="{id: building.id}"
+                        [queryParams]="{id: building._id}"
                         [routerLink]="'/index/user/configuration/createBuilding'"></span>
                       </td>
-                      <td class="text-center"><span class="fa fa-trash" (click)="deleteBuilding(i, building.id)"></span></td>
+                      <td class="text-center"><span class="fa fa-trash" (click)="deleteBuilding(i, building._id)"></span></td>
                     </tbody>
                   <!-- <tbody>
                     <tr>
