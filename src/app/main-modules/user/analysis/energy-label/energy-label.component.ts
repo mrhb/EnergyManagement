@@ -48,6 +48,7 @@ constructor(private formBuilder: FormBuilder,
   ) { 
   this.form = this.formBuilder.group({
     year: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(3), Validators.pattern(this.myPattern.number)]],
+    energyLabelType: [''],
   }, {
   });
   // تعریف متغیرها
