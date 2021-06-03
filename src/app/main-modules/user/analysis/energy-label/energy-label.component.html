@@ -24,6 +24,21 @@
                       </div>
                       <app-alert-error [data]="form.controls['year']" [touched]="touched"></app-alert-error>
                     </div>
+                     <!-- انتخاب کاربری -->
+                      <div class="left">
+                     <div class="text-center">
+                      <label for="energyLabelType" class="form-label">انتخاب کاربری </label>
+                        <select name="energyLabelType" id="energyLabelType"
+                                class="form-control text-right"
+                                formControlName="energyLabelType"
+                                [(ngModel)]="energyLableDto.energyLabelType">
+                                <option *ngFor="let item of energyLabelType | enumKeyValue" [value]="item.key">
+                                  {{item.value}}
+                                </option>
+                              </select>
+                            </div>
+                      <app-alert-error [data]="form.controls['energyLabelType']" [touched]="touched"></app-alert-error>
+                    </div>
                   </div>
                 </form>
                 <div class="row" style="padding-top: 20px;">
@@ -154,23 +169,7 @@
                           
                         </div>
                       </div>
-                      <!-- انتخاب کاربری -->
-                      <form [formGroup]="form" >
-                      <div class="left">
-                     <div class="text-center">
-                      <label for="energyLabelType" class="form-label">انتخاب کاربری </label>
-                        <select name="energyLabelType" id="energyLabelType"
-                                class="form-control text-right"
-                                formControlName="energyLabelType"
-                                [(ngModel)]="energyLableDto.energyLabelType">
-                                <option *ngFor="let item of energyLabelType | enumKeyValue" [value]="item.key">
-                                  {{item.value}}
-                                </option>
-                              </select>
-                            </div>
-                      <app-alert-error [data]="form.controls['energyLabelType']" [touched]="touched"></app-alert-error>
-                    </div>
-                  </form>
+                     
                     <div class="result">
                         <div class="right">
                           <div class="tag" [ngClass]="energyLabel.label">
