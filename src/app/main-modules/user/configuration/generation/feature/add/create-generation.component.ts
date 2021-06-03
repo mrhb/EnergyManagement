@@ -167,7 +167,7 @@ export class CreateGenerationComponent implements OnInit {
         this.generationService.deleteGenerationBuildingAllocation({id: this.generationId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف نیروگاه با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف ساختمان با موفقیت انجام گردید');
               this.generationDto.buildingList.splice(i, 1);
             }
           });

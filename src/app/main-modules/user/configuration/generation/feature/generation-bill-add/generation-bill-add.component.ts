@@ -12,6 +12,7 @@ import { Moment } from 'src/app/shared/tools/moment';
 import { GenerationAllocation, GenerationBillDto, GenerationList } from '../../model/generation';
 import { GenerationReceiptService } from '../../service/generation-receipt.service';
 import { GenerationService } from '../../service/generation.service';
+import { RegionService } from '../../../region/service/region.service';
 declare var $: any;
 
 @Component({
@@ -22,6 +23,8 @@ declare var $: any;
 export class GenerationBillAddComponent implements OnInit  , AfterViewInit{
   pageSize = 20;
   pageIndex = 0;
+  regionId ="111111111111111111111111";
+
   length = -1;
   touched = false;
   edited = false;
@@ -36,7 +39,9 @@ export class GenerationBillAddComponent implements OnInit  , AfterViewInit{
   generationAllocation = new GenerationAllocation();
 
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private stateService:RegionService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private  activatedRoute: ActivatedRoute,
     private  generationReceiptService: GenerationReceiptService,
@@ -94,6 +99,11 @@ jQueryDate(): void {
   }, 100);
 }
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListGeneration();
+    });
+
     this.form=this.formBuilder.group({
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
@@ -154,7 +164,7 @@ getListGeneration(): void {
     {
       page: this.pageIndex,
       size: this.pageSize,
-    }, ''
+    },{regionId: this.regionId}
   ).subscribe((res: any) => {
     if (res) {
       this.generationList = res.content;
