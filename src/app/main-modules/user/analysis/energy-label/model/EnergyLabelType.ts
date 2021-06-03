@@ -1,4 +1,4 @@
-export enum EnergyLabelType {
+export enum EnergyLabelTypeEnum{
   RESIDENTIALLARG = <any> ' مسکونی بزرگ',
   RESIDENTIALSMAL = <any> ' مسکونی کوچک',
   OFFICIAL = <any> 'غیرمسکونی دولتی',

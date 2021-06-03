@@ -6,7 +6,7 @@ import { UseTypeBuildingEnum } from '../../configuration/building/model/useTypeE
 import { ClimateTypeEnum } from '../../configuration/climate/model/climateEnum';
 import { StateService } from '../state.service';
 import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
-import { EnergyLabelType } from './model/EnergyLabelType';
+import { EnergyLabelTypeEnum } from './model/EnergyLabelType';
 import { EnergyLabelService } from './service/energy-label.service';
 import { LabelService } from './service/label.service';
 
@@ -27,7 +27,7 @@ export class EnergyLabelComponent implements OnInit {
   energyLableDto = new EnergyLableDto();
   buildingList = [];
   useTypeBuildingEnum = UseTypeBuildingEnum;
-  energyLabelType = EnergyLabelType;
+  energyLabelTypeEnum = EnergyLabelTypeEnum;
   climateTypeEnum=ClimateTypeEnum;
   regionId ="111111111111111111111111";
 
@@ -35,7 +35,7 @@ export class EnergyLabelComponent implements OnInit {
   energyLabel:EnergyLabel = {
     consumptionIndex: '1277',
     label: 'A',
-    labelType: EnergyLabelType.RESIDENTIALLARG,
+    labelType: EnergyLabelTypeEnum.RESIDENTIALLARG,
     ratio: '10.98'
   };
   

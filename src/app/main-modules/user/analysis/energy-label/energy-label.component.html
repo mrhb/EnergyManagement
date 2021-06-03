@@ -32,12 +32,12 @@
                                 class="form-control text-right"
                                 formControlName="energyLabelType"
                                 [(ngModel)]="energyLableDto.energyLabelType">
-                                <option *ngFor="let item of energyLabelType | enumKeyValue" [value]="item.key">
+                                <option *ngFor="let item of energyLabelTypeEnum | enumKeyValue" [value]="item.key">
                                   {{item.value}}
                                 </option>
                               </select>
                             </div>
-                      <app-alert-error [data]="form.controls['energyLabelType']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['energyLabelTypeEnum']" [touched]="touched"></app-alert-error>
                     </div>
                   </div>
                 </form>

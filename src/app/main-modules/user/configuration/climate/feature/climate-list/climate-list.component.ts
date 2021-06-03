@@ -22,6 +22,7 @@ export class ClimateListComponent implements OnInit {
   climateList: ClimateListDto[] = [];
   buildingList = [];
   climateListDto = new ClimateListDto();
+  regionId ="111111111111111111111111";
 
   constructor(
     private router: Router,
@@ -29,9 +30,11 @@ export class ClimateListComponent implements OnInit {
     private stateService:RegionService,
   ){}
 
-
   ngOnInit(): void {
+    this.stateService.regionId.subscribe(reg=>{
+    this.regionId=reg;
     this.getClimateList();
+  });
   }
 
   getClimateList(): void {
@@ -69,5 +72,4 @@ export class ClimateListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.navigate();
   }
-
 }
