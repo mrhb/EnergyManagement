@@ -5,7 +5,7 @@ import { MyPattern } from 'src/app/shared/tools/myPattern';
 import { UseTypeBuildingEnum } from '../../configuration/building/model/useTypeEnum';
 import { ClimateTypeEnum } from '../../configuration/climate/model/climateEnum';
 import { StateService } from '../state.service';
-import { EnergyLabel, EnergyLableDto, LableDetail } from './model/energyLabel';
+import { EnergyLabel, EnergyLableDto } from './model/energyLabel';
 import { EnergyLabelTypeEnum } from './model/EnergyLabelType';
 import { EnergyLabelService } from './service/energy-label.service';
 import { LabelService } from './service/label.service';
@@ -26,19 +26,13 @@ export class EnergyLabelComponent implements OnInit {
   touched = false;
   energyLableDto =new  EnergyLableDto();
   buildingList = [];
-  lableDetail = new LableDetail();
   useTypeBuildingEnum = UseTypeBuildingEnum;
   energyLabelTypeEnum = EnergyLabelTypeEnum;
   climateTypeEnum=ClimateTypeEnum;
   regionId ="111111111111111111111111";
 
 
-  energyLabel:EnergyLabel = {
-    consumptionIndex: '1277',
-    label: 'A',
-    labelType: EnergyLabelTypeEnum.RESIDENTIALLARG,
-    ratio: '10.98'
-  };
+  energyLabel=new EnergyLabel();
   
 constructor(private formBuilder: FormBuilder,
   private buildingService: EnergyLabelService,
@@ -82,12 +76,7 @@ constructor(private formBuilder: FormBuilder,
     this.energyLableDto.buildingId=buildingId;//"607d3c195eb88805b4c98934";
     this.labelService.getLabel('',this.energyLableDto).subscribe((res: any) => {
       if (res) {
-
-        this.energyLabel.ratio = res.data.ratio;
-        this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
-        // this.energyLabel.labelType=EnergyLabelType.RESIDENTIAL;
-        this.energyLabel.label= res.data.label;
-        this.lableDetail= res.data;
+        this.energyLabel= res.data;
       }
     });
   }

@@ -1,6 +1,12 @@
 import { EnergyLabelTypeEnum } from "./EnergyLabelType";
 
 export class EnergyLabel {
+  powerReceipt: number;
+  gasReceipt: number;
+  GASOLIN: number;
+  BENZIN: number;
+  GAS: number;
+
   ratio: string;
   consumptionIndex: string;
   label: string;
@@ -13,10 +19,3 @@ export class EnergyLableDto {
   energyLabelType:EnergyLabelTypeEnum;
 }
 
-export class LableDetail {
-  powerReceipt: number;
-  gasReceipt: number;
-  GASOLIN: number;
-  BENZIN: number;
-  GAS: number;
-}

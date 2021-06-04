@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class StateService {
   public region: BehaviorSubject<string>=new BehaviorSubject<string>("منطقه را انتخاب کنید");
-  public regionId: BehaviorSubject<string>=new BehaviorSubject<string>("000000000000000000000000");
+  public regionId: BehaviorSubject<string>=new BehaviorSubject<string>("111111111111111111111111");
 
   constructor() { 
   }

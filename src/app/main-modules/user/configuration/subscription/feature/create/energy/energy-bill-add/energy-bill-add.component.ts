@@ -13,6 +13,7 @@ import { EnergyService } from '../../../../service/energy.service';
 import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
 import { EnergyCarierEnum } from '../../../../model/energyEnum';
+import { RegionService } from 'src/app/main-modules/user/configuration/region/service/region.service';
 declare var $: any;
 @Component({
   selector: 'app-Energy-bill-add',
@@ -23,6 +24,8 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
   pageSize = 20;
   pageIndex = 0;
   length = -1;
+  regionId ="111111111111111111111111";
+
   touched = false;
   edited = false;
   myPattern = MyPattern;
@@ -36,7 +39,9 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
   energyBillDto = new EnergyBillDto();
   energyAllocation = new EnergyAllocation();
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
+    private stateService:RegionService,
+    private formBuilder: FormBuilder,
     private router: Router,
     private  activatedRoute: ActivatedRoute,
     private  energyService: EnergyService,
@@ -107,6 +112,10 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
       payableAmount:[], //  مبلغ قابل پرداخت     
     }
     );
+    this.stateService.regionId.subscribe(reg=>{
+      this.regionId=reg;
+      this.getListEnergy();
+    });
   }
 
   getOneBill(pId): void {
@@ -161,8 +170,8 @@ export class EnergyBillAddComponent implements OnInit , AfterViewInit{
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
+      },{regionId: this.regionId}
+      ).subscribe((res: any) => {
       if (res) {
         this.energyList = res.content;
         this.length = res.totalElements;
