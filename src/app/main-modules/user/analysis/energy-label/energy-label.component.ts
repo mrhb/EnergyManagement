@@ -24,7 +24,7 @@ export class EnergyLabelComponent implements OnInit {
   myPattern = MyPattern;
   form: FormGroup;
   touched = false;
-  energyLableDto = new EnergyLableDto();
+  energyLableDto =new  EnergyLableDto();
   buildingList = [];
   useTypeBuildingEnum = UseTypeBuildingEnum;
   energyLabelTypeEnum = EnergyLabelTypeEnum;
@@ -56,6 +56,7 @@ constructor(private formBuilder: FormBuilder,
 
   ngOnInit(): void {
     this.energyLableDto.year = 1399;
+    this.energyLableDto.energyLabelType=EnergyLabelTypeEnum[EnergyLabelTypeEnum.OFFICIAL.toString()] ;
     this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getBuildingList();

@@ -16,7 +16,7 @@
                     <div class="mb-4 col-md-3">
                       <div class="w-100">
                         <label for="year" class="form-label">سال</label>
-                        <input class="form-control text-right" id="year" placeholder="1399"
+                        <input class="form-control text-right" id="year" 
                               type="number" min="1300"
                               [(ngModel)]="energyLableDto.year"
                               formControlName="year"
@@ -28,7 +28,7 @@
                       <div class="left">
                      <div class="text-center">
                       <label for="energyLabelType" class="form-label">انتخاب کاربری </label>
-                        <select name="energyLabelType" id="energyLabelType"
+                        <select name="energyLabelType" id="energyLabelType" 
                                 class="form-control text-right"
                                 formControlName="energyLabelType"
                                 [(ngModel)]="energyLableDto.energyLabelType">
@@ -37,7 +37,7 @@
                                 </option>
                               </select>
                             </div>
-                      <app-alert-error [data]="form.controls['energyLabelTypeEnum']" [touched]="touched"></app-alert-error>
+                      <app-alert-error [data]="form.controls['energyLabelType']" [touched]="touched"></app-alert-error>
                     </div>
                   </div>
                 </form>

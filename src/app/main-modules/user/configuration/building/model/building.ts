@@ -1,6 +1,5 @@
 import {UseTypeBuildingEnum, UtilityTypeEnum} from './useTypeEnum';
 import {CoolingSystemType,HeatingSystemType, Ownership} from './buildingEnum';
-import {EnergyLabelType} from './EnergyLabelType';
 
 export class CompleteStep {
   zero: boolean;
@@ -95,11 +94,3 @@ export class BuildingList {
   waterSharingNum: string;  //تعداد انشعاب آب
   nonEnergyCarrierSharingNum: string;  // تعداد حامل های انرژی غیر 
 }
-
-export class EnergyLabel {
-  ratio: string;
-  consumptionIndex: string;
-  label: string;
-  labelType: EnergyLabelType;
-}
-

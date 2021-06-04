@@ -8,8 +8,7 @@ export class EnergyLabel {
 }
 
 export class EnergyLableDto {
-  year: number;
+  year: number=1397;
   buildingId:string;
-  energyLabelType:string;
-  energyLabelTypeEnum: EnergyLabelTypeEnum;
+  energyLabelType:EnergyLabelTypeEnum;
 }

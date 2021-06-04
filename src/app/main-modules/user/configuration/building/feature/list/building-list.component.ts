@@ -5,12 +5,11 @@
  */
 
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {BuildingList, EnergyLabel, Region} from '../../model/building';
+import {BuildingList,  Region} from '../../model/building';
 import {BuildingService} from '../../service/building.service';
 import {ActivatedRoute, Router} from '@angular/router';
 // @ts-ignore
 import Notiflix from 'notiflix';
-import {EnergyLabelType} from '../../model/EnergyLabelType';
 import {Moment} from '../../../../../../shared/tools/moment';
 import {ChartFilter} from '../../model/chart';
 import {chartTypeEnum, EffectiveParameterEnum, PeriodEnum} from '../../model/chartEnum';
@@ -45,9 +44,6 @@ export class BuildingListComponent implements OnInit {
 
   moment = Moment;
  
-
-  energyLabel = new EnergyLabel();
-  energyLabelEnum = EnergyLabelType;
 
   constructor(
     private stateService:RegionService,
