@@ -12,3 +12,11 @@ export class EnergyLableDto {
   buildingId:string;
   energyLabelType:EnergyLabelTypeEnum;
 }
+
+export class LableDetail {
+  powerReceipt: number;
+  gasReceipt: number;
+  GASOLIN: number;
+  BENZIN: number;
+  GAS: number;
+}

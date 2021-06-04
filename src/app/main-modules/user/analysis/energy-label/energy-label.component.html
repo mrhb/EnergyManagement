@@ -115,34 +115,40 @@
                               <th scope="col">1</th>
                               <th scope="col">مصرف سالیانه برق</th>
                               <th scope="col">kWh</th>
-                              <th scope="col">4</th>
+                              <th scope="col">{{lableDetail.powerReceipt}}</th>
                             </tr>
                             <tr>
                               <th scope="col">2</th>
                               <th scope="col">مصرف سالیانه گاز طبیعی</th>
                               <th scope="col">m3</th>
-                              <th scope="col">4</th>
+                              <th scope="col">{{lableDetail.gasReceipt}}</th>
                             </tr>
                             <tr>
                               <th scope="col">3</th>
                               <th scope="col">مصرف سالیانه گازوییل</th>
                               <th scope="col">lit</th>
-                              <th scope="col">4</th>
+                              <th scope="col">{{lableDetail.GASOLIN}}</th>
                             </tr>
                             <tr>
                               <th scope="col">4</th>
                               <th scope="col">مصرف سالیانه مازوت</th>
                               <th scope="col">lit</th>
-                              <th scope="col">4</th>
+                              <th scope="col">{{lableDetail.BENZIN}}</th>
                             </tr>
                             <tr>
                               <th scope="col">5</th>
+                              <th scope="col">مصرف سالیانه گاز</th>
+                              <th scope="col">lit</th>
+                              <th scope="col">{{lableDetail.GAS}}</th>
+                            </tr>
+                            <tr>
+                              <th scope="col">6</th>
                               <th scope="col">نسبت انرژی </th>
                               <th scope="col">R</th>
                               <th scope="col">{{energyLabel.ratio | number: '0.0-2'}}</th>
                             </tr>
                             <tr>
-                              <th scope="col">6</th>
+                              <th scope="col">7</th>
                               <th scope="col">شاخص مصرف انرژی </th>
                               <th scope="col">Index</th>
                               <th scope="col">{{energyLabel.consumptionIndex | number: '0.0-2'}}</th>
