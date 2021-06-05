@@ -106,7 +106,9 @@ jQueryDate(): void {
       consumptionAmount:[], //  بهای آب مصرفی
       payableAmount:[], //     مبلغ قابل پرداخت
     }
-    );
+    , {
+      validators: this.checkCounterValidators('currentCounter', 'previousCounter')
+      });
   }
 
 getOneBill(pId): void {
@@ -172,5 +174,20 @@ getListWater(): void {
 selectWater(item): void {
   this.waterAllocation = item;
   this.waterBillDto.sharingId=item._id;
+}
+// مقایسه رقم فعلی و قبلی 
+checkCounterValidators(item1: any, item2: any): (group: FormGroup) => any {
+  return (group: FormGroup) => {
+
+    if (  group.controls[item1].value<  group.controls[item2].value) {
+      group.controls[item1].setErrors({errors:['رقم فعلی باید از رقم قبلی بیشتر باشد'],incorrect:true});
+      group.controls[item2].setErrors({incorrect:true});
+      Notiflix.Notify.Failure('رقم فعلی باید از رقم قبلی بیشتر باشد');  
+    } 
+    else if (  group.controls[item1].value>= group.controls[item2].value) {
+      group.controls[item1].setErrors(null);
+      group.controls[item2].setErrors(null);
+    }
+};
 }
 }
