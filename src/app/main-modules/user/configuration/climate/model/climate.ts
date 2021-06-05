@@ -33,3 +33,20 @@ export class ClimateListDto {
   windMean: string;// میانگین سرعت باد 
 }
 
+ //  لیست آب و هوا    
+ export class ClimateList {
+  _id: string;
+  title:string;
+  province: ProvinceEnum;// استان  
+  climateType: ClimateTypeEnum; // نوع اقلیم 
+  city: string; // شهر
+  longitude: string; // طول جغرافیایی
+  latitude: string;// عرض جغرافیایی 
+
+  tempMaxMean: string;// میانگین حداکثر دما
+  tempMinMean: string;// میانگین حداقل دما
+  HumidMaxMean: string;// میانگین حداکثر رطوبت
+  lowHumidMean: string;// میانگین حداقل رطوبت
+  windMean: string;// میانگین سرعت باد 
+}
+

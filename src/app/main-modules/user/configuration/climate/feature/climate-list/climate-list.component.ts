@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ClimateListDto } from '../../model/climate';
+import { ClimateList, ClimateListDto } from '../../model/climate';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegionService } from '../../../region/service/region.service';
 import { ClimateService } from '../../service/climate.service';
+import Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-climate-list',
@@ -19,7 +20,7 @@ export class ClimateListComponent implements OnInit {
   filterBuilding = '';
   climateTypeEnum = ClimateTypeEnum;
   provinceEnum=ProvinceEnum;
-  climateList: ClimateListDto[] = [];
+  climateList : ClimateList [] = [];
   buildingList = [];
   climateListDto = new ClimateListDto();
   regionId ="111111111111111111111111";
@@ -40,7 +41,7 @@ export class ClimateListComponent implements OnInit {
   getClimateList(): void {
     console.log('this.pageIndex', this.pageIndex);
     console.log('this.pageSize', this.pageSize);
-    this.climateList = [];
+    // this.climateList = [];
     this.climateService.getClimateList(
       {
         page: this.pageIndex,
@@ -71,5 +72,22 @@ export class ClimateListComponent implements OnInit {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
     this.navigate();
+  }
+  
+  deleteClimate(i, pId): void {
+    Notiflix.Confirm.Show(
+      'اقلیم',
+      'آیا اطمینان دارید که این اقلیم حذف گردد؟',
+      'بله',
+      'خیر',
+      () => {
+        this.climateService.deleteClimate({id: pId})
+          .subscribe((res: any) => {
+            if (res) {
+              Notiflix.Notify.Success('حذف اقلیم با موفقیت انجام گردید');
+              this.climateList.splice(i, 1);
+            }
+          });
+      });
   }
 }
