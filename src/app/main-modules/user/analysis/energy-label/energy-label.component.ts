@@ -78,6 +78,9 @@ constructor(private formBuilder: FormBuilder,
       if (res) {
         this.energyLabel= res.data;
       }
+      else{
+        this.energyLabel=new EnergyLabel();
+      }
     });
   }
   navigate(): void {

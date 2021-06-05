@@ -11,6 +11,7 @@ export class EnergyLabel {
   consumptionIndex: string;
   label: string;
   labelType: EnergyLabelTypeEnum;
+  title:string;
 }
 
 export class EnergyLableDto {

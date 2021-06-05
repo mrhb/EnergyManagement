@@ -34,9 +34,9 @@
                       <td>{{facilityUsageEnum[facility.useType].toString()}}</td>
                       <td>{{facility.explanation}}</td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
-                                            [queryParams]="{id: facility.id}"
+                                            [queryParams]="{id: facility._id}"
                                             [routerLink]="'/index/user/configuration/createFacility'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteFacility(i, facility.id)"></span></td>
+                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteFacility(i, facility._id)"></span></td>
                     </tbody>
                  
                   </table>
