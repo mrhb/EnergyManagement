@@ -87,10 +87,17 @@
                   </div>
                   <app-alert-error [data]="form.controls['instrumentNum']" [touched]="touched"></app-alert-error>
                 </div>              
-                <!-- توان مصرفی -->          
+                <!-- انرژی مصرفی -->          
                 <div class="mb-4 col-md-3">
                   <div class="w-100">
-                    <label for="consumptionPower" class="form-label">توان مصرفی (وات) </label>
+                    <label for="consumptionPower" class="form-label">
+                        <span class="size-label">
+                          <span *ngIf="instrumentDto.instrumentCarrier===energyCarierEnum[energyCarierEnum.ELECTRICITY.toString()]"> انرژی مصرفی (کیلووات)</span>
+                          <span *ngIf="instrumentDto.instrumentCarrier===energyCarierEnum[energyCarierEnum.GAS.toString()]"> انرژی مصرفی (مترمکعب)</span>
+                          <span *ngIf="instrumentDto.instrumentCarrier===energyCarierEnum[energyCarierEnum.GASOLIN.toString()]"> انرژی مصرفی (لیتر)</span>
+                          <span *ngIf="instrumentDto.instrumentCarrier===energyCarierEnum[energyCarierEnum.BENZIN.toString()]"> انرژی مصرفی (لیتر)</span>
+                        </span>
+                    </label>
                     <input class="form-control text-right" id="consumptionPower" placeholder=""
                           [(ngModel)]="instrumentDto.consumptionPower"
                           formControlName="consumptionPower"
