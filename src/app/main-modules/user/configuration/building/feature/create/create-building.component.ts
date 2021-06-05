@@ -298,28 +298,33 @@ constructor(private formBuilder: FormBuilder,
     return (group: FormGroup) => {
 
       if (  group.controls[item1].value<  group.controls[item2].value) {
-        // this.form.controls['ayanArea'].setErrors({incorrect:true});
+        group.controls[item1].setErrors({errors:['مساحت اعیان باید از مساحت مفید بیشتر باشد'],incorrect:true});
+        group.controls[item2].setErrors({incorrect:true});
         Notiflix.Notify.Failure('مساحت اعیان باید از مساحت مفید بیشتر باشد');  
-        this.buildingDto.useFullArea = 0;  
+        //this.buildingDto.useFullArea = 0;  
       } 
-      // else if (  group.controls[item1].value>= group.controls[item2].value) {
-      // this.form.controls['ayanArea'].setErrors({});
-      // }
+      else if (  group.controls[item1].value>= group.controls[item2].value) {
+        group.controls[item1].setErrors(null);
+        group.controls[item2].setErrors(null);
+      }
   };
 }
   
-  // مقایسه مساحت عرصه و اعیان
-  checkAreaValidators1(item1: any, item2: any): (group: FormGroup) => any {
-    return (group: FormGroup) => {
+  // // مقایسه مساحت عرصه و اعیان
+  // checkAreaValidators1(item1: any, item2: any): (group: FormGroup) => any {
+  //   return (group: FormGroup) => {
 
-      if (  group.controls[item1].value<  group.controls[item2].value) {
-        Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد'); 
-        this.buildingDto.ayanArea = 0;  
-      }
-    };
-  }
+  //     if (  group.controls[item1].value<  group.controls[item2].value) {
+  //       Notiflix.Notify.Failure('مساحت عرصه باید از مساحت اعیان بیشتر باشد'); 
+  //       this.buildingDto.ayanArea = 0;  
+  //     }
+  //   };
+  // }
   // بررسی اطلاعات ساختمان
   updateBuilding(): void {
+
+
+
     this.buildingDto.utilityType=UtilityTypeEnum[UtilityTypeEnum.BUILDING.toString()];
     this.touched = true;
     if (this.form.invalid) {
