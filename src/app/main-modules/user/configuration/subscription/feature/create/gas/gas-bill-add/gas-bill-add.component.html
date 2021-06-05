@@ -225,8 +225,8 @@
               <thead class="thead-light">
               <tr>
                 <th scope="col" width="40">#</th>
-                <!-- <th scope="col">شناسه قبض</th> -->
                 <th scope="col">نام مشترک</th>
+                <th scope="col">شناسه قبض</th>
                 <th scope="col" width="80">عملیات</th>
               </tr>
               </thead>
@@ -234,8 +234,8 @@
               <ng-container *ngFor="let item of gasList; let i = index">
                 <tr>
                   <th scope="row" width="40">{{i + 1}}</th>
-                  <!-- <td>{{item.billingId}}</td> -->
                   <td>{{item.name}}</td>
+                  <td>{{item.billingId}}</td>
                   <td width="40">
                   <span class="cursor-pointer text-center btn btn-primary"
                         data-dismiss="modal"
