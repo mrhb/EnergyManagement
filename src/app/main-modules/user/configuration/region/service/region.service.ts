@@ -10,6 +10,7 @@ import { GATEWAY_URL } from 'src/app/_base/service/model/rest-constants';
 export class RegionService extends GeneralService {
     public region: BehaviorSubject<string>=new BehaviorSubject<string>("منطقه را انتخاب کنید...");
     public regionId: BehaviorSubject<string>=new BehaviorSubject<string>("111111111111111111111111");
+    public changedRegionId: BehaviorSubject<string>=new BehaviorSubject<string>("111111111111111111111111");
     
     constructor(public http: HttpClient) {
       super(http);

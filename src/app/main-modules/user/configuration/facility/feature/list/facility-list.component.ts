@@ -94,15 +94,15 @@ export class FacilityListComponent implements OnInit, AfterViewInit,OnDestroy  {
 
   deleteFacility(i: number, bId): void {
     Notiflix.Confirm.Show(
-      'حذف فضا',
-      'آیا اطمینان دارید که ساختمان حذف گردد؟',
+      'حذف تأسیس',
+      'آیا اطمینان دارید که این تأسیس حذف گردد؟',
       'بله',
       'خیر',
       () => {
         this.facilityService.deleteFacility({id: bId})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف فضا با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف تأسیس با موفقیت انجام گردید');
               this.facilityList.splice(i, 1);
             }
           });
