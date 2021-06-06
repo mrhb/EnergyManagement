@@ -33,10 +33,27 @@
               </div>
               <app-alert-error [data]="userForm.controls['lastName']" [touched]="touched"></app-alert-error>
             </div>
-            <!-- سمت سازمانی            -->
-            <div class="mb-4 col-md-4">
+            <!-- رتبه سازمانی-->
+              <!-- رتبه سازمانی -->
+          <div class="mb-4 col-md-4">
+            <div class="w-100">
+              <label for="organizationalLevel" class="form-label">رتبه سازمانی</label>
+              <select name="organizationalLevel" id="organizationalLevel"
+              class="form-control text-right"
+              formControlName="organizationalLevel"
+              [(ngModel)]="dto.organizationalLevel"
+             >
+              <option *ngFor="let item of organizationalLevelEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
+            </div>
+            <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
+          </div>
+
+            <!-- <div class="mb-4 col-md-4">
               <div class="w-100">
-                <label for="organizationalLevel" class="form-label">سمت سازمانی</label>
+                <label for="organizationalLevel" class="form-label">رتبه سازمانی</label>
                 <input class="form-control text-right" id="organizationalLevel" placeholder=""
                        [(ngModel)]="dto.organizationalLevel"
                        formControlName="organizationalLevel"
@@ -44,7 +61,7 @@
                        maxlength="11">
               </div>
               <app-alert-error [data]="userForm.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
-            </div>
+            </div> -->
             <!-- نام کاربری  -->
             <!-- <div class="mb-4 col-md-6">
               <div class="w-100">

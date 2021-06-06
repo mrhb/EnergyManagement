@@ -8,6 +8,7 @@ import {Tools} from '../../../../shared/tools/tools';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {CheckUserService} from '../../service/checkUserService';
+import { OrganizationalLevelEnum } from 'src/app/main-modules/user/profile/model/profile';
 
 /**
  * create By reza mollaei reza_yki@yahoo.com
@@ -22,6 +23,7 @@ export class SignupComponent implements OnInit {
   myPattern = MyPattern;
   userForm: FormGroup;
   touched = false;
+  organizationalLevelEnum = OrganizationalLevelEnum;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,

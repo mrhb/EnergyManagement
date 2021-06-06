@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {PipeModule} from '../../shared/tools/pipe-module';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { ForgotPasswordComponent } from './feature/forgot-password/forgot-password.component';
@@ -20,7 +21,9 @@ import {CheckUserService} from './service/checkUserService';
     AuthRoutingModule,
     FormsModule,
     AlertErrorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipeModule
+
   ],
   providers: [AuthService, CheckUserService]
 })
