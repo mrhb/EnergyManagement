@@ -105,8 +105,16 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
      reactive_totalAfterLast :[],// مصرف بعد از آخرین تغییرات راکتیو 
      reactive_nerkh :[],// نرخ راکتیو 
      reactive_mablagh :[],// مبلغ راکتیو         })
-    });
-        
+    }, {
+     
+      validators: [this.checkCounterValidators('intermediate_currentCounter', 'intermediate_preCounter'),
+      // this.checkCounterValidators('peakLoad_currentCounter', 'peakLoad_preCounter'),
+      // this.checkCounterValidators('lowLoad_currentCounter', 'lowLoad_preCounter'),
+      // this.checkCounterValidators('peakTimesFriday_currentCounter', 'peakTimesFriday_preCounter'),
+      // this.checkCounterValidators('reactive_currentCounter', 'reactive_preCounter'),
+    ] // مقایسه شمارنده ها   
+      });
+
     this.formDiscrip=this.formBuilder.group({
       paymentDeadLine:[], //  مهلت پرداخت
       badConsumptionLossRatio:[], //  ضریب زیان بدی مصرف   
@@ -256,4 +264,20 @@ export class PowerBillAddComponent implements OnInit , AfterViewInit {
     this.powerAllocation = item;
     this.powerBillDto.sharingId=item._id;
   }
+
+// مقایسه رقم فعلی و قبلی 
+checkCounterValidators(item1: any, item2: any): (group: FormGroup) => any {
+  return (group: FormGroup) => {
+
+    if (  group.controls[item1].value<  group.controls[item2].value) {
+      group.controls[item1].setErrors({errors:['رقم فعلی باید از رقم قبلی بیشتر باشد'],incorrect:true});
+      group.controls[item2].setErrors({incorrect:true});
+      Notiflix.Notify.Failure('رقم فعلی باید از رقم قبلی بیشتر باشد');  
+    } 
+    else if ((group.controls[item1].value==null)|| (group.controls[item2].value==null) ||(group.controls[item1].value>= group.controls[item2].value)) {
+      group.controls[item1].setErrors(null);
+      group.controls[item2].setErrors(null);
+    }
+};
+}
 }
