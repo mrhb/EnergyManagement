@@ -13,6 +13,7 @@ import { Moment } from 'src/app/shared/tools/moment';
 import { ConsumptionTypeEnum, GenerationTypeEnum } from '../../model/generationEnum';
 import { GenerationBillList } from '../../model/generation';
 import { GenerationReceiptService } from '../../service/generation-receipt.service';
+import { BillFilterDto } from '../../../subscription/model/billFilter';
 
 @Component({
   selector: 'app-generation-bill-list',
@@ -26,6 +27,9 @@ export class GenerationBillListComponent implements OnInit {
   totalPages = 1;
   moment = Moment;
 
+  billFilter= new BillFilterDto();
+
+
   generationTypeEnum = GenerationTypeEnum;
   consumptionTypeEnum = ConsumptionTypeEnum;
 
@@ -37,13 +41,19 @@ export class GenerationBillListComponent implements OnInit {
   ngOnInit(): void {
     this.getGenerationBillList();
   }
+  filterChange(event) : void {
+    this.billFilter=event;
+    this.pageSize = 20;
+    this.pageIndex = 0;
+    this.getGenerationBillList();    
+  }
   getGenerationBillList(): void {
     this.generationReceiptService.getReceiptList(
       {
         page: this.pageIndex,
         size: this.pageSize,
-      }, ''
-    ).subscribe((res: any) => {
+      }, this.billFilter
+      ).subscribe((res: any) => {
       if (res) {
         this.generationBillList = res.content;
         this.length = res.totalElements;
