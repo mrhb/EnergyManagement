@@ -71,6 +71,7 @@ export class RegionEditeComponent implements OnInit {
             this.regionDto.parentId=this.regionId;
             Notiflix.Notify.Success('افزودن زیر مجموعه با موفقیت انجام شد.');
             this.subRegions.push(res.data);
+            this.regionService.changedRegionId.next(this.regionDto.parentId);
 
           }
         });
@@ -85,6 +86,8 @@ export class RegionEditeComponent implements OnInit {
               this.subRegions[index] = this.regionDto;
               this.regionDto = new RegionDto();
               this.regionDto.parentId=this.regionId;
+
+              this.regionService.changedRegionId.next(this.regionDto.parentId);
             }
           }
         });
@@ -103,6 +106,7 @@ export class RegionEditeComponent implements OnInit {
             if (res) {
               Notiflix.Notify.Success('حذف با موفقیت انجام گردید');
               this.subRegions.splice(i, 1);
+              this.regionService.changedRegionId.next(this.regionDto.parentId);
             }
           });
       });

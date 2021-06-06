@@ -38,6 +38,14 @@ export class RegionTreeViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.regionService.changedRegionId.subscribe(reg=>{
+      this.regionList = [];
+      this.region = new Region();
+      this.regOutput = new RegionOutput();
+      this.getOne();
+    })
+
     this.getOne();
   }
 
@@ -101,6 +109,13 @@ export class RegionTreeViewComponent implements OnInit {
       regionId,
     };
 
-    this.regionOutput.emit(regionOutput);
+    //this.regionOutput.emit(regionOutput);
+
+
+
+
+    var str=regionTitle.split('&').join('>');
+    this.regionService.region.next(str);
+    this.regionService.regionId.next(regionId);
   }
 }
