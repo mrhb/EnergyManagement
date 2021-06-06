@@ -35,6 +35,7 @@ export class ClimateListComponent implements OnInit {
     this.stateService.regionId.subscribe(reg=>{
     this.regionId=reg;
     this.getClimateList();
+
   });
   }
 

@@ -8,8 +8,8 @@ export class ClimateDto {
   province: ProvinceEnum;// استان  
   city: string; // شهر
   village: string;//روستا
-  longitude: string; // طول جغرافیایی
-  latitude: string;// عرض جغرافیایی 
+  longitude: number; // طول جغرافیایی
+  latitude: number;// عرض جغرافیایی 
   height: string; // ارتفاع از سطح دریا
   climateType: ClimateTypeEnum; // نوع اقلیم 
   dominantThermalReq: string; // نیاز غالب حرارتی
@@ -23,8 +23,8 @@ export class ClimateListDto {
   province: ProvinceEnum;// استان  
   climateType: ClimateTypeEnum; // نوع اقلیم 
   city: string; // شهر
-  longitude: string; // طول جغرافیایی
-  latitude: string;// عرض جغرافیایی 
+  longitude: number; // طول جغرافیایی
+  latitude: number;// عرض جغرافیایی 
 
   tempMaxMean: string;// میانگین حداکثر دما
   tempMinMean: string;// میانگین حداقل دما
@@ -40,8 +40,8 @@ export class ClimateListDto {
   province: ProvinceEnum;// استان  
   climateType: ClimateTypeEnum; // نوع اقلیم 
   city: string; // شهر
-  longitude: string; // طول جغرافیایی
-  latitude: string;// عرض جغرافیایی 
+  longitude: number; // طول جغرافیایی
+  latitude: number;// عرض جغرافیایی 
 
   tempMaxMean: string;// میانگین حداکثر دما
   tempMinMean: string;// میانگین حداقل دما
