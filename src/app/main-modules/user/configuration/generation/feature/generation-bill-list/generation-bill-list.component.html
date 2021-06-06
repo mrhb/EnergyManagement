@@ -16,10 +16,12 @@
                 </div>              
               </div>
               <div class="card-body">
+                <app-bill-filter (billFilterChange)="filterChange($event)" filterName="نام نیروگاه"></app-bill-filter>           
                 <table class="table table-responsive-sm table-striped">
                   <thead>
                     <tr>
                       <th scope="col" width="20">#</th>
+                      <th scope="col">نام نیروگاه</th>
                       <th scope="col">نوع نیروگاه</th>
                       <th scope="col">نوع مصرف</th>
                       <th scope="col">ظرفیت</th>
@@ -33,10 +35,9 @@
                   <tbody>
                     <tr *ngFor="let generation of generationBillList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * generationBillList.length))}}</th>
-                      <!--<td>{{generationTypeEnum[generation.generationType].toString()}}</td>
-                       <td>{{consumptionTypeEnum[generation.consumptionType].toString()}}</td> -->            
-                       <td>{{generation.capacity}}</td>
-                       <td>{{generation.capacity}}</td>
+                      <td>{{generation.name}}</td>
+                      <td>{{generationTypeEnum[generation.generationType].toString()}}</td>
+                       <td>{{consumptionTypeEnum[generation.consumptionType].toString()}}</td>            
                        <td>{{generation.capacity}}</td>
                        <td>{{this.moment.getJaliliDateFromIso(generation.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(generation.toDate)}}</td>
