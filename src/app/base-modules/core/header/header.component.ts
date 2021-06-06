@@ -5,6 +5,7 @@ import {ROLE_ADMIN, ROLE_USER} from '../../../shared/constants/role.constants';
 import {DataService} from '../../../../service/dataService/dataService';
 import {Account} from '../model/account';
 import {GATEWAY_URL} from '../../../_base/service/model/rest-constants';
+import { OrganizationalLevelEnum } from 'src/app/main-modules/user/profile/model/profile';
 
 declare var $: any;
 
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
   role = '';
   account = new Account();
   pathUrl = GATEWAY_URL + '/api/file/get?link=';
-
+  organizationalLevelEnum = OrganizationalLevelEnum; 
   constructor(private router: Router, private jwtService: JwtService, ) {
   }
 

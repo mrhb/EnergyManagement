@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {PipeModule} from '../../shared/tools/pipe-module';
 
 import { UserRoutingModule } from './user-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -15,7 +16,8 @@ import {UploadFileModule} from '../../shared/tools/upload-file/upload-file.modul
     ReactiveFormsModule,
     UserRoutingModule,
     AlertErrorModule,
-    UploadFileModule
+    UploadFileModule,
+    PipeModule
   ],
 })
 export class UserModule { }

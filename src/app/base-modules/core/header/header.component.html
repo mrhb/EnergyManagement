@@ -119,7 +119,7 @@
       
         <p class="sub-title mb-1" *ngIf="role === 'admin'"> ادمین</p>
         <p class="sub-title mb-1" *ngIf="role === 'user'"> {{account.firstName + ' ' + account.lastName}}</p>
-        <div><span class="ml-1" *ngIf="role === 'user'">({{account.organizationalLevel}})</span> </div>
+        <div><span class="ml-1" *ngIf="role === 'user'">({{organizationalLevelEnum[account.organizationalLevel.toString()]}})</span> </div>
 
 <!-- عکس کاربر  -->
     <div class="dropdown">

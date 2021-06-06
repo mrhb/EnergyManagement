@@ -1,13 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {Password, Profile} from '../model/profile';
+import {OrganizationalLevelEnum, Password, Profile} from '../model/profile';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {MyPattern} from '../../../../shared/tools/myPattern';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ProfileService} from '../service/profile.service';
 import {GATEWAY_URL} from "../../../../_base/service/model/rest-constants";
 import {DataService} from '../../../../../service/dataService/dataService';
+import { ProvinceEnum } from '../../configuration/climate/model/climateEnum';
 
 @Component({
   selector: 'app-profile',
@@ -23,12 +24,16 @@ export class ProfileComponent implements OnInit {
   form: FormGroup;
   passForm: FormGroup;
   emailForm: FormGroup;
+  organizationalLevelEnum = OrganizationalLevelEnum;
+  provinceEnum = ProvinceEnum;// استان  
+
   myPattern = MyPattern;
   pathUrl = '';
 
   constructor(private formBuilder: FormBuilder,
               private profileService: ProfileService,
-              private router: Router) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],

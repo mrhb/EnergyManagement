@@ -16,3 +16,11 @@ export  class Password {
 }
 
 
+export  enum OrganizationalLevelEnum {
+  DEPUTY = <any> 'معاون' ,
+  MANAGER = <any> 'مدیر',
+  MASTER = <any> 'کارشناس ارشد',
+  EXPERT = <any> 'کارشناس',
+  OPERATOR = <any> 'اپراتور',
+}
+ 

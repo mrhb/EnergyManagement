@@ -4,6 +4,7 @@ export class Account {
   phone: string;
   organizationalUnit: string;
   organizationalLevel: string;
+  // organizationalLevelEnum: string;
   address: string;
   city: string;
   province: string;

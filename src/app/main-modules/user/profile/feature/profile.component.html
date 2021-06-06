@@ -66,37 +66,46 @@
             </div>
             <app-alert-error [data]="form.controls['organizationalUnit']" [touched]="touched"></app-alert-error>
           </div>
+          <!-- رتبه سازمانی -->
           <div class="mb-4 col-md-4">
             <div class="w-100">
               <label for="organizationalLevel" class="form-label">رتبه سازمانی</label>
-              <input class="form-control text-right" id="organizationalLevel" placeholder=""
-                     [(ngModel)]="profile.organizationalLevel"
-                     formControlName="organizationalLevel"
-                     name="organizationalLevel"
-                     maxlength="11"
-              >
+              <select name="organizationalLevel" id="organizationalLevel"
+              class="form-control text-right"
+              formControlName="organizationalLevel"
+              [(ngModel)]="profile.organizationalLevel"
+             >
+              <option *ngFor="let item of organizationalLevelEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
             </div>
             <app-alert-error [data]="form.controls['organizationalLevel']" [touched]="touched"></app-alert-error>
           </div>
+          <!-- استان -->
           <div class="mb-4 col-md-4">
             <div class="w-100">
               <label for="province" class="form-label">استان</label>
-              <input class="form-control text-right" id="province" placeholder=""
-                     [(ngModel)]="profile.province"
-                     formControlName="province"
-                     name="province"
+              <select name="province" id="province"
+              class="form-control text-right"
+              formControlName="province"
+              [(ngModel)]="profile.province"
               >
+              <option *ngFor="let item of provinceEnum | enumKeyValue" [value]="item.key">
+                {{item.value}}
+              </option>
+            </select>
             </div>
             <app-alert-error [data]="form.controls['province']" [touched]="touched"></app-alert-error>
           </div>
+          <!-- شهر -->
           <div class="mb-4 col-md-4">
             <div class="w-100">
               <label for="city" class="form-label">شهر</label>
               <input class="form-control text-right" id="city" placeholder=""
                      [(ngModel)]="profile.city"
                      formControlName="city"
-                     name="city"
-              >
+                     name="city">
             </div>
             <app-alert-error [data]="form.controls['city']" [touched]="touched"></app-alert-error>
           </div>
@@ -114,10 +123,8 @@
           <div class="col-12">
             <button type="submit" class="submitForm btn btn-primary text-center ml-3">ویرایش</button>
           </div>
-
         </div>
       </form>
-
       <div class="row mt-3">
         <div class="col-12">
           <hr class="m-1">
@@ -126,7 +133,6 @@
           <strong>اطلاعات سیستمی</strong>
         </div>
       </div>
-
       <div class="row">
         <div class="col-md-6">
           <fieldset class="fieldset-border">
@@ -139,8 +145,7 @@
                     <input class="form-control text-right" id="email" placeholder=""
                            [(ngModel)]="email"
                            formControlName="email"
-                           name="email"
-                    >
+                           name="email">
                   </div>
                   <app-alert-error [data]="emailForm.controls['email']"></app-alert-error>
                 </div>
