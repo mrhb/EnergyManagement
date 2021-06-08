@@ -11,7 +11,7 @@
                 <div class="d-flex">
                   <!-- <button class="btn btn-outline-primary text-center" data-toggle="modal" data-target=".bd-example-modal-lg"   style="margin-right: 20px;">
                     <span class="cursor-pointer fa fa-file-excel-o"></span></button> -->
-                    <button class="btn btn-outline-primary text-center" [routerLink]="'/index/user/configuration/createClimate'">تعریف</button> 
+                    <!-- <button class="btn btn-outline-primary text-center" [routerLink]="'/index/user/configuration/createClimate'">تعریف</button>  -->
                 </div>              
               </div>
               <div class="card-body">
@@ -37,20 +37,20 @@
                     <tr *ngFor="let climate of climateList; let i = index" class="vertical-align-middle">
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>
                       <td>{{climate.title}}</td>
-                      <td>{{provinceEnum[climate.province].toString()}}</td>
-                      <td>{{climate.city}}</td>
-                      <td>{{climate.latitude}}</td>
-                      <td>{{climate.longitude}}</td>
-                      <td>{{climateTypeEnum[climate.climateType].toString()}}</td>
-                      <td>{{climate.tempMaxMean}}</td>
-                      <td>{{climate.tempMinMean}}</td>
-                      <td>{{climate.HumidMaxMean}}</td>
-                      <td>{{climate.lowHumidMean}}</td>
-                      <!-- <td>{{climate.windMean}}</td> -->
+                       <td><span *ngIf="climate.province">{{provinceEnum[climate.province].toString()}} </span> </td>
+                        <td><span *ngIf="climate.city">{{climate.city}}</span> </td>
+                        <td><span *ngIf="climate.latitude">{{climate.latitude}}</span> </td>
+                        <td><span *ngIf="climate.longitude">{{climate.longitude}}</span></td>
+                        <td><span *ngIf="climate.climateType">{{climateTypeEnum[climate.climateType].toString()}}</span></td>
+                        <td><span *ngIf="climate.tempMaxMean">{{climate.tempMaxMean}}</span> </td>
+                        <td><span *ngIf="climate.tempMinMean">{{climate.tempMinMean}}</span> </td>
+                        <td><span *ngIf="climate.HumidMaxMean">{{climate.HumidMaxMean}}</span> </td>
+                        <td><span *ngIf="climate.lowHumidMean">{{climate.lowHumidMean}}</span> </td>
+                        <td><span *ngIf="climate.windMean">{{climate.windMean}}</span> </td>
                       <td width="40"><span class="cursor-pointer fa fa-edit"
                              [queryParams]="{id: climate._id}"
                              [routerLink]="'/index/user/configuration/createClimate'"></span></td>
-                      <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteClimate(i, climate._id)"></span></td>
+                      <!-- <td width="40"><span class="cursor-pointer fa fa-trash" (click)="deleteClimate(i, climate._id)"></span></td> -->
                     </tr>
                    </tbody>
                   </table>

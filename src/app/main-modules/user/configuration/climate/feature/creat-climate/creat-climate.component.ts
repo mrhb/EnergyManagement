@@ -71,6 +71,7 @@ ngAfterViewInit(): void {
    //initializeform
    $('#fromDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.fromDate));
    $('#toDate').val(this.moment.getJaliliDateFromIso(this.weatherReqDto.toDate));
+   if (this.edited)
    this.updateweatherList();
 }
 
@@ -304,7 +305,7 @@ jQueryDate(): void {
           .subscribe((res: any) => {
             if (res) {
               Notiflix.Notify.Success('ویرایش اقلیم با موفقیت انجام شد.');
-              // this.router.navigateByUrl('/index/user/configuration/climateList').then();
+              this.router.navigateByUrl('/index/user/configuration/climateList').then();
             }
           });
       }

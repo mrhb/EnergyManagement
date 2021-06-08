@@ -22,11 +22,12 @@
              <li><div class="dropdown-divider"></div></li>
              <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/buildingList'">اطلاعات ساختمان</a></li>
              <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/facilityList'">اطلاعات تاسیسات</a></li>
-             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
+             <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/climateList'">اطلاعات اقلیمی</a></li>
+             <!-- <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" [routerLink]="'/index/user/configuration/climateList'" href="#">اطلاعات اقلیمی</a>
               <ul class="dropdown-menu">
                 <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/createClimate'">تعریف شهر و اقلیم</a></li>
-              </ul>
-            </li>
+              </ul> 
+            </li>-->
              <li><div class="dropdown-divider"></div></li>
              <li [routerLinkActive]="'active'"><a class="dropdown-item" [routerLink]="'/index/user/configuration/instrumentList'">اطلاعات تجهیزات</a></li>
              <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">اطلاعات تولید انرژی</a>

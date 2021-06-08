@@ -138,8 +138,9 @@ export class CreateWaterComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             this.buildingAllocation = new GasBuildingAllocation();
-            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
+            Notiflix.Notify.Success('تخصیص ساختمان به اشتراک آب با موفقیت انجام شد.');
             this.waterDto.buildingList.push(res.data);
+             this.router.navigateByUrl('/index/user/configuration/waterList').then();
           }
         });
     } else {
@@ -149,9 +150,10 @@ export class CreateWaterComponent implements OnInit {
             this.editedAllocation = false;
             const index = this.waterDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
             if (index !== -1 ) {
-              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              Notiflix.Notify.Success('ویرایش ساختمان در اشتراک آب با موفقیت انجام شد.');
               this.waterDto.buildingList[index] = this.buildingAllocation;
               this.buildingAllocation = new GasBuildingAllocation();
+              this.router.navigateByUrl('/index/user/configuration/waterList').then();
             }
           }
         });

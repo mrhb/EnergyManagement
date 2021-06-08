@@ -108,6 +108,7 @@ export class AddFacilityComponent implements OnInit {
           if (res) {
             if (res.data) {
               Notiflix.Notify.Success('ویرایش  تآسیس با موفقیت انجام شد.');
+              this.router.navigate(['/index/user/configuration/facilityList']).then();
             }
           }
           console.log('facilityService res', res);
