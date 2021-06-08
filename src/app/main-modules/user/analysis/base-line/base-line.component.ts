@@ -94,6 +94,9 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
     this.baseLineDto.toDate=date.toISOString();
     date.setDate( date.getDate() - 365 );
     this.baseLineDto.fromDate=date.toISOString();
+    this.baseLineDto.coolingBase=21;
+    this.baseLineDto.heatingBase=18;
+
 
 
 
@@ -148,7 +151,7 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
   }
   getBuildingBaseLine(buildingId): void {
     this.baseLineDto.buildingId=buildingId;//"607d3c195eb88805b4c98934";
-    this.baseLineService.getBaseLine('',this.baseLineDto).subscribe((res: any) => {
+    this.baseLineService.getBaseLineSingleCarier('',this.baseLineDto).subscribe((res: any) => {
       if (res) {
         this.series=res.data;
         Notiflix.Notify.Success('اطلاعات قبوض دریافت شد.');

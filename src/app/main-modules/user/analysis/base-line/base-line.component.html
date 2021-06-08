@@ -17,7 +17,7 @@
           <form [formGroup]="form" class="w-100">
             <div class="form-group row">
               <!-- روزانه ماهانه -->
-              <div class=" mb-4 col-md-2">
+              <!-- <div class=" mb-4 col-md-2">
                 <div class="w-100">
                   <label for="period" class="form-label">روزانه ماهانه</label>
                   <select id="period"
@@ -25,13 +25,14 @@
                           [(ngModel)]="baseLineDto.period"
                           formControlName="period"
                           name="period">
-                          <!-- (change)="updateChart()" -->
                     <option *ngFor="let item of periodEnum | enumKeyValue" [value]="item.key">
                       {{item.value}}
                     </option>
                   </select>
                 </div>
-              </div>  
+              </div>  -->
+              
+              
               <!-- نوع حامل -->
               <div class=" mb-4 col-md-2">
               <div class="w-100">
@@ -72,7 +73,7 @@
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="coolingBase" class="form-label">دمای پایه سرمایش </label>
-                  <input class="form-control text-right" id="coolingBase" placeholder=""
+                  <input class="form-control text-right" step="0.5" id="coolingBase" placeholder=""
                         type="number" min="-30"
                         [(ngModel)]="baseLineDto.coolingBase"
                         formControlName="coolingBase"
@@ -84,7 +85,7 @@
               <div class="mb-4 col-md-2">
                 <div class="w-100">
                   <label for="heatingBase" class="form-label">دمای پایه گرمایش </label>
-                  <input class="form-control text-right" id="heatingBase" placeholder=""
+                  <input class="form-control text-right" step="0.5" id="heatingBase" placeholder=""
                         type="number" min="-30"
                         [(ngModel)]="baseLineDto.heatingBase"
                         formControlName="heatingBase"
@@ -125,7 +126,7 @@
                           <!-- <td>{{useTypeBuildingEnum[building.useType].toString()}}</td> -->
                           <!-- <td>{{building.useFullArea}}</td> -->
                           <td width="40"><span class="cursor-pointer fa fa-edit"
-                            (click)="getBuildingBaseLine(building.id)"></span></td>
+                            (click)="getBuildingBaseLine(building._id)"></span></td>
                         </tbody>
                       </table>
                   </div>

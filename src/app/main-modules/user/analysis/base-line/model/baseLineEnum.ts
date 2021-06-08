@@ -3,7 +3,7 @@ export enum EnergyTypeEnum {
   POWER = <any> 'برق',
   GAS = <any> 'گاز',
   ENERGY = <any> 'انرژی',
-  TOTAL = <any> 'کل',
+  // TOTAL = <any> 'کل',
   }
 
 

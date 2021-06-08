@@ -18,5 +18,7 @@ export class BaseLineService  extends GeneralService {
   getBaseLine(param: any, body: any,  errorSelector?: string): Observable<any> {
     return super.postCheckService('get-building-baseLine',body, errorSelector, param);
   }
-
+  getBaseLineSingleCarier(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-building-baseLine-singleCarier',body, errorSelector, param);
+  }
 }
