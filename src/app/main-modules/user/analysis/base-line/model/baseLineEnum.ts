@@ -1,9 +1,11 @@
 // نوع قبض
 export enum EnergyTypeEnum {
-  POWER = <any> 'برق',
-  GAS = <any> 'گاز',
-  ENERGY = <any> 'انرژی',
-  // TOTAL = <any> 'کل',
+  GAS=<any> 'گازوئیل',
+  GASOLIN=<any> 'بنزین',
+  gasReceipt=<any> 'گاز',
+  // generationReceipt=<any> '',
+  powerReceipt=<any> 'برق',
+  // waterReceip=<any> '',
   }
 
 
