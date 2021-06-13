@@ -23,7 +23,8 @@ declare var $: any;
 export class BaseLineComponent implements OnInit, AfterViewInit {
  
   regionId ="111111111111111111111111";
-
+  coeff:number[]=null;
+  r2:Number=null;
   series: SeriesInfo= {
     series:[
       { data: [85, 12, 78, 75], name: 'power' },
@@ -153,13 +154,15 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
     this.baseLineDto.buildingId=buildingId;//"607d3c195eb88805b4c98934";
     this.baseLineService.getBaseLineSingleCarier('',this.baseLineDto).subscribe((res: any) => {
       if (res) {
-        this.series=res.data;
+        this.series=res.data.chart;
+        this.coeff=res.data.coeff;
+        this.r2=res.data.R2;
         Notiflix.Notify.Success('اطلاعات قبوض دریافت شد.');
-
-        // this.energyLabel.ratio = res.data.ratio;
-        // this.energyLabel.consumptionIndex = res.data.ConsumptionIndex;
-        // // this.energyLabel.labelType=EnergyLabelType.RESIDENTIAL;
-        // this.energyLabel.label= res.data.label;
+      }
+      else
+      {
+        this.coeff=null;
+        this.r2=null;
       }
     });
   }
