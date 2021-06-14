@@ -18,13 +18,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- <tr *ngFor="let user of userList; let i = index"> 
+                     <tr *ngFor="let user of userList; let i = index"> 
                       <th scope="row">{{(i + 1 + (pageIndex * pageSize))}}</th>-->
-                      <!-- <td>{{nameEnum[instrument.name].toString()}}</td>
-                      <td>{{energyCarierEnum[instrument.instrumentCarrier].toString()}}</td>
-                      <td>{{useTypeInstrumentEnum[instrument.instrumentUsage].toString()}}</td>
-                      <td>{{instrument.instrumentNum}}</td> -->
-               
+                      <td>{{user.firstName}}</td> 
+                      <td>{{user.lastName}}</td> 
+                      <!-- <td>{{organizationalUnit[user.organizationalUnit].toString()}}</td>
+                      <td>{{organizationalLevel[user.organizationalLevel].toString()}}</td> -->
                       <!--<td width="40"><span class="cursor-pointer fa fa-edit"
                                            [queryParams]="{id: instrument.id}"
                                            [routerLink]="'/index/user/configuration/createInstrument'"></span></td>
@@ -39,12 +38,62 @@
  <!--جدول اطلاعات کاربر -->
   <div> 
     <div class="row" style="padding-top: 20px;">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <div class="card border-success">
           <!-- عنوان جدول -->
           <div class="card-header flex-card-header">
             <strong> اطلاعات کاربر </strong>
-          </div>        
+          </div>     
+                <!--جدول نتایج -->
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col" width="20">#</th>
+                        <th scope="col">نام </th>
+                        <th scope="col">نام خانوادگی</th>
+                        <th scope="col">سمت سازمانی</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                      <tr>
+                        <th scope="col">کاظم </th>
+                        <th scope="col">پوربدخشان</th>
+                        <th scope="col">برنامه نویسی</th>
+                        <th scope="col">کاربر </th>
+                      <tr>
+                    </tbody>
+                  </table>
+                </div>
+        </div>      
+      </div> 
+      <div class="col-lg-6">
+        <div class="card border-warning">
+          <!-- عنوان جدول -->
+          <div class="card-header flex-card-header">
+            <strong> بازیابی رمز عبور </strong>
+          </div>     
+                <!--جدول نتایج -->
+                <div class="card-body">
+                  <table class="table table-responsive-sm table-striped">
+                   
+                    <tbody>
+                      <tr class="table" width="250"> 
+                        <th scope="row" >رمز جدید</th>            
+                        <!-- رمز جدید -->
+                        <td>
+                          
+                            <!-- <input style="border-width: 0px;" style="border-width: 0px;width:100px;" id="newPass" placeholder=""
+                            [(ngModel)]="user.newPass"
+                            formControlName="newPass"
+                            name="newPass"> -->
+                          <!-- <app-alert-error [data]="form.controls['newPass']" [touched]="touched"></app-alert-error> -->
+                        </td> 
+                      
+                    </tbody>
+                  </table>
+                </div>
         </div>      
       </div> 
     </div> 
