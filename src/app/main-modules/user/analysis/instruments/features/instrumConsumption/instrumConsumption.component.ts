@@ -86,7 +86,7 @@ export class InstrumConsumptionComponent implements OnInit  {
     });
     //initializeform
     this.instrumConsumptionDto.reportType=PeriodEnum[PeriodEnum.MONTHLY.toString()] ;
-    this.instrumConsumptionDto.energyType=EnergyTypeEnum[EnergyTypeEnum.POWER.toString()] ;
+    this.instrumConsumptionDto.energyType=EnergyTypeEnum[EnergyTypeEnum.powerReceipt.toString()] ;
     
 
     var date = new Date();
