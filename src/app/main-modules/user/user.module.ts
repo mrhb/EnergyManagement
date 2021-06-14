@@ -7,9 +7,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AlertErrorModule} from '../../shared/tools/alert-error/alert-error.module';
 import {ProfileComponent} from './profile/feature/profile.component';
 import {UploadFileModule} from '../../shared/tools/upload-file/upload-file.module';
+import { AdminPanelComponent } from './profile/feature/admin-panel/admin-panel.component';
 
 @NgModule({
-  declarations: [ProfileComponent],
+  declarations: [ProfileComponent, AdminPanelComponent],
   imports: [
     CommonModule,
     FormsModule,
