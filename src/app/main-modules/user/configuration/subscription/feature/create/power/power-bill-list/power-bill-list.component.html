@@ -43,7 +43,7 @@
                       <td>{{this.moment.getJaliliDateFromIso(power.fromDate)}}</td>
                       <td>{{this.moment.getJaliliDateFromIso(power.toDate)}}</td>
                       <td class="text-center">{{this.moment.DateDiff(power.fromDate,power.toDate)}}</td>
-                      <td class="text-center">{{power.ConsumptionSum}}</td>
+                      <td class="text-center">{{power.ConsumptionSum | number:'0.0-2'}}</td>
                       <td class="text-center">{{power.consumptionDurat}}</td>
                       <!-- <td class="text-center">{{power.consumptionAmount}}</td> -->
                       <td width="40"><span class="cursor-pointer fa fa-edit"

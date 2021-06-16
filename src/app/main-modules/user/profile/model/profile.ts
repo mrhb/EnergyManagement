@@ -24,3 +24,13 @@ export  enum OrganizationalLevelEnum {
   OPERATOR = <any> 'اپراتور',
 }
  
+
+export class UserList {
+  id: string;
+  firstName: string;  // نام
+  lastName: string;  //  نام خانوادگی
+  organizationalUnit: string;  // واحد سازمانی
+  organizationalLevel: string;  // رتبه سازمانی
+  newPass: string;  // رمز جدید
+}
+                 

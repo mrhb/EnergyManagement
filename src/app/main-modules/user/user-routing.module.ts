@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminPanelComponent } from './profile/feature/admin-panel/admin-panel.component';
 import {ProfileComponent} from './profile/feature/profile.component';
 
 const routes: Routes = [
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'adminPanel',
+    component: AdminPanelComponent,
   },
   {
     path: 'configuration',
