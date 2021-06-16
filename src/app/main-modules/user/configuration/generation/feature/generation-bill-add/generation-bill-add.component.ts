@@ -3,7 +3,7 @@
  * Email: k_pour@yahoo.com
  */
 
-import {AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MyPattern } from 'src/app/shared/tools/myPattern';
@@ -20,7 +20,7 @@ declare var $: any;
   templateUrl: './generation-bill-add.component.html',
   styleUrls: ['./generation-bill-add.component.scss']
 })
-export class GenerationBillAddComponent implements OnInit  , AfterViewInit{
+export class GenerationBillAddComponent implements OnInit  , AfterViewInit,OnDestroy{
   pageSize = 20;
   pageIndex = 0;
   regionId ="111111111111111111111111";
@@ -37,6 +37,7 @@ export class GenerationBillAddComponent implements OnInit  , AfterViewInit{
   form: FormGroup;
   generationBillDto = new GenerationBillDto();
   generationAllocation = new GenerationAllocation();
+  stateSubscription: any;
 
 
   constructor(
@@ -61,6 +62,9 @@ ngAfterViewInit(): void {
   this.jQueryDate();
 }
 
+ngOnDestroy(): void {
+  this.stateSubscription.unsubscribe();
+}
 jQueryDate(): void {
   setTimeout(e1 => {
     $('#fromDate').MdPersianDateTimePicker({
@@ -99,7 +103,7 @@ jQueryDate(): void {
   }, 100);
 }
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+    this.stateSubscription=this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getListGeneration();
     });

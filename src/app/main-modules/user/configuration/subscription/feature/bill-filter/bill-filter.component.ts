@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BillFilterDto } from '../../model/billFilter';
 import Notiflix from 'notiflix';
 import { Moment } from 'src/app/shared/tools/moment';
 import { RegionService } from '../../../region/service/region.service';
+import { Subscription } from 'rxjs';
 
 declare var $: any;
 @Component({
@@ -11,7 +12,7 @@ declare var $: any;
   templateUrl: './bill-filter.component.html',
   styleUrls: ['./bill-filter.component.scss']
 })
-export class BillFilterComponent implements OnInit , AfterViewInit{
+export class BillFilterComponent implements OnInit , AfterViewInit,OnDestroy{
   @Input() filterName: string='شناسه قبض';
   @Output() billFilterChange: EventEmitter<BillFilterDto> = new EventEmitter<BillFilterDto>();
   regionId ="111111111111111111111111";
@@ -19,6 +20,7 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
   form: FormGroup;
   
   billFilterDto= new BillFilterDto();
+  stateSubscription: Subscription;
   
   constructor(    private stateService:RegionService,
     private formBuilder: FormBuilder)
@@ -46,7 +48,7 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
     this.billFilterDto.fromDate=date.toISOString();
 
     
-    this.stateService.regionId.subscribe(reg=>{
+    this.stateSubscription=this.stateService.regionId.subscribe(reg=>{
       this.billFilterDto.regionId=reg;
       this.EmitChanges();
     })
@@ -55,6 +57,9 @@ export class BillFilterComponent implements OnInit , AfterViewInit{
       fromDate:[], // تاریخ شروع 
       toDate:[], // تاریخ اتمام
     });
+  }
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
   }
   jQueryDate(): void {
     setTimeout(e1 => {

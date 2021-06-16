@@ -13,6 +13,7 @@ import {Moment} from '../../../../../../shared/tools/moment';
 import { FacilityService } from '../../service/facility.service';
 import { FacilityUsageEnum } from '../../model/facilityEnum';
 import { RegionService } from '../../../region/service/region.service';
+import { Subscription } from 'rxjs';
 
 declare var $: any;
 
@@ -47,7 +48,7 @@ export class FacilityListComponent implements OnInit, AfterViewInit,OnDestroy  {
 
 
   energyLabel = new EnergyLabel();
-  regionIdSubscribe: any;
+  regionIdSubscribe: Subscription;
 
   constructor(
     private stateService:RegionService,
@@ -60,7 +61,6 @@ export class FacilityListComponent implements OnInit, AfterViewInit,OnDestroy  {
         this.pageIndex = params.pageIndex;
         this.pageSize = params.pageSize;
       }
-      this.getFacilityList();
     });
 
   }

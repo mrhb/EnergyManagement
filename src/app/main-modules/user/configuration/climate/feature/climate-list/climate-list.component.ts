@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ClimateList, ClimateListDto } from '../../model/climate';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RegionService } from '../../../region/service/region.service';
 import { ClimateService } from '../../service/climate.service';
 import Notiflix from 'notiflix';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-climate-list',
   templateUrl: './climate-list.component.html',
   styleUrls: ['./climate-list.component.scss']
 })
-export class ClimateListComponent implements OnInit {
+export class ClimateListComponent implements OnInit,OnDestroy {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -24,6 +25,7 @@ export class ClimateListComponent implements OnInit {
   buildingList = [];
   climateListDto = new ClimateListDto();
   regionId ="111111111111111111111111";
+  stateSubscription: Subscription;
 
   constructor(
     private router: Router,
@@ -32,11 +34,14 @@ export class ClimateListComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+    this.stateSubscription=this.stateService.regionId.subscribe(reg=>{
     this.regionId=reg;
     this.getClimateList();
 
   });
+  }
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
   }
 
   getClimateList(): void {

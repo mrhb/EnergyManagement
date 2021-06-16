@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RegionDto } from '../../model/region';
 import { RegionService } from '../../service/region.service';
 import Notiflix from 'notiflix';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -10,7 +11,7 @@ import Notiflix from 'notiflix';
   templateUrl: './region-edite.component.html',
   styleUrls: ['./region-edite.component.scss']
 })
-export class RegionEditeComponent implements OnInit {
+export class RegionEditeComponent implements OnInit,OnDestroy {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -20,6 +21,7 @@ export class RegionEditeComponent implements OnInit {
   editedSubRegion = false;
 
   subRegions: RegionDto[] = [{title:"dvcrgv",id:"vewrgvergt5",parentId:"scvergethgt"}];
+  stateSubscription: Subscription;
   constructor(
     private regionService: RegionService,
     private activatedRoute: ActivatedRoute) { }
@@ -36,12 +38,13 @@ export class RegionEditeComponent implements OnInit {
         pageSize: this.pageSize,
       },
     });
-    this.getSubRegions();
   }
-
-  getSubRegions()
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
+  } 
+   getSubRegions()
   {
-    this.regionService.regionId.subscribe(reg=>{
+    this.stateSubscription= this.regionService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.regionService.getSubRegions(this.regionId).subscribe(res=>{
 

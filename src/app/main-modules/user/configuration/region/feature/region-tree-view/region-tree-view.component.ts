@@ -3,24 +3,26 @@
  * tele: 989151575793
  */
 
- import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
  import {Region, RegionOutput} from '../../model/region';
  import {RegionService} from '../../service/region.service';
  // @ts-ignore
  import Notiflix from 'notiflix';
  import { Tools } from 'src/app/shared/tools/tools';
+import { Subscription } from 'rxjs';
  
 @Component({
   selector: 'region-tree-view',
   templateUrl: './region-tree-view.component.html',
   styleUrls: ['./region-tree-view.component.scss']
 })
-export class RegionTreeViewComponent implements OnInit {
+export class RegionTreeViewComponent implements OnInit,OnDestroy {
   regionList: Region[] = [];
   region = new Region();
   regOutput = new RegionOutput();
   @Input() regionInput;
   @Output() regionOutput = new EventEmitter<any>();
+  stateSubscription: Subscription;
 
   constructor(private regionService: RegionService) {
     if (this.regionInput) {
@@ -39,7 +41,7 @@ export class RegionTreeViewComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.regionService.changedRegionId.subscribe(reg=>{
+    this.stateSubscription=this.regionService.changedRegionId.subscribe(reg=>{
       this.regionList = [];
       this.region = new Region();
       this.regOutput = new RegionOutput();
@@ -47,6 +49,9 @@ export class RegionTreeViewComponent implements OnInit {
     })
 
     this.getOne();
+  }
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
   }
 
   getOne(): void {

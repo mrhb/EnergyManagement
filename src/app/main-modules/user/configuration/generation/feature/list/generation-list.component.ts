@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 // @ts-ignore
 import Notiflix from 'notiflix';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -12,13 +12,14 @@ import {GenerationTypeEnum, ConsumptionTypeEnum } from '../../model/generationEn
 import { GenerationList } from '../../model/generation';
 import { GenerationService } from '../../service/generation.service';
 import { RegionService } from '../../../region/service/region.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-generation-list',
   templateUrl: './generation-list.component.html',
   styleUrls: ['./generation-list.component.scss']
 })
-export class GenerationListComponent implements OnInit {
+export class GenerationListComponent implements OnInit ,OnDestroy{
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -29,6 +30,7 @@ export class GenerationListComponent implements OnInit {
   generationTypeEnum = GenerationTypeEnum;
   consumptionTypeEnum=ConsumptionTypeEnum;
   generationList: GenerationList[] = [];
+  stateSubscription: Subscription;
   constructor(
     private stateService:RegionService,
     private generationService: GenerationService,
@@ -44,10 +46,13 @@ export class GenerationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+    this.stateSubscription=this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getListGeneration();
     })
+  }
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
   }
 
   getListGeneration(): void {

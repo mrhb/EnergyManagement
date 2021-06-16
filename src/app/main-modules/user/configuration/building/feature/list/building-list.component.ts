@@ -4,7 +4,7 @@
  * telegram: reza_yki
  */
 
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {BuildingList,  Region} from '../../model/building';
 import {BuildingService} from '../../service/building.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -17,6 +17,7 @@ import {UseTypeBuildingEnum} from '../../model/useTypeEnum';
 import {CoolingSystemType, HeatingSystemType} from '../../model/buildingEnum';
 import * as XLSX from 'xlsx';
 import { RegionService } from '../../../region/service/region.service';
+import { Subscription } from 'rxjs';
 type AOA = any[][];
 
 declare var $: any;
@@ -26,7 +27,7 @@ declare var $: any;
   templateUrl: './building-list.component.html',
   styleUrls: ['./building-list.component.scss']
 })
-export class BuildingListComponent implements OnInit {
+export class BuildingListComponent implements OnInit, OnDestroy  {
   pageSize = 20;
   pageIndex = 0;
   length = -1;
@@ -44,6 +45,7 @@ export class BuildingListComponent implements OnInit {
 
   moment = Moment;
  
+  stateSubscription: Subscription ;
 
   constructor(
     private stateService:RegionService,
@@ -61,9 +63,12 @@ export class BuildingListComponent implements OnInit {
     });
 
   }
+  ngOnDestroy(): void {
+    this.stateSubscription.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.stateService.regionId.subscribe(reg=>{
+   this.stateSubscription=this.stateService.regionId.subscribe(reg=>{
       this.regionId=reg;
       this.getBuildingList();
     });
