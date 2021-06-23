@@ -32,6 +32,8 @@ export class ProfileService extends GeneralService {
   updatePhoto( photo: {photo: string}, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-profile-photo' , photo, errorSelector);
   }
-
+  getUserList(param: any, body: any,  errorSelector?: string): Observable<any> {
+    return super.postCheckService('get-list-pageable-by-filter', body, errorSelector, param);
+  }
 
 }
