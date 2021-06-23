@@ -138,7 +138,7 @@
             <span class="fa fa-address-card-o"></span>
             پروفایل
           </button>
-          <button class="dropdown-item text-right" type="button" [routerLink]="'/index/user/adminPanel'">
+          <button *ngIf="role === 'admin'" class="dropdown-item text-right" type="button" [routerLink]="'/index/user/adminPanel'">
             <span class="fa fa-diamond"></span>
             <span>پنل ادمین </span>
           </button>

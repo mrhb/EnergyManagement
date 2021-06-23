@@ -1,7 +1,7 @@
 import {CanActivate} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {JwtService} from './jwt.service';
-import {ROLE_USER} from '../../app/shared/constants/role.constants';
+import {ROLE_ADMIN} from '../../app/shared/constants/role.constants';
 
 @Injectable()
 export class AdminGuardService implements CanActivate {
@@ -13,9 +13,9 @@ export class AdminGuardService implements CanActivate {
   canActivate(): boolean {
     const accessToken = localStorage.getItem('TOKEN');
     this.decodedToken = this.jwtService.decode(accessToken);
-    const role = this.decodedToken.authorities[0].authority;
+    const role = this.decodedToken.authorities;
     console.log('role', role);
-    if (role === ROLE_USER) {
+    if (role === ROLE_ADMIN) {
       return true;
     } else {
       return false;

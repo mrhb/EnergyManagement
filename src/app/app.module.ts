@@ -24,7 +24,7 @@ import {PipeModule} from './shared/tools/pipe-module';
         AppRoutingModule,
         BrowserAnimationsModule
     ],
-    providers: [JwtService, AdminGuardService, UserGuardService, CustomGuardService, BaseGuardService,
+    providers: [JwtService, AdminGuardService, UserGuardService, CustomGuardService,BaseGuardService,
         {provide: LocationStrategy, useClass: HashLocationStrategy},
     ],
     bootstrap: [AppComponent]

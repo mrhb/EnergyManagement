@@ -106,14 +106,15 @@ export class LoginComponent implements OnInit {
     const role = this.decodedToken.authorities;
     console.log('this.decodedToken', this.decodedToken);
     console.log('role', role);
-    if (role === ROLE_ADMIN) {
-      this.router.navigateByUrl('/index/admin');
-      // this.router.navigate(['/index/admin']);
-    } else if (role === ROLE_USER) {
-      this.getAccount();
-      this.router.navigateByUrl('/index/user/analysis/dashboard').then();
-      // this.router.navigate(['/index/user']);
+    // if (role === ROLE_ADMIN) {
+    //   this.getAccount()
+    //   // this.router.navigateByUrl('/index/admin');
+    //   this.router.navigateByUrl('/index/admin/analysis/dashboard').then();
+    // } else if (role === ROLE_USER) {
+      //   // this.router.navigate(['/index/user']);
+      // }
+        this.getAccount();
+        this.router.navigateByUrl('/index/user/analysis/dashboard').then();
     }
-  }
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuardService } from 'src/service/guard/adminGuard.service';
 import { AdminPanelComponent } from './profile/feature/admin-panel/admin-panel.component';
 import {ProfileComponent} from './profile/feature/profile.component';
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   },
   {
     path: 'adminPanel',
-    component: AdminPanelComponent,
+    component: AdminPanelComponent
+    ,canActivate:[AdminGuardService]
   },
   {
     path: 'configuration',

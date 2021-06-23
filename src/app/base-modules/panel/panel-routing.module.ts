@@ -20,14 +20,14 @@ const routes: Routes = [
     children: [
       {
         path: 'user',
-        loadChildren: () => import('../../main-modules/user/user.module').then(m => m.UserModule),
-        canActivate: [UserGuardService]
+        loadChildren: () => import('../../main-modules/user/user.module').then(m => m.UserModule)
+        // ,canActivate: [UserGuardService,AdminGuardService]
       },
-      {
-        path: 'admin',
-        loadChildren: () => import('../../main-modules/user/user.module').then(m => m.UserModule),
-        canActivate: [AdminGuardService]
-      }
+      // {
+      //   path: 'admin',
+      //   loadChildren: () => import('../../main-modules/user/user.module').then(m => m.UserModule)
+      //   // ,canActivate: [AdminGuardService]
+      // }
     ]
   },
 
