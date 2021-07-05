@@ -1,4 +1,5 @@
 export class Profile {
+  _id: string;
   firstName: string;
   lastName: string;
   phone: string;
@@ -11,6 +12,7 @@ export class Profile {
 }
 
 export  class Password {
+  id:string;
   password: string;
   passwordConfirm: string;
 }

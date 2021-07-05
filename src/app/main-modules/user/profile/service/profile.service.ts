@@ -3,11 +3,13 @@ import {GeneralService} from '../../../../_base/service/_service/general.service
 import {HttpClient} from '@angular/common/http';
 import {GATEWAY_URL} from '../../../../_base/service/model/rest-constants';
 import {Observable} from 'rxjs';
+import { Password } from '../model/profile';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService extends GeneralService {
+
 
   constructor(public http: HttpClient) {
     super(http);
@@ -24,6 +26,9 @@ export class ProfileService extends GeneralService {
 
   updatePassword( body: any, errorSelector?: string): Observable<any> {
     return super.putCheckService('update-password', body, errorSelector);
+  }
+  updatePasswordByAdmin( body: any, errorSelector?: string): Observable<any> {
+    return super.putCheckService('update-password-byAdmin', body, errorSelector);
   }
 
   updateEmail( email: string, errorSelector?: string): Observable<any> {

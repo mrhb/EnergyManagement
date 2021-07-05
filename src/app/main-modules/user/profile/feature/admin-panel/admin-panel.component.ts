@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Profile, UserList } from '../../model/profile';
+import { MyPattern } from 'src/app/shared/tools/myPattern';
+import { Password, Profile, UserList } from '../../model/profile';
 import { ProfileService } from '../../service/profile.service';
+import Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-admin-panel',
@@ -9,14 +12,25 @@ import { ProfileService } from '../../service/profile.service';
   styleUrls: ['./admin-panel.component.scss']
 })
 export class AdminPanelComponent implements OnInit {
-
+  
+  
   pageSize = 20;
   pageIndex = 0;
   length = -1;
   totalPages = 1;
-  userList: Profile[] = [];
+  touched = false;
+
+  userList: UserList[] = [];
+  profile: Profile=new Profile();
+  password = new Password();
+
+  myPattern = MyPattern;
+
+
+  passForm: FormGroup;
 
   constructor( 
+    private formBuilder: FormBuilder,
     private profileService: ProfileService,
     public router: Router,
     private activatedRoute: ActivatedRoute) {
@@ -30,9 +44,25 @@ this.getList();
 }
 
   ngOnInit(): void {
-      // this.userList();
+    this.passForm = this.formBuilder.group({
+      password: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.password)]],
+      passwordConfirm: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.myPattern.password)]],
+    }, {
+      validators: this.checkValidators('password', 'passwordConfirm')
+    });  
   }
-
+  
+  checkValidators(item1: any, item2: any): (group: FormGroup) => any {
+    return (group: FormGroup) => {
+      const passwordInput = group.controls[item1],
+        passwordConfirmationInput = group.controls[item2];
+      if (passwordInput.value !== passwordConfirmationInput.value) {
+        return passwordConfirmationInput.setErrors({passwordMismatch: true});
+      } else {
+        return passwordConfirmationInput.setErrors(null);
+      }
+    };
+  }
   
   getList(): void {
     this.profileService.getUserList(
@@ -50,6 +80,26 @@ this.getList();
     });
   }
 
+  myFunction(x) {
+    this.profile=x;
+    
+  }
+
+  passwordUpdate(): void {
+    this.password.id=this.profile._id;
+    if (this.passForm.invalid) {
+      this.passForm.markAllAsTouched();
+      Notiflix.Notify.Failure('ورودی ها رو بررسی کنید!');
+      return;
+    }
+
+    this.profileService.updatePasswordByAdmin(this.password)
+      .subscribe((res: any) => {
+        if (res) {
+          Notiflix.Notify.Success('ویرایش رمز عبور با موفقیت تغییر یافت.');
+        }
+      });
+  }
   navigate(): void {
     this.router.navigate([window.location.hash.split('#/')[1].split('?')[0]], {
       queryParams: {
