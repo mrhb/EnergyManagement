@@ -11,7 +11,13 @@ export class PowerReceiptService extends GeneralService {
     super(http);
     this.prefixPath = GATEWAY_URL + '/api/power-receipt';
   }
+  getPowerBillList_onLine(): Observable<any> {
 
+    const headers = { 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IntcIlVzZXJJcFwiOm51bGwsXCJVc2VySWRcIjo0MjkyMzgwLFwiU2Vzc2lvbktleVwiOm51bGx9IiwiZXhwIjoxNjQyMDAyODA3LCJpYXQiOjE2MjYxMDE2MDcsIm5iZiI6MTYyNjEwMTYwN30.7wRER5UDqIk4gLNCYKu8ENIlUMHAq4aq_JlbV-Nmvt4'
+     };
+    const bodyy = { FromYear: "1396",bill_identifier:"9651334204123"};
+    return this.http.post('https://uiapi2.saapa.ir/api/sale/SaleEnergyHistory', bodyy, { headers });
+  }
   createReceipt(body: any, errorSelector?: string): Observable<any> {
     return super.postCheckService('create', body, errorSelector);
   }

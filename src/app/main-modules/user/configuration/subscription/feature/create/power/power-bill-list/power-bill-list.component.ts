@@ -131,6 +131,13 @@ var periodName=[
     reader.readAsBinaryString(target.files[0]);
   }
 
+  readOnlineData()
+  {
+    this.powerReceiptService.getPowerBillList_onLine(
+      ).subscribe((res: any) => {
+      console.log(res)
+    });
+  }
   saveXlsxData()
   {
     this.powerReceiptService.createMultiReceipt(this.xlsxPowerBillList)
