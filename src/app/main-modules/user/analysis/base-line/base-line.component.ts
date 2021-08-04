@@ -158,6 +158,8 @@ export class BaseLineComponent implements OnInit, AfterViewInit {
         this.coeff=res.data.coeff;
         this.r2=res.data.R2;
         Notiflix.Notify.Success('اطلاعات قبوض دریافت شد.');
+        if(res.data.coeff==undefined || res.data.R2==undefined)
+        Notiflix.Notify.Warning('درمحاسبه خط مبنا خطایی رخ داده است.');
       }
       else
       {
