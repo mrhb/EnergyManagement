@@ -71,17 +71,20 @@ export class CreateInstrumentComponent implements OnInit,AfterViewInit {
     this.form = this.formBuilder.group({
       instrumentUsage:  ['', [Validators.required ]], //کاربری تجهیز
       name: ['', [Validators.required ]], // نام تجهیز
-      instrumentCarrier: [''],// حامل انرژی 
-      instrumentNum:  [''], //تعداد
-      consumptionPower:  [''], //توان مصرفی 
-      dailyOperatHours:  [''], // ساعت کارکرد روز 
-      AnnualWorkDayNum:  [''], //  تعداد روز کارکرد در سال 
+      instrumentCarrier: ['برق'],// حامل انرژی 
+      instrumentNum:   ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]], //تعداد
+      consumptionPower:  ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],//توان مصرفی 
+      dailyOperatHours:  ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]], // ساعت کارکرد روز 
+      AnnualWorkDayNum: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]], //  تعداد روز کارکرد در سال 
       fromDate:  [''], //  تاریخ شروع کار تجهیز
       toDate:  [''], //  تاریخ خاتمه کار تجهیز
       coincidenceCoefficient:  ['',[Validators.min(0),Validators.max(1)]], //    ضریب همزمانی 
     }, {
       //validators: this.checkCoinCoefValidators('coincidenceCoefficient')
     });
+
+    this.instrumentDto.instrumentCarrier=EnergyCarierEnum[EnergyCarierEnum.ELECTRICITY.toString()] ;
+
   }
   ngAfterViewInit(): void {
     this.jQueryDate();

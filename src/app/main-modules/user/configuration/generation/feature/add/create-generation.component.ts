@@ -136,7 +136,7 @@ export class CreateGenerationComponent implements OnInit {
         .subscribe((res: any) => {
           if (res) {
             this.buildingAllocation = new GasBuildingAllocation();
-            Notiflix.Notify.Success('ثبت ساختمان با موفقیت انجام شد.');
+            Notiflix.Notify.Success('ثبت نیروگاه با موفقیت انجام شد.');
             this.generationDto.buildingList.push(res.data);
             this.router.navigate(['/index/user/configuration/generationList']);
           }
@@ -148,7 +148,7 @@ export class CreateGenerationComponent implements OnInit {
             this.editedAllocation = false;
             const index = this.generationDto.buildingList.findIndex(e => e.id === this.buildingAllocation.id);
             if (index !== -1 ) {
-              Notiflix.Notify.Success('ویرایش ساختمان با موفقیت انجام شد.');
+              Notiflix.Notify.Success('ویرایش نیروگاه با موفقیت انجام شد.');
               this.generationDto.buildingList[index] = this.buildingAllocation;
               this.buildingAllocation = new GasBuildingAllocation();
             }
@@ -159,15 +159,15 @@ export class CreateGenerationComponent implements OnInit {
 
   deleteBuilding(item: BuildingAllocation, i): void {
     Notiflix.Confirm.Show(
-      'ساختمان',
-      'آیا اطمینان دارید که این ساختمان حذف گردد؟',
+      'نیروگاه',
+      'آیا اطمینان دارید که این نیروگاه حذف گردد؟',
       'بله',
       'خیر',
       () => {
         this.generationService.deleteGenerationBuildingAllocation({id: this.generationId, allocationId: item.id})
           .subscribe((res: any) => {
             if (res) {
-              Notiflix.Notify.Success('حذف ساختمان با موفقیت انجام گردید');
+              Notiflix.Notify.Success('حذف نیروگاه با موفقیت انجام گردید');
               this.generationDto.buildingList.splice(i, 1);
             }
           });

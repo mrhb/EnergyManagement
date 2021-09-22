@@ -71,15 +71,15 @@ export class PowerCreateComponent implements OnInit {
       name: ['', [Validators.minLength(3), Validators.pattern(this.myPattern.nameAndFamily)]],
       address: [''],
       billingId: ['', [Validators.required, Validators.pattern(this.myPattern.EnNumber)]],
-      systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.smartCode)]],
-      contract:  [''],
+      systemPass: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],//رمز رایانه 
+      contract: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],//دیماند قراردادی
       addressCode: ['', [Validators.required, Validators.maxLength(400), Validators.pattern(this.myPattern.EnNumber)]],
-      fileNumber: ['',[ Validators.pattern(this.myPattern.smartCode)]],
+      fileNumber: ['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],// شماره پرونده
       serialShare: [''],
       useType: ['', [Validators.required]],
       useCode: ['', [Validators.required]],
       group: [''],
-      coefficient: [''],
+      coefficient:['', [Validators.minLength(1), Validators.pattern(this.myPattern.number)]],//ضریب کنتور
       voltageType: [''],
       powerSupplyVoltage: [''],
       // numberShare: [''],
