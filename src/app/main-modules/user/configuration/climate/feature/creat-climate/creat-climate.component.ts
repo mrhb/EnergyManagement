@@ -26,6 +26,7 @@ export class CreateClimateComponent implements OnInit {
 data: AOA = [[1, 2], [3, 4]];
 wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
 fileName: string = 'SheetJS.xlsx';
+xlsxWeatherArchive: WeatherDto[] = [];
 xlsxWeatherList: WeatherDto[] = [];
 weatherAvg=new WeatherDto();
 averageList: WeatherDto[] = [];
@@ -218,7 +219,6 @@ jQueryDate(): void {
 //       element.forDate=this.moment.getJaliliDateFromIso(element.forDate);
 // });
 
-    this.calAvg();
 
     };
     reader.readAsBinaryString(target.files[0]);
@@ -239,7 +239,7 @@ jQueryDate(): void {
       wind:0,
     };
 
-    this.weatherAvg = this.xlsxWeatherList.reduce<WeatherDto>(function (sum, value){
+    this.weatherAvg = this.xlsxWeatherArchive.reduce<WeatherDto>(function (sum, value){
       average.tempMax=average.tempMax+value.tempMax;
       average.tempMin=average.tempMin+value.tempMin;
       average.tempAvg=average.tempAvg+value.tempAvg;
@@ -255,14 +255,14 @@ jQueryDate(): void {
 
   this.weatherAvg={
     forDate:"",
-    tempMax:this.weatherAvg.tempMax/this.xlsxWeatherList.length,
-    tempMin:this.weatherAvg.tempMin/this.xlsxWeatherList.length,
-    tempAvg:this.weatherAvg.tempAvg/this.xlsxWeatherList.length,
-    humidityMin:this.weatherAvg.humidityMin/this.xlsxWeatherList.length,
-    humidityMax:this.weatherAvg.humidityMax/this.xlsxWeatherList.length,
-    humidityAvg:this.weatherAvg.humidityAvg/this.xlsxWeatherList.length,
-    sunRad:this.weatherAvg.sunRad/this.xlsxWeatherList.length,
-    wind:this.weatherAvg.wind/this.xlsxWeatherList.length,
+    tempMax:this.weatherAvg.tempMax/this.xlsxWeatherArchive.length,
+    tempMin:this.weatherAvg.tempMin/this.xlsxWeatherArchive.length,
+    tempAvg:this.weatherAvg.tempAvg/this.xlsxWeatherArchive.length,
+    humidityMin:this.weatherAvg.humidityMin/this.xlsxWeatherArchive.length,
+    humidityMax:this.weatherAvg.humidityMax/this.xlsxWeatherArchive.length,
+    humidityAvg:this.weatherAvg.humidityAvg/this.xlsxWeatherArchive.length,
+    sunRad:this.weatherAvg.sunRad/this.xlsxWeatherArchive.length,
+    wind:this.weatherAvg.wind/this.xlsxWeatherArchive.length,
   };
   }
 
@@ -272,10 +272,9 @@ jQueryDate(): void {
     .subscribe((res: any) => {
       if (res) {
         Notiflix.Notify.Success('ثبت داده های اکسل با موفقیت انجام شد.');
-        // setTimeout(() => {
-        //   $('#pills-building-tab').click();
-        // }, 200);
-        this.router.navigate(['/index/user/configuration/climateList']);
+        setTimeout(() => {
+          $("#myModal").modal("hide");
+        }, 200);
       }
     });
   }
@@ -315,12 +314,7 @@ jQueryDate(): void {
     this.climateService.getWeatherList('',this.weatherReqDto)
     .subscribe((res: any) => {
       if (res) {
-      // res.data.forEach(element => {
-      //           element.forDate=this.moment.getJaliliDateFromIso(element.forDate);
-      // });
-        this.xlsxWeatherList=res.data;
-
-
+        this.xlsxWeatherArchive=res.data;
         this.calAvg();
         Notiflix.Notify.Success('اطلاعات آب و هوایی دریافت شد.');
       }
