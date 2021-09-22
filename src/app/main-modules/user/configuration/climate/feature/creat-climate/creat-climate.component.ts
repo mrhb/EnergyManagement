@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {MyPattern} from '../../../../../../shared/tools/myPattern';
 import { ClimateDto } from '../../model/climate';
 import { WeatherDto, WeatherListDto, WeatherReqDto } from '../../model/weather';
 import { ClimateTypeEnum, ProvinceEnum } from '../../model/climateEnum';
@@ -22,6 +23,8 @@ declare var $: any;
 })
 export class CreateClimateComponent implements OnInit {
 //daily Weather dialogue
+myPattern = MyPattern;
+
 
 data: AOA = [[1, 2], [3, 4]];
 wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
@@ -138,15 +141,15 @@ jQueryDate(): void {
     this.weatherReqDto.fromDate=date.toISOString();
 
     this.form = this.formBuilder.group({
-      province: [''], // استان  
-      city: [''], // شهر
-      village: [''], //روستا
-      longitude: [''],// طول جغرافیایی
-      latitude: [''],// عرض جغرافیایی 
-      height: [''],// ارتفاع از سطح دریا
-      climateType: [''], // نوع اقلیم 
-      dominantThermalReq: [''],// نیاز غالب حرارتی
-      energyDegree: [''], // درجه انرژی
+      province: ['',[Validators.required]], // استان  
+      city: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPattern.faText)]],// شهر
+      village: ['', [Validators.minLength(2), Validators.pattern(this.myPattern.faText)]], //روستا
+      longitude: ['',[Validators.required]],// طول جغرافیایی
+      latitude: ['',[Validators.required]],// عرض جغرافیایی 
+      height: ['',[Validators.required]],// ارتفاع از سطح دریا
+      climateType: ['',[Validators.required]], // نوع اقلیم 
+      dominantThermalReq: ['', [Validators.required, Validators.minLength(2), Validators.pattern(this.myPattern.faText)]],// نیاز غالب حرارتی
+      energyDegree: ['',[Validators.required]], // درجه انرژی
     });
 
 
